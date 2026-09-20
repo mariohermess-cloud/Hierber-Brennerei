@@ -22,7 +22,9 @@ SET search_path TO brennerei, public;
 -- 0. Hilfsfunktionen & Typen
 -- ---------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION set_geaendert_am() RETURNS trigger
-LANGUAGE plpgsql AS $$
+LANGUAGE plpgsql
+SET search_path = brennerei, public
+AS $$
 BEGIN
   NEW.geaendert_am := now();
   RETURN NEW;
@@ -146,7 +148,8 @@ COMMENT ON COLUMN produkt.sku IS 'Artikelnummer, eindeutig, unveränderlich. Vor
 CREATE TABLE IF NOT EXISTS variante (
   id                serial PRIMARY KEY,
   produkt_id        integer NOT NULL REFERENCES produkt(id),
-  fuellmenge_ml     integer NOT NULL CHECK (fuellmenge_ml > 0),
+  fuellmenge_ml     integer NOT NULL CHECK (fuellmenge_ml > 0),   -- Zahlenwert der Füllmenge
+  grundeinheit      text NOT NULL DEFAULT 'ml' CHECK (grundeinheit IN ('ml','g','Stück')),
   ean               text UNIQUE CHECK (ean IS NULL OR ean ~ '^[0-9]{8}$|^[0-9]{13}$'),
   sku               text NOT NULL UNIQUE,             -- 'APF-BRD-001-500'
   gewicht_g         integer,                          -- Versandgewicht voll
@@ -161,10 +164,18 @@ CREATE TABLE IF NOT EXISTS variante (
   geaendert_am      timestamptz NOT NULL DEFAULT now(),
   UNIQUE (produkt_id, fuellmenge_ml)
 );
+-- Nachrüsten für bestehende Datenbanken
+ALTER TABLE variante ADD COLUMN IF NOT EXISTS grundeinheit text NOT NULL DEFAULT 'ml';
+DO $$ BEGIN
+  ALTER TABLE variante ADD CONSTRAINT variante_grundeinheit_check
+    CHECK (grundeinheit IN ('ml','g','Stück'));
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
 DROP TRIGGER IF EXISTS trg_variante_geaendert ON variante;
 CREATE TRIGGER trg_variante_geaendert BEFORE UPDATE ON variante
   FOR EACH ROW EXECUTE FUNCTION set_geaendert_am();
-COMMENT ON TABLE variante IS 'Verkaufbare Einheit = Produkt × Flaschengröße. Trägt EAN, MwSt und Preis (über preisliste).';
+COMMENT ON TABLE variante IS 'Verkaufbare Einheit = Produkt × Füllmenge. Trägt EAN, MwSt und Preis (über preisliste).';
+COMMENT ON COLUMN variante.grundeinheit IS 'ml für Flüssiges, g für Chips und Honig, Stück für Sets. Bestimmt Grundpreis und Rechnungstext.';
 
 CREATE TABLE IF NOT EXISTS preisliste (
   id            serial PRIMARY KEY,
@@ -366,18 +377,25 @@ CREATE TABLE IF NOT EXISTS audit_log (
 );
 
 CREATE OR REPLACE FUNCTION audit_trigger() RETURNS trigger
-LANGUAGE plpgsql AS $$
+LANGUAGE plpgsql
+SET search_path = brennerei, public
+AS $$
+DECLARE
+  v_alt jsonb := CASE WHEN TG_OP = 'INSERT' THEN NULL ELSE to_jsonb(OLD) END;
+  v_neu jsonb := CASE WHEN TG_OP = 'DELETE' THEN NULL ELSE to_jsonb(NEW) END;
+  v_id  text;
 BEGIN
-  IF TG_OP = 'INSERT' THEN
-    INSERT INTO audit_log(tabelle, aktion, zeile_id, neu) VALUES (TG_TABLE_NAME, TG_OP, NEW.id::text, to_jsonb(NEW));
-    RETURN NEW;
-  ELSIF TG_OP = 'UPDATE' THEN
-    INSERT INTO audit_log(tabelle, aktion, zeile_id, alt, neu) VALUES (TG_TABLE_NAME, TG_OP, NEW.id::text, to_jsonb(OLD), to_jsonb(NEW));
-    RETURN NEW;
-  ELSE
-    INSERT INTO audit_log(tabelle, aktion, zeile_id, alt) VALUES (TG_TABLE_NAME, TG_OP, OLD.id::text, to_jsonb(OLD));
-    RETURN OLD;
+  -- Schlüssel der Zeile: id, sonst Nummer, sonst zusammengesetzt. Nicht jede Tabelle hat eine id.
+  v_id := COALESCE(v_neu, v_alt) ->> 'id';
+  IF v_id IS NULL THEN v_id := COALESCE(v_neu, v_alt) ->> 'nummer'; END IF;
+  IF v_id IS NULL THEN
+    v_id := concat_ws('/', COALESCE(v_neu, v_alt) ->> 'art', COALESCE(v_neu, v_alt) ->> 'jahr');
   END IF;
+
+  INSERT INTO audit_log (tabelle, aktion, zeile_id, alt, neu)
+  VALUES (TG_TABLE_NAME, TG_OP, NULLIF(v_id, ''), v_alt, v_neu);
+
+  RETURN CASE WHEN TG_OP = 'DELETE' THEN OLD ELSE NEW END;
 END $$;
 
 DO $$
@@ -395,7 +413,9 @@ END $$;
 
 -- Aktueller Preis einer Variante (Kanal-Preis vor Standardpreis)
 CREATE OR REPLACE FUNCTION preis_aktuell(p_variante_id integer, p_kanal text DEFAULT '*', p_datum date DEFAULT CURRENT_DATE)
-RETURNS numeric LANGUAGE sql STABLE AS $$
+RETURNS numeric LANGUAGE sql STABLE
+SET search_path = brennerei, public
+AS $$
   SELECT preis_netto FROM preisliste
   WHERE variante_id = p_variante_id
     AND kanal IN (p_kanal, '*')
@@ -406,7 +426,9 @@ $$;
 
 -- Fasswechsel: schließt das bisher aktive Fass des Produkts und aktiviert das neue
 CREATE OR REPLACE FUNCTION fass_wechseln(p_produkt_id integer, p_fass_id integer, p_benutzer_id smallint, p_bemerkung text DEFAULT NULL)
-RETURNS integer LANGUAGE plpgsql AS $$
+RETURNS integer LANGUAGE plpgsql
+SET search_path = brennerei, public
+AS $$
 DECLARE
   v_alt_fass integer;
   v_neu_id   integer;
@@ -441,7 +463,9 @@ COMMENT ON FUNCTION fass_wechseln IS 'Einziger erlaubter Weg, ein aktives Fass z
 
 -- Losnummer-Basis: Fassnummer ohne Sonderzeichen (mit F-Präfix, falls sie mit Ziffer beginnt) + JJMMTT
 CREATE OR REPLACE FUNCTION losnummer_basis(p_fassnummer text, p_datum date)
-RETURNS text LANGUAGE sql IMMUTABLE AS $$
+RETURNS text LANGUAGE sql IMMUTABLE
+SET search_path = brennerei, public
+AS $$
   SELECT CASE WHEN regexp_replace(upper(p_fassnummer), '[^A-Z0-9]', '', 'g') ~ '^[0-9]' THEN 'F' ELSE '' END
          || regexp_replace(upper(p_fassnummer), '[^A-Z0-9]', '', 'g')
          || '-' || to_char(p_datum, 'YYMMDD')
@@ -449,7 +473,9 @@ $$;
 
 -- Losnummer erzeugen: <Basis>[-n] bei mehreren Abfüllungen am selben Tag
 CREATE OR REPLACE FUNCTION losnummer_erzeugen(p_fass_id integer, p_datum date)
-RETURNS text LANGUAGE plpgsql AS $$
+RETURNS text LANGUAGE plpgsql
+SET search_path = brennerei, public
+AS $$
 DECLARE
   v_basis text;
   v_los   text;
@@ -469,7 +495,9 @@ CREATE OR REPLACE FUNCTION abfuellung_buchen(
   p_variante_id integer, p_anzahl integer, p_benutzer_id smallint,
   p_datum date DEFAULT CURRENT_DATE, p_lagerort_code text DEFAULT 'FLASCHENLAGER',
   p_alkohol_vol numeric DEFAULT NULL, p_bemerkung text DEFAULT NULL)
-RETURNS abfuellung LANGUAGE plpgsql AS $$
+RETURNS abfuellung LANGUAGE plpgsql
+SET search_path = brennerei, public
+AS $$
 DECLARE
   v_produkt_id  integer;
   v_ml          integer;
@@ -512,7 +540,9 @@ COMMENT ON FUNCTION abfuellung_buchen IS 'Bucht eine Abfüllung aus dem aktiven 
 CREATE OR REPLACE FUNCTION lager_abgang(
   p_variante_id integer, p_menge integer, p_grund bewegungsgrund,
   p_lagerort_code text, p_benutzer_id smallint, p_beleg_ref text DEFAULT NULL, p_losnummer text DEFAULT NULL)
-RETURNS bigint LANGUAGE plpgsql AS $$
+RETURNS bigint LANGUAGE plpgsql
+SET search_path = brennerei, public
+AS $$
 DECLARE v_lagerort_id smallint; v_id bigint;
 BEGIN
   IF p_menge <= 0 THEN RAISE EXCEPTION 'Menge muss positiv sein'; END IF;
@@ -528,18 +558,27 @@ END $$;
 -- 9. Sichten (Views) für App, Etikett, Website-Sync und Berichte
 -- ---------------------------------------------------------------------
 
+-- Sichten zuerst fallen lassen: CREATE OR REPLACE kann Spalten weder umbenennen
+-- noch umsortieren. Alle werden weiter unten in dieser Datei neu angelegt.
+DROP VIEW IF EXISTS v_woo_sync, v_etikett, v_lagerbestand_gesamt, v_lagerbestand,
+                    v_produkt_aktives_fass, v_fassbestand, v_alkoholbilanz_monat,
+                    v_umsatz_monat_kanal, v_rueckverfolgung, v_preis_aktuell CASCADE;
+
 CREATE OR REPLACE VIEW v_preis_aktuell AS
 SELECT v.id AS variante_id, v.sku, p.sku AS produkt_sku, p.name_de AS produkt,
        v.fuellmenge_ml, v.ean,
        preis_aktuell(v.id) AS preis_netto,
        m.satz AS mwst_satz,
        round(preis_aktuell(v.id) * (1 + m.satz), 2) AS preis_brutto,
-       round(round(preis_aktuell(v.id) * (1 + m.satz), 2) / (v.fuellmenge_ml / 1000.0), 2) AS grundpreis_brutto_je_l,
-       v.online_verkauf, v.aktiv
+       CASE WHEN v.grundeinheit = 'Stück' THEN NULL
+            ELSE round(round(preis_aktuell(v.id) * (1 + m.satz), 2) / (v.fuellmenge_ml / 1000.0), 2)
+       END AS grundpreis_brutto_je_l,
+       CASE v.grundeinheit WHEN 'ml' THEN '€/l' WHEN 'g' THEN '€/kg' ELSE NULL END AS grundpreis_einheit,
+       v.grundeinheit, v.online_verkauf, v.aktiv
 FROM variante v
 JOIN produkt p ON p.id = v.produkt_id
 JOIN mwst_satz m ON m.id = v.mwst_satz_id;
-COMMENT ON VIEW v_preis_aktuell IS 'Aktueller Standardpreis je Variante netto/brutto + Grundpreis je Liter (Pflichtangabe Shop).';
+COMMENT ON VIEW v_preis_aktuell IS 'Aktueller Standardpreis je Variante netto/brutto + Grundpreis je Liter oder Kilo (Pflichtangabe im Shop).';
 
 CREATE OR REPLACE VIEW v_produkt_aktives_fass AS
 SELECT p.id AS produkt_id, p.sku, p.name_de AS produkt,
@@ -556,7 +595,7 @@ SELECT v.id AS variante_id, v.sku AS variante_sku, v.ean,
        p.id AS produkt_id, p.sku AS produkt_sku,
        p.name_de, p.name_fr, p.name_lb, p.name_en,
        o.name_de AS obstart, t.name_de AS produkttyp,
-       p.alkohol_vol, v.fuellmenge_ml,
+       p.alkohol_vol, v.fuellmenge_ml, v.grundeinheit,
        p.zutaten, p.allergene,
        f.fassnummer AS aktive_fassnummer,
        losnummer_basis(f.fassnummer, CURRENT_DATE) AS losnummer_vorschau,
@@ -596,7 +635,7 @@ SELECT p.id AS produkt_id, p.sku AS produkt_sku, p.woo_product_id,
        p.beschreibung_de, p.beschreibung_fr, p.beschreibung_lb, p.beschreibung_en,
        o.code AS obstart_code, o.name_de AS obstart, o.wiese_symbol,
        t.code AS typ_code, t.name_de AS produkttyp, t.alkoholisch,
-       p.alkohol_vol, v.fuellmenge_ml, v.gewicht_g, p.bild_pfad,
+       p.alkohol_vol, v.fuellmenge_ml, v.grundeinheit, v.gewicht_g, p.bild_pfad,
        pa.preis_netto, pa.preis_brutto, pa.mwst_satz, pa.grundpreis_brutto_je_l,
        lg.bestand AS bestand_gesamt,
        GREATEST(p.geaendert_am, v.geaendert_am) AS geaendert_am

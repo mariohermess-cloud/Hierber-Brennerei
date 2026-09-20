@@ -89,7 +89,8 @@ muss bei jeder Preisänderung von Hand gepflegt werden.
 | Baustein | Empfehlung | Warum |
 |---|---|---|
 | Datenbank | **PostgreSQL 16** (Docker auf NAS) | Robust, mehrbenutzerfähig, Standard bei Odoo |
-| ERP / Wirtschaftsprogramm | **Odoo Community 17/18** (self‑hosted, kostenlos) – Alternative: Dolibarr | Rechnungen, Angebote, Kunden, Lager mit **Los‑/Chargennummern** (= Fassnummer), Kasse (POS), Berichte, **Luxemburg‑Lokalisierung inkl. FAIA‑Export** für die Steuerverwaltung, fertiger WooCommerce‑Connector |
+| Rechnungen, Kunden, Steuerberichte | **Eigenes Rechnungsprogramm** (`rechnungsprogramm/`, umgesetzt) | Arbeitet direkt auf der zentralen Datenbank: Rechnungen und Gutschriften mit lückenlosen Nummern, unveränderlichen Belegen, PDF, E‑Rechnung (UBL/Peppol), MwSt‑ und Alkoholberichten, Journal‑Export für die Fiduciaire |
+| Kasse, Einkauf, Buchhaltung | **Odoo Community** als Ergänzung, falls nötig | Hofladen‑Kasse, Bestellwesen und Kontenplan sind im Eigenbau nicht abgedeckt. Erst entscheiden, wenn das Rechnungsprogramm im Alltag läuft |
 | Etiketten | Eigene App (bestehend) → als kleiner Web‑Service angebunden an PostgreSQL; Druck via Etikettendrucker (Brother QL / Zebra) mit Vorlagen (ZPL/PDF) | Aktive Fassnummer, EAN‑Barcode, Loskennzeichnung, Alkoholgehalt, Füllmenge, Allergene automatisch |
 | Website | **WordPress + WooCommerce**, Theme auf Block‑Basis (z. B. GeneratePress/Kadence) + eigener „Obstwiese“‑Block | Größtes Ökosystem, du kannst Inhalte selbst pflegen |
 | Mehrsprachigkeit | Polylang oder WPML (DE / FR / LB / EN) | Luxemburgische Kundschaft ist mehrsprachig |
@@ -262,7 +263,7 @@ Standardberichte (Knopfdruck):
 | **0 – Bestandsaufnahme** | Fragen in Kap. 10 beantworten, Produktliste/Preise/Fässer erfassen (Excel‑Vorlage kommt von mir), Screenshots alte Website, Sichtung Etiketten‑App | Vollständige Datengrundlage | 1–2 Wochen |
 | **1 – Fundament** | NAS einrichten (Docker, PostgreSQL, Backups, Tailscale), Datenmodell anlegen, Import der Produkt‑/Fassdaten | Zentrale Datenbank läuft | 1–2 Wochen |
 | **2 – Fass & Etikett** | Etiketten‑App an DB anbinden, Fasswechsel‑Ablauf, Vorlagen, Drucker | Etiketten mit richtiger Fassnummer | 2–3 Wochen |
-| **3 – ERP** | Odoo installieren, LU‑Lokalisierung, Produkte/Preise aus DB, Rechnungen, Hofladen‑Kasse, Bank‑Import | Rechnungen & Kasse produktiv | 3–4 Wochen |
+| **3 – Rechnungen** | Rechnungsprogramm auf dem NAS in Betrieb nehmen (umgesetzt), Absenderdaten, Kunden importieren, erste echte Rechnungen; Kasse und Bank‑Import separat entscheiden | Rechnungen produktiv | 1–2 Wochen |
 | **4 – Website Basis** | Hosting, WordPress + WooCommerce, Theme, Seiten, Sprachen, Zahlung (Payconiq/Stripe), Rechtstexte, Altersprüfung, Sync DB→Woo | Shop online (klassische Navigation) | 3–4 Wochen |
 | **5 – Obstwiese** | Interaktive Startseite (SVG‑Illustration, Bäume, Panels, Mobil‑Variante), „So brennen wir“‑Story | Spielerische Website live | 2–3 Wochen |
 | **6 – Berichte & Steuern** | Steuer‑/Akzisenberichte, FAIA‑Test, Abstimmung mit Fiduciaire, Jahresabschluss‑Export | Steuererklärung per Knopfdruck | 2 Wochen |
@@ -308,6 +309,19 @@ Phasen 2, 3 und 4 können teilweise parallel laufen.
 - **F‑24** Budget‑Rahmen (Hosting ca. 10–30 €/Monat, Etikettendrucker 200–600 €, Kassenhardware 300–800 €, evtl. Illustrator für die Obstwiese 500–2 000 €)?
 
 ---
+
+## 10a. Stand der Umsetzung
+
+| Baustein | Stand |
+|---|---|
+| Erfassungsvorlage Produkte und Fässer | fertig (`vorlagen/`) |
+| Datenmodell PostgreSQL | fertig (`datenbank/001_schema.sql`) |
+| Rechnungswesen in der Datenbank | fertig (`datenbank/002_rechnung.sql`) |
+| Rechnungsprogramm mit Oberfläche, PDF, E‑Rechnung, Berichten | fertig (`rechnungsprogramm/`) |
+| Klick‑Prototyp der Website | fertig (`website/prototyp/`) |
+| Etiketten‑App an die Datenbank anbinden | offen, wartet auf Sichtung der bestehenden App (Frage F‑10) |
+| WordPress und WooCommerce | offen, wartet auf Hosting‑Entscheidung |
+| NAS‑Einrichtung | offen, wartet auf Frage F‑20 |
 
 ## 11. Nächste Schritte (sofort)
 

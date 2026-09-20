@@ -98,3 +98,18 @@ den Zoll.
 Kunden mit Namen und Adressen, Rechnungen und Zahlungen liegen in Odoo.
 Hier werden nur Belegsummen und Referenzen gespiegelt, damit Umsatzberichte
 je Kanal möglich sind, ohne Personendaten doppelt zu halten.
+
+## Rechnungswesen
+
+`002_rechnung.sql` erweitert das Schema um Kunden, Belege, Positionen, Zahlungen
+und Nummernkreise. Die Regeln dazu stehen im
+[Rechnungsprogramm](../rechnungsprogramm/README.md): Entwürfe ohne Nummer,
+lückenlose Nummern beim Festschreiben, unveränderliche Belege, Korrektur nur
+über Gutschriften.
+
+Wichtige Funktionen: `rechnung_anlegen`, `position_hinzufuegen`,
+`position_frei_hinzufuegen`, `rechnung_festschreiben`, `gutschrift_erzeugen`.
+Wichtige Sichten: `v_offene_posten`, `v_mwst_meldung`, `v_journal`, `v_beleg`.
+
+Alle Funktionen tragen einen festen Suchpfad, arbeiten also unabhängig davon,
+mit welchem `search_path` jemand zugreift.

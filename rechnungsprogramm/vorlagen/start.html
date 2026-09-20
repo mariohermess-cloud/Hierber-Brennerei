@@ -1,0 +1,57 @@
+{% extends "rahmen.html" %}{% set aktiv='start' %}{% block titel %}Übersicht{% endblock %}
+{% block inhalt %}
+<h1>Übersicht</h1>
+<div class="gitter">
+  <div class="karte"><div class="hinweis">Offene Posten</div>
+    <div class="kennzahl">{{ offen|sum(attribute='offen')|euro }} €</div>
+    <div class="hinweis">{{ offen|length }} Rechnungen</div></div>
+  <div class="karte"><div class="hinweis">Davon überfällig</div>
+    <div class="kennzahl {{ 'ueberfaellig' if mahnungen }}">{{ mahnungen|sum(attribute='offen')|euro }} €</div>
+    <div class="hinweis">{{ mahnungen|length }} Rechnungen über 14 Tage</div></div>
+  <div class="karte"><div class="hinweis">Umsatz laufender Monat, netto</div>
+    <div class="kennzahl">{{ monat.netto_gesamt|euro }} €</div>
+    <div class="hinweis">MwSt {{ monat.mwst_gesamt|euro }} €</div></div>
+  <div class="karte"><div class="hinweis">Entwürfe</div>
+    <div class="kennzahl">{{ entwuerfe|length }}</div>
+    <div class="hinweis">noch nicht festgeschrieben</div></div>
+</div>
+
+{% if entwuerfe %}
+<h2>Entwürfe</h2>
+<div class="karte"><table>
+<tr><th>Kunde</th><th>Datum</th><th>Kanal</th><th class="z">Brutto</th><th></th></tr>
+{% for b in entwuerfe %}<tr>
+  <td>{{ b.kunde }}</td><td>{{ b.datum|datum }}</td><td>{{ b.kanal }}</td>
+  <td class="z">{{ b.brutto|euro }} €</td>
+  <td class="z"><a class="knopf klein" href="/belege/{{ b.id }}">öffnen</a></td>
+</tr>{% endfor %}
+</table></div>
+{% endif %}
+
+<h2>Offene Posten</h2>
+<div class="karte">
+{% if offen %}<table>
+<tr><th>Nummer</th><th>Kunde</th><th>Fällig</th><th class="z">Offen</th><th></th></tr>
+{% for o in offen %}<tr>
+  <td>{{ o.nummer }}</td><td>{{ o.kunde }}</td>
+  <td class="{{ 'ueberfaellig' if o.tage_ueberfaellig > 0 }}">{{ o.faellig_am|datum }}
+    {% if o.tage_ueberfaellig > 0 %}<br><span class="hinweis ueberfaellig">{{ o.tage_ueberfaellig }} Tage überfällig</span>{% endif %}</td>
+  <td class="z">{{ o.offen|euro }} €</td>
+  <td class="z"><a class="knopf klein" href="/belege/{{ o.id }}">öffnen</a></td>
+</tr>{% endfor %}
+</table>{% else %}<p class="hinweis">Alles bezahlt.</p>{% endif %}
+</div>
+
+<h2>Zuletzt festgeschrieben</h2>
+<div class="karte">
+{% if letzte %}<table>
+<tr><th>Nummer</th><th>Kunde</th><th>Datum</th><th class="z">Brutto</th><th></th></tr>
+{% for b in letzte %}<tr>
+  <td>{{ b.nummer }}</td><td>{{ b.kunde }}</td><td>{{ b.datum|datum }}</td>
+  <td class="z">{{ (b.brutto * b.vorzeichen)|euro }} €</td>
+  <td class="z"><a class="knopf klein" href="/belege/{{ b.id }}">öffnen</a>
+      <a class="knopf klein" href="/belege/{{ b.id }}/pdf">PDF</a></td>
+</tr>{% endfor %}
+</table>{% else %}<p class="hinweis">Noch keine Belege.</p>{% endif %}
+</div>
+{% endblock %}
