@@ -56,7 +56,7 @@ nav{display:flex;gap:8px;flex-wrap:wrap}
 .hero-text p.lead{max-width:44ch;font-size:1.12rem;color:var(--tinte-2)}
 .hinweis{font-size:.92rem;color:var(--tinte-2)}
 .wiese-scroller{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
-.wiese{display:block;min-width:1640px;width:100%;height:auto;aspect-ratio:2040/560}
+.wiese{display:block;min-width:1780px;width:100%;height:auto;aspect-ratio:2320/560}
 .wiese .baum{cursor:pointer}
 .wiese .baum:focus-visible{outline:none}
 .wiese .baum:focus-visible .ring,.wiese .baum:hover .ring{opacity:.14}
@@ -153,7 +153,7 @@ footer a{color:inherit}
       <p class="hinweis">Auf dem Handy seitlich wischen, um über die Wiese zu gehen.</p>
     </div>
     <div class="wiese-scroller" id="wiese-scroller">
-      <svg class="wiese" id="wiese" viewBox="0 0 2040 560" role="group" aria-label="Obstwiese mit anklickbaren Bäumen"></svg>
+      <svg class="wiese" id="wiese" viewBox="0 0 2320 560" role="group" aria-label="Obstwiese mit anklickbaren Bäumen"></svg>
     </div>
   </section>
 
@@ -283,12 +283,19 @@ const KATEGORIEN = [
      {name:'Hierber Gin', typ:'Dry Gin, 14 Botanicals', vol:43, ml:500, preis:32.90},
      {name:'Hierber Gin', typ:'Dry Gin', vol:43, ml:200, preis:16.90}
    ]},
-  {code:'FAS', name:'Fasslager', art:'fass', x:1750, sub:'Whisky, Rum, Fassreifung', frucht:'fass',
+  {code:'GET', name:'Getreidefeld', art:'feld', x:1760, sub:'Vodka und Korn', frucht:'getreide',
+   produkte:[
+     {name:'Hierber Vodka', typ:'mehrfach destilliert, gefiltert', vol:40, ml:500, preis:26.90},
+     {name:'Hierber Vodka', typ:'mehrfach destilliert', vol:40, ml:200, preis:13.90},
+     {name:'Korn', typ:'Weizenbrand, mild', vol:38, ml:500, preis:18.90},
+     {name:'Doppelkorn', typ:'im Eichenfass gereift', vol:40, ml:500, preis:23.90}
+   ]},
+  {code:'FAS', name:'Fasslager', art:'fass', x:2030, sub:'Whisky, Rum, Fassreifung', frucht:'fass',
    produkte:[
      {name:'Hierber Whisky', typ:'Single Malt, 3 Jahre Eiche', vol:43, ml:500, preis:44.90},
      {name:'Hierber Rum', typ:'fassgereift', vol:40, ml:500, preis:34.90}
    ]},
-  {code:'KRA', name:'Kräutergarten', art:'garten', x:1940, sub:'Kräuterbrand und Liköre', frucht:'kraut',
+  {code:'KRA', name:'Kräutergarten', art:'garten', x:2220, sub:'Kräuterbrand und Liköre', frucht:'kraut',
    produkte:[
      {name:'Kräuterbrand', typ:'Hausrezept', vol:38, ml:500, preis:19.90},
      {name:'Sambuca', typ:'Anislikör', vol:38, ml:500, preis:18.90}
@@ -301,7 +308,7 @@ const FRUCHTFARBEN = {
   zwetschge:['#3b2a52','#5d4680','#9d8fc0'], mirabelle:['#b07a16','#e2ad33','#f6dc92'],
   kirsche:['#6d121f','#a62232','#e08a94'], quitte:['#9c8215','#d8bc3a','#f0e094'],
   wacholder:['#2e3b52','#4a5b76','#93a3bd'], fass:['#6b4a2c','#8a6238','#c49a63'],
-  kraut:['#3d5a2c','#5c7f3e','#9dbc7c']
+  kraut:['#3d5a2c','#5c7f3e','#9dbc7c'], getreide:['#9a7a2a','#d4b055','#f0dea0']
 };
 
 const SCHRITTE = [
@@ -382,6 +389,14 @@ function frucht(x, y, art, s = 1){
     g.appendChild(el('circle', {cx:0, cy:0, r:3.4, fill:hell}));
     g.appendChild(el('path', {d:'M0 -3.4 a3.4 3.4 0 0 1 0 6.8 a2.4 3.4 0 0 0 0 -6.8 Z', fill:dunkel, opacity:'.65'}));
     g.appendChild(el('path', {d:'M-1.3 -1.3 l1 1 l-1 1 l-1 -1 Z', fill:glanz, opacity:'.85'}));
+  } else if(art === 'getreide'){
+    g.appendChild(el('path', {d:'M0 12 L0 -4', stroke:'#b49b52', 'stroke-width':'1.6', 'stroke-linecap':'round'}));
+    for(let n = 0; n < 5; n++){
+      const ky = -4 - n * 3.4, kb = 3.6 - n * .45;
+      g.appendChild(el('path', {d:`M0 ${ky} q${-kb} -1.4 ${-kb*.8} -3.6 q${kb*.4} .6 ${kb*.8} 1.6 Z`, fill:hell}));
+      g.appendChild(el('path', {d:`M0 ${ky} q${kb} -1.4 ${kb*.8} -3.6 q${-kb*.4} .6 ${-kb*.8} 1.6 Z`, fill:dunkel}));
+    }
+    g.appendChild(el('path', {d:'M0 -20 l-1.2 -5 M0 -20 l1.2 -5 M0 -20 l0 -5.6', stroke:glanz, 'stroke-width':'.9', 'stroke-linecap':'round'}));
   } else { /* apfel, mirabelle */
     const rr = art === 'mirabelle' ? 5 : 7;
     g.appendChild(el('circle', {cx:0, cy:0, r:rr, fill:hell}));
@@ -558,6 +573,43 @@ function garten(k){
   return g;
 }
 
+function feld(k){
+  const r = rng(313);
+  const g = el('g', {class:'baum', tabindex:'0', role:'button', 'aria-label':`${k.name}: Produkte anzeigen`, 'data-code':k.code});
+  const x = k.x, boden = 452, halb = 112;
+  /* Ackerfläche mit Furchen, perspektivisch schmaler nach hinten */
+  const oben = boden - 74;
+  g.appendChild(el('path', {d:`M${x-halb} ${boden} L${x+halb} ${boden} L${x+halb*.66} ${oben} L${x-halb*.66} ${oben} Z`, fill:'#b79a52', opacity:'.5'}));
+  for(let n = -4; n <= 4; n++){
+    const f = n / 4;
+    g.appendChild(el('path', {d:`M${x+f*halb} ${boden} L${x+f*halb*.66} ${oben}`, stroke:'#9a7a2a', 'stroke-width':'1.1', opacity:'.35'}));
+  }
+  const krone = el('g', {class:'krone'});
+  /* Halmreihen von hinten nach vorne, hintere kleiner und blasser */
+  const reihen = 5;
+  for(let reihe = 0; reihe < reihen; reihe++){
+    const t = reihe / (reihen - 1);
+    const y = oben + t * 74;
+    const breite = halb * (.66 + t * .34);
+    const hoehe = 30 + t * 26;
+    const dicht = 16 + reihe * 4;
+    const zeile = el('g', {opacity:(.65 + t * .35).toFixed(2)});
+    for(let h = 0; h < dicht; h++){
+      const hx = x - breite + (h + r() * .7) * (breite * 2 / dicht);
+      const hh = hoehe * (.82 + r() * .3);
+      const neig = (r() - .5) * 9;
+      zeile.appendChild(el('path', {d:`M${hx.toFixed(1)} ${y.toFixed(1)} q${(neig*.4).toFixed(1)} ${(-hh*.55).toFixed(1)} ${neig.toFixed(1)} ${(-hh).toFixed(1)}`,
+        stroke:'#b49b52', 'stroke-width':'1.6', fill:'none', 'stroke-linecap':'round'}));
+      zeile.appendChild(frucht(hx + neig, y - hh - 2, 'getreide', (.7 + t * .4) * (.9 + r() * .25)));
+    }
+    krone.appendChild(zeile);
+  }
+  g.appendChild(krone);
+  g.appendChild(el('ellipse', {class:'ring', cx:x, cy:boden - 42, rx:halb + 12, ry:64, fill:'var(--messing)'}));
+  schild(g, x, boden + 34, k.name);
+  return g;
+}
+
 function schild(g, x, y, text){
   const w = text.length * 8.6 + 26;
   const s = el('g', {class:'schild'});
@@ -588,13 +640,13 @@ function wieseZeichnen(){
   defs.appendChild(gras);
   svg.appendChild(defs);
 
-  svg.appendChild(el('rect', {x:0, y:0, width:2040, height:560, fill:'url(#g-himmel)'}));
+  svg.appendChild(el('rect', {x:0, y:0, width:2320, height:560, fill:'url(#g-himmel)'}));
 
   /* ferne Hügel und Waldrand */
-  svg.appendChild(el('path', {d:'M0 318 C260 286 440 310 650 300 C880 288 1060 314 1300 304 L1540 296 C1740 292 1900 316 2040 306 L2040 372 L0 372 Z', fill:'var(--tanne)', opacity:'.22'}));
+  svg.appendChild(el('path', {d:'M0 318 C300 286 500 310 740 300 C1000 288 1200 314 1480 304 L1760 296 C1980 292 2160 316 2320 306 L2320 372 L0 372 Z', fill:'var(--tanne)', opacity:'.22'}));
   const wald = el('g', {opacity:'.34', filter:'url(#laub)'});
   const rw = rng(51);
-  for(let n = 0; n < 88; n++){
+  for(let n = 0; n < 100; n++){
     const wx = n * 24 + rw() * 14, wy = 318 + rw() * 14;
     wald.appendChild(el('ellipse', {cx:wx.toFixed(1), cy:wy.toFixed(1), rx:(11 + rw()*9).toFixed(1), ry:(15 + rw()*13).toFixed(1), fill:'var(--tanne-tief)'}));
   }
@@ -602,7 +654,7 @@ function wieseZeichnen(){
 
   /* Hofgebäude */
   const hof = el('g');
-  const hx = 1580;
+  const hx = 1860;
   hof.appendChild(el('path', {d:`M${hx} 296 L${hx+72} 248 L${hx+144} 296 Z`, fill:'#8a5b4a'}));
   hof.appendChild(el('path', {d:`M${hx+72} 248 L${hx+144} 296 L${hx+136} 296 L${hx+72} 253 Z`, fill:'#000', opacity:'.2'}));
   hof.appendChild(el('rect', {x:hx+10, y:296, width:124, height:50, fill:'var(--karte)', stroke:'var(--linie)'}));
@@ -615,18 +667,18 @@ function wieseZeichnen(){
   svg.appendChild(hof);
 
   /* Wiese */
-  svg.appendChild(el('path', {d:'M0 352 C300 336 600 360 900 350 C1240 338 1600 362 2040 348 L2040 560 L0 560 Z', fill:'url(#g-gras)'}));
-  svg.appendChild(el('path', {d:'M0 390 C380 378 760 400 1140 388 C1500 376 1800 394 2040 386 L2040 560 L0 560 Z', fill:'var(--wiese)', opacity:'.55'}));
+  svg.appendChild(el('path', {d:'M0 352 C340 336 680 360 1020 350 C1400 338 1820 362 2320 348 L2320 560 L0 560 Z', fill:'url(#g-gras)'}));
+  svg.appendChild(el('path', {d:'M0 390 C430 378 860 400 1300 388 C1700 376 2050 394 2320 386 L2320 560 L0 560 Z', fill:'var(--wiese)', opacity:'.55'}));
   const rg = rng(19);
   const grasG = el('g', {opacity:'.3'});
-  for(let n = 0; n < 190; n++){
-    const gx = rg() * 2040, gy = 392 + rg() * 160;
+  for(let n = 0; n < 215; n++){
+    const gx = rg() * 2320, gy = 392 + rg() * 160;
     grasG.appendChild(el('path', {d:`M${gx.toFixed(1)} ${gy.toFixed(1)} q2.5 -5 5 -7`, stroke:'var(--tanne-tief)', 'stroke-width':'1.1', fill:'none', 'stroke-linecap':'round'}));
   }
   svg.appendChild(grasG);
 
   KATEGORIEN.forEach((k, i) => {
-    const node = k.art === 'baum' ? baum(k, i) : k.art === 'hecke' ? hecke(k) : k.art === 'fass' ? fassstapel(k) : garten(k);
+    const node = k.art === 'baum' ? baum(k, i) : k.art === 'hecke' ? hecke(k) : k.art === 'fass' ? fassstapel(k) : k.art === 'feld' ? feld(k) : garten(k);
     node.addEventListener('click', () => panelOeffnen(k));
     node.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); panelOeffnen(k); } });
     svg.appendChild(node);
@@ -696,6 +748,8 @@ function kategorieSymbol(k){
     f.appendChild(el('path', {d:'M4 -26 C14 -16 14 16 4 26 L30 26 C40 16 40 -16 30 -26 Z', fill:'#000', opacity:'.22'}));
     for(const hy of [-18, 0, 18]) f.appendChild(el('path', {d:`M-${hy===0?37:33} ${hy} C-${(hy===0?37:33)-3} ${hy+2} ${(hy===0?37:33)-3} ${hy+2} ${hy===0?37:33} ${hy}`, stroke:'#5b6068', 'stroke-width':'5', fill:'none'}));
     sym.appendChild(f);
+  } else if(k.art === 'feld'){
+    for(const [dx, sc] of [[-11, 1.5], [0, 1.9], [11, 1.5]]) sym.appendChild(frucht(32 + dx, 46, 'getreide', sc));
   } else if(k.art === 'garten'){
     const g2 = el('g');
     g2.appendChild(el('path', {d:'M32 50 q-3 -18 -10 -26 q11 3 12 16 q3 -14 13 -18 q-4 14 -13 22 z', fill:'var(--tanne)'}));
