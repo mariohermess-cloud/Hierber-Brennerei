@@ -8,6 +8,7 @@ Was der Prototyp zeigt:
 - Kopfzeile mit drei großen Knöpfen (Shop, So brennen wir, Besuch & Kontakt) und Warenkorb, immer sichtbar.
 - Altersprüfung 18+ beim ersten Aufruf (pro Browser-Sitzung gemerkt).
 - Obstwiese als SVG: Apfel, Birne, Zwetschge, Mirabelle, Kirsche, Quitte als Bäume, Wacholderhecke für Gin, Fass-Stapel für Whisky und Rum, Kräutergarten. Auf dem Handy seitlich wischbar.
+- Die Bäume werden im Browser prozedural gezeichnet: aus Stamm und Ästen wächst per Rekursion eine echte Verzweigung, darauf liegen drei Laubschichten, deren Ränder ein SVG-Filter unregelmäßig macht. Jede Obstart hat eigene Wuchsform und eigene Fruchtform. Alles bleibt Vektor und skaliert verlustfrei.
 - Klick oder Tastatur (Tab + Enter) auf einen Baum öffnet ein Panel mit den Produkten dieser Obstart, inklusive Grundpreis je Liter.
 - „In den Korb“ zählt hoch und zeigt eine Bestätigung. Der echte Warenkorb kommt von WooCommerce.
 - Abschnitt „So brennen wir“ mit sechs Schritten, Abschnitt Besuch und Kontakt, Fußzeile mit Rechtstexten.
