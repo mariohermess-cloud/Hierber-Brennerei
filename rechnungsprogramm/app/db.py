@@ -8,10 +8,16 @@ from typing import Any, Iterator
 import psycopg
 from psycopg.rows import dict_row
 
-VERBINDUNG = os.environ.get(
-    "BRENNEREI_DB",
-    "postgresql://postgres@localhost:5432/brennerei",
-)
+STANDARD = "postgresql://postgres@localhost:5432/brennerei"
+
+
+def verbindungszeichenfolge() -> str:
+    """Wird bei jedem Verbindungsaufbau gelesen, nicht beim Import.
+
+    So wirkt eine Änderung an BRENNEREI_DB sofort, und Tests können die
+    Datenbank setzen, nachdem das Modul bereits geladen wurde.
+    """
+    return os.environ.get("BRENNEREI_DB", STANDARD)
 
 
 SUCHPFAD = "-c search_path=brennerei,public"
@@ -24,7 +30,7 @@ def verbindung() -> Iterator[psycopg.Connection]:
     Der Suchpfad kommt aus den Verbindungsoptionen, nicht aus einem SET.
     Ein SET innerhalb einer Transaktion ginge bei einem Rollback verloren.
     """
-    with psycopg.connect(VERBINDUNG, row_factory=dict_row, options=SUCHPFAD) as con:
+    with psycopg.connect(verbindungszeichenfolge(), row_factory=dict_row, options=SUCHPFAD) as con:
         yield con
 
 

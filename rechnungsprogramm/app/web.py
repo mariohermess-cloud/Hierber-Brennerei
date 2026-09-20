@@ -11,11 +11,13 @@ from fastapi.responses import HTMLResponse, RedirectResponse, Response
 from fastapi.templating import Jinja2Templates
 
 from . import berichte, logik, pdf, ubl
+from .api import api
 from .db import verbindung
 
 BASIS = Path(__file__).resolve().parent.parent
 vorlagen = Jinja2Templates(directory=str(BASIS / "vorlagen"))
-app = FastAPI(title="Hierber Brennerei – Rechnungen")
+app = FastAPI(title="Hierber Brennerei – Rechnungen und Etiketten")
+app.include_router(api)
 
 BENUTZER_ID = int(os.environ.get("BRENNEREI_BENUTZER", "0")) or None
 

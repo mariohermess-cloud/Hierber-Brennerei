@@ -89,3 +89,45 @@ Gutschriften, Lagerbuchung, Zahlungen, Berichte, PDF und XML.
   von außen möglich sein soll, gehört eine echte Benutzerverwaltung davor.
 - **Mahnungen als Brief.** Die Mahnliste zeigt, wer überfällig ist. Den Text
   schreibt weiterhin ein Mensch.
+
+## Schnittstelle für die Etiketten-App
+
+Unter `/api` liegt eine JSON-Schnittstelle, damit die Etiketten-App (LabelForge)
+nicht selbst in die Datenbank greifen muss. Sie kennt keine Tabellen, nur diese
+Aufrufe. Alle Regeln bleiben in der Datenbank.
+
+| Aufruf | Zweck |
+|---|---|
+| `GET /api/produkte` | Alle Produkte mit aktivem Fass und ihren Flaschengrößen |
+| `GET /api/etikett/{variante_sku}` | Alle Angaben fürs Etikett: Name, % vol, Füllmenge, Zutaten, Allergene, aktive Fassnummer, Losnummer-Vorschau, Preis, Grundpreis |
+| `GET /api/faesser` | Fässer, filterbar nach Produkt und Status |
+| `GET /api/losnummer/{variante_sku}` | Losnummer der jüngsten Abfüllung |
+| `POST /api/fass/wechseln` | Aktives Fass setzen. Prüft Status und Inhalt |
+| `POST /api/abfuellung` | Abfüllung buchen, liefert die Losnummer, senkt den Füllstand, bucht Lagerzugang |
+| `POST /api/etikettendruck` | Druckauftrag protokollieren: Anzahl, Vorlage, Drucker, Person |
+
+Beispiel:
+
+```bash
+curl http://nas:8080/api/etikett/APF-BRD-001-500
+```
+
+```json
+{
+  "variante_sku": "APF-BRD-001-500",
+  "name_de": "Apfelbrand",
+  "alkohol_vol": 40.0,
+  "fuellmenge_ml": 500,
+  "aktive_fassnummer": "F-017",
+  "losnummer_vorschau": "F017-260920",
+  "preis_brutto": 21.65
+}
+```
+
+**Schutz:** Ist `BRENNEREI_API_TOKEN` gesetzt, muss jede Anfrage
+`Authorization: Bearer <token>` mitschicken. Ohne Token ist die Schnittstelle
+offen, was nur im abgeschotteten Heimnetz vertretbar ist.
+
+**Fehler:** 404 wenn es die Variante nicht gibt, 400 bei falschem Benutzerkürzel,
+409 wenn die Datenbank ablehnt, etwa weil kein Fass aktiv ist oder das gewählte
+Fass leer ist. Die Meldung steht im Klartext in `detail`.
