@@ -16,10 +16,11 @@ from datetime import date
 from decimal import Decimal
 
 import psycopg
-from fastapi import APIRouter, Header, HTTPException
+from fastapi import APIRouter, Header, HTTPException, Query
+from fastapi.responses import Response
 from pydantic import BaseModel, Field
 
-from . import logik
+from . import labelforge, logik
 from .db import alle, eine, verbindung
 
 TOKEN = os.environ.get("BRENNEREI_API_TOKEN", "")
@@ -206,3 +207,42 @@ def etikettendruck(daten: Druck, authorization: str | None = Header(None)):
             daten.anzahl, daten.vorlage, daten.drucker, _benutzer_id(con, daten.benutzer))
         con.commit()
         return zeile
+
+
+# ----------------------------------------------------------------- LabelForge
+@api.get("/labelforge/spalten", summary="Welche Spalte füllt welche Variable im Etikett")
+def labelforge_spalten(authorization: str | None = Header(None)):
+    _pruefe(authorization)
+    return {
+        "variablen": labelforge.VARIABLEN,
+        "zusatzspalten": labelforge.ZUSATZ,
+        "hinweis": ("Die Spalten unter „variablen“ heißen genauso wie die Variablen der "
+                    "Hierber-Vorlagen und werden beim Serienimport automatisch zugeordnet. "
+                    "Die Zusatzspalten erreicht man im Layout über Platzhalter wie {{fass}}. "
+                    "Der Chargencode trägt die Losnummer, die mit der Fassnummer beginnt."),
+    }
+
+
+@api.get("/labelforge/zeilen", summary="Etikettendaten als JSON-Zeilen")
+def labelforge_zeilen(sku: list[str] | None = Query(None, description="Leer lassen für alle Varianten"),
+                      kopien: int = Query(0, ge=0, le=500, description="Wert für die Spalte copies"),
+                      nur_mit_fass: bool = False,
+                      authorization: str | None = Header(None)):
+    _pruefe(authorization)
+    with verbindung() as con:
+        reihen = labelforge.zeilen(con, sku, kopien, nur_mit_fass)
+    return {"spalten": labelforge.SPALTEN, "zeilen": reihen, "anzahl": len(reihen)}
+
+
+@api.get("/labelforge/serie.csv", summary="Etikettendaten als CSV für den Serienimport")
+def labelforge_csv(sku: list[str] | None = Query(None),
+                   kopien: int = Query(0, ge=0, le=500),
+                   nur_mit_fass: bool = False,
+                   authorization: str | None = Header(None)):
+    _pruefe(authorization)
+    with verbindung() as con:
+        reihen = labelforge.zeilen(con, sku, kopien, nur_mit_fass)
+    if not reihen:
+        raise HTTPException(404, "Keine passenden Varianten gefunden.")
+    return Response(labelforge.als_csv(reihen), media_type="text/csv; charset=utf-8",
+                    headers={"Content-Disposition": 'attachment; filename="etiketten-serie.csv"'})

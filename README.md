@@ -9,3 +9,4 @@ und neue Website (WordPress + WooCommerce, interaktive „Obstwiese“).
 - Datenbank-Schema (PostgreSQL): [datenbank/README.md](datenbank/README.md)
 - Klick-Prototyp Obstwiese: [website/prototyp/obstwiese.html](website/prototyp/obstwiese.html)
 - Rechnungsprogramm: [rechnungsprogramm/README.md](rechnungsprogramm/README.md)
+- Etiketten drucken mit LabelForge: [docs/ETIKETTEN.md](docs/ETIKETTEN.md)
