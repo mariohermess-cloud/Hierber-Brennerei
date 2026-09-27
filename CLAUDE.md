@@ -42,3 +42,9 @@ Jede Antwort des Chefs während eines laufenden Auftrags endet mit:
 - **Erinnerungs-Hook**: `.claude/hooks/ablauf-erinnerung.sh` blendet bei jeder Eingabe einen Merksatz ein (eingetragen in `.claude/settings.json` unter `hooks.UserPromptSubmit`).
   **Abschalten:** den `UserPromptSubmit`-Eintrag aus `.claude/settings.json` entfernen, oder nur für dich lokal in `.claude/settings.local.json` `"disableAllHooks": true` setzen (schaltet alle Hooks ab).
 - Hook, Agenten und Skill werden beim Sessionstart geladen – nach Änderungen eine neue Session starten. Hauptmodell der Session auf **Opus** stellen (`/model`).
+
+## TypeSafe
+Use the `typesafe:typesafe-ai` skill when working on this project. Whenever a feature
+needs semantic judgment (routing, ranking, extraction, verification, classification),
+or an LLM prompt-and-parse step could become a structured decision, load the skill
+and follow it, including reading the live docs at https://docs.typesafe.ai/llms.txt.
