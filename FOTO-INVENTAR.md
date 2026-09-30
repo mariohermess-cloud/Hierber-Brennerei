@@ -150,3 +150,23 @@ Es fehlt **alles**, was den Raum und das Handwerk zeigt. Ohne diese Fotos wird d
 4. **Flache Etiketten zeigen** für die Sortenseite: Darf das Etikett selbst (Grafik) als Hauptbild dienen, bis Fotos da sind?
 5. **Zuordnung Whisky:** Zwei Etiketten („Hierber Whisky“, „Hierber Hunneg Whisky“); `produkte.js` führt Hunneg Whisky ohne Preis. Preis oder „Preis auf Anfrage“?
 
+
+## 7. Nachtrag Neubau: echte Fotos vom Nutzer (Herkunft: vom Nutzer geliefert)
+
+Die 30 Flaschenbilder (`Ersetze_nur_die_*`, `„pure_white_background*`) gelten als KI-Beispielbilder und werden **nicht** verwendet, auch nicht für Farben. Bildquelle der Sorten sind die flachen Etiketten; Flaschen sind Vektorgrafiken mit aktuellem Etikett und Farben aus den echten Fotos.
+
+| Datei | Größe | Einsatz |
+|---|---|---|
+| fotos/hof-birnenkisten.jpg | 2000x1333 | Hero Startseite, Schritt „Obst“ |
+| fotos/flaschenreihe-theke.jpg | 2000x1333 | „Die Theke“, Farbquelle der Flüssigkeiten |
+| fotos/fassraum-eichenfaesser.jpg | 1920x1281 | „Die Fassreihe“, Schritt „Reifen“ |
+| fotos/brennanlage-gross.jpg | 1920x1281 | Schritt „Brennen“ |
+| fotos/geschenkregal.jpg | 2000x1685 | Anlass „Als Geschenk“, Besuch & Verkauf |
+| fotos/hofschild-aussen.jpg | 2000x1335 | Besuch & Verkauf, OG-Bild der Startseite |
+| fotos/flaschen-rum-fuenf-groessen.webp, flaschen-rum-02-05.webp | 1349x900 / 1350x900 | Hauptbild und Karte Rum |
+| fotos/flaschen-limoncello.webp, flaschen-sambuca.webp | 1350x900 | Hauptbild und Karte Limoncello, Sambuca |
+| fotos/flaschen-wodka.webp, flaschen-fruucht.webp, flasche-hunnegdrepp.png | 1350x900 / 675x900 | nur Farb- und Formreferenz (Flasche ist Vektor mit aktuellem Etikett) |
+| fotos/brennanlage.png (450 px), lagerraum.png (534 px) | | zu klein, ersetzt, nicht mehr verwendet |
+| fotos/verkaufsraum.png (975x650) | | Weihnachtsdekoration, nur Reserve, nicht verwendet |
+
+Etiketten auf den Produktfotos können ältere Fassungen sein (Rum zeigt 40 %, Preisliste 43 %); aktuelle flache Etiketten haben Vorrang. Offen bleibt: Rum Orange hat weder Etikett noch Foto.
