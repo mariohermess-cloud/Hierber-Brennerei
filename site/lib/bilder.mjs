@@ -5,7 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
-import { KI_BILDER } from '../data/ki-bilder.js';
+import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
+import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
 import { typVon, TYP, labelFeld, flascheStandalone } from './flasche.mjs';
 
 const STANDARD = [480, 960, 1600];
@@ -33,7 +34,8 @@ export const FOTOS = ['hof-birnenkisten.jpg', 'flaschenreihe-theke.jpg', 'fassra
   'flaschen-rum-fuenf-groessen.webp', 'flaschen-rum-02-05.webp', 'flaschen-limoncello.webp', 'flaschen-sambuca.webp'];
 // Etiketten (vorverzerrt, siehe warpeEtikett): 240 für Karten (Handy), 480 für Karten (Desktop) und Sortenseite, 960 für die Sortenseite bei hoher Pixeldichte
 const LABEL_BREITEN = [240, 480, 960];
-// KI-Symbolbilder der Serviervorschläge (fotos-ki/<id>-1.png, 1448x1086): Breiten 480/960/1448, nie hochskaliert, keine PNG in dist/
+// KI-Symbolbilder der Serviervorschläge (fotos-ki/<id>-<n>.png, n = 1 Hauptbild, n >= 2 weitere Karten; 1448x1086): Breiten 480/960/1448, nie hochskaliert, keine PNG in dist/
+// Zum Testen kann HB_KI_ZUSATZ auf ein Verzeichnis außerhalb des Repos zeigen: Dateien dort haben Vorrang vor fotos-ki/.
 const KI_BREITEN = [480, 960, 1448];
 
 // Das Etikett legt sich um den halben Flaschenumfang: Winkelbereich +-WRAP (WRAP < 90 Grad, damit die Ränder noch erkennbar bleiben).
@@ -109,10 +111,18 @@ export async function bilder({ root, dist }) {
   for (const datei of FOTOS) {
     jobs.push(verarbeite({ key: `foto-${datei.replace(/\.[a-z]+$/, '')}`, quelle: path.join(root, 'fotos', datei), dist }));
   }
+  const kiVerzeichnisse = [process.env.HB_KI_ZUSATZ && path.resolve(process.env.HB_KI_ZUSATZ), path.join(root, 'fotos-ki')].filter(Boolean);
   for (const id of Object.keys(KI_BILDER)) {
-    const quelle = path.join(root, 'fotos-ki', `${id}-1.png`);
-    try { await fs.access(quelle); } catch { continue; } // fehlt das Bild, bleibt der Platzhalter
-    jobs.push(verarbeite({ key: `ki-${id}`, quelle, dist, liste: KI_BREITEN }));
+    const nummern = kartenNummern(id, SERVIERVORSCHLAEGE[id] || []) || [1];
+    for (const n of nummern) {
+      let quelle = null;
+      for (const v of kiVerzeichnisse) {
+        const k = path.join(v, `${id}-${n}.png`);
+        try { await fs.access(k); quelle = k; break; } catch { /* nächstes Verzeichnis */ }
+      }
+      if (!quelle) continue; // fehlt das Bild, bleibt der Platzhalter
+      jobs.push(verarbeite({ key: kiKey(id, n), quelle, dist, liste: KI_BREITEN }));
+    }
   }
   // in kleinen Gruppen, damit der Speicher nicht explodiert
   const res = [];

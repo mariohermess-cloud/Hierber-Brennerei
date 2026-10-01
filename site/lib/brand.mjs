@@ -5,7 +5,7 @@ import { FOTO_SORTEN } from '../data/flaschen.js';
 import { flasche, FLASCHEN_DEFS } from './flasche.mjs';
 import { TEXTE, FAMILIE, FAM } from '../data/texte.js';
 import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
-import { KI_BILDER } from '../data/ki-bilder.js';
+import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
 import { verwandtFuer } from '../data/verwandt.js';
 import { gruppeVon } from '../data/gruppen.js';
 import { STR } from './i18n.mjs';
@@ -16,11 +16,13 @@ import { karte, produktById } from './start.mjs';
 const ohneAbv = (kurz) => kurz.replace(/,?\s*\d+\s*%\s*vol\.?/, '').trim();
 
 // Alt-Text des KI-Symbolbilds: Titel + Gefäß aus den Daten, daneben die Flasche der Sorte (nur, was im Rezept steht bzw. im Bild zu sehen ist)
-const IN_DER = new Set(['Espressotasse', 'Dessertschale']);
+const IN_DER = new Set(['Espressotasse', 'Dessertschale', 'Cocktailschale']);
+const AUF_DEM = new Set(['Teller', 'Dessertteller']);
 const ALT_SONDER = { 'vieux-marc': (r, p) => `${r.name} in der Espressotasse, dazu ein Glas Vieux Marc, daneben die Karaffe ${p.name}. Symbolbild.` };
 function kiAlt(p, r) {
-  if (ALT_SONDER[p.id]) return ALT_SONDER[p.id](r, p);
-  return `${r.name} ${IN_DER.has(r.glas) ? 'in der' : 'im'} ${r.glas}, daneben die Flasche ${p.name}. Symbolbild.`;
+  if (ALT_SONDER[p.id] && KI_BILDER[p.id] === r.name) return ALT_SONDER[p.id](r, p);
+  const wo = IN_DER.has(r.glas) ? 'in der' : AUF_DEM.has(r.glas) ? 'auf dem' : 'im';
+  return `${r.name} ${wo} ${r.glas}, daneben ${p.id === 'vieux-marc' ? 'die Karaffe' : 'die Flasche'} ${p.name}. Symbolbild.`;
 }
 
 function servieren(p, IMG, lang) {
@@ -29,11 +31,13 @@ function servieren(p, IMG, lang) {
   const kopf = `<h2 id="servieren-h">${t.serviertTitel(esc(p.kurzname))}</h2>`;
   if (lang === 'fr') return `<section class="sektion papier papier2" id="servieren" aria-labelledby="servieren-h"><div class="wrap">${kopf}${folgt(t)}</div></section>`;
   const tabs = liste.map((r, i) => `<button type="button" role="tab" class="tab" id="tab-${i}" aria-selected="${i === 0}" aria-controls="panel-${i}" tabindex="${i === 0 ? 0 : -1}"><span class="tab-typ">${esc(r.typ)}</span><span class="tab-name">${esc(r.name)}</span></button>`).join('\n');
+  const nummern = kartenNummern(p.id, liste) || [];
   const panels = liste.map((r, i) => {
-    // Bild nur für den gewählten Vorschlag der Sorte (Titel muss exakt passen); alle anderen behalten den beschrifteten Platzhalter
-    const hatBild = KI_BILDER[p.id] === r.name && IMG[`ki-${p.id}`];
+    // Bild je Karte nach der Nummer aus kartenNummern (1 = Hauptbild-Vorschlag, übrige ab 2 in Kartenreihenfolge); ohne Datei bleibt der beschriftete Platzhalter
+    const key = nummern[i] ? kiKey(p.id, nummern[i]) : null;
+    const hatBild = key && IMG[key];
     const foto = hatBild
-      ? `<figure class="panel-bild">${bild(IMG, `ki-${p.id}`, { alt: kiAlt(p, r), sizes: '(min-width: 1100px) 500px, (min-width: 800px) 45vw, 92vw', todo: ' data-todo="bestaetigen"' })}<figcaption>${t.symbolbild}</figcaption></figure>`
+      ? `<figure class="panel-bild">${bild(IMG, key, { alt: kiAlt(p, r), sizes: '(min-width: 1100px) 500px, (min-width: 800px) 45vw, 92vw', todo: ' data-todo="bestaetigen"' })}<figcaption>${t.symbolbild}</figcaption></figure>`
       : `<div class="panel-foto platz" data-todo="foto" style="aspect-ratio:4/3"><span>${esc(t.serviertFoto(r.name))}</span></div>`;
     return `<div role="tabpanel" class="panel${i === 0 ? ' aktiv' : ''}${hatBild ? ' mit-bild' : ''}" id="panel-${i}" aria-labelledby="tab-${i}" tabindex="0" data-todo="bestaetigen">
   ${foto}

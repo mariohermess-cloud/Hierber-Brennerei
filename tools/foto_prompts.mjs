@@ -10,28 +10,12 @@ import { PRODUKTE, PLATZHALTER } from '../site/data/produkte.js';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
 import { FLUESSIGKEIT } from '../site/data/fluessigkeit.js';
 import { KI_BILDER } from '../site/data/ki-bilder.js';
+import { STIL, VORLAGE, FOTO_STATT_ETIKETT, RUM_ORANGE_FORM } from './foto_gemeinsam.mjs';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
 const fehler = [];
 const fail = (m) => fehler.push(m);
-
-// ---------- Stilblock (gemeinsam, steht in jedem Prompt vollständig) ----------
-const STIL = 'Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.';
-
-// ---------- Flaschenvorlagen je Flaschentyp (etiketten.json: flaschentypen) ----------
-const VORLAGE = {
-  schlank: { datei: 'fotos/flasche-hunnegdrepp.png', hinweis: 'schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)' },
-  rund: { datei: 'fotos/flaschen-wodka.webp', hinweis: 'runde Flasche, die große 0,5-L-Flasche rechts im Foto' },
-  karaffe: { datei: 'fotos/flaschenreihe-theke.jpg', hinweis: 'Karaffe: die dunkle Vieux-Marc-Karaffe vorn links im Foto (nur die Karaffe beachten)' },
-};
-// Sorten ohne flaches Etikett: Produktfoto aus fotos/ (Sambuca, Limoncello, Rum); Rum Orange hat weder Etikett noch Foto.
-const FOTO_STATT_ETIKETT = {
-  rum: 'fotos/flaschen-rum-02-05.webp',
-  limoncello: 'fotos/flaschen-limoncello.webp',
-  sambuca: 'fotos/flaschen-sambuca.webp',
-};
-const RUM_ORANGE_FORM = 'fotos/flaschen-rum-02-05.webp';
 
 // ---------- Auswahl je Sorte: Name des Serviervorschlags (muss exakt in den Daten stehen) und Szene ----------
 // szene: sortenpassend, nur Zutaten/Garnituren aus dem Rezept; Umgebung/Beilage aus passtZu bzw. aus der Sorte selbst.
