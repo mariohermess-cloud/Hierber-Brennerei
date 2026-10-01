@@ -252,6 +252,11 @@ a:hover{text-decoration-thickness:2px}
 .nojs .panel+.panel{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(43,33,26,.25)}
 .js .panel:not(.aktiv){display:none}
 .panel-foto{min-height:14rem}
+.panel-bild{margin:0}
+.panel-bild picture,.panel-bild img{display:block;width:100%;height:auto}
+.panel-bild img{border-radius:2px}
+.panel-bild figcaption{margin-top:.5rem;font:400 .8rem/1.4 var(--sans);color:var(--gedaempt-papier)}
+@media(min-width:800px){.panel.mit-bild{grid-template-columns:minmax(280px,min(500px,45%)) 1fr}}
 .panel-typ{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-dunkel);margin-bottom:.5rem}
 .panel h3{font-size:2rem}
 .panel-glas{color:var(--gedaempt-papier);font-size:.95rem}

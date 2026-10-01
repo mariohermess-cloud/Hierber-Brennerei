@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
+import { KI_BILDER } from '../data/ki-bilder.js';
 import { typVon, TYP, labelFeld, flascheStandalone } from './flasche.mjs';
 
 const STANDARD = [480, 960, 1600];
@@ -32,6 +33,8 @@ export const FOTOS = ['hof-birnenkisten.jpg', 'flaschenreihe-theke.jpg', 'fassra
   'flaschen-rum-fuenf-groessen.webp', 'flaschen-rum-02-05.webp', 'flaschen-limoncello.webp', 'flaschen-sambuca.webp'];
 // Etiketten (vorverzerrt, siehe warpeEtikett): 240 für Karten (Handy), 480 für Karten (Desktop) und Sortenseite, 960 für die Sortenseite bei hoher Pixeldichte
 const LABEL_BREITEN = [240, 480, 960];
+// KI-Symbolbilder der Serviervorschläge (fotos-ki/<id>-1.png, 1448x1086): Breiten 480/960/1448, nie hochskaliert, keine PNG in dist/
+const KI_BREITEN = [480, 960, 1448];
 
 // Das Etikett legt sich um den halben Flaschenumfang: Winkelbereich +-WRAP (WRAP < 90 Grad, damit die Ränder noch erkennbar bleiben).
 // Mitte unverzerrt, zu den Rändern horizontal gestaucht (Zylinderprojektion x = sin(w) / sin(WRAP), Quellspalte linear im Winkel).
@@ -105,6 +108,11 @@ export async function bilder({ root, dist }) {
   }
   for (const datei of FOTOS) {
     jobs.push(verarbeite({ key: `foto-${datei.replace(/\.[a-z]+$/, '')}`, quelle: path.join(root, 'fotos', datei), dist }));
+  }
+  for (const id of Object.keys(KI_BILDER)) {
+    const quelle = path.join(root, 'fotos-ki', `${id}-1.png`);
+    try { await fs.access(quelle); } catch { continue; } // fehlt das Bild, bleibt der Platzhalter
+    jobs.push(verarbeite({ key: `ki-${id}`, quelle, dist, liste: KI_BREITEN }));
   }
   // in kleinen Gruppen, damit der Speicher nicht explodiert
   const res = [];

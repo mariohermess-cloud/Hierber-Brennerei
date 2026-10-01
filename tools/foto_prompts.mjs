@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { PRODUKTE, PLATZHALTER } from '../site/data/produkte.js';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
 import { FLUESSIGKEIT } from '../site/data/fluessigkeit.js';
+import { KI_BILDER } from '../site/data/ki-bilder.js';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
@@ -124,6 +125,7 @@ for (const p of PRODUKTE) {
   const idx = liste.findIndex((v) => v.name === a.vorschlag);
   if (idx < 0) { fail(`${p.id}: Serviervorschlag „${a.vorschlag}“ nicht in serviervorschlaege.js (vorhanden: ${liste.map((v) => v.name).join(' | ')})`); continue; }
   const v = liste[idx];
+  if (KI_BILDER[p.id] !== a.vorschlag) fail(`${p.id}: site/data/ki-bilder.js nennt „${KI_BILDER[p.id]}“, Auswahl hier „${a.vorschlag}“`);
   // Glasform bzw. Gefäß aus den Daten muss in der Szene vorkommen (Longdrinkglas, Tumbler, Weinglas, Suppenteller, ...)
   if (!a.szene.toLowerCase().includes(v.glas.toLowerCase())) fail(`${p.id}: Glasform „${v.glas}“ aus den Daten steht nicht in der Szene`);
   const fl = FLUESSIGKEIT[p.id];
@@ -185,7 +187,7 @@ for (const p of PRODUKTE) {
 
   eintraege.push({
     id: p.id, name: p.name, vorschlag: v.name, typ: v.typ, glas: v.glas, position: idx + 1, anzahlVorschlaege: liste.length,
-    dateiname: `fotos-ki/${p.id}-1.jpg`, anhang1, anhang2, anhang1Hinweis: art === 'foto' ? 'Produktfoto (Form und Etikett)' : art === 'neutral' ? 'nur Flaschenform (Rum-Foto), Etikett nicht übernehmen' : VORLAGE[typ].hinweis,
+    dateiname: `fotos-ki/${p.id}-1.png`, anhang1, anhang2, anhang1Hinweis: art === 'foto' ? 'Produktfoto (Form und Etikett)' : art === 'neutral' ? 'nur Flaschenform (Rum-Foto), Etikett nicht übernehmen' : VORLAGE[typ].hinweis,
     flaschentyp: typ, etikettArt: art, farbe, woerter, prompt, hinweise,
   });
 }
@@ -208,6 +210,7 @@ function seiten() {
 const gewaehlt = new Map(eintraege.map((e) => [e.id, e.vorschlag]));
 const nameVonId = Object.fromEntries(PRODUKTE.map((p) => [p.id, p.name]));
 const platz = [];
+const eingebaut = eintraege.filter((e) => existiert(`fotos-ki/${e.id}-1.png`) && fs.existsSync(rel('dist', 'img', `ki-${e.id}-480.avif`))).length;
 for (const f of seiten()) {
   const html = fs.readFileSync(f, 'utf8');
   const url = '/' + path.relative(rel('dist'), path.dirname(f)).split(path.sep).filter(Boolean).join('/');
@@ -247,7 +250,7 @@ const md = [];
 const kopf = `# Prompts für KI-Fotos (ChatGPT) – Serviervorschläge
 
 Erzeugt mit \`node tools/foto_prompts.mjs\` aus den Daten der Seite. Nicht von Hand ändern, sondern das Skript anpassen und neu laufen lassen.
-Die Bilder sind **Symbolbilder** (unter dem Bild später „Symbolbild“). Beginn: ${eintraege.length} Bilder, eins pro Sorte, im Querformat 4:3.
+Die Bilder sind **Symbolbilder** (unter dem Bild steht „Symbolbild: Serviervorschlag“; eingebaut über \`site/data/ki-bilder.js\`). Beginn: ${eintraege.length} Bilder, eins pro Sorte, im Querformat 4:3.
 
 ## So geht es in 5 Schritten
 
@@ -267,7 +270,7 @@ ${STIL}
 
 Gegenüber der ersten Fassung ergänzt, ohne den Charakter zu ändern: saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Der Brand selbst wird nicht verändert und nichts hinzuerfunden: Zutaten und Garnituren stammen aus den Rezeptentwürfen der Sortenseite (Entwürfe, vom Brenner noch zu bestätigen).
 
-**Gewählt wurde je Sorte der fotogenste Serviervorschlag, möglichst Longdrink, Cocktail oder Gericht statt Pur.** Der Titel steht bei jeder Sorte; auf der Sortenseite trägt der Platzhalter „Foto folgt: <Titel>“.
+**Gewählt wurde je Sorte der fotogenste Serviervorschlag, möglichst Longdrink, Cocktail oder Gericht statt Pur.** Der Titel steht bei jeder Sorte; auf der Sortenseite ersetzt das Bild den Platzhalter „Foto folgt: <Titel>“, sobald \`fotos-ki/<id>-1.png\` vorliegt.
 `;
 md.push(kopf);
 eintraege.forEach((e, i) => {
@@ -304,7 +307,7 @@ pl.push(`# Foto-Platzhalter der deutschen Seiten
 
 Erzeugt mit \`node tools/foto_prompts.mjs\` aus \`dist/**/index.html\` (ohne \`dist/fr\`) und den Sortendaten. Stand der gebauten Seiten beim Lauf des Skripts.
 
-**${platz.length} Platzhalter** (\`data-todo="foto"\`), davon **${platz.filter((x) => x.ki.startsWith('KI')).length} per KI vorgesehen** (ein Serviervorschlag je Sorte, siehe \`PROMPTS-FOTOS.md\`). Prozess-, Karten- und Etikettenbilder sind bewusst nicht per KI.
+**${platz.length} Platzhalter** (\`data-todo="foto"\`), davon ${platz.filter((x) => x.ki.startsWith('KI')).length} per KI vorgesehen und noch ohne Bild. **${eingebaut} KI-Symbolbilder sind bereits eingebaut** (\`fotos-ki/<id>-1.png\`, ein Serviervorschlag je Sorte, siehe \`PROMPTS-FOTOS.md\`) und zählen nicht mehr als Platzhalter. Prozess-, Karten- und Etikettenbilder sind bewusst nicht per KI.
 
 | Seite | Sorte | Art | Stelle / Name | Vorgesehen |
 |---|---|---|---|---|

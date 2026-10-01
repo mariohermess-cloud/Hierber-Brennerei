@@ -1,7 +1,7 @@
 # Prompts für KI-Fotos (ChatGPT) – Serviervorschläge
 
 Erzeugt mit `node tools/foto_prompts.mjs` aus den Daten der Seite. Nicht von Hand ändern, sondern das Skript anpassen und neu laufen lassen.
-Die Bilder sind **Symbolbilder** (unter dem Bild später „Symbolbild“). Beginn: 29 Bilder, eins pro Sorte, im Querformat 4:3.
+Die Bilder sind **Symbolbilder** (unter dem Bild steht „Symbolbild: Serviervorschlag“; eingebaut über `site/data/ki-bilder.js`). Beginn: 29 Bilder, eins pro Sorte, im Querformat 4:3.
 
 ## So geht es in 5 Schritten
 
@@ -21,14 +21,14 @@ Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von
 
 Gegenüber der ersten Fassung ergänzt, ohne den Charakter zu ändern: saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Der Brand selbst wird nicht verändert und nichts hinzuerfunden: Zutaten und Garnituren stammen aus den Rezeptentwürfen der Sortenseite (Entwürfe, vom Brenner noch zu bestätigen).
 
-**Gewählt wurde je Sorte der fotogenste Serviervorschlag, möglichst Longdrink, Cocktail oder Gericht statt Pur.** Der Titel steht bei jeder Sorte; auf der Sortenseite trägt der Platzhalter „Foto folgt: <Titel>“.
+**Gewählt wurde je Sorte der fotogenste Serviervorschlag, möglichst Longdrink, Cocktail oder Gericht statt Pur.** Der Titel steht bei jeder Sorte; auf der Sortenseite ersetzt das Bild den Platzhalter „Foto folgt: <Titel>“, sobald `fotos-ki/<id>-1.png` vorliegt.
 
 ---
 
 ## 1. Hierber Gin
 
 - **Serviervorschlag:** Gin-Tonic mit Apfel und Rosmarin (Auf Eis / Longdrink), Nr. 1 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/gin-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/gin-1.png`
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png`
 - **Prompt:** 170 Wörter
@@ -51,7 +51,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 2. Hierber Wodka
 
 - **Serviervorschlag:** Wodka-Tonic mit Gurkenscheiben (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/wodka-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/wodka-1.png`
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Wodka-01.png`
 - **Prompt:** 161 Wörter
@@ -74,7 +74,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 3. Hierber Rum
 
 - **Serviervorschlag:** Rum und Ginger mit Limette (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/rum-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/rum-1.png`
 - **Anhang 1 (Produktfoto (Form und Etikett)):** `fotos/flaschen-rum-02-05.webp`
 - **Anhang 2 (Etikett):** entfällt (das Foto in Anhang 1 liefert Form und Etikett)
 - **Prompt:** 163 Wörter
@@ -97,7 +97,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 4. Hierber Rum Orange
 
 - **Serviervorschlag:** Rum Orange-Highball (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/rum-orange-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/rum-orange-1.png`
 - **Anhang 1 (nur Flaschenform (Rum-Foto), Etikett nicht übernehmen):** `fotos/flaschen-rum-02-05.webp`
 - **Anhang 2 (Etikett):** entfällt (kein Etikett und kein Foto vorhanden)
 - **Prompt:** 145 Wörter
@@ -122,7 +122,7 @@ Negativ: jeder Text oder jede Grafik auf dem Etikett, zweite Flasche, Fantasiesc
 ## 5. Hierber Whisky
 
 - **Serviervorschlag:** Old Fashioned (Cocktail), Nr. 3 von 5 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/whisky-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/whisky-1.png`
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
 - **Prompt:** 159 Wörter
@@ -145,7 +145,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 6. Kirsch
 
 - **Serviervorschlag:** Kirsch-Sour (Cocktail), Nr. 3 von 5 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/kirsch-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/kirsch-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
 - **Prompt:** 161 Wörter
@@ -168,7 +168,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 7. Framboise
 
 - **Serviervorschlag:** Framboise-Spritz mit Crémant (Cocktail), Nr. 3 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/framboise-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/framboise-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
 - **Prompt:** 160 Wörter
@@ -191,7 +191,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 8. Quetsch
 
 - **Serviervorschlag:** Quetsch-Sour (Cocktail), Nr. 2 von 5 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/quetsch-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/quetsch-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
 - **Prompt:** 160 Wörter
@@ -214,7 +214,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 9. Poire Williams
 
 - **Serviervorschlag:** Poire Williams Fizz (Cocktail), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/poire-williams-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/poire-williams-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
 - **Prompt:** 160 Wörter
@@ -237,7 +237,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 10. Mirabelle
 
 - **Serviervorschlag:** Mirabelle-Tonic mit Thymian (Auf Eis / Longdrink), Nr. 2 von 5 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/mirabelle-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/mirabelle-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Prompt:** 159 Wörter
@@ -260,7 +260,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 11. Hierber aale Fruucht
 
 - **Serviervorschlag:** Hierber aale Fruucht auf einem großen Eiswürfel (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/hierber-fruucht-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/hierber-fruucht-1.png`
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
 - **Prompt:** 158 Wörter
@@ -283,7 +283,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 12. Vieux Marc
 
 - **Serviervorschlag:** Espresso mit Vieux Marc (Zum Essen), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/vieux-marc-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/vieux-marc-1.png`
 - **Anhang 1 (Karaffe: die dunkle Vieux-Marc-Karaffe vorn links im Foto (nur die Karaffe beachten)):** `fotos/flaschenreihe-theke.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
 - **Prompt:** 166 Wörter
@@ -308,7 +308,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 13. Vieille Prune
 
 - **Serviervorschlag:** Vieille Prune auf einem großen Eiswürfel (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/vieille-prune-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/vieille-prune-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
 - **Prompt:** 154 Wörter
@@ -331,7 +331,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 14. Vieille Pomme
 
 - **Serviervorschlag:** Vieille Pomme mit Ginger Beer (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/vieille-pomme-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/vieille-pomme-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
 - **Prompt:** 157 Wörter
@@ -348,14 +348,13 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
-- Flüssigkeitsfarbe der Flasche ist in den Daten nur geschätzt (fluessigkeit.js: #e6dba0); mit dem echten Produkt abgleichen.
 
 ---
 
 ## 15. Hunnegdrëpp
 
 - **Serviervorschlag:** Hunnegdrëpp-Sour (Cocktail), Nr. 3 von 5 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/hunnegdrepp-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/hunnegdrepp-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Prompt:** 158 Wörter
@@ -378,7 +377,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 16. Hierber Hunneg Whisky
 
 - **Serviervorschlag:** Hunneg Whisky-Highball (Auf Eis / Longdrink), Nr. 3 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/hunneg-whisky-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/hunneg-whisky-1.png`
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
 - **Prompt:** 159 Wörter
@@ -402,7 +401,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 17. Kräiderdrëpp
 
 - **Serviervorschlag:** Kräiderdrëpp-Tonic mit Gurkenscheiben (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/kraeiderdrepp-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/kraeiderdrepp-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
 - **Prompt:** 159 Wörter
@@ -425,7 +424,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 18. Kürbisdrëpp
 
 - **Serviervorschlag:** Kürbissuppe mit einem Schuss Kürbisdrëpp (In der Küche / Dessert), Nr. 3 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/kuerbisdrepp-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/kuerbisdrepp-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
 - **Prompt:** 157 Wörter
@@ -448,7 +447,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 19. Grain
 
 - **Serviervorschlag:** Grain mit Apfelsaft auf Eis (Auf Eis / Longdrink), Nr. 2 von 3 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/grain-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/grain-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
 - **Prompt:** 157 Wörter
@@ -471,7 +470,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 20. Hondsaarsch
 
 - **Serviervorschlag:** Hondsaarsch-Tonic mit Orangenschale (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/hondsaarsch-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/hondsaarsch-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
 - **Prompt:** 160 Wörter
@@ -494,7 +493,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 21. Kiwibeeren
 
 - **Serviervorschlag:** Kiwibeeren-Spritz mit Crémant (Cocktail), Nr. 3 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/kiwibeeren-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/kiwibeeren-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
 - **Prompt:** 159 Wörter
@@ -517,7 +516,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 22. Poire
 
 - **Serviervorschlag:** Poire mit Ginger Beer (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/poire-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/poire-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
 - **Prompt:** 157 Wörter
@@ -540,16 +539,16 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 23. Neelchesbiren
 
 - **Serviervorschlag:** Neelchesbiren-Tonic mit Zitronenschale (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/neelchesbiren-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/neelchesbiren-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
-- **Prompt:** 154 Wörter
+- **Prompt:** 155 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Neelchesbiren-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Streifen Zitronenschale im Glas. Das Getränk ist blass strohfarben und perlt leicht.
 Flasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.
-Farbe des Brandes in der Flasche: blass strohfarben.
+Farbe des Brandes in der Flasche: klar wie Wasser.
 Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.
 ```
 
@@ -557,14 +556,13 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
-- Flüssigkeitsfarbe der Flasche ist in den Daten nur geschätzt (fluessigkeit.js: #e8deaa); mit dem echten Produkt abgleichen.
 
 ---
 
 ## 24. Lënschouren
 
 - **Serviervorschlag:** Lënschouren über Vanilleeis (In der Küche / Dessert), Nr. 3 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/lenschouren-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/lenschouren-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
 - **Prompt:** 155 Wörter
@@ -587,7 +585,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 25. Vullekiischt
 
 - **Serviervorschlag:** Vullekiischt-Tonic mit Zitronenschale (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/vullekiischt-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/vullekiischt-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
 - **Prompt:** 160 Wörter
@@ -610,7 +608,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 26. Schléiwen
 
 - **Serviervorschlag:** Schléiwen-Sour (Cocktail), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/schleiwen-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/schleiwen-1.png`
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
 - **Prompt:** 159 Wörter
@@ -633,7 +631,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 27. Vizdrëpp
 
 - **Serviervorschlag:** Vizdrëpp-Tonic mit Apfelscheiben (Auf Eis / Longdrink), Nr. 2 von 5 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/vizdrepp-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/vizdrepp-1.png`
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
 - **Prompt:** 156 Wörter
@@ -650,14 +648,13 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
-- Flüssigkeitsfarbe der Flasche ist in den Daten nur geschätzt (fluessigkeit.js: #e3d594); mit dem echten Produkt abgleichen.
 
 ---
 
 ## 28. Hierber Sambuca
 
 - **Serviervorschlag:** Sambuca mit Kaffeebohnen (Pur), Nr. 1 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/sambuca-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/sambuca-1.png`
 - **Anhang 1 (Produktfoto (Form und Etikett)):** `fotos/flaschen-sambuca.webp`
 - **Anhang 2 (Etikett):** entfällt (das Foto in Anhang 1 liefert Form und Etikett)
 - **Prompt:** 150 Wörter
@@ -681,7 +678,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 ## 29. Hierber Limoncello
 
 - **Serviervorschlag:** Limoncello-Spritz mit Crémant (Cocktail), Nr. 2 von 4 auf der Sortenseite
-- **Ergebnis speichern als:** `fotos-ki/limoncello-1.jpg`
+- **Ergebnis speichern als:** `fotos-ki/limoncello-1.png`
 - **Anhang 1 (Produktfoto (Form und Etikett)):** `fotos/flaschen-limoncello.webp`
 - **Anhang 2 (Etikett):** entfällt (das Foto in Anhang 1 liefert Form und Etikett)
 - **Prompt:** 153 Wörter
@@ -706,32 +703,32 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 | Sorte | Serviervorschlag | Dateiname | Anhang 1 | Anhang 2 |
 |---|---|---|---|---|
-| Hierber Gin | Gin-Tonic mit Apfel und Rosmarin | `fotos-ki/gin-1.jpg` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png` |
-| Hierber Wodka | Wodka-Tonic mit Gurkenscheiben | `fotos-ki/wodka-1.jpg` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` |
-| Hierber Rum | Rum und Ginger mit Limette | `fotos-ki/rum-1.jpg` | `fotos/flaschen-rum-02-05.webp` | entfällt |
-| Hierber Rum Orange | Rum Orange-Highball | `fotos-ki/rum-orange-1.jpg` | `fotos/flaschen-rum-02-05.webp` | entfällt |
-| Hierber Whisky | Old Fashioned | `fotos-ki/whisky-1.jpg` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` |
-| Kirsch | Kirsch-Sour | `fotos-ki/kirsch-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kirsch-01.png` |
-| Framboise | Framboise-Spritz mit Crémant | `fotos-ki/framboise-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Framboise-01.png` |
-| Quetsch | Quetsch-Sour | `fotos-ki/quetsch-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Quetsch-01.png` |
-| Poire Williams | Poire Williams Fizz | `fotos-ki/poire-williams-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Williams-01.png` |
-| Mirabelle | Mirabelle-Tonic mit Thymian | `fotos-ki/mirabelle-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` |
-| Hierber aale Fruucht | Hierber aale Fruucht auf einem großen Eiswürfel | `fotos-ki/hierber-fruucht-1.jpg` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` |
-| Vieux Marc | Espresso mit Vieux Marc | `fotos-ki/vieux-marc-1.jpg` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` |
-| Vieille Prune | Vieille Prune auf einem großen Eiswürfel | `fotos-ki/vieille-prune-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` |
-| Vieille Pomme | Vieille Pomme mit Ginger Beer | `fotos-ki/vieille-pomme-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` |
-| Hunnegdrëpp | Hunnegdrëpp-Sour | `fotos-ki/hunnegdrepp-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` |
-| Hierber Hunneg Whisky | Hunneg Whisky-Highball | `fotos-ki/hunneg-whisky-1.jpg` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` |
-| Kräiderdrëpp | Kräiderdrëpp-Tonic mit Gurkenscheiben | `fotos-ki/kraeiderdrepp-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kraider-01.png` |
-| Kürbisdrëpp | Kürbissuppe mit einem Schuss Kürbisdrëpp | `fotos-ki/kuerbisdrepp-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` |
-| Grain | Grain mit Apfelsaft auf Eis | `fotos-ki/grain-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Grain-01.png` |
-| Hondsaarsch | Hondsaarsch-Tonic mit Orangenschale | `fotos-ki/hondsaarsch-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` |
-| Kiwibeeren | Kiwibeeren-Spritz mit Crémant | `fotos-ki/kiwibeeren-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Kiwi-01.png` |
-| Poire | Poire mit Ginger Beer | `fotos-ki/poire-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Poire-01.png` |
-| Neelchesbiren | Neelchesbiren-Tonic mit Zitronenschale | `fotos-ki/neelchesbiren-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` |
-| Lënschouren | Lënschouren über Vanilleeis | `fotos-ki/lenschouren-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` |
-| Vullekiischt | Vullekiischt-Tonic mit Zitronenschale | `fotos-ki/vullekiischt-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` |
-| Schléiwen | Schléiwen-Sour | `fotos-ki/schleiwen-1.jpg` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` |
-| Vizdrëpp | Vizdrëpp-Tonic mit Apfelscheiben | `fotos-ki/vizdrepp-1.jpg` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` |
-| Hierber Sambuca | Sambuca mit Kaffeebohnen | `fotos-ki/sambuca-1.jpg` | `fotos/flaschen-sambuca.webp` | entfällt |
-| Hierber Limoncello | Limoncello-Spritz mit Crémant | `fotos-ki/limoncello-1.jpg` | `fotos/flaschen-limoncello.webp` | entfällt |
+| Hierber Gin | Gin-Tonic mit Apfel und Rosmarin | `fotos-ki/gin-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png` |
+| Hierber Wodka | Wodka-Tonic mit Gurkenscheiben | `fotos-ki/wodka-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` |
+| Hierber Rum | Rum und Ginger mit Limette | `fotos-ki/rum-1.png` | `fotos/flaschen-rum-02-05.webp` | entfällt |
+| Hierber Rum Orange | Rum Orange-Highball | `fotos-ki/rum-orange-1.png` | `fotos/flaschen-rum-02-05.webp` | entfällt |
+| Hierber Whisky | Old Fashioned | `fotos-ki/whisky-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` |
+| Kirsch | Kirsch-Sour | `fotos-ki/kirsch-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kirsch-01.png` |
+| Framboise | Framboise-Spritz mit Crémant | `fotos-ki/framboise-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Framboise-01.png` |
+| Quetsch | Quetsch-Sour | `fotos-ki/quetsch-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Quetsch-01.png` |
+| Poire Williams | Poire Williams Fizz | `fotos-ki/poire-williams-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Williams-01.png` |
+| Mirabelle | Mirabelle-Tonic mit Thymian | `fotos-ki/mirabelle-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` |
+| Hierber aale Fruucht | Hierber aale Fruucht auf einem großen Eiswürfel | `fotos-ki/hierber-fruucht-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` |
+| Vieux Marc | Espresso mit Vieux Marc | `fotos-ki/vieux-marc-1.png` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` |
+| Vieille Prune | Vieille Prune auf einem großen Eiswürfel | `fotos-ki/vieille-prune-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` |
+| Vieille Pomme | Vieille Pomme mit Ginger Beer | `fotos-ki/vieille-pomme-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` |
+| Hunnegdrëpp | Hunnegdrëpp-Sour | `fotos-ki/hunnegdrepp-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` |
+| Hierber Hunneg Whisky | Hunneg Whisky-Highball | `fotos-ki/hunneg-whisky-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` |
+| Kräiderdrëpp | Kräiderdrëpp-Tonic mit Gurkenscheiben | `fotos-ki/kraeiderdrepp-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kraider-01.png` |
+| Kürbisdrëpp | Kürbissuppe mit einem Schuss Kürbisdrëpp | `fotos-ki/kuerbisdrepp-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` |
+| Grain | Grain mit Apfelsaft auf Eis | `fotos-ki/grain-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Grain-01.png` |
+| Hondsaarsch | Hondsaarsch-Tonic mit Orangenschale | `fotos-ki/hondsaarsch-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` |
+| Kiwibeeren | Kiwibeeren-Spritz mit Crémant | `fotos-ki/kiwibeeren-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Kiwi-01.png` |
+| Poire | Poire mit Ginger Beer | `fotos-ki/poire-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Poire-01.png` |
+| Neelchesbiren | Neelchesbiren-Tonic mit Zitronenschale | `fotos-ki/neelchesbiren-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` |
+| Lënschouren | Lënschouren über Vanilleeis | `fotos-ki/lenschouren-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` |
+| Vullekiischt | Vullekiischt-Tonic mit Zitronenschale | `fotos-ki/vullekiischt-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` |
+| Schléiwen | Schléiwen-Sour | `fotos-ki/schleiwen-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` |
+| Vizdrëpp | Vizdrëpp-Tonic mit Apfelscheiben | `fotos-ki/vizdrepp-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` |
+| Hierber Sambuca | Sambuca mit Kaffeebohnen | `fotos-ki/sambuca-1.png` | `fotos/flaschen-sambuca.webp` | entfällt |
+| Hierber Limoncello | Limoncello-Spritz mit Crémant | `fotos-ki/limoncello-1.png` | `fotos/flaschen-limoncello.webp` | entfällt |
