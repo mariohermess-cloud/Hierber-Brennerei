@@ -157,7 +157,7 @@ a:hover{text-decoration-thickness:2px}
 .karte-li[hidden],.gruppe[hidden]{display:none}
 .karte{display:flex;flex-direction:column;height:100%;padding:.7rem;background:var(--holz);border:1px solid var(--linie);color:var(--text);text-decoration:none}
 .karte:hover,.karte:focus-visible{border-color:var(--kupfer-hell)}
-.karte-bild{display:flex;align-items:flex-end;justify-content:center;aspect-ratio:4/5;margin-bottom:.8rem;container-type:size;overflow:hidden;
+.karte-bild{display:flex;align-items:flex-end;justify-content:center;aspect-ratio:5/7;margin-bottom:.8rem;container-type:size;overflow:hidden;
   background:linear-gradient(to top,#c9baa0 0 6%,transparent 6%),linear-gradient(#ece3d2,#e2d6c0)}
 .karte-foto{display:block;width:100%;height:100%;background:#000}
 .karte-foto picture,.karte-foto img{display:block;width:100%;height:100%}
@@ -169,9 +169,16 @@ a:hover{text-decoration-thickness:2px}
 /* Vektor-Flasche: Silhouette und Füllung als SVG, Etikett als Bild darüber */
 .flasche{position:relative;display:block;flex:none;height:var(--fh,88cqh);aspect-ratio:var(--ar,100/380);margin-bottom:6cqh}
 .flasche>svg{position:absolute;inset:0;width:100%;height:100%;display:block;max-width:none}
+/* Etikett: vorverzerrtes Bild (halber Umfang, zu den Rändern gestaucht), gewölbte Ober-/Unterkante per clip-path, Rundungsschatten und Glanzkante als Verlauf */
 .fl-etikett{position:absolute;display:block}
+.flasche-schlank .fl-etikett{clip-path:url(#cl-schlank)}
+.flasche-rund .fl-etikett{clip-path:url(#cl-rund)}
+.flasche-karaffe .fl-etikett{clip-path:url(#cl-karaffe)}
 .fl-etikett picture,.fl-bild{display:block;width:100%;height:100%;max-width:none}
-.fl-bild{object-fit:fill;box-shadow:0 0 0 .5px rgba(43,33,26,.5)}
+.fl-bild{object-fit:fill}
+.fl-etikett::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(28,17,9,.5) 0,rgba(28,17,9,.2) 7%,rgba(28,17,9,0) 22%,rgba(255,255,255,.09) 31%,rgba(255,255,255,0) 44%,rgba(28,17,9,0) 62%,rgba(28,17,9,.16) 82%,rgba(28,17,9,.55) 100%),
+    linear-gradient(90deg,transparent 5.5%,rgba(255,255,255,.3) 6.3%,transparent 7.4%)}
 .karte-name{font:600 1.35rem/1.15 var(--serif);margin-bottom:.25rem}
 .karte-meta{font-size:.9rem;color:var(--gedaempt)}
 .papier .karte{background:var(--flaeche);color:var(--text)}
@@ -210,9 +217,9 @@ a:hover{text-decoration-thickness:2px}
 .brotkrumen a{color:var(--gedaempt)}
 .produkt-kopf{background:radial-gradient(ellipse at 20% 30%,rgba(184,115,58,.14),transparent 60%),var(--holz);padding-top:clamp(1.5rem,4vw,2.5rem)}
 .produkt-raster{display:grid;gap:2rem;align-items:start}
-@media(min-width:800px){.produkt-raster{grid-template-columns:minmax(260px,440px) 1fr;gap:4rem}.mit-foto .produkt-raster{grid-template-columns:minmax(300px,560px) 1fr}}
-.haupt-bild{margin:0;max-width:440px}
-.buehne{container-type:size;display:flex;align-items:flex-end;justify-content:center;aspect-ratio:4/5;width:100%;overflow:hidden;border:1px solid var(--kupfer);
+@media(min-width:800px){.produkt-raster{grid-template-columns:minmax(320px,540px) 1fr;gap:4rem;align-items:center}.mit-foto .produkt-raster{grid-template-columns:minmax(300px,560px) 1fr;align-items:start}}
+.haupt-bild{margin:0;max-width:540px}
+.buehne{container-type:size;display:flex;align-items:flex-end;justify-content:center;aspect-ratio:3/4;width:100%;overflow:hidden;border:1px solid var(--kupfer);
   background:linear-gradient(to top,#c9baa0 0 6%,transparent 6%),linear-gradient(#ece3d2,#e2d6c0)}
 .foto-rahmen{max-width:560px}
 .foto-rahmen picture,.foto-rahmen img{display:block;width:100%}
