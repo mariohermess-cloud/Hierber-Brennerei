@@ -6,11 +6,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PRODUKTE, PLATZHALTER } from '../site/data/produkte.js';
+import { PRODUKTE } from '../site/data/produkte.js';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
 import { FLUESSIGKEIT } from '../site/data/fluessigkeit.js';
 import { KI_BILDER } from '../site/data/ki-bilder.js';
-import { STIL, VORLAGE, FOTO_STATT_ETIKETT, RUM_ORANGE_FORM } from './foto_gemeinsam.mjs';
+import { STIL, VORLAGE, flaschenVorlage } from './foto_gemeinsam.mjs';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
@@ -28,7 +28,7 @@ const AUSWAHL = {
   rum: { vorschlag: 'Rum und Ginger mit Limette',
     farbe: 'goldenes Bernstein',
     szene: 'Rum und Ginger im Longdrinkglas, viel Eis, eine ausgedrückte Limettenspalte im Glas. Das Getränk ist helles Goldbernstein und perlt leicht, etwas heller als pur. Im unscharfen Hintergrund ein Burger auf einem Holzbrett.' },
-  'rum-orange': { vorschlag: 'Rum Orange-Highball', neutralesEtikett: true,
+  'rum-orange': { vorschlag: 'Rum Orange-Highball',
     farbe: 'orange-bernsteinfarben',
     szene: 'Ein Rum-Orange-Highball im Highballglas, viel Eis, eine frische Orangenscheibe im Glas. Das Getränk ist orange-bernsteinfarben und perlt leicht von Sodawasser. Daneben unscharf ein paar Käsegebäck-Stangen.' },
   whisky: { vorschlag: 'Old Fashioned',
@@ -118,35 +118,19 @@ for (const p of PRODUKTE) {
   if (fl.klar) farbe = 'klar wie Wasser';
   if (!farbe) { fail(`${p.id}: keine Farbbeschreibung (fluessigkeit.js: ${fl.farbe}, nicht klar)`); continue; }
 
-  // Etikett / Anhänge
-  const typ = (etik.find((e) => e.sorte === p.id && e.verwendet) || PLATZHALTER[p.id] || {}).flaschentyp || (PLATZHALTER[p.id] || {}).typ;
+  // Etikett / Anhänge: Anhang 2 ist für alle Sorten das flache Etikett, Anhang 1 das Flaschenfoto der Sorte (sonst Standardvorlage je Typ)
+  const eintrag = etik.find((e) => e.sorte === p.id && e.verwendet);
+  const typ = eintrag && eintrag.flaschentyp;
   if (!typ || !VORLAGE[typ]) { fail(`${p.id}: kein Flaschentyp in etiketten.json`); continue; }
   const flach = etik.find((e) => e.sorte === p.id && e.variante === 'standard' && e.art === 'flach' && e.verwendet);
-  let anhang1, anhang2, art;
-  if (flach) {
-    anhang1 = VORLAGE[typ].datei;
-    anhang2 = `Fertige Etiquetten/${flach.datei}`;
-    art = 'flach';
-  } else if (FOTO_STATT_ETIKETT[p.id]) {
-    anhang1 = FOTO_STATT_ETIKETT[p.id];
-    anhang2 = null;
-    art = 'foto';
-  } else if (a.neutralesEtikett) {
-    anhang1 = RUM_ORANGE_FORM;
-    anhang2 = null;
-    art = 'neutral';
-  } else { fail(`${p.id}: weder flaches Etikett noch Foto`); continue; }
-  for (const f of [anhang1, anhang2].filter(Boolean)) if (!existiert(f)) fail(`${p.id}: Datei fehlt: ${f}`);
+  if (!flach) { fail(`${p.id}: kein flaches Etikett in etiketten.json`); continue; }
+  const vorlage = flaschenVorlage(p.id, p.kurzname, typ);
+  const anhang1 = vorlage.datei, anhang2 = `Fertige Etiquetten/${flach.datei}`;
+  for (const f of [anhang1, anhang2]) if (!existiert(f)) fail(`${p.id}: Datei fehlt: ${f}`);
 
   // Flaschenregel
-  const FLASCHE = {
-    flach: `Neben dem Getränk steht scharf die Flasche${typ === 'karaffe' ? ' (Karaffe)' : ''} in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.`,
-    foto: 'Neben dem Getränk steht scharf die große 0,5-L-Flasche aus Anhang 1, Form und Etikett exakt wie auf dem Foto, keine Buchstaben verändern. Das Etikett nicht neu zeichnen oder schreiben; es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.',
-    neutral: 'Neben dem Getränk steht scharf die große 0,5-L-Flasche in der Form von Anhang 1, aber ohne deren Etikett: stattdessen ein neutrales, leeres weißes Etikett ohne Text und Grafik, das sich um die halbe Flasche legt, Rundung sichtbar.',
-  }[art];
-  const NEGATIV = art === 'neutral'
-    ? 'Negativ: jeder Text oder jede Grafik auf dem Etikett, zweite Flasche, Fantasieschrift.'
-    : 'Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.';
+  const FLASCHE = `Neben dem Getränk steht scharf die Flasche${typ === 'karaffe' ? ' (Karaffe)' : ''} in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.`;
+  const NEGATIV = 'Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.';
   const prompt = [
     `Erstelle ein Foto. ${STIL}`,
     `Szene: ${a.szene}`,
@@ -157,22 +141,16 @@ for (const p of PRODUKTE) {
   const woerter = prompt.split(/\s+/).filter(Boolean).length;
   if (woerter > WORTGRENZE) fail(`${p.id}: Prompt hat ${woerter} Wörter (Grenze ${WORTGRENZE})`);
 
-  const pruefung = art === 'flach'
-    ? ['Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).', 'Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“', 'Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.']
-    : art === 'foto'
-      ? ['Etikett im Bild mit dem Foto in Anhang 1 vergleichen (große Flasche rechts).', 'Bei Fehlern nachlegen: „Etikett exakt wie auf dem Foto, keine Buchstaben verändern.“', 'Bleibt der Text falsch: Etikett später im Bildeditor einsetzen.']
-      : ['Es gibt kein Etikett und kein Foto dieser Sorte: das Etikett bleibt bewusst leer. Es darf kein erfundener Text auf der Flasche stehen.', 'Steht doch Text auf dem Etikett, nachlegen: „Etikett komplett leer lassen, kein Text, keine Grafik.“', 'Das echte Etikett später im Bildeditor einsetzen oder das Bild nur ohne Flasche verwenden.'];
-  const hinweise = [...pruefung];
+  const hinweise = ['Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).', 'Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“', 'Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.'];
   if (fl.geschaetzt) hinweise.push(`Flüssigkeitsfarbe der Flasche ist in den Daten nur geschätzt (fluessigkeit.js: ${fl.farbe}); mit dem echten Produkt abgleichen.`);
   if (typ === 'karaffe') hinweise.push('Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.');
-  if (art === 'neutral') hinweise.push('Anhang 1 zeigt die Rum-Flasche mit Rum-Etikett: nur die Flaschenform nutzen. Für Rum Orange gibt es weder Etikett noch Foto.');
+  if (vorlage.foto) hinweise.push('Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.');
   if (p.id === 'vieux-marc') hinweise.push('Im Rezept steht „Vieux Marc direkt in die Tasse geben oder separat dazu reichen“; im Bild steht der Vieux Marc separat im kleinen Glas, damit die Farbe sichtbar ist.');
-  if (p.id === 'sambuca' || p.id === 'limoncello') hinweise.push('Auf der Sortenseite steht das Etikett als „Platzhalter-Etikett – das echte Etikett folgt“; die Flasche im Foto zeigt das Foto-Etikett aus fotos/.');
 
   eintraege.push({
     id: p.id, name: p.name, vorschlag: v.name, typ: v.typ, glas: v.glas, position: idx + 1, anzahlVorschlaege: liste.length,
-    dateiname: `fotos-ki/${p.id}-1.png`, anhang1, anhang2, anhang1Hinweis: art === 'foto' ? 'Produktfoto (Form und Etikett)' : art === 'neutral' ? 'nur Flaschenform (Rum-Foto), Etikett nicht übernehmen' : VORLAGE[typ].hinweis,
-    flaschentyp: typ, etikettArt: art, farbe, woerter, prompt, hinweise,
+    dateiname: `fotos-ki/${p.id}-1.png`, anhang1, anhang2, anhang1Hinweis: vorlage.hinweis,
+    flaschentyp: typ, anhang1Foto: vorlage.foto, farbe, woerter, prompt, hinweise,
   });
 }
 
@@ -239,7 +217,7 @@ Die Bilder sind **Symbolbilder** (unter dem Bild steht „Symbolbild: Serviervor
 ## So geht es in 5 Schritten
 
 1. **Neuen Chat öffnen** (ChatGPT mit Bildgenerierung). Pro Sorte immer einen **neuen** Chat, sonst kippt der Stil.
-2. **Zwei Bilder anhängen:** Anhang 1 = Flaschenvorlage, Anhang 2 = Etikett der Sorte. Der genaue Dateiname steht bei jeder Sorte. Bei Rum, Limoncello, Sambuca und Rum Orange ist es nur ein Bild (steht dort dabei).
+2. **Zwei Bilder anhängen:** Anhang 1 = Flaschenvorlage (das Flaschenfoto der Sorte aus \`Fotos/\`, sonst eine Standardvorlage je Flaschentyp), Anhang 2 = flaches Etikett der Sorte (für alle 29 Sorten vorhanden). Der genaue Dateiname steht bei jeder Sorte.
 3. **Prompt einfügen:** den Text im Kasten der Sorte kopieren (Kopier-Symbol am Kasten) und im Chat absenden.
 4. **Ergebnis prüfen:** Etikett im Bild Wort für Wort mit dem Anhang vergleichen, dazu Glas, Garnitur, Eis und Flüssigkeitsfarbe. KI verfälscht gern Schrift. Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
 5. **Speichern** unter dem Dateinamen, der bei der Sorte steht (\`fotos-ki/<sorten-id>-1.jpg\`).
@@ -258,7 +236,7 @@ Gegenüber der ersten Fassung ergänzt, ohne den Charakter zu ändern: saubere G
 `;
 md.push(kopf);
 eintraege.forEach((e, i) => {
-  const a2 = e.anhang2 ? `\`${e.anhang2}\`` : e.etikettArt === 'neutral' ? 'entfällt (kein Etikett und kein Foto vorhanden)' : 'entfällt (das Foto in Anhang 1 liefert Form und Etikett)';
+  const a2 = `\`${e.anhang2}\``;
   md.push(`---
 
 ## ${i + 1}. ${e.name}
@@ -283,7 +261,7 @@ md.push(`---
 
 | Sorte | Serviervorschlag | Dateiname | Anhang 1 | Anhang 2 |
 |---|---|---|---|---|
-${eintraege.map((e) => `| ${e.name} | ${e.vorschlag} | \`${e.dateiname}\` | \`${e.anhang1}\` | ${e.anhang2 ? `\`${e.anhang2}\`` : 'entfällt'} |`).join('\n')}
+${eintraege.map((e) => `| ${e.name} | ${e.vorschlag} | \`${e.dateiname}\` | \`${e.anhang1}\` | \`${e.anhang2}\` |`).join('\n')}
 `);
 
 const pl = [];

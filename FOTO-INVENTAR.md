@@ -169,65 +169,67 @@ Die 30 Flaschenbilder (`Ersetze_nur_die_*`, `„pure_white_background*`) gelten 
 | fotos/brennanlage.png (450 px), lagerraum.png (534 px) | | zu klein, ersetzt, nicht mehr verwendet |
 | fotos/verkaufsraum.png (975x650) | | Weihnachtsdekoration, nur Reserve, nicht verwendet |
 
-Etiketten auf den Produktfotos können ältere Fassungen sein (Rum zeigt 40 %, Preisliste 43 %); aktuelle flache Etiketten haben Vorrang. Offen bleibt: Rum Orange hat weder Etikett noch Foto.
+Etiketten auf den Produktfotos können ältere Fassungen sein (Rum zeigt 40 %, Preisliste 43 %); aktuelle flache Etiketten haben Vorrang. Erledigt (Oktober 2026): Rum, Rum Orange, Limoncello und Sambuca haben jetzt flache Etiketten in `Fertige Etiquetten/`; Rum Orange hat weiterhin kein Foto der Flasche.
 
 ## 8. Fotos/ (vom Nutzer, Großschreibung; verschieden vom Ordner fotos/)
 
-45 Dateien `_DSC*.jpg`: 40 freigestellte Flaschenfotos auf hellem Grund (1920 px breit), 5 Raumfotos. Zuordnung über das gelesene Etikett (bei Unsicherheit Etikettenbereich vergrößert). Einsatz bisher: nur Flüssigkeitsfarbe (`site/data/fluessigkeit.js`, Messung mit `tools/fluessigkeit_messen.mjs`, Bericht `FLUESSIGKEIT-MESSUNG.md`); die Etiketten auf den Fotos sind teils ältere Designs und werden nicht übernommen, auf den Flaschen der Seite stehen die aktuellen flachen Etiketten aus `Fertige Etiquetten/`.
+**Umbenannt (Oktober 2026):** Die 45 Dateien hießen kameranummeriert `_DSC*.jpg` und heißen jetzt nach Inhalt (`flasche-<sorten-id>.jpg`, `raum-*.jpg`; bei zwei Fotos derselben Sorte trägt das Foto mit älterem Etikett „Marque Nationale“ den Zusatz `-altes-etikett`, sind beide aktuell, heißt das zweite `-2`). Zuordnung alt → neu: `tools/fotos-umbenennung.json`; Umbenennen und Rückgängig: `node tools/fotos_umbenennen.mjs [--rueckgaengig]`. Dateiinhalte unverändert (md5 vorher/nachher gleich).
+
+Ursprünglich 45 Dateien `_DSC*.jpg`: 40 freigestellte Flaschenfotos auf hellem Grund (1920 px breit), 5 Raumfotos. Zuordnung über das gelesene Etikett (bei Unsicherheit Etikettenbereich vergrößert). Einsatz bisher: nur Flüssigkeitsfarbe (`site/data/fluessigkeit.js`, Messung mit `tools/fluessigkeit_messen.mjs`, Bericht `FLUESSIGKEIT-MESSUNG.md`); die Etiketten auf den Fotos sind teils ältere Designs und werden nicht übernommen, auf den Flaschen der Seite stehen die aktuellen flachen Etiketten aus `Fertige Etiquetten/`.
 
 ### Flaschenfotos
 
-| Datei | Sorte / Likör | Sicherheit der Zuordnung |
-|---|---|---|
-| _DSC3024.jpg | Poire Williams (`poire-williams`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3025.jpg | Mirabelle (`mirabelle`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3026.jpg | Neelchesbiren (`neelchesbiren`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3027.jpg | Framboise (`framboise`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3028.jpg | Quetsch (`quetsch`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3029.jpg | Quetsch (`quetsch`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3030.jpg | nicht auf der Seite: Pomme (Apfel, altes Etikett) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3031.jpg | nicht auf der Seite: Pomme (Apfel, altes Etikett) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3032.jpg | Kirsch (`kirsch`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
-| _DSC3033.jpg | Poire (`poire`) | eindeutig (Etikett gelesen) |
-| _DSC3034.jpg | Poire (`poire`) | eindeutig (Etikett gelesen) |
-| _DSC3035.jpg | Lënschouren (`lenschouren`) | eindeutig (Etikett gelesen) |
-| _DSC3036.jpg | Mirabelle (`mirabelle`) | eindeutig (Etikett gelesen) |
-| _DSC3037.jpg | Schléiwen (`schleiwen`) | eindeutig (Etikett gelesen) |
-| _DSC3038.jpg | Kirsch (`kirsch`) | eindeutig (Etikett gelesen) |
-| _DSC3039.jpg | Neelchesbiren (`neelchesbiren`) | eindeutig (Etikett gelesen) |
-| _DSC3040.jpg | Kirsch (`kirsch`) | eindeutig (Etikett gelesen) |
-| _DSC3041.jpg | Framboise (`framboise`) | eindeutig (Etikett gelesen) |
-| _DSC3042.jpg | Poire Williams (`poire-williams`) | eindeutig (Etikett gelesen) |
-| _DSC3044.jpg | Quetsch (`quetsch`) | eindeutig (Etikett gelesen) |
-| _DSC3046.jpg | Kräiderdrëpp (`kraeiderdrepp`) | eindeutig (Etikett gelesen) |
-| _DSC3047.jpg | Hunnegdrëpp (`hunnegdrepp`) | eindeutig (Etikett gelesen) |
-| _DSC3048.jpg | nicht auf der Seite: Peffermënz | eindeutig (Etikett gelesen) |
-| _DSC3049.jpg | Kiwibeeren (`kiwibeeren`) | eindeutig (Etikett gelesen) |
-| _DSC3050.jpg | nicht auf der Seite: Nëssdrëpp | eindeutig (Etikett gelesen) |
-| _DSC3051.jpg | Vieille Pomme (`vieille-pomme`) | eindeutig (Etikett gelesen) |
-| _DSC3052.jpg | Vieille Prune (`vieille-prune`) | eindeutig (Etikett gelesen) |
-| _DSC3053.jpg | nicht auf der Seite: Williamsdrëpp op Biren nogeräift, 35 % (Variante von Poire Williams; nicht Hauptsorte) | eindeutig (Etikett gelesen) |
-| _DSC3054.jpg | Vizdrëpp (`vizdrepp`) | eindeutig (Etikett gelesen) |
-| _DSC3055.jpg | nicht auf der Seite: Williamslikör | eindeutig (Etikett gelesen) |
-| _DSC3056.jpg | nicht auf der Seite: Vizlikör, Apfel | eindeutig (Etikett gelesen) |
-| _DSC3057.jpg | nicht auf der Seite: Quittenlikör | eindeutig (Etikett gelesen) |
-| _DSC3058.jpg | nicht auf der Seite: De wëlle Mix, Waldfrüchte-Likör | eindeutig (Etikett gelesen) |
-| _DSC3059.jpg | nicht auf der Seite: Schléiwenlikör | eindeutig (Etikett gelesen) |
-| _DSC3060.jpg | nicht auf der Seite: Pijenlikör, Aprikose | eindeutig (Etikett gelesen) |
-| _DSC3061.jpg | nicht auf der Seite: Hambierlikör, Himbeere | eindeutig (Etikett gelesen) |
-| _DSC3063.jpg | nicht auf der Seite: Mirabellenlikör | eindeutig (Etikett gelesen) |
-| _DSC3064.jpg | nicht auf der Seite: Mandellikör | eindeutig (Etikett gelesen) |
-| _DSC3065.jpg | nicht auf der Seite: Kiischtenlikör, Kirsche | eindeutig (Etikett gelesen) |
-| _DSC3066.jpg | nicht auf der Seite: Kräiderlikör | eindeutig (Etikett gelesen) |
+| Neuer Name | Alter Name | Sorte / Likör | Sicherheit der Zuordnung |
+|---|---|---|---|
+| flasche-poire-williams-altes-etikett.jpg | _DSC3024.jpg | Poire Williams (`poire-williams`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-mirabelle-altes-etikett.jpg | _DSC3025.jpg | Mirabelle (`mirabelle`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-neelchesbiren-altes-etikett.jpg | _DSC3026.jpg | Neelchesbiren (`neelchesbiren`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-framboise-altes-etikett.jpg | _DSC3027.jpg | Framboise (`framboise`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-quetsch-altes-etikett.jpg | _DSC3028.jpg | Quetsch (`quetsch`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-quetsch-altes-etikett-2.jpg | _DSC3029.jpg | Quetsch (`quetsch`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-pomme-altes-etikett.jpg | _DSC3030.jpg | nicht auf der Seite: Pomme (Apfel, altes Etikett) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-pomme-altes-etikett-2.jpg | _DSC3031.jpg | nicht auf der Seite: Pomme (Apfel, altes Etikett) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-kirsch-altes-etikett.jpg | _DSC3032.jpg | Kirsch (`kirsch`) | eindeutig (Etikett gelesen); Etikett älteres Design („Marque Nationale“), nicht übernehmen |
+| flasche-poire.jpg | _DSC3033.jpg | Poire (`poire`) | eindeutig (Etikett gelesen) |
+| flasche-poire-2.jpg | _DSC3034.jpg | Poire (`poire`) | eindeutig (Etikett gelesen) |
+| flasche-lenschouren.jpg | _DSC3035.jpg | Lënschouren (`lenschouren`) | eindeutig (Etikett gelesen) |
+| flasche-mirabelle.jpg | _DSC3036.jpg | Mirabelle (`mirabelle`) | eindeutig (Etikett gelesen) |
+| flasche-schleiwen.jpg | _DSC3037.jpg | Schléiwen (`schleiwen`) | eindeutig (Etikett gelesen) |
+| flasche-kirsch.jpg | _DSC3038.jpg | Kirsch (`kirsch`) | eindeutig (Etikett gelesen) |
+| flasche-neelchesbiren.jpg | _DSC3039.jpg | Neelchesbiren (`neelchesbiren`) | eindeutig (Etikett gelesen) |
+| flasche-kirsch-2.jpg | _DSC3040.jpg | Kirsch (`kirsch`) | eindeutig (Etikett gelesen) |
+| flasche-framboise.jpg | _DSC3041.jpg | Framboise (`framboise`) | eindeutig (Etikett gelesen) |
+| flasche-poire-williams.jpg | _DSC3042.jpg | Poire Williams (`poire-williams`) | eindeutig (Etikett gelesen) |
+| flasche-quetsch.jpg | _DSC3044.jpg | Quetsch (`quetsch`) | eindeutig (Etikett gelesen) |
+| flasche-kraeiderdrepp.jpg | _DSC3046.jpg | Kräiderdrëpp (`kraeiderdrepp`) | eindeutig (Etikett gelesen) |
+| flasche-hunnegdrepp.jpg | _DSC3047.jpg | Hunnegdrëpp (`hunnegdrepp`) | eindeutig (Etikett gelesen) |
+| flasche-pefferminz.jpg | _DSC3048.jpg | nicht auf der Seite: Peffermënz | eindeutig (Etikett gelesen) |
+| flasche-kiwibeeren.jpg | _DSC3049.jpg | Kiwibeeren (`kiwibeeren`) | eindeutig (Etikett gelesen) |
+| flasche-noessdrepp.jpg | _DSC3050.jpg | nicht auf der Seite: Nëssdrëpp | eindeutig (Etikett gelesen) |
+| flasche-vieille-pomme.jpg | _DSC3051.jpg | Vieille Pomme (`vieille-pomme`) | eindeutig (Etikett gelesen) |
+| flasche-vieille-prune.jpg | _DSC3052.jpg | Vieille Prune (`vieille-prune`) | eindeutig (Etikett gelesen) |
+| flasche-williamsdrepp-nogeraeift.jpg | _DSC3053.jpg | nicht auf der Seite: Williamsdrëpp op Biren nogeräift, 35 % (Variante von Poire Williams; nicht Hauptsorte) | eindeutig (Etikett gelesen) |
+| flasche-vizdrepp.jpg | _DSC3054.jpg | Vizdrëpp (`vizdrepp`) | eindeutig (Etikett gelesen) |
+| flasche-likoer-williams.jpg | _DSC3055.jpg | nicht auf der Seite: Williamslikör | eindeutig (Etikett gelesen) |
+| flasche-likoer-viz.jpg | _DSC3056.jpg | nicht auf der Seite: Vizlikör, Apfel | eindeutig (Etikett gelesen) |
+| flasche-likoer-quitten.jpg | _DSC3057.jpg | nicht auf der Seite: Quittenlikör | eindeutig (Etikett gelesen) |
+| flasche-likoer-waldfruechte.jpg | _DSC3058.jpg | nicht auf der Seite: De wëlle Mix, Waldfrüchte-Likör | eindeutig (Etikett gelesen) |
+| flasche-likoer-schleiwen.jpg | _DSC3059.jpg | nicht auf der Seite: Schléiwenlikör | eindeutig (Etikett gelesen) |
+| flasche-likoer-pije.jpg | _DSC3060.jpg | nicht auf der Seite: Pijenlikör, Aprikose | eindeutig (Etikett gelesen) |
+| flasche-likoer-hambier.jpg | _DSC3061.jpg | nicht auf der Seite: Hambierlikör, Himbeere | eindeutig (Etikett gelesen) |
+| flasche-likoer-mirabellen.jpg | _DSC3063.jpg | nicht auf der Seite: Mirabellenlikör | eindeutig (Etikett gelesen) |
+| flasche-likoer-mandel.jpg | _DSC3064.jpg | nicht auf der Seite: Mandellikör | eindeutig (Etikett gelesen) |
+| flasche-likoer-kiischten.jpg | _DSC3065.jpg | nicht auf der Seite: Kiischtenlikör, Kirsche | eindeutig (Etikett gelesen) |
+| flasche-likoer-kraider.jpg | _DSC3066.jpg | nicht auf der Seite: Kräiderlikör | eindeutig (Etikett gelesen) |
 
 ### Raumfotos
 
-| Datei | Größe | Motiv | Art | Sicherheit |
-|---|---|---|---|---|
-| _DSC0364.jpg | 1920x1282 | Verkaufsraum mit Holzregal und Theke | Raumfoto, keine Sorte | eindeutig |
-| _DSC5258.jpg | 1920x1281 | Brennanlage (Edelstahl und Kupfer), Detail | Raumfoto | eindeutig |
-| _DSC5270.jpg | 1920x1281 | Fassraum mit Eichenfässern und Edelstahltanks | Raumfoto | eindeutig |
-| _DSC2076.jpg | 5472x3648 | Brennhalle mit Kolonne (großes Original) | Raumfoto | eindeutig |
-| _DSC3491.jpg | 5940x3964 | Hofansicht mit Schild „Hierber Brennerei“ (großes Original) | Raumfoto | eindeutig |
+| Neuer Name | Alter Name | Größe | Motiv | Art | Sicherheit |
+|---|---|---|---|---|---|
+| raum-verkaufsraum.jpg | _DSC0364.jpg | 1920x1282 | Verkaufsraum mit Holzregal und Theke | Raumfoto, keine Sorte | eindeutig |
+| raum-brennanlage-detail.jpg | _DSC5258.jpg | 1920x1281 | Brennanlage (Edelstahl und Kupfer), Detail | Raumfoto | eindeutig |
+| raum-fassraum.jpg | _DSC5270.jpg | 1920x1281 | Fassraum mit Eichenfässern und Edelstahltanks | Raumfoto | eindeutig |
+| raum-brennhalle-original.jpg | _DSC2076.jpg | 5472x3648 | Brennhalle mit Kolonne (großes Original) | Raumfoto | eindeutig |
+| raum-hof-original.jpg | _DSC3491.jpg | 5940x3964 | Hofansicht mit Schild „Hierber Brennerei“ (großes Original) | Raumfoto | eindeutig |
 
 Sorten der Seite ohne Foto in `Fotos/`: Gin, Wodka, Rum, Rum Orange, Whisky, Hunneg Whisky, Aale Fruucht, Vieux Marc, Kürbisdrëpp, Grain, Hondsaarsch, Vullekiischt, Sambuca, Limoncello (14); mit Foto: 15 Sorten. Liköre (Williams-, Viz-, Quitten-, Pijen-, Hambier-, Mirabellen-, Mandel-, Kiischten-, Kräider-, Schléiwenlikör, De wëlle Mix), Pefferminz, Nëssdrëpp und Williamsdrëpp op Biren nogeräift (35 %) stehen nicht in `produkte.js` bzw. sind keine eigene Sorte der Seite: nur als „nicht auf der Seite“ vermerkt.

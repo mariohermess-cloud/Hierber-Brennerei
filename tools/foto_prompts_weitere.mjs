@@ -3,7 +3,7 @@
 //   Exit-Code 1, wenn eine Anhangdatei fehlt, ein Dateiname doppelt vorkommt, die Bildzahl nicht stimmt, ein Prompt über 200 Wörter hat
 //   oder eine Szene/Farbe/Verschluss fehlt.
 // Liest (nur lesend): site/data/produkte.js, serviervorschlaege.js, fluessigkeit.js, ki-bilder.js, v2/data/etiketten.json,
-//   Fertige Etiquetten/, fotos/, Fotos/ (nur Existenzprüfung), fotos-ki/ (nur Existenzprüfung)
+//   Fertige Etiquetten/, fotos/, Fotos/ (nur Existenzprüfung), fotos-ki/ (nur Existenzprüfung; bestimmt den Status vorhanden/offen)
 // Schreibt: BILDERLISTE.md, PROMPTS-FOTOS-WEITERE.md, tools/foto-prompts-weitere.json, PROMPTS-FOTOS-ERSATZ.md, tools/foto-prompts-ersatz.json
 //
 // Benennung (verbindlich): fotos-ki/<sorten-id>-<n>.png. Die Nummer 1 ist das vorhandene Hauptbild (Vorschlag laut ki-bilder.js).
@@ -12,11 +12,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PRODUKTE, PLATZHALTER } from '../site/data/produkte.js';
+import { PRODUKTE } from '../site/data/produkte.js';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
 import { FLUESSIGKEIT } from '../site/data/fluessigkeit.js';
 import { KI_BILDER, kartenNummern } from '../site/data/ki-bilder.js';
-import { STIL, VORLAGE, FOTO_STATT_ETIKETT, RUM_ORANGE_FORM, ADRESSE, woerter } from './foto_gemeinsam.mjs';
+import { STIL, VORLAGE, flaschenVorlage, ADRESSE, woerter } from './foto_gemeinsam.mjs';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
@@ -25,8 +25,8 @@ const fehler = [];
 const fail = (m) => fehler.push(m);
 
 const WORTGRENZE = 200;
-// Erwartete Zahl fehlender Bilder. Der Auftrag nannte 94 (= 98 Platzhalter minus 4 Startseite); in den Daten stehen aber 121 Vorschläge
-// (29 Sorten), davon 29 mit KI-Bild = 92 fehlend. Die 2 weiteren Platzhalter der Seiten sind Etiketten (Rum Orange), keine Serviervorschläge.
+// Zahl der weiteren Bilder (ohne Hauptbild -1): in den Daten stehen 121 Vorschläge (29 Sorten), davon 29 Hauptbilder = 92 weitere.
+// Welche davon schon als Datei in fotos-ki/ liegen, bestimmt der Status (vorhanden/offen).
 const ERWARTET_FEHLEND = 92;
 const ERWARTET_VORHANDEN = 29;
 
@@ -38,40 +38,41 @@ const FARBE = {
   'vieille-prune': 'klares, kräftiges Goldgelb', 'vieille-pomme': 'klares Goldgelb', hunnegdrepp: 'tiefes Honiggold',
   vizdrepp: 'kräftiges, klares Goldgelb', limoncello: 'leuchtendes Gelbgrün',
 };
-// Verschluss je Sorte, beschrieben nach den Fotos in fotos/ (flaschen-*.webp, flasche-hunnegdrepp.png, flaschenreihe-theke.jpg)
+// Verschluss je Sorte, beschrieben nach den Produktfotos in fotos/ (flaschen-*.webp, flaschenreihe-theke.jpg) und den Flaschenfotos in Fotos/.
+// Die Beschreibung ist eigenständig (kein Verweis auf "wie im Foto"), weil Anhang 1 bei Sorten ohne eigenes Flaschenfoto die Standardvorlage ist.
 const KAPPE_SCHLANK = 'klarer Glasstopfen';
 const VERSCHLUSS = {
   gin: 'flache, mattsilberne Metallkappe',
   wodka: 'flache, mattsilberne Metallkappe',
-  rum: 'flache dunkle Holzkappe, braunes Halsband am Flaschenhals wie im Foto',
+  rum: 'flache dunkle Holzkappe, braunes Halsband am Flaschenhals',
   'rum-orange': 'flache dunkle Holzkappe wie bei Rum, kein Halsband',
   'hierber-fruucht': 'flache dunkle Holzkappe',
   whisky: 'schwarze, geriffelte Schraubkappe',
   'hunneg-whisky': 'schwarze, geriffelte Schraubkappe',
   'vieux-marc': 'schwarzer, profilierter Stopfen mit Wulst am Hals',
-  sambuca: 'Ausgießer mit zwei dunklen Metallröhrchen, Halsband wie im Foto',
-  limoncello: 'Ausgießer mit zwei dunklen Metallröhrchen, Halsband wie im Foto',
-  vizdrepp: 'klarer Glasstopfen (flacher Kragen, wie auf Fotos/_DSC3054.jpg)',
-};
-// Abweichende Flaschenvorlage (statt der Vorlage nach Flaschentyp)
-const VORLAGE_SONDER = {
-  vizdrepp: { datei: 'Fotos/_DSC3054.jpg', hinweis: 'echte Vizdrëpp-Flasche (breite, nach unten weitende Form, Glasstopfen); nur die Form nutzen, das Etikett auf dem Foto nicht übernehmen' },
+  sambuca: 'Ausgießer mit zwei dunklen Metallröhrchen, Halsband am Flaschenhals',
+  limoncello: 'Ausgießer mit zwei dunklen Metallröhrchen, Halsband am Flaschenhals',
+  vizdrepp: 'klarer Glasstopfen mit flachem, breitem Kragen',
 };
 // Etikett-Alkoholangabe weicht von der Preisliste ab: Wert des Etiketts bleibt, Hinweis an den Nutzer
 const ABV_HINWEIS = {
-  rum: 'Das Etikett (Foto) nennt 40 % vol., die Preisliste 43 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).',
+  rum: 'Das Etikett nennt 40 % vol., die Preisliste 43 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).',
   kuerbisdrepp: 'Das Etikett nennt 40 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).',
   kiwibeeren: 'Das Etikett nennt 43 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).',
 };
+
+// Hauptbilder, die der Nutzer laut eigener Angabe bereits durch ein neues Bild ersetzt hat (Datei neuer als die übrigen): Status „ersetzt, bitte prüfen“.
+// Bei den anderen Ersatzbildern kann das Skript das nicht wissen, sie bleiben „offen“.
+const ERSETZT_PRUEFEN = new Set(['lenschouren']);
 
 // Fehler der ersten 29 Bilder (TODO-INHALTE.md, Abschnitt 6). Sorten mit Eintrag bekommen einen Ersatz-Prompt.
 const FEHLER = {
   gin: 'Adresszeile verfälscht („L. Hallinger L-6831 Herborn, Tél. 72 7602“), Etikettenmuster weicht ab.',
   wodka: 'Etikett am unteren Rand angeschnitten („www.hierber-brennere…“), Adresse verfälscht („Z. Millewee L-6665 hoıxn“).',
-  rum: 'Etikett nur aus Foto abgeleitet: „1-6665“ statt „L-6665“, braunes Halsband fehlt, Etikett heller als im Foto.',
-  'rum-orange': 'Erfundenes Etikett (Orange/Creme mit Orangenscheibe), Orangenblätter und -hälften auf dem Tisch stehen nicht im Rezept.',
-  sambuca: 'Etikett nur aus Foto abgeleitet; echte Flasche hat Ausgießer mit zwei Metallröhrchen und Halsband, im Bild ein Korken.',
-  limoncello: 'Adresse ohne „L-6665“; echte Flasche mit Ausgießer, im Bild ein Korken.',
+  rum: 'Etikett nur aus dem alten Produktfoto abgeleitet („1-6665“ statt „L-6665“, braunes Halsband fehlt, Etikett heller); das flache Etikett liegt jetzt vor.',
+  'rum-orange': 'Erfundenes Etikett, nicht das echte (das echte hat Segelschiff, Weltkarte und Orangenhälfte mit Blättern); Orangenblätter und -hälften auf dem Tisch stehen nicht im Rezept. Das flache Etikett liegt jetzt vor.',
+  sambuca: 'Etikett nur aus dem alten Produktfoto abgeleitet (das echte ist rot mit Fellstruktur); echte Flasche hat Ausgießer mit zwei Metallröhrchen und Halsband, im Bild ein Korken.',
+  limoncello: 'Adresse ohne „L-6665“; echte Flasche mit Ausgießer, im Bild ein Korken. Das flache Etikett liegt jetzt vor.',
   whisky: 'Adresse links abgeschnitten („Millewee“ ohne „2,“), Fass im Hintergrund.',
   'hunneg-whisky': 'Kräuterzweige im Hintergrund und Orangenstücke auf dem Tisch stehen nicht im Rezept.',
   kuerbisdrepp: 'Gericht statt Getränk im Fokus; Thymian und Pfeffer auf der Suppe nicht im Rezept; Flaschenhals/Kappe am oberen Bildrand abgeschnitten.',
@@ -287,18 +288,16 @@ function sortenInfo(p) {
   if (!fl) { fail(`${p.id}: kein Eintrag in fluessigkeit.js`); return null; }
   const farbe = fl.klar ? 'klar wie Wasser' : FARBE[p.id];
   if (!farbe) { fail(`${p.id}: keine Farbbeschreibung (fluessigkeit.js: ${fl.farbe}, nicht klar)`); return null; }
-  const typ = (etik.find((e) => e.sorte === p.id && e.verwendet) || PLATZHALTER[p.id] || {}).flaschentyp || (PLATZHALTER[p.id] || {}).typ;
+  const typ = (etik.find((e) => e.sorte === p.id && e.verwendet) || {}).flaschentyp;
   if (!typ || !VORLAGE[typ]) { fail(`${p.id}: kein Flaschentyp in etiketten.json`); return null; }
   const flach = etik.find((e) => e.sorte === p.id && e.variante === 'standard' && e.art === 'flach' && e.verwendet);
-  let art, anhang1, anhang2;
-  if (flach) { art = 'flach'; anhang1 = (VORLAGE_SONDER[p.id] || VORLAGE[typ]).datei; anhang2 = `Fertige Etiquetten/${flach.datei}`; }
-  else if (FOTO_STATT_ETIKETT[p.id]) { art = 'foto'; anhang1 = FOTO_STATT_ETIKETT[p.id]; anhang2 = null; }
-  else if (p.id === 'rum-orange') { art = 'neutral'; anhang1 = RUM_ORANGE_FORM; anhang2 = null; }
-  else { fail(`${p.id}: weder flaches Etikett noch Foto`); return null; }
-  for (const f of [anhang1, anhang2].filter(Boolean)) if (!existiert(f)) fail(`${p.id}: Anhang fehlt: ${f}`);
+  if (!flach) { fail(`${p.id}: kein flaches Etikett in etiketten.json`); return null; }
+  const vorlage = flaschenVorlage(p.id, p.kurzname, typ);
+  const anhang1 = vorlage.datei, anhang2 = `Fertige Etiquetten/${flach.datei}`;
+  for (const f of [anhang1, anhang2]) if (!existiert(f)) fail(`${p.id}: Anhang fehlt: ${f}`);
   const verschluss = VERSCHLUSS[p.id] || (typ === 'schlank' ? KAPPE_SCHLANK : null);
   if (!verschluss) { fail(`${p.id}: kein Verschluss beschrieben`); return null; }
-  return { fl, farbe, typ, art, anhang1, anhang2, verschluss };
+  return { fl, farbe, typ, foto: vorlage.foto, vorlageHinweis: vorlage.hinweis, anhang1, anhang2, verschluss };
 }
 
 // ---------- Prompt ----------
@@ -306,27 +305,22 @@ function baueFlasche(p, s, v) {
   const gefaess = s.typ === 'karaffe' ? 'Karaffe' : 'Flasche';
   const neben = v.typ === 'In der Küche / Dessert' ? 'dem Gericht (Hauptmotiv)' : v.typ === 'Zum Essen' ? 'dem Essen und dem Glas' : 'dem Getränk';
   const voll = `Die ${gefaess} steht vollständig im Bild neben ${neben}: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum.`;
-  if (s.art === 'flach') {
-    return `${voll} Form aus Anhang 1 ohne dessen Etikett, Verschluss: ${s.verschluss}. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe ${gefaess} gelegt, Rundung sichtbar. Adresszeile fest: „${ADRESSE}“. Alkoholangabe wie in Anhang 2. Brand in der ${gefaess}: ${s.farbe}.`;
-  }
-  if (s.art === 'foto') {
-    return `${voll} Die große 0,5-L-Flasche aus Anhang 1 exakt wie auf dem Foto: Form, Etikett, Verschluss (${s.verschluss}), kein Buchstabe anders, Etikett um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „${ADRESSE}“. Alkoholangabe wie im Foto. Brand in der Flasche: ${s.farbe}.`;
-  }
-  return `${voll} Form und Verschluss wie die große Flasche in Anhang 1 (${s.verschluss}), aber ohne deren Etikett: stattdessen ein neutrales, leeres weißes Etikett ohne jeden Text und jede Grafik, um die halbe Flasche gelegt, Rundung sichtbar. Brand in der Flasche: ${s.farbe}.`;
+  const form = (s.foto || s.typ === 'schlank')
+    ? `Form und Verschluss aus Anhang 1 (${s.verschluss}), aber ohne dessen Etikett`
+    : `Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: ${s.verschluss}`;
+  return `${voll} ${form}. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe ${gefaess} gelegt, Rundung sichtbar. Adresszeile fest: „${ADRESSE}“. Alkoholangabe wie in Anhang 2. Brand in der ${gefaess}: ${s.farbe}.`;
 }
 const REGEL = 'Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.';
 function bauePrompt(p, s, v, szene) {
-  const negativ = s.art === 'neutral' ? 'Negativ: Text oder Grafik auf dem Etikett, zweite Flasche, Fantasieschrift.' : 'Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.';
+  const negativ = 'Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.';
   return [`Erstelle ein Foto. ${STIL}`, `Szene: ${szene}`, `Flasche: ${baueFlasche(p, s, v)}`, REGEL, negativ].join('\n');
 }
 
 function baueHinweise(p, s, v, ersatz) {
   const h = [];
   h.push('Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.');
-  if (s.art === 'flach') h.push(`Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „${ADRESSE}“.`);
-  else if (s.art === 'foto') h.push(`Etikett mit dem Foto in Anhang 1 vergleichen und die Adresszeile prüfen: „${ADRESSE}“. Verschluss: ${s.verschluss}.`);
-  else h.push('Etikett muss komplett leer sein (kein Text, keine Grafik). Im Bild darf nichts Erfundenes auf der Flasche stehen.');
-  if (s.art !== 'neutral') h.push('Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.');
+  h.push(`Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „${ADRESSE}“.`);
+  h.push('Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.');
   h.push(`Verschluss prüfen: ${s.verschluss}.`);
   h.push(`Nur Rezept-Zutaten im Bild: ${v.zutaten.map(([, z]) => z).join('; ')}. Beilagen nur aus: ${v.passtZu.join(', ')}.`);
   if (v.typ === 'In der Küche / Dessert') h.push('Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.');
@@ -334,11 +328,12 @@ function baueHinweise(p, s, v, ersatz) {
   if (s.fl.geschaetzt) h.push(`Flüssigkeitsfarbe ist in den Daten nur geschätzt (fluessigkeit.js: ${s.fl.farbe}); mit dem echten Produkt abgleichen.`);
   if (ABV_HINWEIS[p.id]) h.push(ABV_HINWEIS[p.id]);
   if (s.typ === 'karaffe') h.push('Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.');
-  if (s.art === 'neutral') h.push('Für Rum Orange gibt es weder Etikett noch Foto: das Etikett bleibt bewusst leer, das echte Etikett muss später im Bildeditor eingesetzt werden (Anhang 1 zeigt Rum, nur Flaschenform und Holzkappe nutzen).');
+  if (s.foto) h.push('Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.');
+  else h.push(`Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (${s.typ}); Verschluss und Brandfarbe stehen im Prompt.`);
   if (p.id === 'rum-orange') h.push('Verschluss (Holzkappe) ist angenommen wie bei Rum, es gibt kein Foto der Flasche.');
+  if (p.id === 'rum' || p.id === 'sambuca' || p.id === 'limoncello') h.push('Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.');
   if (p.id === 'hunneg-whisky') h.push('Verschluss (schwarze Schraubkappe) ist wie beim Whisky angenommen, es gibt kein Foto der Hunneg-Whisky-Flasche.');
-  if (p.id === 'vizdrepp') h.push('Anhang 1 ist hier die echte Vizdrëpp-Flasche aus Fotos/ (breite, nach unten weitende Form statt der runden Standardflasche); ihr Etikett nicht übernehmen.');
-  if (p.id === 'sambuca' || p.id === 'limoncello') h.push('Auf der Sortenseite steht das Etikett als „Platzhalter-Etikett – das echte Etikett folgt“; die Flasche im Bild zeigt das Foto-Etikett aus fotos/.');
+  if (p.id === 'vizdrepp') h.push('Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen).');
   return h;
 }
 
@@ -367,14 +362,15 @@ for (const p of PRODUKTE) {
     const hauptbild = n === 1;
     const e = {
       id: `${p.id}-${n}`, sorteId: p.id, sorte: p.name, kartennummer: i + 1, anzahlKarten: liste.length, vorschlag: v.name, typ: v.typ, glas: v.glas,
-      dateiname, anhang1: s.anhang1, anhang2: s.anhang2, anhang1Hinweis: s.art === 'foto' ? 'Produktfoto (Form, Etikett, Verschluss)' : s.art === 'neutral' ? 'nur Flaschenform und Holzkappe (Rum-Foto), Etikett nicht übernehmen' : (VORLAGE_SONDER[p.id] || VORLAGE[s.typ]).hinweis,
-      etikettArt: s.art, woerter: w, prompt, hinweise: baueHinweise(p, s, v),
+      dateiname, anhang1: s.anhang1, anhang2: s.anhang2, anhang1Hinweis: s.vorlageHinweis, anhang1Foto: s.foto,
+      status: existiert(dateiname) ? 'vorhanden' : 'offen', woerter: w, prompt, hinweise: baueHinweise(p, s, v),
     };
     alle.push(e);
     if (hauptbild) {
       if (!existiert(dateiname)) fail(`${dateiname}: vorhandenes Hauptbild fehlt in fotos-ki/`);
       vorhanden.push({ ...e, fehler: FEHLER[p.id] || null });
-      if (FEHLER[p.id]) ersatz.push({ ...e, fehler: FEHLER[p.id], hinweise: baueHinweise(p, s, v) });
+      // Ersatzbild: Status lässt sich aus der Datei nicht sicher ablesen; nur bekannte Fälle (ERSETZT_PRUEFEN) werden vermerkt
+      if (FEHLER[p.id]) ersatz.push({ ...e, fehler: FEHLER[p.id], status: ERSETZT_PRUEFEN.has(p.id) ? 'ersetzt, bitte prüfen' : 'offen', hinweise: baueHinweise(p, s, v) });
     } else weitere.push(e);
   });
 }
@@ -400,7 +396,7 @@ if (fehler.length) {
 
 // ---------- Ausgabe: PROMPTS-FOTOS-WEITERE.md / PROMPTS-FOTOS-ERSATZ.md ----------
 const a1 = (e) => `\`${e.anhang1}\``;
-const a2 = (e) => (e.anhang2 ? `\`${e.anhang2}\`` : e.etikettArt === 'neutral' ? 'entfällt (Etikett bleibt leer; es gibt kein Etikett)' : 'entfällt (Anhang 1 liefert Form und Etikett)');
+const a2 = (e) => `\`${e.anhang2}\``;
 const abschnitt = (e, nr, ersatzModus) => `---
 
 ## ${nr}. ${e.sorte}: ${e.vorschlag}
@@ -408,6 +404,7 @@ const abschnitt = (e, nr, ersatzModus) => `---
 - **Sorte:** ${e.sorte}
 - **Karte auf der Sortenseite:** Nr. ${e.kartennummer} von ${e.anzahlKarten}, „${e.vorschlag}“ (${e.typ})
 - **Ergebnis speichern als:** \`${e.dateiname}\`${ersatzModus ? ' (ersetzt das vorhandene Bild)' : ''}
+- **Status:** ${e.status}
 ${ersatzModus ? `- **Was am alten Bild falsch war:** ${e.fehler}\n` : ''}- **Anhang 1 (${e.anhang1Hinweis}):** ${a1(e)}
 - **Anhang 2 (Etikett):** ${a2(e)}
 - **Prompt:** ${e.woerter} Wörter
@@ -420,10 +417,14 @@ ${e.prompt}
 ${e.hinweise.map((h) => `- ${h}`).join('\n')}
 `;
 
-const kopfSchritte = `## So geht es in 5 Schritten
+const nVorhanden = weitere.filter((e) => e.status === 'vorhanden').length;
+const nOffen = weitere.length - nVorhanden;
+const kopfSchritte = `Automatisch abarbeiten statt von Hand: \`CHATGPT-STAPEL.md\` (Hauptprompt, Stapeldateien \`tools/chatgpt-stapel*.csv\`).
+
+## So geht es in 5 Schritten
 
 1. **Neuen Chat öffnen** (ChatGPT mit Bildgenerierung). Pro Bild immer einen **neuen** Chat, sonst kippt der Stil.
-2. **Anhänge:** Anhang 1 = Flaschenvorlage, Anhang 2 = Etikett der Sorte (genaue Dateinamen stehen beim Bild). Bei Rum, Limoncello, Sambuca und Rum Orange gibt es nur Anhang 1.
+2. **Anhänge:** Anhang 1 = Flaschenvorlage (Flaschenfoto der Sorte aus \`Fotos/\`, sonst Standardvorlage je Flaschentyp), Anhang 2 = flaches Etikett der Sorte (für alle 29 Sorten vorhanden); genaue Dateinamen stehen beim Bild.
 3. **Prompt einfügen:** den Text im Kasten kopieren und mit den Anhängen absenden.
 4. **Ergebnis prüfen** (Liste unter dem Kasten): Flasche vollständig, Etikett Wort für Wort, nur Rezept-Zutaten, Glas und Farbe.
 5. **Speichern** als PNG, 4:3 (1448×1086 px wie bisher, andere 4:3-Größen sind ok), genau unter dem Dateinamen aus dem Abschnitt, in den Ordner \`fotos-ki/\`. Danach baut \`node build.mjs\` das Bild automatisch an die richtige Karte.
@@ -443,22 +444,22 @@ const mdW = [];
 mdW.push(`# Prompts für KI-Fotos (ChatGPT): weitere Serviervorschläge
 
 Erzeugt mit \`node tools/foto_prompts_weitere.mjs\`. Nicht von Hand ändern, sondern das Skript anpassen und neu laufen lassen.
-**${weitere.length} Bilder** für alle Serviervorschläge der Sortenseiten, für die noch kein KI-Bild existiert (die ${vorhanden.length} Hauptbilder \`<sorten-id>-1.png\` gibt es schon, siehe \`PROMPTS-FOTOS.md\`). Die Liste zum Abhaken steht in \`BILDERLISTE.md\`, verbesserte Prompts für fehlerhafte Erstbilder in \`PROMPTS-FOTOS-ERSATZ.md\`.
+**${weitere.length} weitere Bilder** für alle Serviervorschläge der Sortenseiten (**${nVorhanden} davon liegen schon in \`fotos-ki/\`, ${nOffen} sind offen**; der Status steht bei jedem Bild und wird aus der Datei in \`fotos-ki/\` abgelesen). Die ${vorhanden.length} Hauptbilder \`<sorten-id>-1.png\` gibt es schon, siehe \`PROMPTS-FOTOS.md\`). Die Liste zum Abhaken steht in \`BILDERLISTE.md\`, verbesserte Prompts für fehlerhafte Erstbilder in \`PROMPTS-FOTOS-ERSATZ.md\`.
 
 **Benennung:** \`fotos-ki/<sorten-id>-<n>.png\`. Die Nummern 2, 3, 4 ... gehören zu den Karten der Sortenseite in der Reihenfolge der Karten, die Karte des Hauptbilds (\`-1\`) wird übersprungen. Beispiel Wodka: \`wodka-1.png\` zeigt Karte 2; Karte 1 wird \`wodka-2.png\`, Karte 3 \`wodka-3.png\`, Karte 4 \`wodka-4.png\`.
 
 ${kopfSchritte}
 ${stilBlock}
-**Verbesserungen gegenüber den ersten 29 Prompts** (in jedem Prompt enthalten): Flasche vollständig im Bild und nichts angeschnitten; nur Zutaten und Beilagen aus dem Rezept bzw. \`passtZu\`; Etikettentext exakt wie im Anhang inklusive fester Adresszeile; Verschluss der Sorte nach den Fotos aus \`fotos/\`; Flüssigkeitsfarbe nach \`site/data/fluessigkeit.js\`; bei Gerichten ist das Gericht Hauptmotiv, bei „Zum Essen“ steht ein Glas Brand daneben.
+**Verbesserungen gegenüber den ersten 29 Prompts** (in jedem Prompt enthalten): Flasche vollständig im Bild und nichts angeschnitten; nur Zutaten und Beilagen aus dem Rezept bzw. \`passtZu\`; Etikettentext exakt wie im Anhang inklusive fester Adresszeile; Anhang 1 ist das Flaschenfoto der Sorte (\`Fotos/flasche-<sorten-id>.jpg\`), nur ohne Foto die Standardvorlage; Verschluss der Sorte nach den Fotos; Flüssigkeitsfarbe nach \`site/data/fluessigkeit.js\`; bei Gerichten ist das Gericht Hauptmotiv, bei „Zum Essen“ steht ein Glas Brand daneben.
 `);
 weitere.forEach((e, i) => mdW.push(abschnitt(e, i + 1, false)));
 mdW.push(`---
 
 ## Übersicht
 
-| Nr | Sorte | Karte | Dateiname |
-|---|---|---|---|
-${weitere.map((e, i) => `| ${i + 1} | ${e.sorte} | ${e.vorschlag} | \`${e.dateiname}\` |`).join('\n')}
+| Nr | Sorte | Karte | Dateiname | Status |
+|---|---|---|---|---|
+${weitere.map((e, i) => `| ${i + 1} | ${e.sorte} | ${e.vorschlag} | \`${e.dateiname}\` | ${e.status} |`).join('\n')}
 `);
 
 const mdE = [];
@@ -466,7 +467,7 @@ mdE.push(`# Ersatz-Prompts für fehlerhafte Erstbilder (ChatGPT)
 
 Erzeugt mit \`node tools/foto_prompts_weitere.mjs\`. Nicht von Hand ändern.
 Für **${ersatz.length} der ${vorhanden.length}** vorhandenen Hauptbilder (\`fotos-ki/<sorten-id>-1.png\`) nennt \`TODO-INHALTE.md\` (Abschnitt 6) echte Fehler: verfälschte Adresse, angeschnittenes oder erfundenes Etikett, fehlender Verschluss, abgeschnittene Flasche, falsche Zutaten, Gericht ohne Getränk. Hier stehen verbesserte Prompts mit denselben Verbesserungen wie in \`PROMPTS-FOTOS-WEITERE.md\`.
-Das neue Bild **ersetzt** das vorhandene (gleicher Dateiname, Nutzer überschreibt die Datei). Nicht aufgeführt, weil ohne Befund: ${vorhanden.filter((e) => !e.fehler).map((e) => e.sorte).join(', ')}.
+Das neue Bild **ersetzt** das vorhandene (gleicher Dateiname, Nutzer überschreibt die Datei). Welche Ersatzbilder schon ersetzt wurden, kann das Skript nicht sicher wissen; nur ${[...ERSETZT_PRUEFEN].join(', ')} ist laut Nutzer bereits durch ein neues Bild ersetzt (Status „ersetzt, bitte prüfen“). Nicht aufgeführt, weil ohne Befund: ${vorhanden.filter((e) => !e.fehler).map((e) => e.sorte).join(', ')}.
 
 ${kopfSchritte}
 ${stilBlock}`);
@@ -475,9 +476,9 @@ mdE.push(`---
 
 ## Übersicht
 
-| Nr | Sorte | Karte | Dateiname | Fehler am alten Bild |
-|---|---|---|---|---|
-${ersatz.map((e, i) => `| ${i + 1} | ${e.sorte} | ${e.vorschlag} | \`${e.dateiname}\` | ${e.fehler} |`).join('\n')}
+| Nr | Sorte | Karte | Dateiname | Status | Fehler am alten Bild |
+|---|---|---|---|---|---|
+${ersatz.map((e, i) => `| ${i + 1} | ${e.sorte} | ${e.vorschlag} | \`${e.dateiname}\` | ${e.status} | ${e.fehler} |`).join('\n')}
 `);
 
 // ---------- BILDERLISTE.md ----------
@@ -485,28 +486,29 @@ const proN = {};
 for (const e of weitere) { const n = Number(e.id.match(/-(\d+)$/)[1]); proN[n] = (proN[n] || 0) + 1; }
 const wellen = Object.keys(proN).map(Number).sort((x, y) => x - y).map((n) => `\`-${n}\`: ${proN[n]}`).join(', ');
 const mdB = [];
-mdB.push(`# Bilderliste: was noch fehlt
+mdB.push(`# Bilderliste: was noch fehlt (Status automatisch)
 
 Erzeugt mit \`node tools/foto_prompts_weitere.mjs\`. Nicht von Hand ändern; den Status (Spalte rechts) trägt man in einer Kopie ein oder hakt auf Papier ab.
 
 ## Kurzanleitung
 
-- **${weitere.length} weitere Bilder** fehlen, **${vorhanden.length}** sind schon da (je Sorte \`-1\`, siehe unten).
+- **${weitere.length} weitere Bilder** insgesamt: **${nVorhanden} vorhanden**, **${nOffen} offen** (Status wird aus den Dateien in \`fotos-ki/\` abgelesen). Dazu sind die ${vorhanden.length} Hauptbilder (je Sorte \`-1\`, siehe unten) schon da.
+- Automatisch statt von Hand: \`CHATGPT-STAPEL.md\` (Stapeldateien \`tools/chatgpt-stapel*.csv\`).
 - Ablauf je Bild: Prompt aus \`PROMPTS-FOTOS-WEITERE.md\` kopieren, die beiden Anhänge aus der Tabelle anhängen (neuer Chat, ChatGPT Bildgenerierung), Ergebnis prüfen, als PNG 4:3 (1448×1086 px) unter dem **Dateinamen aus der Tabelle** in \`fotos-ki/\` speichern.
-- **Reihenfolge nach Wichtigkeit:** je Sorte zuerst die Datei mit \`-2\` (alle ${proN[2]} Sorten), danach alle \`-3\`, dann \`-4\`, \`-5\`. Stückzahl je Nummer: ${wellen}. In der Tabelle nach der Endung des Dateinamens suchen.
+- **Reihenfolge nach Wichtigkeit:** je Sorte zuerst die Datei mit \`-2\` (alle ${proN[2]} Sorten), danach alle \`-3\`, dann \`-4\`, \`-5\`. Stückzahl je Nummer (alle, auch vorhandene): ${wellen}. In der Tabelle nach der Endung des Dateinamens suchen.
 - Optional vorher die ${ersatz.length} fehlerhaften Erstbilder ersetzen: \`PROMPTS-FOTOS-ERSATZ.md\`.
-- Bilder, die nicht per KI gehen (Maische, Abfüllen, Karte, Rum-Orange-Etikett): letzter Abschnitt.
+- Bilder, die nicht per KI gehen (Maische, Abfüllen, Karte): letzter Abschnitt.
 
 **Benennungsregel:** \`fotos-ki/<sorten-id>-<n>.png\`. \`-1\` ist das vorhandene Hauptbild der Sorte. Die weiteren Karten der Sortenseite werden in Kartenreihenfolge ab 2 nummeriert, ohne die Karte des Hauptbilds.
 Beispiel Wodka: Karten 1 bis 4, \`wodka-1.png\` zeigt Karte 2 (Wodka-Tonic). Karte 1 (Wodka eiskalt) wird \`wodka-2.png\`, Karte 3 (Moscow Mule) \`wodka-3.png\`, Karte 4 (Wodka zu Räucherlachs) \`wodka-4.png\`.
 
-## Tabelle der ${weitere.length} fehlenden Bilder
+## Tabelle der ${weitere.length} weiteren Bilder
 
-Anhang 1 = Flaschenvorlage, Anhang 2 = Etikett (Dateien liegen im Repo, Pfade ab Repo-Wurzel). Status leer = offen.
+Anhang 1 = Flaschenvorlage (Foto der Sorte aus \`Fotos/\`, sonst Standardvorlage), Anhang 2 = flaches Etikett (Dateien liegen im Repo, Pfade ab Repo-Wurzel). Status: \`vorhanden\` = Datei liegt in \`fotos-ki/\`, \`offen\` = fehlt noch.
 
 | Nr | Sorte | Karte auf der Sortenseite (Titel) | Typ | Dateiname | Anhang 1 | Anhang 2 | Status |
 |---|---|---|---|---|---|---|---|
-${weitere.map((e, i) => `| ${i + 1} | ${e.sorte} | ${e.kartennummer}. ${e.vorschlag} | ${e.typ} | \`${e.dateiname}\` | \`${e.anhang1}\` | ${e.anhang2 ? `\`${e.anhang2}\`` : 'entfällt'} |  |`).join('\n')}
+${weitere.map((e, i) => `| ${i + 1} | ${e.sorte} | ${e.kartennummer}. ${e.vorschlag} | ${e.typ} | \`${e.dateiname}\` | \`${e.anhang1}\` | \`${e.anhang2}\` | ${e.status} |`).join('\n')}
 
 ## Bereits vorhanden (${vorhanden.length})
 
@@ -525,19 +527,18 @@ Diese Platzhalter der Startseite sollen nicht per KI entstehen. Es gibt dazu kei
 | Startseite, Schritt „Maische“ | Foto der angesetzten Maische (vergorene Obstmaische im Gärbehälter oder Fass). Als Foto für „Wie wir brennen“, Schritt 2. |
 | Startseite, Schritt „Abfüllen“ | Foto vom Abfüllen der Flaschen (Abfüllung von Brand in Flaschen am Hof). Schritt 5 von „Wie wir brennen“. |
 | Startseite, „Kartenansicht“ | Kartenbild der Lage (2, Millewee, L-6665 Herborn) als statisches Bild; bisher nur Link zu OpenStreetMap. Nutzungsrechte der Karte klären. |
-| Rum-Orange-Etikett | Das echte Etikett (Druckdatei) bzw. ein Foto der Flasche Hierber Rum Orange. Der Platzhalter erscheint auf der Startseite (Karte), auf der Sortenseite Rum Orange und in der Rum-Karte. |
 `);
 
 // ---------- JSON ----------
 const jsonFeld = (e, extra = {}) => ({
   id: e.id, sorteId: e.sorteId, sorte: e.sorte, kartennummer: e.kartennummer, vorschlag: e.vorschlag, typ: e.typ, dateiname: e.dateiname,
-  anhang1: e.anhang1, anhang2: e.anhang2, woerter: e.woerter, prompt: e.prompt, hinweise: e.hinweise, ...extra,
+  anhang1: e.anhang1, anhang2: e.anhang2, anhang1Foto: e.anhang1Foto, woerter: e.woerter, prompt: e.prompt, hinweise: e.hinweise, ...extra,
 });
 fs.writeFileSync(rel('BILDERLISTE.md'), mdB.join('\n'));
 fs.writeFileSync(rel('PROMPTS-FOTOS-WEITERE.md'), mdW.join('\n'));
 fs.writeFileSync(rel('PROMPTS-FOTOS-ERSATZ.md'), mdE.join('\n'));
-fs.writeFileSync(rel('tools', 'foto-prompts-weitere.json'), JSON.stringify(weitere.map((e) => jsonFeld(e)), null, 2) + '\n');
-fs.writeFileSync(rel('tools', 'foto-prompts-ersatz.json'), JSON.stringify(ersatz.map((e) => jsonFeld(e, { fehler: e.fehler })), null, 2) + '\n');
+fs.writeFileSync(rel('tools', 'foto-prompts-weitere.json'), JSON.stringify(weitere.map((e) => jsonFeld(e, { status: e.status })), null, 2) + '\n');
+fs.writeFileSync(rel('tools', 'foto-prompts-ersatz.json'), JSON.stringify(ersatz.map((e) => jsonFeld(e, { fehler: e.fehler, status: e.status })), null, 2) + '\n');
 
 const maxW = Math.max(...[...weitere, ...ersatz].map((e) => e.woerter));
-console.log(`OK: ${weitere.length} Prompts für fehlende Bilder + ${ersatz.length} Ersatz-Prompts (längster: ${maxW} Wörter), ${vorhanden.length} Bilder vorhanden, keine doppelten Dateinamen, alle Anhang-Dateien vorhanden.`);
+console.log(`OK: ${weitere.length} weitere Prompts (${nVorhanden} vorhanden, ${nOffen} offen) + ${ersatz.length} Ersatz-Prompts (längster: ${maxW} Wörter), ${vorhanden.length} Bilder vorhanden, keine doppelten Dateinamen, alle Anhang-Dateien vorhanden.`);

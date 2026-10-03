@@ -6,7 +6,7 @@ Die Bilder sind **Symbolbilder** (unter dem Bild steht „Symbolbild: Serviervor
 ## So geht es in 5 Schritten
 
 1. **Neuen Chat öffnen** (ChatGPT mit Bildgenerierung). Pro Sorte immer einen **neuen** Chat, sonst kippt der Stil.
-2. **Zwei Bilder anhängen:** Anhang 1 = Flaschenvorlage, Anhang 2 = Etikett der Sorte. Der genaue Dateiname steht bei jeder Sorte. Bei Rum, Limoncello, Sambuca und Rum Orange ist es nur ein Bild (steht dort dabei).
+2. **Zwei Bilder anhängen:** Anhang 1 = Flaschenvorlage (das Flaschenfoto der Sorte aus `Fotos/`, sonst eine Standardvorlage je Flaschentyp), Anhang 2 = flaches Etikett der Sorte (für alle 29 Sorten vorhanden). Der genaue Dateiname steht bei jeder Sorte.
 3. **Prompt einfügen:** den Text im Kasten der Sorte kopieren (Kopier-Symbol am Kasten) und im Chat absenden.
 4. **Ergebnis prüfen:** Etikett im Bild Wort für Wort mit dem Anhang vergleichen, dazu Glas, Garnitur, Eis und Flüssigkeitsfarbe. KI verfälscht gern Schrift. Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
 5. **Speichern** unter dem Dateinamen, der bei der Sorte steht (`fotos-ki/<sorten-id>-1.jpg`).
@@ -75,22 +75,22 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Rum und Ginger mit Limette (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/rum-1.png`
-- **Anhang 1 (Produktfoto (Form und Etikett)):** `fotos/flaschen-rum-02-05.webp`
-- **Anhang 2 (Etikett):** entfällt (das Foto in Anhang 1 liefert Form und Etikett)
-- **Prompt:** 163 Wörter
+- **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
+- **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`
+- **Prompt:** 165 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Rum und Ginger im Longdrinkglas, viel Eis, eine ausgedrückte Limettenspalte im Glas. Das Getränk ist helles Goldbernstein und perlt leicht, etwas heller als pur. Im unscharfen Hintergrund ein Burger auf einem Holzbrett.
-Flasche: Neben dem Getränk steht scharf die große 0,5-L-Flasche aus Anhang 1, Form und Etikett exakt wie auf dem Foto, keine Buchstaben verändern. Das Etikett nicht neu zeichnen oder schreiben; es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.
+Flasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.
 Farbe des Brandes in der Flasche: goldenes Bernstein.
 Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.
 ```
 
 **Prüfen:**
-- Etikett im Bild mit dem Foto in Anhang 1 vergleichen (große Flasche rechts).
-- Bei Fehlern nachlegen: „Etikett exakt wie auf dem Foto, keine Buchstaben verändern.“
-- Bleibt der Text falsch: Etikett später im Bildeditor einsetzen.
+- Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
+- Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
+- Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
 
 ---
 
@@ -98,24 +98,23 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Rum Orange-Highball (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/rum-orange-1.png`
-- **Anhang 1 (nur Flaschenform (Rum-Foto), Etikett nicht übernehmen):** `fotos/flaschen-rum-02-05.webp`
-- **Anhang 2 (Etikett):** entfällt (kein Etikett und kein Foto vorhanden)
-- **Prompt:** 145 Wörter
+- **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
+- **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
+- **Prompt:** 157 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Rum-Orange-Highball im Highballglas, viel Eis, eine frische Orangenscheibe im Glas. Das Getränk ist orange-bernsteinfarben und perlt leicht von Sodawasser. Daneben unscharf ein paar Käsegebäck-Stangen.
-Flasche: Neben dem Getränk steht scharf die große 0,5-L-Flasche in der Form von Anhang 1, aber ohne deren Etikett: stattdessen ein neutrales, leeres weißes Etikett ohne Text und Grafik, das sich um die halbe Flasche legt, Rundung sichtbar.
+Flasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.
 Farbe des Brandes in der Flasche: orange-bernsteinfarben.
-Negativ: jeder Text oder jede Grafik auf dem Etikett, zweite Flasche, Fantasieschrift.
+Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.
 ```
 
 **Prüfen:**
-- Es gibt kein Etikett und kein Foto dieser Sorte: das Etikett bleibt bewusst leer. Es darf kein erfundener Text auf der Flasche stehen.
-- Steht doch Text auf dem Etikett, nachlegen: „Etikett komplett leer lassen, kein Text, keine Grafik.“
-- Das echte Etikett später im Bildeditor einsetzen oder das Bild nur ohne Flasche verwenden.
+- Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
+- Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
+- Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
 - Flüssigkeitsfarbe der Flasche ist in den Daten nur geschätzt (fluessigkeit.js: #c67a1c); mit dem echten Produkt abgleichen.
-- Anhang 1 zeigt die Rum-Flasche mit Rum-Etikett: nur die Flaschenform nutzen. Für Rum Orange gibt es weder Etikett noch Foto.
 
 ---
 
@@ -146,7 +145,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Kirsch-Sour (Cocktail), Nr. 3 von 5 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/kirsch-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
 - **Prompt:** 161 Wörter
 
@@ -162,6 +161,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -169,7 +169,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Framboise-Spritz mit Crémant (Cocktail), Nr. 3 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/framboise-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Framboise-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-framboise.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
 - **Prompt:** 160 Wörter
 
@@ -185,6 +185,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -192,7 +193,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Quetsch-Sour (Cocktail), Nr. 2 von 5 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/quetsch-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
 - **Prompt:** 160 Wörter
 
@@ -208,6 +209,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -215,7 +217,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Poire Williams Fizz (Cocktail), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/poire-williams-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Poire Williams-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire-williams.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
 - **Prompt:** 160 Wörter
 
@@ -231,6 +233,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -238,7 +241,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Mirabelle-Tonic mit Thymian (Auf Eis / Longdrink), Nr. 2 von 5 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/mirabelle-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Prompt:** 159 Wörter
 
@@ -254,6 +257,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -309,7 +313,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Vieille Prune auf einem großen Eiswürfel (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/vieille-prune-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Vieille Prune-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-prune.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
 - **Prompt:** 154 Wörter
 
@@ -325,6 +329,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -332,7 +337,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Vieille Pomme mit Ginger Beer (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/vieille-pomme-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Vieille Pomme-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-pomme.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
 - **Prompt:** 157 Wörter
 
@@ -348,6 +353,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -355,7 +361,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Hunnegdrëpp-Sour (Cocktail), Nr. 3 von 5 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/hunnegdrepp-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Prompt:** 158 Wörter
 
@@ -371,6 +377,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -402,7 +409,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Kräiderdrëpp-Tonic mit Gurkenscheiben (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/kraeiderdrepp-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Kräiderdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kraeiderdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
 - **Prompt:** 159 Wörter
 
@@ -418,6 +425,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -425,7 +433,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Kürbissuppe mit einem Schuss Kürbisdrëpp (In der Küche / Dessert), Nr. 3 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/kuerbisdrepp-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
 - **Prompt:** 157 Wörter
 
@@ -448,7 +456,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Grain mit Apfelsaft auf Eis (Auf Eis / Longdrink), Nr. 2 von 3 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/grain-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
 - **Prompt:** 157 Wörter
 
@@ -471,7 +479,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Hondsaarsch-Tonic mit Orangenschale (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/hondsaarsch-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
 - **Prompt:** 160 Wörter
 
@@ -494,7 +502,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Kiwibeeren-Spritz mit Crémant (Cocktail), Nr. 3 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/kiwibeeren-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Kiwibeeren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kiwibeeren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
 - **Prompt:** 159 Wörter
 
@@ -510,6 +518,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -517,7 +526,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Poire mit Ginger Beer (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/poire-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Poire-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
 - **Prompt:** 157 Wörter
 
@@ -533,6 +542,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -540,7 +550,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Neelchesbiren-Tonic mit Zitronenschale (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/neelchesbiren-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Neelchesbiren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-neelchesbiren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
 - **Prompt:** 155 Wörter
 
@@ -556,6 +566,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -563,7 +574,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Lënschouren über Vanilleeis (In der Küche / Dessert), Nr. 3 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/lenschouren-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Lënschouren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-lenschouren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
 - **Prompt:** 155 Wörter
 
@@ -579,6 +590,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -586,7 +598,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Vullekiischt-Tonic mit Zitronenschale (Auf Eis / Longdrink), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/vullekiischt-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
 - **Prompt:** 160 Wörter
 
@@ -609,7 +621,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Schléiwen-Sour (Cocktail), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/schleiwen-1.png`
-- **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Hunnegdrëpp-Flasche)):** `fotos/flasche-hunnegdrepp.png`
+- **Anhang 1 (echtes Foto der Schléiwen-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-schleiwen.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
 - **Prompt:** 159 Wörter
 
@@ -625,6 +637,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -632,7 +645,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Vizdrëpp-Tonic mit Apfelscheiben (Auf Eis / Longdrink), Nr. 2 von 5 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/vizdrepp-1.png`
-- **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
+- **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
 - **Prompt:** 156 Wörter
 
@@ -648,6 +661,7 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 - Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
 - Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
+- Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -655,23 +669,22 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Sambuca mit Kaffeebohnen (Pur), Nr. 1 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/sambuca-1.png`
-- **Anhang 1 (Produktfoto (Form und Etikett)):** `fotos/flaschen-sambuca.webp`
-- **Anhang 2 (Etikett):** entfällt (das Foto in Anhang 1 liefert Form und Etikett)
-- **Prompt:** 150 Wörter
+- **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
+- **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
+- **Prompt:** 152 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein kleines Likörglas mit klarem Sambuca, 3 Kaffeebohnen darin. Daneben eine Tasse Espresso und ein Mandelgebäck. Kein Eis.
-Flasche: Neben dem Getränk steht scharf die große 0,5-L-Flasche aus Anhang 1, Form und Etikett exakt wie auf dem Foto, keine Buchstaben verändern. Das Etikett nicht neu zeichnen oder schreiben; es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.
+Flasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.
 Farbe des Brandes in der Flasche: klar wie Wasser.
 Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.
 ```
 
 **Prüfen:**
-- Etikett im Bild mit dem Foto in Anhang 1 vergleichen (große Flasche rechts).
-- Bei Fehlern nachlegen: „Etikett exakt wie auf dem Foto, keine Buchstaben verändern.“
-- Bleibt der Text falsch: Etikett später im Bildeditor einsetzen.
-- Auf der Sortenseite steht das Etikett als „Platzhalter-Etikett – das echte Etikett folgt“; die Flasche im Foto zeigt das Foto-Etikett aus fotos/.
+- Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
+- Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
+- Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
 
 ---
 
@@ -679,23 +692,22 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 
 - **Serviervorschlag:** Limoncello-Spritz mit Crémant (Cocktail), Nr. 2 von 4 auf der Sortenseite
 - **Ergebnis speichern als:** `fotos-ki/limoncello-1.png`
-- **Anhang 1 (Produktfoto (Form und Etikett)):** `fotos/flaschen-limoncello.webp`
-- **Anhang 2 (Etikett):** entfällt (das Foto in Anhang 1 liefert Form und Etikett)
-- **Prompt:** 153 Wörter
+- **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
+- **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
+- **Prompt:** 155 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Limoncello-Spritz im großen Weinglas auf viel Eis, das Getränk hellgelb und perlend, ein frischer Minzzweig im Glas. Daneben eine halbe Zitrone.
-Flasche: Neben dem Getränk steht scharf die große 0,5-L-Flasche aus Anhang 1, Form und Etikett exakt wie auf dem Foto, keine Buchstaben verändern. Das Etikett nicht neu zeichnen oder schreiben; es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.
+Flasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.
 Farbe des Brandes in der Flasche: leuchtendes Gelbgrün.
 Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.
 ```
 
 **Prüfen:**
-- Etikett im Bild mit dem Foto in Anhang 1 vergleichen (große Flasche rechts).
-- Bei Fehlern nachlegen: „Etikett exakt wie auf dem Foto, keine Buchstaben verändern.“
-- Bleibt der Text falsch: Etikett später im Bildeditor einsetzen.
-- Auf der Sortenseite steht das Etikett als „Platzhalter-Etikett – das echte Etikett folgt“; die Flasche im Foto zeigt das Foto-Etikett aus fotos/.
+- Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).
+- Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“
+- Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.
 
 ---
 
@@ -705,30 +717,30 @@ Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasiesc
 |---|---|---|---|---|
 | Hierber Gin | Gin-Tonic mit Apfel und Rosmarin | `fotos-ki/gin-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png` |
 | Hierber Wodka | Wodka-Tonic mit Gurkenscheiben | `fotos-ki/wodka-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` |
-| Hierber Rum | Rum und Ginger mit Limette | `fotos-ki/rum-1.png` | `fotos/flaschen-rum-02-05.webp` | entfällt |
-| Hierber Rum Orange | Rum Orange-Highball | `fotos-ki/rum-orange-1.png` | `fotos/flaschen-rum-02-05.webp` | entfällt |
+| Hierber Rum | Rum und Ginger mit Limette | `fotos-ki/rum-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png` |
+| Hierber Rum Orange | Rum Orange-Highball | `fotos-ki/rum-orange-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png` |
 | Hierber Whisky | Old Fashioned | `fotos-ki/whisky-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` |
-| Kirsch | Kirsch-Sour | `fotos-ki/kirsch-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kirsch-01.png` |
-| Framboise | Framboise-Spritz mit Crémant | `fotos-ki/framboise-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Framboise-01.png` |
-| Quetsch | Quetsch-Sour | `fotos-ki/quetsch-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Quetsch-01.png` |
-| Poire Williams | Poire Williams Fizz | `fotos-ki/poire-williams-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Williams-01.png` |
-| Mirabelle | Mirabelle-Tonic mit Thymian | `fotos-ki/mirabelle-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` |
+| Kirsch | Kirsch-Sour | `fotos-ki/kirsch-1.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` |
+| Framboise | Framboise-Spritz mit Crémant | `fotos-ki/framboise-1.png` | `Fotos/flasche-framboise.jpg` | `Fertige Etiquetten/Brandwein Framboise-01.png` |
+| Quetsch | Quetsch-Sour | `fotos-ki/quetsch-1.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` |
+| Poire Williams | Poire Williams Fizz | `fotos-ki/poire-williams-1.png` | `Fotos/flasche-poire-williams.jpg` | `Fertige Etiquetten/Brandwein Williams-01.png` |
+| Mirabelle | Mirabelle-Tonic mit Thymian | `fotos-ki/mirabelle-1.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` |
 | Hierber aale Fruucht | Hierber aale Fruucht auf einem großen Eiswürfel | `fotos-ki/hierber-fruucht-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` |
 | Vieux Marc | Espresso mit Vieux Marc | `fotos-ki/vieux-marc-1.png` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` |
-| Vieille Prune | Vieille Prune auf einem großen Eiswürfel | `fotos-ki/vieille-prune-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` |
-| Vieille Pomme | Vieille Pomme mit Ginger Beer | `fotos-ki/vieille-pomme-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` |
-| Hunnegdrëpp | Hunnegdrëpp-Sour | `fotos-ki/hunnegdrepp-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` |
+| Vieille Prune | Vieille Prune auf einem großen Eiswürfel | `fotos-ki/vieille-prune-1.png` | `Fotos/flasche-vieille-prune.jpg` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` |
+| Vieille Pomme | Vieille Pomme mit Ginger Beer | `fotos-ki/vieille-pomme-1.png` | `Fotos/flasche-vieille-pomme.jpg` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` |
+| Hunnegdrëpp | Hunnegdrëpp-Sour | `fotos-ki/hunnegdrepp-1.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` |
 | Hierber Hunneg Whisky | Hunneg Whisky-Highball | `fotos-ki/hunneg-whisky-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` |
-| Kräiderdrëpp | Kräiderdrëpp-Tonic mit Gurkenscheiben | `fotos-ki/kraeiderdrepp-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kraider-01.png` |
-| Kürbisdrëpp | Kürbissuppe mit einem Schuss Kürbisdrëpp | `fotos-ki/kuerbisdrepp-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` |
-| Grain | Grain mit Apfelsaft auf Eis | `fotos-ki/grain-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Grain-01.png` |
-| Hondsaarsch | Hondsaarsch-Tonic mit Orangenschale | `fotos-ki/hondsaarsch-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` |
-| Kiwibeeren | Kiwibeeren-Spritz mit Crémant | `fotos-ki/kiwibeeren-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Kiwi-01.png` |
-| Poire | Poire mit Ginger Beer | `fotos-ki/poire-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Poire-01.png` |
-| Neelchesbiren | Neelchesbiren-Tonic mit Zitronenschale | `fotos-ki/neelchesbiren-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` |
-| Lënschouren | Lënschouren über Vanilleeis | `fotos-ki/lenschouren-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` |
-| Vullekiischt | Vullekiischt-Tonic mit Zitronenschale | `fotos-ki/vullekiischt-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` |
-| Schléiwen | Schléiwen-Sour | `fotos-ki/schleiwen-1.png` | `fotos/flasche-hunnegdrepp.png` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` |
-| Vizdrëpp | Vizdrëpp-Tonic mit Apfelscheiben | `fotos-ki/vizdrepp-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` |
-| Hierber Sambuca | Sambuca mit Kaffeebohnen | `fotos-ki/sambuca-1.png` | `fotos/flaschen-sambuca.webp` | entfällt |
-| Hierber Limoncello | Limoncello-Spritz mit Crémant | `fotos-ki/limoncello-1.png` | `fotos/flaschen-limoncello.webp` | entfällt |
+| Kräiderdrëpp | Kräiderdrëpp-Tonic mit Gurkenscheiben | `fotos-ki/kraeiderdrepp-1.png` | `Fotos/flasche-kraeiderdrepp.jpg` | `Fertige Etiquetten/Brandwein Kraider-01.png` |
+| Kürbisdrëpp | Kürbissuppe mit einem Schuss Kürbisdrëpp | `fotos-ki/kuerbisdrepp-1.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` |
+| Grain | Grain mit Apfelsaft auf Eis | `fotos-ki/grain-1.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Branntwein Grain-01.png` |
+| Hondsaarsch | Hondsaarsch-Tonic mit Orangenschale | `fotos-ki/hondsaarsch-1.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` |
+| Kiwibeeren | Kiwibeeren-Spritz mit Crémant | `fotos-ki/kiwibeeren-1.png` | `Fotos/flasche-kiwibeeren.jpg` | `Fertige Etiquetten/Branntwein Kiwi-01.png` |
+| Poire | Poire mit Ginger Beer | `fotos-ki/poire-1.png` | `Fotos/flasche-poire.jpg` | `Fertige Etiquetten/Brandwein Poire-01.png` |
+| Neelchesbiren | Neelchesbiren-Tonic mit Zitronenschale | `fotos-ki/neelchesbiren-1.png` | `Fotos/flasche-neelchesbiren.jpg` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` |
+| Lënschouren | Lënschouren über Vanilleeis | `fotos-ki/lenschouren-1.png` | `Fotos/flasche-lenschouren.jpg` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` |
+| Vullekiischt | Vullekiischt-Tonic mit Zitronenschale | `fotos-ki/vullekiischt-1.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` |
+| Schléiwen | Schléiwen-Sour | `fotos-ki/schleiwen-1.png` | `Fotos/flasche-schleiwen.jpg` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` |
+| Vizdrëpp | Vizdrëpp-Tonic mit Apfelscheiben | `fotos-ki/vizdrepp-1.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` |
+| Hierber Sambuca | Sambuca mit Kaffeebohnen | `fotos-ki/sambuca-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` |
+| Hierber Limoncello | Limoncello-Spritz mit Crémant | `fotos-ki/limoncello-1.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Limoncello-01.png` |

@@ -35,13 +35,13 @@
     "vorschlag": "Rum und Ginger mit Limette",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/rum-1.png",
-    "anhang1": "fotos/flaschen-rum-02-05.webp",
-    "anhang2": null,
-    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Rum und Ginger im Longdrinkglas, viel Eis, eine ausgedrückte Limettenspalte im Glas. Das Getränk ist helles Goldbernstein und perlt leicht, etwas heller als pur. Im unscharfen Hintergrund ein Burger auf einem Holzbrett.\nFlasche: Neben dem Getränk steht scharf die große 0,5-L-Flasche aus Anhang 1, Form und Etikett exakt wie auf dem Foto, keine Buchstaben verändern. Das Etikett nicht neu zeichnen oder schreiben; es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: goldenes Bernstein.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
+    "anhang1": "fotos/flaschen-wodka.webp",
+    "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum nei-01.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Rum und Ginger im Longdrinkglas, viel Eis, eine ausgedrückte Limettenspalte im Glas. Das Getränk ist helles Goldbernstein und perlt leicht, etwas heller als pur. Im unscharfen Hintergrund ein Burger auf einem Holzbrett.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: goldenes Bernstein.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
-      "Etikett im Bild mit dem Foto in Anhang 1 vergleichen (große Flasche rechts).",
-      "Bei Fehlern nachlegen: „Etikett exakt wie auf dem Foto, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Etikett später im Bildeditor einsetzen."
+      "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
     ]
   },
   {
@@ -50,15 +50,14 @@
     "vorschlag": "Rum Orange-Highball",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/rum-orange-1.png",
-    "anhang1": "fotos/flaschen-rum-02-05.webp",
-    "anhang2": null,
-    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Rum-Orange-Highball im Highballglas, viel Eis, eine frische Orangenscheibe im Glas. Das Getränk ist orange-bernsteinfarben und perlt leicht von Sodawasser. Daneben unscharf ein paar Käsegebäck-Stangen.\nFlasche: Neben dem Getränk steht scharf die große 0,5-L-Flasche in der Form von Anhang 1, aber ohne deren Etikett: stattdessen ein neutrales, leeres weißes Etikett ohne Text und Grafik, das sich um die halbe Flasche legt, Rundung sichtbar.\nFarbe des Brandes in der Flasche: orange-bernsteinfarben.\nNegativ: jeder Text oder jede Grafik auf dem Etikett, zweite Flasche, Fantasieschrift.",
+    "anhang1": "fotos/flaschen-wodka.webp",
+    "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Rum-Orange-Highball im Highballglas, viel Eis, eine frische Orangenscheibe im Glas. Das Getränk ist orange-bernsteinfarben und perlt leicht von Sodawasser. Daneben unscharf ein paar Käsegebäck-Stangen.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: orange-bernsteinfarben.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
-      "Es gibt kein Etikett und kein Foto dieser Sorte: das Etikett bleibt bewusst leer. Es darf kein erfundener Text auf der Flasche stehen.",
-      "Steht doch Text auf dem Etikett, nachlegen: „Etikett komplett leer lassen, kein Text, keine Grafik.“",
-      "Das echte Etikett später im Bildeditor einsetzen oder das Bild nur ohne Flasche verwenden.",
-      "Flüssigkeitsfarbe der Flasche ist in den Daten nur geschätzt (fluessigkeit.js: #c67a1c); mit dem echten Produkt abgleichen.",
-      "Anhang 1 zeigt die Rum-Flasche mit Rum-Etikett: nur die Flaschenform nutzen. Für Rum Orange gibt es weder Etikett noch Foto."
+      "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Flüssigkeitsfarbe der Flasche ist in den Daten nur geschätzt (fluessigkeit.js: #c67a1c); mit dem echten Produkt abgleichen."
     ]
   },
   {
@@ -82,13 +81,14 @@
     "vorschlag": "Kirsch-Sour",
     "typ": "Cocktail",
     "dateiname": "fotos-ki/kirsch-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-kirsch.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Kirsch-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Kirsch-Sour im Tumbler auf frischem Eis, das Getränk hell und leicht trüb, ohne Schaum, ein Streifen Zitronenschale am Glasrand. Daneben ein paar frische Kirschen mit Stiel.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -97,13 +97,14 @@
     "vorschlag": "Framboise-Spritz mit Crémant",
     "typ": "Cocktail",
     "dateiname": "fotos-ki/framboise-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-framboise.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Framboise-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Framboise-Spritz im großen Weinglas auf viel Eis, das Getränk fast klar und perlend, höchstens ein zarter Rosahauch, frische Himbeeren im Glas und ein paar daneben.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -112,13 +113,14 @@
     "vorschlag": "Quetsch-Sour",
     "typ": "Cocktail",
     "dateiname": "fotos-ki/quetsch-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-quetsch.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Quetsch-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Quetsch-Sour im Tumbler auf frischem Eis, das Getränk hell und leicht trüb, ohne Schaum, ein Streifen Zitronenschale am Glasrand. Daneben ein paar frische dunkelblaue Zwetschgen.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -127,13 +129,14 @@
     "vorschlag": "Poire Williams Fizz",
     "typ": "Cocktail",
     "dateiname": "fotos-ki/poire-williams-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-poire-williams.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Williams-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Poire Williams Fizz im Longdrinkglas auf frischem Eis, das Getränk hell, leicht trüb und perlend, ohne Garnitur im Glas. Daneben eine reife Birne mit Stiel.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -142,13 +145,14 @@
     "vorschlag": "Mirabelle-Tonic mit Thymian",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/mirabelle-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-mirabelle.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Mirabelle-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Mirabelle-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein frischer Thymianzweig steckt im Glas. Das Getränk ist klar und perlt leicht. Daneben frische gelbe Mirabellen.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -189,13 +193,14 @@
     "vorschlag": "Vieille Prune auf einem großen Eiswürfel",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/vieille-prune-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-vieille-prune.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Vieille prune-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Vieille Prune im Tumbler auf einem einzigen großen klaren Eiswürfel, das Getränk blass goldfarben. Daneben ein paar Walnüsse und frische Zwetschgen.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: blasses Gold.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -204,13 +209,14 @@
     "vorschlag": "Vieille Pomme mit Ginger Beer",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/vieille-pomme-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-vieille-pomme.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Vieille pomme-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Vieille Pomme mit Ginger Beer im Longdrinkglas auf viel Eis, das Getränk blass goldgelb und perlend, eine Limettenspalte am Glasrand. Daneben ein halber Apfel.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: blass strohfarben.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -219,13 +225,14 @@
     "vorschlag": "Hunnegdrëpp-Sour",
     "typ": "Cocktail",
     "dateiname": "fotos-ki/hunnegdrepp-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-hunnegdrepp.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Hunnegdrepp-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Hunnegdrëpp-Sour im Tumbler auf frischem Eis, das Getränk honiggolden und leicht trüb, ohne Schaum, ein Streifen Zitronenschale am Glasrand. Daneben ein kleines Schälchen Honig.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: tiefes Honiggold.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -250,13 +257,14 @@
     "vorschlag": "Kräiderdrëpp-Tonic mit Gurkenscheiben",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/kraeiderdrepp-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-kraeiderdrepp.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Kraider-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Kräiderdrëpp-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, 4 dünne Gurkenscheiben im Glas. Das Getränk ist klar und perlt leicht. Daneben ein paar frische Kräuterzweige.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -265,7 +273,7 @@
     "vorschlag": "Kürbissuppe mit einem Schuss Kürbisdrëpp",
     "typ": "In der Küche / Dessert",
     "dateiname": "fotos-ki/kuerbisdrepp-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-kirsch.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Kürbisdrepp-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein tiefer Suppenteller mit orangefarbener, cremiger Kürbissuppe, eine Spirale Sahne, geröstete Kürbiskerne obenauf. Daneben eine Scheibe Kürbiskernbrot. Dampf nur ganz dezent, kein Eis.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
@@ -280,7 +288,7 @@
     "vorschlag": "Grain mit Apfelsaft auf Eis",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/grain-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-kirsch.jpg",
     "anhang2": "Fertige Etiquetten/Branntwein Grain-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Grain mit Apfelsaft im Longdrinkglas auf viel Eis, das Getränk naturtrüb goldgelb, eine Apfelscheibe am Glasrand. Im unscharfen Hintergrund ein Brett mit Bauernbrot.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
@@ -295,7 +303,7 @@
     "vorschlag": "Hondsaarsch-Tonic mit Orangenschale",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/hondsaarsch-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-kirsch.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Hondsaarsch-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Hondsaarsch-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Streifen Orangenschale im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund ein heller Salat.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
@@ -310,13 +318,14 @@
     "vorschlag": "Kiwibeeren-Spritz mit Crémant",
     "typ": "Cocktail",
     "dateiname": "fotos-ki/kiwibeeren-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-kiwibeeren.jpg",
     "anhang2": "Fertige Etiquetten/Branntwein Kiwi-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Kiwibeeren-Spritz im großen Weinglas auf viel Eis, das Getränk fast klar und perlend, eine Limettenscheibe im Glas. Daneben ein paar kleine, glatte grüne Kiwibeeren.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -325,13 +334,14 @@
     "vorschlag": "Poire mit Ginger Beer",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/poire-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-poire.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Poire-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Poire mit Ginger Beer im Longdrinkglas auf viel Eis, das Getränk blass goldgelb und perlend, eine Limettenspalte am Glasrand. Daneben eine reife Birne.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -340,13 +350,14 @@
     "vorschlag": "Neelchesbiren-Tonic mit Zitronenschale",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/neelchesbiren-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-neelchesbiren.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Nelchensbiren-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Neelchesbiren-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Streifen Zitronenschale im Glas. Das Getränk ist blass strohfarben und perlt leicht.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -355,13 +366,14 @@
     "vorschlag": "Lënschouren über Vanilleeis",
     "typ": "In der Küche / Dessert",
     "dateiname": "fotos-ki/lenschouren-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-lenschouren.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Lenschouren-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Eine gekühlte Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber gehackte Nüsse. Daneben unscharf eine Tasse Espresso. Kein Longdrink.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -370,7 +382,7 @@
     "vorschlag": "Vullekiischt-Tonic mit Zitronenschale",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/vullekiischt-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-kirsch.jpg",
     "anhang2": "Fertige Etiquetten/Brandwein Vogelbeere-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Vullekiischt-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Streifen Zitronenschale im Glas. Das Getränk ist klar und perlt leicht. Daneben ein kleiner Zweig roter Vogelbeeren.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
@@ -385,13 +397,14 @@
     "vorschlag": "Schléiwen-Sour",
     "typ": "Cocktail",
     "dateiname": "fotos-ki/schleiwen-1.png",
-    "anhang1": "fotos/flasche-hunnegdrepp.png",
+    "anhang1": "Fotos/flasche-schleiwen.jpg",
     "anhang2": "Fertige Etiquetten/Branntwein Schleiwen-01.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Schléiwen-Sour im Tumbler auf frischem Eis, das Getränk hell und leicht trüb, ohne Schaum, ein Streifen Zitronenschale am Glasrand. Daneben ein paar blauschwarze Schlehen.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -400,13 +413,14 @@
     "vorschlag": "Vizdrëpp-Tonic mit Apfelscheiben",
     "typ": "Auf Eis / Longdrink",
     "dateiname": "fotos-ki/vizdrepp-1.png",
-    "anhang1": "fotos/flaschen-wodka.webp",
+    "anhang1": "Fotos/flasche-vizdrepp.jpg",
     "anhang2": "Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png",
     "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Vizdrëpp-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, 3 dünne Apfelscheiben im Glas. Das Getränk ist sehr hell, blass goldgelb schimmernd und perlend.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: blasses Goldgelb.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
       "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
       "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.",
+      "Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ]
   },
   {
@@ -415,14 +429,13 @@
     "vorschlag": "Sambuca mit Kaffeebohnen",
     "typ": "Pur",
     "dateiname": "fotos-ki/sambuca-1.png",
-    "anhang1": "fotos/flaschen-sambuca.webp",
-    "anhang2": null,
-    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein kleines Likörglas mit klarem Sambuca, 3 Kaffeebohnen darin. Daneben eine Tasse Espresso und ein Mandelgebäck. Kein Eis.\nFlasche: Neben dem Getränk steht scharf die große 0,5-L-Flasche aus Anhang 1, Form und Etikett exakt wie auf dem Foto, keine Buchstaben verändern. Das Etikett nicht neu zeichnen oder schreiben; es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
+    "anhang1": "fotos/flaschen-wodka.webp",
+    "anhang2": "Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein kleines Likörglas mit klarem Sambuca, 3 Kaffeebohnen darin. Daneben eine Tasse Espresso und ein Mandelgebäck. Kein Eis.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: klar wie Wasser.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
-      "Etikett im Bild mit dem Foto in Anhang 1 vergleichen (große Flasche rechts).",
-      "Bei Fehlern nachlegen: „Etikett exakt wie auf dem Foto, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Etikett später im Bildeditor einsetzen.",
-      "Auf der Sortenseite steht das Etikett als „Platzhalter-Etikett – das echte Etikett folgt“; die Flasche im Foto zeigt das Foto-Etikett aus fotos/."
+      "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
     ]
   },
   {
@@ -431,14 +444,13 @@
     "vorschlag": "Limoncello-Spritz mit Crémant",
     "typ": "Cocktail",
     "dateiname": "fotos-ki/limoncello-1.png",
-    "anhang1": "fotos/flaschen-limoncello.webp",
-    "anhang2": null,
-    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Limoncello-Spritz im großen Weinglas auf viel Eis, das Getränk hellgelb und perlend, ein frischer Minzzweig im Glas. Daneben eine halbe Zitrone.\nFlasche: Neben dem Getränk steht scharf die große 0,5-L-Flasche aus Anhang 1, Form und Etikett exakt wie auf dem Foto, keine Buchstaben verändern. Das Etikett nicht neu zeichnen oder schreiben; es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: leuchtendes Gelbgrün.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
+    "anhang1": "fotos/flaschen-wodka.webp",
+    "anhang2": "Fertige Etiquetten/Branntwein Limoncello-01.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Limoncello-Spritz im großen Weinglas auf viel Eis, das Getränk hellgelb und perlend, ein frischer Minzzweig im Glas. Daneben eine halbe Zitrone.\nFlasche: Neben dem Getränk steht scharf die Flasche in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.\nFarbe des Brandes in der Flasche: leuchtendes Gelbgrün.\nNegativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.",
     "hinweise": [
-      "Etikett im Bild mit dem Foto in Anhang 1 vergleichen (große Flasche rechts).",
-      "Bei Fehlern nachlegen: „Etikett exakt wie auf dem Foto, keine Buchstaben verändern.“",
-      "Bleibt der Text falsch: Etikett später im Bildeditor einsetzen.",
-      "Auf der Sortenseite steht das Etikett als „Platzhalter-Etikett – das echte Etikett folgt“; die Flasche im Foto zeigt das Foto-Etikett aus fotos/."
+      "Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“",
+      "Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen."
     ]
   }
 ]

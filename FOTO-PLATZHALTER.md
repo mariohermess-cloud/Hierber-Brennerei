@@ -2,16 +2,13 @@
 
 Erzeugt mit `node tools/foto_prompts.mjs` aus `dist/**/index.html` (ohne `dist/fr`) und den Sortendaten. Stand der gebauten Seiten beim Lauf des Skripts.
 
-**98 Platzhalter** (`data-todo="foto"`), davon 0 per KI vorgesehen und noch ohne Bild. **29 KI-Symbolbilder sind bereits eingebaut** (`fotos-ki/<id>-1.png`, ein Serviervorschlag je Sorte, siehe `PROMPTS-FOTOS.md`) und zählen nicht mehr als Platzhalter. Prozess-, Karten- und Etikettenbilder sind bewusst nicht per KI.
+**86 Platzhalter** (`data-todo="foto"`), davon 0 per KI vorgesehen und noch ohne Bild. **29 KI-Symbolbilder sind bereits eingebaut** (`fotos-ki/<id>-1.png`, ein Serviervorschlag je Sorte, siehe `PROMPTS-FOTOS.md`) und zählen nicht mehr als Platzhalter. Prozess-, Karten- und Etikettenbilder sind bewusst nicht per KI.
 
 | Seite | Sorte | Art | Stelle / Name | Vorgesehen |
 |---|---|---|---|---|
 | /brand/framboise/ | Framboise | Serviervorschlag | Framboise pur, gut gekühlt | später/echt |
 | /brand/framboise/ | Framboise | Serviervorschlag | Framboise-Tonic mit Minze | später/echt |
 | /brand/framboise/ | Framboise | Serviervorschlag | Panna cotta mit Himbeeren und Framboise | später/echt |
-| /brand/gin/ | Hierber Gin | Serviervorschlag | Gin Fizz | später/echt |
-| /brand/gin/ | Hierber Gin | Serviervorschlag | Dry Martini | später/echt |
-| /brand/gin/ | Hierber Gin | Serviervorschlag | Zitronensorbet mit Gin | später/echt |
 | /brand/grain/ | Grain | Serviervorschlag | Grain eiskalt | später/echt |
 | /brand/grain/ | Grain | Serviervorschlag | Grain zu Brotzeit mit Schinken | später/echt |
 | /brand/hierber-fruucht/ | Hierber aale Fruucht | Serviervorschlag | Hierber aale Fruucht pur, bei Zimmertemperatur | später/echt |
@@ -40,12 +37,6 @@ Erzeugt mit `node tools/foto_prompts.mjs` aus `dist/**/index.html` (ohne `dist/f
 | /brand/kuerbisdrepp/ | Kürbisdrëpp | Serviervorschlag | Kürbisdrëpp pur, gut gekühlt | später/echt |
 | /brand/kuerbisdrepp/ | Kürbisdrëpp | Serviervorschlag | Kürbisdrëpp mit Ginger Beer | später/echt |
 | /brand/kuerbisdrepp/ | Kürbisdrëpp | Serviervorschlag | Kürbisdrëpp zu kräftigem Hartkäse | später/echt |
-| /brand/lenschouren/ | Lënschouren | Serviervorschlag | Lënschouren pur, gut gekühlt | später/echt |
-| /brand/lenschouren/ | Lënschouren | Serviervorschlag | Lënschouren-Tonic mit Zitronenschale | später/echt |
-| /brand/lenschouren/ | Lënschouren | Serviervorschlag | Lënschouren zu mildem Käse | später/echt |
-| /brand/limoncello/ | Hierber Limoncello | Serviervorschlag | Limoncello eiskalt | später/echt |
-| /brand/limoncello/ | Hierber Limoncello | Serviervorschlag | Limoncello-Tonic mit Minze | später/echt |
-| /brand/limoncello/ | Hierber Limoncello | Serviervorschlag | Zitronensorbet mit Limoncello | später/echt |
 | /brand/mirabelle/ | Mirabelle | Serviervorschlag | Mirabelle pur, gut gekühlt | später/echt |
 | /brand/mirabelle/ | Mirabelle | Serviervorschlag | Mirabelle-Spritz mit Crémant | später/echt |
 | /brand/mirabelle/ | Mirabelle | Serviervorschlag | Geschmorte Mirabellen mit Mirabelle | später/echt |
@@ -63,14 +54,12 @@ Erzeugt mit `node tools/foto_prompts.mjs` aus `dist/**/index.html` (ohne `dist/f
 | /brand/quetsch/ | Quetsch | Serviervorschlag | Quetsch-Tonic mit Zimtstange | später/echt |
 | /brand/quetsch/ | Quetsch | Serviervorschlag | Flambierte Zwetschgen mit Quetsch | später/echt |
 | /brand/quetsch/ | Quetsch | Serviervorschlag | Quetsch zu kräftigem Bergkäse | später/echt |
-| /brand/rum-orange/ | Hierber Rum Orange | Etikett (Platzhalter) | Hierber Brennerei Hierber Rum Orange Etikett folgt | nein, echtes Etikett |
 | /brand/rum-orange/ | Hierber Rum Orange | Serviervorschlag | Rum Orange auf einem großen Eiswürfel | später/echt |
 | /brand/rum-orange/ | Hierber Rum Orange | Serviervorschlag | Rum Orange-Sour | später/echt |
 | /brand/rum-orange/ | Hierber Rum Orange | Serviervorschlag | Orangenfilets mit Rum Orange | später/echt |
 | /brand/rum/ | Hierber Rum | Serviervorschlag | Rum pur, bei Zimmertemperatur | später/echt |
 | /brand/rum/ | Hierber Rum | Serviervorschlag | Daiquiri | später/echt |
 | /brand/rum/ | Hierber Rum | Serviervorschlag | Gebratene Bananen mit Rum | später/echt |
-| /brand/rum/ | Hierber Rum | Etikett in Karte | Hierber Rum Orange Etikett folgt | nein, echtes Etikett |
 | /brand/sambuca/ | Hierber Sambuca | Serviervorschlag | Sambuca auf einem großen Eiswürfel | später/echt |
 | /brand/sambuca/ | Hierber Sambuca | Serviervorschlag | Espresso mit Sambuca | später/echt |
 | /brand/sambuca/ | Hierber Sambuca | Serviervorschlag | Sambuca über Vanilleeis | später/echt |
@@ -100,7 +89,6 @@ Erzeugt mit `node tools/foto_prompts.mjs` aus `dist/**/index.html` (ohne `dist/f
 | /brand/wodka/ | Hierber Wodka | Serviervorschlag | Wodka eiskalt | später/echt |
 | /brand/wodka/ | Hierber Wodka | Serviervorschlag | Moscow Mule | später/echt |
 | /brand/wodka/ | Hierber Wodka | Serviervorschlag | Wodka zu Räucherlachs und Schwarzbrot | später/echt |
-| / (Startseite) | Startseite | Etikett in Karte | Hierber Rum Orange Etikett folgt | nein, echtes Etikett |
 | / (Startseite) | Startseite | Prozessbild | Maische | nein, echtes Foto |
 | / (Startseite) | Startseite | Prozessbild | Abfüllen | nein, echtes Foto |
 | / (Startseite) | Startseite | Kartenansicht | Kartenansicht folgt | nein, echte Karte |
