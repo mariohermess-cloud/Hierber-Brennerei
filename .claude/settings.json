@@ -9,6 +9,7 @@
             "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/ablauf-erinnerung.sh\"",
             "timeout": 10,
             "statusMessage": "Arbeitsablauf wird erinnert"
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/ablauf-erinnerung.sh\""
           }
         ]
       }
