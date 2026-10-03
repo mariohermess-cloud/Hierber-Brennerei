@@ -1,0 +1,59 @@
+# Betrieb auf dem NAS. Datenbank und Programm laufen nebeneinander,
+# nach außen ist nur das Programm im Heimnetz erreichbar.
+services:
+  datenbank:
+    image: postgres:16-alpine
+    container_name: brennerei-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: brennerei
+      POSTGRES_USER: brennerei
+      POSTGRES_PASSWORD: ${DB_PASSWORT:?Bitte DB_PASSWORT in .env setzen}
+      TZ: Europe/Luxembourg
+    volumes:
+      - ./daten:/var/lib/postgresql/data
+      - ../datenbank:/docker-entrypoint-initdb.d:ro   # Schema beim ersten Start
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U brennerei -d brennerei"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    # Kein Port nach außen: nur das Programm spricht mit der Datenbank.
+
+  rechnungen:
+    build: .
+    container_name: brennerei-rechnungen
+    restart: unless-stopped
+    depends_on:
+      datenbank:
+        condition: service_healthy
+    environment:
+      BRENNEREI_DB: postgresql://brennerei:${DB_PASSWORT}@datenbank:5432/brennerei
+      BRENNEREI_BENUTZER: ${BENUTZER_ID:-1}
+      TZ: Europe/Luxembourg
+    ports:
+      - "127.0.0.1:8080:8000"   # über den Reverse Proxy des NAS veröffentlichen
+
+  sicherung:
+    image: postgres:16-alpine
+    container_name: brennerei-sicherung
+    restart: unless-stopped
+    depends_on:
+      datenbank:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: ${DB_PASSWORT}
+      TZ: Europe/Luxembourg
+    volumes:
+      - ./sicherungen:/sicherungen
+    # Täglich um 2 Uhr ein Abzug, 30 Tage aufbewahren
+    entrypoint: >
+      sh -c 'while true; do
+        stunde=$$(date +%H);
+        if [ "$$stunde" = "02" ]; then
+          pg_dump -h datenbank -U brennerei -d brennerei -F c
+            -f /sicherungen/brennerei-$$(date +%Y%m%d).dump &&
+          find /sicherungen -name "brennerei-*.dump" -mtime +30 -delete;
+          sleep 3600;
+        fi; sleep 600;
+      done'

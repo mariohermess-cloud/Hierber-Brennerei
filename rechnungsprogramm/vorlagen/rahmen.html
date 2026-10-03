@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titel %}Rechnungen{% endblock %} · Hierber Brennerei</title>
+<style>
+:root{--papier:#f4f2ec;--karte:#fff;--tinte:#1f2a20;--tinte-2:#576055;--linie:#d7d8cc;
+      --tanne:#3b5a34;--akzent:#8c3a2b;--warn:#9a6b12;--ok:#2f6b3a;--radius:8px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papier);color:var(--tinte);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--tanne)}
+header{background:var(--karte);border-bottom:1px solid var(--linie);position:sticky;top:0;z-index:5}
+header .innen{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+header .marke{font-weight:700;margin-right:auto;font-size:1.05rem}
+nav a{display:inline-block;padding:9px 14px;border-radius:6px;text-decoration:none;color:var(--tinte);border:1px solid var(--linie)}
+nav a.aktiv{background:var(--tanne);color:var(--papier);border-color:var(--tanne)}
+main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:1.5rem;margin:0 0 4px}
+h2{font-size:1.15rem;margin:26px 0 10px}
+.karte{background:var(--karte);border:1px solid var(--linie);border-radius:var(--radius);padding:16px;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th{text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--tinte-2);
+   border-bottom:1px solid var(--linie);padding:6px 8px}
+td{padding:7px 8px;border-bottom:1px solid var(--linie);vertical-align:top}
+td.z,th.z{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.knopf{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 14px;border-radius:6px;
+       border:1px solid var(--linie);background:var(--karte);color:var(--tinte);font:inherit;font-weight:600;
+       cursor:pointer;text-decoration:none}
+.knopf.voll{background:var(--tanne);border-color:var(--tanne);color:var(--papier)}
+.knopf.akzent{background:var(--akzent);border-color:var(--akzent);color:#fff}
+.knopf.klein{min-height:32px;padding:0 10px;font-size:.85rem;font-weight:500}
+input,select,textarea{font:inherit;padding:9px 10px;border:1px solid var(--linie);border-radius:6px;
+                      background:var(--karte);color:var(--tinte);width:100%}
+label{display:block;font-size:.82rem;color:var(--tinte-2);margin-bottom:3px}
+.zeile{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.zeile>div{flex:1;min-width:130px}
+.gitter{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.kennzahl{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+.hinweis{color:var(--tinte-2);font-size:.88rem}
+.plakette{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.76rem;font-weight:600;border:1px solid}
+.plakette.entwurf{color:var(--warn);border-color:var(--warn)}
+.plakette.festgeschrieben{color:var(--ok);border-color:var(--ok)}
+.plakette.storniert{color:var(--tinte-2);border-color:var(--tinte-2)}
+.meldung{padding:11px 14px;border-radius:6px;margin-bottom:14px;border:1px solid}
+.meldung.ok{background:#eaf3ea;border-color:#b9d5bb;color:#24502c}
+.meldung.fehler{background:#f7e9e6;border-color:#e0bdb5;color:#7a2d1e}
+.ueberfaellig{color:var(--akzent);font-weight:600}
+@media (max-width:640px){table{font-size:.88rem}td,th{padding:6px 5px}}
+</style>
+</head>
+<body>
+<header><div class="innen">
+  <span class="marke">Hierber Brennerei · Rechnungen</span>
+  <nav>
+    <a href="/" class="{{ 'aktiv' if aktiv=='start' }}">Übersicht</a>
+    <a href="/belege" class="{{ 'aktiv' if aktiv=='belege' }}">Belege</a>
+    <a href="/kunden" class="{{ 'aktiv' if aktiv=='kunden' }}">Kunden</a>
+    <a href="/berichte" class="{{ 'aktiv' if aktiv=='berichte' }}">Berichte</a>
+    <a href="/belege/neu" class="knopf voll">Neue Rechnung</a>
+  </nav>
+</div></header>
+<main>
+  {% if meldung %}<div class="meldung ok">{{ meldung }}</div>{% endif %}
+  {% if fehler %}<div class="meldung fehler">{{ fehler }}</div>{% endif %}
+  {% block inhalt %}{% endblock %}
+</main>
+</body>
+</html>

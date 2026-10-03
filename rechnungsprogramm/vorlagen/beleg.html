@@ -1,0 +1,118 @@
+{% extends "rahmen.html" %}{% set aktiv='belege' %}
+{% block titel %}{{ b.nummer or 'Entwurf' }}{% endblock %}
+{% block inhalt %}
+<h1>{{ 'Gutschrift' if b.art=='gutschrift' else 'Rechnung' }} {{ b.nummer or '(Entwurf)' }}
+  <span class="plakette {{ b.status }}">{{ b.status }}</span></h1>
+<p class="hinweis">{{ b.kunde_nummer }} · {{ b.kunde_name }} · {{ b.datum|datum }}
+  {%- if b.bezieht_auf %} · zu Rechnung {{ b.bezieht_auf.nummer }}{% endif %}
+  {%- if b.reverse_charge %} · Reverse Charge{% endif %}</p>
+
+<div class="karte">
+  <table>
+    <tr><th>Pos</th><th>Bezeichnung</th><th class="z">Menge</th><th class="z">Einzel netto</th>
+        <th class="z">MwSt</th><th class="z">Netto</th>{% if b.status=='entwurf' %}<th></th>{% endif %}</tr>
+    {% for p in b.positionen %}<tr>
+      <td>{{ p.pos }}</td>
+      <td>{{ p.bezeichnung }}
+        {%- if p.losnummer %}<br><span class="hinweis">Los {{ p.losnummer }}</span>{% endif %}
+        {%- if p.rabatt_prozent and p.rabatt_prozent > 0 %}<br><span class="hinweis">Rabatt {{ p.rabatt_prozent }} %</span>{% endif %}</td>
+      <td class="z">{{ p.menge|menge }} {{ p.einheit }}</td>
+      <td class="z">{{ p.einzelpreis_netto|euro }} €</td>
+      <td class="z">{{ p.mwst_satz|prozent }}</td>
+      <td class="z">{{ p.netto|euro }} €</td>
+      {% if b.status=='entwurf' %}<td class="z">
+        <form method="post" action="/belege/{{ b.id }}/position/{{ p.id }}/loeschen">
+          <button class="knopf klein">entfernen</button></form></td>{% endif %}
+    </tr>{% else %}<tr><td colspan="7" class="hinweis">Noch keine Positionen.</td></tr>{% endfor %}
+  </table>
+
+  <table style="margin-top:14px;max-width:420px;margin-left:auto">
+    <tr><td>Summe netto</td><td class="z">{{ b.netto|euro }} €</td></tr>
+    {% if b.reverse_charge %}
+      <tr><td class="hinweis">MwSt, Steuerschuldnerschaft des Leistungsempfängers</td><td class="z">0,00 €</td></tr>
+    {% else %}{% for m in b.mwst_aufteilung %}
+      <tr><td class="hinweis">MwSt {{ m.mwst_satz|prozent }} auf {{ m.netto|euro }} €</td><td class="z">{{ m.mwst|euro }} €</td></tr>
+    {% endfor %}{% endif %}
+    <tr><td><strong>{{ 'Gutschriftsbetrag' if b.art=='gutschrift' else 'Rechnungsbetrag' }}</strong></td>
+        <td class="z"><strong>{{ b.brutto|euro }} €</strong></td></tr>
+  </table>
+</div>
+
+{% if b.status=='entwurf' %}
+<h2>Position hinzufügen</h2>
+<div class="karte">
+  <form method="post" action="/belege/{{ b.id }}/position">
+    <div class="zeile">
+      <div style="flex:3"><label for="variante_id">Artikel</label>
+        <select id="variante_id" name="variante_id">
+          <option value="">— freie Position —</option>
+          {% for a in artikel %}<option value="{{ a.variante_id }}">{{ a.produkt }} · {{ a.fuellmenge_ml }} ml · {{ a.preis_netto|euro }} € netto</option>{% endfor %}
+        </select></div>
+      <div style="max-width:110px"><label for="menge">Menge</label><input id="menge" name="menge" value="1"></div>
+      <div style="max-width:140px"><label for="einzelpreis">Preis netto</label>
+        <input id="einzelpreis" name="einzelpreis" placeholder="aus Preisliste"></div>
+      <div style="max-width:110px"><label for="rabatt">Rabatt %</label><input id="rabatt" name="rabatt" value="0"></div>
+    </div>
+    <div class="zeile" style="margin-top:10px">
+      <div><label for="bezeichnung">Bezeichnung bei freier Position</label>
+        <input id="bezeichnung" name="bezeichnung" placeholder="z. B. Führung mit Verkostung, 8 Personen"></div>
+      <div style="max-width:130px"><label for="einheit">Einheit</label><input id="einheit" name="einheit" value="Stück"></div>
+      <div style="max-width:140px"><label for="mwst_satz">MwSt-Satz</label>
+        <select id="mwst_satz" name="mwst_satz"><option value="0.17">17 %</option><option value="0.14">14 %</option>
+        <option value="0.08">8 %</option><option value="0.03">3 %</option><option value="0">0 %</option></select></div>
+      <div style="flex:0"><button class="knopf voll">Hinzufügen</button></div>
+    </div>
+  </form>
+</div>
+
+<div class="karte zeile">
+  <form method="post" action="/belege/{{ b.id }}/festschreiben" style="flex:0">
+    <button class="knopf akzent">Festschreiben</button></form>
+  <div class="hinweis" style="flex:1">Danach bekommt der Beleg eine fortlaufende Nummer, bucht Lagerabgang und
+    ist unveränderlich. Korrekturen laufen danach über eine Gutschrift.</div>
+</div>
+{% endif %}
+
+{% if b.status=='festgeschrieben' %}
+<h2>Zahlungen</h2>
+<div class="karte">
+  <table>
+    <tr><th>Datum</th><th>Art</th><th>Referenz</th><th class="z">Betrag</th></tr>
+    {% for z in zahlungen %}<tr><td>{{ z.datum|datum }}</td><td>{{ z.art }}</td>
+      <td>{{ z.referenz or '' }}</td><td class="z">{{ z.betrag|euro }} €</td></tr>
+    {% else %}<tr><td colspan="4" class="hinweis">Noch keine Zahlung erfasst.</td></tr>{% endfor %}
+    <tr><td colspan="3"><strong>Noch offen</strong></td><td class="z"><strong>{{ offen|euro }} €</strong></td></tr>
+  </table>
+  {% if b.art=='rechnung' %}
+  <form method="post" action="/belege/{{ b.id }}/zahlung" style="margin-top:12px">
+    <div class="zeile">
+      <div style="max-width:150px"><label for="betrag">Betrag</label>
+        <input id="betrag" name="betrag" value="{{ offen }}" required></div>
+      <div style="max-width:170px"><label for="art">Art</label><select id="art" name="art">
+        <option value="ueberweisung">Überweisung</option><option value="bar">Bar</option>
+        <option value="karte">Karte</option><option value="payconiq">Payconiq</option>
+        <option value="verrechnung">Verrechnung</option></select></div>
+      <div style="max-width:170px"><label for="datum">Datum</label><input id="datum" name="datum" type="date"></div>
+      <div><label for="referenz">Referenz</label><input id="referenz" name="referenz" placeholder="Kontoauszug, Bon"></div>
+      <div style="flex:0"><button class="knopf voll">Erfassen</button></div>
+    </div>
+  </form>
+  {% endif %}
+</div>
+{% endif %}
+
+<h2>Ausgabe und Korrektur</h2>
+<div class="karte zeile">
+  <div style="flex:0"><a class="knopf" href="/belege/{{ b.id }}/pdf" target="_blank">PDF öffnen</a></div>
+  {% if b.status=='festgeschrieben' %}
+    <div style="flex:0"><a class="knopf" href="/belege/{{ b.id }}/ubl">E-Rechnung XML</a></div>
+    {% if b.art=='rechnung' %}
+    <form method="post" action="/belege/{{ b.id }}/gutschrift" class="zeile" style="flex:1">
+      <div><label for="grund">Grund der Gutschrift</label>
+        <input id="grund" name="grund" placeholder="z. B. Bruch bei Lieferung"></div>
+      <div style="flex:0"><button class="knopf">Gutschrift erstellen</button></div>
+    </form>
+    {% endif %}
+  {% endif %}
+</div>
+{% endblock %}
