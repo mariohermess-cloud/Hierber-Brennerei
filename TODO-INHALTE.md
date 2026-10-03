@@ -121,3 +121,15 @@ Prüfung der Fotos in `Fotos/` und `fotos/`: Die **26 schlanken Flaschen** (Hals
 | **Unbestätigt** (kein eigenes Foto, Band der Schwestersorte übernommen) | Gin (wie Wodka), Rum Orange, Whisky, Hunneg Whisky (wie Rum) |
 
 Offen für den Brenner: Stimmen die vier unbestätigten Sorten? Der Bandtext ist auf den Fotos wegen der Rundung nur teilweise lesbar („Hierber Bren…“); „Hierber Brennerei“ ist daraus geschlossen. Eine flache Bandgrafik liegt nicht vor.
+
+### Neue Bilder (Oktober 2026, zweite Lieferung: 83 Serviervorschläge, jeweils -2 bis -5)
+
+Alle 92 weiteren Serviervorschläge sind eingebaut. Gesichtet an Übersichtsbögen (Etikett, Flasche vollständig, Zutaten laut Rezept); die Adresszeile ist bei den kleinen Etiketten **nicht Zeichen für Zeichen geprüft**.
+
+| Bild | Auffälligkeit |
+|---|---|
+| Vieux Marc -2 bis -4, Vizdrëpp -2 bis -5 | Etikett trägt die Zeile „Barzen-Wewer Arsène“. Das **entspricht dem aktuellen flachen Etikett** (`Fertige Etiquetten/`), ist also kein KI-Fehler; alle anderen Etiketten nennen keinen Personennamen. Brenner klären: Name auf den beiden Etiketten gewollt? |
+| Fruucht, Rum, Rum Orange, Sambuca, Wodka -2 bis -4 | Flaschen tragen das Halsband („Hierber Brennerei“), wie auf den echten Fotos. |
+| Hunneg Whisky -2 bis -4 | Etikett mit schwarz-goldener Marmorierung und „43 % vol.“; Adresse am Rand abgeschnitten (Etikett um die Flasche gewölbt). |
+
+Eine Datei, die in keinen Platz passte (`Warm Vizdrëpp Tasting Table.png`, altes Etikett), liegt in `fotos-ki-unbenutzt/`.

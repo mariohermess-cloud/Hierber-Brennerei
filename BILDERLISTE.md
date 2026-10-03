@@ -4,7 +4,7 @@ Erzeugt mit `node tools/foto_prompts_weitere.mjs`. Nicht von Hand ändern; den S
 
 ## Kurzanleitung
 
-- **92 weitere Bilder** insgesamt: **9 vorhanden**, **83 offen** (Status wird aus den Dateien in `fotos-ki/` abgelesen). Dazu sind die 29 Hauptbilder (je Sorte `-1`, siehe unten) schon da.
+- **92 weitere Bilder** insgesamt: **92 vorhanden**, **0 offen** (Status wird aus den Dateien in `fotos-ki/` abgelesen). Dazu sind die 29 Hauptbilder (je Sorte `-1`, siehe unten) schon da.
 - Automatisch statt von Hand: `CHATGPT-STAPEL.md` (Stapeldateien `tools/chatgpt-stapel*.csv`).
 - Ablauf je Bild: Prompt aus `PROMPTS-FOTOS-WEITERE.md` kopieren, die beiden Anhänge aus der Tabelle anhängen (neuer Chat, ChatGPT Bildgenerierung), Ergebnis prüfen, als PNG 4:3 (1448×1086 px) unter dem **Dateinamen aus der Tabelle** in `fotos-ki/` speichern.
 - **Reihenfolge nach Wichtigkeit (innerhalb dieser weiteren Bilder, nach den Ersatz- und Flaschenbildern):** je Sorte zuerst die Datei mit `-2` (alle 29 Sorten), danach alle `-3`, dann `-4`, `-5`. Stückzahl je Nummer (alle, auch vorhandene): `-2`: 29, `-3`: 29, `-4`: 28, `-5`: 6. In der Tabelle nach der Endung des Dateinamens suchen.
@@ -23,92 +23,92 @@ Anhang 1 = Flaschenvorlage (Foto der Sorte aus `Fotos/`, sonst Standardvorlage),
 | 1 | Hierber Gin | 2. Gin Fizz | Cocktail | `fotos-ki/gin-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png` | vorhanden |
 | 2 | Hierber Gin | 3. Dry Martini | Cocktail | `fotos-ki/gin-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png` | vorhanden |
 | 3 | Hierber Gin | 4. Zitronensorbet mit Gin | In der Küche / Dessert | `fotos-ki/gin-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png` | vorhanden |
-| 4 | Hierber Wodka | 1. Wodka eiskalt | Pur | `fotos-ki/wodka-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` | offen |
-| 5 | Hierber Wodka | 3. Moscow Mule | Cocktail | `fotos-ki/wodka-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` | offen |
-| 6 | Hierber Wodka | 4. Wodka zu Räucherlachs und Schwarzbrot | Zum Essen | `fotos-ki/wodka-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` | offen |
-| 7 | Hierber Rum | 1. Rum pur, bei Zimmertemperatur | Pur | `fotos-ki/rum-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png` | offen |
-| 8 | Hierber Rum | 3. Daiquiri | Cocktail | `fotos-ki/rum-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png` | offen |
-| 9 | Hierber Rum | 4. Gebratene Bananen mit Rum | In der Küche / Dessert | `fotos-ki/rum-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png` | offen |
-| 10 | Hierber Rum Orange | 1. Rum Orange auf einem großen Eiswürfel | Auf Eis / Longdrink | `fotos-ki/rum-orange-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png` | offen |
-| 11 | Hierber Rum Orange | 3. Rum Orange-Sour | Cocktail | `fotos-ki/rum-orange-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png` | offen |
-| 12 | Hierber Rum Orange | 4. Orangenfilets mit Rum Orange | In der Küche / Dessert | `fotos-ki/rum-orange-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png` | offen |
-| 13 | Hierber Whisky | 1. Whisky pur, mit einem Spritzer Wasser | Pur | `fotos-ki/whisky-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | offen |
-| 14 | Hierber Whisky | 2. Whisky-Highball | Auf Eis / Longdrink | `fotos-ki/whisky-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | offen |
-| 15 | Hierber Whisky | 4. Whisky zu Comté | Zum Essen | `fotos-ki/whisky-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | offen |
-| 16 | Hierber Whisky | 5. Pfeffersteak mit Whisky-Sauce | In der Küche / Dessert | `fotos-ki/whisky-5.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | offen |
-| 17 | Kirsch | 1. Kirsch pur, gut gekühlt | Pur | `fotos-ki/kirsch-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | offen |
-| 18 | Kirsch | 2. Kirsch-Tonic mit Zitronenschale | Auf Eis / Longdrink | `fotos-ki/kirsch-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | offen |
-| 19 | Kirsch | 4. Geschmorte Kirschen mit Kirsch | In der Küche / Dessert | `fotos-ki/kirsch-4.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | offen |
-| 20 | Kirsch | 5. Kirsch zu dunkler Schokolade | Zum Essen | `fotos-ki/kirsch-5.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | offen |
-| 21 | Framboise | 1. Framboise pur, gut gekühlt | Pur | `fotos-ki/framboise-2.png` | `Fotos/flasche-framboise.jpg` | `Fertige Etiquetten/Brandwein Framboise-01.png` | offen |
-| 22 | Framboise | 2. Framboise-Tonic mit Minze | Auf Eis / Longdrink | `fotos-ki/framboise-3.png` | `Fotos/flasche-framboise.jpg` | `Fertige Etiquetten/Brandwein Framboise-01.png` | offen |
-| 23 | Framboise | 4. Panna cotta mit Himbeeren und Framboise | In der Küche / Dessert | `fotos-ki/framboise-4.png` | `Fotos/flasche-framboise.jpg` | `Fertige Etiquetten/Brandwein Framboise-01.png` | offen |
-| 24 | Quetsch | 1. Quetsch pur, gut gekühlt | Pur | `fotos-ki/quetsch-2.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | offen |
-| 25 | Quetsch | 3. Quetsch-Tonic mit Zimtstange | Auf Eis / Longdrink | `fotos-ki/quetsch-3.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | offen |
-| 26 | Quetsch | 4. Flambierte Zwetschgen mit Quetsch | In der Küche / Dessert | `fotos-ki/quetsch-4.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | offen |
-| 27 | Quetsch | 5. Quetsch zu kräftigem Bergkäse | Zum Essen | `fotos-ki/quetsch-5.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | offen |
-| 28 | Poire Williams | 1. Poire Williams pur, gut gekühlt | Pur | `fotos-ki/poire-williams-2.png` | `Fotos/flasche-poire-williams.jpg` | `Fertige Etiquetten/Brandwein Williams-01.png` | offen |
-| 29 | Poire Williams | 3. Pochierte Birnen mit Poire Williams | In der Küche / Dessert | `fotos-ki/poire-williams-3.png` | `Fotos/flasche-poire-williams.jpg` | `Fertige Etiquetten/Brandwein Williams-01.png` | offen |
-| 30 | Poire Williams | 4. Poire Williams zu mildem Blauschimmelkäse | Zum Essen | `fotos-ki/poire-williams-4.png` | `Fotos/flasche-poire-williams.jpg` | `Fertige Etiquetten/Brandwein Williams-01.png` | offen |
-| 31 | Mirabelle | 1. Mirabelle pur, gut gekühlt | Pur | `fotos-ki/mirabelle-2.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | offen |
-| 32 | Mirabelle | 3. Mirabelle-Spritz mit Crémant | Cocktail | `fotos-ki/mirabelle-3.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | offen |
-| 33 | Mirabelle | 4. Geschmorte Mirabellen mit Mirabelle | In der Küche / Dessert | `fotos-ki/mirabelle-4.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | offen |
-| 34 | Mirabelle | 5. Mirabelle zu mildem Weichkäse | Zum Essen | `fotos-ki/mirabelle-5.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | offen |
-| 35 | Hierber aale Fruucht | 1. Hierber aale Fruucht pur, bei Zimmertemperatur | Pur | `fotos-ki/hierber-fruucht-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | offen |
-| 36 | Hierber aale Fruucht | 3. Hierber aale Fruucht über Vanilleeis | In der Küche / Dessert | `fotos-ki/hierber-fruucht-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | offen |
-| 37 | Hierber aale Fruucht | 4. Hierber aale Fruucht zu kräftigem, reifem Käse | Zum Essen | `fotos-ki/hierber-fruucht-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | offen |
-| 38 | Vieux Marc | 1. Vieux Marc pur, bei Zimmertemperatur | Pur | `fotos-ki/vieux-marc-2.png` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | offen |
-| 39 | Vieux Marc | 3. Vieux Marc zu kräftigem Käse | Zum Essen | `fotos-ki/vieux-marc-3.png` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | offen |
-| 40 | Vieux Marc | 4. Vieux Marc zu dunkler Schokolade | Zum Essen | `fotos-ki/vieux-marc-4.png` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | offen |
-| 41 | Vieille Prune | 1. Vieille Prune pur, bei Zimmertemperatur | Pur | `fotos-ki/vieille-prune-2.png` | `Fotos/flasche-vieille-prune.jpg` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` | offen |
-| 42 | Vieille Prune | 3. Vieille Prune über Vanilleeis | In der Küche / Dessert | `fotos-ki/vieille-prune-3.png` | `Fotos/flasche-vieille-prune.jpg` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` | offen |
-| 43 | Vieille Prune | 4. Vieille Prune zu kräftigem Bergkäse | Zum Essen | `fotos-ki/vieille-prune-4.png` | `Fotos/flasche-vieille-prune.jpg` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` | offen |
-| 44 | Vieille Pomme | 1. Vieille Pomme pur, bei Zimmertemperatur | Pur | `fotos-ki/vieille-pomme-2.png` | `Fotos/flasche-vieille-pomme.jpg` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` | offen |
-| 45 | Vieille Pomme | 3. Apfeltarte mit Vieille Pomme | In der Küche / Dessert | `fotos-ki/vieille-pomme-3.png` | `Fotos/flasche-vieille-pomme.jpg` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` | offen |
-| 46 | Vieille Pomme | 4. Vieille Pomme zu gereiftem Comté | Zum Essen | `fotos-ki/vieille-pomme-4.png` | `Fotos/flasche-vieille-pomme.jpg` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` | offen |
-| 47 | Hunnegdrëpp | 1. Heißer Hunnegdrëpp mit Tee und Zitrone | Auf Eis / Longdrink | `fotos-ki/hunnegdrepp-2.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | offen |
-| 48 | Hunnegdrëpp | 2. Hunnegdrëpp pur, gut gekühlt | Pur | `fotos-ki/hunnegdrepp-3.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | offen |
-| 49 | Hunnegdrëpp | 4. Joghurt mit Honig und Hunnegdrëpp | In der Küche / Dessert | `fotos-ki/hunnegdrepp-4.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | offen |
-| 50 | Hunnegdrëpp | 5. Hunnegdrëpp zu Ziegenkäse | Zum Essen | `fotos-ki/hunnegdrepp-5.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | offen |
-| 51 | Hierber Hunneg Whisky | 1. Hunneg Whisky auf einem großen Eiswürfel | Auf Eis / Longdrink | `fotos-ki/hunneg-whisky-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` | offen |
-| 52 | Hierber Hunneg Whisky | 2. Heißer Hunneg Whisky mit Zitrone und Zimt | Auf Eis / Longdrink | `fotos-ki/hunneg-whisky-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` | offen |
-| 53 | Hierber Hunneg Whisky | 4. Hunneg Whisky zu Comté | Zum Essen | `fotos-ki/hunneg-whisky-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` | offen |
-| 54 | Kräiderdrëpp | 1. Kräiderdrëpp pur, gut gekühlt | Pur | `fotos-ki/kraeiderdrepp-2.png` | `Fotos/flasche-kraeiderdrepp.jpg` | `Fertige Etiquetten/Brandwein Kraider-01.png` | offen |
-| 55 | Kräiderdrëpp | 3. Kräiderdrëpp mit Ginger Beer | Auf Eis / Longdrink | `fotos-ki/kraeiderdrepp-3.png` | `Fotos/flasche-kraeiderdrepp.jpg` | `Fertige Etiquetten/Brandwein Kraider-01.png` | offen |
-| 56 | Kräiderdrëpp | 4. Kräiderdrëpp nach einem deftigen Essen | Zum Essen | `fotos-ki/kraeiderdrepp-4.png` | `Fotos/flasche-kraeiderdrepp.jpg` | `Fertige Etiquetten/Brandwein Kraider-01.png` | offen |
-| 57 | Kürbisdrëpp | 1. Kürbisdrëpp pur, gut gekühlt | Pur | `fotos-ki/kuerbisdrepp-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` | offen |
-| 58 | Kürbisdrëpp | 2. Kürbisdrëpp mit Ginger Beer | Auf Eis / Longdrink | `fotos-ki/kuerbisdrepp-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` | offen |
-| 59 | Kürbisdrëpp | 4. Kürbisdrëpp zu kräftigem Hartkäse | Zum Essen | `fotos-ki/kuerbisdrepp-4.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` | offen |
-| 60 | Grain | 1. Grain eiskalt | Pur | `fotos-ki/grain-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Branntwein Grain-01.png` | offen |
-| 61 | Grain | 3. Grain zu Brotzeit mit Schinken | Zum Essen | `fotos-ki/grain-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Branntwein Grain-01.png` | offen |
-| 62 | Hondsaarsch | 1. Hondsaarsch pur, gut gekühlt | Pur | `fotos-ki/hondsaarsch-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` | offen |
-| 63 | Hondsaarsch | 3. Hondsaarsch über Vanilleeis | In der Küche / Dessert | `fotos-ki/hondsaarsch-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` | offen |
-| 64 | Hondsaarsch | 4. Hondsaarsch zu kräftigem Käse | Zum Essen | `fotos-ki/hondsaarsch-4.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` | offen |
-| 65 | Kiwibeeren | 1. Kiwibeeren pur, gut gekühlt | Pur | `fotos-ki/kiwibeeren-2.png` | `Fotos/flasche-kiwibeeren.jpg` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | offen |
-| 66 | Kiwibeeren | 2. Kiwibeeren-Tonic mit Limettenscheibe | Auf Eis / Longdrink | `fotos-ki/kiwibeeren-3.png` | `Fotos/flasche-kiwibeeren.jpg` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | offen |
-| 67 | Kiwibeeren | 4. Joghurt mit Honig und Kiwibeeren | In der Küche / Dessert | `fotos-ki/kiwibeeren-4.png` | `Fotos/flasche-kiwibeeren.jpg` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | offen |
-| 68 | Poire | 1. Poire pur, gut gekühlt | Pur | `fotos-ki/poire-2.png` | `Fotos/flasche-poire.jpg` | `Fertige Etiquetten/Brandwein Poire-01.png` | offen |
-| 69 | Poire | 3. Poire über Vanilleeis | In der Küche / Dessert | `fotos-ki/poire-3.png` | `Fotos/flasche-poire.jpg` | `Fertige Etiquetten/Brandwein Poire-01.png` | offen |
-| 70 | Poire | 4. Poire zu mildem Blauschimmelkäse | Zum Essen | `fotos-ki/poire-4.png` | `Fotos/flasche-poire.jpg` | `Fertige Etiquetten/Brandwein Poire-01.png` | offen |
-| 71 | Neelchesbiren | 1. Neelchesbiren pur, gut gekühlt | Pur | `fotos-ki/neelchesbiren-2.png` | `Fotos/flasche-neelchesbiren.jpg` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | offen |
-| 72 | Neelchesbiren | 3. Neelchesbiren über Vanilleeis | In der Küche / Dessert | `fotos-ki/neelchesbiren-3.png` | `Fotos/flasche-neelchesbiren.jpg` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | offen |
-| 73 | Neelchesbiren | 4. Neelchesbiren zu mildem Käse | Zum Essen | `fotos-ki/neelchesbiren-4.png` | `Fotos/flasche-neelchesbiren.jpg` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | offen |
+| 4 | Hierber Wodka | 1. Wodka eiskalt | Pur | `fotos-ki/wodka-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` | vorhanden |
+| 5 | Hierber Wodka | 3. Moscow Mule | Cocktail | `fotos-ki/wodka-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` | vorhanden |
+| 6 | Hierber Wodka | 4. Wodka zu Räucherlachs und Schwarzbrot | Zum Essen | `fotos-ki/wodka-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Wodka-01.png` | vorhanden |
+| 7 | Hierber Rum | 1. Rum pur, bei Zimmertemperatur | Pur | `fotos-ki/rum-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png` | vorhanden |
+| 8 | Hierber Rum | 3. Daiquiri | Cocktail | `fotos-ki/rum-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png` | vorhanden |
+| 9 | Hierber Rum | 4. Gebratene Bananen mit Rum | In der Küche / Dessert | `fotos-ki/rum-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png` | vorhanden |
+| 10 | Hierber Rum Orange | 1. Rum Orange auf einem großen Eiswürfel | Auf Eis / Longdrink | `fotos-ki/rum-orange-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png` | vorhanden |
+| 11 | Hierber Rum Orange | 3. Rum Orange-Sour | Cocktail | `fotos-ki/rum-orange-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png` | vorhanden |
+| 12 | Hierber Rum Orange | 4. Orangenfilets mit Rum Orange | In der Küche / Dessert | `fotos-ki/rum-orange-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png` | vorhanden |
+| 13 | Hierber Whisky | 1. Whisky pur, mit einem Spritzer Wasser | Pur | `fotos-ki/whisky-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | vorhanden |
+| 14 | Hierber Whisky | 2. Whisky-Highball | Auf Eis / Longdrink | `fotos-ki/whisky-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | vorhanden |
+| 15 | Hierber Whisky | 4. Whisky zu Comté | Zum Essen | `fotos-ki/whisky-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | vorhanden |
+| 16 | Hierber Whisky | 5. Pfeffersteak mit Whisky-Sauce | In der Küche / Dessert | `fotos-ki/whisky-5.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | vorhanden |
+| 17 | Kirsch | 1. Kirsch pur, gut gekühlt | Pur | `fotos-ki/kirsch-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | vorhanden |
+| 18 | Kirsch | 2. Kirsch-Tonic mit Zitronenschale | Auf Eis / Longdrink | `fotos-ki/kirsch-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | vorhanden |
+| 19 | Kirsch | 4. Geschmorte Kirschen mit Kirsch | In der Küche / Dessert | `fotos-ki/kirsch-4.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | vorhanden |
+| 20 | Kirsch | 5. Kirsch zu dunkler Schokolade | Zum Essen | `fotos-ki/kirsch-5.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | vorhanden |
+| 21 | Framboise | 1. Framboise pur, gut gekühlt | Pur | `fotos-ki/framboise-2.png` | `Fotos/flasche-framboise.jpg` | `Fertige Etiquetten/Brandwein Framboise-01.png` | vorhanden |
+| 22 | Framboise | 2. Framboise-Tonic mit Minze | Auf Eis / Longdrink | `fotos-ki/framboise-3.png` | `Fotos/flasche-framboise.jpg` | `Fertige Etiquetten/Brandwein Framboise-01.png` | vorhanden |
+| 23 | Framboise | 4. Panna cotta mit Himbeeren und Framboise | In der Küche / Dessert | `fotos-ki/framboise-4.png` | `Fotos/flasche-framboise.jpg` | `Fertige Etiquetten/Brandwein Framboise-01.png` | vorhanden |
+| 24 | Quetsch | 1. Quetsch pur, gut gekühlt | Pur | `fotos-ki/quetsch-2.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | vorhanden |
+| 25 | Quetsch | 3. Quetsch-Tonic mit Zimtstange | Auf Eis / Longdrink | `fotos-ki/quetsch-3.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | vorhanden |
+| 26 | Quetsch | 4. Flambierte Zwetschgen mit Quetsch | In der Küche / Dessert | `fotos-ki/quetsch-4.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | vorhanden |
+| 27 | Quetsch | 5. Quetsch zu kräftigem Bergkäse | Zum Essen | `fotos-ki/quetsch-5.png` | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | vorhanden |
+| 28 | Poire Williams | 1. Poire Williams pur, gut gekühlt | Pur | `fotos-ki/poire-williams-2.png` | `Fotos/flasche-poire-williams.jpg` | `Fertige Etiquetten/Brandwein Williams-01.png` | vorhanden |
+| 29 | Poire Williams | 3. Pochierte Birnen mit Poire Williams | In der Küche / Dessert | `fotos-ki/poire-williams-3.png` | `Fotos/flasche-poire-williams.jpg` | `Fertige Etiquetten/Brandwein Williams-01.png` | vorhanden |
+| 30 | Poire Williams | 4. Poire Williams zu mildem Blauschimmelkäse | Zum Essen | `fotos-ki/poire-williams-4.png` | `Fotos/flasche-poire-williams.jpg` | `Fertige Etiquetten/Brandwein Williams-01.png` | vorhanden |
+| 31 | Mirabelle | 1. Mirabelle pur, gut gekühlt | Pur | `fotos-ki/mirabelle-2.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | vorhanden |
+| 32 | Mirabelle | 3. Mirabelle-Spritz mit Crémant | Cocktail | `fotos-ki/mirabelle-3.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | vorhanden |
+| 33 | Mirabelle | 4. Geschmorte Mirabellen mit Mirabelle | In der Küche / Dessert | `fotos-ki/mirabelle-4.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | vorhanden |
+| 34 | Mirabelle | 5. Mirabelle zu mildem Weichkäse | Zum Essen | `fotos-ki/mirabelle-5.png` | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | vorhanden |
+| 35 | Hierber aale Fruucht | 1. Hierber aale Fruucht pur, bei Zimmertemperatur | Pur | `fotos-ki/hierber-fruucht-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | vorhanden |
+| 36 | Hierber aale Fruucht | 3. Hierber aale Fruucht über Vanilleeis | In der Küche / Dessert | `fotos-ki/hierber-fruucht-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | vorhanden |
+| 37 | Hierber aale Fruucht | 4. Hierber aale Fruucht zu kräftigem, reifem Käse | Zum Essen | `fotos-ki/hierber-fruucht-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | vorhanden |
+| 38 | Vieux Marc | 1. Vieux Marc pur, bei Zimmertemperatur | Pur | `fotos-ki/vieux-marc-2.png` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | vorhanden |
+| 39 | Vieux Marc | 3. Vieux Marc zu kräftigem Käse | Zum Essen | `fotos-ki/vieux-marc-3.png` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | vorhanden |
+| 40 | Vieux Marc | 4. Vieux Marc zu dunkler Schokolade | Zum Essen | `fotos-ki/vieux-marc-4.png` | `fotos/flaschenreihe-theke.jpg` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | vorhanden |
+| 41 | Vieille Prune | 1. Vieille Prune pur, bei Zimmertemperatur | Pur | `fotos-ki/vieille-prune-2.png` | `Fotos/flasche-vieille-prune.jpg` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` | vorhanden |
+| 42 | Vieille Prune | 3. Vieille Prune über Vanilleeis | In der Küche / Dessert | `fotos-ki/vieille-prune-3.png` | `Fotos/flasche-vieille-prune.jpg` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` | vorhanden |
+| 43 | Vieille Prune | 4. Vieille Prune zu kräftigem Bergkäse | Zum Essen | `fotos-ki/vieille-prune-4.png` | `Fotos/flasche-vieille-prune.jpg` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` | vorhanden |
+| 44 | Vieille Pomme | 1. Vieille Pomme pur, bei Zimmertemperatur | Pur | `fotos-ki/vieille-pomme-2.png` | `Fotos/flasche-vieille-pomme.jpg` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` | vorhanden |
+| 45 | Vieille Pomme | 3. Apfeltarte mit Vieille Pomme | In der Küche / Dessert | `fotos-ki/vieille-pomme-3.png` | `Fotos/flasche-vieille-pomme.jpg` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` | vorhanden |
+| 46 | Vieille Pomme | 4. Vieille Pomme zu gereiftem Comté | Zum Essen | `fotos-ki/vieille-pomme-4.png` | `Fotos/flasche-vieille-pomme.jpg` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` | vorhanden |
+| 47 | Hunnegdrëpp | 1. Heißer Hunnegdrëpp mit Tee und Zitrone | Auf Eis / Longdrink | `fotos-ki/hunnegdrepp-2.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | vorhanden |
+| 48 | Hunnegdrëpp | 2. Hunnegdrëpp pur, gut gekühlt | Pur | `fotos-ki/hunnegdrepp-3.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | vorhanden |
+| 49 | Hunnegdrëpp | 4. Joghurt mit Honig und Hunnegdrëpp | In der Küche / Dessert | `fotos-ki/hunnegdrepp-4.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | vorhanden |
+| 50 | Hunnegdrëpp | 5. Hunnegdrëpp zu Ziegenkäse | Zum Essen | `fotos-ki/hunnegdrepp-5.png` | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | vorhanden |
+| 51 | Hierber Hunneg Whisky | 1. Hunneg Whisky auf einem großen Eiswürfel | Auf Eis / Longdrink | `fotos-ki/hunneg-whisky-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` | vorhanden |
+| 52 | Hierber Hunneg Whisky | 2. Heißer Hunneg Whisky mit Zitrone und Zimt | Auf Eis / Longdrink | `fotos-ki/hunneg-whisky-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` | vorhanden |
+| 53 | Hierber Hunneg Whisky | 4. Hunneg Whisky zu Comté | Zum Essen | `fotos-ki/hunneg-whisky-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` | vorhanden |
+| 54 | Kräiderdrëpp | 1. Kräiderdrëpp pur, gut gekühlt | Pur | `fotos-ki/kraeiderdrepp-2.png` | `Fotos/flasche-kraeiderdrepp.jpg` | `Fertige Etiquetten/Brandwein Kraider-01.png` | vorhanden |
+| 55 | Kräiderdrëpp | 3. Kräiderdrëpp mit Ginger Beer | Auf Eis / Longdrink | `fotos-ki/kraeiderdrepp-3.png` | `Fotos/flasche-kraeiderdrepp.jpg` | `Fertige Etiquetten/Brandwein Kraider-01.png` | vorhanden |
+| 56 | Kräiderdrëpp | 4. Kräiderdrëpp nach einem deftigen Essen | Zum Essen | `fotos-ki/kraeiderdrepp-4.png` | `Fotos/flasche-kraeiderdrepp.jpg` | `Fertige Etiquetten/Brandwein Kraider-01.png` | vorhanden |
+| 57 | Kürbisdrëpp | 1. Kürbisdrëpp pur, gut gekühlt | Pur | `fotos-ki/kuerbisdrepp-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` | vorhanden |
+| 58 | Kürbisdrëpp | 2. Kürbisdrëpp mit Ginger Beer | Auf Eis / Longdrink | `fotos-ki/kuerbisdrepp-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` | vorhanden |
+| 59 | Kürbisdrëpp | 4. Kürbisdrëpp zu kräftigem Hartkäse | Zum Essen | `fotos-ki/kuerbisdrepp-4.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` | vorhanden |
+| 60 | Grain | 1. Grain eiskalt | Pur | `fotos-ki/grain-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Branntwein Grain-01.png` | vorhanden |
+| 61 | Grain | 3. Grain zu Brotzeit mit Schinken | Zum Essen | `fotos-ki/grain-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Branntwein Grain-01.png` | vorhanden |
+| 62 | Hondsaarsch | 1. Hondsaarsch pur, gut gekühlt | Pur | `fotos-ki/hondsaarsch-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` | vorhanden |
+| 63 | Hondsaarsch | 3. Hondsaarsch über Vanilleeis | In der Küche / Dessert | `fotos-ki/hondsaarsch-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` | vorhanden |
+| 64 | Hondsaarsch | 4. Hondsaarsch zu kräftigem Käse | Zum Essen | `fotos-ki/hondsaarsch-4.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` | vorhanden |
+| 65 | Kiwibeeren | 1. Kiwibeeren pur, gut gekühlt | Pur | `fotos-ki/kiwibeeren-2.png` | `Fotos/flasche-kiwibeeren.jpg` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | vorhanden |
+| 66 | Kiwibeeren | 2. Kiwibeeren-Tonic mit Limettenscheibe | Auf Eis / Longdrink | `fotos-ki/kiwibeeren-3.png` | `Fotos/flasche-kiwibeeren.jpg` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | vorhanden |
+| 67 | Kiwibeeren | 4. Joghurt mit Honig und Kiwibeeren | In der Küche / Dessert | `fotos-ki/kiwibeeren-4.png` | `Fotos/flasche-kiwibeeren.jpg` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | vorhanden |
+| 68 | Poire | 1. Poire pur, gut gekühlt | Pur | `fotos-ki/poire-2.png` | `Fotos/flasche-poire.jpg` | `Fertige Etiquetten/Brandwein Poire-01.png` | vorhanden |
+| 69 | Poire | 3. Poire über Vanilleeis | In der Küche / Dessert | `fotos-ki/poire-3.png` | `Fotos/flasche-poire.jpg` | `Fertige Etiquetten/Brandwein Poire-01.png` | vorhanden |
+| 70 | Poire | 4. Poire zu mildem Blauschimmelkäse | Zum Essen | `fotos-ki/poire-4.png` | `Fotos/flasche-poire.jpg` | `Fertige Etiquetten/Brandwein Poire-01.png` | vorhanden |
+| 71 | Neelchesbiren | 1. Neelchesbiren pur, gut gekühlt | Pur | `fotos-ki/neelchesbiren-2.png` | `Fotos/flasche-neelchesbiren.jpg` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | vorhanden |
+| 72 | Neelchesbiren | 3. Neelchesbiren über Vanilleeis | In der Küche / Dessert | `fotos-ki/neelchesbiren-3.png` | `Fotos/flasche-neelchesbiren.jpg` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | vorhanden |
+| 73 | Neelchesbiren | 4. Neelchesbiren zu mildem Käse | Zum Essen | `fotos-ki/neelchesbiren-4.png` | `Fotos/flasche-neelchesbiren.jpg` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | vorhanden |
 | 74 | Lënschouren | 1. Lënschouren pur, gut gekühlt | Pur | `fotos-ki/lenschouren-2.png` | `Fotos/flasche-lenschouren.jpg` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` | vorhanden |
 | 75 | Lënschouren | 2. Lënschouren-Tonic mit Zitronenschale | Auf Eis / Longdrink | `fotos-ki/lenschouren-3.png` | `Fotos/flasche-lenschouren.jpg` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` | vorhanden |
 | 76 | Lënschouren | 4. Lënschouren zu mildem Käse | Zum Essen | `fotos-ki/lenschouren-4.png` | `Fotos/flasche-lenschouren.jpg` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` | vorhanden |
-| 77 | Vullekiischt | 1. Vullekiischt pur, gut gekühlt | Pur | `fotos-ki/vullekiischt-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` | offen |
-| 78 | Vullekiischt | 3. Vullekiischt zu Wildpastete | Zum Essen | `fotos-ki/vullekiischt-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` | offen |
-| 79 | Vullekiischt | 4. Vullekiischt über Vanilleeis | In der Küche / Dessert | `fotos-ki/vullekiischt-4.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` | offen |
-| 80 | Schléiwen | 1. Schléiwen pur, gut gekühlt | Pur | `fotos-ki/schleiwen-2.png` | `Fotos/flasche-schleiwen.jpg` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | offen |
-| 81 | Schléiwen | 3. Wildsauce mit Schléiwen | In der Küche / Dessert | `fotos-ki/schleiwen-3.png` | `Fotos/flasche-schleiwen.jpg` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | offen |
-| 82 | Schléiwen | 4. Schléiwen zu kräftigem Bergkäse | Zum Essen | `fotos-ki/schleiwen-4.png` | `Fotos/flasche-schleiwen.jpg` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | offen |
-| 83 | Vizdrëpp | 1. Vizdrëpp pur, bei Zimmertemperatur | Pur | `fotos-ki/vizdrepp-2.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | offen |
-| 84 | Vizdrëpp | 3. Apfelsorbet mit Vizdrëpp | In der Küche / Dessert | `fotos-ki/vizdrepp-3.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | offen |
-| 85 | Vizdrëpp | 4. Flambierte Äpfel mit Vizdrëpp | In der Küche / Dessert | `fotos-ki/vizdrepp-4.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | offen |
-| 86 | Vizdrëpp | 5. Vizdrëpp zu Weichkäse | Zum Essen | `fotos-ki/vizdrepp-5.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | offen |
-| 87 | Hierber Sambuca | 2. Sambuca auf einem großen Eiswürfel | Auf Eis / Longdrink | `fotos-ki/sambuca-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | offen |
-| 88 | Hierber Sambuca | 3. Espresso mit Sambuca | Zum Essen | `fotos-ki/sambuca-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | offen |
-| 89 | Hierber Sambuca | 4. Sambuca über Vanilleeis | In der Küche / Dessert | `fotos-ki/sambuca-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | offen |
+| 77 | Vullekiischt | 1. Vullekiischt pur, gut gekühlt | Pur | `fotos-ki/vullekiischt-2.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` | vorhanden |
+| 78 | Vullekiischt | 3. Vullekiischt zu Wildpastete | Zum Essen | `fotos-ki/vullekiischt-3.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` | vorhanden |
+| 79 | Vullekiischt | 4. Vullekiischt über Vanilleeis | In der Küche / Dessert | `fotos-ki/vullekiischt-4.png` | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` | vorhanden |
+| 80 | Schléiwen | 1. Schléiwen pur, gut gekühlt | Pur | `fotos-ki/schleiwen-2.png` | `Fotos/flasche-schleiwen.jpg` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | vorhanden |
+| 81 | Schléiwen | 3. Wildsauce mit Schléiwen | In der Küche / Dessert | `fotos-ki/schleiwen-3.png` | `Fotos/flasche-schleiwen.jpg` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | vorhanden |
+| 82 | Schléiwen | 4. Schléiwen zu kräftigem Bergkäse | Zum Essen | `fotos-ki/schleiwen-4.png` | `Fotos/flasche-schleiwen.jpg` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | vorhanden |
+| 83 | Vizdrëpp | 1. Vizdrëpp pur, bei Zimmertemperatur | Pur | `fotos-ki/vizdrepp-2.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | vorhanden |
+| 84 | Vizdrëpp | 3. Apfelsorbet mit Vizdrëpp | In der Küche / Dessert | `fotos-ki/vizdrepp-3.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | vorhanden |
+| 85 | Vizdrëpp | 4. Flambierte Äpfel mit Vizdrëpp | In der Küche / Dessert | `fotos-ki/vizdrepp-4.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | vorhanden |
+| 86 | Vizdrëpp | 5. Vizdrëpp zu Weichkäse | Zum Essen | `fotos-ki/vizdrepp-5.png` | `Fotos/flasche-vizdrepp.jpg` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | vorhanden |
+| 87 | Hierber Sambuca | 2. Sambuca auf einem großen Eiswürfel | Auf Eis / Longdrink | `fotos-ki/sambuca-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | vorhanden |
+| 88 | Hierber Sambuca | 3. Espresso mit Sambuca | Zum Essen | `fotos-ki/sambuca-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | vorhanden |
+| 89 | Hierber Sambuca | 4. Sambuca über Vanilleeis | In der Küche / Dessert | `fotos-ki/sambuca-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | vorhanden |
 | 90 | Hierber Limoncello | 1. Limoncello eiskalt | Pur | `fotos-ki/limoncello-2.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Limoncello-01.png` | vorhanden |
 | 91 | Hierber Limoncello | 3. Limoncello-Tonic mit Minze | Auf Eis / Longdrink | `fotos-ki/limoncello-3.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Limoncello-01.png` | vorhanden |
 | 92 | Hierber Limoncello | 4. Zitronensorbet mit Limoncello | In der Küche / Dessert | `fotos-ki/limoncello-4.png` | `fotos/flaschen-wodka.webp` | `Fertige Etiquetten/Branntwein Limoncello-01.png` | vorhanden |
