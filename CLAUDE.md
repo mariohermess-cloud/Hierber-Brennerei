@@ -1,7 +1,7 @@
 # Hierber Brennerei — Hinweise für Claude Code
 
 Betrieb: Hierber Brennerei, Herborn, Luxemburg. Dieses Repository enthält das
-Datenmodell, das Rechnungsprogramm, den Website-Prototyp und die Planung.
+Datenmodell, das Rechnungsprogramm, die Website und die Planung.
 
 **Sprache: Deutsch.** Antworten, Code-Kommentare, Bezeichner, Commit-Nachrichten,
 Dokumentation — alles auf Deutsch.
@@ -15,23 +15,14 @@ Dokumentation — alles auf Deutsch.
 | `website/prototyp/` | Klick-Prototyp „Obstwiese" (`obstwiese.html`) |
 | `vorlagen/` | Excel-Erfassungsvorlage und ihr Erzeugerskript |
 | `docs/` | `MASTERPLAN.md` (Gesamtplan, offene Fragen F-01 bis F-24), `ETIKETTEN.md` |
-
-## Arbeitsablauf: Orchestrator
-
-Drei Rollen. Die Hauptsession ist der Chef.
-
-### Chef — Opus (Hauptsession)
-
-Plant, delegiert, prüft, committet, pusht. **Nur der Chef darf auf Live- und
-Produktivsysteme schreiben.** Der Chef schreibt nicht selbst jede Zeile Code: was
-sich abgrenzen lässt, geht an den Coder; was nur Suchen und Lesen ist, an den Helfer.
-
-Ablauf: Auftrag verstehen → bei Unklarheit mit der Fähigkeit `trainiere-prompt`
-schärfen → Plan mit Schritten, Rolle und Risiko → delegieren → Ergebnis samt
-Prüfnachweis prüfen → selbst committen und pushen.
-
-Jede Antwort während eines laufenden Auftrags endet mit:
-# CLAUDE.md
+| `site/` | Quelltext der Website: `lib/*.mjs` (Seitenbau), `data/*.js` (Produkt- und Textdaten), `assets/` (CSS, JS, Favicon) |
+| `build.mjs` | baut `site/` nach `dist/`; Aufruf `node build.mjs` oder `npm run build`; Laufzeit rund 6 Minuten |
+| `dist/` | **eingechecktes** Build-Ergebnis, 66 Seiten, wird mitcommittet |
+| `tools/` | Prüfwerkzeuge und Bild-/Prompt-Skripte |
+| `assets/fonts/` | lokal eingebundene Schriften (Cormorant Garamond, Inter) |
+| `index.html`, `keller-v2.html`, `js/`, `css/`, `v2/`, `vendor/` | ältere 3D-Fassung mit Three.js und GSAP, bleibt unangetastet |
+| `Fotos/`, `Fertige Etiquetten/`, `fotos-*/` | Bildmaterial |
+| `TODO-INHALTE.md`, `BILDERLISTE.md`, `FOTO-INVENTAR.md`, `FOTO-PLATZHALTER.md`, `FLUESSIGKEIT-MESSUNG.md`, `CHATGPT-STAPEL.md`, `PROMPTS-*.md` | Arbeitsnotizen zu Inhalten und Bildern |
 
 ## Arbeitsablauf: Orchestrator
 
@@ -45,7 +36,7 @@ Sprache für alle Antworten und Dateien: **Deutsch**.
 | **coder** (`.claude/agents/coder.md`) | Sonnet | klar abgegrenzte Umsetzung im Repo; liefert Diff + Prüfnachweis | nein |
 | **helfer** (`.claude/agents/helfer.md`) | Haiku | suchen, lesen, zusammenfassen, Doku-Zeilen, Formatierung; keine Logik | nein |
 
-**Live** heißt hier alles außerhalb des Repo-Arbeitsverzeichnisses: Home Assistant (`HA_MCP_NABU`, echtes Smart Home), Lovable (Deploy, Datenbank, Credits), GitHub-MCP-Schreibaktionen, Gamma, Claude Docs, Artifact-Publish sowie `git push`. Das Repo selbst hat derzeit weder Deployment noch Build-, Test- oder Lint-Konfiguration.
+**Live** heißt hier alles außerhalb des Repo-Arbeitsverzeichnisses: Home Assistant (`HA_MCP_NABU`, echtes Smart Home), Lovable (Deploy, Datenbank, Credits), GitHub-MCP-Schreibaktionen, Gamma, Claude Docs, Artifact-Publish sowie `git push`. Das Repo hat kein automatisches Deployment; Build und Prüfungen laufen ausschließlich lokal (siehe Abschnitt „Prüfbefehle“).
 
 ### Ablauf bei jedem Arbeitsauftrag
 
@@ -94,7 +85,8 @@ Schreibzugriff ausschließlich durch den Chef, und nur nach Rückfrage beim Nutz
   Gamma, Claude Docs, Claude Code Remote.
 
 Nicht live und frei nutzbar: eine lokale Wegwerf-PostgreSQL für Tests sowie ein
-nur lesend eingebundener Klon von LabelForge.
+nur lesend eingebundener Klon von LabelForge. Ebenfalls kein Live-System:
+`npm run serve`, ein rein lokaler Vorschauserver für `dist/`.
 
 ## Prüfbefehle
 
@@ -118,7 +110,54 @@ psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/002_rechnung.sql
 psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/900_test.sql
 ```
 
-Erfinde keine anderen Prüfbefehle (kein `npm test`, kein `ruff`, kein `make`).
+### Website
+
+Abhängigkeiten einmalig installieren, dann bauen und prüfen:
+
+```bash
+npm ci                      # einmalig, Abhängigkeiten
+node build.mjs              # oder: npm run build   (rund 6 Minuten)
+npm run pruefe              # = pruefe_daten + pruefe_links
+
+node tools/pruefe_daten.mjs      # Preise, Alkohol, Größen gegen site/data/produkte.js
+node tools/pruefe_links.mjs      # tote interne Verweise, Bilder, CSS-url()
+node tools/pruefe_notizen.mjs    # interne Notizen (TODO, KI-Marker) im sichtbaren Text
+node tools/pruefe_kontrast.mjs   # WCAG-Kontraste aus site/assets/css/main.css
+node tools/pruefe_browser.mjs    # Konsole, Tastatur, Merkliste, Filter (braucht laufenden Server)
+```
+
+Der Browser-Test und Lighthouse brauchen eine laufende Vorschau:
+
+```bash
+npm run serve    # python3 -m http.server 8770 -d dist
+sh tools/lighthouse.sh http://localhost:8770/ /tmp/lh.json
+node tools/screenshots.mjs <zielordner>
+```
+
+Letzter Lauf: `pruefe_daten` 66 Seiten / 404 Preisangaben grün, `pruefe_links`
+6214 Verweise grün, `pruefe_notizen` grün, `pruefe_kontrast` 15 Farbpaare grün,
+`pruefe_browser` 112 Prüfungen grün; `node build.mjs` erzeugt `dist/` unverändert
+(reproduzierbar).
+
+Erfinde keine anderen Prüfbefehle. Es gibt `npm run build`, `npm run serve` und
+`npm run pruefe`; `npm test`, `ruff` und `make` gibt es nicht.
+
+## Regeln für die Website
+
+- `site/data/produkte.js` ist eine **Kopie** von `v2/data/produkte.js` und wird
+  nicht von Hand geändert.
+- Nach Änderungen an `site/` muss `node build.mjs` laufen und `dist/`
+  **mitcommittet** werden.
+- Die Seite ist zweisprachig, Deutsch und Französisch (`site/lib/i18n.mjs`);
+  Französisch enthält nur bestätigte Texte, Entwürfe bekommen dort einen
+  Platzhalter.
+- Inhalte, die der Brenner noch nicht bestätigt hat, tragen
+  `data-todo="bestaetigen"`; fehlende Bilder `data-todo="foto"`; fehlende
+  Übersetzungen `data-todo="uebersetzung"`. Diese Marker dürfen nicht entfernt
+  werden, solange die Bestätigung fehlt.
+- **Keine Produktangaben erfinden.** Alkoholgehalt, Preise, Telefonnummer, RCS-
+  und TVA-Nummer, Adresse und Öffnungszeiten stammen ausschließlich vom Betrieb.
+  Offene Punkte stehen in `TODO-INHALTE.md`.
 
 ## Regeln für Code in diesem Repository
 
@@ -138,16 +177,9 @@ Erfinde keine anderen Prüfbefehle (kein `npm test`, kein `ruff`, kein `make`).
 
 ## Hooks und Fähigkeiten
 
-- `.claude/hooks/ablauf-erinnerung.sh` — spielt bei jeder Nutzereingabe eine
-  Kurzfassung dieses Ablaufs ein (`UserPromptSubmit`, konfiguriert in
-  `.claude/settings.json`).
-- `.claude/skills/trainiere-prompt/SKILL.md` — schärft unklare Aufträge, bevor sie
-  an Coder oder Helfer gehen.
-(Je Planschritt eine Zeile mit dem passenden Symbol. Gilt nicht für die Rückmeldungen von `coder`/`helfer`; die haben ihr eigenes festes Format.)
-
-### Hilfsmittel
-
-- **„trainiere Prompt“** (`.claude/skills/trainiere-prompt/`): zeigt nur verbesserten Prompt, Plan und offene Entscheidungen – führt nichts aus.
+- **`.claude/skills/trainiere-prompt/`** — schärft unklare Aufträge, bevor sie an
+  Coder oder Helfer gehen; zeigt nur verbesserten Prompt, Plan und offene
+  Entscheidungen und führt selbst nichts aus.
 - **Erinnerungs-Hook**: `.claude/hooks/ablauf-erinnerung.sh` blendet bei jeder Eingabe einen Merksatz ein (eingetragen in `.claude/settings.json` unter `hooks.UserPromptSubmit`).
   **Abschalten:** den `UserPromptSubmit`-Eintrag aus `.claude/settings.json` entfernen, oder nur für dich lokal in `.claude/settings.local.json` `"disableAllHooks": true` setzen (schaltet alle Hooks ab).
 - Hook, Agenten und Skill werden beim Sessionstart geladen – nach Änderungen eine neue Session starten. Hauptmodell der Session auf **Opus** stellen (`/model`).
