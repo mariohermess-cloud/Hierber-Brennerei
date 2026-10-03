@@ -41,15 +41,15 @@ const SORTEN = {
   vizdrepp: { art: 'vorlage', a1: 'fotos/vorlage-vizdrepp.png', form: 'schlanker Hals, nach unten glockenförmig breiter werdender Körper mit eingewölbtem Boden', verschluss: 'Glasstopfen mit flachem, breitem Kragen', fl: 'kräftiges, klares Goldgelb', extra: 'Das Etikett ist querformatig.' },
   kuerbisdrepp: { art: 'schlankV', fl: 'klar wie Wasser' }, grain: { art: 'schlankV', fl: 'klar wie Wasser' },
   hondsaarsch: { art: 'schlankV', fl: 'klar wie Wasser' }, vullekiischt: { art: 'schlankV', fl: 'klar wie Wasser' },
-  wodka: { art: 'rund2', a1: RUND_WODKA, verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
-  gin: { art: 'rund2', a1: RUND_WODKA, verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser', extra: 'Es entsteht eine Gin-Flasche in der Form der Wodka-Flasche.' },
-  rum: { art: 'rund2', a1: RUND_RUM, verschluss: 'dunkelbraune Holzkappe', fl: 'goldenes Bernstein' },
-  'rum-orange': { art: 'rund2', a1: RUND_RUM, verschluss: 'dunkelbraune Holzkappe', fl: 'Bernstein, etwas orangener als im Foto (Orange-Bernstein)' },
-  whisky: { art: 'rund2', a1: RUND_RUM, verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'goldgelb', extra: 'Es entsteht eine Whisky-Flasche in der Form der Rum-Flasche.' },
-  'hunneg-whisky': { art: 'rund2', a1: RUND_RUM, verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'warmes, honigfarbenes Goldgelb', extra: 'Es entsteht eine Hunneg-Whisky-Flasche in der Form der Rum-Flasche.' },
-  limoncello: { art: 'rund2', a1: 'fotos/flaschen-limoncello.webp', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'leuchtendes Gelbgrün' },
-  sambuca: { art: 'rund2', a1: 'fotos/flaschen-sambuca.webp', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'klar wie Wasser' },
-  'hierber-fruucht': { art: 'rund2', a1: 'fotos/flaschen-fruucht.webp', verschluss: 'rotbraune Holzkappe', fl: 'warmes, kräftiges Orange-Bernstein' },
+  wodka: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
+  gin: { art: 'rund', a1: 'fotos/vorlage-rund-gin.png', verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser', extra: 'Es entsteht eine Gin-Flasche in der Form der Wodka-Flasche.' },
+  rum: { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'dunkelbraune Holzkappe', fl: 'goldenes Bernstein' },
+  'rum-orange': { art: 'rund', a1: 'fotos/vorlage-rund-rum-orange.png', verschluss: 'dunkelbraune Holzkappe', fl: 'Bernstein, etwas orangener als im Foto (Orange-Bernstein)' },
+  whisky: { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'goldgelb', extra: 'Es entsteht eine Whisky-Flasche in der Form der Rum-Flasche.' },
+  'hunneg-whisky': { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'warmes, honigfarbenes Goldgelb', extra: 'Es entsteht eine Hunneg-Whisky-Flasche in der Form der Rum-Flasche.' },
+  limoncello: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'leuchtendes Gelbgrün' },
+  sambuca: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'klar wie Wasser' },
+  'hierber-fruucht': { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'rotbraune Holzkappe', fl: 'warmes, kräftiges Orange-Bernstein' },
   'vieux-marc': { art: 'vorlage', a1: 'fotos/vorlage-vieux-marc.png', form: 'dunkle Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper', verschluss: 'schwarzer Ausgießer', fl: 'dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen' },
 };
 
@@ -69,7 +69,7 @@ const HALS_BAND = {
 };
 const HALS_UNBESTAETIGT = ['gin', 'rum-orange', 'whisky', 'hunneg-whisky'];
 const halsText = (id) => HALS_BAND[id]
-  ? `Halsband: schmales Papierband um den Hals, ${HALS_BAND[id]}, wie in Anhang 1, eigenes Band neben dem großen Etikett.`
+  ? `Halsband: schmales Papierband um den Hals, ${HALS_BAND[id]}, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen).`
   : id === 'vieux-marc' ? 'Kein Halsband: der Hals bleibt ohne Papierband.' : KEIN_HALS;
 
 const sorten = PRODUKTE.map((p) => {
@@ -91,6 +91,7 @@ const FORMAT = `${FLASCHEN_FORMAT.w} × ${FLASCHEN_FORMAT.h} Pixel`;
 const ORIENT = {
   foto: 'Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals',
   schlankV: 'schlanke 0,5-L-Flasche, Foto der Kirsch-Flasche nur als Formvorbild',
+  rund: 'Produktfoto einer runden 0,5-L-Flasche: maßgeblich für Form, Licht, Schatten und den Sitz des Etiketts; Etikett, Kappe und Flüssigkeit sind die der Sorte',
   rund2: 'Foto mit zwei runden Flaschen: die große 0,5-L-Flasche rechts ist das Formvorbild, es entsteht nur EINE Flasche',
   vorlage: 'leere Vorlagenflasche ohne Etikett, nur Form und Verschluss',
   gruppe: 'Gruppenfoto der Theke: nur die dunkle Karaffe vorn links ist das Formvorbild',
@@ -111,7 +112,7 @@ function baue(e) {
 
 // ---------- Hinweise zur Vorlage (ehrlich, für die Tabelle und die Prüfliste) ----------
 const PROBLEM = {
-  rund2: 'Zwei-Flaschen-Foto (0,2 L und 0,5 L): nur die große Flasche ist Formvorbild, ChatGPT könnte beide zeichnen; das Halsband ist gewollt und im Prompt beschrieben',
+  rund: 'Vorlage ist ein bereits etikettiertes KI-Produktbild (ohne Halsband, mit Holzkappe); ChatGPT könnte dessen Etikett oder Kappe übernehmen',
   gruppe: 'Gruppenfoto: nur eine Flasche von vielen, teils verdeckt; Form der Karaffe schwer zu erfassen',
   vorlage: 'Leere Vorlagenflasche (ohne Etikett) auf schwarzem Grund; der Grund soll hell werden',
   schlankV: 'Formvorlage ist die Kirsch-Flasche, nicht die Flasche der Sorte',
