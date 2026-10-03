@@ -1,8 +1,10 @@
 # Ersatz-Prompts für fehlerhafte Erstbilder (ChatGPT)
 
 Erzeugt mit `node tools/foto_prompts_weitere.mjs`. Nicht von Hand ändern.
-Für **27 der 29** vorhandenen Hauptbilder (`fotos-ki/<sorten-id>-1.png`) nennt `TODO-INHALTE.md` (Abschnitt 6) echte Fehler: verfälschte Adresse, angeschnittenes oder erfundenes Etikett, fehlender Verschluss, abgeschnittene Flasche, falsche Zutaten, Gericht ohne Getränk. Hier stehen verbesserte Prompts mit denselben Verbesserungen wie in `PROMPTS-FOTOS-WEITERE.md`.
+Für **27 der 29** vorhandenen Hauptbilder (`fotos-ki/<sorten-id>-1.png`) nennt `TODO-INHALTE.md` (Abschnitt 6) echte Fehler: verfälschte Adresse, angeschnittenes oder erfundenes Etikett, fehlender Verschluss, abgeschnittene Flasche, falsche Zutaten, Gericht ohne Getränk. **Diese Ersatzbilder kommen im Stapel zuerst** (Entscheidung des Nutzers: die Ersatz-Prompts werden genutzt; danach die Flaschenbilder, dann die weiteren Serviervorschläge). Hier stehen verbesserte Prompts mit denselben Verbesserungen wie in `PROMPTS-FOTOS-WEITERE.md`.
 Das neue Bild **ersetzt** das vorhandene (gleicher Dateiname, Nutzer überschreibt die Datei). Welche Ersatzbilder schon ersetzt wurden, kann das Skript nicht sicher wissen; nur lenschouren ist laut Nutzer bereits durch ein neues Bild ersetzt (Status „ersetzt, bitte prüfen“). Nicht aufgeführt, weil ohne Befund: Hierber aale Fruucht, Grain.
+
+Auch für Sorten, deren Sortenseite künftig ein bearbeitetes Flaschenfoto zeigt (`PROMPTS-FLASCHEN.md`), bleibt das KI-Bild ein Serviervorschlag („Symbolbild“) mit der Flasche daneben; die Prompts hier ändern sich dadurch nicht.
 
 Automatisch abarbeiten statt von Hand: `CHATGPT-STAPEL.md` (Hauptprompt, Stapeldateien `tools/chatgpt-stapel*.csv`).
 

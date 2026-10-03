@@ -466,8 +466,10 @@ const mdE = [];
 mdE.push(`# Ersatz-Prompts für fehlerhafte Erstbilder (ChatGPT)
 
 Erzeugt mit \`node tools/foto_prompts_weitere.mjs\`. Nicht von Hand ändern.
-Für **${ersatz.length} der ${vorhanden.length}** vorhandenen Hauptbilder (\`fotos-ki/<sorten-id>-1.png\`) nennt \`TODO-INHALTE.md\` (Abschnitt 6) echte Fehler: verfälschte Adresse, angeschnittenes oder erfundenes Etikett, fehlender Verschluss, abgeschnittene Flasche, falsche Zutaten, Gericht ohne Getränk. Hier stehen verbesserte Prompts mit denselben Verbesserungen wie in \`PROMPTS-FOTOS-WEITERE.md\`.
+Für **${ersatz.length} der ${vorhanden.length}** vorhandenen Hauptbilder (\`fotos-ki/<sorten-id>-1.png\`) nennt \`TODO-INHALTE.md\` (Abschnitt 6) echte Fehler: verfälschte Adresse, angeschnittenes oder erfundenes Etikett, fehlender Verschluss, abgeschnittene Flasche, falsche Zutaten, Gericht ohne Getränk. **Diese Ersatzbilder kommen im Stapel zuerst** (Entscheidung des Nutzers: die Ersatz-Prompts werden genutzt; danach die Flaschenbilder, dann die weiteren Serviervorschläge). Hier stehen verbesserte Prompts mit denselben Verbesserungen wie in \`PROMPTS-FOTOS-WEITERE.md\`.
 Das neue Bild **ersetzt** das vorhandene (gleicher Dateiname, Nutzer überschreibt die Datei). Welche Ersatzbilder schon ersetzt wurden, kann das Skript nicht sicher wissen; nur ${[...ERSETZT_PRUEFEN].join(', ')} ist laut Nutzer bereits durch ein neues Bild ersetzt (Status „ersetzt, bitte prüfen“). Nicht aufgeführt, weil ohne Befund: ${vorhanden.filter((e) => !e.fehler).map((e) => e.sorte).join(', ')}.
+
+Auch für Sorten, deren Sortenseite künftig ein bearbeitetes Flaschenfoto zeigt (\`PROMPTS-FLASCHEN.md\`), bleibt das KI-Bild ein Serviervorschlag („Symbolbild“) mit der Flasche daneben; die Prompts hier ändern sich dadurch nicht.
 
 ${kopfSchritte}
 ${stilBlock}`);
@@ -495,8 +497,8 @@ Erzeugt mit \`node tools/foto_prompts_weitere.mjs\`. Nicht von Hand ändern; den
 - **${weitere.length} weitere Bilder** insgesamt: **${nVorhanden} vorhanden**, **${nOffen} offen** (Status wird aus den Dateien in \`fotos-ki/\` abgelesen). Dazu sind die ${vorhanden.length} Hauptbilder (je Sorte \`-1\`, siehe unten) schon da.
 - Automatisch statt von Hand: \`CHATGPT-STAPEL.md\` (Stapeldateien \`tools/chatgpt-stapel*.csv\`).
 - Ablauf je Bild: Prompt aus \`PROMPTS-FOTOS-WEITERE.md\` kopieren, die beiden Anhänge aus der Tabelle anhängen (neuer Chat, ChatGPT Bildgenerierung), Ergebnis prüfen, als PNG 4:3 (1448×1086 px) unter dem **Dateinamen aus der Tabelle** in \`fotos-ki/\` speichern.
-- **Reihenfolge nach Wichtigkeit:** je Sorte zuerst die Datei mit \`-2\` (alle ${proN[2]} Sorten), danach alle \`-3\`, dann \`-4\`, \`-5\`. Stückzahl je Nummer (alle, auch vorhandene): ${wellen}. In der Tabelle nach der Endung des Dateinamens suchen.
-- Optional vorher die ${ersatz.length} fehlerhaften Erstbilder ersetzen: \`PROMPTS-FOTOS-ERSATZ.md\`.
+- **Reihenfolge nach Wichtigkeit (innerhalb dieser weiteren Bilder, nach den Ersatz- und Flaschenbildern):** je Sorte zuerst die Datei mit \`-2\` (alle ${proN[2]} Sorten), danach alle \`-3\`, dann \`-4\`, \`-5\`. Stückzahl je Nummer (alle, auch vorhandene): ${wellen}. In der Tabelle nach der Endung des Dateinamens suchen.
+- **Zuerst die ${ersatz.length} fehlerhaften Erstbilder ersetzen** (${ersatz.filter((e) => e.status === 'offen').length} offen): \`PROMPTS-FOTOS-ERSATZ.md\`. Entscheidung des Nutzers: Die Ersatz-Prompts werden genutzt, im Stapel stehen sie an erster Stelle. Gesamtreihenfolge im Stapel (\`CHATGPT-STAPEL.md\`): 1. Ersatzbilder, 2. Flaschenbilder „Etikett auf die echte Flasche“ (\`PROMPTS-FLASCHEN.md\`), 3. diese weiteren Bilder.
 - Bilder, die nicht per KI gehen (Maische, Abfüllen, Karte): letzter Abschnitt.
 
 **Benennungsregel:** \`fotos-ki/<sorten-id>-<n>.png\`. \`-1\` ist das vorhandene Hauptbild der Sorte. Die weiteren Karten der Sortenseite werden in Kartenreihenfolge ab 2 nummeriert, ohne die Karte des Hauptbilds.

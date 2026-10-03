@@ -7,8 +7,8 @@ Erzeugt mit `node tools/foto_prompts_weitere.mjs`. Nicht von Hand ändern; den S
 - **92 weitere Bilder** insgesamt: **9 vorhanden**, **83 offen** (Status wird aus den Dateien in `fotos-ki/` abgelesen). Dazu sind die 29 Hauptbilder (je Sorte `-1`, siehe unten) schon da.
 - Automatisch statt von Hand: `CHATGPT-STAPEL.md` (Stapeldateien `tools/chatgpt-stapel*.csv`).
 - Ablauf je Bild: Prompt aus `PROMPTS-FOTOS-WEITERE.md` kopieren, die beiden Anhänge aus der Tabelle anhängen (neuer Chat, ChatGPT Bildgenerierung), Ergebnis prüfen, als PNG 4:3 (1448×1086 px) unter dem **Dateinamen aus der Tabelle** in `fotos-ki/` speichern.
-- **Reihenfolge nach Wichtigkeit:** je Sorte zuerst die Datei mit `-2` (alle 29 Sorten), danach alle `-3`, dann `-4`, `-5`. Stückzahl je Nummer (alle, auch vorhandene): `-2`: 29, `-3`: 29, `-4`: 28, `-5`: 6. In der Tabelle nach der Endung des Dateinamens suchen.
-- Optional vorher die 27 fehlerhaften Erstbilder ersetzen: `PROMPTS-FOTOS-ERSATZ.md`.
+- **Reihenfolge nach Wichtigkeit (innerhalb dieser weiteren Bilder, nach den Ersatz- und Flaschenbildern):** je Sorte zuerst die Datei mit `-2` (alle 29 Sorten), danach alle `-3`, dann `-4`, `-5`. Stückzahl je Nummer (alle, auch vorhandene): `-2`: 29, `-3`: 29, `-4`: 28, `-5`: 6. In der Tabelle nach der Endung des Dateinamens suchen.
+- **Zuerst die 27 fehlerhaften Erstbilder ersetzen** (26 offen): `PROMPTS-FOTOS-ERSATZ.md`. Entscheidung des Nutzers: Die Ersatz-Prompts werden genutzt, im Stapel stehen sie an erster Stelle. Gesamtreihenfolge im Stapel (`CHATGPT-STAPEL.md`): 1. Ersatzbilder, 2. Flaschenbilder „Etikett auf die echte Flasche“ (`PROMPTS-FLASCHEN.md`), 3. diese weiteren Bilder.
 - Bilder, die nicht per KI gehen (Maische, Abfüllen, Karte): letzter Abschnitt.
 
 **Benennungsregel:** `fotos-ki/<sorten-id>-<n>.png`. `-1` ist das vorhandene Hauptbild der Sorte. Die weiteren Karten der Sortenseite werden in Kartenreihenfolge ab 2 nummeriert, ohne die Karte des Hauptbilds.

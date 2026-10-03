@@ -233,3 +233,32 @@ Ursprünglich 45 Dateien `_DSC*.jpg`: 40 freigestellte Flaschenfotos auf hellem 
 | raum-hof-original.jpg | _DSC3491.jpg | 5940x3964 | Hofansicht mit Schild „Hierber Brennerei“ (großes Original) | Raumfoto | eindeutig |
 
 Sorten der Seite ohne Foto in `Fotos/`: Gin, Wodka, Rum, Rum Orange, Whisky, Hunneg Whisky, Aale Fruucht, Vieux Marc, Kürbisdrëpp, Grain, Hondsaarsch, Vullekiischt, Sambuca, Limoncello (14); mit Foto: 15 Sorten. Liköre (Williams-, Viz-, Quitten-, Pijen-, Hambier-, Mirabellen-, Mandel-, Kiischten-, Kräider-, Schléiwenlikör, De wëlle Mix), Pefferminz, Nëssdrëpp und Williamsdrëpp op Biren nogeräift (35 %) stehen nicht in `produkte.js` bzw. sind keine eigene Sorte der Seite: nur als „nicht auf der Seite“ vermerkt.
+
+
+## 9. Etikett auf dem Foto identisch zum aktuellen flachen Etikett? (Oktober 2026)
+
+Geprüft wurde für die 15 Sorten mit Foto in `Fotos/`, je das Foto ohne Zusatz im Namen (Design „aktuell“, nicht `-altes-etikett`): Etikett auf dem Foto neben dem flachen Etikett aus `Fertige Etiquetten/` (Ausschnitte vergrößert, Kirsch und Vizdrëpp in voller Auflösung; die übrigen in etwa halber Auflösung). Verglichen wurden Sortenname, Grafik, Farben, Layout, Alkoholangabe und Adresszeile. Die Tabelle ist **reine Information** und steuert nichts: ChatGPT erzeugt für alle 29 Sorten eine neue Flasche (`PROMPTS-FLASCHEN.md`), die Fotos in `Fotos/` werden nicht auf der Seite gezeigt.
+
+| Sorte | gewähltes Foto (`Fotos/`) | Etikett auf Foto identisch? | Abweichung / Maßnahme |
+|---|---|---|---|
+| Kirsch | flasche-kirsch.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Framboise | flasche-framboise.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Quetsch | flasche-quetsch.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Poire Williams | flasche-poire-williams.jpg | **nein** | Zusatzzeile „Barzen-Wewer Arsène“ (www-Zeile vorhanden). Foto dient nur als Formvorbild (Anhang 1). |
+| Mirabelle | flasche-mirabelle.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Poire | flasche-poire.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Neelchesbiren | flasche-neelchesbiren.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Lënschouren | flasche-lenschouren.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Schléiwen | flasche-schleiwen.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Kräiderdrëpp | flasche-kraeiderdrepp.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile. Foto dient nur als Formvorbild (Anhang 1). |
+| Kiwibeeren | flasche-kiwibeeren.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile (43 % stimmt). Foto dient nur als Formvorbild (Anhang 1). |
+| Hunnegdrëpp | flasche-hunnegdrepp.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile (40 % stimmt). Foto dient nur als Formvorbild (Anhang 1). |
+| Vieille Pomme | flasche-vieille-pomme.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile (40 % stimmt). Foto dient nur als Formvorbild (Anhang 1). |
+| Vieille Prune | flasche-vieille-prune.jpg | **nein** | Adresszeile „Barzen-Wewer Arsène“, keine www-Zeile (40 % stimmt). Foto dient nur als Formvorbild (Anhang 1). |
+| Vizdrëpp | flasche-vizdrepp.jpg | **nein** | Zusatzzeile „Methode Calvados“ auf dem Foto, keine www-Zeile; Zeile „Barzen-Wewer Arsène“ steht auch auf dem flachen Etikett. Foto dient nur als Formvorbild (Anhang 1). |
+
+**Ergebnis:** Keines der 15 Fotos trägt exakt das aktuelle Etikett. Der Unterschied ist immer derselbe: Auf den Fotos steht die ältere Adresszeile „Hierber Brennerei / Barzen-Wewer Arsène / 2, Millewee L-6665 Herborn / Tél: 727602“ (meist ohne die Zeile „www.hierber-brennerei.lu“), das aktuelle Etikett hat „Hierber Brennerei / 2, Millewee L-6665 Herborn / Tél: 727602 / www.hierber-brennerei.lu“. Das Papier der Fotos ist außerdem gedruckt, heller und leicht gewellt, das flache Etikett trägt unten einen Druckcode (z. B. HB2610), der auf der Flasche fehlt. Kein Foto könnte also unverändert genutzt werden. Unabhängig davon bekommen alle 29 Sorten einen Flaschen-Prompt (neue Flasche).
+
+**Sorten ohne passendes Foto in `Fotos/`** (14): Kürbisdrëpp, Grain, Hondsaarsch, Vullekiischt (Formvorlage `Fotos/flasche-kirsch.jpg`, klare Flüssigkeit), Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, Hierber aale Fruucht (Fotos auf schwarzem Grund in `fotos/`, Zwei-Flaschen-Bilder) und Vieux Marc (Gruppenfoto der Theke). Zuordnung Anhang 1 → Anhang 2 → Zieldatei für alle 29 Sorten: `PROMPTS-FLASCHEN.md`.
+
+**Entscheidung des Nutzers (Oktober 2026):** Die Etiketten werden nicht im Repo montiert. ChatGPT erzeugt je Sorte eine NEUE, saubere Produktflasche (Hochformat 1024 × 1536 px, heller neutraler Grund) mit dem aktuellen flachen Etikett; das echte Foto aus `Fotos/` bzw. `fotos/` ist nur Orientierung (Form, Verschluss, Proportionen, Foto-Look, Anhang 1). Ergebnisse (PNG) kommen nach `fotos-flaschen/<sorten-id>.png`. Auf der Seite gilt: `fotos-flaschen/<id>.png` zeigt Sortenseite und Karte, sonst die Vektor-Flasche. Aufträge: `PROMPTS-FLASCHEN.md`, `CHATGPT-STAPEL.md` (Gruppe `flasche`).
