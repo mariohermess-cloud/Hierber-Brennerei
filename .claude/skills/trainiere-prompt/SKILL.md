@@ -1,5 +1,7 @@
 ---
 name: trainiere-prompt
+description: Zeigt zu einem Arbeitsauftrag den verbesserten Prompt, die offengelegte Deutung des diktierten Wortlauts, eine Plan-Tabelle und offene Entscheidungen, ohne etwas auszuführen. Auslösen, wenn der Nutzer „trainiere Prompt“ (auch „trainier den Prompt“, „Prompt trainieren“) schreibt oder spricht.
+intended-models: opus, fable, sonnet (nicht auf Haiku geprüft)
 description: Macht aus einem grob formulierten Wunsch einen präzisen Arbeitsauftrag für die Brennerei-Projekte. Nutze diese Fähigkeit, wenn der Auftrag unklar, sehr groß oder mehrdeutig ist, wenn der Nutzer nach einem besseren Prompt fragt, oder bevor eine Aufgabe an Coder oder Helfer übergeben wird.
 ---
 
@@ -86,31 +88,42 @@ description: Verbessert einen Arbeitsauftrag und zeigt Plan und offene Entscheid
 
 # trainiere Prompt
 
-Dieser Skill **zeigt nur, er führt nichts aus**: keine Datei anlegen oder ändern, keine Agenten starten, nichts committen, keine Live-Tools. Lesen im Repo ist erlaubt, damit Prompt und Plan zum Ist-Zustand passen.
+Dieser Skill **zeigt nur, er führt nichts aus**: keine Datei anlegen oder ändern, keine Agenten starten, nichts committen, keine Live-Tools. Lesen im Repo ist erlaubt, soweit der Plan es braucht (vor allem die `CLAUDE.md` des Projekts, auch verschachtelte).
 
-Nimm den Auftrag des Nutzers (den Text nach „trainiere Prompt“ oder, falls leer, den letzten Arbeitsauftrag) und gib auf Deutsch genau diese vier Teile aus:
+Auftrag ist der Text nach „trainiere Prompt“, sonst der letzte Arbeitsauftrag. Der Nutzer diktiert oft per Spracheingabe: Rechne mit Erkennungsfehlern, fehlender Zeichensetzung und falsch geschriebenen Fachbegriffen. Lege offen, wie du solche Stellen gedeutet hast, statt sie still zu korrigieren.
 
-## (1) Verbesserter Prompt
+Reihenfolge, Überschriften und Tabellenspalten der Ausgabe sind fest, der Inhalt ist deine Einschätzung. Antworte auf Deutsch.
+
+## Ausgabe
+
+### 1. Verbesserter Prompt
 
 - **Ziel:** was am Ende anders sein soll, in einem Satz.
-- **Kontext:** relevante Dateien, Systeme, Vorwissen aus dem Repo.
-- **Randbedingungen:** was nicht passieren darf, was erhalten bleiben muss, Live-Systeme.
+- **Kontext:** betroffene Dateien, Systeme, Datenquellen (nur Belegtes).
+- **Randbedingungen:** Regeln aus der `CLAUDE.md`, was erhalten bleiben muss, was live ist.
 - **Erfolgskriterium:** woran man prüfbar erkennt, dass es fertig ist.
-- **So habe ich deinen Wortlaut gelesen:** Der Nutzer diktiert oft per Spracheingabe. Nenne jedes Wort bzw. jede Stelle, die du umgedeutet, korrigiert oder ergänzt hast („‚Hohm Assistent‘ → Home Assistant“, „‚das Ding‘ → vermutlich `X`“).
+- **So habe ich deinen Wortlaut gelesen:** jede umgedeutete, korrigierte oder ergänzte Stelle in der Form „‚<Originalwort>‘ → verstanden als <…>“.
 
-## (2) Plan
+### 2. Plan
 
 | # | Schritt | Wer | Live? | Risiko |
 |---|---|---|---|---|
-| 1 | … | Opus / coder / helfer | ja/nein | gering/mittel/hoch + kurzer Grund |
+| 1 | … | Opus / Agent aus `.claude/agents/` | ja / nein | gering / mittel / hoch: kurzer Grund |
 
-- **Wer:** Opus = Chef (Planung, Kontrolle, Commit/Push, alles Live), `coder` = abgegrenzte Umsetzung im Repo, `helfer` = Suchen/Lesen/Zusammenfassen/Doku.
-- **Live? = ja** nur bei Schritten des Chefs.
+„Live? ja“ gilt für alles, was außerhalb des Repos schreibt (Push/PR, SharePoint, Home Assistant, Lovable, Veröffentlichen). Solche Schritte führt immer Opus aus.
 
-## (3) Offene Entscheidungen
+### 3. Offene Entscheidungen
 
-Nummerierte Liste; zu jeder Frage **dein Vorschlag** mit kurzer Begründung. Wenn es keine gibt: „keine“.
+Nummeriert, je Punkt die Frage und **dein Vorschlag** mit einem Satz Begründung. Gibt es keine: „keine“.
 
-## (4) Abschlusszeile
+### 4. Abschlusszeile
 
 Mit OK starte ich, oder schreib, was ich ändern soll.
+
+## Vor der Ausgabe prüfen
+
+Erst korrigieren, dann ausgeben:
+
+- Jede umgedeutete oder ergänzte Stelle steht unter „So habe ich deinen Wortlaut gelesen“.
+- Jeder Schritt mit „Live? ja“ hat „Opus“ als Wer.
+- Das Erfolgskriterium lässt sich an etwas Messbarem prüfen.

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hierber Brennerei – Weinkeller (Version 2)</title>
+  <meta name="description" content="Hierber Brennerei aus Herborn, Luxemburg: Im gewölbten Weinkeller Fässer und Regalwand entdecken, Sorte einschenken lassen, Größe wählen und per E-Mail anfragen.">
+  <meta name="theme-color" content="#0d0805">
+  <link rel="stylesheet" href="v2/css/keller.css">
+  <!-- three.js (ES-Module, r160) samt Nachbearbeitung und GSAP liegen lokal in vendor/ – kein CDN, läuft offline -->
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }
+  </script>
+  <script src="vendor/gsap/gsap.min.js"></script>
+  <script>
+    // Falls das Modul nicht startet (z. B. file:// ohne Webserver), Fallback nach kurzer Zeit zeigen.
+    setTimeout(function () {
+      if (!window.__hbStarted) {
+        document.documentElement.classList.add('gl-fail');
+        var r = document.getElementById('fallback-reason');
+        if (r) r.textContent = 'Die 3D-Ansicht konnte nicht geladen werden (bitte die Seite über einen Webserver öffnen, z. B. „python3 -m http.server“). Hier unsere Produktliste:';
+      }
+    }, 4500);
+  </script>
+  <script type="module" src="v2/js/main.js"></script>
+</head>
+<body data-mode="loading">
+  <a class="skip" href="#dock">Zur Auswahl springen</a>
+
+  <main id="app">
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <div class="dof" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="top">
+      <span class="brand">Hierber Brennerei</span>
+      <button id="nav-all" class="ghost" type="button">Überblick</button>
+    </header>
+
+    <section class="hero" aria-label="Willkommen">
+      <p class="eyebrow">Brennerei · Herborn · Luxemburg</p>
+      <h1>Hierber Brennerei<span class="sr"> – </span><em>Der Weinkeller</em></h1>
+      <p class="lead">Vierzehn Fässer im Gang, dazu die Regalwand am Ende. Wählen Sie ein Fass oder eine Flasche und lassen Sie sich einschenken.</p>
+    </section>
+
+    <div id="tags" role="group" aria-label="Fässer und Flaschen im Keller"></div>
+
+    <nav id="dock" class="dock" aria-label="Sortenauswahl">
+      <button id="nav-prev" class="arrow" type="button" aria-label="Vorherige Sorte">‹</button>
+      <ul id="dock-list"></ul>
+      <button id="nav-next" class="arrow" type="button" aria-label="Nächste Sorte">›</button>
+    </nav>
+    <p class="hint" aria-hidden="true"><span class="hint-desktop">Scrollen oder ← → zum Wechseln · Klick zum Einschenken · Esc zurück</span><span class="hint-touch">Wischen zum Wechseln · Antippen zum Einschenken</span></p>
+
+    <aside id="panel" class="panel" role="dialog" aria-modal="false" tabindex="-1">
+      <p id="p-eyebrow" class="eyebrow"></p>
+      <div class="p-title"><h2 id="p-name"></h2><span id="p-abv" class="badge"></span></div>
+      <p id="p-desc" class="p-desc"></p>
+      <div id="p-variants" class="opt" hidden>
+        <span class="opt-label" id="p-variants-l">Version</span>
+        <div id="p-variant-chips" class="chips" role="radiogroup" aria-labelledby="p-variants-l"></div>
+      </div>
+      <div id="p-sizes" class="opt">
+        <span class="opt-label" id="p-sizes-l">Größe</span>
+        <div id="p-size-chips" class="chips" role="radiogroup" aria-labelledby="p-sizes-l"></div>
+      </div>
+      <p class="p-price" aria-live="polite"><span id="p-price-label">0,5 L</span><b id="p-price"></b></p>
+      <p class="p-vat">Preise in Euro, inkl. 17 % MwSt. (Preisliste 2025)</p>
+      <div class="p-actions">
+        <a id="p-request" class="btn primary" href="mailto:info@hierber-brennerei.lu">Anfragen</a>
+        <button id="p-replay" class="btn" type="button" disabled>Erneut einschenken</button>
+        <button id="p-back" class="btn" type="button">Zurück zum Keller</button>
+      </div>
+      <p class="p-mail">Es gibt keinen Online-Shop. „Anfragen“ öffnet Ihr E-Mail-Programm mit einer vorbereiteten Nachricht an <a href="mailto:info@hierber-brennerei.lu">info@hierber-brennerei.lu</a>.</p>
+      <div class="p-switch">
+        <button id="p-prev" class="link" type="button">‹ Vorige Sorte</button>
+        <button id="p-next" class="link" type="button">Nächste Sorte ›</button>
+      </div>
+    </aside>
+
+    <footer class="foot">
+      <p id="foot-text"></p>
+      <p id="foot-note"></p>
+    </footer>
+
+    <div id="loader" role="status" aria-live="polite">
+      <div class="loader-inner">
+        <p class="eyebrow">Brennerei · Herborn · Luxemburg</p>
+        <h2 class="loader-title">Hierber Brennerei<span class="sr"> – </span><em>Der Weinkeller</em></h2>
+        <div class="loader-track"><div id="loader-bar"></div></div>
+        <p class="loader-meta"><span id="loader-msg">Wird geladen …</span><span id="loader-pct">0 %</span></p>
+      </div>
+    </div>
+    <div id="live" class="sr" aria-live="polite"></div>
+  </main>
+
+  <!-- Fallback ohne WebGL / ohne Modul-Start: Produktliste mit Preisen in reinem HTML/CSS -->
+  <section id="fallback" aria-labelledby="fb-title">
+    <h1 id="fb-title">Hierber Brennerei <em>Der Weinkeller</em></h1>
+    <p id="fallback-reason" class="fb-note" role="alert">Die 3D-Ansicht wird geladen. Ohne JavaScript oder WebGL sehen Sie hier unsere Produktliste.</p>
+    <ul id="fallback-list"></ul>
+    <p id="fallback-contact" class="fb-contact">Hierber Brennerei Sàrl, 2, Millewee L-6665 Herborn<br>info@hierber-brennerei.lu · www.hierber-brennerei.lu<br><small>Alle Preise inkl. 17 % MwSt. (Preisliste 2025)</small></p>
+  </section>
+  <noscript><p class="fb-noscript">Für die 3D-Ansicht wird JavaScript benötigt. Kontakt: Hierber Brennerei Sàrl, 2, Millewee L-6665 Herborn, info@hierber-brennerei.lu, www.hierber-brennerei.lu</p></noscript>
+</body>
+</html>
