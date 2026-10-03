@@ -1,0 +1,48 @@
+{% extends "rahmen.html" %}{% set aktiv='kunden' %}{% block titel %}Kunden{% endblock %}
+{% block inhalt %}
+<h1>Kunden</h1>
+<div class="karte">
+  <form method="get" class="zeile">
+    <div><label for="suche">Suchen</label><input id="suche" name="suche" value="{{ suche }}" placeholder="Name, Nummer oder Ort"></div>
+    <div style="flex:0"><button class="knopf">Suchen</button></div>
+  </form>
+</div>
+
+<div class="karte">
+<h2 style="margin-top:0">Neuer Kunde</h2>
+<form method="post" action="/kunden">
+  <div class="zeile">
+    <div><label for="name">Name</label><input id="name" name="name" required></div>
+    <div><label for="typ">Typ</label><select id="typ" name="typ">
+      <option value="privat">Privat</option><option value="geschaeft">Geschäft</option></select></div>
+    <div><label for="preis_kanal">Preisliste</label><select id="preis_kanal" name="preis_kanal">
+      <option value="*">Standard</option><option value="handel">Handel und Gastronomie</option>
+      <option value="web">Web</option><option value="markt">Markt</option></select></div>
+  </div>
+  <div class="zeile" style="margin-top:10px">
+    <div><label for="strasse">Straße</label><input id="strasse" name="strasse"></div>
+    <div style="max-width:120px"><label for="plz">PLZ</label><input id="plz" name="plz"></div>
+    <div><label for="ort">Ort</label><input id="ort" name="ort"></div>
+    <div style="max-width:90px"><label for="land">Land</label><input id="land" name="land" value="LU" maxlength="2"></div>
+  </div>
+  <div class="zeile" style="margin-top:10px">
+    <div><label for="mwst_nr">MwSt-Nummer</label><input id="mwst_nr" name="mwst_nr" placeholder="nur Geschäftskunden"></div>
+    <div><label for="email">E-Mail</label><input id="email" name="email" type="email"></div>
+    <div><label for="telefon">Telefon</label><input id="telefon" name="telefon"></div>
+    <div style="max-width:130px"><label for="zahlungsziel_tage">Zahlungsziel</label>
+      <input id="zahlungsziel_tage" name="zahlungsziel_tage" type="number" min="0" placeholder="Tage"></div>
+  </div>
+  <p class="hinweis" style="margin:10px 0">Bei Geschäftskunden im EU-Ausland mit MwSt-Nummer stellt das Programm automatisch ohne Steuer aus (Reverse Charge).</p>
+  <button class="knopf voll">Kunde anlegen</button>
+</form>
+</div>
+
+<div class="karte"><table>
+<tr><th>Nummer</th><th>Name</th><th>Ort</th><th>Land</th><th>MwSt-Nr</th><th>Preisliste</th><th></th></tr>
+{% for k in kunden %}<tr>
+  <td>{{ k.nummer }}</td><td>{{ k.name }}</td><td>{{ k.ort or '' }}</td><td>{{ k.land }}</td>
+  <td>{{ k.mwst_nr or '' }}</td><td>{{ '—' if k.preis_kanal=='*' else k.preis_kanal }}</td>
+  <td class="z"><a class="knopf klein" href="/belege/neu?kunde={{ k.id }}">Rechnung</a></td>
+</tr>{% else %}<tr><td colspan="7" class="hinweis">Noch keine Kunden.</td></tr>{% endfor %}
+</table></div>
+{% endblock %}

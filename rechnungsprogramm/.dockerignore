@@ -1,0 +1,6 @@
+tests/
+daten/
+sicherungen/
+.env
+__pycache__/
+*.pyc

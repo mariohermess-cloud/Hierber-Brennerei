@@ -1,0 +1,22 @@
+{% extends "rahmen.html" %}{% set aktiv='belege' %}{% block titel %}Belege{% endblock %}
+{% block inhalt %}
+<h1>Belege</h1>
+<div class="karte zeile">
+  <div style="flex:0"><a class="knopf {{ 'voll' if not status }}" href="/belege">Alle</a></div>
+  <div style="flex:0"><a class="knopf {{ 'voll' if status=='entwurf' }}" href="/belege?status=entwurf">Entwürfe</a></div>
+  <div style="flex:0"><a class="knopf {{ 'voll' if status=='festgeschrieben' }}" href="/belege?status=festgeschrieben">Festgeschrieben</a></div>
+  <div style="flex:0"><a class="knopf {{ 'voll' if status=='storniert' }}" href="/belege?status=storniert">Storniert</a></div>
+</div>
+<div class="karte"><table>
+<tr><th>Nummer</th><th>Art</th><th>Kunde</th><th>Datum</th><th>Status</th><th class="z">Netto</th><th class="z">Brutto</th><th></th></tr>
+{% for b in belege %}<tr>
+  <td>{{ b.nummer or '—' }}</td>
+  <td>{{ 'Gutschrift' if b.art=='gutschrift' else 'Rechnung' }}{% if b.bezieht_auf %}<br><span class="hinweis">zu {{ b.bezieht_auf }}</span>{% endif %}</td>
+  <td>{{ b.kunde }}</td><td>{{ b.datum|datum }}</td>
+  <td><span class="plakette {{ b.status }}">{{ b.status }}</span></td>
+  <td class="z">{{ (b.netto * b.vorzeichen)|euro }} €</td>
+  <td class="z">{{ (b.brutto * b.vorzeichen)|euro }} €</td>
+  <td class="z"><a class="knopf klein" href="/belege/{{ b.id }}">öffnen</a></td>
+</tr>{% else %}<tr><td colspan="8" class="hinweis">Keine Belege.</td></tr>{% endfor %}
+</table></div>
+{% endblock %}

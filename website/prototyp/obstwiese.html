@@ -1,0 +1,1016 @@
+<title>Hierber Obstwiese</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+<style>
+:root{
+  --papier:#f4f2ec; --karte:#ffffff; --tinte:#1f2a20; --tinte-2:#576055; --linie:#d7d8cc;
+  --tanne:#3b5a34; --tanne-tief:#27401f; --wiese:#7f9350; --rinde:#6b5240;
+  --akzent:#8c3a2b; --akzent-weich:#f0e2de; --messing:#9a7b3f;
+  --himmel-1:#dfe9ed; --himmel-2:#eef2f0;
+  --schatten:0 8px 24px rgba(31,42,32,.12);
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papier:#141a14; --karte:#1c241b; --tinte:#e9ece5; --tinte-2:#a8b1a4; --linie:#2f3a2c;
+    --tanne:#5f8150; --tanne-tief:#3c5633; --wiese:#6d8b4c; --rinde:#8a6a4c;
+    --akzent:#c9604b; --akzent-weich:#3a2420; --messing:#c8a45c;
+    --himmel-1:#20302a; --himmel-2:#2b3b32;
+    --schatten:0 8px 24px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --papier:#141a14; --karte:#1c241b; --tinte:#e9ece5; --tinte-2:#a8b1a4; --linie:#2f3a2c;
+  --tanne:#5f8150; --tanne-tief:#3c5633; --wiese:#6d8b4c; --rinde:#8a6a4c;
+  --akzent:#c9604b; --akzent-weich:#3a2420; --messing:#c8a45c;
+  --himmel-1:#20302a; --himmel-2:#2b3b32;
+  --schatten:0 8px 24px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papier);color:var(--tinte);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:18px;line-height:1.55}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;text-wrap:balance;margin:0;line-height:1.2;font-weight:600}
+h1{font-size:clamp(2rem,4.4vw,3.1rem)}
+h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+h3{font-size:1.1rem;font-weight:600}
+p{margin:0}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--messing);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px}
+.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--tinte-2)}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--papier);border-bottom:1px solid var(--linie)}
+.kopf{display:flex;align-items:center;gap:12px;padding-block:10px;flex-wrap:wrap}
+.marke{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit;margin-right:auto}
+.marke .name{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:1.22rem;line-height:1.1}
+.marke .ort{font-size:.78rem;color:var(--tinte-2);letter-spacing:.04em}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+.knopf{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;border-radius:6px;border:1px solid var(--linie);background:var(--karte);color:var(--tinte);font-weight:600;font-size:1rem;text-decoration:none}
+.knopf.voll{background:var(--tanne);border-color:var(--tanne);color:#f4f2ec}
+:root[data-theme="dark"] .knopf.voll{color:#141a14}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .knopf.voll{color:#141a14}}
+.knopf.akzent{background:var(--akzent);border-color:var(--akzent);color:#fff}
+.korb-zahl{display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:4px;background:rgba(255,255,255,.22);color:inherit;font-size:.85rem;font-weight:700;font-variant-numeric:tabular-nums}
+
+.hero{border-bottom:1px solid var(--linie);background:var(--papier)}
+.hero-text{padding-block:30px 14px;display:grid;gap:10px}
+.hero-text p.lead{max-width:44ch;font-size:1.12rem;color:var(--tinte-2)}
+.hinweis{font-size:.92rem;color:var(--tinte-2)}
+.wiese-scroller{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+.wiese{display:block;min-width:1960px;width:100%;height:auto;aspect-ratio:2640/560}
+.wiese .baum{cursor:pointer}
+.wiese .baum:focus-visible{outline:none}
+.wiese .baum:focus-visible .ring,.wiese .baum:hover .ring{opacity:.14}
+.wiese .ring{opacity:0;transition:opacity .18s ease}
+.wiese .krone{transition:transform .25s ease}
+.wiese .baum:hover .krone{transform:translateY(-3px)}
+.wiese .schild rect{fill:var(--karte);stroke:var(--linie)}
+.wiese .schild text{fill:var(--tinte);font-family:"Source Sans 3",system-ui,sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em}
+.wiese .baum:hover .schild rect{stroke:var(--tanne)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wiese .krone{transition:none}
+  .wiese .baum:hover .krone{transform:none}
+}
+
+.panel-hintergrund{position:fixed;inset:0;background:rgba(18,26,18,.5);z-index:30;opacity:0;pointer-events:none;transition:opacity .2s}
+.panel-hintergrund.offen{opacity:1;pointer-events:auto}
+.panel{position:fixed;left:0;right:0;bottom:0;z-index:31;background:var(--karte);border-top:1px solid var(--linie);border-radius:16px 16px 0 0;box-shadow:var(--schatten);max-height:88vh;display:flex;flex-direction:column;transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1);padding-bottom:env(safe-area-inset-bottom,0px)}
+.panel.offen{transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){.panel,.panel-hintergrund{transition:none}}
+.panel-kopf{display:flex;align-items:center;gap:14px;padding:18px 20px 12px;border-bottom:1px solid var(--linie)}
+.panel-kopf .symbol{width:56px;height:56px;flex:none}
+.panel-kopf h2{font-size:1.5rem}
+.panel-kopf .sub{color:var(--tinte-2);font-size:.92rem}
+.schliessen{margin-left:auto;width:48px;height:48px;border-radius:6px;border:1px solid var(--linie);background:var(--papier);color:var(--tinte);font-size:1.3rem;line-height:1}
+.panel-inhalt{overflow:auto;padding:16px 20px 24px}
+.produkte{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:14px}
+.produkt{display:grid;grid-template-columns:66px 1fr;gap:14px;border:1px solid var(--linie);border-radius:var(--radius);padding:14px;background:var(--papier)}
+.produkt .warensymbol{width:66px;height:100px}
+.produkt .details{font-size:.88rem;color:var(--tinte-2);margin-top:3px}
+.produkt .preis{font-family:"Source Serif 4",Georgia,serif;font-size:1.3rem;font-weight:600;margin-top:7px;font-variant-numeric:tabular-nums}
+.produkt .grund{font-size:.8rem;color:var(--tinte-2);font-variant-numeric:tabular-nums}
+.produkt .kaufen{margin-top:10px;white-space:nowrap;min-height:44px;border-radius:6px;border:1px solid var(--akzent);background:var(--akzent);color:#fff;font-weight:600;padding:0 14px;width:100%}
+.produkt .kaufen.stumm{background:transparent;color:var(--tanne);border-color:var(--tanne)}
+.beispiel{font-size:.84rem;color:var(--tinte-2);margin-top:16px;border-top:1px solid var(--linie);padding-top:10px}
+
+section.block{padding-block:56px;border-bottom:1px solid var(--linie)}
+.block .kopfzeile{display:grid;gap:8px;margin-bottom:28px;max-width:62ch}
+.schritte{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.schritt{background:var(--karte);border:1px solid var(--linie);border-radius:var(--radius);padding:16px;display:grid;gap:8px;align-content:start}
+.schritt .kopf-zeile{display:flex;align-items:baseline;gap:8px}
+.schritt .nr{font-family:"Source Serif 4",Georgia,serif;font-size:.95rem;font-weight:700;color:var(--tinte-2);font-variant-numeric:tabular-nums}
+.schritt svg{width:100%;height:104px;display:block}
+.schritt p{font-size:.93rem;color:var(--tinte-2)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+@media (max-width:760px){.zwei{grid-template-columns:1fr}}
+.karte{background:var(--karte);border:1px solid var(--linie);border-radius:var(--radius);padding:22px;display:grid;gap:12px}
+.karte ul{margin:0;padding-left:20px;color:var(--tinte-2)}
+.kontakt-liste{display:grid;gap:8px;font-size:1.02rem}
+.kontakt-liste a{color:var(--tanne);font-weight:600}
+footer{padding-block:26px 40px;color:var(--tinte-2);font-size:.9rem}
+footer .zeile{display:flex;gap:16px;flex-wrap:wrap}
+footer a{color:inherit}
+
+.alter{position:fixed;inset:0;z-index:50;background:rgba(18,26,18,.75);display:grid;place-items:center;padding:16px}
+.alter[hidden]{display:none}
+.alter .box{background:var(--karte);border-radius:12px;padding:28px;max-width:440px;display:grid;gap:14px;box-shadow:var(--schatten)}
+.alter .box p{color:var(--tinte-2)}
+.alter .reihe{display:flex;gap:10px;flex-wrap:wrap}
+.alter .knopf{flex:1;justify-content:center}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--tinte);color:var(--papier);padding:12px 18px;border-radius:6px;font-weight:600;opacity:0;transition:.22s;z-index:60;pointer-events:none;max-width:calc(100% - 32px)}
+.toast.zeigen{opacity:1;transform:translate(-50%,0)}
+.prototyp{background:var(--karte);border-bottom:1px solid var(--linie);color:var(--tinte-2);font-size:.82rem;text-align:center;padding:7px 16px}
+</style>
+
+<div class="prototyp">Klick-Prototyp · Beispieldaten und Beispielpreise</div>
+
+<header>
+  <div class="wrap kopf">
+    <a class="marke" href="#start" aria-label="Hierber Brennerei, zur Startseite">
+      <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+        <rect width="42" height="42" rx="5" fill="var(--tanne)"/>
+        <path d="M21 9c-5 4.6-8.5 8.2-8.5 13a8.5 8.5 0 0 0 17 0c0-4.8-3.5-8.4-8.5-13z" fill="none" stroke="var(--papier)" stroke-width="1.8"/>
+        <path d="M21 14c-2.8 2.8-4.6 5-4.6 7.9a4.6 4.6 0 0 0 9.2 0c0-2.9-1.8-5.1-4.6-7.9z" fill="var(--papier)" opacity=".9"/>
+      </svg>
+      <span><span class="name">Hierber Brennerei</span><br><span class="ort">Herborn · Luxemburg</span></span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a class="knopf voll" href="#shop">Shop</a>
+      <a class="knopf" href="#brennen">So brennen wir</a>
+      <a class="knopf" href="#besuch">Besuch &amp; Kontakt</a>
+      <button class="knopf akzent" id="korb-knopf" type="button" aria-label="Warenkorb anzeigen">Korb <span class="korb-zahl" id="korb-zahl">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="start">
+  <section class="hero" id="shop" aria-labelledby="hero-titel">
+    <div class="wrap hero-text">
+      <span class="eyebrow">Streuobstwiese · Herborn · Mëllerdall</span>
+      <h1 id="hero-titel">Vom Baum ins Glas.</h1>
+      <p class="lead">Über 50 Brände und Liköre vom eigenen Hof. Wähle einen Baum und sieh, was aus seinen Früchten entsteht.</p>
+      <p class="hinweis">Auf dem Handy seitlich wischen, um über die Wiese zu gehen.</p>
+    </div>
+    <div class="wiese-scroller" id="wiese-scroller">
+      <svg class="wiese" id="wiese" viewBox="0 0 2640 560" role="group" aria-label="Obstwiese mit anklickbaren Bäumen"></svg>
+    </div>
+  </section>
+
+  <section class="block" id="brennen" aria-labelledby="brennen-titel">
+    <div class="wrap">
+      <div class="kopfzeile">
+        <span class="eyebrow">So brennen wir</span>
+        <h2 id="brennen-titel">Sechs Schritte von der Frucht zum Brand</h2>
+        <p style="color:var(--tinte-2)">Guter Brand entsteht nur aus guter Maische. Jedes Obst wird gewaschen, entsteint und entstielt, die Gärung überwachen wir täglich.</p>
+      </div>
+      <div class="schritte" id="schritte"></div>
+    </div>
+  </section>
+
+  <section class="block" id="besuch" aria-labelledby="besuch-titel">
+    <div class="wrap zwei">
+      <div class="karte">
+        <span class="eyebrow">Besuch &amp; Führung</span>
+        <h2 id="besuch-titel">Hof, Brennerei und Verkostung</h2>
+        <p style="color:var(--tinte-2)">Rund zwei Stunden: Brennerei, Stall mit Melkroboter und Verkostung im Verkaufsraum. Auf Wunsch mit Essen. Barrierefrei, Parkplätze im Hof.</p>
+        <ul>
+          <li>Gruppen ab 8 Personen, Termin nach Absprache</li>
+          <li>Hofladen: Verkauf ab Hof, Termin telefonisch</li>
+          <li>Anfahrt: 2, Millewee, L-6665 Herborn</li>
+        </ul>
+        <div><button class="knopf voll" type="button" id="fuehrung-knopf">Führung anfragen</button></div>
+      </div>
+      <div class="karte">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Wir sind für euch da</h2>
+        <div class="kontakt-liste">
+          <span>Telefon: <a href="tel:+3527276 02">+352 72 76 02</a></span>
+          <span>Mobil: <a href="tel:+352691728062">+352 691 72 80 62</a></span>
+          <span>E-Mail: <a href="mailto:info@hierber-brennerei.lu">info@hierber-brennerei.lu</a></span>
+          <span>Instagram und Facebook: hierberbrennerei</span>
+        </div>
+        <p style="color:var(--tinte-2);font-size:.94rem">Der gesamte Hof wird mit der Abwärme der Brennerei beheizt. Seit 2013 auf dem neuen Hof in Herborn.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="zeile">
+      <span>© Hierber Brennerei, Herborn</span>
+      <a href="#" onclick="return false">Impressum</a>
+      <a href="#" onclick="return false">Datenschutz</a>
+      <a href="#" onclick="return false">AGB &amp; Widerruf</a>
+      <a href="#" onclick="return false">Versand</a>
+    </div>
+    <p style="margin-top:10px">Alkohol nur an Personen ab 18 Jahren. Bitte genießt verantwortungsvoll.</p>
+  </div>
+</footer>
+
+<div class="panel-hintergrund" id="panel-hintergrund"></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-titel" aria-hidden="true">
+  <div class="panel-kopf">
+    <svg class="symbol" id="panel-symbol" viewBox="0 0 64 64" aria-hidden="true"></svg>
+    <div><h2 id="panel-titel">Apfel</h2><div class="sub" id="panel-sub"></div></div>
+    <button class="schliessen" id="panel-schliessen" type="button" aria-label="Schließen">✕</button>
+  </div>
+  <div class="panel-inhalt">
+    <div class="produkte" id="produkte"></div>
+    <p class="beispiel">Beispielpreise inkl. 17 % MwSt. Der Grundpreis je Liter wird im echten Shop automatisch aus der Datenbank berechnet.</p>
+  </div>
+</aside>
+
+<div class="alter" id="alter">
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="alter-titel">
+    <span class="eyebrow">Willkommen</span>
+    <h2 id="alter-titel">Bist du schon 18?</h2>
+    <p>Auf dieser Seite geht es um Brände und Liköre. Der Zutritt ist Erwachsenen vorbehalten.</p>
+    <div class="reihe">
+      <button class="knopf voll" type="button" id="alter-ja">Ja, ich bin 18 oder älter</button>
+      <a class="knopf" href="https://www.visitluxembourg.com" rel="noopener">Nein</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   Daten (Beispiele; später aus v_woo_sync über WooCommerce)
+   ===================================================================== */
+const KATEGORIEN = [
+  {code:'APF', name:'Apfel', art:'baum', x:150, sub:'Streuobst vom eigenen Hof',
+   wuchs:{hoehe:168, breite:1.08, aeste:4, neigung:0.52}, frucht:'apfel',
+   produkte:[
+     {name:'Apfelbrand', typ:'Brand', vol:40, ml:500, preis:21.65},
+     {name:'Apfelbrand', typ:'Brand', vol:40, ml:200, preis:11.12},
+     {name:'Vizdrëpp', typ:'nach Calvados-Art, fassgereift', vol:40, ml:500, preis:26.90},
+     {name:'Apfellikör', typ:'Likör', vol:20, ml:500, preis:15.90},
+     {name:'Apfelchips', typ:'knusprig, ohne Zucker', ml:0, g:80, preis:3.90}
+   ]},
+  {code:'BIR', name:'Birne', art:'baum', x:395, sub:'Williams Christ',
+   wuchs:{hoehe:196, breite:0.82, aeste:4, neigung:0.36}, frucht:'birne',
+   produkte:[
+     {name:'Poire Williams', typ:'Brand', vol:40, ml:500, preis:24.90},
+     {name:'Poire Williams', typ:'Brand', vol:40, ml:200, preis:12.90},
+     {name:'Birnenlikör', typ:'Likör', vol:20, ml:500, preis:15.90}
+   ]},
+  {code:'ZWE', name:'Zwetschge', art:'baum', x:640, sub:'Quetsch',
+   wuchs:{hoehe:160, breite:0.92, aeste:4, neigung:0.46}, frucht:'zwetschge',
+   produkte:[
+     {name:'Zwetschgenbrand', typ:'Brand', vol:40, ml:500, preis:22.90},
+     {name:'Alte Zwetschge', typ:'im Eichenfass gereift', vol:40, ml:500, preis:28.90}
+   ]},
+  {code:'MIR', name:'Mirabelle', art:'baum', x:870, sub:'Mirabell',
+   wuchs:{hoehe:148, breite:1.0, aeste:4, neigung:0.5}, frucht:'mirabelle',
+   produkte:[
+     {name:'Mirabellenbrand', typ:'Brand', vol:40, ml:500, preis:23.90},
+     {name:'Mirabellenlikör', typ:'Likör', vol:20, ml:500, preis:15.90}
+   ]},
+  {code:'KIR', name:'Kirsche', art:'baum', x:1105, sub:'Kiischt',
+   wuchs:{hoehe:186, breite:0.86, aeste:3, neigung:0.4}, frucht:'kirsche',
+   produkte:[
+     {name:'Kirschbrand', typ:'Brand', vol:40, ml:500, preis:24.90},
+     {name:'Kirschlikör', typ:'Likör', vol:20, ml:500, preis:15.90}
+   ]},
+  {code:'QUI', name:'Quitte', art:'baum', x:1330, sub:'Quitt',
+   wuchs:{hoehe:140, breite:1.02, aeste:4, neigung:0.58}, frucht:'quitte',
+   produkte:[{name:'Quittenbrand', typ:'Brand', vol:40, ml:500, preis:25.90}]},
+  {code:'WAC', name:'Wacholder', art:'hecke', x:1545, sub:'Hierber Gin', frucht:'wacholder',
+   produkte:[
+     {name:'Hierber Gin', typ:'Dry Gin, 14 Botanicals', vol:43, ml:500, preis:32.90},
+     {name:'Hierber Gin', typ:'Dry Gin', vol:43, ml:200, preis:16.90}
+   ]},
+  {code:'GET', name:'Getreidefeld', art:'feld', x:1760, sub:'Vodka und Korn', frucht:'getreide',
+   produkte:[
+     {name:'Hierber Vodka', typ:'mehrfach destilliert, gefiltert', vol:40, ml:500, preis:26.90},
+     {name:'Hierber Vodka', typ:'mehrfach destilliert', vol:40, ml:200, preis:13.90},
+     {name:'Korn', typ:'Weizenbrand, mild', vol:38, ml:500, preis:18.90},
+     {name:'Doppelkorn', typ:'im Eichenfass gereift', vol:40, ml:500, preis:23.90}
+   ]},
+  {code:'FAS', name:'Fasslager', art:'fass', x:2030, sub:'Whisky, Rum, Fassreifung', frucht:'fass',
+   produkte:[
+     {name:'Hierber Whisky', typ:'Single Malt, 3 Jahre Eiche', vol:43, ml:500, preis:44.90},
+     {name:'Hierber Rum', typ:'fassgereift', vol:40, ml:500, preis:34.90}
+   ]},
+  {code:'BIE', name:'Bienenstock', art:'bienen', x:2230, sub:'Honig und Zusatzsortiment', frucht:'honig',
+   produkte:[
+     {name:'Blütenhonig', typ:'vom Imker Sumsi aus Luxemburg', ml:0, g:500, preis:9.50},
+     {name:'Waldhonig', typ:'kräftig, dunkel', ml:0, g:500, preis:11.50},
+     {name:'Honiglikör', typ:'mit eigenem Brand angesetzt', vol:22, ml:500, preis:17.90},
+     {name:'Geschenkkorb', typ:'Honig, Apfelchips und ein Brand 200 ml', ml:0, g:1200, preis:34.90}
+   ]},
+  {code:'KRA', name:'Kräutergarten', art:'garten', x:2400, sub:'Kräuterbrand und Liköre', frucht:'kraut',
+   produkte:[
+     {name:'Kräuterbrand', typ:'Hausrezept', vol:38, ml:500, preis:19.90},
+     {name:'Sambuca', typ:'Anislikör', vol:38, ml:500, preis:18.90}
+   ]}
+];
+
+/* Farben der Früchte: [dunkel, hell, glanz] */
+const FRUCHTFARBEN = {
+  apfel:['#8d2f22','#d4593f','#f3b9a2'], birne:['#8b8f2e','#c7c457','#eae79a'],
+  zwetschge:['#3b2a52','#5d4680','#9d8fc0'], mirabelle:['#b07a16','#e2ad33','#f6dc92'],
+  kirsche:['#6d121f','#a62232','#e08a94'], quitte:['#9c8215','#d8bc3a','#f0e094'],
+  wacholder:['#2e3b52','#4a5b76','#93a3bd'], fass:['#6b4a2c','#8a6238','#c49a63'],
+  kraut:['#3d5a2c','#5c7f3e','#9dbc7c'], getreide:['#9a7a2a','#d4b055','#f0dea0'], honig:['#a06a12','#d99a28','#f4d68a']
+};
+
+const SCHRITTE = [
+  {t:'Ernte', p:'Reifes Obst von der eigenen Streuobstwiese, von Hand gelesen und sortiert.'},
+  {t:'Maische', p:'Gewaschen, entsteint, entstielt und zerkleinert. Nur saubere Maische gibt sauberen Brand.'},
+  {t:'Gärung', p:'Wochen im geschlossenen Tank mit Gärspund. Temperatur und Dichte prüfen wir täglich.'},
+  {t:'Brennen', p:'Zweifach in der Kupferblase destilliert. Vorlauf und Nachlauf trennen wir ab.'},
+  {t:'Reifen', p:'Ruhe im Edelstahl oder im Eichenfass. Jedes Fass trägt seine Nummer.'},
+  {t:'Flasche', p:'Abgefüllt und etikettiert mit Fass- und Losnummer, rückverfolgbar bis zur Maische.'}
+];
+
+/* =====================================================================
+   SVG-Werkzeuge
+   ===================================================================== */
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs = {}, kinder = []){
+  const e = document.createElementNS(NS, tag);
+  for(const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+  for(const k of kinder) e.appendChild(typeof k === 'string' ? document.createTextNode(k) : k);
+  return e;
+}
+function rng(seed){ let s = seed * 16807 % 2147483647; return () => (s = s * 16807 % 2147483647) / 2147483647; }
+
+/* =====================================================================
+   Baum: echte Verzweigung + geschichtete Blattmasse
+   ===================================================================== */
+function aeste(g, x, y, winkel, laenge, dicke, tiefe, r, spitzen){
+  const x2 = x + Math.cos(winkel) * laenge;
+  const y2 = y + Math.sin(winkel) * laenge;
+  const biegung = (r() - .5) * laenge * .22;
+  const mx = (x + x2) / 2 + Math.cos(winkel + Math.PI/2) * biegung;
+  const my = (y + y2) / 2 + Math.sin(winkel + Math.PI/2) * biegung;
+  const nx = Math.cos(winkel + Math.PI/2), ny = Math.sin(winkel + Math.PI/2);
+  const w2 = dicke * .58;
+  const d = `M${(x+nx*dicke).toFixed(1)} ${(y+ny*dicke).toFixed(1)}`
+          + ` Q${(mx+nx*w2).toFixed(1)} ${(my+ny*w2).toFixed(1)} ${(x2+nx*w2*.5).toFixed(1)} ${(y2+ny*w2*.5).toFixed(1)}`
+          + ` L${(x2-nx*w2*.5).toFixed(1)} ${(y2-ny*w2*.5).toFixed(1)}`
+          + ` Q${(mx-nx*w2).toFixed(1)} ${(my-ny*w2).toFixed(1)} ${(x-nx*dicke).toFixed(1)} ${(y-ny*dicke).toFixed(1)} Z`;
+  g.appendChild(el('path', {d, fill:'var(--rinde)'}));
+  if(dicke > 2.4) g.appendChild(el('path', {d, fill:'#000', opacity:'.16',
+    transform:`translate(${(nx*dicke*.55).toFixed(1)} ${(ny*dicke*.55).toFixed(1)})`, 'clip-rule':'evenodd'}));
+  if(tiefe <= 0){ spitzen.push([x2, y2, laenge]); return; }
+  const n = tiefe > 2 ? 2 : (r() < .4 ? 3 : 2);
+  for(let i = 0; i < n; i++){
+    const streu = .34 + r() * .34;
+    const a = winkel + (i - (n-1)/2) * streu + (r() - .5) * .22;
+    aeste(g, x2, y2, a, laenge * (.7 + r() * .1), dicke * .63, tiefe - 1, r, spitzen);
+  }
+}
+
+function frucht(x, y, art, s = 1){
+  const [dunkel, hell, glanz] = FRUCHTFARBEN[art] || FRUCHTFARBEN.apfel;
+  const g = el('g', {transform:`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${s})`});
+  if(art === 'birne'){
+    g.appendChild(el('path', {d:'M0 -9 C3 -9 3.4 -5.6 2.6 -3.4 C5.6 -1.6 7 1.6 7 4.2 C7 8 3.6 10.6 0 10.6 C-3.6 10.6 -7 8 -7 4.2 C-7 1.6 -5.6 -1.6 -2.6 -3.4 C-3.4 -5.6 -3 -9 0 -9 Z', fill:hell}));
+    g.appendChild(el('path', {d:'M0 -9 C3 -9 3.4 -5.6 2.6 -3.4 C5.6 -1.6 7 1.6 7 4.2 C7 6.6 5.6 8.6 3.4 9.7 C5 8.4 5.8 6.5 5.8 4.4 C5.8 0 2.2 -2.6 0 -9 Z', fill:dunkel, opacity:'.55'}));
+    g.appendChild(el('path', {d:'M-3.2 3.6 q1.4 -3.4 3.2 -4.6', stroke:glanz, 'stroke-width':'1.5', fill:'none', 'stroke-linecap':'round', opacity:'.85'}));
+    g.appendChild(el('path', {d:'M0 -9 l1.6 -4', stroke:'var(--rinde)', 'stroke-width':'1.4', 'stroke-linecap':'round'}));
+  } else if(art === 'kirsche'){
+    for(const dx of [-4.2, 4.2]){
+      g.appendChild(el('path', {d:`M${dx} -2 q${-dx*.5} -6 ${-dx*.3} -9`, stroke:'#4c6b32', 'stroke-width':'1.3', fill:'none', 'stroke-linecap':'round'}));
+      g.appendChild(el('circle', {cx:dx, cy:2.6, r:4.4, fill:hell}));
+      g.appendChild(el('path', {d:`M${dx} -1.8 a4.4 4.4 0 0 1 0 8.8 a3.2 3.2 0 0 0 0 -8.8 Z`, fill:dunkel, opacity:'.6'}));
+      g.appendChild(el('circle', {cx:dx - 1.4, cy:.9, r:1.1, fill:glanz, opacity:'.9'}));
+    }
+  } else if(art === 'zwetschge'){
+    g.appendChild(el('ellipse', {cx:0, cy:0, rx:5.2, ry:7, fill:hell}));
+    g.appendChild(el('path', {d:'M0 -7 a5.2 7 0 0 1 0 14 a3.6 7 0 0 0 0 -14 Z', fill:dunkel, opacity:'.6'}));
+    g.appendChild(el('path', {d:'M0 -6.4 q-1.2 6.4 0 12.8', stroke:dunkel, 'stroke-width':'1', fill:'none', opacity:'.7'}));
+    g.appendChild(el('ellipse', {cx:-2.2, cy:-2.4, rx:1.3, ry:2.2, fill:glanz, opacity:'.6', transform:'rotate(-18)'}));
+    g.appendChild(el('path', {d:'M0 -7 l1 -3.4', stroke:'var(--rinde)', 'stroke-width':'1.3', 'stroke-linecap':'round'}));
+  } else if(art === 'quitte'){
+    g.appendChild(el('path', {d:'M0 -7.4 C4.6 -7.4 7.4 -4 7.4 .4 C7.4 5 4.4 8.2 0 8.2 C-4.4 8.2 -7.4 5 -7.4 .4 C-7.4 -4 -4.6 -7.4 0 -7.4 Z', fill:hell}));
+    g.appendChild(el('path', {d:'M0 -7.4 C4.6 -7.4 7.4 -4 7.4 .4 C7.4 4.2 5.2 7.2 1.8 8 C4 6.4 5.2 3.6 5.2 .4 C5.2 -3.4 3.2 -6.4 0 -7.4 Z', fill:dunkel, opacity:'.5'}));
+    g.appendChild(el('path', {d:'M-4 -1.6 q1.6 3.2 0 5.4 M0 -3 q1.4 4 0 7', stroke:dunkel, 'stroke-width':'.8', fill:'none', opacity:'.45'}));
+    g.appendChild(el('path', {d:'M0 -7.4 l.6 -3.2', stroke:'var(--rinde)', 'stroke-width':'1.3', 'stroke-linecap':'round'}));
+  } else if(art === 'wacholder'){
+    g.appendChild(el('circle', {cx:0, cy:0, r:3.4, fill:hell}));
+    g.appendChild(el('path', {d:'M0 -3.4 a3.4 3.4 0 0 1 0 6.8 a2.4 3.4 0 0 0 0 -6.8 Z', fill:dunkel, opacity:'.65'}));
+    g.appendChild(el('path', {d:'M-1.3 -1.3 l1 1 l-1 1 l-1 -1 Z', fill:glanz, opacity:'.85'}));
+  } else if(art === 'honig'){
+    g.appendChild(el('ellipse', {cx:-4.6, cy:-3, rx:4.4, ry:2.6, fill:'#e8f0f4', opacity:'.78', transform:'rotate(-26)'}));
+    g.appendChild(el('ellipse', {cx:-1.4, cy:-4.6, rx:4, ry:2.4, fill:'#e8f0f4', opacity:'.78', transform:'rotate(-58)'}));
+    g.appendChild(el('ellipse', {cx:0, cy:0, rx:5.2, ry:3.4, fill:hell}));
+    g.appendChild(el('path', {d:'M-1.6 -3.2 q1 3.2 0 6.4 M1.4 -3.2 q1 3.2 0 6.4', stroke:'#3a2a12', 'stroke-width':'1.5', fill:'none'}));
+    g.appendChild(el('circle', {cx:-4.8, cy:-.6, r:2.4, fill:'#3a2a12'}));
+    g.appendChild(el('path', {d:'M-6 -2.4 l-2 -2.6 M-5.4 -2.8 l-.6 -3.2', stroke:'#3a2a12', 'stroke-width':'.9', 'stroke-linecap':'round'}));
+  } else if(art === 'getreide'){
+    g.appendChild(el('path', {d:'M0 12 L0 -4', stroke:'#b49b52', 'stroke-width':'1.6', 'stroke-linecap':'round'}));
+    for(let n = 0; n < 5; n++){
+      const ky = -4 - n * 3.4, kb = 3.6 - n * .45;
+      g.appendChild(el('path', {d:`M0 ${ky} q${-kb} -1.4 ${-kb*.8} -3.6 q${kb*.4} .6 ${kb*.8} 1.6 Z`, fill:hell}));
+      g.appendChild(el('path', {d:`M0 ${ky} q${kb} -1.4 ${kb*.8} -3.6 q${-kb*.4} .6 ${-kb*.8} 1.6 Z`, fill:dunkel}));
+    }
+    g.appendChild(el('path', {d:'M0 -20 l-1.2 -5 M0 -20 l1.2 -5 M0 -20 l0 -5.6', stroke:glanz, 'stroke-width':'.9', 'stroke-linecap':'round'}));
+  } else { /* apfel, mirabelle */
+    const rr = art === 'mirabelle' ? 5 : 7;
+    g.appendChild(el('circle', {cx:0, cy:0, r:rr, fill:hell}));
+    g.appendChild(el('path', {d:`M0 ${-rr} a${rr} ${rr} 0 0 1 0 ${rr*2} a${rr*.66} ${rr} 0 0 0 0 ${-rr*2} Z`, fill:dunkel, opacity:'.55'}));
+    g.appendChild(el('ellipse', {cx:-rr*.32, cy:-rr*.36, rx:rr*.26, ry:rr*.4, fill:glanz, opacity:'.8', transform:'rotate(-20)'}));
+    g.appendChild(el('path', {d:`M0 ${-rr} l.8 ${-rr*.55}`, stroke:'var(--rinde)', 'stroke-width':'1.3', 'stroke-linecap':'round'}));
+    if(art === 'apfel') g.appendChild(el('path', {d:'M.8 -8.6 q3.4 -1.6 4.4 1 q-2.6 1.8 -4.4 -1 Z', fill:'#4c6b32'}));
+  }
+  return g;
+}
+
+function laubWolke(g, x, y, r, r0, ton){
+  /* eine Blattmasse aus mehreren versetzten Ellipsen, drei Helligkeitsstufen */
+  const lagen = [
+    {dy: r*.22, sk: 1.0, fill:'var(--tanne-tief)', op:.95},
+    {dy: 0,     sk: .92, fill:'var(--tanne)',      op:.95},
+    {dy:-r*.26, sk: .62, fill:'var(--wiese)',      op:.75}
+  ];
+  for(const l of lagen){
+    const knoten = el('g', {filter:'url(#laub)', opacity:l.op});
+    const n = 6;
+    for(let i = 0; i < n; i++){
+      const a = (i / n) * Math.PI * 2 + r0() * .6;
+      const d = r * .42 * r0();
+      knoten.appendChild(el('ellipse', {
+        cx:(x + Math.cos(a) * d).toFixed(1),
+        cy:(y + l.dy + Math.sin(a) * d * .72).toFixed(1),
+        rx:(r * l.sk * (.6 + r0() * .35)).toFixed(1),
+        ry:(r * l.sk * (.52 + r0() * .3)).toFixed(1),
+        fill:l.fill
+      }));
+    }
+    knoten.appendChild(el('ellipse', {cx:x.toFixed(1), cy:(y + l.dy).toFixed(1), rx:(r*l.sk).toFixed(1), ry:(r*l.sk*.86).toFixed(1), fill:l.fill}));
+    g.appendChild(knoten);
+  }
+}
+
+function baum(k, i){
+  const r = rng(k.code.charCodeAt(0) * 37 + i * 91 + 5);
+  const g = el('g', {class:'baum', tabindex:'0', role:'button', 'aria-label':`${k.name}: Produkte anzeigen`, 'data-code':k.code});
+  const x = k.x, boden = 452;
+  const w = k.wuchs;
+
+  g.appendChild(el('ellipse', {cx:x + 6, cy:boden + 4, rx:w.hoehe * .34, ry:9, fill:'var(--tinte)', opacity:'.13'}));
+
+  const krone = el('g', {class:'krone'});
+  const holz = el('g');
+  const spitzen = [];
+  const stammHoehe = w.hoehe * .44;
+  /* Stamm mit leichter Wurzelverbreiterung */
+  holz.appendChild(el('path', {
+    d:`M${x-11} ${boden} C${x-8} ${boden-14} ${x-6.5} ${boden-stammHoehe*.5} ${x-5.5} ${boden-stammHoehe}`
+      + ` L${x+5.5} ${boden-stammHoehe} C${x+6.5} ${boden-stammHoehe*.5} ${x+8} ${boden-14} ${x+11} ${boden} Z`,
+    fill:'var(--rinde)'}));
+  holz.appendChild(el('path', {
+    d:`M${x+2} ${boden} C${x+4} ${boden-16} ${x+4} ${boden-stammHoehe*.6} ${x+3.4} ${boden-stammHoehe} L${x+5.5} ${boden-stammHoehe} C${x+6.5} ${boden-stammHoehe*.5} ${x+8} ${boden-14} ${x+11} ${boden} Z`,
+    fill:'#000', opacity:'.2'}));
+  for(let n = 0; n < 4; n++){
+    const ty = boden - 8 - n * (stammHoehe / 5);
+    holz.appendChild(el('path', {d:`M${x-4} ${ty} q3 -3 7 -1`, stroke:'#000', 'stroke-width':'.9', fill:'none', opacity:'.16'}));
+  }
+  const n = w.aeste;
+  for(let a = 0; a < n; a++){
+    const winkel = -Math.PI/2 + (a - (n-1)/2) * w.neigung + (r() - .5) * .16;
+    aeste(holz, x, boden - stammHoehe, winkel, w.hoehe * .225, 5.4, 3, r, spitzen);
+  }
+  krone.appendChild(holz);
+
+  /* Blattmassen auf die äußeren Astspitzen setzen */
+  const rl = rng(i * 13 + 7);
+  const grundR = w.hoehe * .092 * w.breite;
+  laubWolke(krone, x, boden - w.hoehe * .86, grundR * 1.25, rl);
+  for(const [sx, sy] of spitzen) laubWolke(krone, sx, sy - 3, grundR * (.85 + rl() * .3), rl);
+
+  /* Früchte am äußeren Rand der Krone */
+  const fr = rng(i * 29 + 3);
+  const kandidaten = spitzen.filter(s => s[1] < boden - stammHoehe - 20);
+  const gewaehlt = kandidaten.slice().sort(() => fr() - .5).slice(0, Math.min(9, kandidaten.length));
+  for(const [sx, sy] of gewaehlt){
+    krone.appendChild(frucht(sx + (fr()-.5) * 16, sy + 8 + fr() * 14, k.frucht, .9 + fr() * .25));
+  }
+  g.appendChild(krone);
+  g.appendChild(el('ellipse', {class:'ring', cx:x, cy:boden - w.hoehe * .66, rx:w.hoehe * .44, ry:w.hoehe * .46, fill:'var(--messing)'}));
+  schild(g, x, boden + 34, k.name);
+  return g;
+}
+
+function hecke(k){
+  const r = rng(404);
+  const g = el('g', {class:'baum', tabindex:'0', role:'button', 'aria-label':`${k.name}: Produkte anzeigen`, 'data-code':k.code});
+  const x = k.x, boden = 452;
+  g.appendChild(el('ellipse', {cx:x, cy:boden + 4, rx:74, ry:8, fill:'var(--tinte)', opacity:'.13'}));
+  const krone = el('g', {class:'krone'});
+  /* drei säulenförmige Wacholder mit gezackter Silhouette */
+  for(const [dx, h, br] of [[-46, 92, 20], [0, 132, 26], [44, 104, 22]]){
+    const saeule = el('g', {filter:'url(#laub)'});
+    const oben = boden - h;
+    saeule.appendChild(el('path', {d:`M${x+dx} ${oben} C${x+dx+br} ${oben+h*.42} ${x+dx+br*.82} ${boden-h*.12} ${x+dx+br*.5} ${boden} L${x+dx-br*.5} ${boden} C${x+dx-br*.82} ${boden-h*.12} ${x+dx-br} ${oben+h*.42} ${x+dx} ${oben} Z`, fill:'var(--tanne-tief)'}));
+    saeule.appendChild(el('path', {d:`M${x+dx} ${oben+6} C${x+dx+br*.72} ${oben+h*.46} ${x+dx+br*.6} ${boden-h*.14} ${x+dx+br*.34} ${boden-2} L${x+dx-br*.2} ${boden-2} C${x+dx-br*.5} ${boden-h*.16} ${x+dx-br*.66} ${oben+h*.46} ${x+dx} ${oben+6} Z`, fill:'var(--tanne)'}));
+    for(let n = 0; n < 16; n++){
+      const ny = oben + 8 + r() * (h - 14), nd = (1 - (ny - oben) / h) * br * .7 + 3;
+      saeule.appendChild(el('path', {d:`M${(x+dx+(r()-.5)*nd*1.6).toFixed(1)} ${ny.toFixed(1)} l${(r()*5-2.5).toFixed(1)} -6`, stroke:'var(--wiese)', 'stroke-width':'1.6', 'stroke-linecap':'round', opacity:'.75'}));
+    }
+    krone.appendChild(saeule);
+    for(let b = 0; b < 5; b++){
+      krone.appendChild(frucht(x + dx + (r()-.5) * br * 1.3, boden - 14 - r() * (h - 30), 'wacholder', .9 + r() * .3));
+    }
+  }
+  g.appendChild(krone);
+  g.appendChild(el('ellipse', {class:'ring', cx:x, cy:boden - 66, rx:84, ry:80, fill:'var(--messing)'}));
+  schild(g, x, boden + 34, k.name);
+  return g;
+}
+
+function fassstapel(k){
+  const g = el('g', {class:'baum', tabindex:'0', role:'button', 'aria-label':`${k.name}: Produkte anzeigen`, 'data-code':k.code});
+  const x = k.x, boden = 452;
+  g.appendChild(el('ellipse', {cx:x, cy:boden + 4, rx:86, ry:9, fill:'var(--tinte)', opacity:'.13'}));
+  const krone = el('g', {class:'krone'});
+  function fass(cx, cy, s, nr){
+    const f = el('g', {transform:`translate(${cx} ${cy}) scale(${s})`});
+    f.appendChild(el('path', {d:'M-34 -30 C-44 -18 -44 18 -34 30 L34 30 C44 18 44 -18 34 -30 Z', fill:'#7a5836'}));
+    f.appendChild(el('path', {d:'M6 -30 C16 -18 16 18 6 30 L34 30 C44 18 44 -18 34 -30 Z', fill:'#000', opacity:'.22'}));
+    f.appendChild(el('path', {d:'M-34 -30 C-44 -18 -44 18 -34 30 L-18 30 C-26 18 -26 -18 -18 -30 Z', fill:'#fff', opacity:'.1'}));
+    for(const sx of [-18, -2, 14]) f.appendChild(el('path', {d:`M${sx} -30 C${sx-4} -18 ${sx-4} 18 ${sx} 30`, stroke:'#000', 'stroke-width':'1', fill:'none', opacity:'.22'}));
+    for(const hy of [-22, 0, 22]){
+      const spread = hy === 0 ? 42 : 37;
+      f.appendChild(el('path', {d:`M-${spread} ${hy} C-${spread-3} ${hy+2} ${spread-3} ${hy+2} ${spread} ${hy}`, stroke:'#5b6068', 'stroke-width':'5', fill:'none', 'stroke-linecap':'butt', opacity:'.95'}));
+      f.appendChild(el('path', {d:`M-${spread} ${hy-1.6} C-${spread-3} ${hy+.4} ${spread-3} ${hy+.4} ${spread} ${hy-1.6}`, stroke:'#9aa0a8', 'stroke-width':'1.4', fill:'none'}));
+    }
+    f.appendChild(el('ellipse', {cx:0, cy:0, rx:4.4, ry:4.4, fill:'#4a341f'}));
+    if(nr){
+      f.appendChild(el('rect', {x:-22, y:8, width:44, height:15, rx:2, fill:'#efe9dc', opacity:'.95'}));
+      f.appendChild(el('text', {x:0, y:19.5, 'text-anchor':'middle', 'font-size':'11', 'font-weight':'700', fill:'#4a341f', 'font-family':'"Source Sans 3",sans-serif'}, [nr]));
+    }
+    return f;
+  }
+  krone.appendChild(fass(x - 44, boden - 30, .95, 'F-018'));
+  krone.appendChild(fass(x + 44, boden - 30, .95, 'F-021'));
+  krone.appendChild(fass(x, boden - 88, .95, 'F-017'));
+  g.appendChild(krone);
+  g.appendChild(el('ellipse', {class:'ring', cx:x, cy:boden - 58, rx:100, ry:78, fill:'var(--messing)'}));
+  schild(g, x, boden + 34, k.name);
+  return g;
+}
+
+function garten(k){
+  const r = rng(77);
+  const g = el('g', {class:'baum', tabindex:'0', role:'button', 'aria-label':`${k.name}: Produkte anzeigen`, 'data-code':k.code});
+  const x = k.x, boden = 452;
+  g.appendChild(el('ellipse', {cx:x, cy:boden + 4, rx:70, ry:8, fill:'var(--tinte)', opacity:'.13'}));
+  const krone = el('g', {class:'krone'});
+  /* Hochbeet aus Holzbohlen */
+  krone.appendChild(el('path', {d:`M${x-62} ${boden-18} L${x+62} ${boden-18} L${x+56} ${boden} L${x-56} ${boden} Z`, fill:'#7a5836'}));
+  krone.appendChild(el('path', {d:`M${x-62} ${boden-18} L${x+62} ${boden-18} L${x+61} ${boden-14} L${x-61} ${boden-14} Z`, fill:'#fff', opacity:'.14'}));
+  for(let n = -2; n <= 2; n++) krone.appendChild(el('path', {d:`M${x+n*24} ${boden-18} L${x+n*24*.92} ${boden}`, stroke:'#000', 'stroke-width':'1', opacity:'.2'}));
+  krone.appendChild(el('path', {d:`M${x-56} ${boden-18} q56 -6 112 0`, stroke:'#4a3a28', 'stroke-width':'3', fill:'none'}));
+  /* Kräuterbüschel */
+  for(let b = 0; b < 7; b++){
+    const bx = x - 50 + b * 17 + (r()-.5) * 5, bh = 34 + r() * 24;
+    const busch = el('g', {filter:'url(#laub)'});
+    busch.appendChild(el('ellipse', {cx:bx, cy:boden - 20 - bh*.45, rx:11, ry:bh*.5, fill:'var(--tanne-tief)'}));
+    busch.appendChild(el('ellipse', {cx:bx - 2, cy:boden - 22 - bh*.45, rx:8, ry:bh*.42, fill:'var(--tanne)'}));
+    krone.appendChild(busch);
+    for(let s = 0; s < 6; s++){
+      const sx = bx + (r()-.5) * 15;
+      krone.appendChild(el('path', {d:`M${sx.toFixed(1)} ${(boden-20).toFixed(1)} q${((r()-.5)*7).toFixed(1)} ${(-bh*.6).toFixed(1)} ${((r()-.5)*9).toFixed(1)} ${(-bh).toFixed(1)}`, stroke:'var(--wiese)', 'stroke-width':'1.6', fill:'none', 'stroke-linecap':'round', opacity:'.85'}));
+    }
+    if(b % 2 === 0) krone.appendChild(el('circle', {cx:bx + 3, cy:boden - 20 - bh, r:2.6, fill:'#b9a7d4', opacity:'.9'}));
+  }
+  g.appendChild(krone);
+  g.appendChild(el('ellipse', {class:'ring', cx:x, cy:boden - 40, rx:78, ry:58, fill:'var(--messing)'}));
+  schild(g, x, boden + 34, k.name);
+  return g;
+}
+
+function feld(k){
+  const r = rng(313);
+  const g = el('g', {class:'baum', tabindex:'0', role:'button', 'aria-label':`${k.name}: Produkte anzeigen`, 'data-code':k.code});
+  const x = k.x, boden = 452, halb = 112;
+  /* Ackerfläche mit Furchen, perspektivisch schmaler nach hinten */
+  const oben = boden - 74;
+  g.appendChild(el('path', {d:`M${x-halb} ${boden} L${x+halb} ${boden} L${x+halb*.66} ${oben} L${x-halb*.66} ${oben} Z`, fill:'#b79a52', opacity:'.5'}));
+  for(let n = -4; n <= 4; n++){
+    const f = n / 4;
+    g.appendChild(el('path', {d:`M${x+f*halb} ${boden} L${x+f*halb*.66} ${oben}`, stroke:'#9a7a2a', 'stroke-width':'1.1', opacity:'.35'}));
+  }
+  const krone = el('g', {class:'krone'});
+  /* Halmreihen von hinten nach vorne, hintere kleiner und blasser */
+  const reihen = 5;
+  for(let reihe = 0; reihe < reihen; reihe++){
+    const t = reihe / (reihen - 1);
+    const y = oben + t * 74;
+    const breite = halb * (.66 + t * .34);
+    const hoehe = 30 + t * 26;
+    const dicht = 16 + reihe * 4;
+    const zeile = el('g', {opacity:(.65 + t * .35).toFixed(2)});
+    for(let h = 0; h < dicht; h++){
+      const hx = x - breite + (h + r() * .7) * (breite * 2 / dicht);
+      const hh = hoehe * (.82 + r() * .3);
+      const neig = (r() - .5) * 9;
+      zeile.appendChild(el('path', {d:`M${hx.toFixed(1)} ${y.toFixed(1)} q${(neig*.4).toFixed(1)} ${(-hh*.55).toFixed(1)} ${neig.toFixed(1)} ${(-hh).toFixed(1)}`,
+        stroke:'#b49b52', 'stroke-width':'1.6', fill:'none', 'stroke-linecap':'round'}));
+      zeile.appendChild(frucht(hx + neig, y - hh - 2, 'getreide', (.7 + t * .4) * (.9 + r() * .25)));
+    }
+    krone.appendChild(zeile);
+  }
+  g.appendChild(krone);
+  g.appendChild(el('ellipse', {class:'ring', cx:x, cy:boden - 42, rx:halb + 12, ry:64, fill:'var(--messing)'}));
+  schild(g, x, boden + 34, k.name);
+  return g;
+}
+
+function bienenstock(k){
+  const r = rng(808);
+  const g = el('g', {class:'baum', tabindex:'0', role:'button', 'aria-label':`${k.name}: Produkte anzeigen`, 'data-code':k.code});
+  const x = k.x, boden = 452;
+  g.appendChild(el('ellipse', {cx:x, cy:boden + 4, rx:76, ry:9, fill:'var(--tinte)', opacity:'.13'}));
+  const krone = el('g', {class:'krone'});
+
+  /* Blumenwiese um den Stock */
+  for(let b = 0; b < 16; b++){
+    const bx = x - 74 + r() * 148, by = boden - 4 - r() * 16, bh = 12 + r() * 14;
+    if(Math.abs(bx - x) < 30) continue;
+    krone.appendChild(el('path', {d:`M${bx.toFixed(1)} ${by.toFixed(1)} q${((r()-.5)*4).toFixed(1)} ${(-bh*.6).toFixed(1)} ${((r()-.5)*5).toFixed(1)} ${(-bh).toFixed(1)}`,
+      stroke:'var(--tanne-tief)', 'stroke-width':'1.4', fill:'none', 'stroke-linecap':'round'}));
+    const bf = ['#e8c34a', '#d98ab0', '#e8f0f4'][Math.floor(r() * 3)];
+    krone.appendChild(el('circle', {cx:(bx + 1).toFixed(1), cy:(by - bh).toFixed(1), r:2.6, fill:bf}));
+  }
+
+  /* Holzgestell */
+  krone.appendChild(el('rect', {x:x - 42, y:boden - 18, width:84, height:7, rx:2, fill:'#6b4a28'}));
+  krone.appendChild(el('path', {d:`M${x-34} ${boden-11} l-4 11 M${x+34} ${boden-11} l4 11`, stroke:'#6b4a28', 'stroke-width':'5', 'stroke-linecap':'round'}));
+
+  /* Bienenkorb aus gewickeltem Stroh */
+  const stockUnten = boden - 18, stockHoehe = 86;
+  const ringe = 8;
+  for(let n = 0; n < ringe; n++){
+    const t = n / (ringe - 1);
+    const ry = stockUnten - t * stockHoehe;
+    const rx = 40 * Math.cos(t * 1.32);
+    const ton = ['#c2a04e', '#d6b45e', '#b08c3c'][n % 3];
+    krone.appendChild(el('path', {d:`M${(x-rx).toFixed(1)} ${ry.toFixed(1)} q${rx.toFixed(1)} -9 ${(rx*2).toFixed(1)} 0 z`, fill:ton}));
+    krone.appendChild(el('path', {d:`M${(x-rx).toFixed(1)} ${ry.toFixed(1)} q${rx.toFixed(1)} -9 ${(rx*2).toFixed(1)} 0`, fill:'none', stroke:'#8a6a28', 'stroke-width':'1', opacity:'.5'}));
+    krone.appendChild(el('path', {d:`M${(x+rx*.28).toFixed(1)} ${(ry-1).toFixed(1)} q${(rx*.72).toFixed(1)} -6 ${(rx*.72).toFixed(1)} 1 z`, fill:'#000', opacity:'.14'}));
+  }
+  krone.appendChild(el('ellipse', {cx:x, cy:stockUnten - stockHoehe - 2, rx:7, ry:4.6, fill:'#c2a04e'}));
+  /* Flugloch mit Anflugbrett */
+  krone.appendChild(el('path', {d:`M${x-9} ${stockUnten-14} a9 11 0 0 1 18 0 z`, fill:'#3a2a12'}));
+  krone.appendChild(el('rect', {x:x - 14, y:stockUnten - 14, width:28, height:4, rx:1.5, fill:'#8a6a28'}));
+
+  /* Bienen im Anflug */
+  for(const [dx, dy, sc] of [[-52, -66, 1.5], [-30, -92, 1.2], [34, -78, 1.4], [58, -48, 1.2], [12, -104, 1.1], [-64, -34, 1.3]]){
+    krone.appendChild(frucht(x + dx, boden + dy, 'honig', sc));
+  }
+  g.appendChild(krone);
+  g.appendChild(el('ellipse', {class:'ring', cx:x, cy:boden - 62, rx:88, ry:78, fill:'var(--messing)'}));
+  schild(g, x, boden + 34, k.name);
+  return g;
+}
+
+function schild(g, x, y, text){
+  const w = text.length * 8.6 + 26;
+  const s = el('g', {class:'schild'});
+  s.appendChild(el('rect', {x:(x - w/2).toFixed(1), y:y - 14, width:w.toFixed(1), height:28, rx:4}));
+  s.appendChild(el('text', {x:x, y:y + 5, 'text-anchor':'middle'}, [text]));
+  g.appendChild(s);
+}
+
+/* =====================================================================
+   Szene
+   ===================================================================== */
+function wieseZeichnen(){
+  const svg = document.getElementById('wiese');
+  const defs = el('defs');
+  defs.appendChild((() => {
+    const f = el('filter', {id:'laub', x:'-25%', y:'-25%', width:'150%', height:'150%'});
+    f.appendChild(el('feTurbulence', {type:'fractalNoise', baseFrequency:'.07', numOctaves:'3', seed:'9', result:'n'}));
+    f.appendChild(el('feDisplacementMap', {in:'SourceGraphic', in2:'n', scale:'13', xChannelSelector:'R', yChannelSelector:'G'}));
+    return f;
+  })());
+  const himmel = el('linearGradient', {id:'g-himmel', x1:'0', y1:'0', x2:'0', y2:'1'});
+  himmel.appendChild(el('stop', {offset:'0', 'stop-color':'var(--himmel-1)'}));
+  himmel.appendChild(el('stop', {offset:'1', 'stop-color':'var(--himmel-2)'}));
+  defs.appendChild(himmel);
+  const gras = el('linearGradient', {id:'g-gras', x1:'0', y1:'0', x2:'0', y2:'1'});
+  gras.appendChild(el('stop', {offset:'0', 'stop-color':'var(--wiese)'}));
+  gras.appendChild(el('stop', {offset:'1', 'stop-color':'var(--tanne-tief)'}));
+  defs.appendChild(gras);
+  svg.appendChild(defs);
+
+  svg.appendChild(el('rect', {x:0, y:0, width:2640, height:560, fill:'url(#g-himmel)'}));
+
+  /* ferne Hügel und Waldrand */
+  svg.appendChild(el('path', {d:'M0 318 C320 286 540 310 800 300 C1080 288 1300 314 1600 304 L1900 296 C2180 292 2420 316 2640 306 L2640 372 L0 372 Z', fill:'var(--tanne)', opacity:'.22'}));
+  const wald = el('g', {opacity:'.34', filter:'url(#laub)'});
+  const rw = rng(51);
+  for(let n = 0; n < 110; n++){
+    const wx = n * 24 + rw() * 14, wy = 318 + rw() * 14;
+    wald.appendChild(el('ellipse', {cx:wx.toFixed(1), cy:wy.toFixed(1), rx:(11 + rw()*9).toFixed(1), ry:(15 + rw()*13).toFixed(1), fill:'var(--tanne-tief)'}));
+  }
+  svg.appendChild(wald);
+
+  /* Hofgebäude */
+  const hof = el('g');
+  const hx = 1860;
+  hof.appendChild(el('path', {d:`M${hx} 296 L${hx+72} 248 L${hx+144} 296 Z`, fill:'#8a5b4a'}));
+  hof.appendChild(el('path', {d:`M${hx+72} 248 L${hx+144} 296 L${hx+136} 296 L${hx+72} 253 Z`, fill:'#000', opacity:'.2'}));
+  hof.appendChild(el('rect', {x:hx+10, y:296, width:124, height:50, fill:'var(--karte)', stroke:'var(--linie)'}));
+  for(const wx of [hx+28, hx+56, hx+84]) hof.appendChild(el('rect', {x:wx, y:308, width:14, height:16, fill:'var(--tinte)', opacity:'.4'}));
+  hof.appendChild(el('rect', {x:hx+106, y:324, width:20, height:22, fill:'var(--rinde)'}));
+  hof.appendChild(el('path', {d:`M${hx+144} 320 L${hx+182} 294 L${hx+220} 320 Z`, fill:'#8a5b4a'}));
+  hof.appendChild(el('rect', {x:hx+150, y:320, width:64, height:26, fill:'var(--karte)', stroke:'var(--linie)'}));
+  hof.appendChild(el('rect', {x:hx+94, y:220, width:9, height:30, fill:'#8a5b4a'}));
+  hof.appendChild(el('path', {d:`M${hx+98} 220 q10 -12 -2 -20 q14 4 10 20 Z`, fill:'var(--tinte-2)', opacity:'.35'}));
+  svg.appendChild(hof);
+
+  /* Wiese */
+  svg.appendChild(el('path', {d:'M0 352 C370 336 740 360 1120 350 C1540 338 2020 362 2640 348 L2640 560 L0 560 Z', fill:'url(#g-gras)'}));
+  svg.appendChild(el('path', {d:'M0 390 C470 378 940 400 1420 388 C1860 376 2300 394 2640 386 L2640 560 L0 560 Z', fill:'var(--wiese)', opacity:'.55'}));
+  const rg = rng(19);
+  const grasG = el('g', {opacity:'.3'});
+  for(let n = 0; n < 235; n++){
+    const gx = rg() * 2640, gy = 392 + rg() * 160;
+    grasG.appendChild(el('path', {d:`M${gx.toFixed(1)} ${gy.toFixed(1)} q2.5 -5 5 -7`, stroke:'var(--tanne-tief)', 'stroke-width':'1.1', fill:'none', 'stroke-linecap':'round'}));
+  }
+  svg.appendChild(grasG);
+
+  KATEGORIEN.forEach((k, i) => {
+    const node = k.art === 'baum' ? baum(k, i) : k.art === 'hecke' ? hecke(k) : k.art === 'fass' ? fassstapel(k) : k.art === 'feld' ? feld(k) : k.art === 'bienen' ? bienenstock(k) : garten(k);
+    node.addEventListener('click', () => panelOeffnen(k));
+    node.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); panelOeffnen(k); } });
+    svg.appendChild(node);
+  });
+}
+
+/* =====================================================================
+   Produktsymbole
+   ===================================================================== */
+function warenSymbol(k, p){
+  const [dunkel, hell, glanz] = FRUCHTFARBEN[k.frucht] || FRUCHTFARBEN.apfel;
+  if(p.ml === 0 && k.frucht === 'honig'){
+    /* Honigglas mit Deckel und Etikett */
+    const korb = p.name.toLowerCase().includes('korb');
+    return `<svg class="warensymbol" viewBox="0 0 78 118" aria-hidden="true">
+      ${korb ? `<path d="M10 52 h58 l-6 50 a5 5 0 0 1 -5 4 h-36 a5 5 0 0 1 -5 -4 z" fill="#a8783f"/>
+        <path d="M10 52 h58 l-1.4 6 h-55.2 z" fill="#c08f4d"/>
+        <g stroke="#7a5836" stroke-width="1.5" fill="none" opacity=".85"><path d="M15 66 h48"/><path d="M17 78 h44"/><path d="M19 90 h40"/><path d="M26 58 l-2 46"/><path d="M39 58 v46"/><path d="M52 58 l2 46"/></g>
+        <path d="M22 52 q17 -22 34 0" fill="none" stroke="#7a5836" stroke-width="3"/>` : ''}
+      <g transform="translate(${korb ? '14 6' : '0 0'}) scale(${korb ? '.72' : '1'})">
+        <path d="M22 34 h34 v6 q10 5 10 15 v40 a6 6 0 0 1 -6 6 h-42 a6 6 0 0 1 -6 -6 v-40 q0 -10 10 -15 z" fill="${hell}"/>
+        <path d="M39 34 h17 v6 q10 5 10 15 v40 a6 6 0 0 1 -6 6 h-21 z" fill="${dunkel}" opacity=".38"/>
+        <path d="M22 58 q2 -8 6 -11" stroke="${glanz}" stroke-width="3.4" fill="none" stroke-linecap="round" opacity=".75"/>
+        <rect x="18" y="26" width="42" height="11" rx="3" fill="#8a6a28"/>
+        <rect x="18" y="26" width="14" height="11" rx="3" fill="#b08c3c"/>
+        <rect x="20" y="62" width="38" height="26" rx="2" fill="#f7f4ec" stroke="#c9c2b2" stroke-width=".8"/>
+        <rect x="24" y="67" width="30" height="4.4" rx="1" fill="#2f3a2c"/>
+        <rect x="24" y="75" width="24" height="2.4" rx="1.2" fill="#8a8575"/>
+        <rect x="24" y="80" width="18" height="2.4" rx="1.2" fill="#8a8575"/>
+      </g>
+    </svg>`;
+  }
+  if(p.ml === 0){
+    /* Beutel Apfelchips mit Sichtfenster */
+    return `<svg class="warensymbol" viewBox="0 0 78 118" aria-hidden="true">
+      <path d="M14 22 h50 a4 4 0 0 1 4 4 v78 a6 6 0 0 1 -6 6 h-46 a6 6 0 0 1 -6 -6 v-78 a4 4 0 0 1 4 -4 z" fill="${hell}" opacity=".9"/>
+      <path d="M44 22 h20 a4 4 0 0 1 4 4 v78 a6 6 0 0 1 -6 6 h-18 z" fill="${dunkel}" opacity=".35"/>
+      <path d="M12 22 q8 -8 16 0 q8 -8 16 0 q8 -8 16 0 q8 -8 6 0" fill="none" stroke="${dunkel}" stroke-width="2.4"/>
+      <rect x="22" y="46" width="34" height="38" rx="4" fill="#fff" opacity=".82"/>
+      <g opacity=".95">
+        <path d="M30 60 a8 8 0 0 1 14 -3 a8 8 0 0 1 -12 10 a5 5 0 0 1 -2 -7 z" fill="${dunkel}" opacity=".55"/>
+        <path d="M36 72 a7 7 0 0 1 13 -2 a7 7 0 0 1 -11 8 a4 4 0 0 1 -2 -6 z" fill="${dunkel}" opacity=".4"/>
+      </g>
+      <rect x="22" y="88" width="34" height="3" rx="1.5" fill="${dunkel}" opacity=".7"/>
+      <rect x="22" y="94" width="22" height="2.4" rx="1.2" fill="${dunkel}" opacity=".45"/>
+    </svg>`;
+  }
+  /* Flasche: Korpus, Schulter, Hals, Kapsel, Etikett – feste Geometrie */
+  const id = 'fl' + (warenSymbol.z = (warenSymbol.z || 0) + 1);
+  const hw = p.ml <= 200 ? 11 : 14;        /* halbe Korpusbreite */
+  const nw = p.ml <= 200 ? 4.5 : 5.5;      /* halbe Halsbreite */
+  const cx = 39, unten = 112, halsOben = 16;
+  const schulter = p.ml <= 200 ? 62 : 56;  /* y, wo der Korpus beginnt */
+  const korpus =
+    `M${cx-hw} ${schulter}`
+    + ` L${cx-hw} ${unten-6} Q${cx-hw} ${unten} ${cx-hw+6} ${unten}`
+    + ` L${cx+hw-6} ${unten} Q${cx+hw} ${unten} ${cx+hw} ${unten-6}`
+    + ` L${cx+hw} ${schulter}`
+    + ` C${cx+hw} ${schulter-15} ${cx+nw} ${schulter-16} ${cx+nw} ${halsOben}`
+    + ` L${cx-nw} ${halsOben}`
+    + ` C${cx-nw} ${schulter-16} ${cx-hw} ${schulter-15} ${cx-hw} ${schulter} Z`;
+  const etikettY = schulter + 16, etikettH = 30, etikettB = hw * 2 - 4;
+  return `<svg class="warensymbol" viewBox="0 0 78 118" aria-hidden="true">
+    <defs><clipPath id="${id}"><path d="${korpus}"/></clipPath></defs>
+    <path d="${korpus}" fill="${hell}" opacity=".92"/>
+    <g clip-path="url(#${id})">
+      <rect x="${cx+2}" y="0" width="40" height="118" fill="${dunkel}" opacity=".42"/>
+      <rect x="${cx-hw+2.5}" y="${halsOben}" width="3.5" height="118" rx="1.75" fill="${glanz}" opacity=".6"/>
+    </g>
+    <path d="${korpus}" fill="none" stroke="${dunkel}" stroke-width="1" opacity=".35"/>
+    <rect x="${cx-nw-1.4}" y="7" width="${nw*2+2.8}" height="13" rx="1.4" fill="#5b6068"/>
+    <rect x="${cx-nw-1.4}" y="7" width="${nw*.9}" height="13" rx="1.4" fill="#9aa0a8"/>
+    <rect x="${cx-etikettB/2}" y="${etikettY}" width="${etikettB}" height="${etikettH}" rx="1.5" fill="#f7f4ec" stroke="#c9c2b2" stroke-width=".8"/>
+    <rect x="${cx-etikettB/2+3}" y="${etikettY+4}" width="${etikettB-6}" height="4.4" rx="1" fill="#2f3a2c"/>
+    <rect x="${cx-etikettB/2+3}" y="${etikettY+12}" width="${etikettB-9}" height="2.2" rx="1.1" fill="#8a8575"/>
+    <rect x="${cx-etikettB/2+3}" y="${etikettY+17}" width="${etikettB-13}" height="2.2" rx="1.1" fill="#8a8575"/>
+    <rect x="${cx-etikettB/2+3}" y="${etikettY+22}" width="${etikettB-16}" height="2" rx="1" fill="#b3ac9a"/>
+  </svg>`;
+}
+
+function kategorieSymbol(k){
+  const sym = document.getElementById('panel-symbol');
+  sym.innerHTML = '';
+  sym.appendChild(el('rect', {x:0, y:0, width:64, height:64, rx:8, fill:'var(--akzent-weich)'}));
+  if(k.art === 'fass'){
+    const f = el('g', {transform:'translate(32 34) scale(.62)'});
+    f.appendChild(el('path', {d:'M-30 -26 C-40 -16 -40 16 -30 26 L30 26 C40 16 40 -16 30 -26 Z', fill:'#7a5836'}));
+    f.appendChild(el('path', {d:'M4 -26 C14 -16 14 16 4 26 L30 26 C40 16 40 -16 30 -26 Z', fill:'#000', opacity:'.22'}));
+    for(const hy of [-18, 0, 18]) f.appendChild(el('path', {d:`M-${hy===0?37:33} ${hy} C-${(hy===0?37:33)-3} ${hy+2} ${(hy===0?37:33)-3} ${hy+2} ${hy===0?37:33} ${hy}`, stroke:'#5b6068', 'stroke-width':'5', fill:'none'}));
+    sym.appendChild(f);
+  } else if(k.art === 'bienen'){
+    sym.appendChild(el('path', {d:'M22 26 h20 v4 q6 3 6 9 v14 a4 4 0 0 1 -4 4 h-24 a4 4 0 0 1 -4 -4 v-14 q0 -6 6 -9 z', fill:'#d99a28'}));
+    sym.appendChild(el('path', {d:'M32 26 h10 v4 q6 3 6 9 v14 a4 4 0 0 1 -4 4 h-12 z', fill:'#a06a12', opacity:'.4'}));
+    sym.appendChild(el('rect', {x:20, y:20, width:24, height:7, rx:2, fill:'#8a6a28'}));
+    sym.appendChild(el('rect', {x:22, y:40, width:20, height:11, rx:1.5, fill:'#f7f4ec'}));
+    sym.appendChild(frucht(45, 20, 'honig', 1.5));
+  } else if(k.art === 'feld'){
+    for(const [dx, sc] of [[-11, 1.5], [0, 1.9], [11, 1.5]]) sym.appendChild(frucht(32 + dx, 46, 'getreide', sc));
+  } else if(k.art === 'garten'){
+    const g2 = el('g');
+    g2.appendChild(el('path', {d:'M32 50 q-3 -18 -10 -26 q11 3 12 16 q3 -14 13 -18 q-4 14 -13 22 z', fill:'var(--tanne)'}));
+    g2.appendChild(el('path', {d:'M32 50 v-8', stroke:'var(--rinde)', 'stroke-width':'3', 'stroke-linecap':'round'}));
+    sym.appendChild(g2);
+  } else {
+    sym.appendChild(frucht(32, 33, k.frucht, k.frucht === 'wacholder' ? 3.1 : k.frucht === 'kirsche' ? 2.2 : 2.5));
+  }
+}
+
+/* =====================================================================
+   Herstellungs-Icons
+   ===================================================================== */
+function schrittGrafik(i){
+  const S = {
+    /* 1 Ernte: Weidenkorb mit Obst */
+    0:`<path d="M40 44 q20 -26 40 0" fill="none" stroke="#7a5836" stroke-width="3.4" stroke-linecap="round"/>
+       <g>
+        <circle cx="47" cy="48" r="10" fill="#b8492f"/><path d="M47 38 a10 10 0 0 1 0 20 a7 10 0 0 0 0 -20z" fill="#7c2c1c" opacity=".55"/>
+        <path d="M47 38 l1 -5" stroke="#6b5240" stroke-width="2" stroke-linecap="round"/>
+        <path d="M48 34 q6 -3 8 1 q-5 3 -8 -1z" fill="#4c6b32"/>
+        <path d="M72 38 c3 0 3.4 4 2.6 6.4 c3.4 2 5.4 5.4 5.4 8.4 c0 4.4 -3.6 7.4 -8 7.4 s-8 -3 -8 -7.4 c0 -3 2 -6.4 5.4 -8.4 c-.8 -2.4 -.4 -6.4 2.6 -6.4z" fill="#b9bb52"/>
+        <path d="M72 38 c3 0 3.4 4 2.6 6.4 c3.4 2 5.4 5.4 5.4 8.4 c0 2.6 -1.4 4.8 -3.6 6.2 c1.4 -1.6 2.2 -3.6 2.2 -5.8 c0 -5 -4.2 -8 -6.6 -15.2z" fill="#7d7f2a" opacity=".5"/>
+        <path d="M72 38 l1.6 -4.6" stroke="#6b5240" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="59" cy="52" r="7.4" fill="#9c2a3a"/><path d="M59 44.6 a7.4 7.4 0 0 1 0 14.8 a5 7.4 0 0 0 0 -14.8z" fill="#6c1522" opacity=".55"/>
+       </g>
+       <path d="M28 56 h64 l-7 28 a4 4 0 0 1 -4 3 h-42 a4 4 0 0 1 -4 -3 z" fill="#a8783f"/>
+       <path d="M28 56 h64 l-1.4 5.6 h-61.2 z" fill="#c08f4d"/>
+       <g stroke="#7a5836" stroke-width="1.6" opacity=".85" fill="none">
+        <path d="M34 66 h52"/><path d="M36 74 h48"/><path d="M38 82 h44"/>
+        <path d="M44 61 l-2.4 26"/><path d="M60 61 v26"/><path d="M76 61 l2.4 26"/>
+       </g>`,
+    /* 2 Maische: Bottich mit Obst und Rührpaddel */
+    1:`<path d="M34 54 l6 -8 h40 l6 8 z" fill="#9b7040" opacity=".35"/>
+       <path d="M30 40 h60 l-6 46 a5 5 0 0 1 -5 4 h-38 a5 5 0 0 1 -5 -4 z" fill="#a8783f"/>
+       <path d="M60 40 h30 l-6 46 a5 5 0 0 1 -5 4 h-19 z" fill="#000" opacity=".16"/>
+       <g stroke="#6b4a28" stroke-width="1.3" opacity=".6"><path d="M42 41 l-3 48"/><path d="M52 41 l-1.6 48"/><path d="M68 41 l1.6 48"/><path d="M78 41 l3 48"/></g>
+       <path d="M31 52 h58" stroke="#5b6068" stroke-width="4" fill="none"/>
+       <path d="M29.6 76 h54" stroke="#5b6068" stroke-width="4" fill="none"/>
+       <ellipse cx="60" cy="41" rx="30" ry="7" fill="#7e4a2a"/>
+       <ellipse cx="60" cy="41" rx="26" ry="5.4" fill="#a25a33"/>
+       <g>
+        <circle cx="49" cy="40" r="6" fill="#b8492f"/><path d="M49 34 a6 6 0 0 1 0 12 a4 6 0 0 0 0 -12z" fill="#7c2c1c" opacity=".5"/>
+        <circle cx="62" cy="43" r="5" fill="#5d4680"/><path d="M62 38 a5 5 0 0 1 0 10 a3.4 5 0 0 0 0 -10z" fill="#3b2a52" opacity=".5"/>
+        <path d="M72 36 c2 0 2.4 2.6 1.8 4.2 c2.2 1.4 3.4 3.4 3.4 5.4 c0 2.8 -2.2 4.8 -5.2 4.8 s-5.2 -2 -5.2 -4.8 c0 -2 1.2 -4 3.4 -5.4 c-.6 -1.6 -.2 -4.2 1.8 -4.2z" fill="#b9bb52"/>
+       </g>
+       <path d="M76 18 l-10 34" stroke="#8a6238" stroke-width="5" stroke-linecap="round"/>
+       <path d="M64 48 l10 6 l4 -9 z" fill="#8a6238"/>`,
+    /* 3 Gärung: Tank mit Gärspund und Thermometer */
+    2:`<path d="M38 30 h44 a6 6 0 0 1 6 6 v46 a8 8 0 0 1 -8 8 h-40 a8 8 0 0 1 -8 -8 v-46 a6 6 0 0 1 6 -6 z" fill="#c2c7cc"/>
+       <path d="M62 30 h20 a6 6 0 0 1 6 6 v46 a8 8 0 0 1 -8 8 h-18 z" fill="#8f959d" opacity=".55"/>
+       <path d="M44 34 v52" stroke="#eef1f3" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+       <ellipse cx="60" cy="30" rx="22" ry="6" fill="#9aa0a8"/>
+       <ellipse cx="60" cy="30" rx="17" ry="4" fill="#c2c7cc"/>
+       <g opacity=".85" fill="#f3f6f7">
+        <circle cx="53" cy="70" r="3.4"/><circle cx="62" cy="62" r="2.4"/><circle cx="57" cy="54" r="2"/><circle cx="66" cy="74" r="2.6"/>
+       </g>
+       <rect x="72" y="46" width="7" height="34" rx="3.5" fill="#f3f6f7" stroke="#8f959d" stroke-width="1.2"/>
+       <rect x="74" y="58" width="3" height="20" rx="1.5" fill="#b8492f"/>
+       <circle cx="75.5" cy="81" r="4.6" fill="#b8492f"/>
+       <path d="M60 24 v-8 h10 a5 5 0 0 1 0 10 h-4 a5 5 0 0 0 0 10 h6" fill="none" stroke="#5b6068" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="76" cy="17" r="4" fill="#9dc4dd"/>
+       <circle cx="82" cy="12" r="2.6" fill="#9dc4dd" opacity=".75"/>`,
+    /* 4 Brennen: Kupferblase mit Helm, Schwanenhals und Kühlfass */
+    3:`<path d="M12 90 h44" stroke="#5b6068" stroke-width="3" stroke-linecap="round"/>
+       <path d="M20 86 c-6 0 -9 -5 -9 -12 c0 -13 6 -19 9 -27 h28 c3 8 9 14 9 27 c0 7 -3 12 -9 12 z" fill="#b5762f"/>
+       <path d="M34 47 h14 c3 8 9 14 9 27 c0 7 -3 12 -9 12 h-14 z" fill="#8a5620" opacity=".45"/>
+       <path d="M17 60 c-2 7 -2 14 1 21" stroke="#e8b877" stroke-width="3.2" fill="none" stroke-linecap="round" opacity=".85"/>
+       <path d="M22 47 c2 -9 7 -13 12 -13 s10 4 12 13 z" fill="#c9883c"/>
+       <path d="M34 34 c5 0 10 4 12 13 h-12 z" fill="#8a5620" opacity=".4"/>
+       <path d="M30 34 c0 -7 1 -11 6 -11 h6" fill="none" stroke="#b5762f" stroke-width="6" stroke-linecap="round"/>
+       <path d="M42 23 c16 0 24 9 24 20" fill="none" stroke="#b5762f" stroke-width="7" stroke-linecap="round"/>
+       <path d="M18 90 q3 -9 6 -11 q-1 6 2 8 q2 -3 3 -6 q3 6 -1 9 z" fill="#d8873a" opacity=".9"/>
+       <rect x="70" y="38" width="30" height="48" rx="5" fill="#a8783f"/>
+       <rect x="70" y="38" width="10" height="48" rx="5" fill="#c08f4d"/>
+       <rect x="70" y="44" width="30" height="4" fill="#5b6068"/><rect x="70" y="76" width="30" height="4" fill="#5b6068"/>
+       <path d="M66 43 h18 c6 0 6 8 0 8 h-10 c-6 0 -6 8 0 8 h10 c6 0 6 8 0 8 h-10 c-6 0 -6 8 0 8 h8"
+             fill="none" stroke="#c9883c" stroke-width="4" stroke-linecap="round"/>
+       <path d="M92 75 v9" stroke="#b5762f" stroke-width="4" stroke-linecap="round"/>
+       <ellipse cx="92" cy="88" rx="2.4" ry="3.2" fill="#9dc4dd"/>
+       <path d="M84 92 h18 l-2 12 a4 4 0 0 1 -4 3 h-6 a4 4 0 0 1 -4 -3 z" fill="#dce7ec" opacity=".9"/>
+       <path d="M84.8 97 h16.4 l-1.2 7 a4 4 0 0 1 -4 3 h-6 a4 4 0 0 1 -4 -3 z" fill="#c9883c" opacity=".7"/>`,
+    /* 5 Reifen: Eichenfass auf Gestell mit Fassnummer */
+    4:`<path d="M26 32 h68 v8 h-68 z" fill="none"/>
+       <path d="M30 26 C18 38 18 66 30 78 L90 78 C102 66 102 38 90 26 Z" fill="#a8783f"/>
+       <path d="M62 26 C74 38 74 66 62 78 L90 78 C102 66 102 38 90 26 Z" fill="#000" opacity=".2"/>
+       <path d="M30 26 C18 38 18 66 30 78 L42 78 C32 66 32 38 42 26 Z" fill="#fff" opacity=".12"/>
+       <g stroke="#6b4a28" stroke-width="1.4" fill="none" opacity=".5">
+        <path d="M44 26 C38 38 38 66 44 78"/><path d="M58 26 C54 38 54 66 58 78"/><path d="M74 26 C72 38 72 66 74 78"/>
+       </g>
+       <g fill="none" stroke="#5b6068" stroke-width="5">
+        <path d="M22 36 C40 32 82 32 99 36"/><path d="M19 52 h83"/><path d="M22 68 C40 72 82 72 99 68"/>
+       </g>
+       <g fill="none" stroke="#9aa0a8" stroke-width="1.4">
+        <path d="M22 34 C40 30 82 30 99 34"/><path d="M19 50 h83"/>
+       </g>
+       <circle cx="34" cy="52" r="4.4" fill="#4a341f"/>
+       <rect x="52" y="44" width="36" height="16" rx="2" fill="#f3efe4"/>
+       <text x="70" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#4a341f" font-family="'Source Sans 3',sans-serif">F-017</text>
+       <path d="M24 78 l-6 10 M96 78 l6 10" stroke="#6b4a28" stroke-width="5" stroke-linecap="round"/>`,
+    /* 6 Flasche mit Etikett und Glas */
+    5:`<path d="M46 16 h12 v16 c0 8 11 12 11 24 v30 a8 8 0 0 1 -8 8 h-18 a8 8 0 0 1 -8 -8 v-30 c0 -12 11 -16 11 -24 z" fill="#5d7a3e"/>
+       <path d="M52 16 h6 v16 c0 8 11 12 11 24 v30 a8 8 0 0 1 -8 8 h-9 z" fill="#2f4a26" opacity=".5"/>
+       <path d="M41 58 q2 -10 6 -14" stroke="#b7cf9a" stroke-width="3.4" fill="none" stroke-linecap="round" opacity=".7"/>
+       <path d="M45 10 h14 v10 h-14 z" fill="#5b6068"/><path d="M45 10 h5 v10 h-5 z" fill="#8f959d"/>
+       <rect x="35" y="58" width="34" height="28" rx="2" fill="#f7f4ec" stroke="#c9c2b2" stroke-width=".9"/>
+       <rect x="39" y="62" width="26" height="5" rx="1" fill="#2f3a2c"/>
+       <rect x="39" y="70" width="22" height="2.6" rx="1.3" fill="#8a8575"/>
+       <rect x="39" y="75" width="18" height="2.6" rx="1.3" fill="#8a8575"/>
+       <text x="39" y="83.4" font-size="6" font-weight="700" fill="#8c3a2b" font-family="'Source Sans 3',sans-serif">F017-251202</text>
+       <path d="M78 46 h20 l-3 26 a6 6 0 0 1 -6 5 h-2 a6 6 0 0 1 -6 -5 z" fill="#dce7ec" opacity=".85"/>
+       <path d="M79.6 58 h16.8 l-1.4 14 a6 6 0 0 1 -6 5 h-2 a6 6 0 0 1 -6 -5 z" fill="#c9883c" opacity=".75"/>
+       <path d="M86 77 v8 M80 86 h14" stroke="#b9c4ca" stroke-width="2.6" stroke-linecap="round"/>`
+  }[i];
+  return `<svg viewBox="0 0 120 100" aria-hidden="true">${S}</svg>`;
+}
+
+/* =====================================================================
+   Panel, Korb, Rest
+   ===================================================================== */
+const panel = document.getElementById('panel'), hintergrund = document.getElementById('panel-hintergrund');
+let letzterFokus = null;
+function panelOeffnen(k){
+  letzterFokus = document.activeElement;
+  document.getElementById('panel-titel').textContent = k.name;
+  document.getElementById('panel-sub').textContent = k.sub;
+  kategorieSymbol(k);
+  const liste = document.getElementById('produkte'); liste.innerHTML = '';
+  for(const p of k.produkte){
+    const chips = p.ml === 0;
+    const grund = chips ? `${(p.preis/(p.g/1000)).toFixed(2).replace('.',',')} €/kg` : `${(p.preis/(p.ml/1000)).toFixed(2).replace('.',',')} €/l`;
+    const karte = document.createElement('article'); karte.className = 'produkt';
+    karte.innerHTML = `${warenSymbol(k, p)}<div><h3>${p.name}</h3>`
+      + `<div class="details">${p.typ}${chips ? ` · ${p.g} g` : ` · ${p.vol} % vol · ${p.ml} ml`}</div>`
+      + `<div class="preis">${p.preis.toFixed(2).replace('.',',')} €</div><div class="grund">${grund}</div>`
+      + `<button class="kaufen" type="button">In den Korb</button></div>`;
+    karte.querySelector('.kaufen').addEventListener('click', ev => {
+      korbPlus(`${p.name} ${chips ? p.g + ' g' : p.ml + ' ml'}`);
+      ev.currentTarget.textContent = 'Im Korb ✓';
+      ev.currentTarget.classList.add('stumm');
+    });
+    liste.appendChild(karte);
+  }
+  panel.classList.add('offen'); hintergrund.classList.add('offen'); panel.setAttribute('aria-hidden', 'false');
+  document.getElementById('panel-schliessen').focus();
+}
+function panelSchliessen(){
+  panel.classList.remove('offen'); hintergrund.classList.remove('offen'); panel.setAttribute('aria-hidden', 'true');
+  if(letzterFokus && letzterFokus.focus) letzterFokus.focus();
+}
+document.getElementById('panel-schliessen').addEventListener('click', panelSchliessen);
+hintergrund.addEventListener('click', panelSchliessen);
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && panel.classList.contains('offen')) panelSchliessen(); });
+
+let korb = 0;
+try{ korb = parseInt(localStorage.getItem('hb-korb') || '0', 10) || 0; }catch(e){}
+function korbAnzeigen(){ document.getElementById('korb-zahl').textContent = korb; }
+function korbPlus(text){ korb++; korbAnzeigen(); try{ localStorage.setItem('hb-korb', String(korb)); }catch(e){} toast(`${text} liegt im Korb`); }
+document.getElementById('korb-knopf').addEventListener('click', () => toast(korb ? `${korb} Artikel im Korb. Im echten Shop geht es hier zur Kasse.` : 'Der Korb ist noch leer. Wähle einen Baum.'));
+korbAnzeigen();
+
+let toastTimer;
+function toast(text){ const t = document.getElementById('toast'); t.textContent = text; t.classList.add('zeigen'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('zeigen'), 2600); }
+
+document.getElementById('schritte').innerHTML = SCHRITTE.map((s, i) =>
+  `<div class="schritt">${schrittGrafik(i)}<div class="kopf-zeile"><span class="nr">${i+1}</span><h3>${s.t}</h3></div><p>${s.p}</p></div>`).join('');
+
+const alter = document.getElementById('alter');
+let ok = false; try{ ok = sessionStorage.getItem('hb-18') === 'ja'; }catch(e){}
+if(ok) alter.hidden = true; else document.getElementById('alter-ja').focus();
+document.getElementById('alter-ja').addEventListener('click', () => { alter.hidden = true; try{ sessionStorage.setItem('hb-18', 'ja'); }catch(e){} });
+document.getElementById('fuehrung-knopf').addEventListener('click', () => toast('Im echten Shop öffnet sich hier ein Anfrageformular mit Kalender.'));
+
+wieseZeichnen();
+</script>
