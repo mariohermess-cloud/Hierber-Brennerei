@@ -20,7 +20,7 @@ const rel = (...t) => path.join(wurzel, ...t);
 const existiert = (p) => fs.existsSync(rel(p));
 const fehler = [];
 const fail = (m) => fehler.push(m);
-const WORTGRENZE = 200; // wie bei den Serviervorschlags-Prompts; der feste Bausteintext (Format, Position, Etikett) braucht mehr als eine reine Bearbeitung
+const WORTGRENZE = 230; // Serviervorschläge: 200; hier mehr, weil Etikett- und Halsband-Baustein fest dazugehören
 const ERWARTET = 29;
 
 // ---------- Vorlagen (Anhang 1) ----------
@@ -53,6 +53,25 @@ const SORTEN = {
   'vieux-marc': { art: 'gruppe', a1: 'fotos/flaschenreihe-theke.jpg', verschluss: 'schwarzer Ausgießer', fl: 'dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen' },
 };
 
+// Halsband je Sorte, abgelesen an den echten Fotos (Fotos/flasche-*.jpg: schlanke Flaschen haben KEIN Halsband; fotos/flaschen-*.webp: runde Flaschen tragen ein Papierband am Hals).
+// unbestaetigt = kein eigenes Foto der Sorte, Band von der Schwestersorte übernommen (TODO-INHALTE.md, Abschnitt 7).
+const KEIN_HALS = 'Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses.';
+const HALS_BAND = {
+  wodka: 'hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“',
+  gin: 'hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“',
+  rum: 'braungraues Band mit heller Schreibschrift „Hierber Brennerei“',
+  'rum-orange': 'braungraues Band mit heller Schreibschrift „Hierber Brennerei“',
+  whisky: 'braungraues Band mit heller Schreibschrift „Hierber Brennerei“',
+  'hunneg-whisky': 'braungraues Band mit heller Schreibschrift „Hierber Brennerei“',
+  limoncello: 'gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“',
+  sambuca: 'dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“',
+  'hierber-fruucht': 'graubraunes Band mit kleinem Brennblasen-Logo und heller Schreibschrift „Hierber Brennerei“',
+};
+const HALS_UNBESTAETIGT = ['gin', 'rum-orange', 'whisky', 'hunneg-whisky'];
+const halsText = (id) => HALS_BAND[id]
+  ? `Halsband: schmales Papierband um den Hals, ${HALS_BAND[id]}, wie in Anhang 1, eigenes Band neben dem großen Etikett.`
+  : id === 'vieux-marc' ? 'Kein Halsband: der Hals bleibt ohne Papierband.' : KEIN_HALS;
+
 const sorten = PRODUKTE.map((p) => {
   const s = SORTEN[p.id];
   if (!s) { fail(`${p.id}: keine Vorlagenangabe`); return null; }
@@ -81,8 +100,8 @@ function baue(e) {
   const orient = s.form && s.art === 'foto' ? `Foto der Flasche dieser Sorte: ${s.form}` : ORIENT[s.art];
   const t = [
     `Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (${FORMAT}), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum.`,
-    `Form, Verschluss und Proportionen orientieren sich an Anhang 1 (${orient}); nur Orientierung, nicht kopieren, nicht dessen Etikett${s.art === 'rund2' ? ', kein Halsetikett' : ''}.${s.extra ? ` ${s.extra}` : ''}`,
-    `Verschluss: ${verschluss}. ${id === 'vieux-marc' ? `Glas: ${s.fl}.` : `Flüssigkeit: ${s.fl}, bis zum Hals gefüllt.`}`,
+    `Form, Verschluss und Proportionen orientieren sich an Anhang 1 (${orient}); nur Orientierung, nicht kopieren, nicht dessen Etikett.${s.extra ? ` ${s.extra}` : ''}`,
+    `Verschluss: ${verschluss}. ${halsText(id)} ${id === 'vieux-marc' ? `Glas: ${s.fl}.` : `Flüssigkeit: ${s.fl}, bis zum Hals gefüllt.`}`,
     `Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „${ADRESSE}“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett.`,
     `Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „${e.ziel}“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.`,
   ];
@@ -91,7 +110,7 @@ function baue(e) {
 
 // ---------- Hinweise zur Vorlage (ehrlich, für die Tabelle und die Prüfliste) ----------
 const PROBLEM = {
-  rund2: 'Zwei-Flaschen-Foto (0,2 L und 0,5 L): nur die große Flasche ist Formvorbild, ChatGPT könnte beide zeichnen oder das Halsetikett übernehmen',
+  rund2: 'Zwei-Flaschen-Foto (0,2 L und 0,5 L): nur die große Flasche ist Formvorbild, ChatGPT könnte beide zeichnen; das Halsband ist gewollt und im Prompt beschrieben',
   gruppe: 'Gruppenfoto: nur eine Flasche von vielen, teils verdeckt; Form der Karaffe schwer zu erfassen',
   schlankV: 'Formvorlage ist die Kirsch-Flasche, nicht die Flasche der Sorte',
 };
@@ -120,7 +139,8 @@ const pruef = (e) => {
     'Grund hell, neutral, weißgrau, ohne Verlauf ins Farbige; sanfter Schatten am Boden',
     e.id === 'vieux-marc' ? `Glas: ${e.s.fl}` : `Flüssigkeit: ${e.s.fl}, bis zum Hals gefüllt`,
     'Etikett liegt rund auf der Flasche (nicht aufgeklebt, nicht flach), Glanz und Reflexe des Glases laufen darüber',
-    'Das Foto aus Anhang 1 wurde nicht übernommen (kein altes Etikett, keine zweite Flasche, kein Halsetikett)',
+    'Das Foto aus Anhang 1 wurde nicht übernommen (kein altes Etikett, keine zweite Flasche)',
+    HALS_BAND[e.id] ? `Halsband vorhanden und passend: ${HALS_BAND[e.id]}${HALS_UNBESTAETIGT.includes(e.id) ? ' (unbestätigt, kein eigenes Foto)' : ''}` : 'Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)',
   ];
   if (e.s.art === 'schlankV') l.push('Nicht das Kirsch-Etikett: es muss das Etikett der Sorte aus Anhang 2 sein');
   return l;
@@ -157,7 +177,7 @@ ${sorten.map((e) => `| ${e.name} | \`${e.a1}\` | \`${e.a2}\` | \`${e.ziel}\` | $
 
 - **Etikett Wort für Wort:** Dass ChatGPT Sortenname, Alkoholangabe, Grafik und die feste Adresszeile fehlerfrei übernimmt, ist unsicher. Jedes Ergebnis von Hand gegen das flache Etikett prüfen.
 - **Gruppenfoto (Vieux Marc):** \`fotos/flaschenreihe-theke.jpg\` zeigt viele Flaschen; die Karaffe steht vorn links, teils verdeckt, mit Lampenreflexen. Als Formvorbild schwach; die Karaffenform kann abweichen.
-- **Zwei Flaschen im selben Bild (Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, aale Fruucht):** die Fotos auf schwarzem Grund zeigen eine 0,2-L- und eine 0,5-L-Flasche samt Halsetikett „Hierber Brennerei“. Der Prompt nennt die große Flasche als Vorbild und verlangt nur EINE Flasche ohne Halsetikett; ob ChatGPT das einhält, ist offen. Der Grund im Foto ist schwarz, das Ergebnis soll hell sein.
+- **Zwei Flaschen im selben Bild (Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, aale Fruucht):** die Fotos auf schwarzem Grund zeigen eine 0,2-L- und eine 0,5-L-Flasche samt Halsband „Hierber Brennerei“. Der Prompt nennt die große Flasche als Vorbild, verlangt nur EINE Flasche und beschreibt das Halsband je Sorte; ob ChatGPT das einhält, ist offen. Der Grund im Foto ist schwarz, das Ergebnis soll hell sein.
 - **Nur über Beschreibung (Gin, Rum Orange, Whisky, Hunneg Whisky):** es gibt kein Foto der Sorte. Gin entsteht in der Form der Wodka-Flasche, Whisky, Hunneg Whisky und Rum Orange in der Form der Rum-Flasche; Kappen- und Flüssigkeitsfarbe stehen nur im Text. Hier ist die Abweichung vom echten Produkt am größten.
 - **Formvorlage Kirsch (Kürbisdrëpp, Grain, Hondsaarsch, Vullekiischt):** gleiche schlanke Flasche, aber das Foto ist nicht die Flasche der Sorte; Flüssigkeit „klar wie Wasser“ laut Beschreibung.
 - **Einheitliche Position:** Standfläche bei etwa 90 % und Verschlussoberkante bei etwa 8 % hält ChatGPT erfahrungsgemäß nur ungefähr ein.

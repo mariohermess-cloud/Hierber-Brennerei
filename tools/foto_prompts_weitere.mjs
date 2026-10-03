@@ -42,16 +42,16 @@ const FARBE = {
 // Die Beschreibung ist eigenständig (kein Verweis auf "wie im Foto"), weil Anhang 1 bei Sorten ohne eigenes Flaschenfoto die Standardvorlage ist.
 const KAPPE_SCHLANK = 'klarer Glasstopfen';
 const VERSCHLUSS = {
-  gin: 'flache, mattsilberne Metallkappe',
-  wodka: 'flache, mattsilberne Metallkappe',
-  rum: 'flache dunkle Holzkappe, braunes Halsband am Flaschenhals',
-  'rum-orange': 'flache dunkle Holzkappe wie bei Rum, kein Halsband',
-  'hierber-fruucht': 'flache dunkle Holzkappe',
-  whisky: 'schwarze, geriffelte Schraubkappe',
-  'hunneg-whisky': 'schwarze, geriffelte Schraubkappe',
+  gin: 'flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“ (unbestätigt)',
+  wodka: 'flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“',
+  rum: 'flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals',
+  'rum-orange': 'flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt)',
+  'hierber-fruucht': 'flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“',
+  whisky: 'schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt)',
+  'hunneg-whisky': 'schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt)',
   'vieux-marc': 'schwarzer, profilierter Stopfen mit Wulst am Hals',
-  sambuca: 'Ausgießer mit zwei dunklen Metallröhrchen, Halsband am Flaschenhals',
-  limoncello: 'Ausgießer mit zwei dunklen Metallröhrchen, Halsband am Flaschenhals',
+  sambuca: 'Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“',
+  limoncello: 'Ausgießer mit zwei dunklen Metallröhrchen, gelbes Halsband mit Zitronenscheiben',
   vizdrepp: 'klarer Glasstopfen mit flachem, breitem Kragen',
 };
 // Etikett-Alkoholangabe weicht von der Preisliste ab: Wert des Etiketts bleibt, Hinweis an den Nutzer

@@ -106,3 +106,18 @@ Zuordnung nach `site/data/ki-bilder.js` geprüft (Hauptbild = -1, übrige ab -2 
 | Limoncello -2, -4 | Adresszeile auf dem Etikett **unvollständig**: „…Millewee Herborn, Tél: 727602, www.hierber-bren…“ ohne „2,“ und „L-6665“, „www“-Teil rechts abgeschnitten; Halsband am Flaschenhals mit angeschnittenem Text („…ber Bre…“, nicht auf dem flachen Etikett). -4: ganze und halbe Zitronen auf dem Tisch (im Rezept nur Sorbet). |
 | Limoncello -3 | Adresse wie oben ohne „L-6665“; Minzzweig im Glas laut Rezept, Sommersalat als Beilage. |
 
+
+## 7. Halsband der Flaschen (aus den echten Fotos abgelesen)
+
+Prüfung der Fotos in `Fotos/` und `fotos/`: Die **26 schlanken Flaschen** (Hals mit Glasstopfen) haben **kein Halsband**, nur bei einigen einen schmalen goldgelben Siegelstreifen am Stopfenrand; auch Vizdrëpp und Vieux Marc haben keines. Die **runden Flaschen** tragen ein eigenes Papierband am Hals (zusätzlich zum großen Etikett); die Prompts in `PROMPTS-FLASCHEN.md` beschreiben es je Sorte.
+
+| Sorte | Halsband laut Foto |
+|---|---|
+| Wodka | hellblau, weiße Schreibschrift „Hierber Brennerei“ |
+| Rum | braungrau, helle Schreibschrift „Hierber Brennerei“ |
+| Limoncello | gelb mit Zitronenscheiben, Schreibschrift |
+| Sambuca | dunkelrot mit Faserstruktur, helle Schreibschrift |
+| Hierber aale Fruucht | graubraun mit kleinem Brennblasen-Logo, helle Schreibschrift |
+| **Unbestätigt** (kein eigenes Foto, Band der Schwestersorte übernommen) | Gin (wie Wodka), Rum Orange, Whisky, Hunneg Whisky (wie Rum) |
+
+Offen für den Brenner: Stimmen die vier unbestätigten Sorten? Der Bandtext ist auf den Fotos wegen der Rundung nur teilweise lesbar („Hierber Bren…“); „Hierber Brennerei“ ist daraus geschlossen. Eine flache Bandgrafik liegt nicht vor.
