@@ -251,30 +251,22 @@ export const PRODUKTE = [
     ablauf: [{ gies: { fill: 0.4 } }, { deko: 'apfel' }],
   },
   {
-    id: 'sambuca', name: 'Hierber Sambuca', kurzname: 'Sambuca', ort: 'regal', sorte: 'sambuca', abv: 43, platzhalter: true,
+    id: 'sambuca', name: 'Hierber Sambuca', kurzname: 'Sambuca', ort: 'regal', sorte: 'sambuca', abv: 43,
     kurz: 'Sambuca, 43 % vol.',
-    beschreibung: 'Hierber Sambuca. Platzhalter-Etikett – das echte Etikett folgt.',
+    beschreibung: 'Hierber Sambuca.',
     varianten: [{ id: 'standard', name: 'Hierber Sambuca', abv: 43, preise: [p('0,2 L', 12), p('0,5 L', 24), p('1 L', 41), p('1,5 L', 53)] }],
     glas: 'shot', fluessig: KLAR, stimmung: ST.hell,
     ablauf: [{ deko: 'eis' }, { gies: { fill: 0.65 } }],
   },
   {
-    id: 'limoncello', name: 'Hierber Limoncello', kurzname: 'Limoncello', ort: 'regal', sorte: 'limoncello', abv: 28, platzhalter: true,
+    id: 'limoncello', name: 'Hierber Limoncello', kurzname: 'Limoncello', ort: 'regal', sorte: 'limoncello', abv: 28,
     kurz: 'Limoncello, 28 % vol.',
-    beschreibung: 'Hierber Limoncello – leuchtend gelb. Platzhalter-Etikett – das echte Etikett folgt.',
+    beschreibung: 'Hierber Limoncello – leuchtend gelb.',
     varianten: [{ id: 'standard', name: 'Hierber Limoncello', abv: 28, preise: [p('0,2 L', 8), p('0,5 L', 18), p('1 L', 32), p('1,5 L', 44)] }],
     glas: 'shot', fluessig: { farbe: '#f6dc3a', alpha: 0.82 }, stimmung: ST.hell,
     ablauf: [{ deko: 'frost' }, { gies: { fill: 0.72 } }, { deko: 'zitrone' }, { deko: 'minze' }, { deko: 'tropfen' }],
   },
 ];
-
-// Platzhalter-Etiketten (kein Etikettenbild vorhanden): Text im Markenstil, klar als Platzhalter markiert.
-export const PLATZHALTER = {
-  sambuca: { titel: 'Hierber Sambuca', abv: 43, farbe: '#20303a', typ: 'rund' },
-  limoncello: { titel: 'Hierber Limoncello', abv: 28, farbe: '#5b5a1c', typ: 'rund' },
-};
-// Flüssigkeitsfarben der Platzhalter-Flaschen (kein Foto vorhanden)
-export const PLATZHALTER_FLUESSIG = { sambuca: '#f2f6f4', limoncello: '#f2d63a' };
 
 // Kontakt und Fußzeile
 export const KONTAKT = {

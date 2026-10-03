@@ -1,5 +1,5 @@
 // Bildquelle je Sorte: flaches Etikett (Grafik) aus "Fertige Etiquetten/". Keine Flaschenfotos (KI-Beispielbilder sind ausgeschlossen).
-// Sorten ohne Eintrag (rum, rum-orange, sambuca, limoncello) haben kein flaches Etikett und zeigen eine beschriftete Platzhalterkarte.
+// Alle 29 Sorten haben ein flaches Etikett (zuletzt neu: Rum, Rum Orange, Limoncello, Sambuca, alle Querformat wie Gin).
 export const ETIKETTEN = {
   'gin': 'Branntwein Hierber Gin - Nei 1-01.png',
   'wodka': 'Branntwein Wodka-01.png',
@@ -10,6 +10,10 @@ export const ETIKETTEN = {
   'quetsch': 'Brandwein Quetsch-01.png',
   'poire-williams': 'Brandwein Williams-01.png',
   'mirabelle': 'Brandwein Mirabelle-01.png',
+  'rum': 'Branntwein Hierber Rum nei-01.png',
+  'rum-orange': 'Branntwein Hierber Rum orange nei-01.png',
+  'sambuca': 'Branntwein Sambuca_Zeichenfläche 1.png',
+  'limoncello': 'Branntwein Limoncello-01.png',
   'hierber-fruucht': 'Branntwein Hierber Fruucht-01.png',
   'vieux-marc': 'Branntwein Vieux marc-01.png',
   'vieille-prune': 'Brandwein Vieille prune-01.png',

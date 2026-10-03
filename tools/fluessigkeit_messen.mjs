@@ -20,24 +20,24 @@ const BREITE = 600;
 
 // Datei -> Sorten-ID (aus site/data/produkte.js) oder Text für "nicht auf der Seite"; sicher = Etikett eindeutig lesbar
 export const ZUORDNUNG = {
-  '_DSC3024.jpg': { sorte: 'poire-williams', altes: true }, '_DSC3025.jpg': { sorte: 'mirabelle', altes: true }, '_DSC3026.jpg': { sorte: 'neelchesbiren', altes: true },
-  '_DSC3027.jpg': { sorte: 'framboise', altes: true }, '_DSC3028.jpg': { sorte: 'quetsch', altes: true }, '_DSC3029.jpg': { sorte: 'quetsch', altes: true },
-  '_DSC3030.jpg': { sorte: null, text: 'Pomme (Apfel, altes Etikett)', altes: true }, '_DSC3031.jpg': { sorte: null, text: 'Pomme (Apfel, altes Etikett)', altes: true }, '_DSC3032.jpg': { sorte: 'kirsch', altes: true },
-  '_DSC3033.jpg': { sorte: 'poire' }, '_DSC3034.jpg': { sorte: 'poire' }, '_DSC3035.jpg': { sorte: 'lenschouren' }, '_DSC3036.jpg': { sorte: 'mirabelle' },
-  '_DSC3037.jpg': { sorte: 'schleiwen' }, '_DSC3038.jpg': { sorte: 'kirsch' }, '_DSC3039.jpg': { sorte: 'neelchesbiren' }, '_DSC3040.jpg': { sorte: 'kirsch' },
-  '_DSC3041.jpg': { sorte: 'framboise' }, '_DSC3042.jpg': { sorte: 'poire-williams' }, '_DSC3044.jpg': { sorte: 'quetsch' }, '_DSC3046.jpg': { sorte: 'kraeiderdrepp' },
-  '_DSC3047.jpg': { sorte: 'hunnegdrepp' }, '_DSC3048.jpg': { sorte: null, text: 'Peffermënz (nicht auf der Seite)' }, '_DSC3049.jpg': { sorte: 'kiwibeeren' },
-  '_DSC3050.jpg': { sorte: null, text: 'Nëssdrëpp (nicht auf der Seite)' }, '_DSC3051.jpg': { sorte: 'vieille-pomme' }, '_DSC3052.jpg': { sorte: 'vieille-prune' },
-  '_DSC3053.jpg': { sorte: null, text: 'Williamsdrëpp op Biren nogeräift, 35 % (Variante von Poire Williams; nicht Hauptsorte)' }, '_DSC3054.jpg': { sorte: 'vizdrepp' },
-  '_DSC3055.jpg': { sorte: null, text: 'Williamslikör (nicht auf der Seite)' }, '_DSC3056.jpg': { sorte: null, text: 'Vizlikör, Apfel (nicht auf der Seite)' },
-  '_DSC3057.jpg': { sorte: null, text: 'Quittenlikör (nicht auf der Seite)' }, '_DSC3058.jpg': { sorte: null, text: 'De wëlle Mix, Waldfrüchte-Likör (nicht auf der Seite)' },
-  '_DSC3059.jpg': { sorte: null, text: 'Schléiwenlikör (nicht auf der Seite)' }, '_DSC3060.jpg': { sorte: null, text: 'Pijenlikör, Aprikose (nicht auf der Seite)' },
-  '_DSC3061.jpg': { sorte: null, text: 'Hambierlikör, Himbeere (nicht auf der Seite)' }, '_DSC3063.jpg': { sorte: null, text: 'Mirabellenlikör (nicht auf der Seite)' },
-  '_DSC3064.jpg': { sorte: null, text: 'Mandellikör (nicht auf der Seite)' }, '_DSC3065.jpg': { sorte: null, text: 'Kiischtenlikör, Kirsche (nicht auf der Seite)' },
-  '_DSC3066.jpg': { sorte: null, text: 'Kräiderlikör (nicht auf der Seite)' },
+  'flasche-poire-williams-altes-etikett.jpg': { sorte: 'poire-williams', altes: true }, 'flasche-mirabelle-altes-etikett.jpg': { sorte: 'mirabelle', altes: true }, 'flasche-neelchesbiren-altes-etikett.jpg': { sorte: 'neelchesbiren', altes: true },
+  'flasche-framboise-altes-etikett.jpg': { sorte: 'framboise', altes: true }, 'flasche-quetsch-altes-etikett.jpg': { sorte: 'quetsch', altes: true }, 'flasche-quetsch-altes-etikett-2.jpg': { sorte: 'quetsch', altes: true },
+  'flasche-pomme-altes-etikett.jpg': { sorte: null, text: 'Pomme (Apfel, altes Etikett)', altes: true }, 'flasche-pomme-altes-etikett-2.jpg': { sorte: null, text: 'Pomme (Apfel, altes Etikett)', altes: true }, 'flasche-kirsch-altes-etikett.jpg': { sorte: 'kirsch', altes: true },
+  'flasche-poire.jpg': { sorte: 'poire' }, 'flasche-poire-2.jpg': { sorte: 'poire' }, 'flasche-lenschouren.jpg': { sorte: 'lenschouren' }, 'flasche-mirabelle.jpg': { sorte: 'mirabelle' },
+  'flasche-schleiwen.jpg': { sorte: 'schleiwen' }, 'flasche-kirsch.jpg': { sorte: 'kirsch' }, 'flasche-neelchesbiren.jpg': { sorte: 'neelchesbiren' }, 'flasche-kirsch-2.jpg': { sorte: 'kirsch' },
+  'flasche-framboise.jpg': { sorte: 'framboise' }, 'flasche-poire-williams.jpg': { sorte: 'poire-williams' }, 'flasche-quetsch.jpg': { sorte: 'quetsch' }, 'flasche-kraeiderdrepp.jpg': { sorte: 'kraeiderdrepp' },
+  'flasche-hunnegdrepp.jpg': { sorte: 'hunnegdrepp' }, 'flasche-pefferminz.jpg': { sorte: null, text: 'Peffermënz (nicht auf der Seite)' }, 'flasche-kiwibeeren.jpg': { sorte: 'kiwibeeren' },
+  'flasche-noessdrepp.jpg': { sorte: null, text: 'Nëssdrëpp (nicht auf der Seite)' }, 'flasche-vieille-pomme.jpg': { sorte: 'vieille-pomme' }, 'flasche-vieille-prune.jpg': { sorte: 'vieille-prune' },
+  'flasche-williamsdrepp-nogeraeift.jpg': { sorte: null, text: 'Williamsdrëpp op Biren nogeräift, 35 % (Variante von Poire Williams; nicht Hauptsorte)' }, 'flasche-vizdrepp.jpg': { sorte: 'vizdrepp' },
+  'flasche-likoer-williams.jpg': { sorte: null, text: 'Williamslikör (nicht auf der Seite)' }, 'flasche-likoer-viz.jpg': { sorte: null, text: 'Vizlikör, Apfel (nicht auf der Seite)' },
+  'flasche-likoer-quitten.jpg': { sorte: null, text: 'Quittenlikör (nicht auf der Seite)' }, 'flasche-likoer-waldfruechte.jpg': { sorte: null, text: 'De wëlle Mix, Waldfrüchte-Likör (nicht auf der Seite)' },
+  'flasche-likoer-schleiwen.jpg': { sorte: null, text: 'Schléiwenlikör (nicht auf der Seite)' }, 'flasche-likoer-pije.jpg': { sorte: null, text: 'Pijenlikör, Aprikose (nicht auf der Seite)' },
+  'flasche-likoer-hambier.jpg': { sorte: null, text: 'Hambierlikör, Himbeere (nicht auf der Seite)' }, 'flasche-likoer-mirabellen.jpg': { sorte: null, text: 'Mirabellenlikör (nicht auf der Seite)' },
+  'flasche-likoer-mandel.jpg': { sorte: null, text: 'Mandellikör (nicht auf der Seite)' }, 'flasche-likoer-kiischten.jpg': { sorte: null, text: 'Kiischtenlikör, Kirsche (nicht auf der Seite)' },
+  'flasche-likoer-kraider.jpg': { sorte: null, text: 'Kräiderlikör (nicht auf der Seite)' },
 };
 // Referenz "leeres Glas": Flaschen, deren Füllung klar ist (Kirsch, Framboise, Poire, Lënschouren, Kräiderdrëpp, Kiwibeeren; Etikett eindeutig, Füllung farblos)
-const REFERENZ = ['_DSC3038.jpg', '_DSC3040.jpg', '_DSC3041.jpg', '_DSC3033.jpg', '_DSC3035.jpg', '_DSC3046.jpg', '_DSC3049.jpg'];
+const REFERENZ = ['flasche-kirsch.jpg', 'flasche-kirsch-2.jpg', 'flasche-framboise.jpg', 'flasche-poire.jpg', 'flasche-lenschouren.jpg', 'flasche-kraeiderdrepp.jpg', 'flasche-kiwibeeren.jpg'];
 
 const med = (a) => { const s = [...a].sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; };
 const hex = (c) => '#' + c.map((v) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join('');

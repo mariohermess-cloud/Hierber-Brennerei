@@ -17,30 +17,30 @@ const schaetz = (farbe, alpha, quelle) => ({ farbe, alpha, quelle, geschaetzt: t
 
 export const FLUESSIGKEIT = {
   // --- Fotoquelle (Pixelprobe) ---
-  kirsch: klarMess('_DSC3038.jpg'),
-  framboise: klarMess('_DSC3041.jpg'),
-  lenschouren: klarMess('_DSC3035.jpg'),
-  kraeiderdrepp: klarMess('_DSC3046.jpg'),
-  schleiwen: klarMess('_DSC3037.jpg'),
-  'poire-williams': klarMess('_DSC3042.jpg'),
+  kirsch: klarMess('flasche-kirsch.jpg'),
+  framboise: klarMess('flasche-framboise.jpg'),
+  lenschouren: klarMess('flasche-lenschouren.jpg'),
+  kraeiderdrepp: klarMess('flasche-kraeiderdrepp.jpg'),
+  schleiwen: klarMess('flasche-schleiwen.jpg'),
+  'poire-williams': klarMess('flasche-poire-williams.jpg'),
   gin: klarFoto('Hierber-Gin-Flasche (Sichtprüfung, Füllung farblos)'),
   // --- Produktfotos vom Nutzer auf schwarzem Grund (fotos/flaschen-*.webp, flasche-hunnegdrepp.png) ---
   wodka: { ...KLAR, quelle: 'Foto vom Nutzer: flaschen-wodka.webp (0,2 L und 0,5 L), Füllung farblos; Probe Schulter #878683 = Durchsicht auf Tisch', geschaetzt: false },
-  hunnegdrepp: { farbe: '#b9861b', alpha: 0.92, quelle: 'Foto vom Nutzer: flasche-hunnegdrepp.png, Sichtung Füllung tiefes Honiggold (Pixelprobe durch schwarze Rückwand verfälscht); bestätigt durch Messung Fotos/_DSC3047.jpg (beobachtet #c18e00, entmischt #ba7e00)', geschaetzt: false },
+  hunnegdrepp: { farbe: '#b9861b', alpha: 0.92, quelle: 'Foto vom Nutzer: flasche-hunnegdrepp.png, Sichtung Füllung tiefes Honiggold (Pixelprobe durch schwarze Rückwand verfälscht); bestätigt durch Messung Fotos/flasche-hunnegdrepp.jpg (beobachtet #c18e00, entmischt #ba7e00)', geschaetzt: false },
   'hierber-fruucht': { farbe: '#bd6e1b', alpha: 0.92, quelle: 'Foto vom Nutzer: flaschen-fruucht.webp, Probe Schulter 0,5 L (60.-95. Perzentil) #bd6e1b, 0,2 L #af6813', geschaetzt: false },
   rum: { farbe: '#c58a08', alpha: 0.92, quelle: 'Foto vom Nutzer: flaschen-rum-02-05.webp / flaschen-rum-fuenf-groessen.webp, Probe Schulter #c68f04, #c49313, #c17a07 (Mittel)', geschaetzt: false },
   limoncello: { farbe: '#d7d62f', alpha: 0.95, quelle: 'Foto vom Nutzer: flaschen-limoncello.webp, Probe Farbton gelbgrün (Helligkeit durch schwarzen Grund gedrückt, Wert aufgehellt)', geschaetzt: false },
   sambuca: { ...KLAR, quelle: 'Foto vom Nutzer: flaschen-sambuca.webp, Füllung farblos', geschaetzt: false },
   'vieux-marc': { farbe: '#42352a', alpha: 0.96, quelle: 'flaschenreihe-theke.jpg: Vieux-Marc-Karaffe, Probe x 262-338, y 925-1040 (dunkles Glas)', geschaetzt: false },
-  'vieille-prune': mess('_DSC3052.jpg', '#e3cd3a', 0.85, '#e3d052'),
+  'vieille-prune': mess('flasche-vieille-prune.jpg', '#e3cd3a', 0.85, '#e3d052'),
   whisky: { farbe: '#9c7d26', alpha: 0.9, quelle: 'flaschenreihe-theke.jpg: Whisky-Flasche (schwarzes Etikett), Probe x 1192-1262, y 850-920', geschaetzt: false },
-  vizdrepp: mess('_DSC3054.jpg', '#d9ba15', 0.85, '#d9bf31'),
+  vizdrepp: mess('flasche-vizdrepp.jpg', '#d9ba15', 0.85, '#d9bf31'),
   // --- Fotos/ gemessen (klar) ---
-  quetsch: klarMess('_DSC3044.jpg'), mirabelle: klarMess('_DSC3036.jpg'), poire: klarMess('_DSC3033.jpg'), kiwibeeren: klarMess('_DSC3049.jpg'), neelchesbiren: klarMess('_DSC3039.jpg'),
+  quetsch: klarMess('flasche-quetsch.jpg'), mirabelle: klarMess('flasche-mirabelle.jpg'), poire: klarMess('flasche-poire.jpg'), kiwibeeren: klarMess('flasche-kiwibeeren.jpg'), neelchesbiren: klarMess('flasche-neelchesbiren.jpg'),
   // --- klar laut Beschreibung in produkte.js ---
   hondsaarsch: klarBeschr, vullekiischt: klarBeschr, kuerbisdrepp: klarBeschr, grain: klarBeschr, // kein Foto der Sorte in Fotos/
   // --- geschätzt nach den Farbworten in produkte.js ---
-  'vieille-pomme': mess('_DSC3051.jpg', '#e2cc43', 0.85, '#e2cf59'),
+  'vieille-pomme': mess('flasche-vieille-pomme.jpg', '#e2cc43', 0.85, '#e2cf59'),
   'hunneg-whisky': schaetz('#c4912e', 0.9, 'produkte.js: Honig-Whisky; golden geschätzt, dunkler als Whisky'),
   'rum-orange': schaetz('#c67a1c', 0.9, 'produkte.js: „orange-bernsteinfarben“'),
 };

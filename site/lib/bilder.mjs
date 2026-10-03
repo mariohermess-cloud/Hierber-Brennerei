@@ -29,9 +29,8 @@ export function breitenFuer(nativ, liste = STANDARD) {
 }
 
 // Echte Fotos (vom Nutzer geliefert) in fotos/. Schlüssel = foto-<name>. Die KI-Beispielbilder sind ausgeschlossen.
-export const FOTOS = ['hof-birnenkisten.jpg', 'flaschenreihe-theke.jpg', 'fassraum-eichenfaesser.jpg', 'brennanlage-gross.jpg', 'geschenkregal.jpg', 'hofschild-aussen.jpg',
-  // Produktfotos auf schwarzem Grund (Rum, Limoncello, Sambuca: Hauptbild, da kein flaches Etikett vorhanden)
-  'flaschen-rum-fuenf-groessen.webp', 'flaschen-rum-02-05.webp', 'flaschen-limoncello.webp', 'flaschen-sambuca.webp'];
+// Die Produktfotos auf schwarzem Grund (flaschen-*.webp) sind nur noch Farb- und Formreferenz und werden nicht mehr ausgeliefert.
+export const FOTOS = ['hof-birnenkisten.jpg', 'flaschenreihe-theke.jpg', 'fassraum-eichenfaesser.jpg', 'brennanlage-gross.jpg', 'geschenkregal.jpg', 'hofschild-aussen.jpg'];
 // Etiketten (vorverzerrt, siehe warpeEtikett): 240 für Karten (Handy), 480 für Karten (Desktop) und Sortenseite, 960 für die Sortenseite bei hoher Pixeldichte
 const LABEL_BREITEN = [240, 480, 960];
 // KI-Symbolbilder der Serviervorschläge (fotos-ki/<id>-<n>.png, n = 1 Hauptbild, n >= 2 weitere Karten; 1448x1086): Breiten 480/960/1448, nie hochskaliert, keine PNG in dist/
@@ -160,7 +159,7 @@ export async function ogBilder({ root, dist }) {
     const stage = await sharp(buehne).composite([{ input: fl, left: bx, top: by }, { input: et, left: bx + Math.round((feld.left / 100) * bw), top: by + Math.round((feld.top / 100) * bh) }]).png().toBuffer();
     await schreibe(out, stage);
   }
-  // Sorten mit Produktfoto (Rum, Limoncello, Sambuca): Foto auf schwarzem Grund, ganz sichtbar
+  // Sorten mit Produktfoto (FOTO_SORTEN, derzeit keine): Foto auf schwarzem Grund, ganz sichtbar
   for (const [id, f] of Object.entries(FOTO_SORTEN)) {
     const out = path.join(dir, `${id}.jpg`);
     await sharp(path.join(root, 'fotos', `${f.haupt}.webp`)).resize(1200, 630, { fit: 'contain', background: '#000' }).jpeg({ quality: 82, mozjpeg: true }).toFile(out);
