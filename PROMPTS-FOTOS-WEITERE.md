@@ -1,7 +1,7 @@
 # Prompts für KI-Fotos (ChatGPT): weitere Serviervorschläge
 
 Erzeugt mit `node tools/foto_prompts_weitere.mjs`. Nicht von Hand ändern, sondern das Skript anpassen und neu laufen lassen.
-**92 weitere Bilder** für alle Serviervorschläge der Sortenseiten (**9 davon liegen schon in `fotos-ki/`, 83 sind offen**; der Status steht bei jedem Bild und wird aus der Datei in `fotos-ki/` abgelesen). Die 29 Hauptbilder `<sorten-id>-1.png` gibt es schon, siehe `PROMPTS-FOTOS.md`). Die Liste zum Abhaken steht in `BILDERLISTE.md`, verbesserte Prompts für fehlerhafte Erstbilder in `PROMPTS-FOTOS-ERSATZ.md`.
+**92 weitere Bilder** für alle Serviervorschläge der Sortenseiten (**92 davon liegen schon in `fotos-ki/`, 0 sind offen**; der Status steht bei jedem Bild und wird aus der Datei in `fotos-ki/` abgelesen). Die 29 Hauptbilder `<sorten-id>-1.png` gibt es schon, siehe `PROMPTS-FOTOS.md`). Die Liste zum Abhaken steht in `BILDERLISTE.md`, verbesserte Prompts für fehlerhafte Erstbilder in `PROMPTS-FOTOS-ERSATZ.md`.
 
 **Benennung:** `fotos-ki/<sorten-id>-<n>.png`. Die Nummern 2, 3, 4 ... gehören zu den Karten der Sortenseite in der Reihenfolge der Karten, die Karte des Hauptbilds (`-1`) wird übersprungen. Beispiel Wodka: `wodka-1.png` zeigt Karte 2; Karte 1 wird `wodka-2.png`, Karte 3 `wodka-3.png`, Karte 4 `wodka-4.png`.
 
@@ -119,7 +119,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Wodka
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Wodka eiskalt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/wodka-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Wodka-01.png`
 - **Prompt:** 183 Wörter
@@ -147,7 +147,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Wodka
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Moscow Mule“ (Cocktail)
 - **Ergebnis speichern als:** `fotos-ki/wodka-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Wodka-01.png`
 - **Prompt:** 189 Wörter
@@ -175,7 +175,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Wodka
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Wodka zu Räucherlachs und Schwarzbrot“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/wodka-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Wodka-01.png`
 - **Prompt:** 185 Wörter
@@ -204,7 +204,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Rum
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Rum pur, bei Zimmertemperatur“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/rum-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`
 - **Prompt:** 185 Wörter
@@ -234,7 +234,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Rum
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Daiquiri“ (Cocktail)
 - **Ergebnis speichern als:** `fotos-ki/rum-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`
 - **Prompt:** 187 Wörter
@@ -264,7 +264,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Rum
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Gebratene Bananen mit Rum“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/rum-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`
 - **Prompt:** 177 Wörter
@@ -295,7 +295,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Rum Orange
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Rum Orange auf einem großen Eiswürfel“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/rum-orange-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
 - **Prompt:** 190 Wörter
@@ -325,7 +325,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Rum Orange
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Rum Orange-Sour“ (Cocktail)
 - **Ergebnis speichern als:** `fotos-ki/rum-orange-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
 - **Prompt:** 190 Wörter
@@ -355,7 +355,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Rum Orange
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Orangenfilets mit Rum Orange“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/rum-orange-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
 - **Prompt:** 176 Wörter
@@ -386,7 +386,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Whisky
 - **Karte auf der Sortenseite:** Nr. 1 von 5, „Whisky pur, mit einem Spritzer Wasser“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/whisky-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
 - **Prompt:** 181 Wörter
@@ -414,7 +414,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Whisky
 - **Karte auf der Sortenseite:** Nr. 2 von 5, „Whisky-Highball“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/whisky-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
 - **Prompt:** 184 Wörter
@@ -442,7 +442,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Whisky
 - **Karte auf der Sortenseite:** Nr. 4 von 5, „Whisky zu Comté“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/whisky-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
 - **Prompt:** 181 Wörter
@@ -471,7 +471,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Whisky
 - **Karte auf der Sortenseite:** Nr. 5 von 5, „Pfeffersteak mit Whisky-Sauce“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/whisky-5.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
 - **Prompt:** 178 Wörter
@@ -500,7 +500,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kirsch
 - **Karte auf der Sortenseite:** Nr. 1 von 5, „Kirsch pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/kirsch-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
 - **Prompt:** 173 Wörter
@@ -528,7 +528,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kirsch
 - **Karte auf der Sortenseite:** Nr. 2 von 5, „Kirsch-Tonic mit Zitronenschale“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/kirsch-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
 - **Prompt:** 180 Wörter
@@ -556,7 +556,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kirsch
 - **Karte auf der Sortenseite:** Nr. 4 von 5, „Geschmorte Kirschen mit Kirsch“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/kirsch-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
 - **Prompt:** 169 Wörter
@@ -585,7 +585,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kirsch
 - **Karte auf der Sortenseite:** Nr. 5 von 5, „Kirsch zu dunkler Schokolade“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/kirsch-5.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
 - **Prompt:** 173 Wörter
@@ -614,7 +614,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Framboise
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Framboise pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/framboise-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Framboise-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-framboise.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
 - **Prompt:** 170 Wörter
@@ -642,7 +642,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Framboise
 - **Karte auf der Sortenseite:** Nr. 2 von 4, „Framboise-Tonic mit Minze“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/framboise-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Framboise-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-framboise.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
 - **Prompt:** 180 Wörter
@@ -670,7 +670,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Framboise
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Panna cotta mit Himbeeren und Framboise“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/framboise-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Framboise-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-framboise.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
 - **Prompt:** 167 Wörter
@@ -699,7 +699,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Quetsch
 - **Karte auf der Sortenseite:** Nr. 1 von 5, „Quetsch pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/quetsch-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
 - **Prompt:** 170 Wörter
@@ -727,7 +727,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Quetsch
 - **Karte auf der Sortenseite:** Nr. 3 von 5, „Quetsch-Tonic mit Zimtstange“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/quetsch-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
 - **Prompt:** 178 Wörter
@@ -755,7 +755,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Quetsch
 - **Karte auf der Sortenseite:** Nr. 4 von 5, „Flambierte Zwetschgen mit Quetsch“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/quetsch-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
 - **Prompt:** 168 Wörter
@@ -784,7 +784,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Quetsch
 - **Karte auf der Sortenseite:** Nr. 5 von 5, „Quetsch zu kräftigem Bergkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/quetsch-5.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
 - **Prompt:** 175 Wörter
@@ -813,7 +813,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Poire Williams
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Poire Williams pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/poire-williams-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire Williams-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire-williams.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
 - **Prompt:** 172 Wörter
@@ -841,7 +841,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Poire Williams
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Pochierte Birnen mit Poire Williams“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/poire-williams-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire Williams-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire-williams.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
 - **Prompt:** 172 Wörter
@@ -870,7 +870,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Poire Williams
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Poire Williams zu mildem Blauschimmelkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/poire-williams-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire Williams-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire-williams.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
 - **Prompt:** 174 Wörter
@@ -899,7 +899,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Mirabelle
 - **Karte auf der Sortenseite:** Nr. 1 von 5, „Mirabelle pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/mirabelle-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Prompt:** 170 Wörter
@@ -927,7 +927,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Mirabelle
 - **Karte auf der Sortenseite:** Nr. 3 von 5, „Mirabelle-Spritz mit Crémant“ (Cocktail)
 - **Ergebnis speichern als:** `fotos-ki/mirabelle-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Prompt:** 179 Wörter
@@ -955,7 +955,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Mirabelle
 - **Karte auf der Sortenseite:** Nr. 4 von 5, „Geschmorte Mirabellen mit Mirabelle“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/mirabelle-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Prompt:** 169 Wörter
@@ -984,7 +984,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Mirabelle
 - **Karte auf der Sortenseite:** Nr. 5 von 5, „Mirabelle zu mildem Weichkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/mirabelle-5.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Prompt:** 173 Wörter
@@ -1013,7 +1013,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber aale Fruucht
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Hierber aale Fruucht pur, bei Zimmertemperatur“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/hierber-fruucht-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
 - **Prompt:** 182 Wörter
@@ -1041,7 +1041,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber aale Fruucht
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Hierber aale Fruucht über Vanilleeis“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/hierber-fruucht-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
 - **Prompt:** 181 Wörter
@@ -1070,7 +1070,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber aale Fruucht
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Hierber aale Fruucht zu kräftigem, reifem Käse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/hierber-fruucht-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
 - **Prompt:** 183 Wörter
@@ -1099,7 +1099,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieux Marc
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Vieux Marc pur, bei Zimmertemperatur“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/vieux-marc-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (Karaffe: die dunkle Vieux-Marc-Karaffe vorn links im Foto (nur die Karaffe beachten)):** `fotos/flaschenreihe-theke.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
 - **Prompt:** 189 Wörter
@@ -1128,7 +1128,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieux Marc
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Vieux Marc zu kräftigem Käse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/vieux-marc-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (Karaffe: die dunkle Vieux-Marc-Karaffe vorn links im Foto (nur die Karaffe beachten)):** `fotos/flaschenreihe-theke.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
 - **Prompt:** 190 Wörter
@@ -1158,7 +1158,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieux Marc
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Vieux Marc zu dunkler Schokolade“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/vieux-marc-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (Karaffe: die dunkle Vieux-Marc-Karaffe vorn links im Foto (nur die Karaffe beachten)):** `fotos/flaschenreihe-theke.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
 - **Prompt:** 190 Wörter
@@ -1188,7 +1188,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieille Prune
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Vieille Prune pur, bei Zimmertemperatur“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/vieille-prune-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Prune-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-prune.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
 - **Prompt:** 173 Wörter
@@ -1216,7 +1216,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieille Prune
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Vieille Prune über Vanilleeis“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/vieille-prune-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Prune-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-prune.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
 - **Prompt:** 178 Wörter
@@ -1245,7 +1245,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieille Prune
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Vieille Prune zu kräftigem Bergkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/vieille-prune-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Prune-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-prune.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
 - **Prompt:** 175 Wörter
@@ -1274,7 +1274,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieille Pomme
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Vieille Pomme pur, bei Zimmertemperatur“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/vieille-pomme-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Pomme-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-pomme.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
 - **Prompt:** 172 Wörter
@@ -1302,7 +1302,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieille Pomme
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Apfeltarte mit Vieille Pomme“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/vieille-pomme-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Pomme-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-pomme.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
 - **Prompt:** 165 Wörter
@@ -1331,7 +1331,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vieille Pomme
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Vieille Pomme zu gereiftem Comté“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/vieille-pomme-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Pomme-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-pomme.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
 - **Prompt:** 174 Wörter
@@ -1360,7 +1360,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hunnegdrëpp
 - **Karte auf der Sortenseite:** Nr. 1 von 5, „Heißer Hunnegdrëpp mit Tee und Zitrone“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/hunnegdrepp-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Prompt:** 173 Wörter
@@ -1388,7 +1388,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hunnegdrëpp
 - **Karte auf der Sortenseite:** Nr. 2 von 5, „Hunnegdrëpp pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/hunnegdrepp-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Prompt:** 171 Wörter
@@ -1416,7 +1416,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hunnegdrëpp
 - **Karte auf der Sortenseite:** Nr. 4 von 5, „Joghurt mit Honig und Hunnegdrëpp“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/hunnegdrepp-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Prompt:** 165 Wörter
@@ -1445,7 +1445,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hunnegdrëpp
 - **Karte auf der Sortenseite:** Nr. 5 von 5, „Hunnegdrëpp zu Ziegenkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/hunnegdrepp-5.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Prompt:** 171 Wörter
@@ -1474,7 +1474,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Hunneg Whisky
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Hunneg Whisky auf einem großen Eiswürfel“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/hunneg-whisky-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
 - **Prompt:** 184 Wörter
@@ -1504,7 +1504,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Hunneg Whisky
 - **Karte auf der Sortenseite:** Nr. 2 von 4, „Heißer Hunneg Whisky mit Zitrone und Zimt“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/hunneg-whisky-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
 - **Prompt:** 181 Wörter
@@ -1534,7 +1534,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Hunneg Whisky
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Hunneg Whisky zu Comté“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/hunneg-whisky-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
 - **Prompt:** 181 Wörter
@@ -1565,7 +1565,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kräiderdrëpp
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Kräiderdrëpp pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/kraeiderdrepp-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kräiderdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kraeiderdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
 - **Prompt:** 171 Wörter
@@ -1593,7 +1593,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kräiderdrëpp
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Kräiderdrëpp mit Ginger Beer“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/kraeiderdrepp-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kräiderdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kraeiderdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
 - **Prompt:** 178 Wörter
@@ -1621,7 +1621,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kräiderdrëpp
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Kräiderdrëpp nach einem deftigen Essen“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/kraeiderdrepp-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kräiderdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kraeiderdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
 - **Prompt:** 171 Wörter
@@ -1650,7 +1650,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kürbisdrëpp
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Kürbisdrëpp pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/kuerbisdrepp-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
 - **Prompt:** 170 Wörter
@@ -1679,7 +1679,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kürbisdrëpp
 - **Karte auf der Sortenseite:** Nr. 2 von 4, „Kürbisdrëpp mit Ginger Beer“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/kuerbisdrepp-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
 - **Prompt:** 178 Wörter
@@ -1708,7 +1708,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kürbisdrëpp
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Kürbisdrëpp zu kräftigem Hartkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/kuerbisdrepp-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
 - **Prompt:** 174 Wörter
@@ -1738,7 +1738,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Grain
 - **Karte auf der Sortenseite:** Nr. 1 von 3, „Grain eiskalt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/grain-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
 - **Prompt:** 171 Wörter
@@ -1766,7 +1766,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Grain
 - **Karte auf der Sortenseite:** Nr. 3 von 3, „Grain zu Brotzeit mit Schinken“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/grain-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
 - **Prompt:** 174 Wörter
@@ -1795,7 +1795,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hondsaarsch
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Hondsaarsch pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/hondsaarsch-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
 - **Prompt:** 170 Wörter
@@ -1823,7 +1823,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hondsaarsch
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Hondsaarsch über Vanilleeis“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/hondsaarsch-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
 - **Prompt:** 177 Wörter
@@ -1852,7 +1852,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hondsaarsch
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Hondsaarsch zu kräftigem Käse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/hondsaarsch-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
 - **Prompt:** 173 Wörter
@@ -1881,7 +1881,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kiwibeeren
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Kiwibeeren pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/kiwibeeren-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kiwibeeren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kiwibeeren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
 - **Prompt:** 171 Wörter
@@ -1910,7 +1910,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kiwibeeren
 - **Karte auf der Sortenseite:** Nr. 2 von 4, „Kiwibeeren-Tonic mit Limettenscheibe“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/kiwibeeren-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kiwibeeren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kiwibeeren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
 - **Prompt:** 179 Wörter
@@ -1939,7 +1939,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Kiwibeeren
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Joghurt mit Honig und Kiwibeeren“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/kiwibeeren-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kiwibeeren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kiwibeeren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
 - **Prompt:** 166 Wörter
@@ -1969,7 +1969,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Poire
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Poire pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/poire-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
 - **Prompt:** 170 Wörter
@@ -1997,7 +1997,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Poire
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Poire über Vanilleeis“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/poire-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
 - **Prompt:** 172 Wörter
@@ -2026,7 +2026,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Poire
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Poire zu mildem Blauschimmelkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/poire-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
 - **Prompt:** 173 Wörter
@@ -2055,7 +2055,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Neelchesbiren
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Neelchesbiren pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/neelchesbiren-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Neelchesbiren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-neelchesbiren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
 - **Prompt:** 169 Wörter
@@ -2083,7 +2083,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Neelchesbiren
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Neelchesbiren über Vanilleeis“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/neelchesbiren-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Neelchesbiren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-neelchesbiren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
 - **Prompt:** 177 Wörter
@@ -2112,7 +2112,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Neelchesbiren
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Neelchesbiren zu mildem Käse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/neelchesbiren-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Neelchesbiren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-neelchesbiren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
 - **Prompt:** 173 Wörter
@@ -2226,7 +2226,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vullekiischt
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Vullekiischt pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/vullekiischt-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
 - **Prompt:** 170 Wörter
@@ -2254,7 +2254,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vullekiischt
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Vullekiischt zu Wildpastete“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/vullekiischt-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
 - **Prompt:** 176 Wörter
@@ -2283,7 +2283,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vullekiischt
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Vullekiischt über Vanilleeis“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/vullekiischt-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
 - **Prompt:** 177 Wörter
@@ -2312,7 +2312,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Schléiwen
 - **Karte auf der Sortenseite:** Nr. 1 von 4, „Schléiwen pur, gut gekühlt“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/schleiwen-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Schléiwen-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-schleiwen.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
 - **Prompt:** 171 Wörter
@@ -2340,7 +2340,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Schléiwen
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Wildsauce mit Schléiwen“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/schleiwen-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Schléiwen-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-schleiwen.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
 - **Prompt:** 170 Wörter
@@ -2369,7 +2369,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Schléiwen
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Schléiwen zu kräftigem Bergkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/schleiwen-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Schléiwen-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-schleiwen.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
 - **Prompt:** 173 Wörter
@@ -2398,7 +2398,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vizdrëpp
 - **Karte auf der Sortenseite:** Nr. 1 von 5, „Vizdrëpp pur, bei Zimmertemperatur“ (Pur)
 - **Ergebnis speichern als:** `fotos-ki/vizdrepp-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
 - **Prompt:** 176 Wörter
@@ -2427,7 +2427,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vizdrëpp
 - **Karte auf der Sortenseite:** Nr. 3 von 5, „Apfelsorbet mit Vizdrëpp“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/vizdrepp-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
 - **Prompt:** 170 Wörter
@@ -2457,7 +2457,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vizdrëpp
 - **Karte auf der Sortenseite:** Nr. 4 von 5, „Flambierte Äpfel mit Vizdrëpp“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/vizdrepp-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
 - **Prompt:** 171 Wörter
@@ -2487,7 +2487,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Vizdrëpp
 - **Karte auf der Sortenseite:** Nr. 5 von 5, „Vizdrëpp zu Weichkäse“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/vizdrepp-5.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
 - **Prompt:** 176 Wörter
@@ -2517,7 +2517,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Sambuca
 - **Karte auf der Sortenseite:** Nr. 2 von 4, „Sambuca auf einem großen Eiswürfel“ (Auf Eis / Longdrink)
 - **Ergebnis speichern als:** `fotos-ki/sambuca-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
 - **Prompt:** 179 Wörter
@@ -2546,7 +2546,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Sambuca
 - **Karte auf der Sortenseite:** Nr. 3 von 4, „Espresso mit Sambuca“ (Zum Essen)
 - **Ergebnis speichern als:** `fotos-ki/sambuca-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
 - **Prompt:** 188 Wörter
@@ -2576,7 +2576,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Sorte:** Hierber Sambuca
 - **Karte auf der Sortenseite:** Nr. 4 von 4, „Sambuca über Vanilleeis“ (In der Küche / Dessert)
 - **Ergebnis speichern als:** `fotos-ki/sambuca-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
 - **Prompt:** 182 Wörter
@@ -2696,92 +2696,92 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 | 1 | Hierber Gin | Gin Fizz | `fotos-ki/gin-2.png` | vorhanden |
 | 2 | Hierber Gin | Dry Martini | `fotos-ki/gin-3.png` | vorhanden |
 | 3 | Hierber Gin | Zitronensorbet mit Gin | `fotos-ki/gin-4.png` | vorhanden |
-| 4 | Hierber Wodka | Wodka eiskalt | `fotos-ki/wodka-2.png` | offen |
-| 5 | Hierber Wodka | Moscow Mule | `fotos-ki/wodka-3.png` | offen |
-| 6 | Hierber Wodka | Wodka zu Räucherlachs und Schwarzbrot | `fotos-ki/wodka-4.png` | offen |
-| 7 | Hierber Rum | Rum pur, bei Zimmertemperatur | `fotos-ki/rum-2.png` | offen |
-| 8 | Hierber Rum | Daiquiri | `fotos-ki/rum-3.png` | offen |
-| 9 | Hierber Rum | Gebratene Bananen mit Rum | `fotos-ki/rum-4.png` | offen |
-| 10 | Hierber Rum Orange | Rum Orange auf einem großen Eiswürfel | `fotos-ki/rum-orange-2.png` | offen |
-| 11 | Hierber Rum Orange | Rum Orange-Sour | `fotos-ki/rum-orange-3.png` | offen |
-| 12 | Hierber Rum Orange | Orangenfilets mit Rum Orange | `fotos-ki/rum-orange-4.png` | offen |
-| 13 | Hierber Whisky | Whisky pur, mit einem Spritzer Wasser | `fotos-ki/whisky-2.png` | offen |
-| 14 | Hierber Whisky | Whisky-Highball | `fotos-ki/whisky-3.png` | offen |
-| 15 | Hierber Whisky | Whisky zu Comté | `fotos-ki/whisky-4.png` | offen |
-| 16 | Hierber Whisky | Pfeffersteak mit Whisky-Sauce | `fotos-ki/whisky-5.png` | offen |
-| 17 | Kirsch | Kirsch pur, gut gekühlt | `fotos-ki/kirsch-2.png` | offen |
-| 18 | Kirsch | Kirsch-Tonic mit Zitronenschale | `fotos-ki/kirsch-3.png` | offen |
-| 19 | Kirsch | Geschmorte Kirschen mit Kirsch | `fotos-ki/kirsch-4.png` | offen |
-| 20 | Kirsch | Kirsch zu dunkler Schokolade | `fotos-ki/kirsch-5.png` | offen |
-| 21 | Framboise | Framboise pur, gut gekühlt | `fotos-ki/framboise-2.png` | offen |
-| 22 | Framboise | Framboise-Tonic mit Minze | `fotos-ki/framboise-3.png` | offen |
-| 23 | Framboise | Panna cotta mit Himbeeren und Framboise | `fotos-ki/framboise-4.png` | offen |
-| 24 | Quetsch | Quetsch pur, gut gekühlt | `fotos-ki/quetsch-2.png` | offen |
-| 25 | Quetsch | Quetsch-Tonic mit Zimtstange | `fotos-ki/quetsch-3.png` | offen |
-| 26 | Quetsch | Flambierte Zwetschgen mit Quetsch | `fotos-ki/quetsch-4.png` | offen |
-| 27 | Quetsch | Quetsch zu kräftigem Bergkäse | `fotos-ki/quetsch-5.png` | offen |
-| 28 | Poire Williams | Poire Williams pur, gut gekühlt | `fotos-ki/poire-williams-2.png` | offen |
-| 29 | Poire Williams | Pochierte Birnen mit Poire Williams | `fotos-ki/poire-williams-3.png` | offen |
-| 30 | Poire Williams | Poire Williams zu mildem Blauschimmelkäse | `fotos-ki/poire-williams-4.png` | offen |
-| 31 | Mirabelle | Mirabelle pur, gut gekühlt | `fotos-ki/mirabelle-2.png` | offen |
-| 32 | Mirabelle | Mirabelle-Spritz mit Crémant | `fotos-ki/mirabelle-3.png` | offen |
-| 33 | Mirabelle | Geschmorte Mirabellen mit Mirabelle | `fotos-ki/mirabelle-4.png` | offen |
-| 34 | Mirabelle | Mirabelle zu mildem Weichkäse | `fotos-ki/mirabelle-5.png` | offen |
-| 35 | Hierber aale Fruucht | Hierber aale Fruucht pur, bei Zimmertemperatur | `fotos-ki/hierber-fruucht-2.png` | offen |
-| 36 | Hierber aale Fruucht | Hierber aale Fruucht über Vanilleeis | `fotos-ki/hierber-fruucht-3.png` | offen |
-| 37 | Hierber aale Fruucht | Hierber aale Fruucht zu kräftigem, reifem Käse | `fotos-ki/hierber-fruucht-4.png` | offen |
-| 38 | Vieux Marc | Vieux Marc pur, bei Zimmertemperatur | `fotos-ki/vieux-marc-2.png` | offen |
-| 39 | Vieux Marc | Vieux Marc zu kräftigem Käse | `fotos-ki/vieux-marc-3.png` | offen |
-| 40 | Vieux Marc | Vieux Marc zu dunkler Schokolade | `fotos-ki/vieux-marc-4.png` | offen |
-| 41 | Vieille Prune | Vieille Prune pur, bei Zimmertemperatur | `fotos-ki/vieille-prune-2.png` | offen |
-| 42 | Vieille Prune | Vieille Prune über Vanilleeis | `fotos-ki/vieille-prune-3.png` | offen |
-| 43 | Vieille Prune | Vieille Prune zu kräftigem Bergkäse | `fotos-ki/vieille-prune-4.png` | offen |
-| 44 | Vieille Pomme | Vieille Pomme pur, bei Zimmertemperatur | `fotos-ki/vieille-pomme-2.png` | offen |
-| 45 | Vieille Pomme | Apfeltarte mit Vieille Pomme | `fotos-ki/vieille-pomme-3.png` | offen |
-| 46 | Vieille Pomme | Vieille Pomme zu gereiftem Comté | `fotos-ki/vieille-pomme-4.png` | offen |
-| 47 | Hunnegdrëpp | Heißer Hunnegdrëpp mit Tee und Zitrone | `fotos-ki/hunnegdrepp-2.png` | offen |
-| 48 | Hunnegdrëpp | Hunnegdrëpp pur, gut gekühlt | `fotos-ki/hunnegdrepp-3.png` | offen |
-| 49 | Hunnegdrëpp | Joghurt mit Honig und Hunnegdrëpp | `fotos-ki/hunnegdrepp-4.png` | offen |
-| 50 | Hunnegdrëpp | Hunnegdrëpp zu Ziegenkäse | `fotos-ki/hunnegdrepp-5.png` | offen |
-| 51 | Hierber Hunneg Whisky | Hunneg Whisky auf einem großen Eiswürfel | `fotos-ki/hunneg-whisky-2.png` | offen |
-| 52 | Hierber Hunneg Whisky | Heißer Hunneg Whisky mit Zitrone und Zimt | `fotos-ki/hunneg-whisky-3.png` | offen |
-| 53 | Hierber Hunneg Whisky | Hunneg Whisky zu Comté | `fotos-ki/hunneg-whisky-4.png` | offen |
-| 54 | Kräiderdrëpp | Kräiderdrëpp pur, gut gekühlt | `fotos-ki/kraeiderdrepp-2.png` | offen |
-| 55 | Kräiderdrëpp | Kräiderdrëpp mit Ginger Beer | `fotos-ki/kraeiderdrepp-3.png` | offen |
-| 56 | Kräiderdrëpp | Kräiderdrëpp nach einem deftigen Essen | `fotos-ki/kraeiderdrepp-4.png` | offen |
-| 57 | Kürbisdrëpp | Kürbisdrëpp pur, gut gekühlt | `fotos-ki/kuerbisdrepp-2.png` | offen |
-| 58 | Kürbisdrëpp | Kürbisdrëpp mit Ginger Beer | `fotos-ki/kuerbisdrepp-3.png` | offen |
-| 59 | Kürbisdrëpp | Kürbisdrëpp zu kräftigem Hartkäse | `fotos-ki/kuerbisdrepp-4.png` | offen |
-| 60 | Grain | Grain eiskalt | `fotos-ki/grain-2.png` | offen |
-| 61 | Grain | Grain zu Brotzeit mit Schinken | `fotos-ki/grain-3.png` | offen |
-| 62 | Hondsaarsch | Hondsaarsch pur, gut gekühlt | `fotos-ki/hondsaarsch-2.png` | offen |
-| 63 | Hondsaarsch | Hondsaarsch über Vanilleeis | `fotos-ki/hondsaarsch-3.png` | offen |
-| 64 | Hondsaarsch | Hondsaarsch zu kräftigem Käse | `fotos-ki/hondsaarsch-4.png` | offen |
-| 65 | Kiwibeeren | Kiwibeeren pur, gut gekühlt | `fotos-ki/kiwibeeren-2.png` | offen |
-| 66 | Kiwibeeren | Kiwibeeren-Tonic mit Limettenscheibe | `fotos-ki/kiwibeeren-3.png` | offen |
-| 67 | Kiwibeeren | Joghurt mit Honig und Kiwibeeren | `fotos-ki/kiwibeeren-4.png` | offen |
-| 68 | Poire | Poire pur, gut gekühlt | `fotos-ki/poire-2.png` | offen |
-| 69 | Poire | Poire über Vanilleeis | `fotos-ki/poire-3.png` | offen |
-| 70 | Poire | Poire zu mildem Blauschimmelkäse | `fotos-ki/poire-4.png` | offen |
-| 71 | Neelchesbiren | Neelchesbiren pur, gut gekühlt | `fotos-ki/neelchesbiren-2.png` | offen |
-| 72 | Neelchesbiren | Neelchesbiren über Vanilleeis | `fotos-ki/neelchesbiren-3.png` | offen |
-| 73 | Neelchesbiren | Neelchesbiren zu mildem Käse | `fotos-ki/neelchesbiren-4.png` | offen |
+| 4 | Hierber Wodka | Wodka eiskalt | `fotos-ki/wodka-2.png` | vorhanden |
+| 5 | Hierber Wodka | Moscow Mule | `fotos-ki/wodka-3.png` | vorhanden |
+| 6 | Hierber Wodka | Wodka zu Räucherlachs und Schwarzbrot | `fotos-ki/wodka-4.png` | vorhanden |
+| 7 | Hierber Rum | Rum pur, bei Zimmertemperatur | `fotos-ki/rum-2.png` | vorhanden |
+| 8 | Hierber Rum | Daiquiri | `fotos-ki/rum-3.png` | vorhanden |
+| 9 | Hierber Rum | Gebratene Bananen mit Rum | `fotos-ki/rum-4.png` | vorhanden |
+| 10 | Hierber Rum Orange | Rum Orange auf einem großen Eiswürfel | `fotos-ki/rum-orange-2.png` | vorhanden |
+| 11 | Hierber Rum Orange | Rum Orange-Sour | `fotos-ki/rum-orange-3.png` | vorhanden |
+| 12 | Hierber Rum Orange | Orangenfilets mit Rum Orange | `fotos-ki/rum-orange-4.png` | vorhanden |
+| 13 | Hierber Whisky | Whisky pur, mit einem Spritzer Wasser | `fotos-ki/whisky-2.png` | vorhanden |
+| 14 | Hierber Whisky | Whisky-Highball | `fotos-ki/whisky-3.png` | vorhanden |
+| 15 | Hierber Whisky | Whisky zu Comté | `fotos-ki/whisky-4.png` | vorhanden |
+| 16 | Hierber Whisky | Pfeffersteak mit Whisky-Sauce | `fotos-ki/whisky-5.png` | vorhanden |
+| 17 | Kirsch | Kirsch pur, gut gekühlt | `fotos-ki/kirsch-2.png` | vorhanden |
+| 18 | Kirsch | Kirsch-Tonic mit Zitronenschale | `fotos-ki/kirsch-3.png` | vorhanden |
+| 19 | Kirsch | Geschmorte Kirschen mit Kirsch | `fotos-ki/kirsch-4.png` | vorhanden |
+| 20 | Kirsch | Kirsch zu dunkler Schokolade | `fotos-ki/kirsch-5.png` | vorhanden |
+| 21 | Framboise | Framboise pur, gut gekühlt | `fotos-ki/framboise-2.png` | vorhanden |
+| 22 | Framboise | Framboise-Tonic mit Minze | `fotos-ki/framboise-3.png` | vorhanden |
+| 23 | Framboise | Panna cotta mit Himbeeren und Framboise | `fotos-ki/framboise-4.png` | vorhanden |
+| 24 | Quetsch | Quetsch pur, gut gekühlt | `fotos-ki/quetsch-2.png` | vorhanden |
+| 25 | Quetsch | Quetsch-Tonic mit Zimtstange | `fotos-ki/quetsch-3.png` | vorhanden |
+| 26 | Quetsch | Flambierte Zwetschgen mit Quetsch | `fotos-ki/quetsch-4.png` | vorhanden |
+| 27 | Quetsch | Quetsch zu kräftigem Bergkäse | `fotos-ki/quetsch-5.png` | vorhanden |
+| 28 | Poire Williams | Poire Williams pur, gut gekühlt | `fotos-ki/poire-williams-2.png` | vorhanden |
+| 29 | Poire Williams | Pochierte Birnen mit Poire Williams | `fotos-ki/poire-williams-3.png` | vorhanden |
+| 30 | Poire Williams | Poire Williams zu mildem Blauschimmelkäse | `fotos-ki/poire-williams-4.png` | vorhanden |
+| 31 | Mirabelle | Mirabelle pur, gut gekühlt | `fotos-ki/mirabelle-2.png` | vorhanden |
+| 32 | Mirabelle | Mirabelle-Spritz mit Crémant | `fotos-ki/mirabelle-3.png` | vorhanden |
+| 33 | Mirabelle | Geschmorte Mirabellen mit Mirabelle | `fotos-ki/mirabelle-4.png` | vorhanden |
+| 34 | Mirabelle | Mirabelle zu mildem Weichkäse | `fotos-ki/mirabelle-5.png` | vorhanden |
+| 35 | Hierber aale Fruucht | Hierber aale Fruucht pur, bei Zimmertemperatur | `fotos-ki/hierber-fruucht-2.png` | vorhanden |
+| 36 | Hierber aale Fruucht | Hierber aale Fruucht über Vanilleeis | `fotos-ki/hierber-fruucht-3.png` | vorhanden |
+| 37 | Hierber aale Fruucht | Hierber aale Fruucht zu kräftigem, reifem Käse | `fotos-ki/hierber-fruucht-4.png` | vorhanden |
+| 38 | Vieux Marc | Vieux Marc pur, bei Zimmertemperatur | `fotos-ki/vieux-marc-2.png` | vorhanden |
+| 39 | Vieux Marc | Vieux Marc zu kräftigem Käse | `fotos-ki/vieux-marc-3.png` | vorhanden |
+| 40 | Vieux Marc | Vieux Marc zu dunkler Schokolade | `fotos-ki/vieux-marc-4.png` | vorhanden |
+| 41 | Vieille Prune | Vieille Prune pur, bei Zimmertemperatur | `fotos-ki/vieille-prune-2.png` | vorhanden |
+| 42 | Vieille Prune | Vieille Prune über Vanilleeis | `fotos-ki/vieille-prune-3.png` | vorhanden |
+| 43 | Vieille Prune | Vieille Prune zu kräftigem Bergkäse | `fotos-ki/vieille-prune-4.png` | vorhanden |
+| 44 | Vieille Pomme | Vieille Pomme pur, bei Zimmertemperatur | `fotos-ki/vieille-pomme-2.png` | vorhanden |
+| 45 | Vieille Pomme | Apfeltarte mit Vieille Pomme | `fotos-ki/vieille-pomme-3.png` | vorhanden |
+| 46 | Vieille Pomme | Vieille Pomme zu gereiftem Comté | `fotos-ki/vieille-pomme-4.png` | vorhanden |
+| 47 | Hunnegdrëpp | Heißer Hunnegdrëpp mit Tee und Zitrone | `fotos-ki/hunnegdrepp-2.png` | vorhanden |
+| 48 | Hunnegdrëpp | Hunnegdrëpp pur, gut gekühlt | `fotos-ki/hunnegdrepp-3.png` | vorhanden |
+| 49 | Hunnegdrëpp | Joghurt mit Honig und Hunnegdrëpp | `fotos-ki/hunnegdrepp-4.png` | vorhanden |
+| 50 | Hunnegdrëpp | Hunnegdrëpp zu Ziegenkäse | `fotos-ki/hunnegdrepp-5.png` | vorhanden |
+| 51 | Hierber Hunneg Whisky | Hunneg Whisky auf einem großen Eiswürfel | `fotos-ki/hunneg-whisky-2.png` | vorhanden |
+| 52 | Hierber Hunneg Whisky | Heißer Hunneg Whisky mit Zitrone und Zimt | `fotos-ki/hunneg-whisky-3.png` | vorhanden |
+| 53 | Hierber Hunneg Whisky | Hunneg Whisky zu Comté | `fotos-ki/hunneg-whisky-4.png` | vorhanden |
+| 54 | Kräiderdrëpp | Kräiderdrëpp pur, gut gekühlt | `fotos-ki/kraeiderdrepp-2.png` | vorhanden |
+| 55 | Kräiderdrëpp | Kräiderdrëpp mit Ginger Beer | `fotos-ki/kraeiderdrepp-3.png` | vorhanden |
+| 56 | Kräiderdrëpp | Kräiderdrëpp nach einem deftigen Essen | `fotos-ki/kraeiderdrepp-4.png` | vorhanden |
+| 57 | Kürbisdrëpp | Kürbisdrëpp pur, gut gekühlt | `fotos-ki/kuerbisdrepp-2.png` | vorhanden |
+| 58 | Kürbisdrëpp | Kürbisdrëpp mit Ginger Beer | `fotos-ki/kuerbisdrepp-3.png` | vorhanden |
+| 59 | Kürbisdrëpp | Kürbisdrëpp zu kräftigem Hartkäse | `fotos-ki/kuerbisdrepp-4.png` | vorhanden |
+| 60 | Grain | Grain eiskalt | `fotos-ki/grain-2.png` | vorhanden |
+| 61 | Grain | Grain zu Brotzeit mit Schinken | `fotos-ki/grain-3.png` | vorhanden |
+| 62 | Hondsaarsch | Hondsaarsch pur, gut gekühlt | `fotos-ki/hondsaarsch-2.png` | vorhanden |
+| 63 | Hondsaarsch | Hondsaarsch über Vanilleeis | `fotos-ki/hondsaarsch-3.png` | vorhanden |
+| 64 | Hondsaarsch | Hondsaarsch zu kräftigem Käse | `fotos-ki/hondsaarsch-4.png` | vorhanden |
+| 65 | Kiwibeeren | Kiwibeeren pur, gut gekühlt | `fotos-ki/kiwibeeren-2.png` | vorhanden |
+| 66 | Kiwibeeren | Kiwibeeren-Tonic mit Limettenscheibe | `fotos-ki/kiwibeeren-3.png` | vorhanden |
+| 67 | Kiwibeeren | Joghurt mit Honig und Kiwibeeren | `fotos-ki/kiwibeeren-4.png` | vorhanden |
+| 68 | Poire | Poire pur, gut gekühlt | `fotos-ki/poire-2.png` | vorhanden |
+| 69 | Poire | Poire über Vanilleeis | `fotos-ki/poire-3.png` | vorhanden |
+| 70 | Poire | Poire zu mildem Blauschimmelkäse | `fotos-ki/poire-4.png` | vorhanden |
+| 71 | Neelchesbiren | Neelchesbiren pur, gut gekühlt | `fotos-ki/neelchesbiren-2.png` | vorhanden |
+| 72 | Neelchesbiren | Neelchesbiren über Vanilleeis | `fotos-ki/neelchesbiren-3.png` | vorhanden |
+| 73 | Neelchesbiren | Neelchesbiren zu mildem Käse | `fotos-ki/neelchesbiren-4.png` | vorhanden |
 | 74 | Lënschouren | Lënschouren pur, gut gekühlt | `fotos-ki/lenschouren-2.png` | vorhanden |
 | 75 | Lënschouren | Lënschouren-Tonic mit Zitronenschale | `fotos-ki/lenschouren-3.png` | vorhanden |
 | 76 | Lënschouren | Lënschouren zu mildem Käse | `fotos-ki/lenschouren-4.png` | vorhanden |
-| 77 | Vullekiischt | Vullekiischt pur, gut gekühlt | `fotos-ki/vullekiischt-2.png` | offen |
-| 78 | Vullekiischt | Vullekiischt zu Wildpastete | `fotos-ki/vullekiischt-3.png` | offen |
-| 79 | Vullekiischt | Vullekiischt über Vanilleeis | `fotos-ki/vullekiischt-4.png` | offen |
-| 80 | Schléiwen | Schléiwen pur, gut gekühlt | `fotos-ki/schleiwen-2.png` | offen |
-| 81 | Schléiwen | Wildsauce mit Schléiwen | `fotos-ki/schleiwen-3.png` | offen |
-| 82 | Schléiwen | Schléiwen zu kräftigem Bergkäse | `fotos-ki/schleiwen-4.png` | offen |
-| 83 | Vizdrëpp | Vizdrëpp pur, bei Zimmertemperatur | `fotos-ki/vizdrepp-2.png` | offen |
-| 84 | Vizdrëpp | Apfelsorbet mit Vizdrëpp | `fotos-ki/vizdrepp-3.png` | offen |
-| 85 | Vizdrëpp | Flambierte Äpfel mit Vizdrëpp | `fotos-ki/vizdrepp-4.png` | offen |
-| 86 | Vizdrëpp | Vizdrëpp zu Weichkäse | `fotos-ki/vizdrepp-5.png` | offen |
-| 87 | Hierber Sambuca | Sambuca auf einem großen Eiswürfel | `fotos-ki/sambuca-2.png` | offen |
-| 88 | Hierber Sambuca | Espresso mit Sambuca | `fotos-ki/sambuca-3.png` | offen |
-| 89 | Hierber Sambuca | Sambuca über Vanilleeis | `fotos-ki/sambuca-4.png` | offen |
+| 77 | Vullekiischt | Vullekiischt pur, gut gekühlt | `fotos-ki/vullekiischt-2.png` | vorhanden |
+| 78 | Vullekiischt | Vullekiischt zu Wildpastete | `fotos-ki/vullekiischt-3.png` | vorhanden |
+| 79 | Vullekiischt | Vullekiischt über Vanilleeis | `fotos-ki/vullekiischt-4.png` | vorhanden |
+| 80 | Schléiwen | Schléiwen pur, gut gekühlt | `fotos-ki/schleiwen-2.png` | vorhanden |
+| 81 | Schléiwen | Wildsauce mit Schléiwen | `fotos-ki/schleiwen-3.png` | vorhanden |
+| 82 | Schléiwen | Schléiwen zu kräftigem Bergkäse | `fotos-ki/schleiwen-4.png` | vorhanden |
+| 83 | Vizdrëpp | Vizdrëpp pur, bei Zimmertemperatur | `fotos-ki/vizdrepp-2.png` | vorhanden |
+| 84 | Vizdrëpp | Apfelsorbet mit Vizdrëpp | `fotos-ki/vizdrepp-3.png` | vorhanden |
+| 85 | Vizdrëpp | Flambierte Äpfel mit Vizdrëpp | `fotos-ki/vizdrepp-4.png` | vorhanden |
+| 86 | Vizdrëpp | Vizdrëpp zu Weichkäse | `fotos-ki/vizdrepp-5.png` | vorhanden |
+| 87 | Hierber Sambuca | Sambuca auf einem großen Eiswürfel | `fotos-ki/sambuca-2.png` | vorhanden |
+| 88 | Hierber Sambuca | Espresso mit Sambuca | `fotos-ki/sambuca-3.png` | vorhanden |
+| 89 | Hierber Sambuca | Sambuca über Vanilleeis | `fotos-ki/sambuca-4.png` | vorhanden |
 | 90 | Hierber Limoncello | Limoncello eiskalt | `fotos-ki/limoncello-2.png` | vorhanden |
 | 91 | Hierber Limoncello | Limoncello-Tonic mit Minze | `fotos-ki/limoncello-3.png` | vorhanden |
 | 92 | Hierber Limoncello | Zitronensorbet mit Limoncello | `fotos-ki/limoncello-4.png` | vorhanden |

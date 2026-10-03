@@ -2,12 +2,12 @@
 
 Erzeugt mit `node tools/chatgpt_stapel.mjs` (nach `node tools/foto_prompts_weitere.mjs` und `node tools/foto_prompts_flaschen.mjs`). Nicht von Hand ändern. Hier steht, wie ChatGPT den Stapel der KI-Bilder abarbeitet, statt dass jedes Bild einzeln von Hand angefordert wird.
 
-**Stand:** 148 Bilder im Stapel, in dieser Reihenfolge: **1. 27 Ersatzbilder** für fehlerhafte Erstbilder (26 offen, 1 „ersetzt, bitte prüfen“), **2. 29 Flaschenbilder** „neue Produktflasche mit dem Etikett“ (Gruppe `flasche`, 29 offen), **3. 92 weitere Serviervorschläge** (9 schon vorhanden, 83 offen; zuerst alle `-2`, dann `-3`, `-4`, `-5`). Zu erzeugen sind also **138 Bilder**.
+**Stand:** 148 Bilder im Stapel, in dieser Reihenfolge: **1. 27 Ersatzbilder** für fehlerhafte Erstbilder (26 offen, 1 „ersetzt, bitte prüfen“), **2. 29 Flaschenbilder** „neue Produktflasche mit dem Etikett“ (Gruppe `flasche`, 29 offen), **3. 92 weitere Serviervorschläge** (92 schon vorhanden, 0 offen; zuerst alle `-2`, dann `-3`, `-4`, `-5`). Zu erzeugen sind also **55 Bilder**.
 
 ## Ehrlich vorab
 
 - **Wie verlässlich die Automatik läuft, hängt von der ChatGPT-Version und dem Tarif ab.** Ich kann das von hier aus nicht testen. Typische Grenzen: wie viele Dateien man pro Nachricht oder Chat anhängen darf, wie viele Bilder pro Zeitraum erzeugt werden dürfen (danach „bitte später wieder“), und dass ein Chat bei sehr vielen Bildern langsam wird oder den Faden verliert. Die konkreten Zahlen ändern sich; bitte in der Hilfe von ChatGPT nachlesen.
-- **Darum in Blöcken arbeiten:** nicht alle 138 auf einmal, sondern Blöcke zu je 10 Bildern (`tools/chatgpt-stapel-block-01.csv`, `-02.csv` …). Bei einem eigenen Limit lieber den Block verkleinern (5 Bilder) als abbrechen lassen.
+- **Darum in Blöcken arbeiten:** nicht alle 55 auf einmal, sondern Blöcke zu je 10 Bildern (`tools/chatgpt-stapel-block-01.csv`, `-02.csv` …). Bei einem eigenen Limit lieber den Block verkleinern (5 Bilder) als abbrechen lassen.
 - Ein Block mit 10 Bildern braucht bis zu 20 Bilddateien plus die CSV. Passt das nicht in einen Chat, den Block halbieren (die ersten 5 Zeilen der CSV in eine neue Datei kopieren, Kopfzeile behalten).
 - **Das Ergebnis muss immer von einem Menschen angesehen werden:** KI verfälscht gern Schrift. Etikett Wort für Wort mit dem Etikett aus `Fertige Etiquetten/` vergleichen, Flasche vollständig im Bild, nur Rezeptzutaten (Prüflisten stehen in `PROMPTS-FOTOS-WEITERE.md`, `PROMPTS-FOTOS-ERSATZ.md` und `PROMPTS-FLASCHEN.md`). Bei den Flaschenbildern zusätzlich: nur eine Flasche, Format und Position wie im Prompt, Flüssigkeit und Verschluss wie beschrieben; die Gruppenfoto- und Zwei-Flaschen-Vorlagen (Vieux Marc, runde Sorten) sind die heikelsten.
 - Auch die eigene Etikettenprüfung von ChatGPT (Schritt d) ist nur eine Hilfe, keine Garantie.
@@ -42,7 +42,7 @@ Zeilen, bei denen status nicht "offen" ist, überspringst du. Wenn eine Bilddate
 
 | Datei | Inhalt |
 |---|---|
-| `tools/chatgpt-stapel.csv` | alle 138 offenen Bilder |
+| `tools/chatgpt-stapel.csv` | alle 55 offenen Bilder |
 | `tools/chatgpt-stapel-alle.csv` | alle 148 Bilder mit Status |
 | `tools/chatgpt-stapel.json` | dieselben Daten wie die CSV, alle 148 mit Status |
 | `tools/chatgpt-stapel-block-NN.csv` | die offenen Bilder in Blöcken zu 10 |
@@ -59,15 +59,7 @@ Spalten der CSV: `nr` (laufende Nummer), `dateiname_ergebnis` (Zielpfad: `fotos-
 | 03 | `tools/chatgpt-stapel-block-03.csv` | 21–31 | 10 | 19 |
 | 04 | `tools/chatgpt-stapel-block-04.csv` | 32–41 | 10 | 20 |
 | 05 | `tools/chatgpt-stapel-block-05.csv` | 42–51 | 10 | 18 |
-| 06 | `tools/chatgpt-stapel-block-06.csv` | 52–62 | 10 | 15 |
-| 07 | `tools/chatgpt-stapel-block-07.csv` | 63–72 | 10 | 19 |
-| 08 | `tools/chatgpt-stapel-block-08.csv` | 73–83 | 10 | 17 |
-| 09 | `tools/chatgpt-stapel-block-09.csv` | 84–95 | 10 | 16 |
-| 10 | `tools/chatgpt-stapel-block-10.csv` | 96–105 | 10 | 17 |
-| 11 | `tools/chatgpt-stapel-block-11.csv` | 106–118 | 10 | 17 |
-| 12 | `tools/chatgpt-stapel-block-12.csv` | 119–128 | 10 | 19 |
-| 13 | `tools/chatgpt-stapel-block-13.csv` | 129–139 | 10 | 18 |
-| 14 | `tools/chatgpt-stapel-block-14.csv` | 140–148 | 8 | 13 |
+| 06 | `tools/chatgpt-stapel-block-06.csv` | 52–56 | 5 | 9 |
 
 ### Dateien je Block
 
@@ -81,23 +73,7 @@ Spalten der CSV: `nr` (laufende Nummer), `dateiname_ergebnis` (Zielpfad: `fotos-
 
 **Block 05** (18 Dateien): `Fotos/flasche-hunnegdrepp.jpg`, `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`, `fotos/vorlage-rund-rum.png`, `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`, `Fotos/flasche-kraeiderdrepp.jpg`, `Fertige Etiquetten/Brandwein Kraider-01.png`, `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`, `Fertige Etiquetten/Branntwein Grain-01.png`, `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`, `Fotos/flasche-kiwibeeren.jpg`, `Fertige Etiquetten/Branntwein Kiwi-01.png`, `Fotos/flasche-poire.jpg`, `Fertige Etiquetten/Brandwein Poire-01.png`, `Fotos/flasche-neelchesbiren.jpg`, `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`, `Fotos/flasche-lenschouren.jpg`, `Fertige Etiquetten/Brandwein Lenschouren-01.png`
 
-**Block 06** (15 Dateien): `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Vogelbeere-01.png`, `Fotos/flasche-schleiwen.jpg`, `Fertige Etiquetten/Branntwein Schleiwen-01.png`, `fotos/vorlage-vizdrepp.png`, `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`, `fotos/vorlage-rund-wodka.png`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `Fertige Etiquetten/Branntwein Limoncello-01.png`, `fotos/flaschen-wodka.webp`, `Fertige Etiquetten/Branntwein Wodka-01.png`, `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`, `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`, `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`, `Fertige Etiquetten/Brandwein Kirsch-01.png`
-
-**Block 07** (19 Dateien): `Fotos/flasche-framboise.jpg`, `Fertige Etiquetten/Brandwein Framboise-01.png`, `Fotos/flasche-quetsch.jpg`, `Fertige Etiquetten/Brandwein Quetsch-01.png`, `Fotos/flasche-poire-williams.jpg`, `Fertige Etiquetten/Brandwein Williams-01.png`, `Fotos/flasche-mirabelle.jpg`, `Fertige Etiquetten/Brandwein Mirabelle-01.png`, `fotos/flaschen-wodka.webp`, `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`, `fotos/flaschenreihe-theke.jpg`, `Fertige Etiquetten/Branntwein Vieux marc-01.png`, `Fotos/flasche-vieille-prune.jpg`, `Fertige Etiquetten/Brandwein Vieille prune-01.png`, `Fotos/flasche-vieille-pomme.jpg`, `Fertige Etiquetten/Brandwein Vieille pomme-01.png`, `Fotos/flasche-hunnegdrepp.jpg`, `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`, `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
-
-**Block 08** (17 Dateien): `Fotos/flasche-kraeiderdrepp.jpg`, `Fertige Etiquetten/Brandwein Kraider-01.png`, `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`, `Fertige Etiquetten/Branntwein Grain-01.png`, `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`, `Fotos/flasche-kiwibeeren.jpg`, `Fertige Etiquetten/Branntwein Kiwi-01.png`, `Fotos/flasche-poire.jpg`, `Fertige Etiquetten/Brandwein Poire-01.png`, `Fotos/flasche-neelchesbiren.jpg`, `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`, `Fertige Etiquetten/Brandwein Vogelbeere-01.png`, `Fotos/flasche-schleiwen.jpg`, `Fertige Etiquetten/Branntwein Schleiwen-01.png`, `Fotos/flasche-vizdrepp.jpg`, `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
-
-**Block 09** (16 Dateien): `fotos/flaschen-wodka.webp`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `Fertige Etiquetten/Branntwein Wodka-01.png`, `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`, `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`, `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`, `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Kirsch-01.png`, `Fotos/flasche-framboise.jpg`, `Fertige Etiquetten/Brandwein Framboise-01.png`, `Fotos/flasche-quetsch.jpg`, `Fertige Etiquetten/Brandwein Quetsch-01.png`, `Fotos/flasche-poire-williams.jpg`, `Fertige Etiquetten/Brandwein Williams-01.png`, `Fotos/flasche-mirabelle.jpg`, `Fertige Etiquetten/Brandwein Mirabelle-01.png`
-
-**Block 10** (17 Dateien): `fotos/flaschen-wodka.webp`, `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`, `fotos/flaschenreihe-theke.jpg`, `Fertige Etiquetten/Branntwein Vieux marc-01.png`, `Fotos/flasche-vieille-prune.jpg`, `Fertige Etiquetten/Brandwein Vieille prune-01.png`, `Fotos/flasche-vieille-pomme.jpg`, `Fertige Etiquetten/Brandwein Vieille pomme-01.png`, `Fotos/flasche-hunnegdrepp.jpg`, `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`, `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`, `Fotos/flasche-kraeiderdrepp.jpg`, `Fertige Etiquetten/Brandwein Kraider-01.png`, `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`, `Fertige Etiquetten/Branntwein Grain-01.png`, `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
-
-**Block 11** (17 Dateien): `Fotos/flasche-kiwibeeren.jpg`, `Fertige Etiquetten/Branntwein Kiwi-01.png`, `Fotos/flasche-poire.jpg`, `Fertige Etiquetten/Brandwein Poire-01.png`, `Fotos/flasche-neelchesbiren.jpg`, `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`, `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Vogelbeere-01.png`, `Fotos/flasche-schleiwen.jpg`, `Fertige Etiquetten/Branntwein Schleiwen-01.png`, `Fotos/flasche-vizdrepp.jpg`, `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`, `fotos/flaschen-wodka.webp`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `Fertige Etiquetten/Branntwein Wodka-01.png`, `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`, `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
-
-**Block 12** (19 Dateien): `fotos/flaschen-wodka.webp`, `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`, `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Kirsch-01.png`, `Fotos/flasche-framboise.jpg`, `Fertige Etiquetten/Brandwein Framboise-01.png`, `Fotos/flasche-quetsch.jpg`, `Fertige Etiquetten/Brandwein Quetsch-01.png`, `Fotos/flasche-poire-williams.jpg`, `Fertige Etiquetten/Brandwein Williams-01.png`, `Fotos/flasche-mirabelle.jpg`, `Fertige Etiquetten/Brandwein Mirabelle-01.png`, `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`, `fotos/flaschenreihe-theke.jpg`, `Fertige Etiquetten/Branntwein Vieux marc-01.png`, `Fotos/flasche-vieille-prune.jpg`, `Fertige Etiquetten/Brandwein Vieille prune-01.png`, `Fotos/flasche-vieille-pomme.jpg`, `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
-
-**Block 13** (18 Dateien): `Fotos/flasche-hunnegdrepp.jpg`, `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`, `fotos/flaschen-wodka.webp`, `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`, `Fotos/flasche-kraeiderdrepp.jpg`, `Fertige Etiquetten/Brandwein Kraider-01.png`, `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`, `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`, `Fotos/flasche-kiwibeeren.jpg`, `Fertige Etiquetten/Branntwein Kiwi-01.png`, `Fotos/flasche-poire.jpg`, `Fertige Etiquetten/Brandwein Poire-01.png`, `Fotos/flasche-neelchesbiren.jpg`, `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`, `Fertige Etiquetten/Brandwein Vogelbeere-01.png`, `Fotos/flasche-schleiwen.jpg`, `Fertige Etiquetten/Branntwein Schleiwen-01.png`
-
-**Block 14** (13 Dateien): `Fotos/flasche-vizdrepp.jpg`, `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`, `fotos/flaschen-wodka.webp`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`, `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Kirsch-01.png`, `Fotos/flasche-quetsch.jpg`, `Fertige Etiquetten/Brandwein Quetsch-01.png`, `Fotos/flasche-mirabelle.jpg`, `Fertige Etiquetten/Brandwein Mirabelle-01.png`, `Fotos/flasche-hunnegdrepp.jpg`, `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
+**Block 06** (9 Dateien): `Fotos/flasche-kirsch.jpg`, `Fertige Etiquetten/Brandwein Vogelbeere-01.png`, `Fotos/flasche-schleiwen.jpg`, `Fertige Etiquetten/Branntwein Schleiwen-01.png`, `fotos/vorlage-vizdrepp.png`, `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`, `fotos/vorlage-rund-wodka.png`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `Fertige Etiquetten/Branntwein Limoncello-01.png`
 
 ## Optional: Automatik über die OpenAI-Bild-API (ungetestet)
 

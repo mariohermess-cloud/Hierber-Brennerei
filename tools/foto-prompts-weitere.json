@@ -90,7 +90,7 @@
       "Nur Rezept-Zutaten im Bild: Wodka. Beilagen nur aus: Räucherlachs auf Schwarzbrot, Gewürzgurken, Kaviarersatz.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "wodka-3",
@@ -113,7 +113,7 @@
       "Nur Rezept-Zutaten im Bild: Hierber Wodka; Limettensaft; Ginger Beer; Eiswürfel; Limettenspalte. Beilagen nur aus: Burger, Nachos, Grillgemüse.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "wodka-4",
@@ -137,7 +137,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "rum-2",
@@ -162,7 +162,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "rum-3",
@@ -187,7 +187,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "rum-4",
@@ -213,7 +213,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "rum-orange-2",
@@ -238,7 +238,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss (Holzkappe) ist angenommen wie bei Rum, es gibt kein Foto der Flasche."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "rum-orange-3",
@@ -263,7 +263,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss (Holzkappe) ist angenommen wie bei Rum, es gibt kein Foto der Flasche."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "rum-orange-4",
@@ -289,7 +289,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss (Holzkappe) ist angenommen wie bei Rum, es gibt kein Foto der Flasche."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "whisky-2",
@@ -312,7 +312,7 @@
       "Nur Rezept-Zutaten im Bild: Hierber Whisky; stilles Wasser, Zimmertemperatur. Beilagen nur aus: dunkle Schokolade, Walnüsse, ruhiger Abend.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "whisky-3",
@@ -335,7 +335,7 @@
       "Nur Rezept-Zutaten im Bild: Whisky; Sodawasser, gut gekühlt; Eiswürfel; Streifen Zitronenschale. Beilagen nur aus: Geflügel, Käsegebäck, gegrillter Fisch.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "whisky-4",
@@ -359,7 +359,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "whisky-5",
@@ -383,7 +383,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kirsch-2",
@@ -406,7 +406,7 @@
       "Nur Rezept-Zutaten im Bild: Kirsch. Beilagen nur aus: Schwarzwälder Kirschtorte, dunkle Schokolade, Espresso.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kirsch-3",
@@ -429,7 +429,7 @@
       "Nur Rezept-Zutaten im Bild: Kirsch; Tonic Water, gut gekühlt; Eiswürfel; Zitronenschale. Beilagen nur aus: leichte Vorspeisen, Salate, Ziegenfrischkäse.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kirsch-4",
@@ -453,7 +453,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kirsch-5",
@@ -477,7 +477,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "framboise-2",
@@ -500,7 +500,7 @@
       "Nur Rezept-Zutaten im Bild: Framboise. Beilagen nur aus: Vanilledessert, weiße Schokolade, Käsekuchen.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "framboise-3",
@@ -523,7 +523,7 @@
       "Nur Rezept-Zutaten im Bild: Framboise; Tonic Water, gut gekühlt; Eiswürfel; Minze. Beilagen nur aus: Sommerdesserts, Salate, Ziegenfrischkäse.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "framboise-4",
@@ -547,7 +547,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "quetsch-2",
@@ -570,7 +570,7 @@
       "Nur Rezept-Zutaten im Bild: Quetsch. Beilagen nur aus: Zwetschgenkuchen, Espresso, nach einem deftigen Essen.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "quetsch-3",
@@ -593,7 +593,7 @@
       "Nur Rezept-Zutaten im Bild: Quetsch; Tonic Water, gut gekühlt; Eiswürfel; Zimtstange. Beilagen nur aus: Herbstgerichte, Kürbissuppe, Käsegebäck.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "quetsch-4",
@@ -617,7 +617,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "quetsch-5",
@@ -641,7 +641,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "poire-williams-2",
@@ -664,7 +664,7 @@
       "Nur Rezept-Zutaten im Bild: Poire Williams. Beilagen nur aus: reife Birnen, Mandelgebäck, nach dem Essen.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "poire-williams-3",
@@ -688,7 +688,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "poire-williams-4",
@@ -712,7 +712,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "mirabelle-2",
@@ -735,7 +735,7 @@
       "Nur Rezept-Zutaten im Bild: Mirabelle. Beilagen nur aus: Mirabellentarte, Weichkäse, Espresso.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "mirabelle-3",
@@ -758,7 +758,7 @@
       "Nur Rezept-Zutaten im Bild: Mirabelle; Crémant, gut gekühlt; Sodawasser; Eiswürfel; Thymianzweig. Beilagen nur aus: Aperitif, Quiche, Flammkuchen.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "mirabelle-4",
@@ -782,7 +782,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "mirabelle-5",
@@ -806,7 +806,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hierber-fruucht-2",
@@ -829,7 +829,7 @@
       "Nur Rezept-Zutaten im Bild: Hierber aale Fruucht. Beilagen nur aus: Nüsse, reifer Käse, ruhiger Abend.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hierber-fruucht-3",
@@ -853,7 +853,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hierber-fruucht-4",
@@ -877,7 +877,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieux-marc-2",
@@ -901,7 +901,7 @@
       "Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieux-marc-3",
@@ -926,7 +926,7 @@
       "Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieux-marc-4",
@@ -951,7 +951,7 @@
       "Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieille-prune-2",
@@ -974,7 +974,7 @@
       "Nur Rezept-Zutaten im Bild: Vieille Prune. Beilagen nur aus: Zwetschgenkuchen, Hartkäse, Espresso.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieille-prune-3",
@@ -998,7 +998,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieille-prune-4",
@@ -1022,7 +1022,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieille-pomme-2",
@@ -1045,7 +1045,7 @@
       "Nur Rezept-Zutaten im Bild: Vieille Pomme. Beilagen nur aus: Apfelkuchen, Hartkäse, Espresso.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieille-pomme-3",
@@ -1069,7 +1069,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieille-pomme-4",
@@ -1093,7 +1093,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunnegdrepp-2",
@@ -1116,7 +1116,7 @@
       "Nur Rezept-Zutaten im Bild: Hunnegdrëpp; heißer Schwarztee; Scheibe Zitrone; Nelke (nach Belieben). Beilagen nur aus: Lebkuchen, Shortbread, kalte Abende.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunnegdrepp-3",
@@ -1139,7 +1139,7 @@
       "Nur Rezept-Zutaten im Bild: Hunnegdrëpp. Beilagen nur aus: Käse, Walnüsse, Gebäck.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunnegdrepp-4",
@@ -1163,7 +1163,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunnegdrepp-5",
@@ -1187,7 +1187,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunneg-whisky-2",
@@ -1212,7 +1212,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss (schwarze Schraubkappe) ist wie beim Whisky angenommen, es gibt kein Foto der Hunneg-Whisky-Flasche."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunneg-whisky-3",
@@ -1237,7 +1237,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss (schwarze Schraubkappe) ist wie beim Whisky angenommen, es gibt kein Foto der Hunneg-Whisky-Flasche."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunneg-whisky-4",
@@ -1263,7 +1263,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss (schwarze Schraubkappe) ist wie beim Whisky angenommen, es gibt kein Foto der Hunneg-Whisky-Flasche."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kraeiderdrepp-2",
@@ -1286,7 +1286,7 @@
       "Nur Rezept-Zutaten im Bild: Kräiderdrëpp. Beilagen nur aus: deftige Gerichte, kräftiger Käse, nach dem Essen.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kraeiderdrepp-3",
@@ -1309,7 +1309,7 @@
       "Nur Rezept-Zutaten im Bild: Kräiderdrëpp; Limettensaft; Ginger Beer; Eiswürfel; Limettenspalte. Beilagen nur aus: Grillgemüse, Burger, deftige Gerichte.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kraeiderdrepp-4",
@@ -1333,7 +1333,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kuerbisdrepp-2",
@@ -1357,7 +1357,7 @@
       "Das Etikett nennt 40 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kuerbisdrepp-3",
@@ -1381,7 +1381,7 @@
       "Das Etikett nennt 40 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kuerbisdrepp-4",
@@ -1406,7 +1406,7 @@
       "Das Etikett nennt 40 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "grain-2",
@@ -1429,7 +1429,7 @@
       "Nur Rezept-Zutaten im Bild: Grain. Beilagen nur aus: deftige Brotzeit, Schinken, Gewürzgurken.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "grain-3",
@@ -1453,7 +1453,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hondsaarsch-2",
@@ -1476,7 +1476,7 @@
       "Nur Rezept-Zutaten im Bild: Hondsaarsch. Beilagen nur aus: Wildgerichte, kräftiger Käse, Espresso.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hondsaarsch-3",
@@ -1500,7 +1500,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hondsaarsch-4",
@@ -1524,7 +1524,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kiwibeeren-2",
@@ -1548,7 +1548,7 @@
       "Das Etikett nennt 43 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kiwibeeren-3",
@@ -1572,7 +1572,7 @@
       "Das Etikett nennt 43 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kiwibeeren-4",
@@ -1597,7 +1597,7 @@
       "Das Etikett nennt 43 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "poire-2",
@@ -1620,7 +1620,7 @@
       "Nur Rezept-Zutaten im Bild: Poire. Beilagen nur aus: reife Birnen, Mandelgebäck, nach dem Essen.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "poire-3",
@@ -1644,7 +1644,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "poire-4",
@@ -1668,7 +1668,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "neelchesbiren-2",
@@ -1691,7 +1691,7 @@
       "Nur Rezept-Zutaten im Bild: Neelchesbiren. Beilagen nur aus: Obstkuchen, Mandelgebäck, Espresso.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "neelchesbiren-3",
@@ -1715,7 +1715,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "neelchesbiren-4",
@@ -1739,7 +1739,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "lenschouren-2",
@@ -1832,7 +1832,7 @@
       "Nur Rezept-Zutaten im Bild: Vullekiischt. Beilagen nur aus: Wildgerichte, Wildpastete, kräftiger Käse.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vullekiischt-3",
@@ -1856,7 +1856,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vullekiischt-4",
@@ -1880,7 +1880,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "schleiwen-2",
@@ -1903,7 +1903,7 @@
       "Nur Rezept-Zutaten im Bild: Schléiwen. Beilagen nur aus: Wildgerichte, kräftiger Käse, nach einem deftigen Essen.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "schleiwen-3",
@@ -1927,7 +1927,7 @@
       "Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "schleiwen-4",
@@ -1951,7 +1951,7 @@
       "Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.",
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vizdrepp-2",
@@ -1975,7 +1975,7 @@
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.",
       "Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen)."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vizdrepp-3",
@@ -2000,7 +2000,7 @@
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.",
       "Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen)."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vizdrepp-4",
@@ -2025,7 +2025,7 @@
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.",
       "Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen)."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vizdrepp-5",
@@ -2050,7 +2050,7 @@
       "Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.",
       "Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen)."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "sambuca-2",
@@ -2074,7 +2074,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "sambuca-3",
@@ -2099,7 +2099,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "sambuca-4",
@@ -2124,7 +2124,7 @@
       "Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.",
       "Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt."
     ],
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "limoncello-2",

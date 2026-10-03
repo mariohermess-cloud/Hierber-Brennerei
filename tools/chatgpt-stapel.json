@@ -2,8 +2,8 @@
   "hinweis": "Alle Bilder des Stapels mit Status (offen, vorhanden, ersetzt, bitte prüfen). Die CSV tools/chatgpt-stapel.csv enthält nur die offenen. Erzeugt mit node tools/chatgpt_stapel.mjs.",
   "anzahl": {
     "gesamt": 148,
-    "offen": 138,
-    "vorhanden": 9,
+    "offen": 55,
+    "vorhanden": 92,
     "ersetztBittePruefen": 1
   },
   "bilder": [
@@ -527,7 +527,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Wodka-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Stamperl mit eiskaltem, klarem Wodka, ohne Eis und ohne Garnitur. Im unscharfen Hintergrund ein Teller mit Räucherlachs auf Schwarzbrot. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 59,
@@ -536,7 +536,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum nei-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl goldbernsteinfarbenem Rum, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück dunkle Schokolade und ein paar Nüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 60,
@@ -545,7 +545,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tumbler mit einem einzigen großen klaren Eiswürfel, der Rum Orange orange-bernsteinfarben, eine Orangenscheibe am Glasrand. Daneben unscharf ein Stück dunkle Schokolade und ein Mandelgebäck. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 61,
@@ -554,7 +554,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Nosing-Glas mit 4 cl bernsteinfarbenem Whisky, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück dunkle Schokolade und ein paar Walnüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 62,
@@ -563,7 +563,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kirsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit 4 cl klarem Kirsch, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Schwarzwälder Kirschtorte. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 63,
@@ -572,7 +572,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Framboise-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Framboise, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Käsekuchen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 64,
@@ -581,7 +581,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Quetsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Quetsch, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Zwetschgenkuchen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 65,
@@ -590,7 +590,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Williams-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Poire Williams, ohne Eis und ohne Garnitur. Daneben eine reife Birne mit Stiel. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 66,
@@ -599,7 +599,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Mirabelle-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarer Mirabelle, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Mirabellentarte. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 67,
@@ -608,7 +608,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Fruucht-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl warm bernsteinfarbener Hierber aale Fruucht, ohne Eis und ohne Garnitur. Daneben unscharf ein paar Nüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 68,
@@ -617,7 +617,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Vieux marc-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl kräftig bernsteinfarbenem Vieux Marc, ohne Eis und ohne Garnitur. Daneben unscharf eine kleine Tasse Espresso. Flasche: Die Karaffe steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarzer, profilierter Stopfen mit Wulst am Hals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 69,
@@ -626,7 +626,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vieille prune-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl klar goldgelber Vieille Prune, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Zwetschgenkuchen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 70,
@@ -635,7 +635,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vieille pomme-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl klar goldgelber Vieille Pomme, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Apfelkuchen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 71,
@@ -644,7 +644,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Hunnegdrepp-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Teeglas mit heißem Schwarztee, eine Zitronenscheibe und eine Nelke im Glas, dezenter Dampf, kein Eis. Daneben unscharf ein Lebkuchen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 72,
@@ -653,7 +653,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tumbler mit einem einzigen großen klaren Eiswürfel, der Hunneg Whisky warmes Goldbernstein, ohne Garnitur. Daneben ein paar Walnüsse und ein Stück dunkle Schokolade. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 73,
@@ -662,7 +662,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kraider-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Kräiderdrëpp, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück kräftiger Käse. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 74,
@@ -671,7 +671,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kürbisdrepp-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Kürbisdrëpp, ohne Eis und ohne Garnitur. Daneben unscharf ein Schälchen Kürbiskerne. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 75,
@@ -680,7 +680,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Grain-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Stamperl mit eiskaltem, klarem Grain, ohne Eis und ohne Garnitur. Daneben unscharf ein paar Gewürzgurken. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 76,
@@ -689,7 +689,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Hondsaarsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Hondsaarsch, ohne Eis und ohne Garnitur. Daneben unscharf eine Tasse Espresso. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 77,
@@ -698,7 +698,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Kiwi-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Kiwibeeren-Brand, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück weiße Schokolade. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 78,
@@ -707,7 +707,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Poire-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarer Poire, ohne Eis und ohne Garnitur. Daneben unscharf eine reife Birne. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 79,
@@ -716,7 +716,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Nelchensbiren-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Neelchesbiren, ohne Eis und ohne Garnitur. Daneben unscharf ein Mandelgebäck. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 80,
@@ -734,7 +734,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vogelbeere-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Vullekiischt, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Wildpastete. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 82,
@@ -743,7 +743,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Schleiwen-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit klarem Schléiwen, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück kräftiger Käse. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 83,
@@ -752,7 +752,7 @@
       "anhang2": "Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl kräftig goldgelbem Vizdrëpp, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Apfelkuchen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen mit flachem, breitem Kragen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 84,
@@ -761,7 +761,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tumbler mit einem einzigen großen klaren Eiswürfel, klarer Sambuca, ohne Garnitur. Daneben ein Mandelgebäck. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 85,
@@ -788,7 +788,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Wodka-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Moscow Mule im Longdrinkglas, bis oben mit Eiswürfeln, eine Limettenspalte am Glasrand. Das Getränk ist hell, leicht trüb und perlt. Im unscharfen Hintergrund ein paar Nachos. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 88,
@@ -797,7 +797,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum nei-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Daiquiri in einer gekühlten Cocktailschale, ohne Eis und ohne Garnitur, das Getränk hell goldgelb und leicht trüb. Im unscharfen Hintergrund ein Teller Garnelen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 89,
@@ -806,7 +806,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Rum Orange-Sour im Tumbler auf frischem Eis, das Getränk orange-golden und leicht trüb, ohne Schaum, ein Streifen Zitronenschale am Glasrand. Daneben ein paar Nüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 90,
@@ -815,7 +815,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Whisky-Highball im Highballglas, viel Eis, ein Streifen Zitronenschale im Glas. Das Getränk ist helles Bernstein und perlt leicht. Im unscharfen Hintergrund ein paar Käsegebäck-Stangen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 91,
@@ -824,7 +824,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kirsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Kirsch-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Streifen Zitronenschale im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund ein kleiner Salat. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 92,
@@ -833,7 +833,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Framboise-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Framboise-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Minzzweig steckt im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund ein kleiner Salat. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 93,
@@ -842,7 +842,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Quetsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Quetsch-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, eine Zimtstange steckt im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund Käsegebäck. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 94,
@@ -851,7 +851,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Williams-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Dessertteller mit 1 bis 2 pochierten Birnen mit Stiel in glänzendem Sud, dazu eine Kugel Vanilleeis. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 95,
@@ -860,7 +860,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Mirabelle-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Mirabelle-Spritz im großen Weinglas auf viel Eis, das Getränk hell, fast klar und perlend, ein Thymianzweig im Glas. Im unscharfen Hintergrund ein Stück Flammkuchen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 96,
@@ -869,7 +869,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Fruucht-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber warm bernsteinfarbene Fruucht geträufelt und gehackte Walnüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 97,
@@ -878,7 +878,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Vieux marc-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl kräftig bernsteinfarbenem Vieux Marc neben einem Holzbrett mit kräftigem Käse, Trauben und Nüssen. Flasche: Die Karaffe steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarzer, profilierter Stopfen mit Wulst am Hals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 98,
@@ -887,7 +887,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vieille prune-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber goldgelbe Vieille Prune geträufelt und gehackte Nüsse. Daneben unscharf eine Tasse Espresso. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 99,
@@ -896,7 +896,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vieille pomme-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Dessertteller mit einem Stück warmer Apfeltarte, dazu eine Kugel Vanilleeis. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 100,
@@ -905,7 +905,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Hunnegdrepp-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Tulpenglas mit 4 cl honiggoldenem Hunnegdrëpp, ohne Eis und ohne Garnitur. Daneben unscharf ein paar Walnüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 101,
@@ -914,7 +914,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Teeglas mit heißem, goldgelbem Getränk, eine Zitronenscheibe und eine Zimtstange im Glas, dezenter Dampf, kein Eis. Daneben unscharf ein Lebkuchen. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 102,
@@ -923,7 +923,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kraider-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Kräiderdrëpp mit Ginger Beer im Longdrinkglas auf viel Eis, das Getränk hell, leicht trüb und perlend, eine Limettenspalte am Glasrand. Im unscharfen Hintergrund Grillgemüse. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 103,
@@ -932,7 +932,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kürbisdrepp-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Kürbisdrëpp mit Ginger Beer im Longdrinkglas auf viel Eis, das Getränk hell, leicht trüb und perlend, eine Limettenspalte am Glasrand. Im unscharfen Hintergrund Käsegebäck. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 104,
@@ -941,7 +941,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Grain-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Stamperl mit klarem, gekühltem Grain neben einem Holzbrett: luftgetrockneter Schinken, 2 Scheiben Bauernbrot und 3 Gewürzgurken. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 105,
@@ -950,7 +950,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Hondsaarsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klarer Hondsaarsch geträufelt und gehackte Nüsse. Daneben unscharf eine Tasse Espresso. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 106,
@@ -959,7 +959,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Kiwi-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Kiwibeeren-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, eine Limettenscheibe im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund ein kleiner Salat. Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 107,
@@ -968,7 +968,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Poire-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klare Poire geträufelt und gehackte Nüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 108,
@@ -977,7 +977,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Nelchensbiren-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klarer Neelchesbiren geträufelt und gehackte Nüsse. Daneben unscharf eine Tasse Espresso. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 109,
@@ -995,7 +995,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vogelbeere-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Stamperl mit klarem, gekühltem Vullekiischt neben einem Holzbrett: Scheiben Wildpastete auf 2 Scheiben Landbrot, dazu ein Löffel Preiselbeeren. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 111,
@@ -1004,7 +1004,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Schleiwen-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Saucenkännchen mit dunkler, glänzender Wildsauce neben einem Teller mit Scheiben Rehrücken und einem Knödel. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 112,
@@ -1013,7 +1013,7 @@
       "anhang2": "Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein gekühltes Dessertglas mit 2 Kugeln Apfelsorbet, darüber goldgelber Vizdrëpp gegossen. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen mit flachem, breitem Kragen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 113,
@@ -1022,7 +1022,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Espressotasse mit frischem Espresso und Crema auf einer Untertasse, daneben ein kleines Glas klarer Sambuca und ein Mandelgebäck. Kein Eis. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 114,
@@ -1049,7 +1049,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Wodka-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein reifbeschlagenes Stamperl mit eiskaltem, klarem Wodka neben einem Holzbrett: 2 Scheiben Schwarzbrot, belegt mit Räucherlachs und einem Klecks Meerrettichcreme. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 117,
@@ -1058,7 +1058,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum nei-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Dessertteller mit 2 längs halbierten, goldbraun gebratenen Bananen, daneben 2 Kugeln Vanilleeis. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 118,
@@ -1067,7 +1067,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit leicht glänzenden Orangenfilets, dazu 2 Kugeln Vanilleeis. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 119,
@@ -1076,7 +1076,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl bernsteinfarbenem Whisky neben einem Holzbrett mit kleinen Stücken gereiftem Comté und einer Handvoll Walnüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 120,
@@ -1085,7 +1085,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kirsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit warm geschmorten dunklen Kirschen in glänzendem Sud, dazu 2 Kugeln Vanilleeis. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 121,
@@ -1094,7 +1094,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Framboise-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Dessertglas mit Panna cotta, darauf frische Himbeeren in leicht rotem Saft. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 122,
@@ -1103,7 +1103,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Quetsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit halbierten, glänzend geschmorten Zwetschgen, dazu 2 Kugeln Vanilleeis. Keine Flamme. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 123,
@@ -1112,7 +1112,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Williams-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarem Poire Williams neben einem Holzbrett mit mildem Blauschimmelkäse, Birnenspalten und Walnüssen. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 124,
@@ -1121,7 +1121,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Mirabelle-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit warm geschmorten gelben Mirabellen in glänzendem Sud, dazu 2 Kugeln Vanilleeis. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 125,
@@ -1130,7 +1130,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Fruucht-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl warm bernsteinfarbener Fruucht neben einem Holzbrett mit kräftigem, reifem Käse, Walnüssen und Trauben. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 126,
@@ -1139,7 +1139,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Vieux marc-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl kräftig bernsteinfarbenem Vieux Marc neben 3 Stücken dunkler Schokolade auf einem kleinen Brett. Flasche: Die Karaffe steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarzer, profilierter Stopfen mit Wulst am Hals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 127,
@@ -1148,7 +1148,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vieille prune-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl klar goldgelber Vieille Prune neben einem Holzbrett mit kräftigem Bergkäse, Walnüssen und Trauben. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 128,
@@ -1157,7 +1157,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vieille pomme-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Ballonglas mit 4 cl klar goldgelber Vieille Pomme neben einem Holzbrett mit gereiftem Comté, Apfelspalten und Walnüssen. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 129,
@@ -1166,7 +1166,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Hunnegdrepp-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Dessertglas mit Naturjoghurt, darüber ein Löffel Honig und gehackte Nüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 130,
@@ -1175,7 +1175,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl goldbernsteinfarbenem Hunneg Whisky neben einem Holzbrett mit kleinen Stücken Comté, Walnüssen und Trauben. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 131,
@@ -1184,7 +1184,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kraider-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Stamperl mit klarem, gekühltem Kräiderdrëpp vor einem unscharfen Teller mit Schweinebraten und Kartoffeln. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 132,
@@ -1193,7 +1193,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kürbisdrepp-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarem Kürbisdrëpp neben einem Holzbrett mit kräftigem Hartkäse, gerösteten Kürbiskernen und Walnüssen. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 133,
@@ -1202,7 +1202,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Hondsaarsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarem Hondsaarsch neben einem Holzbrett mit kräftigem Käse, Walnüssen und Trauben. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 134,
@@ -1211,7 +1211,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Kiwi-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Dessertglas mit Naturjoghurt, darüber ein Löffel Honig und gehackte Nüsse. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 135,
@@ -1220,7 +1220,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Poire-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarer Poire neben einem Holzbrett mit mildem Blauschimmelkäse, Birnenspalten und Walnüssen. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 136,
@@ -1229,7 +1229,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Nelchensbiren-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarem Neelchesbiren neben einem Holzbrett mit mildem Käse, Birnenspalten und Nüssen. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 137,
@@ -1247,7 +1247,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Vogelbeere-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klarer Vullekiischt geträufelt und gehackte Nüsse. Daneben unscharf eine Tasse Espresso. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 139,
@@ -1256,7 +1256,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Schleiwen-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarem Schléiwen neben einem Holzbrett mit kräftigem Bergkäse, Walnüssen und Trauben. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 140,
@@ -1265,7 +1265,7 @@
       "anhang2": "Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit goldgelb gebratenen Apfelspalten, dazu 2 Kugeln Vanilleeis. Keine Flamme. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen mit flachem, breitem Kragen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 141,
@@ -1274,7 +1274,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klarer Sambuca geträufelt und gehackte Mandeln. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 142,
@@ -1292,7 +1292,7 @@
       "anhang2": "Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Teller mit einem gebratenen Steak, darüber eine helle, cremige Sauce mit groben Pfefferkörnern, daneben ein paar Bratkartoffeln. Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 144,
@@ -1301,7 +1301,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Kirsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarem Kirsch neben 3 Stücken dunkler Schokolade auf einem kleinen Brett. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 145,
@@ -1310,7 +1310,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Quetsch-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarem Quetsch neben einem Holzbrett mit kleinen Stücken kräftigem Bergkäse, Walnüssen und Trauben. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 146,
@@ -1319,7 +1319,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Mirabelle-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl klarer Mirabelle neben einem Holzbrett mit mildem Weichkäse, Mandeln und Weintrauben. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 147,
@@ -1328,7 +1328,7 @@
       "anhang2": "Fertige Etiquetten/Brandwein Hunnegdrepp-01.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl honiggoldenem Hunnegdrëpp neben einem Holzbrett mit Ziegenkäse, Walnüssen und Feigen. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 148,
@@ -1337,7 +1337,7 @@
       "anhang2": "Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein Tulpenglas mit 4 cl goldgelbem Vizdrëpp neben einem Holzbrett mit Weichkäse, Apfelspalten und Nüssen. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen mit flachem, breitem Kragen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.",
       "gruppe": "weitere",
-      "status": "offen"
+      "status": "vorhanden"
     }
   ]
 }
