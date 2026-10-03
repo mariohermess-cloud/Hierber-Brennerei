@@ -1,0 +1,355 @@
+/* Hierber Brennerei: uriger Verkaufsraum, ruhig und editorial. Farben siehe tools/pruefe_kontrast.mjs (WCAG-Nachrechnung). */
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url(/assets/fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-latin-500-normal.woff2) format("woff2")}
+
+:root{
+  --holz:#1b130d;            /* Hintergrund dunkles Eichenholz */
+  --flaeche:#2a1d14;         /* Fläche */
+  --papier:#f3ece0;          /* Papier */
+  --papier2:#eadfcd;         /* Papier, etwas dunkler */
+  --text-papier:#2b211a;     /* Text auf Papier (13,4:1) */
+  --kupfer:#b8733a;          /* einzige Akzentfarbe: Linien, Flächen, große Schrift */
+  --text:#f3ece0;            /* Text auf Dunkel (15,6:1) */
+  --gedaempt:#cdbfac;        /* gedämpfter Text auf Dunkel (9,1:1 auf Fläche) */
+  --kupfer-hell:#d9975f;     /* Kupfer als Textton auf Dunkel (6,7:1 auf Fläche) */
+  --gedaempt-papier:#5c4e42; /* gedämpfter Text auf Papier (6,1:1) */
+  --kupfer-dunkel:#8a4a1c;   /* Kupfer als Textton auf Papier (5,2:1) */
+  --kreide:#ece6d8;          /* Kreideschrift auf den schwarzen Tafeln (#1a1d1f) */
+  --linie:rgba(184,115,58,.4);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --rand:clamp(1rem,4vw,2rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
+body{margin:0;background:var(--holz);color:var(--text);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+@media(min-width:900px){body{font-size:1.125rem}}
+.js:not(.alter-ok) body{padding-bottom:6rem}
+img,picture,svg{max-width:100%}
+img{height:auto}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0 0 .6em}
+h1{font-size:clamp(2.6rem,7vw,4.4rem);letter-spacing:.005em}
+h2{font-size:clamp(2.1rem,5vw,3.1rem)}
+h3{font-size:1.6rem;line-height:1.2}
+h4{font-family:var(--sans);font-size:.8rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin:1.4rem 0 .5rem}
+p{margin:0 0 1em}
+address{font-style:normal}
+a{color:var(--kupfer-hell);text-underline-offset:.2em}
+a:hover{text-decoration-thickness:2px}
+.papier a{color:var(--kupfer-dunkel)}
+:focus-visible{outline:2px solid var(--kupfer-hell);outline-offset:3px}
+.papier :focus-visible{outline-color:var(--kupfer-dunkel)}
+.sr-only,.sr-status{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--papier);color:var(--text-papier);padding:.7rem 1rem;z-index:100}
+.skip:focus{left:0}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--rand)}
+.wrap.schmal{max-width:820px}
+
+/* Abschnitte: Wechsel dunkel / Papier */
+.sektion{padding-block:clamp(3rem,8vw,6rem)}
+.dunkel{background:var(--holz);color:var(--text)}
+.dunkel.flaeche{background:var(--flaeche)}
+.papier{background:var(--papier) url(/assets/papier.webp);color:var(--text-papier)}
+.papier.papier2{background-color:var(--papier2)}
+.lead-klein,.lead,.intro{max-width:66ch}
+.lead{font-size:1.25rem;line-height:1.55}
+.lead-klein{color:var(--gedaempt)}
+.papier .lead-klein{color:var(--gedaempt-papier)}
+.eyebrow{font:500 .82rem/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--kupfer-hell);margin-bottom:1rem}
+.platzhalter{font-style:italic;color:var(--gedaempt)}
+.papier .platzhalter{color:var(--gedaempt-papier)}
+.platzhalter-inline{border-bottom:1px dashed currentColor}
+.todo [data-todo]{outline:2px dashed #d33;outline-offset:2px}
+
+/* Kopf */
+.kopf{background:var(--holz);border-bottom:1px solid var(--linie)}
+.kopf-innen{max-width:1200px;margin-inline:auto;padding:.8rem var(--rand);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.2rem 1rem}
+.logo{font:600 1.4rem/1 var(--serif);color:var(--text);text-decoration:none;letter-spacing:.01em;padding:.4rem 0}
+.haupt{display:flex;gap:1.4rem;order:3;width:100%}
+@media(min-width:760px){.haupt{order:0;width:auto;margin-right:auto;margin-left:2rem}}
+.haupt a,.sprache a,.merk{color:var(--text);text-decoration:none;font-size:.95rem;padding:.6rem 0;display:inline-block}
+.haupt a:hover,.sprache a:hover,.merk:hover{color:var(--kupfer-hell)}
+.kopf-rechts{display:flex;align-items:center;gap:.8rem}
+@media(min-width:520px){.kopf-rechts{gap:1.2rem}.logo{font-size:1.6rem}}
+.merk{display:inline-flex;align-items:center;gap:.4rem;position:relative}
+.merk-text{display:none}
+@media(min-width:520px){.merk-text{display:inline}}
+.zaehler{background:var(--kupfer);color:var(--holz);font:500 .75rem/1 var(--sans);border-radius:99px;min-width:1.35rem;height:1.35rem;display:inline-grid;place-items:center;padding:0 .35rem}
+.zaehler[hidden]{display:none}
+.sprache{display:flex;align-items:center;gap:.5rem;color:var(--gedaempt)}
+.sprache a{padding:.6rem .3rem}
+.sprache [aria-current]{color:var(--kupfer-hell);text-decoration:underline;text-underline-offset:.3em}
+
+/* Knöpfe und Chips */
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.7rem 1.4rem;background:var(--kupfer);color:var(--holz);font:500 1rem/1.2 var(--sans);text-decoration:none;border:1px solid var(--kupfer);border-radius:2px;cursor:pointer}
+.knopf:hover{background:var(--kupfer-hell);border-color:var(--kupfer-hell);color:var(--holz)}
+.knopf-hell{background:transparent;color:var(--text)}
+.papier .knopf{color:var(--holz)}
+.papier .knopf-hell{color:var(--text-papier);border-color:var(--kupfer-dunkel)}
+.knoepfe,.kauf-knoepfe{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chip,.chip-radio>span{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;border:1px solid var(--kupfer);background:transparent;color:var(--text);font:400 .98rem/1.2 var(--sans);border-radius:2px;cursor:pointer}
+.chip:hover,.chip-radio:hover>span{background:rgba(184,115,58,.18)}
+.chip[aria-pressed="true"],.chip-radio input:checked+span{background:var(--kupfer);color:var(--holz);font-weight:500}
+.papier .chip-radio>span{color:var(--text-papier);border-color:var(--kupfer-dunkel)}
+.papier .chip-radio input:checked+span{background:var(--kupfer-dunkel);color:var(--papier)}
+.chip-radio{position:relative;display:inline-block}
+.chip-radio input{position:absolute;opacity:0;width:100%;height:100%;margin:0;left:0;top:0;cursor:pointer}
+.chip-radio input:focus-visible+span{outline:2px solid var(--kupfer-hell);outline-offset:3px}
+.papier .chip-radio input:focus-visible+span{outline-color:var(--kupfer-dunkel)}
+.nojs [data-anlass-box],.nojs .knopf[data-merk-add],.nojs .varianten,.nojs .auswahl,.nojs .alter{display:none}
+
+/* Hero */
+.hero{padding-block:clamp(2rem,6vw,4.5rem);background:radial-gradient(ellipse at 75% 20%,rgba(184,115,58,.14),transparent 60%),var(--holz)}
+.hero-raster{display:grid;gap:2rem;align-items:center}
+.hero-foto{order:-1}
+@media(min-width:900px){.hero-raster{grid-template-columns:1fr 1fr;gap:3.5rem}.hero-foto{order:0}}
+.rahmen{margin:0;max-width:960px;border:1px solid var(--kupfer);padding:8px;background:var(--flaeche)}
+.rahmen img,.rahmen picture{display:block;width:100%}
+.hero-text h1{margin-bottom:.4em}
+
+/* Bilder: gerahmt mit dünner Linie, nicht eingefärbt */
+.bildrahmen{margin:2rem 0 0;max-width:1150px;margin-inline:auto}
+.bildrahmen figcaption,.besuch-foto figcaption{margin-top:.6rem;font-size:.9rem;color:var(--gedaempt)}
+.papier .besuch-foto figcaption{color:var(--gedaempt-papier)}
+
+/* Fassreihe: Foto, darunter die Kreidetafeln nebeneinander (mobil horizontal mit scroll-snap) */
+.fassreihe-sektion{border-top:1px solid var(--linie)}
+.fassreihe-sektion .wrap .bildrahmen{margin-top:2rem}
+.schilder-rahmen{max-width:1500px;margin:1.6rem auto 0;padding-inline:0}
+.schilder{display:flex;gap:.6rem;list-style:none;margin:0;padding:.4rem var(--rand) 1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--rand);scrollbar-width:thin;scrollbar-color:var(--kupfer) transparent}
+.schild-li{flex:0 0 7.6rem;scroll-snap-align:start}
+.schild{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;height:100%;min-height:5.6rem;padding:.6rem .35rem;text-align:center;text-decoration:none;
+  color:var(--kreide);border:2px solid #0b0c0d;border-radius:2px;box-shadow:0 0 0 1px #4a4038,0 4px 8px rgba(0,0,0,.45);
+  background:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.07),transparent 55%),radial-gradient(ellipse at 80% 90%,rgba(255,255,255,.04),transparent 50%),#1a1d1f}
+.schild-name{font:italic 400 1.25rem/1.1 var(--serif);overflow-wrap:anywhere;hyphens:auto}
+.schild-abv{font:italic 400 1.05rem/1 var(--serif);color:var(--kreide);border-top:1px solid rgba(236,230,216,.45);padding-top:.3rem;min-width:2.6rem}
+.schild:hover,.schild:focus-visible{box-shadow:0 0 0 1px var(--kupfer-hell),0 4px 8px rgba(0,0,0,.45)}
+@media(min-width:1280px){
+  .schilder{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:.4rem;overflow:visible;padding-inline:var(--rand)}
+  .schild-li{flex:none}
+  .schild{padding:.6rem .2rem}
+  .schild-name{font-size:clamp(.82rem,1.05vw,1.1rem)}
+  .schild-abv{font-size:clamp(.85rem,.95vw,1rem)}
+}
+.platz span,.karte-platz span{font-size:.85rem;color:var(--gedaempt)}
+.platz{display:grid;place-items:center;text-align:center;padding:1rem;border:1px dashed var(--kupfer-dunkel);background:rgba(43,33,26,.06)}
+.papier .platz span,.papier .karte-platz span{color:var(--gedaempt-papier)}
+.dunkel .platz{border-color:var(--linie);background:rgba(255,255,255,.03)}
+
+/* Theke */
+.theke{border-top:1px solid var(--linie)}
+.theke-foto img{width:100%}
+@media(min-width:900px){.theke-foto img{aspect-ratio:2/1;object-fit:cover;object-position:50% 88%}}
+.anlass-foto{max-width:520px;margin:1.6rem 0 0}
+.anlass{margin:1.6rem 0 2.2rem}
+.anlass-titel{font:500 .82rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell);margin-bottom:.8rem}
+.gruppe{margin-top:2.6rem}
+.gruppe h3{font-size:1.9rem;border-bottom:1px solid var(--linie);padding-bottom:.4rem;margin-bottom:1.2rem}
+.karten{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}
+@media(min-width:700px){.karten{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}}
+@media(min-width:1000px){.karten{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.karten-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:700px){.karten-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.karte-li[hidden],.gruppe[hidden]{display:none}
+.karte{display:flex;flex-direction:column;height:100%;padding:.7rem;background:var(--holz);border:1px solid var(--linie);color:var(--text);text-decoration:none}
+.karte:hover,.karte:focus-visible{border-color:var(--kupfer-hell)}
+.karte-bild{display:flex;align-items:flex-end;justify-content:center;aspect-ratio:5/7;margin-bottom:.8rem;container-type:size;overflow:hidden;
+  background:linear-gradient(to top,#c9baa0 0 6%,transparent 6%),linear-gradient(#ece3d2,#e2d6c0)}
+.karte-foto{display:block;width:100%;height:100%;background:#000}
+.karte-foto picture,.karte-foto img{display:block;width:100%;height:100%}
+.karte-foto-bild{object-fit:cover}
+.karte-platzhalter{display:grid;align-content:center;gap:.4rem;width:100%;height:100%;border:1px dashed var(--kupfer-dunkel);text-align:center;padding:.5rem;color:var(--text-papier)}
+.karte-platzhalter span:first-child{font:600 1.15rem/1.15 var(--serif)}
+.karte-platzhalter span{font-size:.85rem;color:var(--gedaempt-papier)}
+
+/* Vektor-Flasche: Silhouette und Füllung als SVG, Etikett als Bild darüber */
+.flasche{position:relative;display:block;flex:none;height:var(--fh,88cqh);aspect-ratio:var(--ar,100/380);margin-bottom:6cqh}
+.flasche>svg{position:absolute;inset:0;width:100%;height:100%;display:block;max-width:none}
+/* Etikett: vorverzerrtes Bild (halber Umfang, zu den Rändern gestaucht), gewölbte Ober-/Unterkante per clip-path, Rundungsschatten und Glanzkante als Verlauf */
+.fl-etikett{position:absolute;display:block}
+.flasche-schlank .fl-etikett{clip-path:url(#cl-schlank)}
+.flasche-rund .fl-etikett{clip-path:url(#cl-rund)}
+.flasche-karaffe .fl-etikett{clip-path:url(#cl-karaffe)}
+.fl-etikett picture,.fl-bild{display:block;width:100%;height:100%;max-width:none}
+.fl-bild{object-fit:fill}
+.fl-etikett::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(28,17,9,.5) 0,rgba(28,17,9,.2) 7%,rgba(28,17,9,0) 22%,rgba(255,255,255,.09) 31%,rgba(255,255,255,0) 44%,rgba(28,17,9,0) 62%,rgba(28,17,9,.16) 82%,rgba(28,17,9,.55) 100%),
+    linear-gradient(90deg,transparent 5.5%,rgba(255,255,255,.3) 6.3%,transparent 7.4%)}
+.karte-name{font:600 1.35rem/1.15 var(--serif);margin-bottom:.25rem}
+.karte-meta{font-size:.9rem;color:var(--gedaempt)}
+.papier .karte{background:var(--flaeche);color:var(--text)}
+.papier .karte:hover{color:var(--text)}
+.weitere{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--linie)}
+.weitere h3{font-size:1.4rem}
+.weitere p{color:var(--gedaempt)}
+
+/* Wie wir brennen: Zeilen im Wechsel Foto links/rechts */
+.schritte{list-style:none;margin:2.4rem 0 0;padding:0;display:grid;gap:3rem}
+.schritt{display:grid;gap:1.2rem;align-items:center}
+@media(min-width:900px){.schritt{grid-template-columns:1.1fr 1fr;gap:3.5rem}.schritt:nth-child(even) .schritt-foto{order:2}}
+.schritt-foto{margin:0;border:1px solid var(--kupfer-dunkel);padding:6px;background:var(--papier2)}
+.schritt-foto picture,.schritt-foto img{display:block;width:100%}
+.schritt-bild{aspect-ratio:4/3;object-fit:cover}
+.schritt-foto.platz{aspect-ratio:4/3;border-style:dashed;background:rgba(43,33,26,.06)}
+.schritt-nr{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-dunkel);margin-bottom:.5rem}
+.schritt h3{font-size:2.2rem;margin-bottom:.4rem}
+.schritt-text p:last-child{color:var(--gedaempt-papier);max-width:46ch}
+
+/* Besuch */
+.besuch-raster{display:grid;gap:2.4rem;align-items:start}
+@media(min-width:900px){.besuch-raster{grid-template-columns:1fr 1fr;gap:3.5rem}}
+.besuch-text h3{font:500 .8rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-dunkel);margin:1.6rem 0 .3rem}
+.karte-platz{display:grid;place-items:center;aspect-ratio:16/9;max-width:480px;margin:1.6rem 0 .8rem;border:1px dashed var(--kupfer-dunkel);background:rgba(43,33,26,.06)}
+.besuch-bilder{display:grid;gap:1.6rem}
+.besuch-foto{margin:0;border:1px solid var(--kupfer-dunkel);padding:6px;background:var(--papier2);width:100%}
+.besuch-foto picture,.besuch-foto img{display:block;width:100%}
+.besuch-foto.klein{max-width:320px}
+.besuch-foto figcaption{padding-inline:2px}
+.textlink{font-weight:500}
+
+/* Sortenseite */
+.brotkrumen ol{display:flex;flex-wrap:wrap;gap:.3rem .6rem;list-style:none;margin:0 0 2rem;padding:0;font-size:.9rem;color:var(--gedaempt)}
+.brotkrumen li+li::before{content:"/";margin-right:.6rem;color:var(--kupfer)}
+.brotkrumen a{color:var(--gedaempt)}
+.produkt-kopf{background:radial-gradient(ellipse at 20% 30%,rgba(184,115,58,.14),transparent 60%),var(--holz);padding-top:clamp(1.5rem,4vw,2.5rem)}
+.produkt-raster{display:grid;gap:2rem;align-items:start}
+@media(min-width:800px){.produkt-raster{grid-template-columns:minmax(320px,540px) 1fr;gap:4rem;align-items:center}.mit-foto .produkt-raster{grid-template-columns:minmax(300px,560px) 1fr;align-items:start}}
+.haupt-bild{margin:0;max-width:540px}
+.buehne{container-type:size;display:flex;align-items:flex-end;justify-content:center;aspect-ratio:3/4;width:100%;overflow:hidden;border:1px solid var(--kupfer);
+  background:linear-gradient(to top,#c9baa0 0 6%,transparent 6%),linear-gradient(#ece3d2,#e2d6c0)}
+.foto-rahmen{max-width:560px}
+/* Neu erzeugte Produktflasche (Hochformat 2:3, Grund auf Weiß normalisiert): multiply legt den hellen Grund auf die Bühnenfarbe, Flasche steht auf der Tischkante */
+.flasche-foto{display:block;flex:none;width:100%;height:100%}
+.flasche-foto picture{display:block;width:100%;height:100%}
+.ff-bild{display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center bottom;mix-blend-mode:multiply}
+.foto-rahmen picture,.foto-rahmen img{display:block;width:100%}
+.etikett-platzhalter{width:min(100%,290px);aspect-ratio:1/1.6;display:flex;flex-direction:column;justify-content:center;gap:.6rem}
+.etikett-platzhalter .platz-marke{font:500 .75rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.etikett-platzhalter .platz-name{font:600 2rem/1.1 var(--serif);color:var(--text)}
+.lux{font:italic 400 1.35rem/1.3 var(--serif);color:var(--kupfer-hell);margin-bottom:.4rem}
+.kurz{font-size:1.1rem;color:var(--gedaempt);margin-bottom:1rem}
+.abv{display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem;margin-bottom:1.4rem}
+.abv-label{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell)}
+.abv-wert{font:600 1.7rem/1 var(--serif)}
+.verkostung{display:grid;gap:0;margin:1.4rem 0 0;max-width:780px}
+.verkostung>div{display:grid;gap:.2rem 2rem;padding:1rem 0;border-top:1px solid rgba(43,33,26,.22)}
+@media(min-width:700px){.verkostung>div{grid-template-columns:11rem 1fr}}
+.verkostung dt{font:500 .8rem/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-dunkel)}
+.verkostung dd{margin:0}
+
+/* Serviervorschläge */
+.tablist{display:flex;gap:.6rem;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:.6rem;margin:1.6rem 0 2rem;scrollbar-width:thin}
+@media(min-width:900px){.tablist{flex-wrap:wrap;overflow:visible}}
+.nojs .tablist{display:none}
+.tab{flex:0 0 auto;min-width:10rem;max-width:15rem;text-align:left;min-height:44px;padding:.6rem .85rem;background:transparent;border:1px solid rgba(43,33,26,.38);color:var(--text-papier);font:inherit;cursor:pointer;scroll-snap-align:start}
+.tab:hover{border-color:var(--kupfer-dunkel)}
+.tab[aria-selected="true"]{background:var(--holz);color:var(--text);border-color:var(--holz)}
+.tab-typ{display:block;font:500 .72rem/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--gedaempt-papier);margin-bottom:.2rem}
+.tab[aria-selected="true"] .tab-typ{color:var(--kupfer-hell)}
+.tab-name{display:block;font:600 1.12rem/1.2 var(--serif)}
+.panel{display:grid;gap:1.6rem;align-items:start}
+@media(min-width:800px){.panel{grid-template-columns:minmax(240px,380px) 1fr;gap:3rem}}
+.nojs .panel+.panel{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(43,33,26,.25)}
+.js .panel:not(.aktiv){display:none}
+.panel-foto{min-height:14rem}
+.panel-bild{margin:0}
+.panel-bild picture,.panel-bild img{display:block;width:100%;height:auto}
+.panel-bild img{border-radius:2px}
+.panel-bild figcaption{margin-top:.5rem;font:400 .8rem/1.4 var(--sans);color:var(--gedaempt-papier)}
+@media(min-width:800px){.panel.mit-bild{grid-template-columns:minmax(280px,min(500px,45%)) 1fr}}
+.panel-typ{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-dunkel);margin-bottom:.5rem}
+.panel h3{font-size:2rem}
+.panel-glas{color:var(--gedaempt-papier);font-size:.95rem}
+.zutaten{list-style:none;margin:0;padding:0}
+.zutaten li{padding:.4rem 0;border-bottom:1px solid rgba(43,33,26,.15)}
+.menge{display:inline-block;min-width:6.5rem;font-weight:500}
+.schritte-liste{margin:0;padding-left:1.3rem}
+.schritte-liste li{margin-bottom:.4rem;padding-left:.3rem;max-width:62ch}
+.passt{margin-top:1.4rem}
+.passt-label{font-weight:500}
+.einblenden{animation:einblenden .25s ease-out}
+@keyframes einblenden{from{opacity:0}to{opacity:1}}
+
+/* Kauf */
+.kauf h2{margin-bottom:1rem}
+.varianten{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.4rem}
+.nojs .variante+.variante{margin-top:2rem}
+.js .variante-kopf{display:none}
+.js .variante:not(.aktiv){display:none}
+.variante-kopf{font-size:1.5rem}
+.variante-abv{color:var(--gedaempt);margin-bottom:1rem}
+.groessen{border:0;margin:0;padding:0}
+.groessen legend{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell);padding:0;margin-bottom:.7rem}
+.preis.anfrage{font:600 1.5rem/1.2 var(--serif)}
+.auswahl{margin:1.6rem 0 0;padding:1rem 0;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem 1rem;max-width:780px}
+.auswahl-label{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell)}
+.auswahl-preis{font:600 1.9rem/1 var(--serif)}
+.mwst{color:var(--gedaempt);font-size:.9rem}
+.status{min-height:1.6rem;margin:1rem 0 0;color:var(--kupfer-hell)}
+.hinweis{color:var(--gedaempt)}
+
+/* Anfrage */
+.anfrage h1{font-size:clamp(2.2rem,6vw,3.4rem)}
+.liste{list-style:none;margin:2rem 0 0;padding:0}
+.liste li{display:grid;grid-template-columns:1fr auto;gap:.4rem 1.2rem;padding:1rem 0;border-top:1px solid rgba(43,33,26,.22)}
+.liste li:last-child{border-bottom:1px solid rgba(43,33,26,.22)}
+.pos-name{font:600 1.35rem/1.2 var(--serif)}
+.pos-meta{color:var(--gedaempt-papier);font-size:.95rem}
+.pos-ctl{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;grid-column:1/-1}
+.pos-ctl label{font-size:.9rem}
+.pos-ctl input[type=number]{width:5.5rem}
+.pos-summe{text-align:right;font-weight:500}
+.linkknopf{background:none;border:0;padding:.6rem .2rem;font:inherit;color:var(--kupfer-dunkel);text-decoration:underline;cursor:pointer;min-height:44px}
+.summe{margin:1.2rem 0 2rem;font-size:1.1rem}
+.summe strong{font:600 1.6rem/1 var(--serif)}
+.summe .mwst{display:block;margin-top:.2rem}
+.papier .mwst{color:var(--gedaempt-papier)}
+.anfrage-form{margin-top:2rem}
+.feld{margin-bottom:1.2rem;border:0;padding:0}
+.feld label,.feld legend{display:block;font-weight:500;margin-bottom:.35rem;padding:0}
+.feld .chip-radio{margin-right:.5rem}
+.feld .chip-radio>span{font-weight:400}
+input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%;min-height:44px;padding:.6rem .8rem;font:inherit;background:#fffdf8;color:var(--text-papier);border:1px solid #85735f;border-radius:2px}
+.fehler{color:#8a2a16;font-size:.95rem;margin:.3rem 0 0}
+.hinweis-klein{font-size:.95rem;color:var(--gedaempt-papier)}
+.vorschau{margin-top:1rem}
+.vorschau pre{white-space:pre-wrap;word-break:break-word;font:400 .9rem/1.5 var(--sans);background:rgba(43,33,26,.06);padding:1rem;margin:.6rem 0 0}
+.direkt{margin-top:2.4rem}
+.leer .knopf{margin-top:.4rem}
+
+/* Pflichtseiten */
+.prose{max-width:70ch}
+.prose h2{font-size:1.9rem;margin-top:2rem}
+.impressum>div{display:grid;gap:.2rem 2rem;padding:.9rem 0;border-top:1px solid rgba(43,33,26,.22)}
+@media(min-width:700px){.impressum>div{grid-template-columns:14rem 1fr}}
+.impressum dt{font:500 .8rem/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-dunkel)}
+.impressum dd{margin:0}
+
+/* Fuß und Altershinweis */
+.fuss{background:var(--holz);border-top:1px solid var(--linie);padding:3rem 0 2rem;font-size:.97rem}
+.fuss-raster{display:grid;gap:1.6rem;grid-template-columns:1fr}
+@media(min-width:700px){.fuss-raster{grid-template-columns:repeat(3,1fr)}}
+.fuss-titel{font:500 .78rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell);margin-bottom:.4rem}
+.fuss-klein{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid var(--linie);color:var(--gedaempt);font-size:.9rem}
+.fuss-klein p{margin-bottom:.4rem;max-width:80ch}
+.alter{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.6rem 1.4rem;padding:.8rem var(--rand);background:var(--flaeche);border-top:1px solid var(--kupfer);color:var(--text)}
+.alter p{margin:0;font-size:.97rem}
+.alter-ok .alter{display:none}
+
+/* dezentes Einblenden beim Scrollen */
+.js .reveal{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+.js .reveal.sichtbar{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .einblenden{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* Feinschliff */
+.karte-meta .preis.anfrage{font:inherit}
+.schild-name{font-size:1.3rem}
+@media(min-width:1280px){.schild-name{font-size:clamp(.95rem,1.15vw,1.2rem)}.schild-abv{font-size:clamp(.9rem,1vw,1.05rem)}}
