@@ -216,6 +216,33 @@
     render();
   }
 
+  /* ---------- Sprung zu "So genießen Sie ...": nachladende Bilder dürfen den Anker nicht verrutschen lassen ---------- */
+  if (location.hash === '#servieren') {
+    var ziel = document.getElementById('servieren');
+    if (ziel) {
+      var springe = function () { ziel.scrollIntoView({ block: 'start', behavior: 'auto' }); };
+      var wartend = function () {
+        var unten = ziel.getBoundingClientRect().bottom + (window.pageYOffset || 0);
+        return $$('img').filter(function (b) {
+          return !b.complete && b.getBoundingClientRect().top + (window.pageYOffset || 0) <= unten;
+        });
+      };
+      var nachBildern = function () {
+        var offen = wartend(), fertig = false;
+        var ende = function () { if (!fertig) { fertig = true; springe(); } };
+        if (!offen.length) return;
+        var rest = offen.length;
+        offen.forEach(function (b) {
+          var ein = function () { rest -= 1; if (rest <= 0) ende(); };
+          b.addEventListener('load', ein); b.addEventListener('error', ein);
+        });
+        window.setTimeout(ende, 1500);
+      };
+      var los = function () { springe(); nachBildern(); };
+      if (document.readyState === 'complete') los(); else window.addEventListener('load', los);
+    }
+  }
+
   zaehlerUpdate();
   window.addEventListener('storage', function () { zaehlerUpdate(); });
 })();

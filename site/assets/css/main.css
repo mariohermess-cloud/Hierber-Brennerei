@@ -49,6 +49,7 @@ a:hover{text-decoration-thickness:2px}
 .wrap.schmal{max-width:820px}
 
 /* Abschnitte: Wechsel dunkel / Papier */
+#servieren{scroll-margin-top:1rem}
 .sektion{padding-block:clamp(3rem,8vw,6rem)}
 .dunkel{background:var(--holz);color:var(--text)}
 .dunkel.flaeche{background:var(--flaeche)}

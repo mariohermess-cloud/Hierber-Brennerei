@@ -139,7 +139,7 @@ for (const p of ['/', '/brand/gin/', '/brand/vieille-prune/', '/anfrage/']) {
 // 9. Fassreihe: 14 Kreidetafeln, Links zu Sortenseiten, Desktop volle Reihe ohne Textüberlauf, mobil Scroll-Leiste mit scroll-snap; Geschenk-Foto beim Anlass-Filter
 await page.goto(BASIS + '/');
 check((await page.locator('.schilder a.schild').count()) === 14, '14 Kreidetafeln');
-check((await page.locator('.schilder a.schild').evaluateAll((a) => a.every((x) => /^\/brand\/[a-z-]+\/$/.test(x.getAttribute('href'))))), 'Tafeln verlinken Sortenseiten');
+check((await page.locator('.schilder a.schild').evaluateAll((a) => a.every((x) => /^\/brand\/[a-z-]+\/#servieren$/.test(x.getAttribute('href'))))), 'Tafeln verlinken Sortenseiten (mit #servieren)');
 check((await page.locator('.schilder').evaluate((e) => getComputedStyle(e).scrollSnapType)).startsWith('x'), 'mobil scroll-snap x');
 check((await page.locator('.schilder').evaluate((e) => e.scrollWidth > e.clientWidth)), 'mobil horizontal scrollbar');
 for (const w of [1280, 1440]) {
@@ -153,6 +153,32 @@ await page.getByRole('button', { name: 'Als Geschenk' }).click();
 check(await page.locator('[data-anlass-foto]').isVisible(), 'Geschenkregal-Foto bei "Als Geschenk" sichtbar');
 await page.getByRole('button', { name: 'Digestif' }).click();
 check(!(await page.locator('[data-anlass-foto]').isVisible()), 'Geschenkregal-Foto bei Digestif verborgen');
+
+// 12. Karten und Schilder öffnen die Sortenseite direkt bei "So genießen Sie ..." (#servieren), de/fr, mobil und Desktop
+for (const [lang, breite, hoehe, was] of [['', 1280, 800, 'Desktop'], ['', 375, 812, 'Mobil'], ['/fr', 1280, 800, 'FR Desktop'], ['/fr', 375, 812, 'FR Mobil']]) {
+  await page.setViewportSize({ width: breite, height: hoehe });
+  for (const [sel, name] of [['.theke a.karte[href*="/brand/kirsch/"]', 'Karte'], ['.schild[href*="/brand/"]', 'Fass-Schild']]) {
+    await page.goto(BASIS + lang + '/');
+    const a = page.locator(sel).first();
+    const href = await a.getAttribute('href');
+    check(/\/brand\/[a-z0-9-]+\/#servieren$/.test(href), `${name} ${was}: Link endet auf #servieren (${href})`);
+    await a.scrollIntoViewIfNeeded();
+    await a.click();
+    await page.waitForURL(/\/brand\/[a-z0-9-]+\/#servieren$/);
+    await page.waitForLoadState('load');
+    for (const warte of [0, 2000]) {
+      if (warte) await page.waitForTimeout(warte);
+      const top = await page.evaluate(() => document.getElementById('servieren-h').getBoundingClientRect().top);
+      check(top >= 0 && top <= 300, `${name} ${was}: Überschrift oben im Viewport nach ${warte} ms (top=${Math.round(top)})`);
+    }
+  }
+}
+await page.setViewportSize({ width: 390, height: 844 });
+// Canonical und hreflang tragen keinen Anker
+await page.goto(BASIS + '/brand/kirsch/');
+const kanon = await page.evaluate(() => [...document.querySelectorAll('link[rel=canonical],link[rel=alternate]')].map((l) => l.href));
+check(kanon.length > 0 && kanon.every((h) => !h.includes('#')), `canonical/hreflang ohne Anker: ${kanon}`);
+console.log('Sprung zu "So genießen Sie ..." getestet.');
 
 await browser.close();
 console.log(`${ok} Prüfungen bestanden.`);
