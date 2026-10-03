@@ -244,12 +244,12 @@
   {
     "id": "vieux-marc",
     "sorte": "Vieux Marc",
-    "anhang1": "fotos/flaschenreihe-theke.jpg",
+    "anhang1": "fotos/vorlage-vieux-marc.png",
     "anhang2": "Fertige Etiquetten/Branntwein Vieux marc-01.png",
     "dateiname": "fotos-flaschen/vieux-marc.png",
-    "vorlageArt": "gruppe",
-    "woerter": 191,
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Gruppenfoto der Theke: nur die dunkle Karaffe vorn links ist das Formvorbild); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: schwarzer Ausgießer. Kein Halsband: der Hals bleibt ohne Papierband. Glas: dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vieux-marc.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "vorlageArt": "vorlage",
+    "woerter": 199,
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto einer leeren Flasche dieser Form (ohne Etikett): dunkle Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: schwarzer Ausgießer. Kein Halsband: der Hals bleibt ohne Papierband. Glas: dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vieux-marc.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
     "hinweise": [
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“). **Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher** (gleiche Fehlerart wie bei den Serviervorschlägen: verfälschte Adresse, erfundene Schrift); bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
@@ -260,7 +260,7 @@
       "Das Foto aus Anhang 1 wurde nicht übernommen (kein altes Etikett, keine zweite Flasche)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
-    "problem": "Gruppenfoto: nur eine Flasche von vielen, teils verdeckt; Form der Karaffe schwer zu erfassen",
+    "problem": "Leere Vorlagenflasche (ohne Etikett) auf schwarzem Grund; der Grund soll hell werden",
     "status": "offen"
   },
   {
@@ -578,12 +578,12 @@
   {
     "id": "vizdrepp",
     "sorte": "Vizdrëpp",
-    "anhang1": "Fotos/flasche-vizdrepp.jpg",
+    "anhang1": "fotos/vorlage-vizdrepp.png",
     "anhang2": "Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png",
     "dateiname": "fotos-flaschen/vizdrepp.png",
-    "vorlageArt": "foto",
-    "woerter": 198,
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: bauchige Flasche mit weiter Schulter); nur Orientierung, nicht kopieren, nicht dessen Etikett. Das Etikett ist querformatig. Verschluss: Glasstopfen. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: kräftiges, klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vizdrepp.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "vorlageArt": "vorlage",
+    "woerter": 211,
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto einer leeren Flasche dieser Form (ohne Etikett): schlanker Hals, nach unten glockenförmig breiter werdender Körper mit eingewölbtem Boden); nur Orientierung, nicht kopieren, nicht dessen Etikett. Das Etikett ist querformatig. Verschluss: Glasstopfen mit flachem, breitem Kragen. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: kräftiges, klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vizdrepp.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
     "hinweise": [
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“). **Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher** (gleiche Fehlerart wie bei den Serviervorschlägen: verfälschte Adresse, erfundene Schrift); bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
@@ -594,7 +594,7 @@
       "Das Foto aus Anhang 1 wurde nicht übernommen (kein altes Etikett, keine zweite Flasche)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
-    "problem": "",
+    "problem": "Leere Vorlagenflasche (ohne Etikett) auf schwarzem Grund; der Grund soll hell werden",
     "status": "offen"
   },
   {

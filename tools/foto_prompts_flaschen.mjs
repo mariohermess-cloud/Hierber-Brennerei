@@ -38,7 +38,7 @@ const SORTEN = {
   kraeiderdrepp: { art: 'foto', fl: 'klar wie Wasser' }, kiwibeeren: { art: 'foto', fl: 'klar wie Wasser' },
   hunnegdrepp: { art: 'foto', fl: 'tiefes Honiggold' },
   'vieille-pomme': { art: 'foto', fl: 'klares Goldgelb' }, 'vieille-prune': { art: 'foto', fl: 'klares Goldgelb' },
-  vizdrepp: { art: 'foto', form: 'bauchige Flasche mit weiter Schulter', fl: 'kräftiges, klares Goldgelb', extra: 'Das Etikett ist querformatig.' },
+  vizdrepp: { art: 'vorlage', a1: 'fotos/vorlage-vizdrepp.png', form: 'schlanker Hals, nach unten glockenförmig breiter werdender Körper mit eingewölbtem Boden', verschluss: 'Glasstopfen mit flachem, breitem Kragen', fl: 'kräftiges, klares Goldgelb', extra: 'Das Etikett ist querformatig.' },
   kuerbisdrepp: { art: 'schlankV', fl: 'klar wie Wasser' }, grain: { art: 'schlankV', fl: 'klar wie Wasser' },
   hondsaarsch: { art: 'schlankV', fl: 'klar wie Wasser' }, vullekiischt: { art: 'schlankV', fl: 'klar wie Wasser' },
   wodka: { art: 'rund2', a1: RUND_WODKA, verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
@@ -50,7 +50,7 @@ const SORTEN = {
   limoncello: { art: 'rund2', a1: 'fotos/flaschen-limoncello.webp', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'leuchtendes Gelbgrün' },
   sambuca: { art: 'rund2', a1: 'fotos/flaschen-sambuca.webp', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'klar wie Wasser' },
   'hierber-fruucht': { art: 'rund2', a1: 'fotos/flaschen-fruucht.webp', verschluss: 'rotbraune Holzkappe', fl: 'warmes, kräftiges Orange-Bernstein' },
-  'vieux-marc': { art: 'gruppe', a1: 'fotos/flaschenreihe-theke.jpg', verschluss: 'schwarzer Ausgießer', fl: 'dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen' },
+  'vieux-marc': { art: 'vorlage', a1: 'fotos/vorlage-vieux-marc.png', form: 'dunkle Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper', verschluss: 'schwarzer Ausgießer', fl: 'dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen' },
 };
 
 // Halsband je Sorte, abgelesen an den echten Fotos (Fotos/flasche-*.jpg: schlanke Flaschen haben KEIN Halsband; fotos/flaschen-*.webp: runde Flaschen tragen ein Papierband am Hals).
@@ -76,7 +76,7 @@ const sorten = PRODUKTE.map((p) => {
   const s = SORTEN[p.id];
   if (!s) { fail(`${p.id}: keine Vorlagenangabe`); return null; }
   const typ = FLASCHENTYP[p.id];
-  const a1 = s.art === 'foto' ? `Fotos/flasche-${p.id}.jpg` : s.art === 'schlankV' ? 'Fotos/flasche-kirsch.jpg' : s.a1;
+  const a1 = s.a1 && s.art === 'vorlage' ? s.a1 : s.art === 'foto' ? `Fotos/flasche-${p.id}.jpg` : s.art === 'schlankV' ? 'Fotos/flasche-kirsch.jpg' : s.a1;
   const a2 = ETIKETTEN[p.id] ? `Fertige Etiquetten/${ETIKETTEN[p.id]}` : null;
   if (!a2) fail(`${p.id}: kein flaches Etikett`);
   const ziel = `${FLASCHEN_ORDNER}/${p.id}.png`;
@@ -92,12 +92,13 @@ const ORIENT = {
   foto: 'Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals',
   schlankV: 'schlanke 0,5-L-Flasche, Foto der Kirsch-Flasche nur als Formvorbild',
   rund2: 'Foto mit zwei runden Flaschen: die große 0,5-L-Flasche rechts ist das Formvorbild, es entsteht nur EINE Flasche',
+  vorlage: 'leere Vorlagenflasche ohne Etikett, nur Form und Verschluss',
   gruppe: 'Gruppenfoto der Theke: nur die dunkle Karaffe vorn links ist das Formvorbild',
 };
 function baue(e) {
   const { s, id } = e;
-  const verschluss = s.art === 'foto' || s.art === 'schlankV' ? (id === 'vizdrepp' ? 'Glasstopfen' : GLASSTOPFEN) : s.verschluss;
-  const orient = s.form && s.art === 'foto' ? `Foto der Flasche dieser Sorte: ${s.form}` : ORIENT[s.art];
+  const verschluss = s.art === 'foto' || s.art === 'schlankV' ? GLASSTOPFEN : s.verschluss;
+  const orient = s.form && (s.art === 'foto' || s.art === 'vorlage') ? `Foto einer leeren Flasche dieser Form (ohne Etikett): ${s.form}` : ORIENT[s.art];
   const t = [
     `Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (${FORMAT}), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum.`,
     `Form, Verschluss und Proportionen orientieren sich an Anhang 1 (${orient}); nur Orientierung, nicht kopieren, nicht dessen Etikett.${s.extra ? ` ${s.extra}` : ''}`,
@@ -112,6 +113,7 @@ function baue(e) {
 const PROBLEM = {
   rund2: 'Zwei-Flaschen-Foto (0,2 L und 0,5 L): nur die große Flasche ist Formvorbild, ChatGPT könnte beide zeichnen; das Halsband ist gewollt und im Prompt beschrieben',
   gruppe: 'Gruppenfoto: nur eine Flasche von vielen, teils verdeckt; Form der Karaffe schwer zu erfassen',
+  vorlage: 'Leere Vorlagenflasche (ohne Etikett) auf schwarzem Grund; der Grund soll hell werden',
   schlankV: 'Formvorlage ist die Kirsch-Flasche, nicht die Flasche der Sorte',
 };
 const VORLAGE_PROBLEM = (e) => (e.id === 'gin' ? 'Zwei-Flaschen-Foto der Wodka-Flasche; Gin nur über Etikett und Beschreibung' :
