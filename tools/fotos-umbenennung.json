@@ -1,0 +1,320 @@
+{
+  "hinweis": "Zuordnung alt -> neu für Fotos/ (45 Dateien). Gelesen wird sie von tools/fotos_umbenennen.mjs. Zuordnung nach gelesenem Etikett; alle Einträge „eindeutig“. Mehrdeutige Etiketten (Poire, Kirsch, Quetsch, Pomme) wurden vergrößert geprüft.",
+  "dateien": [
+    {
+      "alt": "_DSC3024.jpg",
+      "neu": "flasche-poire-williams-altes-etikett.jpg",
+      "sorte": "poire-williams",
+      "inhalt": "Flasche, älteres Etikett (Marque Nationale)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3025.jpg",
+      "neu": "flasche-mirabelle-altes-etikett.jpg",
+      "sorte": "mirabelle",
+      "inhalt": "Flasche, älteres Etikett (Marque Nationale)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3026.jpg",
+      "neu": "flasche-neelchesbiren-altes-etikett.jpg",
+      "sorte": "neelchesbiren",
+      "inhalt": "Flasche, älteres Etikett (Marque Nationale)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3027.jpg",
+      "neu": "flasche-framboise-altes-etikett.jpg",
+      "sorte": "framboise",
+      "inhalt": "Flasche, älteres Etikett (Marque Nationale)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3028.jpg",
+      "neu": "flasche-quetsch-altes-etikett.jpg",
+      "sorte": "quetsch",
+      "inhalt": "Flasche, älteres Etikett (Marque Nationale)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3029.jpg",
+      "neu": "flasche-quetsch-altes-etikett-2.jpg",
+      "sorte": "quetsch",
+      "inhalt": "Flasche, älteres Etikett (Marque Nationale), zweites Foto",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3030.jpg",
+      "neu": "flasche-pomme-altes-etikett.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Pomme (Apfel), altes Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3031.jpg",
+      "neu": "flasche-pomme-altes-etikett-2.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Pomme (Apfel), altes Etikett, zweites Foto",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3032.jpg",
+      "neu": "flasche-kirsch-altes-etikett.jpg",
+      "sorte": "kirsch",
+      "inhalt": "Flasche, älteres Etikett (Marque Nationale)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3033.jpg",
+      "neu": "flasche-poire.jpg",
+      "sorte": "poire",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3034.jpg",
+      "neu": "flasche-poire-2.jpg",
+      "sorte": "poire",
+      "inhalt": "Flasche, aktuelles Etikett, zweites Foto",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3035.jpg",
+      "neu": "flasche-lenschouren.jpg",
+      "sorte": "lenschouren",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3036.jpg",
+      "neu": "flasche-mirabelle.jpg",
+      "sorte": "mirabelle",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3037.jpg",
+      "neu": "flasche-schleiwen.jpg",
+      "sorte": "schleiwen",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3038.jpg",
+      "neu": "flasche-kirsch.jpg",
+      "sorte": "kirsch",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3039.jpg",
+      "neu": "flasche-neelchesbiren.jpg",
+      "sorte": "neelchesbiren",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3040.jpg",
+      "neu": "flasche-kirsch-2.jpg",
+      "sorte": "kirsch",
+      "inhalt": "Flasche, aktuelles Etikett, zweites Foto",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3041.jpg",
+      "neu": "flasche-framboise.jpg",
+      "sorte": "framboise",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3042.jpg",
+      "neu": "flasche-poire-williams.jpg",
+      "sorte": "poire-williams",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3044.jpg",
+      "neu": "flasche-quetsch.jpg",
+      "sorte": "quetsch",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3046.jpg",
+      "neu": "flasche-kraeiderdrepp.jpg",
+      "sorte": "kraeiderdrepp",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3047.jpg",
+      "neu": "flasche-hunnegdrepp.jpg",
+      "sorte": "hunnegdrepp",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3048.jpg",
+      "neu": "flasche-pefferminz.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Peffermënz",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3049.jpg",
+      "neu": "flasche-kiwibeeren.jpg",
+      "sorte": "kiwibeeren",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3050.jpg",
+      "neu": "flasche-noessdrepp.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Nëssdrëpp",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3051.jpg",
+      "neu": "flasche-vieille-pomme.jpg",
+      "sorte": "vieille-pomme",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3052.jpg",
+      "neu": "flasche-vieille-prune.jpg",
+      "sorte": "vieille-prune",
+      "inhalt": "Flasche, aktuelles Etikett",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3053.jpg",
+      "neu": "flasche-williamsdrepp-nogeraeift.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Williamsdrëpp op Biren nogeräift, 35 %",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3054.jpg",
+      "neu": "flasche-vizdrepp.jpg",
+      "sorte": "vizdrepp",
+      "inhalt": "Flasche, aktuelles Etikett (breite, nach unten weitende Form)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3055.jpg",
+      "neu": "flasche-likoer-williams.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Williamslikör",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3056.jpg",
+      "neu": "flasche-likoer-viz.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Vizlikör (Apfel)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3057.jpg",
+      "neu": "flasche-likoer-quitten.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Quittenlikör",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3058.jpg",
+      "neu": "flasche-likoer-waldfruechte.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: De wëlle Mix, Waldfrüchte-Likör",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3059.jpg",
+      "neu": "flasche-likoer-schleiwen.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Schléiwenlikör",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3060.jpg",
+      "neu": "flasche-likoer-pije.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Pijenlikör (Aprikose)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3061.jpg",
+      "neu": "flasche-likoer-hambier.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Hambierlikör (Himbeere)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3063.jpg",
+      "neu": "flasche-likoer-mirabellen.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Mirabellenlikör",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3064.jpg",
+      "neu": "flasche-likoer-mandel.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Mandellikör",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3065.jpg",
+      "neu": "flasche-likoer-kiischten.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Kiischtenlikör (Kirsche)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3066.jpg",
+      "neu": "flasche-likoer-kraider.jpg",
+      "sorte": null,
+      "inhalt": "nicht auf der Seite: Kräiderlikör",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC0364.jpg",
+      "neu": "raum-verkaufsraum.jpg",
+      "sorte": null,
+      "inhalt": "Raumfoto: Verkaufsraum mit Holzregal und Theke",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC5258.jpg",
+      "neu": "raum-brennanlage-detail.jpg",
+      "sorte": null,
+      "inhalt": "Raumfoto: Brennanlage (Edelstahl und Kupfer), Detail",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC5270.jpg",
+      "neu": "raum-fassraum.jpg",
+      "sorte": null,
+      "inhalt": "Raumfoto: Fassraum mit Eichenfässern und Edelstahltanks",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC2076.jpg",
+      "neu": "raum-brennhalle-original.jpg",
+      "sorte": null,
+      "inhalt": "Raumfoto: Brennhalle mit Kolonne (großes Original, 5472x3648)",
+      "sicherheit": "eindeutig"
+    },
+    {
+      "alt": "_DSC3491.jpg",
+      "neu": "raum-hof-original.jpg",
+      "sorte": null,
+      "inhalt": "Raumfoto: Hofansicht mit Schild „Hierber Brennerei“ (großes Original, 5940x3964)",
+      "sicherheit": "eindeutig"
+    }
+  ]
+}
