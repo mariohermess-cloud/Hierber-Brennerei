@@ -1,0 +1,70 @@
+{% extends "rahmen.html" %}{% set aktiv='berichte' %}{% block titel %}Berichte{% endblock %}
+{% block inhalt %}
+<h1>Berichte</h1>
+<div class="karte">
+  <form method="get" class="zeile">
+    <div><label for="von">Von</label><input id="von" name="von" type="date" value="{{ von }}"></div>
+    <div><label for="bis">Bis</label><input id="bis" name="bis" type="date" value="{{ bis }}"></div>
+    <div style="flex:0"><button class="knopf voll">Anzeigen</button></div>
+    <div style="flex:0"><a class="knopf" href="/berichte/journal.csv?von={{ von }}&bis={{ bis }}">Journal als CSV</a></div>
+  </form>
+  <p class="hinweis" style="margin-top:10px">Das Journal enthält eine Zeile je Beleg und Steuersatz. Format für die Fiduciaire.</p>
+</div>
+
+<h2>Mehrwertsteuer</h2>
+<div class="karte">
+  <table>
+    <tr><th>Steuersatz</th><th class="z">Bemessungsgrundlage netto</th><th class="z">Steuer</th></tr>
+    {% for z in mwst.zeilen %}<tr>
+      <td>{{ z.mwst_satz|prozent }}</td><td class="z">{{ z.netto|euro }} €</td><td class="z">{{ z.mwst|euro }} €</td>
+    </tr>{% else %}<tr><td colspan="3" class="hinweis">Keine Belege im Zeitraum.</td></tr>{% endfor %}
+    <tr><td><strong>Summe</strong></td><td class="z"><strong>{{ mwst.netto_gesamt|euro }} €</strong></td>
+        <td class="z"><strong>{{ mwst.mwst_gesamt|euro }} €</strong></td></tr>
+  </table>
+  {% if mwst.innergemeinschaftlich %}
+  <h3 style="font-size:1rem;margin:18px 0 6px">Innergemeinschaftliche Lieferungen, Reverse Charge</h3>
+  <table>
+    <tr><th>Land</th><th>MwSt-Nummer</th><th>Kunde</th><th class="z">Netto</th></tr>
+    {% for i in mwst.innergemeinschaftlich %}<tr>
+      <td>{{ i.land }}</td><td>{{ i.mwst_nr }}</td><td>{{ i.name }}</td><td class="z">{{ i.netto|euro }} €</td>
+    </tr>{% endfor %}
+  </table>
+  <p class="hinweis">Diese Umsätze gehören in die zusammenfassende Meldung.</p>
+  {% endif %}
+</div>
+
+<h2>Umsatz nach Kanal</h2>
+<div class="karte"><table>
+  <tr><th>Kanal</th><th class="z">Rechnungen</th><th class="z">Netto</th><th class="z">Brutto</th></tr>
+  {% for k in kanal %}<tr><td>{{ k.kanal }}</td><td class="z">{{ k.rechnungen }}</td>
+    <td class="z">{{ k.netto|euro }} €</td><td class="z">{{ k.brutto|euro }} €</td></tr>
+  {% else %}<tr><td colspan="4" class="hinweis">Keine Umsätze im Zeitraum.</td></tr>{% endfor %}
+</table></div>
+
+<h2>Meistverkaufte Artikel</h2>
+<div class="karte"><table>
+  <tr><th>Produkt</th><th class="z">Größe</th><th class="z">Menge</th><th class="z">Netto</th></tr>
+  {% for p in produkte %}<tr><td>{{ p.produkt }}</td><td class="z">{{ p.fuellmenge_ml }} ml</td>
+    <td class="z">{{ p.menge|menge }}</td><td class="z">{{ p.netto|euro }} €</td></tr>
+  {% else %}<tr><td colspan="4" class="hinweis">Keine Verkäufe im Zeitraum.</td></tr>{% endfor %}
+</table></div>
+
+<h2>Alkoholbilanz für den Zoll</h2>
+<div class="karte"><table>
+  <tr><th>Monat</th><th class="z">Erzeugt l.A.</th><th class="z">Abgefüllt l.A.</th><th class="z">Abgang Flaschen l.A.</th></tr>
+  {% for a in alkohol %}<tr><td>{{ a.monat|datum }}</td><td class="z">{{ a.la_erzeugt }}</td>
+    <td class="z">{{ a.la_abgefuellt }}</td><td class="z">{{ a.la_abgang_flaschen }}</td></tr>
+  {% else %}<tr><td colspan="4" class="hinweis">Keine Bewegungen im Zeitraum.</td></tr>{% endfor %}
+</table>
+<p class="hinweis">l.A. = Liter reiner Alkohol. Grundlage für die Meldung an die Douanes et Accises.</p></div>
+
+<h2>Offene Posten</h2>
+<div class="karte"><table>
+  <tr><th>Nummer</th><th>Kunde</th><th>Fällig</th><th class="z">Brutto</th><th class="z">Bezahlt</th><th class="z">Offen</th></tr>
+  {% for o in offen %}<tr><td>{{ o.nummer }}</td><td>{{ o.kunde }}</td>
+    <td class="{{ 'ueberfaellig' if o.tage_ueberfaellig > 0 }}">{{ o.faellig_am|datum }}</td>
+    <td class="z">{{ o.brutto|euro }} €</td><td class="z">{{ o.bezahlt|euro }} €</td>
+    <td class="z">{{ o.offen|euro }} €</td></tr>
+  {% else %}<tr><td colspan="6" class="hinweis">Alles bezahlt.</td></tr>{% endfor %}
+</table></div>
+{% endblock %}

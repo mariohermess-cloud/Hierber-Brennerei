@@ -1,0 +1,23 @@
+{% extends "rahmen.html" %}{% set aktiv='belege' %}{% block titel %}Neue Rechnung{% endblock %}
+{% block inhalt %}
+<h1>Neue Rechnung</h1>
+<div class="karte">
+<form method="post" action="/belege">
+  <div class="zeile">
+    <div><label for="kunde_id">Kunde</label><select id="kunde_id" name="kunde_id" required>
+      {% for k in kunden %}<option value="{{ k.id }}">{{ k.nummer }} · {{ k.name }}{% if k.ort %} ({{ k.ort }}){% endif %}</option>{% endfor %}
+    </select></div>
+    <div><label for="kanal">Kanal</label><select id="kanal" name="kanal">
+      <option value="hofladen">Hofladen</option><option value="handel">Handel und Gastronomie</option>
+      <option value="web">Webshop</option><option value="markt">Markt</option>
+      <option value="fuehrung">Führung</option><option value="sonstiges">Sonstiges</option></select></div>
+    <div><label for="datum">Datum</label><input id="datum" name="datum" type="date" value="{{ heute }}"></div>
+  </div>
+  <div style="margin-top:10px"><label for="kopftext">Kopftext, optional</label>
+    <input id="kopftext" name="kopftext" placeholder="z. B. Ihre Bestellung vom 12.03."></div>
+  <p class="hinweis" style="margin:10px 0">Es entsteht ein Entwurf. Erst beim Festschreiben bekommt der Beleg eine Nummer und bucht Lager.</p>
+  <button class="knopf voll">Entwurf anlegen</button>
+</form>
+</div>
+<p class="hinweis">Kunde fehlt? <a href="/kunden">Hier anlegen</a>.</p>
+{% endblock %}
