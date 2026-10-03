@@ -70,6 +70,16 @@ export function flasche(IMG, p, { gross = false, label = true } = {}) {
     + svg + `<span class="fl-etikett" style="left:${f4(feld.left)}%;top:${f4(feld.top)}%;width:${f4(feld.width)}%;height:${f4(feld.height)}%">${pic}</span></span>`;
 }
 
+// Neu erzeugte Produktflasche (Foto fotos-flaschen/<id>.png, Hochformat 2:3, heller Studiogrund) statt der Vektor-Flasche.
+// Der Grund ist auf Weiß normalisiert und wird per mix-blend-mode: multiply auf die Bühnenfarbe gelegt (CSS .flasche-foto). Alt-Text wie bei der Vektor-Flasche.
+// gross: Sortenseite (LCP: eager, fetchpriority high); sonst Karte (lazy).
+export function flaschenFoto(IMG, p, { gross = false } = {}) {
+  const pic = bild(IMG, `flasche-${p.id}`, { alt: '', sizes: gross ? '(min-width: 800px) 480px, 75vw' : '(min-width: 1000px) 240px, 45vw', cls: 'ff-bild', eager: gross });
+  const eine = [...new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)))];
+  const aria = `Flasche ${p.name}${eine.length === 1 ? `, ${fmtMenge(eine[0])}` : ''}`;
+  return `<span class="flasche-foto"${gross ? ` role="img" aria-label="${esc(aria)}"` : ' aria-hidden="true"'}>${pic}</span>`;
+}
+
 // Eigenständiges SVG (ohne <use>, ohne CSS-Variablen) für die Rasterung der OG-Bilder. Etikett wird vom Aufrufer eingesetzt.
 export function flascheStandalone(id) {
   const typ = typVon(id), t = TYP[typ], f = FLUESSIGKEIT[id];

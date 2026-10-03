@@ -5,6 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
+import { FLASCHEN_ORDNER } from '../data/flaschenfotos.js';
+import { PRODUKTE } from '../data/produkte.js';
 import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
 import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
 import { typVon, TYP, labelFeld, flascheStandalone } from './flasche.mjs';
@@ -75,6 +77,49 @@ export async function warpeEtikett(quelle, ow) {
   return { data: out, w: ow, h: sh };
 }
 
+// ---------- Flaschenfotos (neu erzeugte Produktflasche mit aktuellem Etikett statt Vektor-Flasche) ----------
+// Quelle je Sorte: fotos-flaschen/<id>.png (Ergebnis des ChatGPT-Laufs, PROMPTS-FLASCHEN.md); fehlt die Datei, bleibt die Vektor-Flasche.
+// Alle Bilder haben dasselbe Format (Hochformat 2:3) und dieselbe Standfläche; der Grund ist hell und neutral (weißgrau).
+// Zum Testen kann HB_FLASCHEN_ZUSATZ auf ein Verzeichnis außerhalb des Repos zeigen: <id>.png dort hat Vorrang.
+export async function flaschenFotoQuelle(root, id) {
+  const kandidaten = [process.env.HB_FLASCHEN_ZUSATZ && path.join(path.resolve(process.env.HB_FLASCHEN_ZUSATZ), `${id}.png`), path.join(root, FLASCHEN_ORDNER, `${id}.png`)].filter(Boolean);
+  for (const k of kandidaten) { try { await fs.access(k); return k; } catch { /* nächste Quelle */ } }
+  return null;
+}
+const FF_BREITEN = [480, 960, 1280];
+const GAIN_MAX = 1.25; // Hintergrund wird auf Weiß angehoben (höchstens um 25 %), damit mix-blend-mode: multiply die Bühnenfarbe unverändert durchlässt
+
+// Hintergrund = 75. Perzentil je Kanal über einen Rahmen von 3 % Breite; liefert die Verstärkung je Kanal, die ihn auf Weiß hebt.
+async function hintergrundGain(quelle) {
+  const sw = 240;
+  const { data, info } = await sharp(quelle).flatten({ background: '#ffffff' }).removeAlpha().resize({ width: sw }).raw().toBuffer({ resolveWithObject: true });
+  const sh = info.height, r = Math.max(2, Math.round(sw * 0.03)), v = [[], [], []];
+  for (let y = 0; y < sh; y++) for (let x = 0; x < sw; x++) {
+    if (x >= r && x < sw - r && y >= r && y < sh - r) continue;
+    for (let c = 0; c < 3; c++) v[c].push(data[(y * sw + x) * 3 + c]);
+  }
+  const bg = v.map((l) => { l.sort((a, b) => a - b); return l[Math.floor(l.length * 0.75)]; }); // 75. Perzentil: hellere Randpartien werden Weiß, nur die dunkleren Ecken (Vignette) bleiben leicht grau
+  return { bg, gain: bg.map((x) => Math.min(GAIN_MAX, 255 / Math.max(1, x))) };
+}
+
+async function verarbeiteFlaschenfoto({ key, quelle, dist }) {
+  const meta = await sharp(quelle).metadata();
+  const breiten = breitenFuer(meta.width, FF_BREITEN);
+  const dir = path.join(dist, 'img');
+  await fs.mkdir(dir, { recursive: true });
+  const ziele = breiten.flatMap((w) => Object.keys(FORMATE).map((ext) => [w, ext, path.join(dir, `${key}-${w}.${ext}`)]));
+  const { gain } = await hintergrundGain(quelle);
+  if (!(await Promise.all(ziele.map(([, , o]) => istNeuer(o, quelle, DIESE_DATEI)))).every(Boolean)) {
+    for (const [w, ext, out] of ziele) {
+      let s = sharp(quelle).flatten({ background: '#ffffff' }).removeAlpha().linear(gain, [0, 0, 0]);
+      if (w !== meta.width) s = s.resize({ width: w, withoutEnlargement: true });
+      await FORMATE[ext](s).toFile(out);
+    }
+  }
+  const gr = breiten[breiten.length - 1];
+  return { key, breiten, w: gr, h: Math.round((meta.height * gr) / meta.width), quelleW: meta.width, quelleH: meta.height, flaschenfoto: true, gain };
+}
+
 async function verarbeite({ key, quelle, dist, flatten, liste, warpe = false }) {
   const meta = await sharp(quelle).metadata();
   const breiten = breitenFuer(meta.width, liste);
@@ -107,6 +152,10 @@ export async function bilder({ root, dist }) {
   for (const [id, datei] of Object.entries(ETIKETTEN)) {
     jobs.push(verarbeite({ key: `label-${id}`, quelle: path.join(root, 'Fertige Etiquetten', datei), dist, liste: LABEL_BREITEN, warpe: true }));
   }
+  for (const p of PRODUKTE) {
+    const q = await flaschenFotoQuelle(root, p.id);
+    if (q) jobs.push(verarbeiteFlaschenfoto({ key: `flasche-${p.id}`, quelle: q, dist }));
+  }
   for (const datei of FOTOS) {
     jobs.push(verarbeite({ key: `foto-${datei.replace(/\.[a-z]+$/, '')}`, quelle: path.join(root, 'fotos', datei), dist }));
   }
@@ -131,7 +180,7 @@ export async function bilder({ root, dist }) {
 }
 
 // OG-Bilder 1200x630: Etikett auf dunklem Holzgrund, dünner Kupferrahmen. Startseite und Sorten ohne Etikett: Hofschild-Foto (Ausschnitt, nicht hochskaliert).
-export async function ogBilder({ root, dist }) {
+export async function ogBilder({ root, dist, IMG = {} }) {
   const dir = path.join(dist, 'og');
   await fs.mkdir(dir, { recursive: true });
   const grund = { create: { width: 1200, height: 630, channels: 3, background: '#1b130d' } };
@@ -158,6 +207,15 @@ export async function ogBilder({ root, dist }) {
     const bx = Math.round((BUEHNE.w - bw) / 2), by = BUEHNE.h - 34 - bh + 4;
     const stage = await sharp(buehne).composite([{ input: fl, left: bx, top: by }, { input: et, left: bx + Math.round((feld.left / 100) * bw), top: by + Math.round((feld.top / 100) * bh) }]).png().toBuffer();
     await schreibe(out, stage);
+  }
+  // Sorten mit neu erzeugter Produktflasche (fotos-flaschen/<id>.png): Foto (Grund weiß) per multiply auf die cremefarbene Bühne, zentriert auf dunklem Grund
+  const buehneFoto = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="420" height="560"><rect width="420" height="560" rx="2" fill="#e6dbc8"/><rect y="526" width="420" height="34" fill="#cbbca2"/></svg>`);
+  for (const [key, m] of Object.entries(IMG)) {
+    if (!m.flaschenfoto) continue;
+    const id = key.replace(/^flasche-/, '');
+    const foto = await sharp(path.join(dist, 'img', `${key}-${m.breiten[m.breiten.length - 1]}.jpg`)).resize(420, 560, { fit: 'contain', position: 'bottom', background: '#ffffff' }).png().toBuffer();
+    const stage = await sharp(buehneFoto).composite([{ input: foto, blend: 'multiply' }]).png().toBuffer();
+    await schreibe(path.join(dir, `${id}.jpg`), stage);
   }
   // Sorten mit Produktfoto (FOTO_SORTEN, derzeit keine): Foto auf schwarzem Grund, ganz sichtbar
   for (const [id, f] of Object.entries(FOTO_SORTEN)) {

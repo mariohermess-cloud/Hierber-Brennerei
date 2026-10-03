@@ -4,20 +4,22 @@ import { GRUPPEN } from '../data/gruppen.js';
 import { ANLAESSE, anlaesseVon } from '../data/anlaesse.js';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
-import { flasche, FLASCHEN_DEFS } from './flasche.mjs';
+import { flasche, flaschenFoto, FLASCHEN_DEFS } from './flasche.mjs';
 import { STR } from './i18n.mjs';
 import { esc, pfad, absUrl, fmtAbv, fmtPreis, preisInfo, BASE, NB } from './util.mjs';
 import { seite, bild, folgt, TELEFON, OSM } from './layout.mjs';
 
 export const produktById = (id) => PRODUKTE.find((p) => p.id === id);
 
-// Sortenkarte: flaches Etikett (Grafik) auf Holzton; ohne Etikett beschrifteter Platzhalter.
+// Sortenkarte: neu erzeugte Produktflasche (fotos-flaschen/<id>.png), sonst Vektor-Flasche mit flachem Etikett auf Holzton; ohne Etikett beschrifteter Platzhalter.
 export function karte(IMG, p, lang, { anlass = true } = {}) {
   const t = STR[lang];
   const info = preisInfo(p);
   const foto = FOTO_SORTEN[p.id];
   let bildHtml;
-  if (ETIKETTEN[p.id]) bildHtml = flasche(IMG, p);
+  const mitFoto = !!IMG[`flasche-${p.id}`];
+  if (mitFoto) bildHtml = flaschenFoto(IMG, p);
+  else if (ETIKETTEN[p.id]) bildHtml = flasche(IMG, p);
   else if (foto) bildHtml = `<span class="karte-foto">${bild(IMG, `foto-${foto.karte}`, { alt: '', sizes: '(min-width: 1000px) 260px, 45vw', cls: 'karte-foto-bild' }).replace('<img ', `<img style="object-position:${foto.pos}" `)}</span>`;
   else bildHtml = `<span class="karte-platzhalter" data-todo="foto"><span>${esc(p.name)}</span><span>${t.etikettFolgt}</span></span>`;
   const preis = info
@@ -25,7 +27,7 @@ export function karte(IMG, p, lang, { anlass = true } = {}) {
     : `<span class="preis anfrage" data-preis-anfrage>${t.preisAnfrage}</span>`;
   const an = anlass ? ` data-anlass="${anlaesseVon(p.id).join(' ')}"` : '';
   return `<li class="karte-li" data-id="${p.id}"${an}><a class="karte" href="${pfad(lang, `/brand/${p.id}/`)}">`
-    + `<span class="karte-bild">${bildHtml}</span>`
+    + `<span class="karte-bild${mitFoto ? ' karte-bild-foto' : ''}">${bildHtml}</span>`
     + `<span class="karte-name" data-sortenname="${esc(p.name)}">${esc(p.name)}</span>`
     + `<span class="karte-meta"><span data-abv="${p.abv}">${fmtAbv(p.abv)}</span> <span aria-hidden="true">·</span> ${preis}</span></a></li>`;
 }

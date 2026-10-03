@@ -2,7 +2,7 @@
 import { PRODUKTE } from '../data/produkte.js';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
-import { flasche, FLASCHEN_DEFS } from './flasche.mjs';
+import { flasche, flaschenFoto, FLASCHEN_DEFS } from './flasche.mjs';
 import { TEXTE, FAMILIE, FAM } from '../data/texte.js';
 import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
 import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
@@ -138,9 +138,10 @@ export function sortenseite(IMG, p, lang) {
   const gruppe = gruppeVon(p.id);
   const hatEtikett = !!ETIKETTEN[p.id];
   const foto = FOTO_SORTEN[p.id];
-  // Hauptbild: Vektor-Flasche mit aktuellem Etikett; Sorten ohne flaches Etikett: Produktfoto (Rum, Limoncello, Sambuca) bzw. beschrifteter Platzhalter
+  // Hauptbild: neu erzeugte Produktflasche (fotos-flaschen/<id>.png), sonst Vektor-Flasche mit aktuellem Etikett; Sorten ohne flaches Etikett: Produktfoto (Rum, Limoncello, Sambuca) bzw. beschrifteter Platzhalter
   let hauptBild, hauptKlasse = 'buehne-rahmen';
-  if (hatEtikett) hauptBild = `<div class="buehne">${flasche(IMG, p, { gross: true })}</div>`;
+  if (IMG[`flasche-${p.id}`]) hauptBild = `<div class="buehne buehne-foto">${flaschenFoto(IMG, p, { gross: true })}</div>`;
+  else if (hatEtikett) hauptBild = `<div class="buehne">${flasche(IMG, p, { gross: true })}</div>`;
   else if (foto) { hauptKlasse = 'foto-rahmen rahmen'; hauptBild = bild(IMG, `foto-${foto.haupt}`, { alt: foto.alt, sizes: '(min-width: 800px) 560px, 92vw', eager: true }); }
   else hauptBild = `<div class="etikett-platzhalter platz" data-todo="foto"><span class="platz-marke">Hierber Brennerei</span><span class="platz-name">${esc(p.name)}</span><span>${t.etikettFolgt}</span></div>`;
   const tastDe = `<dl class="verkostung">

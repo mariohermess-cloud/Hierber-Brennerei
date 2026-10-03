@@ -44,7 +44,7 @@ for (const n of await fs.readdir(path.join(dist, 'img')).catch(() => [])) {
   if (/^foto-(verkaufsraum|brennanlage|lagerraum)-/.test(n)) await fs.rm(path.join(dist, 'img', n));
 }
 const IMG = await bilder({ root, dist });
-await ogBilder({ root, dist });
+await ogBilder({ root, dist, IMG });
 
 // Katalog für die Anfrage-Seite (Namen und Preise aus produkte.js)
 const kat = Object.fromEntries(PRODUKTE.map((p) => [p.id, {
