@@ -117,8 +117,25 @@
       if (txt) txt.textContent = varName() + (g ? ', ' + g.getAttribute('data-menge').replace(' ', NB) : '');
       if (preisEl && g) preisEl.textContent = euro(g.getAttribute('data-preis'));
     };
-    kauf.addEventListener('change', zeige);
+    /* Bühne im Kopf: zur gewählten Größe das Bild dieser Größe zeigen (data-bild-menge), sonst das Hauptbild (data-bild-haupt, 0,5 L bzw. Vektor-Flasche) */
+    var buehne = $('[data-buehne]');
+    var zeigeBild = function () {
+      if (!buehne) return;
+      var g = aktGroesse(), m = g ? g.getAttribute('data-menge') : null;
+      var alle = $$('[data-bild-menge], [data-bild-haupt]', buehne);
+      var ziel = alle.filter(function (e) { return e.getAttribute('data-bild-menge') === m; })[0] || $('[data-bild-haupt]', buehne);
+      if (!ziel) return;
+      alle.forEach(function (e) { e.hidden = e !== ziel; });
+    };
+    kauf.addEventListener('change', function () { zeige(); zeigeBild(); });
+    /* click auch bei schon gewählter Größe (die Standardgröße zeigt beim Laden das Hauptbild) */
+    kauf.addEventListener('click', function (e) { if (e.target && e.target.name === 'groesse') zeigeBild(); });
     zeige();
+    /* vom Browser wiederhergestellte Auswahl (Reload, Zurück): Bild passend zur gewählten Größe, wenn sie nicht die erste ist */
+    if (buehne) {
+      var erste = $('input[name="groesse"]', kauf), g0 = aktGroesse();
+      if (erste && g0 && g0 !== erste) zeigeBild();
+    }
     var add = $('[data-merk-add]', kauf);
     if (add) add.addEventListener('click', function () {
       var g = aktGroesse(), v = aktVar(), menge = g ? g.getAttribute('data-menge') : null;

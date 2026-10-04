@@ -4,25 +4,23 @@
     "sorte": "Hierber Gin",
     "groesse": "0,2 L",
     "dateiname": "fotos-flaschen/gin-0-2l.png",
-    "anhang1": "fotos-basis/rund-0-7l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
     "anhang2": "Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png",
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form. Verschluss: flache, mattsilberne Metallkappe. Halsband: schmales Papierband um den Hals, hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/gin-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form. Verschluss: flache, mattsilberne Metallkappe. Halsband: schmales Papierband um den Hals, hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/gin-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
-      "Basis weicht ab (Größe)",
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,2 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Mengenangabe auf dem Etikett lautet „0,2 l“ (nicht „0,5 l“)",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
       "Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %",
-      "Größenverhältnis plausibel: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form; Etikett mitskaliert, in der unteren Hälfte",
+      "Größenverhältnis plausibel: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form; Etikett mitskaliert, in der unteren Hälfte",
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
-      "Halsband vorhanden und passend: hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png zeigt die runde 0,7-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Halsband vorhanden und passend: hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png ist nicht die 0,2 L-Flasche; Maßstab nur über die Beschreibung; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
-    "status": "offen",
+    "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
+    "status": "vorhanden",
     "woerter": 245,
-    "vorlageArt": "rund-ersatz"
+    "vorlageArt": "rund"
   },
   {
     "id": "gin-1-0l",
@@ -43,7 +41,7 @@
       "Halsband vorhanden und passend: hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 233,
     "vorlageArt": "rund"
   },
@@ -66,7 +64,7 @@
       "Halsband vorhanden und passend: hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 233,
     "vorlageArt": "rund"
   },
@@ -75,50 +73,46 @@
     "sorte": "Hierber Wodka",
     "groesse": "0,2 L",
     "dateiname": "fotos-flaschen/wodka-0-2l.png",
-    "anhang1": "fotos-basis/rund-0-7l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
     "anhang2": "Fertige Etiquetten/Branntwein Wodka-01.png",
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form. Verschluss: flache, mattsilberne Metallkappe. Halsband: schmales Papierband um den Hals, hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/wodka-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form. Verschluss: flache, mattsilberne Metallkappe. Halsband: schmales Papierband um den Hals, hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/wodka-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
-      "Basis weicht ab (Größe)",
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,2 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Mengenangabe auf dem Etikett lautet „0,2 l“ (nicht „0,5 l“)",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
       "Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %",
-      "Größenverhältnis plausibel: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form; Etikett mitskaliert, in der unteren Hälfte",
+      "Größenverhältnis plausibel: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form; Etikett mitskaliert, in der unteren Hälfte",
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
-      "Halsband vorhanden und passend: hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png zeigt die runde 0,7-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Halsband vorhanden und passend: hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png ist nicht die 0,2 L-Flasche; Maßstab nur über die Beschreibung; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
-    "status": "offen",
+    "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
+    "status": "vorhanden",
     "woerter": 245,
-    "vorlageArt": "rund-ersatz"
+    "vorlageArt": "rund"
   },
   {
     "id": "rum-0-2l",
     "sorte": "Hierber Rum",
     "groesse": "0,2 L",
     "dateiname": "fotos-flaschen/rum-0-2l.png",
-    "anhang1": "fotos-basis/rund-0-7l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
     "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum nei-01.png",
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form. Verschluss: dunkelbraune Holzkappe. Halsband: schmales Papierband um den Hals, braungraues Band mit heller Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: goldenes Bernstein, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/rum-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form. Verschluss: dunkelbraune Holzkappe. Halsband: schmales Papierband um den Hals, braungraues Band mit heller Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: goldenes Bernstein, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/rum-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
-      "Basis weicht ab (Größe)",
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,2 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Mengenangabe auf dem Etikett lautet „0,2 l“ (nicht „0,5 l“)",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
       "Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %",
-      "Größenverhältnis plausibel: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form; Etikett mitskaliert, in der unteren Hälfte",
+      "Größenverhältnis plausibel: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form; Etikett mitskaliert, in der unteren Hälfte",
       "Flüssigkeit: goldenes Bernstein, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
-      "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png zeigt die runde 0,7-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png ist nicht die 0,2 L-Flasche; Maßstab nur über die Beschreibung; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
-    "status": "offen",
+    "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
+    "status": "vorhanden",
     "woerter": 243,
-    "vorlageArt": "rund-ersatz"
+    "vorlageArt": "rund"
   },
   {
     "id": "rum-1-0l",
@@ -139,7 +133,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 232,
     "vorlageArt": "rund"
   },
@@ -162,7 +156,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 232,
     "vorlageArt": "rund"
   },
@@ -171,25 +165,23 @@
     "sorte": "Hierber Rum Orange",
     "groesse": "0,2 L",
     "dateiname": "fotos-flaschen/rum-orange-0-2l.png",
-    "anhang1": "fotos-basis/rund-0-7l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
     "anhang2": "Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png",
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form. Verschluss: dunkelbraune Holzkappe. Halsband: schmales Papierband um den Hals, braungraues Band mit heller Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: Bernstein, etwas orangener als im Foto (Orange-Bernstein), bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/rum-orange-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form. Verschluss: dunkelbraune Holzkappe. Halsband: schmales Papierband um den Hals, braungraues Band mit heller Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: Bernstein, etwas orangener als im Foto (Orange-Bernstein), bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/rum-orange-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
-      "Basis weicht ab (Größe)",
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,2 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Mengenangabe auf dem Etikett lautet „0,2 l“ (nicht „0,5 l“)",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
       "Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %",
-      "Größenverhältnis plausibel: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form; Etikett mitskaliert, in der unteren Hälfte",
+      "Größenverhältnis plausibel: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form; Etikett mitskaliert, in der unteren Hälfte",
       "Flüssigkeit: Bernstein, etwas orangener als im Foto (Orange-Bernstein), bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
-      "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png zeigt die runde 0,7-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png ist nicht die 0,2 L-Flasche; Maßstab nur über die Beschreibung; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
-    "status": "offen",
+    "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
+    "status": "vorhanden",
     "woerter": 248,
-    "vorlageArt": "rund-ersatz"
+    "vorlageArt": "rund"
   },
   {
     "id": "rum-orange-1-0l",
@@ -210,7 +202,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 237,
     "vorlageArt": "rund"
   },
@@ -233,7 +225,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 237,
     "vorlageArt": "rund"
   },
@@ -242,25 +234,23 @@
     "sorte": "Hierber Whisky",
     "groesse": "0,2 L",
     "dateiname": "fotos-flaschen/whisky-0-2l.png",
-    "anhang1": "fotos-basis/rund-0-7l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
     "anhang2": "Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png",
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form. Verschluss: schwarze Schraubkappe statt Holzkappe. Halsband: schmales Papierband um den Hals, braungraues Band mit heller Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/whisky-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form. Verschluss: schwarze Schraubkappe statt Holzkappe. Halsband: schmales Papierband um den Hals, braungraues Band mit heller Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/whisky-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
-      "Basis weicht ab (Größe)",
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,2 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Mengenangabe auf dem Etikett lautet „0,2 l“ (nicht „0,5 l“)",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
       "Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %",
-      "Größenverhältnis plausibel: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form; Etikett mitskaliert, in der unteren Hälfte",
+      "Größenverhältnis plausibel: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form; Etikett mitskaliert, in der unteren Hälfte",
       "Flüssigkeit: goldgelb, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
-      "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png zeigt die runde 0,7-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png ist nicht die 0,2 L-Flasche; Maßstab nur über die Beschreibung; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
-    "status": "offen",
+    "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
+    "status": "vorhanden",
     "woerter": 244,
-    "vorlageArt": "rund-ersatz"
+    "vorlageArt": "rund"
   },
   {
     "id": "whisky-1-0l",
@@ -281,7 +271,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 231,
     "vorlageArt": "rund"
   },
@@ -304,7 +294,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 231,
     "vorlageArt": "rund"
   },
@@ -327,7 +317,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 224,
     "vorlageArt": "schlank"
   },
@@ -350,7 +340,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 224,
     "vorlageArt": "schlank"
   },
@@ -359,7 +349,7 @@
     "sorte": "Framboise",
     "groesse": "0,7 L",
     "dateiname": "fotos-flaschen/framboise-0-7l.png",
-    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
     "anhang2": "Fertige Etiquetten/Brandwein Framboise-01.png",
     "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/framboise-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
@@ -372,9 +362,9 @@
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png zeigt die schlanke Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung; Dateiname „rund“, Form aber schlank",
+    "problem": "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung",
     "status": "offen",
     "woerter": 233,
     "vorlageArt": "schlank-ersatz"
@@ -398,7 +388,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 224,
     "vorlageArt": "schlank"
   },
@@ -407,7 +397,7 @@
     "sorte": "Quetsch",
     "groesse": "0,7 L",
     "dateiname": "fotos-flaschen/quetsch-0-7l.png",
-    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
     "anhang2": "Fertige Etiquetten/Brandwein Quetsch-01.png",
     "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quetsch-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
@@ -420,9 +410,9 @@
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png zeigt die schlanke Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung; Dateiname „rund“, Form aber schlank",
+    "problem": "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung",
     "status": "offen",
     "woerter": 233,
     "vorlageArt": "schlank-ersatz"
@@ -446,7 +436,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 224,
     "vorlageArt": "schlank"
   },
@@ -455,7 +445,7 @@
     "sorte": "Poire Williams",
     "groesse": "0,7 L",
     "dateiname": "fotos-flaschen/poire-williams-0-7l.png",
-    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
     "anhang2": "Fertige Etiquetten/Brandwein Williams-01.png",
     "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/poire-williams-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
@@ -468,9 +458,9 @@
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png zeigt die schlanke Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung; Dateiname „rund“, Form aber schlank",
+    "problem": "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung",
     "status": "offen",
     "woerter": 233,
     "vorlageArt": "schlank-ersatz"
@@ -503,7 +493,7 @@
     "sorte": "Mirabelle",
     "groesse": "0,7 L",
     "dateiname": "fotos-flaschen/mirabelle-0-7l.png",
-    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
     "anhang2": "Fertige Etiquetten/Brandwein Mirabelle-01.png",
     "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
@@ -516,9 +506,9 @@
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png zeigt die schlanke Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung; Dateiname „rund“, Form aber schlank",
+    "problem": "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung",
     "status": "offen",
     "woerter": 233,
     "vorlageArt": "schlank-ersatz"
@@ -689,7 +679,7 @@
     "sorte": "Grain",
     "groesse": "1 L",
     "dateiname": "fotos-flaschen/grain-1-0l.png",
-    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
     "anhang2": "Fertige Etiquetten/Branntwein Grain-01.png",
     "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich größer als in Anhang 1, 1-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „1 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/grain-1-0l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
@@ -702,9 +692,9 @@
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png zeigt die schlanke Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png ist nicht die 1 L-Flasche; Maßstab nur über die Beschreibung; Dateiname „rund“, Form aber schlank",
+    "problem": "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 1 L-Flasche; Maßstab nur über die Beschreibung",
     "status": "offen",
     "woerter": 231,
     "vorlageArt": "schlank-ersatz"
@@ -760,7 +750,7 @@
     "sorte": "Neelchesbiren",
     "groesse": "0,7 L",
     "dateiname": "fotos-flaschen/neelchesbiren-0-7l.png",
-    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
     "anhang2": "Fertige Etiquetten/Brandwein Nelchensbiren-01.png",
     "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/neelchesbiren-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
@@ -773,9 +763,9 @@
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png zeigt die schlanke Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung; Dateiname „rund“, Form aber schlank",
+    "problem": "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung",
     "status": "offen",
     "woerter": 233,
     "vorlageArt": "schlank-ersatz"
@@ -808,7 +798,7 @@
     "sorte": "Lënschouren",
     "groesse": "0,7 L",
     "dateiname": "fotos-flaschen/lenschouren-0-7l.png",
-    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
     "anhang2": "Fertige Etiquetten/Brandwein Lenschouren-01.png",
     "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/lenschouren-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
@@ -821,9 +811,9 @@
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png zeigt die schlanke Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung; Dateiname „rund“, Form aber schlank",
+    "problem": "Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung",
     "status": "offen",
     "woerter": 233,
     "vorlageArt": "schlank-ersatz"
@@ -856,25 +846,23 @@
     "sorte": "Hierber Sambuca",
     "groesse": "0,2 L",
     "dateiname": "fotos-flaschen/sambuca-0-2l.png",
-    "anhang1": "fotos-basis/rund-0-7l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
     "anhang2": "Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png",
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form. Verschluss: grauer, spitz zulaufender Metallausgießer. Halsband: schmales Papierband um den Hals, dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/sambuca-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form. Verschluss: grauer, spitz zulaufender Metallausgießer. Halsband: schmales Papierband um den Hals, dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/sambuca-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
-      "Basis weicht ab (Größe)",
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,2 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Mengenangabe auf dem Etikett lautet „0,2 l“ (nicht „0,5 l“)",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
       "Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %",
-      "Größenverhältnis plausibel: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form; Etikett mitskaliert, in der unteren Hälfte",
+      "Größenverhältnis plausibel: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form; Etikett mitskaliert, in der unteren Hälfte",
       "Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
-      "Halsband vorhanden und passend: dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png zeigt die runde 0,7-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Halsband vorhanden und passend: dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png ist nicht die 0,2 L-Flasche; Maßstab nur über die Beschreibung; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
+    "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
     "status": "offen",
     "woerter": 248,
-    "vorlageArt": "rund-ersatz"
+    "vorlageArt": "rund"
   },
   {
     "id": "sambuca-1-0l",
@@ -927,25 +915,23 @@
     "sorte": "Hierber Limoncello",
     "groesse": "0,2 L",
     "dateiname": "fotos-flaschen/limoncello-0-2l.png",
-    "anhang1": "fotos-basis/rund-0-7l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
     "anhang2": "Fertige Etiquetten/Branntwein Limoncello-01.png",
-    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form. Verschluss: grauer, spitz zulaufender Metallausgießer. Halsband: schmales Papierband um den Hals, gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: leuchtendes Gelbgrün, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/limoncello-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form. Verschluss: grauer, spitz zulaufender Metallausgießer. Halsband: schmales Papierband um den Hals, gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen). Flüssigkeit: leuchtendes Gelbgrün, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,2 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/limoncello-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
     "hinweise": [
-      "Basis weicht ab (Größe)",
       "Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,2 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern",
       "Mengenangabe auf dem Etikett lautet „0,2 l“ (nicht „0,5 l“)",
       "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum",
       "Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %",
-      "Größenverhältnis plausibel: deutlich kleiner als in Anhang 1, etwa halbe Höhe, 0,2 L-Flasche derselben runden Form; Etikett mitskaliert, in der unteren Hälfte",
+      "Größenverhältnis plausibel: deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form; Etikett mitskaliert, in der unteren Hälfte",
       "Flüssigkeit: leuchtendes Gelbgrün, bis zum Hals gefüllt",
       "Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)",
-      "Halsband vorhanden und passend: gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“",
-      "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png zeigt die runde 0,7-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben"
+      "Halsband vorhanden und passend: gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“"
     ],
-    "problem": "Basis weicht ab (Größe): fotos-basis/rund-0-7l.png ist nicht die 0,2 L-Flasche; Maßstab nur über die Beschreibung; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
+    "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung",
     "status": "offen",
     "woerter": 246,
-    "vorlageArt": "rund-ersatz"
+    "vorlageArt": "rund"
   },
   {
     "id": "limoncello-1-0l",

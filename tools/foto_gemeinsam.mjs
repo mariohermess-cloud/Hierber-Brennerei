@@ -36,11 +36,12 @@ export const woerter = (s) => s.split(/\s+/).filter(Boolean).length;
 
 // ---------- Flaschen-Prompts (gemeinsam für tools/foto_prompts_flaschen.mjs und tools/foto_prompts_groessen.mjs) ----------
 // Je Sorte: Art der Vorlage, Verschluss, Flüssigkeit, Zusatz. Verschlüsse und Formen sind an den Fotos abgelesen.
-//  foto      = schlanke Sorte, Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Name täuscht, Form ist schlank)
+//  foto      = schlanke Sorte, Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png
 //  schlankV  = wie foto (Sorte ohne eigenes Flaschenfoto in Fotos/); beide Arten haben im Prompt dieselbe Orientierung
-//  rund      = etikettierte KI-Vorlage fotos/vorlage-rund-*.png
+//  rund      = runde Sorte, Anhang 1 ist die leere runde Basisflasche fotos-basis/rund-0-5l.png (Korken; Kappe/Halsband der Sorte stehen im Prompt)
 //  vorlage   = eigene Vorlagenflasche (Vizdrëpp) bzw. leere Karaffe aus fotos-basis/ (Vieux Marc)
-export const BASIS_SCHLANK_05 = 'fotos-basis/rund-0-5l.png';
+export const BASIS_SCHLANK_05 = 'fotos-basis/schlank-0-5l.png';
+export const BASIS_RUND_05 = 'fotos-basis/rund-0-5l.png';
 export const GLASSTOPFEN = 'Glasstopfen mit Kork';
 export const SORTEN = {
   kirsch: { art: 'foto', fl: 'klar wie Wasser' }, framboise: { art: 'foto', fl: 'klar wie Wasser' }, quetsch: { art: 'foto', fl: 'klar wie Wasser' },
@@ -52,15 +53,15 @@ export const SORTEN = {
   vizdrepp: { art: 'vorlage', a1: 'fotos/vorlage-vizdrepp.png', form: 'schlanker Hals, nach unten glockenförmig breiter werdender Körper mit eingewölbtem Boden', verschluss: 'Glasstopfen mit flachem, breitem Kragen', fl: 'kräftiges, klares Goldgelb', extra: 'Das Etikett ist querformatig.' },
   kuerbisdrepp: { art: 'schlankV', fl: 'klar wie Wasser' }, grain: { art: 'schlankV', fl: 'klar wie Wasser' },
   hondsaarsch: { art: 'schlankV', fl: 'klar wie Wasser' }, vullekiischt: { art: 'schlankV', fl: 'klar wie Wasser' },
-  wodka: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
-  gin: { art: 'rund', a1: 'fotos/vorlage-rund-gin.png', verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser', extra: 'Es entsteht eine Gin-Flasche in der Form der Wodka-Flasche.' },
-  rum: { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'dunkelbraune Holzkappe', fl: 'goldenes Bernstein' },
-  'rum-orange': { art: 'rund', a1: 'fotos/vorlage-rund-rum-orange.png', verschluss: 'dunkelbraune Holzkappe', fl: 'Bernstein, etwas orangener als im Foto (Orange-Bernstein)' },
-  whisky: { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'goldgelb', extra: 'Es entsteht eine Whisky-Flasche in der Form der Rum-Flasche.' },
-  'hunneg-whisky': { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'warmes, honigfarbenes Goldgelb', extra: 'Es entsteht eine Hunneg-Whisky-Flasche in der Form der Rum-Flasche.' },
-  limoncello: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'leuchtendes Gelbgrün' },
-  sambuca: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'klar wie Wasser' },
-  'hierber-fruucht': { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'rotbraune Holzkappe', fl: 'warmes, kräftiges Orange-Bernstein' },
+  wodka: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
+  gin: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
+  rum: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'dunkelbraune Holzkappe', fl: 'goldenes Bernstein' },
+  'rum-orange': { art: 'rund', a1: BASIS_RUND_05, verschluss: 'dunkelbraune Holzkappe', fl: 'Bernstein, etwas orangener als im Foto (Orange-Bernstein)' },
+  whisky: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'goldgelb' },
+  'hunneg-whisky': { art: 'rund', a1: BASIS_RUND_05, verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'warmes, honigfarbenes Goldgelb' },
+  limoncello: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'leuchtendes Gelbgrün' },
+  sambuca: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'klar wie Wasser' },
+  'hierber-fruucht': { art: 'rund', a1: BASIS_RUND_05, verschluss: 'rotbraune Holzkappe', fl: 'warmes, kräftiges Orange-Bernstein' },
   'vieux-marc': { art: 'vorlage', a1: 'fotos-basis/karaffe-0-7l.png', form: 'Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper; das Glas im Foto ist klar und der Verschluss ein Glasstopfen, Glasfarbe und Verschluss gelten wie weiter unten beschrieben', verschluss: 'schwarzer Ausgießer', fl: 'dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen' },
 };
 

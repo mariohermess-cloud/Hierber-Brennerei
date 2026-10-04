@@ -35,6 +35,15 @@ sh tools/lighthouse.sh http://localhost:8770/ /tmp/lh.json
 | `site/lib/*.mjs` | Seitenbausteine (Start, Sorte, Anfrage, Pflichtseiten, Flasche, Bildpipeline, i18n) |
 | `site/assets/` | CSS, JS, Favicon; Schriften kommen aus `assets/fonts/` |
 
+## Fotos übernehmen
+Neue Bilder des Nutzers: Flaschenbilder (1024 × 1536) nach `fotos-flaschen/` (`<sorten-id>.png` = Hauptbild 0,5 L, gleichwertig `<sorten-id>-0-5l.png`; weitere Größen `<sorten-id>-<0-1l|0-2l|0-7l|1-0l|1-5l>.png`), Serviervorschläge (1448 × 1086) nach `fotos-ki/` (`<sorten-id>-<n>.png`), Basisflaschen nach `fotos-basis/`. Danach ein Befehl:
+
+```sh
+node tools/fotos_uebernehmen.mjs   # --ohne-build überspringt den Build, --browser startet zusätzlich die Browserprüfung
+```
+
+Er prüft Namen und Bildformat (nur Meldung), führt die Foto-Generatoren aus, baut `dist/`, startet die Prüfskripte und schreibt `FOTO-STAND.md` (Sorte × Größe). Die Sortenseite zeigt im Kopf das Hauptbild und tauscht beim Wählen einer Größe das Bild dieser Größe ein. Einzelheiten und Ablauf des Chefs: `CLAUDE.md`, Abschnitt „Fotos übernehmen“.
+
 ## Bilder ergänzen
 Foto in `fotos/` legen, in `site/lib/bilder.mjs` (`FOTOS`) eintragen und mit `bild(IMG, 'foto-<dateiname-ohne-endung>', {...})` einsetzen. Die Pipeline erzeugt AVIF, WebP und JPEG in 480/960/1600 Breite (nie über die Quellbreite hinaus). Neues Etikett: Datei in `Fertige Etiquetten/` ersetzen, Zuordnung in `site/data/etiketten.js`. Produktfoto statt Etikett: `FOTO_SORTEN` in `site/data/flaschen.js`.
 

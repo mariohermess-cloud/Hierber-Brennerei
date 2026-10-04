@@ -2,10 +2,10 @@
 // Aufruf: node tools/foto_prompts_flaschen.mjs   (vor node tools/chatgpt_stapel.mjs)
 //   Exit-Code 1, wenn eine Anhangdatei fehlt, ein Zielname doppelt vorkommt, die Sortenzahl nicht stimmt oder ein Prompt zu lang ist.
 // Liest (nur lesend): site/data/produkte.js, etiketten.js, flaschen.js, flaschenfotos.js, Fertige Etiquetten/, fotos/ und fotos-basis/ (Existenzprüfung),
-//   fotos-flaschen/ (nur Existenzprüfung; bestimmt den Status vorhanden/offen; der Ordner wird NICHT angelegt)
+//   fotos-flaschen/ (nur Existenzprüfung; <id>.png ODER <id>-0-5l.png zählt als vorhanden; der Ordner wird NICHT angelegt)
 // Schreibt: PROMPTS-FLASCHEN.md, tools/foto-prompts-flaschen.json
-// Anhang 1 = leere Flasche ohne Etikett als Formvorbild (schlanke Sorten: fotos-basis/rund-0-5l.png, Vieux Marc: fotos-basis/karaffe-0-7l.png; runde Sorten und Vizdrëpp: etikettierte Vorlagen in fotos/), Anhang 2 = aktuelles flaches Etikett.
-// Ergebnis: fotos-flaschen/<sorten-id>.png, Hochformat 1024x1536 (vom Nutzer gefüllt). Alle 29 Sorten bekommen einen Lauf; die Fotos in Fotos/ und fotos-basis/ werden nicht ausgeliefert.
+// Anhang 1 = leere Flasche ohne Etikett als Formvorbild (schlanke Sorten: fotos-basis/schlank-0-5l.png, runde Sorten: fotos-basis/rund-0-5l.png, Vieux Marc: fotos-basis/karaffe-0-7l.png; Vizdrëpp: etikettierte Vorlage fotos/vorlage-vizdrepp.png), Anhang 2 = aktuelles flaches Etikett.
+// Ergebnis: fotos-flaschen/<sorten-id>.png (oder gleichwertig <sorten-id>-0-5l.png), Hochformat 1024x1536 (vom Nutzer gefüllt). Alle 29 Sorten bekommen einen Lauf; die Fotos in Fotos/ und fotos-basis/ werden nicht ausgeliefert.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -34,7 +34,7 @@ const sorten = PRODUKTE.map((p) => {
   const a2 = ETIKETTEN[p.id] ? `Fertige Etiquetten/${ETIKETTEN[p.id]}` : null;
   if (!a2) fail(`${p.id}: kein flaches Etikett`);
   const ziel = `${FLASCHEN_ORDNER}/${p.id}.png`;
-  const status = existiert(ziel) ? 'vorhanden' : 'offen';
+  const status = existiert(ziel) || existiert(`${FLASCHEN_ORDNER}/${p.id}-0-5l.png`) ? 'vorhanden' : 'offen';
   return { id: p.id, name: p.name, typ, s, a1, a2, ziel, status };
 }).filter(Boolean);
 if (sorten.length !== ERWARTET) fail(`Sortenzahl ${sorten.length}, erwartet ${ERWARTET}`);
@@ -45,8 +45,7 @@ const FORMAT = `${FLASCHEN_FORMAT.w} × ${FLASCHEN_FORMAT.h} Pixel`;
 const ORIENT = {
   foto: 'leere schlanke Flasche ohne Etikett, nur Form und Proportionen',
   schlankV: 'leere schlanke Flasche ohne Etikett, nur Form und Proportionen',
-  rund: 'Produktfoto einer runden 0,5-L-Flasche: maßgeblich für Form, Licht, Schatten und den Sitz des Etiketts; Etikett, Kappe und Flüssigkeit sind die der Sorte',
-  rund2: 'Foto mit zwei runden Flaschen: die große 0,5-L-Flasche rechts ist das Formvorbild, es entsteht nur EINE Flasche',
+  rund: 'leere runde 0,5-L-Flasche ohne Etikett (Basisfoto mit Korken), nur Form und Proportionen; Verschluss, Halsband und Flüssigkeit sind die der Sorte',
   vorlage: 'leere Vorlagenflasche ohne Etikett, nur Form und Verschluss',
   gruppe: 'Gruppenfoto der Theke: nur die dunkle Karaffe vorn links ist das Formvorbild',
 };
@@ -66,15 +65,13 @@ function baue(e) {
 
 // ---------- Hinweise zur Vorlage (ehrlich, für die Tabelle und die Prüfliste) ----------
 const PROBLEM = {
-  rund: 'Vorlage ist ein bereits etikettiertes KI-Produktbild (ohne Halsband, mit Holzkappe); ChatGPT könnte dessen Etikett oder Kappe übernehmen',
+  rund: 'Basisfoto fotos-basis/rund-0-5l.png zeigt einen Korken; Kappe oder Ausgießer der Sorte und das Halsband nur über die Beschreibung',
   gruppe: 'Gruppenfoto: nur eine Flasche von vielen, teils verdeckt; Form der Karaffe schwer zu erfassen',
   vorlage: 'Leere Vorlagenflasche (ohne Etikett) auf schwarzem Grund; der Grund soll hell werden',
-  foto: 'Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung',
-  schlankV: 'Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung',
+  foto: 'Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung',
+  schlankV: 'Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung',
 };
 const VORLAGE_PROBLEM = (e) => (e.id === 'vieux-marc' ? 'Basisfoto fotos-basis/karaffe-0-7l.png zeigt klares Glas und einen Glasstopfen; dunkles Braunglas und schwarzer Ausgießer nur über die Beschreibung' :
-  e.id === 'gin' ? 'Zwei-Flaschen-Foto der Wodka-Flasche; Gin nur über Etikett und Beschreibung' :
-  ['whisky', 'hunneg-whisky', 'rum-orange'].includes(e.id) ? 'Zwei-Flaschen-Foto der Rum-Flasche; Farbe und Kappe nur über die Beschreibung' :
   PROBLEM[e.s.art] || '');
 
 for (const e of sorten) {
@@ -108,13 +105,13 @@ const nVorh = sorten.filter((e) => e.status === 'vorhanden').length;
 const md = [];
 md.push(`# PROMPTS-FLASCHEN: neue Produktflasche mit aktuellem Etikett (ChatGPT)
 
-Erzeugt mit \`node tools/foto_prompts_flaschen.mjs\`. Nicht von Hand ändern. ${sorten.length} Prompts, je Sorte einer. **ChatGPT erzeugt eine NEUE, saubere Produktflasche** (Hochformat ${FLASCHEN_FORMAT.w} × ${FLASCHEN_FORMAT.h} Pixel, heller neutraler Studiogrund) mit dem aktuellen Etikett; kein Foto wird bearbeitet. Anhang 1 = Formvorlage, nur Orientierung für Form, Verschluss, Proportionen und Foto-Look (nicht kopieren, nicht deren Etikett): bei den schlanken Sorten die leere Basisflasche \`fotos-basis/rund-0-5l.png\` (Dateiname „rund“, die Flasche ist aber schlank), bei Vieux Marc die leere Karaffe \`fotos-basis/karaffe-0-7l.png\`, bei den runden Sorten und Vizdrëpp die Vorlagen in \`fotos/\`. Anhang 2 = aktuelles flaches Etikett aus \`Fertige Etiquetten/\`. Die Flüssigkeitsfarbe steht im Prompt in Worten (gemessen in \`site/data/fluessigkeit.js\`).
+Erzeugt mit \`node tools/foto_prompts_flaschen.mjs\`. Nicht von Hand ändern. ${sorten.length} Prompts, je Sorte einer. **ChatGPT erzeugt eine NEUE, saubere Produktflasche** (Hochformat ${FLASCHEN_FORMAT.w} × ${FLASCHEN_FORMAT.h} Pixel, heller neutraler Studiogrund) mit dem aktuellen Etikett; kein Foto wird bearbeitet. Anhang 1 = Formvorlage, nur Orientierung für Form, Verschluss, Proportionen und Foto-Look (nicht kopieren, nicht deren Etikett): bei den schlanken Sorten die leere Basisflasche \`fotos-basis/schlank-0-5l.png\`, bei den runden Sorten die leere runde Basisflasche \`fotos-basis/rund-0-5l.png\`, bei Vieux Marc die leere Karaffe \`fotos-basis/karaffe-0-7l.png\`, bei Vizdrëpp die Vorlage \`fotos/vorlage-vizdrepp.png\`. Anhang 2 = aktuelles flaches Etikett aus \`Fertige Etiquetten/\`. Die Flüssigkeitsfarbe steht im Prompt in Worten (gemessen in \`site/data/fluessigkeit.js\`).
 
-Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in den Ordner \`fotos-flaschen/\` im Repo (den legt der Nutzer an; das Skript legt ihn nicht an). Danach zeigen Sortenseite und Karte in „Die Theke“ dieses Bild statt der Vektor-Flasche (\`node build.mjs\`); fehlt die Datei, bleibt die Vektor-Flasche. **Alle ${sorten.length} Sorten bekommen einen Lauf**; die Fotos in \`Fotos/\` und \`fotos-basis/\` werden nicht auf der Seite gezeigt. Ob das Etikett auf einem Foto dem aktuellen entspricht, steht nur zur Information in \`FOTO-INVENTAR.md\` (Abschnitt 9) und steuert nichts.
+Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle (gleichwertig gilt \`<sorten-id>-0-5l.png\`; existieren beide, gilt \`<sorten-id>.png\`) in den Ordner \`fotos-flaschen/\` im Repo (den legt der Nutzer an; das Skript legt ihn nicht an). Danach zeigen Sortenseite und Karte in „Die Theke“ dieses Bild statt der Vektor-Flasche (\`node build.mjs\`); fehlt die Datei, bleibt die Vektor-Flasche. **Alle ${sorten.length} Sorten bekommen einen Lauf**; die Fotos in \`Fotos/\` und \`fotos-basis/\` werden nicht auf der Seite gezeigt. Ob das Etikett auf einem Foto dem aktuellen entspricht, steht nur zur Information in \`FOTO-INVENTAR.md\` (Abschnitt 9) und steuert nichts.
 
 **Einheitlichkeit:** Jeder Prompt enthält denselben festen Baustein (Format, heller Grund, Licht von links, Flasche mittig, Standfläche bei etwa 90 % der Bildhöhe, Verschlussoberkante bei etwa 8 %), damit Karten nebeneinander ruhig wirken. Das kann ChatGPT nur annähernd einhalten; abweichende Bilder besser neu erzeugen als auf der Seite zurechtrücken.
 
-**Stand:** ${nOffen} offen, ${nVorh} vorhanden (Datei in \`fotos-flaschen/\`).
+**Stand:** ${nOffen} offen, ${nVorh} vorhanden (\`<id>.png\` oder \`<id>-0-5l.png\` in \`fotos-flaschen/\`).
 
 Automatisch abarbeiten: \`CHATGPT-STAPEL.md\` (Gruppe \`flasche\`, Ausgabe Hochformat).
 
@@ -135,9 +132,9 @@ ${sorten.map((e) => `| ${e.name} | \`${e.a1}\` | \`${e.a2}\` | \`${e.ziel}\` | $
 
 - **Etikett Wort für Wort:** Dass ChatGPT Sortenname, Alkoholangabe, Grafik und die feste Adresszeile fehlerfrei übernimmt, ist unsicher. Jedes Ergebnis von Hand gegen das flache Etikett prüfen.
 - **Karaffe (Vieux Marc):** \`fotos-basis/karaffe-0-7l.png\` zeigt eine leere Karaffe aus klarem Glas mit Glasstopfen. Dunkles, fast schwarzes Braunglas und der schwarze Ausgießer stehen nur im Prompt; ob ChatGPT das einhält, ist offen.
-- **Zwei Flaschen im selben Bild (Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, aale Fruucht):** die Fotos auf schwarzem Grund zeigen eine 0,2-L- und eine 0,5-L-Flasche samt Halsband „Hierber Brennerei“. Der Prompt nennt die große Flasche als Vorbild, verlangt nur EINE Flasche und beschreibt das Halsband je Sorte; ob ChatGPT das einhält, ist offen. Der Grund im Foto ist schwarz, das Ergebnis soll hell sein.
-- **Nur über Beschreibung (Gin, Rum Orange, Whisky, Hunneg Whisky):** es gibt kein Foto der Sorte. Gin entsteht in der Form der Wodka-Flasche, Whisky, Hunneg Whisky und Rum Orange in der Form der Rum-Flasche; Kappen- und Flüssigkeitsfarbe stehen nur im Text. Hier ist die Abweichung vom echten Produkt am größten.
-- **Schlanke Basisflasche (alle schlanken Sorten):** \`fotos-basis/rund-0-5l.png\` ist eine leere, schlanke Flasche mit kurzem Hals und Glasstopfen, kein Foto der Sorte; Flüssigkeit und Verschluss stehen im Prompt (Flüssigkeitsfarbe je Sorte, Glasstopfen). Grain wird laut Preisliste nur als 1 L angeboten; sein 0,5-L-Prompt gehört trotzdem zum Standard (1-L-Prompt: \`PROMPTS-GROESSEN.md\`).
+- **Runde Basisflasche (Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, aale Fruucht):** \`fotos-basis/rund-0-5l.png\` ist eine leere runde Flasche mit Korken, kein Foto der Sorte. Kappe oder Ausgießer, Halsband und Flüssigkeit stehen nur im Prompt; ob ChatGPT den Korken ersetzt, ist offen.
+- **Nur über Beschreibung (Gin, Rum Orange, Whisky, Hunneg Whisky):** es gibt kein Foto der Sorte; Kappen- und Flüssigkeitsfarbe stehen nur im Text. Hier ist die Abweichung vom echten Produkt am größten.
+- **Schlanke Basisflasche (alle schlanken Sorten):** \`fotos-basis/schlank-0-5l.png\` ist eine leere, schlanke Flasche mit kurzem Hals und Glasstopfen, kein Foto der Sorte; Flüssigkeit und Verschluss stehen im Prompt (Flüssigkeitsfarbe je Sorte, Glasstopfen). Grain wird laut Preisliste nur als 1 L angeboten; sein 0,5-L-Prompt gehört trotzdem zum Standard (1-L-Prompt: \`PROMPTS-GROESSEN.md\`).
 - **Einheitliche Position:** Standfläche bei etwa 90 % und Verschlussoberkante bei etwa 8 % hält ChatGPT erfahrungsgemäß nur ungefähr ein.
 
 ${sorten.map((e, i) => `---
