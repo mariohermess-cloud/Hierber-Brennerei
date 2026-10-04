@@ -154,6 +154,40 @@ check(await page.locator('[data-anlass-foto]').isVisible(), 'Geschenkregal-Foto 
 await page.getByRole('button', { name: 'Digestif' }).click();
 check(!(await page.locator('[data-anlass-foto]').isVisible()), 'Geschenkregal-Foto bei Digestif verborgen');
 
+// 10. Sortenseite: Kauf-Box im Kopf, Verkostung im Kopf, Reihenfolge, keine doppelten ids
+await page.setViewportSize({ width: 1280, height: 800 });
+await page.goto(BASIS + '/brand/kirsch/');
+const kb = await page.locator('[data-kauf]').boundingBox();
+check(kb && kb.y >= 0 && kb.y + kb.height <= 800, `Desktop 1280x800: Kauf-Box vollständig sichtbar (y ${kb && Math.round(kb.y)}, Höhe ${kb && Math.round(kb.height)})`);
+const kbtn = await page.locator('[data-merk-add]').boundingBox();
+check(kbtn && kbtn.y + kbtn.height <= 800, 'Desktop: Knopf im Viewport');
+await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
+await page.locator('[data-merk-add]').click({ timeout: 3000 });
+check(await page.locator('[data-zur-merkliste]').isVisible(), 'Desktop: Knopf klickbar, "Zur Merkliste" erscheint');
+await page.setViewportSize({ width: 375, height: 812 });
+await page.goto(BASIS + '/brand/kirsch/');
+const mb = await page.evaluate(() => { const r = document.querySelector('[data-merk-add]').getBoundingClientRect(); return { top: r.top + window.scrollY, bottom: r.bottom + window.scrollY }; });
+
+check(mb.top < 1.3 * 812, `Mobil: Knopf-Oberkante ${Math.round(mb.top)} < ${Math.round(1.3 * 812)}`);
+for (const lang of ['', '/fr']) for (const id of ['kirsch', 'gin', 'quetsch', 'hondsaarsch', 'rum', 'vieux-marc']) {
+  await page.goto(BASIS + lang + `/brand/${id}/`);
+  const r = await page.evaluate(() => {
+    const ids = [...document.querySelectorAll('[id]')].map((e) => e.id); const dup = ids.filter((x, i) => ids.indexOf(x) !== i);
+    const pos = (sel) => { const e = document.querySelector(sel); return e; };
+    const intro = document.querySelector('.produkt-text .intro, .produkt-text .platzhalter.intro'), v = document.getElementById('verkostung'), sv = document.getElementById('servieren'), k = document.getElementById('kaufen');
+    const nach = (a, b) => !!(a && b && (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING));
+    const h = [...document.querySelectorAll('h1,h2,h3')].map((e) => e.tagName);
+    return { dup, kaufImKopf: !!document.querySelector('.produkt-kopf #kaufen'), nIntro: nach(intro, v), vServ: nach(v, sv), kV: nach(k, intro), nKauf: document.querySelectorAll('[id=kaufen],[id=verkostung]').length, h1: h.filter((x) => x === 'H1').length, ersteH: h[0] };
+  });
+  check(r.dup.length === 0, `${lang}/${id}: doppelte ids ${r.dup}`);
+  check(r.kaufImKopf && r.kV && r.nIntro && r.vServ && r.nKauf === 2, `${lang}/${id}: Reihenfolge Kauf-Box, Intro, Verkostung, Servieren (${JSON.stringify(r)})`);
+  check(r.h1 === 1 && r.ersteH === 'H1', `${lang}/${id}: Überschriften beginnen mit einer h1`);
+  check((await page.locator('a[href="#servieren"]').count()) === 1, `${lang}/${id}: Link zu #servieren`);
+}
+await page.goto(BASIS + '/brand/hondsaarsch/');
+check((await page.locator('[data-kauf] [data-preis-anfrage]').count()) === 1 && (await page.locator('[data-kauf]').getByText('Preis auf Anfrage').count()) === 1, 'hondsaarsch: Preis auf Anfrage in der Kauf-Box');
+console.log('Sortenseiten-Aufbau getestet.');
+
 await browser.close();
 console.log(`${ok} Prüfungen bestanden.`);
 if (fehler.length) { console.log('FEHLER:\n' + fehler.join('\n')); process.exit(1); }
