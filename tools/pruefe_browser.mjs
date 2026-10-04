@@ -139,7 +139,7 @@ for (const p of ['/', '/brand/gin/', '/brand/vieille-prune/', '/anfrage/']) {
 // 9. Fassreihe: 14 Kreidetafeln, Links zu Sortenseiten, Desktop volle Reihe ohne Textüberlauf, mobil Scroll-Leiste mit scroll-snap; Geschenk-Foto beim Anlass-Filter
 await page.goto(BASIS + '/');
 check((await page.locator('.schilder a.schild').count()) === 14, '14 Kreidetafeln');
-check((await page.locator('.schilder a.schild').evaluateAll((a) => a.every((x) => /^\/brand\/[a-z-]+\/$/.test(x.getAttribute('href'))))), 'Tafeln verlinken Sortenseiten');
+check((await page.locator('.schilder a.schild').evaluateAll((a) => a.every((x) => /^\/brand\/[a-z-]+\/#produkt$/.test(x.getAttribute('href'))))), 'Tafeln verlinken Sortenseiten');
 check((await page.locator('.schilder').evaluate((e) => getComputedStyle(e).scrollSnapType)).startsWith('x'), 'mobil scroll-snap x');
 check((await page.locator('.schilder').evaluate((e) => e.scrollWidth > e.clientWidth)), 'mobil horizontal scrollbar');
 for (const w of [1280, 1440]) {
@@ -262,6 +262,46 @@ for (const id of ['gin', 'rum', 'kirsch']) {
   check(z && z.n === 1 && z.foto && z.geladen, `mobil /brand/${id}/: Größenbild sichtbar und geladen (${JSON.stringify(z)})`);
 }
 console.log('Größenbilder getestet.');
+
+// 12. Sprung zum Hauptprodukt: Klick auf Karte/Fass-Schild öffnet /brand/<id>/#produkt, Kopfabschnitt liegt oben (Desktop und Mobil, DE und FR)
+const kopfTop = (pg) => pg.evaluate(() => document.querySelector('.produkt-kopf').getBoundingClientRect().top);
+for (const [vp, vname] of [[{ width: 1280, height: 800 }, 'Desktop'], [{ width: 375, height: 812 }, 'Mobil']]) {
+  await page.setViewportSize(vp);
+  for (const lang of ['', '/fr']) {
+    for (const art of ['karte', 'schild']) {
+      await page.goto(BASIS + lang + '/', { waitUntil: 'load' });
+      const link = art === 'karte' ? page.locator('.theke .karte-li[data-id=kirsch] a.karte') : page.locator('.schilder a.schild').first();
+      const erwartet = art === 'karte' ? 'kirsch' : (await link.getAttribute('href')).match(/\/brand\/([a-z-]+)\//)[1];
+      await link.click();
+      await page.waitForURL((u) => u.pathname.includes('/brand/'), { waitUntil: 'load' });
+      const nameT = `${vname} ${lang || '/de'} ${art}`;
+      check(page.url().endsWith(`${lang}/brand/${erwartet}/#produkt`), `${nameT}: URL endet auf /brand/${erwartet}/#produkt (${page.url()})`);
+      const t0 = await kopfTop(page);
+      check(t0 >= -2 && t0 <= 60, `${nameT}: Kopfabschnitt oben nach Laden (top ${Math.round(t0)})`);
+      await page.waitForTimeout(2000);
+      const t1 = await kopfTop(page);
+      check(t1 >= -2 && t1 <= 60, `${nameT}: Kopfabschnitt oben nach 2 s (top ${Math.round(t1)})`);
+    }
+  }
+}
+// Canonical/hreflang ohne Anker; keine doppelten ids (auch beim Aufruf mit Anker)
+for (const lang of ['', '/fr']) for (const id of ['gin', 'quetsch', 'hondsaarsch']) {
+  await page.goto(BASIS + lang + `/brand/${id}/#produkt`, { waitUntil: 'load' });
+  const r = await page.evaluate(() => {
+    const ids = [...document.querySelectorAll('[id]')].map((e) => e.id);
+    return { dup: ids.filter((x, i) => ids.indexOf(x) !== i), produkt: document.querySelectorAll('#produkt').length, links: [...document.querySelectorAll('link[rel=canonical],link[rel=alternate][hreflang]')].map((l) => l.href) };
+  });
+  check(r.dup.length === 0 && r.produkt === 1, `${lang}/${id}: keine doppelten ids, genau ein #produkt (${r.dup} / ${r.produkt})`);
+  check(r.links.length === 4 && r.links.every((h) => !h.includes('#')), `${lang}/${id}: Canonical/hreflang ohne Anker (${r.links})`);
+}
+// Zurück: Browser stellt Scroll wieder her, Skript springt nicht erneut
+await page.setViewportSize({ width: 375, height: 812 });
+await page.goto(BASIS + '/brand/gin/#produkt', { waitUntil: 'load' }); await page.waitForTimeout(300);
+await page.evaluate(() => window.scrollTo(0, 1500));
+await page.goto(BASIS + '/anfrage/', { waitUntil: 'load' }); await page.goBack({ waitUntil: 'load' }); await page.waitForTimeout(1800);
+const yz = await page.evaluate(() => window.scrollY);
+check(Math.abs(yz - 1500) < 40, `Zurück: Scrollposition bleibt erhalten (${Math.round(yz)})`);
+console.log('Sprung zum Hauptprodukt getestet.');
 
 await browser.close();
 console.log(`${ok} Prüfungen bestanden.`);

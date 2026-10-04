@@ -26,7 +26,7 @@ export function karte(IMG, p, lang, { anlass = true } = {}) {
     ? `<span class="preis" data-preis-ab="${info.min}">${t.ab} ${fmtPreis(info.min)}</span>`
     : `<span class="preis anfrage" data-preis-anfrage>${t.preisAnfrage}</span>`;
   const an = anlass ? ` data-anlass="${anlaesseVon(p.id).join(' ')}"` : '';
-  return `<li class="karte-li" data-id="${p.id}"${an}><a class="karte" href="${pfad(lang, `/brand/${p.id}/`)}">`
+  return `<li class="karte-li" data-id="${p.id}"${an}><a class="karte" href="${pfad(lang, `/brand/${p.id}/`)}#produkt">`
     + `<span class="karte-bild${mitFoto ? ' karte-bild-foto' : ''}">${bildHtml}</span>`
     + `<span class="karte-name" data-sortenname="${esc(p.name)}">${esc(p.name)}</span>`
     + `<span class="karte-meta"><span data-abv="${p.abv}">${fmtAbv(p.abv)}</span> <span aria-hidden="true">·</span> ${preis}</span></a></li>`;
@@ -38,7 +38,7 @@ const FASS_IDS = PRODUKTE.filter((p) => p.ort === 'fass');
 // Die Tafeln sind keine Zuordnung zu den sichtbaren Fässern (unbekannt, TODO-INHALTE.md).
 function fassreihe(IMG, lang) {
   const t = STR[lang];
-  const tafeln = FASS_IDS.map((p) => `<li class="schild-li"><a class="schild" href="${pfad(lang, `/brand/${p.id}/`)}">`
+  const tafeln = FASS_IDS.map((p) => `<li class="schild-li"><a class="schild" href="${pfad(lang, `/brand/${p.id}/`)}#produkt">`
     + `<span class="schild-name" data-sortenname="${esc(p.kurzname)}">${esc(p.kurzname)}</span>`
     + `<span class="schild-abv" data-abv="${p.abv}">${p.abv}${NB}%</span></a></li>`).join('\n');
   return `<section class="sektion dunkel fassreihe-sektion" id="fassreihe" aria-labelledby="fass-h">

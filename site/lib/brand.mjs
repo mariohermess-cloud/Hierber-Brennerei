@@ -176,7 +176,7 @@ export function sortenseite(IMG, p, lang) {
   const kurz = lang === 'de' ? `<p class="kurz">${esc(ohneAbv(p.kurz))}</p>` : '';
   const verw = verwandtFuer(p.id).map((id) => karte(IMG, produktById(id), lang, { anlass: false })).join('\n');
   const krumen = `<nav class="brotkrumen" aria-label="${t.brotkrumen}"><ol><li><a href="${pfad(lang, '/')}">${t.startseite}</a></li><li><a href="${pfad(lang, '/')}#theke">${t.gruppe[gruppe]}</a></li><li aria-current="page">${esc(p.name)}</li></ol></nav>`;
-  const inhalt = `${FLASCHEN_DEFS}<section class="sektion dunkel produkt-kopf${foto ? ' mit-foto' : ''}" aria-labelledby="h1">
+  const inhalt = `${FLASCHEN_DEFS}<section class="sektion dunkel produkt-kopf${foto ? ' mit-foto' : ''}" id="produkt" aria-labelledby="h1">
   <div class="wrap">
     ${krumen}
     <div class="produkt-raster">
