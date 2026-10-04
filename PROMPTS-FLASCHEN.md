@@ -1,8 +1,8 @@
 # PROMPTS-FLASCHEN: neue Produktflasche mit aktuellem Etikett (ChatGPT)
 
-Erzeugt mit `node tools/foto_prompts_flaschen.mjs`. Nicht von Hand ändern. 29 Prompts, je Sorte einer. **ChatGPT erzeugt eine NEUE, saubere Produktflasche** (Hochformat 1024 × 1536 Pixel, heller neutraler Studiogrund) mit dem aktuellen Etikett; das echte Foto wird nicht bearbeitet. Anhang 1 = echtes Flaschenfoto, nur Orientierung für Form, Verschluss, Proportionen und Foto-Look (nicht kopieren, nicht dessen Etikett). Anhang 2 = aktuelles flaches Etikett aus `Fertige Etiquetten/`. Die Flüssigkeitsfarbe steht im Prompt in Worten (gemessen in `site/data/fluessigkeit.js`).
+Erzeugt mit `node tools/foto_prompts_flaschen.mjs`. Nicht von Hand ändern. 29 Prompts, je Sorte einer. **ChatGPT erzeugt eine NEUE, saubere Produktflasche** (Hochformat 1024 × 1536 Pixel, heller neutraler Studiogrund) mit dem aktuellen Etikett; kein Foto wird bearbeitet. Anhang 1 = Formvorlage, nur Orientierung für Form, Verschluss, Proportionen und Foto-Look (nicht kopieren, nicht deren Etikett): bei den schlanken Sorten die leere Basisflasche `fotos-basis/rund-0-5l.png` (Dateiname „rund“, die Flasche ist aber schlank), bei Vieux Marc die leere Karaffe `fotos-basis/karaffe-0-7l.png`, bei den runden Sorten und Vizdrëpp die Vorlagen in `fotos/`. Anhang 2 = aktuelles flaches Etikett aus `Fertige Etiquetten/`. Die Flüssigkeitsfarbe steht im Prompt in Worten (gemessen in `site/data/fluessigkeit.js`).
 
-Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in den Ordner `fotos-flaschen/` im Repo (den legt der Nutzer an; das Skript legt ihn nicht an). Danach zeigen Sortenseite und Karte in „Die Theke“ dieses Bild statt der Vektor-Flasche (`node build.mjs`); fehlt die Datei, bleibt die Vektor-Flasche. **Alle 29 Sorten bekommen einen Lauf**; die Fotos in `Fotos/` werden nicht auf der Seite gezeigt. Ob das Etikett auf einem Foto dem aktuellen entspricht, steht nur zur Information in `FOTO-INVENTAR.md` (Abschnitt 9) und steuert nichts.
+Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in den Ordner `fotos-flaschen/` im Repo (den legt der Nutzer an; das Skript legt ihn nicht an). Danach zeigen Sortenseite und Karte in „Die Theke“ dieses Bild statt der Vektor-Flasche (`node build.mjs`); fehlt die Datei, bleibt die Vektor-Flasche. **Alle 29 Sorten bekommen einen Lauf**; die Fotos in `Fotos/` und `fotos-basis/` werden nicht auf der Seite gezeigt. Ob das Etikett auf einem Foto dem aktuellen entspricht, steht nur zur Information in `FOTO-INVENTAR.md` (Abschnitt 9) und steuert nichts.
 
 **Einheitlichkeit:** Jeder Prompt enthält denselben festen Baustein (Format, heller Grund, Licht von links, Flasche mittig, Standfläche bei etwa 90 % der Bildhöhe, Verschlussoberkante bei etwa 8 %), damit Karten nebeneinander ruhig wirken. Das kann ChatGPT nur annähernd einhalten; abweichende Bilder besser neu erzeugen als auf der Seite zurechtrücken.
 
@@ -26,27 +26,27 @@ Automatisch abarbeiten: `CHATGPT-STAPEL.md` (Gruppe `flasche`, Ausgabe Hochforma
 | Hierber Rum | `fotos/vorlage-rund-rum.png` | `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png` | `fotos-flaschen/rum.png` | Vorlage ist ein bereits etikettiertes KI-Produktbild (ohne Halsband, mit Holzkappe); ChatGPT könnte dessen Etikett oder Kappe übernehmen |
 | Hierber Rum Orange | `fotos/vorlage-rund-rum-orange.png` | `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png` | `fotos-flaschen/rum-orange.png` | Zwei-Flaschen-Foto der Rum-Flasche; Farbe und Kappe nur über die Beschreibung |
 | Hierber Whisky | `fotos/vorlage-rund-rum.png` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | `fotos-flaschen/whisky.png` | Zwei-Flaschen-Foto der Rum-Flasche; Farbe und Kappe nur über die Beschreibung |
-| Kirsch | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | `fotos-flaschen/kirsch.png` | – |
-| Framboise | `Fotos/flasche-framboise.jpg` | `Fertige Etiquetten/Brandwein Framboise-01.png` | `fotos-flaschen/framboise.png` | – |
-| Quetsch | `Fotos/flasche-quetsch.jpg` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | `fotos-flaschen/quetsch.png` | – |
-| Poire Williams | `Fotos/flasche-poire-williams.jpg` | `Fertige Etiquetten/Brandwein Williams-01.png` | `fotos-flaschen/poire-williams.png` | – |
-| Mirabelle | `Fotos/flasche-mirabelle.jpg` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | `fotos-flaschen/mirabelle.png` | – |
+| Kirsch | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | `fotos-flaschen/kirsch.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Framboise | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Framboise-01.png` | `fotos-flaschen/framboise.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Quetsch | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | `fotos-flaschen/quetsch.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Poire Williams | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Williams-01.png` | `fotos-flaschen/poire-williams.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Mirabelle | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | `fotos-flaschen/mirabelle.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
 | Hierber aale Fruucht | `fotos/vorlage-rund-wodka.png` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | `fotos-flaschen/hierber-fruucht.png` | Vorlage ist ein bereits etikettiertes KI-Produktbild (ohne Halsband, mit Holzkappe); ChatGPT könnte dessen Etikett oder Kappe übernehmen |
-| Vieux Marc | `fotos/vorlage-vieux-marc.png` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | `fotos-flaschen/vieux-marc.png` | Leere Vorlagenflasche (ohne Etikett) auf schwarzem Grund; der Grund soll hell werden |
-| Vieille Prune | `Fotos/flasche-vieille-prune.jpg` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` | `fotos-flaschen/vieille-prune.png` | – |
-| Vieille Pomme | `Fotos/flasche-vieille-pomme.jpg` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` | `fotos-flaschen/vieille-pomme.png` | – |
-| Hunnegdrëpp | `Fotos/flasche-hunnegdrepp.jpg` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | `fotos-flaschen/hunnegdrepp.png` | – |
+| Vieux Marc | `fotos-basis/karaffe-0-7l.png` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | `fotos-flaschen/vieux-marc.png` | Basisfoto fotos-basis/karaffe-0-7l.png zeigt klares Glas und einen Glasstopfen; dunkles Braunglas und schwarzer Ausgießer nur über die Beschreibung |
+| Vieille Prune | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Vieille prune-01.png` | `fotos-flaschen/vieille-prune.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Vieille Pomme | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Vieille pomme-01.png` | `fotos-flaschen/vieille-pomme.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Hunnegdrëpp | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png` | `fotos-flaschen/hunnegdrepp.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
 | Hierber Hunneg Whisky | `fotos/vorlage-rund-rum.png` | `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png` | `fotos-flaschen/hunneg-whisky.png` | Zwei-Flaschen-Foto der Rum-Flasche; Farbe und Kappe nur über die Beschreibung |
-| Kräiderdrëpp | `Fotos/flasche-kraeiderdrepp.jpg` | `Fertige Etiquetten/Brandwein Kraider-01.png` | `fotos-flaschen/kraeiderdrepp.png` | – |
-| Kürbisdrëpp | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` | `fotos-flaschen/kuerbisdrepp.png` | Formvorlage ist die Kirsch-Flasche, nicht die Flasche der Sorte |
-| Grain | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Branntwein Grain-01.png` | `fotos-flaschen/grain.png` | Formvorlage ist die Kirsch-Flasche, nicht die Flasche der Sorte |
-| Hondsaarsch | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` | `fotos-flaschen/hondsaarsch.png` | Formvorlage ist die Kirsch-Flasche, nicht die Flasche der Sorte |
-| Kiwibeeren | `Fotos/flasche-kiwibeeren.jpg` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | `fotos-flaschen/kiwibeeren.png` | – |
-| Poire | `Fotos/flasche-poire.jpg` | `Fertige Etiquetten/Brandwein Poire-01.png` | `fotos-flaschen/poire.png` | – |
-| Neelchesbiren | `Fotos/flasche-neelchesbiren.jpg` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | `fotos-flaschen/neelchesbiren.png` | – |
-| Lënschouren | `Fotos/flasche-lenschouren.jpg` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` | `fotos-flaschen/lenschouren.png` | – |
-| Vullekiischt | `Fotos/flasche-kirsch.jpg` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` | `fotos-flaschen/vullekiischt.png` | Formvorlage ist die Kirsch-Flasche, nicht die Flasche der Sorte |
-| Schléiwen | `Fotos/flasche-schleiwen.jpg` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | `fotos-flaschen/schleiwen.png` | – |
+| Kräiderdrëpp | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Kraider-01.png` | `fotos-flaschen/kraeiderdrepp.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Kürbisdrëpp | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png` | `fotos-flaschen/kuerbisdrepp.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Grain | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Branntwein Grain-01.png` | `fotos-flaschen/grain.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Hondsaarsch | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Hondsaarsch-01.png` | `fotos-flaschen/hondsaarsch.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Kiwibeeren | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | `fotos-flaschen/kiwibeeren.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Poire | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Poire-01.png` | `fotos-flaschen/poire.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Neelchesbiren | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | `fotos-flaschen/neelchesbiren.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Lënschouren | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` | `fotos-flaschen/lenschouren.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Vullekiischt | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Brandwein Vogelbeere-01.png` | `fotos-flaschen/vullekiischt.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
+| Schléiwen | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | `fotos-flaschen/schleiwen.png` | Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Dateiname „rund“, Form aber schlank), kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung |
 | Vizdrëpp | `fotos/vorlage-vizdrepp.png` | `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png` | `fotos-flaschen/vizdrepp.png` | Leere Vorlagenflasche (ohne Etikett) auf schwarzem Grund; der Grund soll hell werden |
 | Hierber Sambuca | `fotos/vorlage-rund-wodka.png` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | `fotos-flaschen/sambuca.png` | Vorlage ist ein bereits etikettiertes KI-Produktbild (ohne Halsband, mit Holzkappe); ChatGPT könnte dessen Etikett oder Kappe übernehmen |
 | Hierber Limoncello | `fotos/vorlage-rund-wodka.png` | `Fertige Etiquetten/Branntwein Limoncello-01.png` | `fotos-flaschen/limoncello.png` | Vorlage ist ein bereits etikettiertes KI-Produktbild (ohne Halsband, mit Holzkappe); ChatGPT könnte dessen Etikett oder Kappe übernehmen |
@@ -54,10 +54,10 @@ Automatisch abarbeiten: `CHATGPT-STAPEL.md` (Gruppe `flasche`, Ausgabe Hochforma
 ## Problematische Vorlagen und Unsicherheiten (ehrlich)
 
 - **Etikett Wort für Wort:** Dass ChatGPT Sortenname, Alkoholangabe, Grafik und die feste Adresszeile fehlerfrei übernimmt, ist unsicher. Jedes Ergebnis von Hand gegen das flache Etikett prüfen.
-- **Gruppenfoto (Vieux Marc):** `fotos/flaschenreihe-theke.jpg` zeigt viele Flaschen; die Karaffe steht vorn links, teils verdeckt, mit Lampenreflexen. Als Formvorbild schwach; die Karaffenform kann abweichen.
+- **Karaffe (Vieux Marc):** `fotos-basis/karaffe-0-7l.png` zeigt eine leere Karaffe aus klarem Glas mit Glasstopfen. Dunkles, fast schwarzes Braunglas und der schwarze Ausgießer stehen nur im Prompt; ob ChatGPT das einhält, ist offen.
 - **Zwei Flaschen im selben Bild (Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, aale Fruucht):** die Fotos auf schwarzem Grund zeigen eine 0,2-L- und eine 0,5-L-Flasche samt Halsband „Hierber Brennerei“. Der Prompt nennt die große Flasche als Vorbild, verlangt nur EINE Flasche und beschreibt das Halsband je Sorte; ob ChatGPT das einhält, ist offen. Der Grund im Foto ist schwarz, das Ergebnis soll hell sein.
 - **Nur über Beschreibung (Gin, Rum Orange, Whisky, Hunneg Whisky):** es gibt kein Foto der Sorte. Gin entsteht in der Form der Wodka-Flasche, Whisky, Hunneg Whisky und Rum Orange in der Form der Rum-Flasche; Kappen- und Flüssigkeitsfarbe stehen nur im Text. Hier ist die Abweichung vom echten Produkt am größten.
-- **Formvorlage Kirsch (Kürbisdrëpp, Grain, Hondsaarsch, Vullekiischt):** gleiche schlanke Flasche, aber das Foto ist nicht die Flasche der Sorte; Flüssigkeit „klar wie Wasser“ laut Beschreibung.
+- **Schlanke Basisflasche (alle schlanken Sorten):** `fotos-basis/rund-0-5l.png` ist eine leere, schlanke Flasche mit kurzem Hals und Glasstopfen, kein Foto der Sorte; Flüssigkeit und Verschluss stehen im Prompt (Flüssigkeitsfarbe je Sorte, Glasstopfen). Grain wird laut Preisliste nur als 1 L angeboten; sein 0,5-L-Prompt gehört trotzdem zum Standard (1-L-Prompt: `PROMPTS-GROESSEN.md`).
 - **Einheitliche Position:** Standfläche bei etwa 90 % und Verschlussoberkante bei etwa 8 % hält ChatGPT erfahrungsgemäß nur ungefähr ein.
 
 ---
@@ -184,14 +184,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 6. Kirsch
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-kirsch.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kirsch.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kirsch.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kirsch.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -208,14 +208,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 7. Framboise
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-framboise.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/framboise.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/framboise.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/framboise.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -232,14 +232,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 8. Quetsch
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-quetsch.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/quetsch.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quetsch.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quetsch.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -256,14 +256,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 9. Poire Williams
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-poire-williams.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/poire-williams.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/poire-williams.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/poire-williams.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -280,14 +280,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 10. Mirabelle
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-mirabelle.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/mirabelle.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -328,14 +328,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 12. Vieux Marc
 
-- **Anhang 1 (nur Orientierung):** `fotos/vorlage-vieux-marc.png`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/karaffe-0-7l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vieux-marc.png`
 - **Status:** offen
-- **Prompt:** 199 Wörter
+- **Prompt:** 217 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto einer leeren Flasche dieser Form (ohne Etikett): dunkle Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: schwarzer Ausgießer. Kein Halsband: der Hals bleibt ohne Papierband. Glas: dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vieux-marc.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto einer leeren Flasche dieser Form (ohne Etikett): Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper; das Glas im Foto ist klar und der Verschluss ein Glasstopfen, Glasfarbe und Verschluss gelten wie weiter unten beschrieben); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: schwarzer Ausgießer. Kein Halsband: der Hals bleibt ohne Papierband. Glas: dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vieux-marc.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -352,14 +352,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 13. Vieille Prune
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-vieille-prune.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vieille-prune.png`
 - **Status:** offen
-- **Prompt:** 195 Wörter
+- **Prompt:** 194 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vieille-prune.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vieille-prune.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -376,14 +376,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 14. Vieille Pomme
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-vieille-pomme.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vieille-pomme.png`
 - **Status:** offen
-- **Prompt:** 195 Wörter
+- **Prompt:** 194 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vieille-pomme.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vieille-pomme.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -400,14 +400,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 15. Hunnegdrëpp
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-hunnegdrepp.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/hunnegdrepp.png`
 - **Status:** offen
-- **Prompt:** 195 Wörter
+- **Prompt:** 194 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: tiefes Honiggold, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/hunnegdrepp.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: tiefes Honiggold, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/hunnegdrepp.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -448,14 +448,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 17. Kräiderdrëpp
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-kraeiderdrepp.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kraeiderdrepp.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kraeiderdrepp.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kraeiderdrepp.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -472,14 +472,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 18. Kürbisdrëpp
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-kirsch.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kuerbisdrepp.png`
 - **Status:** offen
-- **Prompt:** 194 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (schlanke 0,5-L-Flasche, Foto der Kirsch-Flasche nur als Formvorbild); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kuerbisdrepp.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kuerbisdrepp.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -491,20 +491,19 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - Etikett liegt rund auf der Flasche (nicht aufgeklebt, nicht flach), Glanz und Reflexe des Glases laufen darüber
 - Das Foto aus Anhang 1 wurde nicht übernommen (kein altes Etikett, keine zweite Flasche)
 - Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Nicht das Kirsch-Etikett: es muss das Etikett der Sorte aus Anhang 2 sein
 
 ---
 
 ## 19. Grain
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-kirsch.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/grain.png`
 - **Status:** offen
-- **Prompt:** 194 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (schlanke 0,5-L-Flasche, Foto der Kirsch-Flasche nur als Formvorbild); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/grain.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/grain.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -516,20 +515,19 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - Etikett liegt rund auf der Flasche (nicht aufgeklebt, nicht flach), Glanz und Reflexe des Glases laufen darüber
 - Das Foto aus Anhang 1 wurde nicht übernommen (kein altes Etikett, keine zweite Flasche)
 - Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Nicht das Kirsch-Etikett: es muss das Etikett der Sorte aus Anhang 2 sein
 
 ---
 
 ## 20. Hondsaarsch
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-kirsch.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/hondsaarsch.png`
 - **Status:** offen
-- **Prompt:** 194 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (schlanke 0,5-L-Flasche, Foto der Kirsch-Flasche nur als Formvorbild); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/hondsaarsch.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/hondsaarsch.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -541,20 +539,19 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - Etikett liegt rund auf der Flasche (nicht aufgeklebt, nicht flach), Glanz und Reflexe des Glases laufen darüber
 - Das Foto aus Anhang 1 wurde nicht übernommen (kein altes Etikett, keine zweite Flasche)
 - Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Nicht das Kirsch-Etikett: es muss das Etikett der Sorte aus Anhang 2 sein
 
 ---
 
 ## 21. Kiwibeeren
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-kiwibeeren.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kiwibeeren.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kiwibeeren.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kiwibeeren.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -571,14 +568,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 22. Poire
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-poire.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/poire.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/poire.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/poire.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -595,14 +592,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 23. Neelchesbiren
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-neelchesbiren.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/neelchesbiren.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/neelchesbiren.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/neelchesbiren.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -619,14 +616,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 24. Lënschouren
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-lenschouren.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/lenschouren.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/lenschouren.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/lenschouren.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -643,14 +640,14 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ## 25. Vullekiischt
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-kirsch.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vullekiischt.png`
 - **Status:** offen
-- **Prompt:** 194 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (schlanke 0,5-L-Flasche, Foto der Kirsch-Flasche nur als Formvorbild); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vullekiischt.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vullekiischt.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
@@ -662,20 +659,19 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - Etikett liegt rund auf der Flasche (nicht aufgeklebt, nicht flach), Glanz und Reflexe des Glases laufen darüber
 - Das Foto aus Anhang 1 wurde nicht übernommen (kein altes Etikett, keine zweite Flasche)
 - Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Nicht das Kirsch-Etikett: es muss das Etikett der Sorte aus Anhang 2 sein
 
 ---
 
 ## 26. Schléiwen
 
-- **Anhang 1 (nur Orientierung):** `Fotos/flasche-schleiwen.jpg`
+- **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/schleiwen.png`
 - **Status:** offen
-- **Prompt:** 196 Wörter
+- **Prompt:** 195 Wörter
 
 ```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (Foto der Flasche dieser Sorte: schlanke 0,5-L-Flasche mit hohem Hals); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/schleiwen.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form, Verschluss und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen mit Kork. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/schleiwen.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
 ```
 
 **Prüfen:**
