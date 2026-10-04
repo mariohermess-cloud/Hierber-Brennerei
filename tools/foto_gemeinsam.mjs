@@ -1,4 +1,4 @@
-// Gemeinsame Bausteine für die Foto-Prompt-Skripte (tools/foto_prompts.mjs und tools/foto_prompts_weitere.mjs).
+// Gemeinsame Bausteine für die Foto-Prompt-Skripte (tools/foto_prompts.mjs, foto_prompts_weitere.mjs, foto_prompts_flaschen.mjs, foto_prompts_groessen.mjs).
 // Keine Seiteneffekte außer lesenden Existenzprüfungen im Ordner Fotos/.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -33,3 +33,58 @@ export function flaschenVorlage(id, name, typ) {
 export const ADRESSE = '2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu';
 
 export const woerter = (s) => s.split(/\s+/).filter(Boolean).length;
+
+// ---------- Flaschen-Prompts (gemeinsam für tools/foto_prompts_flaschen.mjs und tools/foto_prompts_groessen.mjs) ----------
+// Je Sorte: Art der Vorlage, Verschluss, Flüssigkeit, Zusatz. Verschlüsse und Formen sind an den Fotos abgelesen.
+//  foto      = schlanke Sorte, Anhang 1 ist die leere schlanke Basisflasche fotos-basis/rund-0-5l.png (Name täuscht, Form ist schlank)
+//  schlankV  = wie foto (Sorte ohne eigenes Flaschenfoto in Fotos/); beide Arten haben im Prompt dieselbe Orientierung
+//  rund      = etikettierte KI-Vorlage fotos/vorlage-rund-*.png
+//  vorlage   = eigene Vorlagenflasche (Vizdrëpp) bzw. leere Karaffe aus fotos-basis/ (Vieux Marc)
+export const BASIS_SCHLANK_05 = 'fotos-basis/rund-0-5l.png';
+export const GLASSTOPFEN = 'Glasstopfen mit Kork';
+export const SORTEN = {
+  kirsch: { art: 'foto', fl: 'klar wie Wasser' }, framboise: { art: 'foto', fl: 'klar wie Wasser' }, quetsch: { art: 'foto', fl: 'klar wie Wasser' },
+  'poire-williams': { art: 'foto', fl: 'klar wie Wasser' }, mirabelle: { art: 'foto', fl: 'klar wie Wasser' }, poire: { art: 'foto', fl: 'klar wie Wasser' },
+  neelchesbiren: { art: 'foto', fl: 'klar wie Wasser' }, lenschouren: { art: 'foto', fl: 'klar wie Wasser' }, schleiwen: { art: 'foto', fl: 'klar wie Wasser' },
+  kraeiderdrepp: { art: 'foto', fl: 'klar wie Wasser' }, kiwibeeren: { art: 'foto', fl: 'klar wie Wasser' },
+  hunnegdrepp: { art: 'foto', fl: 'tiefes Honiggold' },
+  'vieille-pomme': { art: 'foto', fl: 'klares Goldgelb' }, 'vieille-prune': { art: 'foto', fl: 'klares Goldgelb' },
+  vizdrepp: { art: 'vorlage', a1: 'fotos/vorlage-vizdrepp.png', form: 'schlanker Hals, nach unten glockenförmig breiter werdender Körper mit eingewölbtem Boden', verschluss: 'Glasstopfen mit flachem, breitem Kragen', fl: 'kräftiges, klares Goldgelb', extra: 'Das Etikett ist querformatig.' },
+  kuerbisdrepp: { art: 'schlankV', fl: 'klar wie Wasser' }, grain: { art: 'schlankV', fl: 'klar wie Wasser' },
+  hondsaarsch: { art: 'schlankV', fl: 'klar wie Wasser' }, vullekiischt: { art: 'schlankV', fl: 'klar wie Wasser' },
+  wodka: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
+  gin: { art: 'rund', a1: 'fotos/vorlage-rund-gin.png', verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser', extra: 'Es entsteht eine Gin-Flasche in der Form der Wodka-Flasche.' },
+  rum: { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'dunkelbraune Holzkappe', fl: 'goldenes Bernstein' },
+  'rum-orange': { art: 'rund', a1: 'fotos/vorlage-rund-rum-orange.png', verschluss: 'dunkelbraune Holzkappe', fl: 'Bernstein, etwas orangener als im Foto (Orange-Bernstein)' },
+  whisky: { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'goldgelb', extra: 'Es entsteht eine Whisky-Flasche in der Form der Rum-Flasche.' },
+  'hunneg-whisky': { art: 'rund', a1: 'fotos/vorlage-rund-rum.png', verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'warmes, honigfarbenes Goldgelb', extra: 'Es entsteht eine Hunneg-Whisky-Flasche in der Form der Rum-Flasche.' },
+  limoncello: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'leuchtendes Gelbgrün' },
+  sambuca: { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'klar wie Wasser' },
+  'hierber-fruucht': { art: 'rund', a1: 'fotos/vorlage-rund-wodka.png', verschluss: 'rotbraune Holzkappe', fl: 'warmes, kräftiges Orange-Bernstein' },
+  'vieux-marc': { art: 'vorlage', a1: 'fotos-basis/karaffe-0-7l.png', form: 'Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper; das Glas im Foto ist klar und der Verschluss ein Glasstopfen, Glasfarbe und Verschluss gelten wie weiter unten beschrieben', verschluss: 'schwarzer Ausgießer', fl: 'dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen' },
+};
+
+// Halsband je Sorte, abgelesen an den echten Fotos (Fotos/flasche-*.jpg: schlanke Flaschen haben KEIN Halsband; fotos/flaschen-*.webp: runde Flaschen tragen ein Papierband am Hals).
+// unbestaetigt = kein eigenes Foto der Sorte, Band von der Schwestersorte übernommen (TODO-INHALTE.md, Abschnitt 7).
+export const KEIN_HALS = 'Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses.';
+export const HALS_BAND = {
+  wodka: 'hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“',
+  gin: 'hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“',
+  rum: 'braungraues Band mit heller Schreibschrift „Hierber Brennerei“',
+  'rum-orange': 'braungraues Band mit heller Schreibschrift „Hierber Brennerei“',
+  whisky: 'braungraues Band mit heller Schreibschrift „Hierber Brennerei“',
+  'hunneg-whisky': 'braungraues Band mit heller Schreibschrift „Hierber Brennerei“',
+  limoncello: 'gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“',
+  sambuca: 'dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“',
+  'hierber-fruucht': 'graubraunes Band mit kleinem Brennblasen-Logo und heller Schreibschrift „Hierber Brennerei“',
+};
+export const HALS_UNBESTAETIGT = ['gin', 'rum-orange', 'whisky', 'hunneg-whisky'];
+export const halsText = (id) => HALS_BAND[id]
+  ? `Halsband: schmales Papierband um den Hals, ${HALS_BAND[id]}, eigenes Band neben dem großen Etikett (Anhang 1 zeigt es nicht, bitte ergänzen).`
+  : id === 'vieux-marc' ? 'Kein Halsband: der Hals bleibt ohne Papierband.' : KEIN_HALS;
+
+// Feste Prompt-Sätze der Flaschenbilder (Format/Position, Etikett, Schluss); format = „1024 × 1536 Pixel“, ziel = Zielpfad
+export const satzFormat = (format) => `Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (${format}), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum.`;
+export const satzEtikett = () => `Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „${ADRESSE}“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett.`;
+export const NACHBESSERUNG = 'Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.';
+export const satzSchluss = (ziel, zusatz = '') => `Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „${ziel}“. ${NACHBESSERUNG}${zusatz ? ` ${zusatz}` : ''}`;

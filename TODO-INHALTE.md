@@ -133,3 +133,12 @@ Alle 92 weiteren Serviervorschläge sind eingebaut. Gesichtet an Übersichtsbög
 | Hunneg Whisky -2 bis -4 | Etikett mit schwarz-goldener Marmorierung und „43 % vol.“; Adresse am Rand abgeschnitten (Etikett um die Flasche gewölbt). |
 
 Eine Datei, die in keinen Platz passte (`Warm Vizdrëpp Tasting Table.png`, altes Etikett), liegt in `fotos-ki-unbenutzt/`.
+
+## 8. Basisfotos (`fotos-basis/`)
+
+Leere Flaschen als Anhang 1 der ChatGPT-Prompts (Tabelle in `FOTO-INVENTAR.md`, Abschnitt 10).
+- `rund-0-5l.png` zeigt trotz des Namens eine **schlanke** Flasche (hoch, kurzer Hals, Glasstopfen); sie dient für alle schlanken 0,5-L-Sorten. Umbenennen in `schlank-0-5l.png` wäre klarer (Dateiname im Repo, nicht in den Skripten festgelegt außer `BASIS_SCHLANK_05` in `tools/foto_gemeinsam.mjs`).
+- `rund-40ml.png` (Miniatur) ist ungenutzt: 40 ml steht nicht in der Preisliste.
+- **Fehlende Basisfotos:** rund 0,2 L, schlank 0,5 L (echt, statt des Namens „rund“), schlank 0,7 L, schlank 1 L.
+- **Ersatzbasen sind nur Näherung:** rund 0,2 L nutzt `rund-0-7l.png`, schlank 0,7 L und schlank 1 L nutzen `rund-0-5l.png`; die Zielgröße steht nur als ungefähres Verhältnis im Prompt (`PROMPTS-GROESSEN.md`).
+- Zu bestätigen: Verschluss der echten 1-L- und 1,5-L-Flaschen (Prompts übernehmen den Korken des Basisfotos), Verschluss der 0,1-L-Flaschen (Basisfoto: Holzkugel auf Korkschaft).
