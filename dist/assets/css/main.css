@@ -217,7 +217,7 @@ a:hover{text-decoration-thickness:2px}
 .brotkrumen a{color:var(--gedaempt)}
 .produkt-kopf{background:radial-gradient(ellipse at 20% 30%,rgba(184,115,58,.14),transparent 60%),var(--holz);padding-top:clamp(1.5rem,4vw,2.5rem)}
 .produkt-raster{display:grid;gap:2rem;align-items:start}
-@media(min-width:800px){.produkt-raster{grid-template-columns:minmax(320px,540px) 1fr;gap:4rem;align-items:center}.mit-foto .produkt-raster{grid-template-columns:minmax(300px,560px) 1fr;align-items:start}}
+@media(min-width:800px){.produkt-raster{grid-template-columns:minmax(320px,540px) 1fr;gap:4rem;align-items:center}.mit-foto .produkt-raster{grid-template-columns:minmax(300px,560px) 1fr}.produkt-raster{align-items:start}}
 .haupt-bild{margin:0;max-width:540px}
 .buehne{container-type:size;display:flex;align-items:flex-end;justify-content:center;aspect-ratio:3/4;width:100%;overflow:hidden;border:1px solid var(--kupfer);
   background:linear-gradient(to top,#c9baa0 0 6%,transparent 6%),linear-gradient(#ece3d2,#e2d6c0)}
@@ -276,6 +276,37 @@ a:hover{text-decoration-thickness:2px}
 
 /* Kauf */
 .kauf h2{margin-bottom:1rem}
+/* Kauf-Box im dunklen Produktkopf: kompakt, Erwerb sofort unter der Beschreibung */
+.kauf-box{margin:1.2rem 0 0;padding:1rem 1.2rem 1.1rem;background:var(--flaeche);border:1px solid var(--linie);max-width:640px}
+.kauf-box h2{font:500 .8rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell);margin:0 0 .7rem}
+.kauf-box .varianten{margin-bottom:.8rem}
+.kauf-box .variante-abv{margin-bottom:.7rem}
+.kauf-einzeln .variante-abv{display:none}
+.kauf-box .groessen legend{margin-bottom:.5rem}
+.kauf-box .auswahl{margin-top:.9rem;padding:.6rem 0}
+.kauf-box .auswahl-preis{font-size:1.6rem}
+.kauf-box .kauf-knoepfe{margin-top:.9rem}
+.kauf-box .status{min-height:0;margin:.5rem 0 0}
+.kauf-box .status:empty{display:none}
+.zu-servieren{margin:.6rem 0 1.4rem;font-size:.95rem}
+.zu-servieren a{color:var(--kupfer-hell)}
+/* Verkostung im Kopf: dunkler Stil, zweispaltig ab 900 px */
+.kopf-verkostung{margin-top:1.8rem}
+.kopf-verkostung h2{font-size:clamp(1.6rem,3.5vw,2.1rem);margin-bottom:.4rem}
+.produkt-kopf .verkostung{margin-top:.6rem;max-width:none}
+.produkt-kopf .verkostung>div{display:block;padding:.7rem 0;border-top:1px solid var(--linie)}
+.produkt-kopf .verkostung dt{color:var(--kupfer-hell)}
+.produkt-kopf .verkostung dd{color:var(--text)}
+@media(min-width:900px){.produkt-kopf .verkostung{grid-template-columns:1fr 1fr;column-gap:2rem}}
+@media(max-width:799px){
+  .produkt-kopf .brotkrumen ol{margin-bottom:1rem}
+  .produkt-raster{gap:1.2rem}
+  .haupt-bild .buehne{max-height:50vh}
+  .haupt-bild.foto-rahmen img{max-height:50vh;object-fit:cover}
+  .produkt-text .kurz{margin-bottom:.6rem}
+  .produkt-text .abv{margin-bottom:.4rem}
+  .kauf-box{margin-top:.8rem}
+}
 .varianten{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.4rem}
 .nojs .variante+.variante{margin-top:2rem}
 .js .variante-kopf{display:none}

@@ -91,8 +91,8 @@ function kaufen(p, lang) {
   const auswahl = keinPreis
     ? ''
     : `<p class="auswahl" data-auswahl aria-live="polite"><span class="auswahl-label">${t.auswahl}:</span> <span data-auswahl-text>${esc(v0.name)}${x0 ? `, ${fmtMenge(x0.menge)}` : ''}</span> <strong class="auswahl-preis" data-auswahl-preis>${x0 ? fmtPreis(x0.preis) : t.preisAnfrage}</strong> <span class="mwst">${t.inklMwst}</span></p>`;
-  return `<section class="sektion dunkel" id="kaufen" aria-labelledby="kaufen-h" data-kauf data-produkt="${p.id}" data-produkt-name="${esc(p.name)}" data-lang="${lang}">
-  <div class="wrap kauf">
+  return `<section class="kauf-box${mehrere ? '' : ' kauf-einzeln'}" id="kaufen" aria-labelledby="kaufen-h" data-kauf data-produkt="${p.id}" data-produkt-name="${esc(p.name)}" data-lang="${lang}">
+  <div class="kauf">
     <h2 id="kaufen-h">${t.kaufTitel}</h2>
     ${chips}
     ${bloecke}
@@ -167,19 +167,18 @@ export function sortenseite(IMG, p, lang) {
         ${erkHtml}
         ${kurz}
         <p class="abv"><span class="abv-label">${t.alkoholgehalt}</span> <span class="abv-wert" data-abv="${p.abv}">${fmtAbv(p.abv)}</span></p>
+        ${kaufen(p, lang)}
+        <p class="zu-servieren"><a href="#servieren">${t.zuServieren}</a></p>
         ${intro}
+        <section class="kopf-verkostung" id="verkostung" aria-labelledby="verk-h">
+          <h2 id="verk-h">${t.verkostung}</h2>
+          ${lang === 'de' ? tastDe : folgt(t)}
+        </section>
       </div>
     </div>
   </div>
 </section>
-<section class="sektion papier" id="verkostung" aria-labelledby="verk-h">
-  <div class="wrap">
-    <h2 id="verk-h">${t.verkostung}</h2>
-    ${lang === 'de' ? tastDe : folgt(t)}
-  </div>
-</section>
 ${servieren(p, IMG, lang)}
-${kaufen(p, lang)}
 <section class="sektion papier" id="passt" aria-labelledby="passt-h">
   <div class="wrap">
     <h2 id="passt-h">${t.passtAuch}</h2>
