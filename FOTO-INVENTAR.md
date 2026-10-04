@@ -262,3 +262,17 @@ Geprüft wurde für die 15 Sorten mit Foto in `Fotos/`, je das Foto ohne Zusatz 
 **Sorten ohne passendes Foto in `Fotos/`** (14): Kürbisdrëpp, Grain, Hondsaarsch, Vullekiischt (Formvorlage `Fotos/flasche-kirsch.jpg`, klare Flüssigkeit), Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, Hierber aale Fruucht (Fotos auf schwarzem Grund in `fotos/`, Zwei-Flaschen-Bilder) und Vieux Marc (Gruppenfoto der Theke). Zuordnung Anhang 1 → Anhang 2 → Zieldatei für alle 29 Sorten: `PROMPTS-FLASCHEN.md`.
 
 **Entscheidung des Nutzers (Oktober 2026):** Die Etiketten werden nicht im Repo montiert. ChatGPT erzeugt je Sorte eine NEUE, saubere Produktflasche (Hochformat 1024 × 1536 px, heller neutraler Grund) mit dem aktuellen flachen Etikett; das echte Foto aus `Fotos/` bzw. `fotos/` ist nur Orientierung (Form, Verschluss, Proportionen, Foto-Look, Anhang 1). Ergebnisse (PNG) kommen nach `fotos-flaschen/<sorten-id>.png`. Auf der Seite gilt: `fotos-flaschen/<id>.png` zeigt Sortenseite und Karte, sonst die Vektor-Flasche. Aufträge: `PROMPTS-FLASCHEN.md`, `CHATGPT-STAPEL.md` (Gruppe `flasche`).
+
+## 10. Basisfotos in `fotos-basis/`
+
+Leere Glasflaschen ohne Etikett vor Studiohintergrund (alle etwa 1312 × 1199 px). Sie dienen als Anhang 1 der ChatGPT-Prompts (nur Form und Proportionen, `PROMPTS-FLASCHEN.md`, `PROMPTS-GROESSEN.md`) und werden nicht auf der Seite gezeigt.
+
+| Form | Größe | Datei | Verwendung |
+|---|---|---|---|
+| schlank (Hals mittellang, Glasstopfen) | 0,5 L | `rund-0-5l.png` | Anhang 1 aller schlanken 0,5-L-Prompts; Ersatzbasis für schlank 0,7 L und 1 L. **Achtung:** trotz Dateiname „rund“ eine schlanke, hohe Zylinderflasche |
+| schlank (Holzkugel auf Korken) | 0,1 L | `schlank-0-1l.png` | Anhang 1 der 13 Prompts 0,1 L |
+| rund (Apothekerform, Korken) | 0,7 L | `rund-0-7l.png` | Ersatzbasis für rund 0,2 L (7 Sorten) |
+| rund | 1 L | `rund-1-0l.png` | Anhang 1 der 8 Prompts 1 L (Grain: Ersatz `rund-0-5l.png`, schlank) |
+| rund | 1,5 L | `rund-1-5l.png` | Anhang 1 der 7 Prompts 1,5 L |
+| Karaffe (glockenförmig, Glasstopfen) | 0,7 L | `karaffe-0-7l.png` | Vieux Marc, 0,5-L- und 0,7-L-Prompt |
+| rund, Miniatur | 40 ml | `rund-40ml.png` | **nicht verwendet** (keine Größe der Preisliste) |
