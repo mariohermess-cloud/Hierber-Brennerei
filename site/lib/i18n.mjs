@@ -32,7 +32,7 @@ export const STR = {
     kartePlatzhalter: 'Kartenansicht folgt', karteLink: 'Auf OpenStreetMap ansehen',
     besuchAlt: 'Hofschild der Hierber Brennerei mit Brennkolben-Symbol und Schriftzug, dahinter die Hofgebäude zwischen Streuobstbäumen',
     besuchBildunterschrift: 'Die Zufahrt zum Hof in Herborn.',
-    fotoAlt: { obst: 'Holzkisten voller gelber Birnen auf dem Hof der Brennerei', brennen: 'Brennanlage mit Brennkolonnen aus Edelstahl und Kupfer', reifen: 'Fassraum mit liegenden Eichenfässern und Edelstahltanks' },
+    fotoAlt: { obst: 'Holzkisten voller gelber Birnen auf dem Hof der Brennerei', brennen: 'Brennanlage mit Brennkolonnen aus Edelstahl und Kupfer', reifen: 'Fassraum mit liegenden Eichenfässern und Edelstahltanks', maische: 'Maische aus Obst, die aus einer Edelstahlanlage in eine Wanne läuft', abfuellen: 'Abfüllen: Flaschen mit Etikett Hierber Gin an einer Abfüllanlage' }, symbolbildKurz: 'Symbolbild',
     neuerTab: '(neuer Tab)', platzhalterFoto: 'Foto folgt', fotoNoetig: 'Foto nötig',
     // Sortenseite
     brotkrumen: 'Brotkrumen', startseite: 'Startseite', luxErkl: (lux, de) => `${lux} ist Luxemburgisch für ${de}.`,
@@ -93,7 +93,7 @@ export const STR = {
     kartePlatzhalter: 'Carte à venir', karteLink: 'Voir sur OpenStreetMap',
     besuchAlt: 'Enseigne de la Hierber Brennerei avec symbole d’alambic et lettrage, derrière les bâtiments de la ferme entre des arbres fruitiers',
     besuchBildunterschrift: 'L’accès à la ferme à Herborn.',
-    fotoAlt: { obst: 'Caisses en bois remplies de poires jaunes dans la cour de la distillerie', brennen: 'Installation de distillation avec colonnes en inox et cuivre', reifen: 'Cave avec fûts de chêne couchés et cuves en inox' },
+    fotoAlt: { obst: 'Caisses en bois remplies de poires jaunes dans la cour de la distillerie', brennen: 'Installation de distillation avec colonnes en inox et cuivre', reifen: 'Cave avec fûts de chêne couchés et cuves en inox', maische: 'Marc de fruits qui s’écoule d’une installation en inox dans un bac', abfuellen: 'Mise en bouteille : bouteilles avec étiquette Hierber Gin sur une installation de remplissage' }, symbolbildKurz: 'Image symbolique',
     neuerTab: '(nouvel onglet)', platzhalterFoto: 'Photo à venir', fotoNoetig: 'Photo nécessaire',
     brotkrumen: 'Fil d’Ariane', startseite: 'Accueil', luxErkl: () => '', 
     alkoholgehalt: 'Teneur en alcool', etikettAlt: (n) => `Étiquette ${n} de la Hierber Brennerei`, flascheAlt: (n, m) => `Bouteille ${n}, ${m}, avec étiquette`,

@@ -91,15 +91,15 @@ const SCHRITT_TEXTE = [
   'Zum Schluss wird abgefüllt und die Flasche beschriftet.',
 ];
 
-// Schritt -> Foto (Schlüssel, Ausschnitt). Maische und Abfüllen: beschriftete Foto-Platzhalter.
-const SCHRITT_FOTO = { 0: ['hof-birnenkisten', 'obst', 'center 88%'], 2: ['brennanlage-gross', 'brennen', 'center'], 3: ['fassraum-eichenfaesser', 'reifen', 'center'] };
+// Schritt -> Foto (Schlüssel, Alt-Schlüssel, Ausschnitt, Symbolbild?). Maische und Abfüllen: Bilder des Nutzers (Fotos/hof-maische.png, hof-abfullen.png), als Symbolbild gekennzeichnet.
+const SCHRITT_FOTO = { 0: ['hof-birnenkisten', 'obst', 'center 88%'], 1: ['hof-maische', 'maische', 'center', true], 4: ['hof-abfullen', 'abfuellen', 'center', true], 2: ['brennanlage-gross', 'brennen', 'center'], 3: ['fassraum-eichenfaesser', 'reifen', 'center'] };
 
 function brennen(IMG, lang) {
   const t = STR[lang];
   const items = t.schritte.map((s, i) => {
     const f = SCHRITT_FOTO[i];
     const fig = f
-      ? `<figure class="schritt-foto">${bild(IMG, `foto-${f[0]}`, { alt: t.fotoAlt[f[1]], sizes: '(min-width: 900px) 560px, 92vw', cls: 'schritt-bild' })}</figure>`
+      ? `<figure class="schritt-foto">${bild(IMG, `foto-${f[0]}`, { alt: t.fotoAlt[f[1]], sizes: '(min-width: 900px) 560px, 92vw', cls: 'schritt-bild' })}${f[3] ? `<figcaption>${t.symbolbildKurz}</figcaption>` : ''}</figure>`
       : `<div class="schritt-foto platz" data-todo="foto"><span>${t.fotoNoetig}: ${s}</span></div>`;
     return `<li class="schritt">${fig}<div class="schritt-text"><p class="schritt-nr">${t.schrittNr} ${i + 1}</p><h3>${s}</h3>${lang === 'de' ? `<p data-todo="bestaetigen">${SCHRITT_TEXTE[i]}</p>` : ''}</div></li>`;
   }).join('\n');

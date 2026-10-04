@@ -142,3 +142,10 @@ Leere Flaschen als Anhang 1 der ChatGPT-Prompts (Tabelle in `FOTO-INVENTAR.md`, 
 - **Fehlende Basisfotos:** schlank 0,7 L, schlank 1 L. (Für rund 0,2 L liegt eine Datei vor, die aber nur die 0,5-L-Flasche zeigt.)
 - **Ersatzbasen sind nur Näherung:** schlank 0,7 L und schlank 1 L nutzen `schlank-0-5l.png`, rund 0,2 L nutzt `rund-0-2l.png` (dasselbe Bild wie 0,5 L); die Zielgröße steht nur als ungefähres Verhältnis im Prompt (`PROMPTS-GROESSEN.md`).
 - Zu bestätigen: Verschluss der echten 1-L- und 1,5-L-Flaschen (Prompts übernehmen den Korken des Basisfotos), Verschluss der 0,1-L-Flaschen (Basisfoto: Holzkugel auf Korkschaft).
+
+## 9. Fotos „Wie wir brennen“ (Maische, Abfüllen)
+
+`Fotos/hof-maische.png` und `Fotos/hof-abfullen.png` (vom Nutzer) ersetzen die Platzhalter bei Schritt 2 (Maische) und Schritt 5 (Abfüllen) auf der Startseite. Die Seite nutzt verkleinerte Kopien in `fotos/` (JPEG), beide sind als „Symbolbild“ beschriftet.
+
+- Das Abfüll-Bild ist erkennbar KI-erzeugt (Flaschen „Hierber Gin“, Brennanlage im Hintergrund); ob die Brennerei ein echtes Foto der Abfüllung hat, klärt der Brenner.
+- Das Maische-Bild: Herkunft und Anlage vom Brenner bestätigen lassen (Alt-Text beschreibt nur „Maische aus Obst, die aus einer Edelstahlanlage in eine Wanne läuft“).
