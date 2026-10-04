@@ -2,7 +2,8 @@
 import { PRODUKTE } from '../data/produkte.js';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
-import { flasche, flaschenFoto, FLASCHEN_DEFS } from './flasche.mjs';
+import { flasche, flaschenFoto, groessenFotos, FLASCHEN_DEFS } from './flasche.mjs';
+import { HAUPT_MENGE } from '../data/flaschenfotos.js';
 import { TEXTE, FAMILIE, FAM } from '../data/texte.js';
 import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
 import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
@@ -66,8 +67,15 @@ ${panels}
 </section>`;
 }
 
+// Vorgewählte Größe: 0,5 L (Standard, passt zum Hauptbild und zu den Karten), sonst die erste Größe der Standardvariante
+export function standardMenge(p) {
+  const l = p.varianten[0].preise;
+  return (l.find((x) => x.menge === HAUPT_MENGE) || l[0] || {}).menge || null;
+}
+
 function kaufen(p, lang) {
   const t = STR[lang];
+  const std = standardMenge(p);
   const mehrere = p.varianten.length > 1;
   const keinPreis = p.varianten.every((v) => v.preise.length === 0);
   const chips = mehrere
@@ -78,7 +86,7 @@ function kaufen(p, lang) {
     let groessen;
     if (v.preise.length) {
       groessen = `<fieldset class="groessen"><legend>${t.groesse}</legend><div class="chips">${v.preise.map((x, j) => {
-        const gewaehlt = i === 0 && j === 0;
+        const gewaehlt = i === 0 && x.menge === std;
         return `<label class="chip-radio"><input type="radio" name="groesse" value="${esc(x.menge)}" data-variante="${v.id}" data-menge="${esc(x.menge)}" data-preis="${x.preis}"${gewaehlt ? ' checked' : ''}><span><span data-groesse>${fmtMenge(x.menge)}</span> <span aria-hidden="true">·</span> <span class="chip-preis" data-preis-wert="${x.preis}">${fmtPreis(x.preis)}</span></span></label>`;
       }).join('')}</div></fieldset>`;
     } else {
@@ -87,7 +95,7 @@ function kaufen(p, lang) {
     return `<div class="variante${i === 0 ? ' aktiv' : ''}" data-variante-block="${v.id}">${kopf}${abv}${groessen}</div>`;
   }).join('\n');
   const v0 = p.varianten[0];
-  const x0 = v0.preise[0];
+  const x0 = v0.preise.find((x) => x.menge === std) || v0.preise[0];
   const auswahl = keinPreis
     ? ''
     : `<p class="auswahl" data-auswahl aria-live="polite"><span class="auswahl-label">${t.auswahl}:</span> <span data-auswahl-text>${esc(v0.name)}${x0 ? `, ${fmtMenge(x0.menge)}` : ''}</span> <strong class="auswahl-preis" data-auswahl-preis>${x0 ? fmtPreis(x0.preis) : t.preisAnfrage}</strong> <span class="mwst">${t.inklMwst}</span></p>`;
@@ -139,9 +147,21 @@ export function sortenseite(IMG, p, lang) {
   const hatEtikett = !!ETIKETTEN[p.id];
   const foto = FOTO_SORTEN[p.id];
   // Hauptbild: neu erzeugte Produktflasche (fotos-flaschen/<id>.png), sonst Vektor-Flasche mit aktuellem Etikett; Sorten ohne flaches Etikett: Produktfoto (Rum, Limoncello, Sambuca) bzw. beschrifteter Platzhalter
+  // Größenbilder (fotos-flaschen/<id>-<größe>.png): je Größe mit Bild ein weiteres Bild in der Bühne; beim Wählen der Größe schaltet site.js um (data-bild-menge).
+  // Sichtbar beim Laden: das Hauptbild (0,5 L); gibt es keins, das Bild der ersten Größe (gewählte Standardgröße), sonst die Vektor-Flasche. Nur das sichtbare Bild lädt sofort.
   let hauptBild, hauptKlasse = 'buehne-rahmen';
-  if (IMG[`flasche-${p.id}`]) hauptBild = `<div class="buehne buehne-foto">${flaschenFoto(IMG, p, { gross: true })}</div>`;
-  else if (hatEtikett) hauptBild = `<div class="buehne">${flasche(IMG, p, { gross: true })}</div>`;
+  const hatHaupt = !!IMG[`flasche-${p.id}`], hatEtikettBuehne = hatHaupt || hatEtikett;
+  const groessen = hatEtikettBuehne ? groessenFotos(IMG, p) : [];
+  const mengen = [...new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)))];
+  const startMenge = standardMenge(p);
+  const startGroesse = !hatHaupt && startMenge ? groessen.find((g) => g.menge === startMenge) : null;
+  const groessenHtml = groessen.map((g) => flaschenFoto(IMG, p, { gross: true, key: g.key, alt: t.flascheAlt(p.name, fmtMenge(g.menge)), eager: g === startGroesse, attrs: ` data-bild-menge="${esc(g.menge)}"${g === startGroesse ? '' : ' hidden'}` })).join('');
+  const mitGroessen = groessen.length ? ' data-buehne' : '';
+  if (hatHaupt) {
+    // Hauptbild = 0,5 L; führt die Sorte 0,5 L nicht, bleibt die bisherige Beschriftung (Größe nur bei genau einer Größe)
+    const alt = mengen.includes(HAUPT_MENGE) ? t.flascheAlt(p.name, fmtMenge(HAUPT_MENGE)) : '';
+    hauptBild = `<div class="buehne buehne-foto"${mitGroessen}>${flaschenFoto(IMG, p, { gross: true, alt, attrs: groessen.length ? ' data-bild-haupt' : '' })}${groessenHtml}</div>`;
+  } else if (hatEtikett) hauptBild = `<div class="buehne"${mitGroessen}>${flasche(IMG, p, { gross: true, eager: !startGroesse, attrs: `${groessen.length ? ' data-bild-haupt' : ''}${startGroesse ? ' hidden' : ''}` })}${groessenHtml}</div>`;
   else if (foto) { hauptKlasse = 'foto-rahmen rahmen'; hauptBild = bild(IMG, `foto-${foto.haupt}`, { alt: foto.alt, sizes: '(min-width: 800px) 560px, 92vw', eager: true }); }
   else hauptBild = `<div class="etikett-platzhalter platz" data-todo="foto"><span class="platz-marke">Hierber Brennerei</span><span class="platz-name">${esc(p.name)}</span><span>${t.etikettFolgt}</span></div>`;
   const tastDe = `<dl class="verkostung">

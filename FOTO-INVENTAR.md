@@ -269,10 +269,12 @@ Leere Glasflaschen ohne Etikett vor Studiohintergrund (alle etwa 1312 × 1199 px
 
 | Form | Größe | Datei | Verwendung |
 |---|---|---|---|
-| schlank (Hals mittellang, Glasstopfen) | 0,5 L | `rund-0-5l.png` | Anhang 1 aller schlanken 0,5-L-Prompts; Ersatzbasis für schlank 0,7 L und 1 L. **Achtung:** trotz Dateiname „rund“ eine schlanke, hohe Zylinderflasche |
+| schlank (Hals mittellang, Glasstopfen) | 0,5 L | `schlank-0-5l.png` | Anhang 1 aller schlanken 0,5-L-Prompts (18 Sorten); Ersatzbasis für schlank 0,7 L und 1 L |
+| rund (Korken) | 0,5 L | `rund-0-5l.png` | Anhang 1 der runden 0,5-L-Prompts (Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, aale Fruucht); Kappe/Halsband aus dem Sortenprompt. Vizdrëpp bleibt bei `fotos/vorlage-vizdrepp.png` |
 | schlank (Holzkugel auf Korken) | 0,1 L | `schlank-0-1l.png` | Anhang 1 der 13 Prompts 0,1 L |
-| rund (Apothekerform, Korken) | 0,7 L | `rund-0-7l.png` | Ersatzbasis für rund 0,2 L (7 Sorten) |
-| rund | 1 L | `rund-1-0l.png` | Anhang 1 der 8 Prompts 1 L (Grain: Ersatz `rund-0-5l.png`, schlank) |
+| rund | 0,2 L | `rund-0-2l.png` | Anhang 1 der 7 Prompts rund 0,2 L. **Achtung:** Datei identisch mit `rund-0-5l.png` (zeigt die 0,5-L-Flasche); der Prompt behält die Maßstabszeile „deutlich kleiner als die 0,5-L-Flasche“ |
+| rund (Apothekerform, Korken) | 0,7 L | `rund-0-7l.png` | **ungenutzt** (keine runde Sorte führt 0,7 L in der Preisliste) |
+| rund | 1 L | `rund-1-0l.png` | Anhang 1 der 8 Prompts 1 L (Grain: schlank, Ersatz `schlank-0-5l.png`) |
 | rund | 1,5 L | `rund-1-5l.png` | Anhang 1 der 7 Prompts 1,5 L |
 | Karaffe (glockenförmig, Glasstopfen) | 0,7 L | `karaffe-0-7l.png` | Vieux Marc, 0,5-L- und 0,7-L-Prompt |
 | rund, Miniatur | 40 ml | `rund-40ml.png` | **nicht verwendet** (keine Größe der Preisliste) |

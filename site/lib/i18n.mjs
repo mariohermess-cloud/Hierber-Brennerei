@@ -36,7 +36,7 @@ export const STR = {
     neuerTab: '(neuer Tab)', platzhalterFoto: 'Foto folgt', fotoNoetig: 'Foto nötig',
     // Sortenseite
     brotkrumen: 'Brotkrumen', startseite: 'Startseite', luxErkl: (lux, de) => `${lux} ist Luxemburgisch für ${de}.`,
-    alkoholgehalt: 'Alkoholgehalt', etikettAlt: (n) => `Etikett ${n} der Hierber Brennerei`,
+    alkoholgehalt: 'Alkoholgehalt', etikettAlt: (n) => `Etikett ${n} der Hierber Brennerei`, flascheAlt: (n, m) => `Flasche ${n}, ${m}, mit Etikett`,
     verkostung: 'Verkostung', nase: 'Nase', gaumen: 'Gaumen', abgang: 'Abgang', trinktemp: 'Trinktemperatur', glas: 'Empfohlenes Glas',
     serviertTitel: (n) => `So genießen Sie ${n}`, serviertAria: 'Serviervorschläge', zuServieren: 'Serviervorschläge ↓', zutaten: 'Zutaten', zubereitung: 'Zubereitung', passtZu: 'Passt zu',
     serviertFoto: (n) => `Foto folgt: ${n}`, symbolbild: 'Symbolbild: Serviervorschlag',
@@ -96,7 +96,7 @@ export const STR = {
     fotoAlt: { obst: 'Caisses en bois remplies de poires jaunes dans la cour de la distillerie', brennen: 'Installation de distillation avec colonnes en inox et cuivre', reifen: 'Cave avec fûts de chêne couchés et cuves en inox' },
     neuerTab: '(nouvel onglet)', platzhalterFoto: 'Photo à venir', fotoNoetig: 'Photo nécessaire',
     brotkrumen: 'Fil d’Ariane', startseite: 'Accueil', luxErkl: () => '', 
-    alkoholgehalt: 'Teneur en alcool', etikettAlt: (n) => `Étiquette ${n} de la Hierber Brennerei`,
+    alkoholgehalt: 'Teneur en alcool', etikettAlt: (n) => `Étiquette ${n} de la Hierber Brennerei`, flascheAlt: (n, m) => `Bouteille ${n}, ${m}, avec étiquette`,
     verkostung: 'Dégustation', nase: 'Nez', gaumen: 'Bouche', abgang: 'Finale', trinktemp: 'Température de service', glas: 'Verre recommandé',
     serviertTitel: (n) => `Comment déguster ${n}`, serviertAria: 'Suggestions de service', zuServieren: 'Suggestions de service ↓', zutaten: 'Ingrédients', zubereitung: 'Préparation', passtZu: 'Accompagne',
     serviertFoto: (n) => `Photo à venir : ${n}`, symbolbild: 'Image symbolique : suggestion de présentation',

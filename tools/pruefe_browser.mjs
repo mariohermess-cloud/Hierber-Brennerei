@@ -1,4 +1,4 @@
-// Browsertests (Playwright): Konsolenfehler auf allen Seiten, Tabs per Tastatur, Merkliste + Anfrage-Text, Filter, Seite ohne JS, Altershinweis.
+// Browsertests (Playwright): Konsolenfehler auf allen Seiten, Tabs per Tastatur, Merkliste + Anfrage-Text, Filter, Seite ohne JS, Altershinweis, Größenbilder im Kopf der Sortenseite.
 // Aufruf: node tools/pruefe_browser.mjs  (dist/ muss auf Port 8770 laufen)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -187,6 +187,81 @@ for (const lang of ['', '/fr']) for (const id of ['kirsch', 'gin', 'quetsch', 'h
 await page.goto(BASIS + '/brand/hondsaarsch/');
 check((await page.locator('[data-kauf] [data-preis-anfrage]').count()) === 1 && (await page.locator('[data-kauf]').getByText('Preis auf Anfrage').count()) === 1, 'hondsaarsch: Preis auf Anfrage in der Kauf-Box');
 console.log('Sortenseiten-Aufbau getestet.');
+
+// 11. Größenbilder im Kopf der Sortenseite: Wählen einer Größe tauscht das Bild (data-bild-menge), sonst Hauptbild (data-bild-haupt, 0,5 L) bzw. Vektor-Flasche
+const nb = (t) => (t || '').replace(/ /g, ' ');
+// Zustand der Bühne: sichtbares Element (Größe/Haupt), ob Foto oder Vektor-Flasche, Bildquelle, geladen?, Alt-Text
+const buehne = (pg) => pg.evaluate(() => {
+  const b = document.querySelector('[data-buehne]'); if (!b) return null;
+  const sicht = [...b.children].filter((e) => getComputedStyle(e).display !== 'none');
+  const e = sicht[0], img = e && e.querySelector('picture img');
+  return { n: sicht.length, menge: e && e.getAttribute('data-bild-menge'), haupt: !!(e && e.hasAttribute('data-bild-haupt')), vektor: !!(e && e.classList.contains('flasche')), foto: !!(e && e.classList.contains('flasche-foto')), src: img ? img.currentSrc : '', geladen: img ? img.complete && img.naturalWidth > 0 : false, alt: img ? img.alt : '' };
+});
+const waehleGroesse = async (pg, menge) => { await pg.locator('.variante.aktiv label.chip-radio', { has: pg.locator(`input[name=groesse][data-menge="${menge}"]`) }).first().click(); };
+const warteBild = (pg) => pg.waitForFunction(() => { const b = document.querySelector('[data-buehne]'); const e = b && [...b.children].find((x) => getComputedStyle(x).display !== 'none'); const i = e && e.querySelector('picture img'); return !i || (i.complete && i.naturalWidth > 0); }, null, { timeout: 8000 }).catch(() => {});
+const zeigtGroesse = async (pg, menge, key, altTeil, name) => {
+  await waehleGroesse(pg, menge); await warteBild(pg);
+  const z = await buehne(pg);
+  check(z && z.n === 1 && z.menge === menge && z.foto && z.src.includes(`/${key}-`) && z.geladen, `${name}: ${menge} zeigt ${key} (${JSON.stringify(z)})`);
+  check(z && nb(z.alt) === altTeil, `${name}: ${menge} Alt-Text "${altTeil}" (ist "${z && nb(z.alt)}")`);
+};
+await page.setViewportSize({ width: 1280, height: 800 });
+// (a) Rum: kein 0,5-L-Bild; vorgewählt ist 0,5 L (Standard) = Vektor-Flasche, die übrigen Größen zeigen ihr Foto
+await page.goto(BASIS + '/brand/rum/', { waitUntil: 'networkidle' });
+let z = await buehne(page);
+check(z && z.n === 1 && z.vektor && z.haupt, `rum: beim Laden 0,5 L vorgewählt, Vektor-Flasche (${JSON.stringify(z)})`);
+const vorgewaehlt = await page.evaluate(() => document.querySelector('[data-kauf] input[name=groesse]:checked').getAttribute('data-menge'));
+check(vorgewaehlt === '0,5 L', `rum: vorgewählte Größe 0,5 L (${vorgewaehlt})`);
+await zeigtGroesse(page, '1,5 L', 'flasche-rum-1-5l', 'Flasche Hierber Rum, 1,5 L, mit Etikett', 'rum');
+await zeigtGroesse(page, '0,2 L', 'flasche-rum-0-2l', 'Flasche Hierber Rum, 0,2 L, mit Etikett', 'rum');
+await zeigtGroesse(page, '1 L', 'flasche-rum-1-0l', 'Flasche Hierber Rum, 1 L, mit Etikett', 'rum');
+// (b) Gin: Hauptbild 0,5 L beim Laden; Größen tauschen; 0,5 L zurück zum Hauptbild
+for (const [lang, l] of [['', 'de'], ['/fr', 'fr']]) {
+  const name = `${lang}/gin`, alt = (m) => (l === 'fr' ? `Bouteille Hierber Gin, ${m}, avec étiquette` : `Flasche Hierber Gin, ${m}, mit Etikett`);
+  await page.goto(BASIS + lang + '/brand/gin/', { waitUntil: 'networkidle' });
+  z = await buehne(page);
+  check(z && z.n === 1 && z.haupt && z.foto && /\/flasche-gin-\d+\./.test(z.src) && z.geladen, `${name}: beim Laden Hauptbild (${JSON.stringify(z)})`);
+  check(z && nb(z.alt) === alt('0,5 L'), `${name}: Hauptbild Alt-Text mit 0,5 L (ist "${z && nb(z.alt)}")`);
+  const lcp = await page.evaluate(() => [...document.querySelectorAll('[data-buehne] picture img')].map((i) => `${i.getAttribute('loading') || 'eager'}|${i.getAttribute('fetchpriority') || ''}`));
+  check(lcp.filter((x) => x.startsWith('eager')).length === 1 && lcp[0] === 'eager|high', `${name}: nur das Hauptbild lädt sofort (${lcp})`);
+  await zeigtGroesse(page, '1 L', 'flasche-gin-1-0l', alt('1 L'), name);
+  await zeigtGroesse(page, '1,5 L', 'flasche-gin-1-5l', alt('1,5 L'), name);
+  await zeigtGroesse(page, '0,2 L', 'flasche-gin-0-2l', alt('0,2 L'), name); // 0,2 L ist die vorgewählte Größe: Klick zeigt trotzdem deren Bild
+  await waehleGroesse(page, '0,5 L'); await warteBild(page);
+  z = await buehne(page); check(z && z.n === 1 && z.haupt && z.foto && /\/flasche-gin-\d+\./.test(z.src), `${name}: 0,5 L zurück zum Hauptbild (${JSON.stringify(z)})`);
+}
+// (c) Kirsch: 0,5 L vorgewählt (Vektor-Flasche), 0,1 L zeigt das 0,1-L-Foto
+await page.goto(BASIS + '/brand/kirsch/', { waitUntil: 'networkidle' });
+z = await buehne(page);
+check(z && z.n === 1 && z.vektor, `kirsch: beim Laden 0,5 L vorgewählt, Vektor-Flasche (${JSON.stringify(z)})`);
+await zeigtGroesse(page, '0,1 L', 'flasche-kirsch-0-1l', 'Flasche Kirsch, 0,1 L, mit Etikett', 'kirsch');
+// Variantenwechsel (Quetsch): Bild folgt der Größe, nichts bricht
+await page.goto(BASIS + '/brand/quetsch/', { waitUntil: 'networkidle' });
+await page.locator('label.chip-radio', { has: page.locator('input[name=variante][value=geraeift]') }).click(); await warteBild(page);
+z = await buehne(page); check(z && z.n === 1 && z.menge === '0,1 L' && z.foto && z.src.includes('/flasche-quetsch-0-1l-'), `quetsch: Variante gewechselt, Größe 0,1 L zeigt Foto (${JSON.stringify(z)})`);
+await waehleGroesse(page, '0,5 L'); z = await buehne(page); check(z && z.vektor, 'quetsch: 0,5 L der anderen Variante zeigt die Vektor-Flasche');
+await page.locator('label.chip-radio', { has: page.locator('input[name=variante][value=standard]') }).click(); await warteBild(page);
+z = await buehne(page); check(z && z.n === 1 && z.menge === '0,1 L' && z.foto, `quetsch: zurück zur ersten Variante, Foto 0,1 L (${JSON.stringify(z)})`);
+// (e) ohne JavaScript bleibt das Hauptbild (bzw. bei Kirsch die Vektor-Flasche der vorgewählten Größe 0,5 L); verborgene Größenbilder bleiben verborgen
+const ctx6 = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1280, height: 800 } });
+const p6 = await ctx6.newPage();
+await p6.goto(BASIS + '/brand/gin/'); z = await buehne(p6);
+check(z && z.n === 1 && z.haupt && z.foto, `ohne JS gin: Hauptbild sichtbar (${JSON.stringify(z)})`);
+await p6.goto(BASIS + '/brand/kirsch/'); z = await buehne(p6);
+check(z && z.n === 1 && z.vektor, `ohne JS kirsch: vorgewählte Größe 0,5 L, Vektor-Flasche sichtbar (${JSON.stringify(z)})`);
+await ctx6.close();
+// (f) Mobil 375x812: Wechsel funktioniert, kein horizontaler Überlauf
+await page.setViewportSize({ width: 375, height: 812 });
+for (const id of ['gin', 'rum', 'kirsch']) {
+  await page.goto(BASIS + `/brand/${id}/`, { waitUntil: 'networkidle' });
+  const vorher = await page.evaluate(() => document.documentElement.scrollWidth);
+  await waehleGroesse(page, id === 'kirsch' ? '0,1 L' : '1,5 L'); await warteBild(page);
+  const nachher = await page.evaluate(() => document.documentElement.scrollWidth);
+  z = await buehne(page);
+  check(vorher <= 375 && nachher <= 375, `mobil /brand/${id}/: kein horizontaler Überlauf (${vorher}/${nachher})`);
+  check(z && z.n === 1 && z.foto && z.geladen, `mobil /brand/${id}/: Größenbild sichtbar und geladen (${JSON.stringify(z)})`);
+}
+console.log('Größenbilder getestet.');
 
 await browser.close();
 console.log(`${ok} Prüfungen bestanden.`);

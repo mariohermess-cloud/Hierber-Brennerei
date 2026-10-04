@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
-import { FLASCHEN_ORDNER } from '../data/flaschenfotos.js';
+import { FLASCHEN_ORDNER, GROESSEN_SUFFIX, HAUPT_MENGE } from '../data/flaschenfotos.js';
 import { PRODUKTE } from '../data/produkte.js';
 import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
 import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
@@ -78,11 +78,15 @@ export async function warpeEtikett(quelle, ow) {
 }
 
 // ---------- Flaschenfotos (neu erzeugte Produktflasche mit aktuellem Etikett statt Vektor-Flasche) ----------
-// Quelle je Sorte: fotos-flaschen/<id>.png (Ergebnis des ChatGPT-Laufs, PROMPTS-FLASCHEN.md); fehlt die Datei, bleibt die Vektor-Flasche.
+// Quelle je Sorte: fotos-flaschen/<id>.png oder <id>-0-5l.png (Hauptbild, 0,5 L) und <id>-<größe>.png (Größenbilder); fehlt die Datei, bleibt die Vektor-Flasche.
+// Schlüssel: flasche-<id> (Hauptbild), flasche-<id>-<größe> (z. B. flasche-rum-1-5l).
 // Alle Bilder haben dasselbe Format (Hochformat 2:3) und dieselbe Standfläche; der Grund ist hell und neutral (weißgrau).
-// Zum Testen kann HB_FLASCHEN_ZUSATZ auf ein Verzeichnis außerhalb des Repos zeigen: <id>.png dort hat Vorrang.
-export async function flaschenFotoQuelle(root, id) {
-  const kandidaten = [process.env.HB_FLASCHEN_ZUSATZ && path.join(path.resolve(process.env.HB_FLASCHEN_ZUSATZ), `${id}.png`), path.join(root, FLASCHEN_ORDNER, `${id}.png`)].filter(Boolean);
+// Zum Testen kann HB_FLASCHEN_ZUSATZ auf ein Verzeichnis außerhalb des Repos zeigen: Dateien dort haben Vorrang.
+// suffix = null: Hauptbild (<id>.png, sonst <id>-0-5l.png); sonst Größenbild <id>-<suffix>.png.
+export async function flaschenFotoQuelle(root, id, suffix = null) {
+  const namen = suffix ? [`${id}-${suffix}.png`] : [`${id}.png`, `${id}-${GROESSEN_SUFFIX[HAUPT_MENGE]}.png`];
+  const ordner = [process.env.HB_FLASCHEN_ZUSATZ && path.resolve(process.env.HB_FLASCHEN_ZUSATZ), path.join(root, FLASCHEN_ORDNER)].filter(Boolean);
+  const kandidaten = ordner.flatMap((o) => namen.map((n) => path.join(o, n)));
   for (const k of kandidaten) { try { await fs.access(k); return k; } catch { /* nächste Quelle */ } }
   return null;
 }
@@ -102,7 +106,7 @@ async function hintergrundGain(quelle) {
   return { bg, gain: bg.map((x) => Math.min(GAIN_MAX, 255 / Math.max(1, x))) };
 }
 
-async function verarbeiteFlaschenfoto({ key, quelle, dist }) {
+async function verarbeiteFlaschenfoto({ key, quelle, dist, groesse = null }) {
   const meta = await sharp(quelle).metadata();
   const breiten = breitenFuer(meta.width, FF_BREITEN);
   const dir = path.join(dist, 'img');
@@ -117,7 +121,7 @@ async function verarbeiteFlaschenfoto({ key, quelle, dist }) {
     }
   }
   const gr = breiten[breiten.length - 1];
-  return { key, breiten, w: gr, h: Math.round((meta.height * gr) / meta.width), quelleW: meta.width, quelleH: meta.height, flaschenfoto: true, gain };
+  return { key, breiten, w: gr, h: Math.round((meta.height * gr) / meta.width), quelleW: meta.width, quelleH: meta.height, flaschenfoto: true, gain, ...(groesse ? { groesse } : {}) };
 }
 
 async function verarbeite({ key, quelle, dist, flatten, liste, warpe = false }) {
@@ -155,6 +159,12 @@ export async function bilder({ root, dist }) {
   for (const p of PRODUKTE) {
     const q = await flaschenFotoQuelle(root, p.id);
     if (q) jobs.push(verarbeiteFlaschenfoto({ key: `flasche-${p.id}`, quelle: q, dist }));
+    // Größenbilder (nur Größen der Preisliste, 0,5 L ist das Hauptbild)
+    for (const menge of new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)))) {
+      if (menge === HAUPT_MENGE || !GROESSEN_SUFFIX[menge]) continue;
+      const qg = await flaschenFotoQuelle(root, p.id, GROESSEN_SUFFIX[menge]);
+      if (qg) jobs.push(verarbeiteFlaschenfoto({ key: `flasche-${p.id}-${GROESSEN_SUFFIX[menge]}`, quelle: qg, dist, groesse: menge }));
+    }
   }
   for (const datei of FOTOS) {
     jobs.push(verarbeite({ key: `foto-${datei.replace(/\.[a-z]+$/, '')}`, quelle: path.join(root, 'fotos', datei), dist }));
@@ -211,7 +221,7 @@ export async function ogBilder({ root, dist, IMG = {} }) {
   // Sorten mit neu erzeugter Produktflasche (fotos-flaschen/<id>.png): Foto (Grund weiß) per multiply auf die cremefarbene Bühne, zentriert auf dunklem Grund
   const buehneFoto = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="420" height="560"><rect width="420" height="560" rx="2" fill="#e6dbc8"/><rect y="526" width="420" height="34" fill="#cbbca2"/></svg>`);
   for (const [key, m] of Object.entries(IMG)) {
-    if (!m.flaschenfoto) continue;
+    if (!m.flaschenfoto || m.groesse) continue; // OG-Bild nur vom Hauptbild
     const id = key.replace(/^flasche-/, '');
     const foto = await sharp(path.join(dist, 'img', `${key}-${m.breiten[m.breiten.length - 1]}.jpg`)).resize(420, 560, { fit: 'contain', position: 'bottom', background: '#ffffff' }).png().toBuffer();
     const stage = await sharp(buehneFoto).composite([{ input: foto, blend: 'multiply' }]).png().toBuffer();

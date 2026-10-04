@@ -157,3 +157,32 @@ Use the `typesafe:typesafe-ai` skill when working on this project. Whenever a fe
 needs semantic judgment (routing, ranking, extraction, verification, classification),
 or an LLM prompt-and-parse step could become a structured decision, load the skill
 and follow it, including reading the live docs at https://docs.typesafe.ai/llms.txt.
+
+## Fotos übernehmen
+
+Der Nutzer legt neue Bilder in drei Ordnern ab (Namensregeln, alles klein geschrieben, PNG):
+
+| Ordner | Inhalt | Name | Format |
+|---|---|---|---|
+| `fotos-flaschen/` | Flaschenbilder mit Etikett | `<sorten-id>.png` (Hauptbild, = 0,5 L) oder `<sorten-id>-<größe>.png`, Größe `0-1l`, `0-2l`, `0-5l`, `0-7l`, `1-0l`, `1-5l`; `<id>-0-5l.png` gilt wie `<id>.png`, existieren beide, gilt `<id>.png` | 1024 × 1536 |
+| `fotos-ki/` | Serviervorschläge | `<sorten-id>-<n>.png` (n = 1 Hauptbild) | 1448 × 1086 |
+| `fotos-basis/` | leere Basisflaschen (Anhang 1 der Prompts, nicht auf der Seite) | `<rund\|schlank\|karaffe>-<größe>.png`, `rund-40ml.png` | etwa 1312 × 1199 |
+
+Befehl (ein Befehl, idempotent, Exit-Code ≠ 0 bei Fehlern):
+
+```bash
+node tools/fotos_uebernehmen.mjs              # Namen und Format prüfen, Generatoren, Build, Prüfskripte, FOTO-STAND.md
+node tools/fotos_uebernehmen.mjs --ohne-build # ohne Build und Prüfskripte
+node tools/fotos_uebernehmen.mjs --browser    # zusätzlich pruefe_browser.mjs (eigener Server auf Port 8770, per PID beendet)
+```
+
+Er meldet Dateien gegen die Namensregeln und abweichende Bildformate (verschiebt oder löscht nichts), lässt die fünf Generatoren in fester Reihenfolge laufen, baut mit `node build.mjs`, führt `pruefe_daten`, `pruefe_links`, `pruefe_notizen`, `pruefe_kontrast` aus und schreibt die Zusammenfassung nach stdout und `FOTO-STAND.md` (Tabelle Sorte × Größe, Serviervorschläge je Sorte). Der Build dauert bis etwa 6 Minuten; im Hintergrund laufen lassen.
+
+**Ablauf des Chefs bei „Fotos sind gepusht“:**
+
+1. `git fetch`, danach den Befehl `node tools/fotos_uebernehmen.mjs --browser` ausführen.
+2. Branch von `main` anlegen (die hochgeladenen Fotos und die Ergebnisse des Befehls dorthin übernehmen).
+3. Ergebnis prüfen: Auffälligkeiten (Namen, Formate), `FOTO-STAND.md`, Diff, Ausgabe der Prüfskripte.
+4. Pull Request öffnen. **Merge nur auf ausdrückliche Anweisung des Nutzers.**
+
+Auf der Sortenseite gilt: Hauptbild (`<id>.png`, sonst `<id>-0-5l.png`) im Kopf und auf der Karte, beim Wählen einer Größe das Bild dieser Größe, sonst das Hauptbild bzw. die Vektor-Flasche.

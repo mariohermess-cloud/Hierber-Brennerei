@@ -4,6 +4,7 @@
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FLUESSIGKEIT } from '../data/fluessigkeit.js';
 import { FLASCHENTYP, KAPPE, KAPPE_STANDARD } from '../data/flaschen.js';
+import { GROESSEN_SUFFIX, HAUPT_MENGE } from '../data/flaschenfotos.js';
 import { esc, fmtMenge } from './util.mjs';
 import { bild } from './layout.mjs';
 
@@ -54,30 +55,40 @@ export function fuellung(id) { return FLUESSIGKEIT[id]; }
 
 // Inline-SVG-Flasche mit Etikettenbild (nur für Sorten mit flachem Etikett).
 // gross: Sortenseite (Etikett eager, größere Bildquelle); sonst Karte (lazy, kleine Quelle).
-export function flasche(IMG, p, { gross = false, label = true } = {}) {
+// attrs: zusätzliche Attribute für das äußere <span> (Bühne: data-bild-haupt, hidden); eager: Etikettenbild sofort laden (Vorgabe: gross)
+export function flasche(IMG, p, { gross = false, label = true, attrs = '', eager = gross } = {}) {
   const typ = typVon(p.id), t = TYP[typ], f = FLUESSIGKEIT[p.id];
   const m = IMG[`label-${p.id}`];
   const feld = labelFeld(typ, m.w / m.h);
   const kappe = KAPPE[p.id] || (typ === 'schlank' ? 'rgba(255,255,255,.6)' : KAPPE_STANDARD);
   const svg = `<svg viewBox="0 0 ${t.w} ${t.h}" aria-hidden="true" focusable="false"><use href="#gl-${typ}"/>`
     + `<rect x="0" y="${t.fuell}" width="${t.w}" height="${t.h - t.fuell}" clip-path="url(#cp-${typ})" fill="${f.farbe}" fill-opacity="${f.alpha}"/><use href="#ou-${typ}"/></svg>`;
-  const pic = bild(IMG, `label-${p.id}`, { alt: '', sizes: gross ? '(min-width: 800px) 210px, 130px' : '(min-width: 1000px) 100px, 80px', cls: 'fl-bild', eager: gross });
+  const pic = bild(IMG, `label-${p.id}`, { alt: '', sizes: gross ? '(min-width: 800px) 210px, 130px' : '(min-width: 1000px) 100px, 80px', cls: 'fl-bild', eager });
   const f4 = (n) => n.toFixed(2).replace(/\.?0+$/, '');
   const groessen = p.varianten.flatMap((v) => v.preise.map((x) => x.menge));
   const eine = [...new Set(groessen)];
   const aria = `Flasche ${p.name}${eine.length === 1 ? `, ${fmtMenge(eine[0])}` : ''}`;
-  return `<span class="flasche flasche-${typ}" data-fuellung="${f.geschaetzt ? 'geschaetzt' : 'foto'}" style="--kappe:${kappe};--fh:${t.hoehe}cqh;--ar:${t.w}/${t.h}"${gross ? ` role="img" aria-label="${esc(aria)}"` : ' aria-hidden="true"'}>`
+  return `<span class="flasche flasche-${typ}" data-fuellung="${f.geschaetzt ? 'geschaetzt' : 'foto'}" style="--kappe:${kappe};--fh:${t.hoehe}cqh;--ar:${t.w}/${t.h}"${attrs}${gross ? ` role="img" aria-label="${esc(aria)}"` : ' aria-hidden="true"'}>`
     + svg + `<span class="fl-etikett" style="left:${f4(feld.left)}%;top:${f4(feld.top)}%;width:${f4(feld.width)}%;height:${f4(feld.height)}%">${pic}</span></span>`;
 }
 
 // Neu erzeugte Produktflasche (Foto fotos-flaschen/<id>.png, Hochformat 2:3, heller Studiogrund) statt der Vektor-Flasche.
 // Der Grund ist auf Weiß normalisiert und wird per mix-blend-mode: multiply auf die Bühnenfarbe gelegt (CSS .flasche-foto). Alt-Text wie bei der Vektor-Flasche.
 // gross: Sortenseite (LCP: eager, fetchpriority high); sonst Karte (lazy).
-export function flaschenFoto(IMG, p, { gross = false } = {}) {
-  const pic = bild(IMG, `flasche-${p.id}`, { alt: '', sizes: gross ? '(min-width: 800px) 480px, 75vw' : '(min-width: 1000px) 240px, 45vw', cls: 'ff-bild', eager: gross });
+// Bühne der Sortenseite: key = Bildschlüssel (Vorgabe flasche-<id>), alt = Alt-Text am Bild (dann ohne role/aria-label am <span>), eager = sofort laden (nur das sichtbare Bild),
+// attrs = zusätzliche Attribute am <span> (data-bild-haupt, data-bild-menge, hidden).
+export function flaschenFoto(IMG, p, { gross = false, key = `flasche-${p.id}`, alt = '', eager = gross, attrs = '' } = {}) {
+  const pic = bild(IMG, key, { alt, sizes: gross ? '(min-width: 800px) 480px, 75vw' : '(min-width: 1000px) 240px, 45vw', cls: 'ff-bild', eager });
+  if (alt) return `<span class="flasche-foto"${attrs}>${pic}</span>`;
   const eine = [...new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)))];
   const aria = `Flasche ${p.name}${eine.length === 1 ? `, ${fmtMenge(eine[0])}` : ''}`;
-  return `<span class="flasche-foto"${gross ? ` role="img" aria-label="${esc(aria)}"` : ' aria-hidden="true"'}>${pic}</span>`;
+  return `<span class="flasche-foto"${attrs}${gross ? ` role="img" aria-label="${esc(aria)}"` : ' aria-hidden="true"'}>${pic}</span>`;
+}
+
+// Größen der Sorte (Preisliste, alle Varianten, ohne 0,5 L) mit Größenbild: [{ menge, key }] in Reihenfolge der Preisliste.
+export function groessenFotos(IMG, p) {
+  const mengen = [...new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)))];
+  return mengen.filter((m) => m !== HAUPT_MENGE && GROESSEN_SUFFIX[m] && IMG[`flasche-${p.id}-${GROESSEN_SUFFIX[m]}`]).map((m) => ({ menge: m, key: `flasche-${p.id}-${GROESSEN_SUFFIX[m]}` }));
 }
 
 // Eigenständiges SVG (ohne <use>, ohne CSS-Variablen) für die Rasterung der OG-Bilder. Etikett wird vom Aufrufer eingesetzt.
