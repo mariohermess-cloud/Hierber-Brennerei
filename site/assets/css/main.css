@@ -293,6 +293,7 @@ a:hover{text-decoration-thickness:2px}
 /* Verkostung im Kopf: dunkler Stil, zweispaltig ab 900 px */
 .kopf-verkostung{margin-top:1.8rem}
 .kopf-verkostung h2{font-size:clamp(1.6rem,3.5vw,2.1rem);margin-bottom:.4rem}
+#produkt{scroll-margin-top:0}
 .produkt-kopf .verkostung{margin-top:.6rem;max-width:none}
 .produkt-kopf .verkostung>div{display:block;padding:.7rem 0;border-top:1px solid var(--linie)}
 .produkt-kopf .verkostung dt{color:var(--kupfer-hell)}

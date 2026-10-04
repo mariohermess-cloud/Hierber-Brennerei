@@ -233,6 +233,23 @@
     render();
   }
 
+  /* ---------- Sprung zum Hauptprodukt (#produkt): nach dem Laden und bei nachladenden Bildern erneut ausrichten ---------- */
+  (function () {
+    if (location.hash !== '#produkt') return;
+    var ziel = document.getElementById('produkt');
+    if (!ziel) return;
+    var nav = null;
+    try { nav = performance.getEntriesByType('navigation')[0]; } catch (e) { /* ignorieren */ }
+    if (nav && (nav.type === 'back_forward' || nav.type === 'reload')) return;
+    var springe = function () { ziel.scrollIntoView({ block: 'start', behavior: 'auto' }); };
+    var ende = Date.now() + 1500, fertig = false;
+    var bilder = $$('img').filter(function (i) { return !i.complete; });
+    var nachladen = function () { if (!fertig && Date.now() < ende) springe(); };
+    bilder.forEach(function (i) { i.addEventListener('load', nachladen); i.addEventListener('error', nachladen); });
+    var los = function () { springe(); setTimeout(function () { fertig = true; }, Math.max(0, ende - Date.now())); };
+    if (document.readyState === 'complete') los(); else window.addEventListener('load', los);
+  })();
+
   zaehlerUpdate();
   window.addEventListener('storage', function () { zaehlerUpdate(); });
 })();
