@@ -32,7 +32,7 @@ export function breitenFuer(nativ, liste = STANDARD) {
 
 // Echte Fotos (vom Nutzer geliefert) in fotos/. Schlüssel = foto-<name>. Die KI-Beispielbilder sind ausgeschlossen.
 // Die Produktfotos auf schwarzem Grund (flaschen-*.webp) sind nur noch Farb- und Formreferenz und werden nicht mehr ausgeliefert.
-export const FOTOS = ['hof-birnenkisten.jpg', 'flaschenreihe-theke.jpg', 'fassraum-eichenfaesser.jpg', 'brennanlage-gross.jpg', 'geschenkregal.jpg', 'hofschild-aussen.jpg'];
+export const FOTOS = ['hof-birnenkisten.jpg', 'flaschenreihe-theke.jpg', 'fassraum-eichenfaesser.jpg', 'brennanlage-gross.jpg', 'geschenkregal.jpg', 'hofschild-aussen.jpg', 'hof-maische.jpg', 'hof-abfullen.jpg'];
 // Etiketten (vorverzerrt, siehe warpeEtikett): 240 für Karten (Handy), 480 für Karten (Desktop) und Sortenseite, 960 für die Sortenseite bei hoher Pixeldichte
 const LABEL_BREITEN = [240, 480, 960];
 // KI-Symbolbilder der Serviervorschläge (fotos-ki/<id>-<n>.png, n = 1 Hauptbild, n >= 2 weitere Karten; 1448x1086): Breiten 480/960/1448, nie hochskaliert, keine PNG in dist/
