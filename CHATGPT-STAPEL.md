@@ -2,12 +2,12 @@
 
 Erzeugt mit `node tools/chatgpt_stapel.mjs` (nach `node tools/foto_prompts_weitere.mjs`, `node tools/foto_prompts_flaschen.mjs` und `node tools/foto_prompts_groessen.mjs`). Nicht von Hand ändern. Hier steht, wie ChatGPT den Stapel der KI-Bilder abarbeitet, statt dass jedes Bild einzeln von Hand angefordert wird.
 
-**Stand:** 190 Bilder im Stapel, in dieser Reihenfolge: **1. 27 Ersatzbilder** für fehlerhafte Erstbilder (26 offen, 1 „ersetzt, bitte prüfen“), **2. 29 Flaschenbilder** „neue Produktflasche mit dem Etikett“ (Gruppe `flasche`, 28 offen), **3. 92 weitere Serviervorschläge** (92 schon vorhanden, 0 offen; zuerst alle `-2`, dann `-3`, `-4`, `-5`), **4. 42 Größenbilder** „neue Produktflasche in einer anderen Größe als 0,5 L“ (Gruppe `groessen`, 25 offen; Prompts in `PROMPTS-GROESSEN.md`). Zu erzeugen sind also **79 Bilder**.
+**Stand:** 190 Bilder im Stapel, in dieser Reihenfolge: **1. 27 Ersatzbilder** für fehlerhafte Erstbilder (26 offen, 1 „ersetzt, bitte prüfen“), **2. 29 Flaschenbilder** „neue Produktflasche mit dem Etikett“ (Gruppe `flasche`, 28 offen), **3. 92 weitere Serviervorschläge** (92 schon vorhanden, 0 offen; zuerst alle `-2`, dann `-3`, `-4`, `-5`), **4. 42 Größenbilder** „neue Produktflasche in einer anderen Größe als 0,5 L“ (Gruppe `groessen`, 16 offen; Prompts in `PROMPTS-GROESSEN.md`). Zu erzeugen sind also **70 Bilder**.
 
 ## Ehrlich vorab
 
 - **Wie verlässlich die Automatik läuft, hängt von der ChatGPT-Version und dem Tarif ab.** Ich kann das von hier aus nicht testen. Typische Grenzen: wie viele Dateien man pro Nachricht oder Chat anhängen darf, wie viele Bilder pro Zeitraum erzeugt werden dürfen (danach „bitte später wieder“), und dass ein Chat bei sehr vielen Bildern langsam wird oder den Faden verliert. Die konkreten Zahlen ändern sich; bitte in der Hilfe von ChatGPT nachlesen.
-- **Darum in Blöcken arbeiten:** nicht alle 79 auf einmal, sondern Blöcke zu je 10 Bildern (`tools/chatgpt-stapel-block-01.csv`, `-02.csv` …). Bei einem eigenen Limit lieber den Block verkleinern (5 Bilder) als abbrechen lassen.
+- **Darum in Blöcken arbeiten:** nicht alle 70 auf einmal, sondern Blöcke zu je 10 Bildern (`tools/chatgpt-stapel-block-01.csv`, `-02.csv` …). Bei einem eigenen Limit lieber den Block verkleinern (5 Bilder) als abbrechen lassen.
 - Ein Block mit 10 Bildern braucht bis zu 20 Bilddateien plus die CSV. Passt das nicht in einen Chat, den Block halbieren (die ersten 5 Zeilen der CSV in eine neue Datei kopieren, Kopfzeile behalten).
 - **Das Ergebnis muss immer von einem Menschen angesehen werden:** KI verfälscht gern Schrift. Etikett Wort für Wort mit dem Etikett aus `Fertige Etiquetten/` vergleichen, Flasche vollständig im Bild, nur Rezeptzutaten (Prüflisten stehen in `PROMPTS-FOTOS-WEITERE.md`, `PROMPTS-FOTOS-ERSATZ.md`, `PROMPTS-FLASCHEN.md` und `PROMPTS-GROESSEN.md`). Bei den Flaschenbildern zusätzlich: nur eine Flasche, Format und Position wie im Prompt, Flüssigkeit und Verschluss wie beschrieben; die Gruppenfoto- und Zwei-Flaschen-Vorlagen (Vieux Marc, runde Sorten) sind die heikelsten.
 - Auch die eigene Etikettenprüfung von ChatGPT (Schritt d) ist nur eine Hilfe, keine Garantie.
@@ -43,7 +43,7 @@ Zeilen, bei denen status nicht "offen" ist, überspringst du. Wenn eine Bilddate
 
 | Datei | Inhalt |
 |---|---|
-| `tools/chatgpt-stapel.csv` | alle 79 offenen Bilder |
+| `tools/chatgpt-stapel.csv` | alle 70 offenen Bilder |
 | `tools/chatgpt-stapel-alle.csv` | alle 190 Bilder mit Status |
 | `tools/chatgpt-stapel.json` | dieselben Daten wie die CSV, alle 190 mit Status |
 | `tools/chatgpt-stapel-block-NN.csv` | die offenen Bilder in Blöcken zu 10 |
@@ -60,9 +60,8 @@ Spalten der CSV: `nr` (laufende Nummer), `dateiname_ergebnis` (Zielpfad: `fotos-
 | 03 | `tools/chatgpt-stapel-block-03.csv` | 21–32 | 10 | 16 |
 | 04 | `tools/chatgpt-stapel-block-04.csv` | 33–42 | 10 | 13 |
 | 05 | `tools/chatgpt-stapel-block-05.csv` | 43–52 | 10 | 12 |
-| 06 | `tools/chatgpt-stapel-block-06.csv` | 53–171 | 10 | 14 |
-| 07 | `tools/chatgpt-stapel-block-07.csv` | 172–181 | 10 | 13 |
-| 08 | `tools/chatgpt-stapel-block-08.csv` | 182–190 | 9 | 9 |
+| 06 | `tools/chatgpt-stapel-block-06.csv` | 53–172 | 10 | 14 |
+| 07 | `tools/chatgpt-stapel-block-07.csv` | 173–190 | 10 | 11 |
 
 ### Dateien je Block
 
@@ -76,11 +75,9 @@ Spalten der CSV: `nr` (laufende Nummer), `dateiname_ergebnis` (Zielpfad: `fotos-
 
 **Block 05** (12 Dateien): `fotos-basis/rund-0-5l.png`, `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`, `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Brandwein Kraider-01.png`, `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`, `Fertige Etiquetten/Branntwein Grain-01.png`, `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`, `Fertige Etiquetten/Branntwein Kiwi-01.png`, `Fertige Etiquetten/Brandwein Poire-01.png`, `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`, `Fertige Etiquetten/Brandwein Lenschouren-01.png`, `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
 
-**Block 06** (14 Dateien): `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Branntwein Schleiwen-01.png`, `fotos/vorlage-vizdrepp.png`, `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`, `fotos-basis/rund-0-5l.png`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `Fertige Etiquetten/Branntwein Limoncello-01.png`, `Fertige Etiquetten/Brandwein Framboise-01.png`, `Fertige Etiquetten/Brandwein Quetsch-01.png`, `Fertige Etiquetten/Brandwein Williams-01.png`, `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Brandwein Mirabelle-01.png`, `fotos-basis/rund-1-0l.png`, `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
+**Block 06** (14 Dateien): `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Branntwein Schleiwen-01.png`, `fotos/vorlage-vizdrepp.png`, `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`, `fotos-basis/rund-0-5l.png`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `Fertige Etiquetten/Branntwein Limoncello-01.png`, `Fertige Etiquetten/Brandwein Framboise-01.png`, `Fertige Etiquetten/Brandwein Quetsch-01.png`, `Fertige Etiquetten/Brandwein Williams-01.png`, `Fertige Etiquetten/Brandwein Mirabelle-01.png`, `fotos-basis/rund-1-0l.png`, `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`, `fotos-basis/rund-1-5l.png`
 
-**Block 07** (13 Dateien): `fotos-basis/rund-1-5l.png`, `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`, `fotos-basis/karaffe-0-7l.png`, `Fertige Etiquetten/Branntwein Vieux marc-01.png`, `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Brandwein Vieille prune-01.png`, `Fertige Etiquetten/Brandwein Vieille pomme-01.png`, `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`, `Fertige Etiquetten/Brandwein Kraider-01.png`, `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Branntwein Grain-01.png`, `Fertige Etiquetten/Branntwein Kiwi-01.png`, `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
-
-**Block 08** (9 Dateien): `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Brandwein Lenschouren-01.png`, `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Branntwein Schleiwen-01.png`, `fotos-basis/rund-0-2l.png`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `fotos-basis/rund-1-0l.png`, `fotos-basis/rund-1-5l.png`, `Fertige Etiquetten/Branntwein Limoncello-01.png`
+**Block 07** (11 Dateien): `fotos-basis/karaffe-0-7l.png`, `Fertige Etiquetten/Branntwein Vieux marc-01.png`, `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Branntwein Grain-01.png`, `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`, `Fertige Etiquetten/Brandwein Lenschouren-01.png`, `fotos-basis/rund-0-2l.png`, `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`, `fotos-basis/rund-1-0l.png`, `fotos-basis/rund-1-5l.png`, `Fertige Etiquetten/Branntwein Limoncello-01.png`
 
 ## Optional: Automatik über die OpenAI-Bild-API (ungetestet)
 
