@@ -259,6 +259,7 @@ a:hover{text-decoration-thickness:2px}
 .panel-bild{margin:0}
 .panel-bild picture,.panel-bild img{display:block;width:100%;height:auto}
 .panel-bild img{border-radius:2px}
+.schritt-foto figcaption{margin-top:.4rem;font:400 .8rem/1.4 var(--sans);color:var(--gedaempt-papier)}
 .panel-bild figcaption{margin-top:.5rem;font:400 .8rem/1.4 var(--sans);color:var(--gedaempt-papier)}
 @media(min-width:800px){.panel.mit-bild{grid-template-columns:minmax(280px,min(500px,45%)) 1fr}}
 .panel-typ{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-dunkel);margin-bottom:.5rem}
