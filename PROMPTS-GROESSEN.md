@@ -8,7 +8,7 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle (`<sorten-id>-<g
 
 **Verschluss:** schlank 0,1 L Holzkugel auf Korkschaft (wie das Basisfoto), schlank 0,7 L und 1 L Glasstopfen (wie bei 0,5 L), rund 1 L und 1,5 L heller Naturkorken (wie die Basisfotos), runde 0,2 L und Vieux Marc die Kappe bzw. der Ausgießer der Sorte (wie bei 0,5 L; die Basisfotos zeigen Korken bzw. Glasstopfen).
 
-**Stand:** 25 offen, 17 vorhanden (Datei `<id>-<größe>.png` in `fotos-flaschen/`).
+**Stand:** 16 offen, 26 vorhanden (Datei `<id>-<größe>.png` in `fotos-flaschen/`).
 
 Automatisch abarbeiten: `CHATGPT-STAPEL.md` (Gruppe `groessen`, Ausgabe Hochformat).
 
@@ -564,7 +564,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/mirabelle-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 224 Wörter
 
 ```
@@ -685,7 +685,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vieille-prune-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 223 Wörter
 
 ```
@@ -709,7 +709,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vieille-pomme-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 223 Wörter
 
 ```
@@ -733,7 +733,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/hunnegdrepp-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 223 Wörter
 
 ```
@@ -757,7 +757,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kraeiderdrepp-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 224 Wörter
 
 ```
@@ -806,7 +806,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kiwibeeren-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 224 Wörter
 
 ```
@@ -830,7 +830,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/neelchesbiren-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 224 Wörter
 
 ```
@@ -879,7 +879,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/lenschouren-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 224 Wörter
 
 ```
@@ -928,7 +928,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/schleiwen-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 224 Wörter
 
 ```
