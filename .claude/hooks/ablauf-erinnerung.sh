@@ -1,22 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # Erinnert die Hauptsession bei jeder Nutzereingabe an den Orchestrator-Ablauf
-# der Hierber Brennerei. Wird über .claude/settings.json als UserPromptSubmit-Hook
-# ausgeführt. Liest die Hook-Eingabe von stdin (wird nicht ausgewertet) und gibt
-# JSON mit zusätzlichem Kontext aus.
-set -u
+# der Hierber Brennerei. Eingetragen in .claude/settings.json unter
+# hooks.UserPromptSubmit. Die Hook-Eingabe von stdin wird nicht ausgewertet;
+# ausgegeben wird ein JSON-Objekt mit zusaetzlichem Kontext.
 
-cat >/dev/null 2>&1 || true   # stdin abräumen, damit der Aufrufer nicht blockiert
+cat >/dev/null 2>&1 || true   # stdin abraeumen, damit der Aufrufer nicht blockiert
 
 cat <<'JSONENDE'
-{
-  "hookSpecificOutput": {
-    "hookEventName": "UserPromptSubmit",
-    "additionalContext": "Arbeitsablauf Hierber Brennerei (Chef/Coder/Helfer): Du bist der Chef. Plane zuerst, delegiere dann. Suchen, Lesen, Zusammenfassen -> Subagent 'helfer'. Abgegrenzte Code- oder SQL-Aenderung mit Pruefnachweis -> Subagent 'coder'. Nur du selbst committest, pushst und schreibst auf Live-Systeme (Produktionsdatenbank ueber BRENNEREI_DB, docker compose, GitHub-Schreibwerkzeuge, Artifacts, MCP-Server mit Schreibrechten). Vor dem Delegieren unklare Auftraege mit der Faehigkeit 'trainiere-prompt' schaerfen. Pruefbefehle nur die aus .claude/agents/coder.md, keine erfinden. Antworte auf Deutsch und beende jede Antwort mit dem Planstand-Block. Einzelheiten in CLAUDE.md."
-  }
-}
+{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"Arbeitsablauf Hierber Brennerei (Chef/Coder/Helfer): Du bist der Chef. Ablauf: 1. Prompt verbessern und zeigen (unklare Auftraege mit der Faehigkeit trainiere-prompt schaerfen) -> 2. Plan zeigen (# | Schritt | Wer | Live? | Risiko) -> 3. auf OK warten -> 4. delegieren: Suchen/Lesen/Zusammenfassen an Subagent helfer, abgegrenzte Code- oder SQL-Aenderung mit Pruefnachweis an Subagent coder -> 5. jeden Diff selbst pruefen -> 6. Abschluss getrennt nach Verifiziert und Nicht verifiziert. Reine Fragen und Smalltalk direkt beantworten. Nur du selbst committest, pushst und schreibst auf Live-Systeme (Produktionsdatenbank ueber BRENNEREI_DB, docker compose, GitHub-Schreibwerkzeuge, Artifacts, MCP-Server mit Schreibrechten), und nur nach Rueckfrage. Keine Pruefbefehle erfinden, nur die aus CLAUDE.md. Antworte auf Deutsch und beende jede Antwort waehrend eines laufenden Auftrags mit dem Planstand-Block. Einzelheiten in CLAUDE.md."}}
 JSONENDE
-#!/bin/sh
-# UserPromptSubmit-Hook: erinnert den Chef bei jeder Eingabe an den Orchestrator-Ablauf.
-cat <<'EOF'
-Ablauf: Prompt verbessern → Plan zeigen → auf OK warten → an coder/helfer delegieren → selbst prüfen → Verifiziert/Nicht verifiziert melden. Nur der Chef schreibt live. (Reine Fragen/Smalltalk: direkt antworten.)
-EOF
