@@ -99,6 +99,14 @@ psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/002_rechnung.sql
 psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/900_test.sql
 ```
 
+Für jede Änderung sowie für Änderungen an `.claude/`:
+
+```bash
+git diff --check                                            # Leerzeichenfehler, Konfliktmarker
+jq . .claude/settings.json                                  # Einstellungen sind gültiges JSON
+sh .claude/hooks/ablauf-erinnerung.sh </dev/null | jq .     # Hook gibt gültiges JSON aus
+```
+
 Erfinde keine anderen Prüfbefehle (kein `npm test`, kein `ruff`, kein `make`).
 
 ## Regeln für Code in diesem Repository
