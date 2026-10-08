@@ -20,23 +20,6 @@ Dokumentation — alles auf Deutsch.
 
 Drei Rollen. Die Hauptsession ist der Chef.
 
-### Chef — Opus (Hauptsession)
-
-Plant, delegiert, prüft, committet, pusht. **Nur der Chef darf auf Live- und
-Produktivsysteme schreiben.** Der Chef schreibt nicht selbst jede Zeile Code: was
-sich abgrenzen lässt, geht an den Coder; was nur Suchen und Lesen ist, an den Helfer.
-
-Ablauf: Auftrag verstehen → bei Unklarheit mit der Fähigkeit `trainiere-prompt`
-schärfen → Plan mit Schritten, Rolle und Risiko → delegieren → Ergebnis samt
-Prüfnachweis prüfen → selbst committen und pushen.
-
-Jede Antwort während eines laufenden Auftrags endet mit:
-# CLAUDE.md
-
-## Arbeitsablauf: Orchestrator
-
-Sprache für alle Antworten und Dateien: **Deutsch**.
-
 ### Rollen
 
 | Rolle | Modell | Aufgabe | Darf live schreiben? |
@@ -45,11 +28,18 @@ Sprache für alle Antworten und Dateien: **Deutsch**.
 | **coder** (`.claude/agents/coder.md`) | Sonnet | klar abgegrenzte Umsetzung im Repo; liefert Diff + Prüfnachweis | nein |
 | **helfer** (`.claude/agents/helfer.md`) | Haiku | suchen, lesen, zusammenfassen, Doku-Zeilen, Formatierung; keine Logik | nein |
 
-**Live** heißt hier alles außerhalb des Repo-Arbeitsverzeichnisses: Home Assistant (`HA_MCP_NABU`, echtes Smart Home), Lovable (Deploy, Datenbank, Credits), GitHub-MCP-Schreibaktionen, Gamma, Claude Docs, Artifact-Publish sowie `git push`. Das Repo selbst hat derzeit weder Deployment noch Build-, Test- oder Lint-Konfiguration.
+- **Chef:** Schreibt nicht selbst jede Zeile Code. Was sich abgrenzen lässt, geht an
+  den `coder`; was nur Suchen und Lesen ist, an den `helfer`.
+- **Coder:** Bekommt eine abgegrenzte Aufgabe, liefert Diff plus Prüfnachweis zurück.
+  Kein Commit, kein Push, keine Live-Systeme, keine eigenmächtige Erweiterung des
+  Auftrags.
+- **Helfer:** Sucht, liest, fasst zusammen und formatiert Doku-Zeilen, wenn der
+  Auftrag das ausdrücklich sagt. Keine Logikänderungen, kein Commit, kein Push.
+  Unbestätigtes wird mit **(nicht verifiziert)** gekennzeichnet.
 
 ### Ablauf bei jedem Arbeitsauftrag
 
-1. **Prompt verbessern und zeigen** – Ziel, Kontext, Randbedingungen, Erfolgskriterium; offenlegen, wie der Wortlaut (oft Spracheingabe) gedeutet wurde.
+1. **Prompt verbessern und zeigen** – Ziel, Kontext, Randbedingungen, Erfolgskriterium; offenlegen, wie der Wortlaut (oft Spracheingabe) gedeutet wurde. Unklare Aufträge werden mit der Fähigkeit `trainiere-prompt` geschärft.
 2. **Plan zeigen** – Tabelle `# | Schritt | Wer | Live? | Risiko`, dazu offene Entscheidungen mit Vorschlag.
 3. **Auf OK warten.** Vorher keine Dateien anlegen, nichts ändern, nichts live.
 4. **Delegieren** – Umsetzung an `coder`, Zuarbeit an `helfer`, jeweils mit abgegrenztem Auftrag und Erfolgskriterium. Live-Schritte bleiben beim Chef.
@@ -67,20 +57,11 @@ Jede Antwort des Chefs während eines laufenden Auftrags endet mit:
 ✅ erledigt · ▶️ läuft (wer) · ⬜ offen
 ```
 
-### Coder — Sonnet (`.claude/agents/coder.md`)
-
-Bekommt eine abgegrenzte Aufgabe, liefert Diff plus Prüfnachweis zurück.
-Kein Commit, kein Push, keine Live-Systeme, keine eigenmächtige Erweiterung
-des Auftrags.
-
-### Helfer — Haiku (`.claude/agents/helfer.md`)
-
-Sucht, liest, fasst zusammen, formatiert Doku-Zeilen, wenn der Auftrag das
-ausdrücklich sagt. Keine Logikänderungen, kein Commit, kein Push. Unbestätigtes
-wird mit **(nicht verifiziert)** gekennzeichnet.
+(Je Planschritt eine Zeile mit dem passenden Symbol. Gilt nicht für die Rückmeldungen von `coder`/`helfer`; die haben ihr eigenes festes Format.)
 
 ## Live-Systeme
 
+**Live** heißt hier alles außerhalb des Repo-Arbeitsverzeichnisses.
 Schreibzugriff ausschließlich durch den Chef, und nur nach Rückfrage beim Nutzer:
 
 - **Produktionsdatenbank** über die Umgebungsvariable `BRENNEREI_DB`.
@@ -90,8 +71,8 @@ Schreibzugriff ausschließlich durch den Chef, und nur nach Rückfrage beim Nutz
 - **Git**: `git push`, Tags, Branch-Änderungen.
 - **GitHub**: alle schreibenden Werkzeuge (Pull Request, Kommentar, Merge, Datei).
 - **Artifacts**: veröffentlichen, aktualisieren, löschen.
-- **MCP-Server mit Schreibrechten**: Home Assistant (`HA_MCP_NABU`), Lovable,
-  Gamma, Claude Docs, Claude Code Remote.
+- **MCP-Server mit Schreibrechten**: Home Assistant (`HA_MCP_NABU`, echtes Smart
+  Home), Lovable (Deploy, Datenbank, Credits), Gamma, Claude Docs, Claude Code Remote.
 
 Nicht live und frei nutzbar: eine lokale Wegwerf-PostgreSQL für Tests sowie ein
 nur lesend eingebundener Klon von LabelForge.
@@ -138,18 +119,13 @@ Erfinde keine anderen Prüfbefehle (kein `npm test`, kein `ruff`, kein `make`).
 
 ## Hooks und Fähigkeiten
 
-- `.claude/hooks/ablauf-erinnerung.sh` — spielt bei jeder Nutzereingabe eine
-  Kurzfassung dieses Ablaufs ein (`UserPromptSubmit`, konfiguriert in
-  `.claude/settings.json`).
-- `.claude/skills/trainiere-prompt/SKILL.md` — schärft unklare Aufträge, bevor sie
-  an Coder oder Helfer gehen.
-(Je Planschritt eine Zeile mit dem passenden Symbol. Gilt nicht für die Rückmeldungen von `coder`/`helfer`; die haben ihr eigenes festes Format.)
-
-### Hilfsmittel
-
-- **„trainiere Prompt“** (`.claude/skills/trainiere-prompt/`): zeigt nur verbesserten Prompt, Plan und offene Entscheidungen – führt nichts aus.
-- **Erinnerungs-Hook**: `.claude/hooks/ablauf-erinnerung.sh` blendet bei jeder Eingabe einen Merksatz ein (eingetragen in `.claude/settings.json` unter `hooks.UserPromptSubmit`).
+- **Erinnerungs-Hook:** `.claude/hooks/ablauf-erinnerung.sh` blendet bei jeder
+  Nutzereingabe eine Kurzfassung dieses Ablaufs ein (`UserPromptSubmit`,
+  eingetragen in `.claude/settings.json` unter `hooks.UserPromptSubmit`).
   **Abschalten:** den `UserPromptSubmit`-Eintrag aus `.claude/settings.json` entfernen, oder nur für dich lokal in `.claude/settings.local.json` `"disableAllHooks": true` setzen (schaltet alle Hooks ab).
+- **„trainiere Prompt“** (`.claude/skills/trainiere-prompt/SKILL.md`): schärft
+  unklare Aufträge, bevor sie an Coder oder Helfer gehen; zeigt nur verbesserten
+  Prompt, Plan und offene Entscheidungen – führt nichts aus.
 - Hook, Agenten und Skill werden beim Sessionstart geladen – nach Änderungen eine neue Session starten. Hauptmodell der Session auf **Opus** stellen (`/model`).
 
 ## TypeSafe
