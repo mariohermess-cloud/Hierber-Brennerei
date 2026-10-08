@@ -29,7 +29,7 @@ Prüfe den Wunsch gegen diese Liste und notiere, was fehlt:
 - **Sonderfälle**: leere Werte, Storno, Reverse Charge, mehrere Einheiten (ml, g, Stück).
 - **Rechtliches**: Belege bleiben unveränderlich; Nummernkreise lückenlos;
   Korrektur nur per Gutschrift. Berührt die Änderung das?
-- **Prüfung**: Mit welchem der Befehle aus `.claude/agents/coder.md` wird es belegt?
+- **Prüfung**: Mit welchem der Prüfbefehle aus `CLAUDE.md` wird es belegt?
 - **Live**: Ist ein Live-System betroffen? Dann macht das ausschließlich der Chef.
 
 ### 3. Fragen stellen
@@ -81,7 +81,7 @@ Helfer | Coder | Chef — Begründung in einem Halbsatz.
 - Nenne immer auch, was **nicht** geändert werden soll — das verhindert Wildwuchs.
 - Schreibe Bedingungen nachprüfbar: nicht „soll schnell sein", sondern
   „die Testsuite läuft unverändert durch".
-- Keine erfundenen Werkzeuge. Nur die Prüfbefehle aus `.claude/agents/coder.md`.
+- Keine erfundenen Werkzeuge. Nur die Prüfbefehle aus `CLAUDE.md` (Abschnitt „Prüfbefehle“).
 - Im Zweifel kleiner schneiden.
 description: Verbessert einen Arbeitsauftrag und zeigt Plan und offene Entscheidungen, ohne etwas auszuführen. Auslösen, wenn der Nutzer „trainiere Prompt“ (auch „trainier den Prompt“, „Prompt trainieren“) schreibt oder spricht.
 ---

@@ -23,12 +23,22 @@ Du bist der **coder** im Orchestrator-Ablauf dieses Repos. Der Chef (Opus, Haupt
 
 ## Prüfbefehle dieses Repos
 
-Stand heute enthält das Repo keinen Code und **keine Build-, Test- oder Lint-Konfiguration**. Es gibt deshalb nur:
+Maßgeblich ist der Abschnitt „Prüfbefehle“ in `CLAUDE.md`. Bei Abweichungen gilt `CLAUDE.md`.
 
-- `git diff --check` (Leerzeichenfehler, Konfliktmarker)
-- Für Änderungen an `.claude/`: `jq . .claude/settings.json` und `sh .claude/hooks/ablauf-erinnerung.sh`
+Kurzübersicht (Kopie, Stand dieser Datei; Befehle wörtlich wie in `CLAUDE.md`):
 
-Kommen Tests oder Linter dazu, trägt der Chef die echten Befehle hier ein. Erfinde keine Befehle, die es nicht gibt.
+- Python-Code: `python3 -m compileall -q rechnungsprogramm/app rechnungsprogramm/tests`
+- Testsuite (braucht PostgreSQL über `BRENNEREI_DB`): `python3 -m pytest rechnungsprogramm/tests -q`
+- Schemaänderungen, nur gegen eine Wegwerf-Datenbank:
+  - `psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/001_schema.sql`
+  - `psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/002_rechnung.sql`
+  - `psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/900_test.sql`
+- Jede Änderung: `git diff --check`
+- Änderungen an `.claude/`: `jq . .claude/settings.json` und `sh .claude/hooks/ablauf-erinnerung.sh </dev/null | jq .`
+
+**`BRENNEREI_DB` niemals auf die Produktionsdatenbank zeigen lassen.** Ist keine Wegwerf-PostgreSQL erreichbar, führe die Tests nicht aus, sondern melde das unter „Nicht verifiziert/offen“.
+
+Erfinde keine Befehle, die dort nicht stehen.
 
 ## Rückmeldeformat (immer genau so)
 
