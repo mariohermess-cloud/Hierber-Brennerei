@@ -1,18 +1,21 @@
 ---
 name: trainiere-prompt
-description: Zeigt zu einem Arbeitsauftrag den verbesserten Prompt, die offengelegte Deutung des diktierten Wortlauts, eine Plan-Tabelle und offene Entscheidungen, ohne etwas auszuführen. Auslösen, wenn der Nutzer „trainiere Prompt“ (auch „trainier den Prompt“, „Prompt trainieren“) schreibt oder spricht.
+description: Macht aus einem grob formulierten oder diktierten Wunsch einen präzisen Arbeitsauftrag und zeigt verbesserten Prompt, Plan und offene Entscheidungen, ohne etwas auszuführen. Auslösen, wenn der Nutzer „trainiere Prompt“ (auch „trainier den Prompt“, „Prompt trainieren“) schreibt oder spricht, wenn ein Auftrag unklar, sehr groß oder mehrdeutig ist oder bevor eine Aufgabe an Coder oder Helfer übergeben wird.
 intended-models: opus, fable, sonnet (nicht auf Haiku geprüft)
-description: Macht aus einem grob formulierten Wunsch einen präzisen Arbeitsauftrag für die Brennerei-Projekte. Nutze diese Fähigkeit, wenn der Auftrag unklar, sehr groß oder mehrdeutig ist, wenn der Nutzer nach einem besseren Prompt fragt, oder bevor eine Aufgabe an Coder oder Helfer übergeben wird.
 ---
 
-# Auftrag schärfen
+# trainiere Prompt
+
+Dieser Skill **zeigt nur, er führt nichts aus**: keine Datei anlegen oder ändern, keine Agenten starten, nichts committen, keine Live-Tools. Lesen im Repo ist erlaubt, soweit der Plan es braucht (vor allem die `CLAUDE.md` des Projekts, auch verschachtelte).
+
+Auftrag ist der Text nach „trainiere Prompt“, sonst der letzte Arbeitsauftrag. Der Nutzer diktiert oft per Spracheingabe: Rechne mit Erkennungsfehlern, fehlender Zeichensetzung und falsch geschriebenen Fachbegriffen. Lege offen, wie du solche Stellen gedeutet hast, statt sie still zu korrigieren.
+
+Reihenfolge, Überschriften und Tabellenspalten der Ausgabe sind fest, der Inhalt ist deine Einschätzung. Antworte auf Deutsch.
 
 Ziel: aus einem umgangssprachlichen Wunsch einen Auftrag machen, den der Coder
 (Sonnet) oder der Helfer (Haiku) ohne Rückfragen und ohne Fehldeutung erledigen kann.
 
-Sprache: Deutsch.
-
-## Vorgehen
+## Vorgehen vor der Ausgabe
 
 ### 1. Verstehen, nicht raten
 Lies den Wunsch und benenne in einem Satz das eigentliche Ziel — das gewünschte
@@ -35,6 +38,7 @@ Prüfe den Wunsch gegen diese Liste und notiere, was fehlt:
 ### 3. Fragen stellen
 Stelle nur die Fragen, deren Antwort die Arbeit wirklich verändert — höchstens
 drei, jeweils mit einem Vorschlag, den der Nutzer mit „ja" bestätigen kann.
+Die Fragen erscheinen als „Offene Entscheidungen“ (Ausgabe, Abschnitt 3).
 Alles Übrige entscheidest du selbst und schreibst es als Annahme auf.
 
 ### 4. Zuschneiden
@@ -49,51 +53,6 @@ Ordne die Aufgabe einer Rolle zu:
 Ist die Aufgabe zu groß für einen Durchgang, zerlege sie in Schritte, die einzeln
 prüfbar sind, und nenne die Reihenfolge und die Abhängigkeiten.
 
-### 5. Auftrag ausgeben
-
-```
-## Ziel
-Ein Satz.
-
-## Nicht Teil des Auftrags
-- ...
-
-## Betroffene Dateien
-- pfad/datei — was darin
-
-## Vorgehen
-1. ...
-
-## Annahmen
-- ... (falls falsch, bitte widersprechen)
-
-## Fertig, wenn
-- ...
-- Prüfbefehl <Befehl> läuft durch
-
-## Rolle
-Helfer | Coder | Chef — Begründung in einem Halbsatz.
-```
-
-## Faustregeln
-
-- Ein Auftrag, ein Ergebnis. Zwei Ziele in einem Auftrag ergeben zwei Aufträge.
-- Nenne immer auch, was **nicht** geändert werden soll — das verhindert Wildwuchs.
-- Schreibe Bedingungen nachprüfbar: nicht „soll schnell sein", sondern
-  „die Testsuite läuft unverändert durch".
-- Keine erfundenen Werkzeuge. Nur die Prüfbefehle aus `CLAUDE.md` (Abschnitt „Prüfbefehle“).
-- Im Zweifel kleiner schneiden.
-description: Verbessert einen Arbeitsauftrag und zeigt Plan und offene Entscheidungen, ohne etwas auszuführen. Auslösen, wenn der Nutzer „trainiere Prompt“ (auch „trainier den Prompt“, „Prompt trainieren“) schreibt oder spricht.
----
-
-# trainiere Prompt
-
-Dieser Skill **zeigt nur, er führt nichts aus**: keine Datei anlegen oder ändern, keine Agenten starten, nichts committen, keine Live-Tools. Lesen im Repo ist erlaubt, soweit der Plan es braucht (vor allem die `CLAUDE.md` des Projekts, auch verschachtelte).
-
-Auftrag ist der Text nach „trainiere Prompt“, sonst der letzte Arbeitsauftrag. Der Nutzer diktiert oft per Spracheingabe: Rechne mit Erkennungsfehlern, fehlender Zeichensetzung und falsch geschriebenen Fachbegriffen. Lege offen, wie du solche Stellen gedeutet hast, statt sie still zu korrigieren.
-
-Reihenfolge, Überschriften und Tabellenspalten der Ausgabe sind fest, der Inhalt ist deine Einschätzung. Antworte auf Deutsch.
-
 ## Ausgabe
 
 ### 1. Verbesserter Prompt
@@ -101,6 +60,8 @@ Reihenfolge, Überschriften und Tabellenspalten der Ausgabe sind fest, der Inhal
 - **Ziel:** was am Ende anders sein soll, in einem Satz.
 - **Kontext:** betroffene Dateien, Systeme, Datenquellen (nur Belegtes).
 - **Randbedingungen:** Regeln aus der `CLAUDE.md`, was erhalten bleiben muss, was live ist.
+- **Nicht Teil des Auftrags:** was ausdrücklich nicht geändert wird.
+- **Annahmen:** was du selbst entschieden hast (falls falsch, bitte widersprechen).
 - **Erfolgskriterium:** woran man prüfbar erkennt, dass es fertig ist.
 - **So habe ich deinen Wortlaut gelesen:** jede umgedeutete, korrigierte oder ergänzte Stelle in der Form „‚<Originalwort>‘ → verstanden als <…>“.
 
@@ -119,6 +80,15 @@ Nummeriert, je Punkt die Frage und **dein Vorschlag** mit einem Satz Begründung
 ### 4. Abschlusszeile
 
 Mit OK starte ich, oder schreib, was ich ändern soll.
+
+## Faustregeln
+
+- Ein Auftrag, ein Ergebnis. Zwei Ziele in einem Auftrag ergeben zwei Aufträge.
+- Nenne immer auch, was **nicht** geändert werden soll — das verhindert Wildwuchs.
+- Schreibe Bedingungen nachprüfbar: nicht „soll schnell sein", sondern
+  „die Testsuite läuft unverändert durch".
+- Keine erfundenen Werkzeuge. Nur die Prüfbefehle aus `CLAUDE.md` (Abschnitt „Prüfbefehle“).
+- Im Zweifel kleiner schneiden.
 
 ## Vor der Ausgabe prüfen
 
