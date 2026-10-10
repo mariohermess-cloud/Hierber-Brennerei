@@ -47,5 +47,6 @@ export const ETIKETTEN = {
   'williamslikoer': 'Likör Williams_Zeichenfläche 1.png',
   'winterdreams': 'Likör Winter Dreams-01.png',
   'mirabelle-op-mirabellen-geraeift': 'Brandwein Mirabelle geräift-01.png',
+  'mirabelle-op-mirabellen-likoer': 'Likör Mirabelle geräift_Zeichenfläche 1.png',
   'quetsch-op-quetsch-geraeift': 'Brandwein Quetsch geräift-01.png',
 };

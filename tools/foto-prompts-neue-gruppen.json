@@ -308,6 +308,27 @@
     "anhangFehlt": []
   },
   {
+    "id": "mirabelle-op-mirabellen-likoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Mirabelle op Mirabellen Likör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Mirabelle geräift_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: warmes Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: warmes Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "offen",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
     "id": "nesslikoer-0-5l",
     "gruppe": "likoere",
     "sorte": "Nësslikör",

@@ -14,7 +14,8 @@
 //   fotos-ki/<id>-<n>.png (Serviervorschlag n, n = 1 Hauptbild)
 //   id = Sorte aus site/data/produkte.js ODER aus tools/weitere-sorten.json (kraider-batti: nur Prompts, keine Sortenseite). Hierberol führt nur 0,7 L: hierberol-0-7l.png ist sein Bild.
 //   Neue Gruppen (tools/neue-gruppen.json): Liköre, Geräift und weitere Brände sind Sorten mit Sortenseite (site/data/produkte.js) und heißen <id>-<größe>.png wie oben; nur die Holzkisten haben noch keine Sortenseite (nur Prompts); Holzkisten heißen <kisten-id>.png (holzkiste-6x0-1l.png usw., Größe steckt in der Id, Querformat 1448x1086) und sind erlaubt, kein Namensfehler.
-//   fotos-basis/<form>-<größe>.png mit Form rund, schlank, karaffe (und rund-40ml.png, ungenutzt)
+//   fotos-basis/<form>-<größe>.png mit Form rund, schlank, karaffe (und rund-40ml.png, ungenutzt); Ausnahmen: apotheker-0-1l.png, rund-schwarz-0-5l.png, rund-streifen-0-7l.png
+//   Formatausnahme: fotos-flaschen/kraider-batti-0-5l.png darf 1148x1371 haben (FORMAT_AUSNAHMEN)
 import fs from 'node:fs';
 import path from 'node:path';
 import net from 'node:net';
@@ -78,6 +79,11 @@ const zerlegeKi = (name) => {
   return m && IDS.has(m[1]) ? { id: m[1], n: Number(m[2]) } : null;
 };
 const BASIS_NAME = /^(rund|schlank|karaffe)-(0-1l|0-2l|0-5l|0-7l|1-0l|1-5l)\.png$|^rund-40ml\.png$/;
+// Bekannte, vom Nutzer bestätigte Abweichungen (alles andere bleibt streng):
+//   fotos-basis: Sonderformen der Basisflaschen sind gültige Namen
+const BASIS_AUSNAHMEN = new Set(['apotheker-0-1l.png', 'rund-schwarz-0-5l.png', 'rund-streifen-0-7l.png']);
+//   fotos-flaschen: dieses Bild darf ein anderes Format haben als 1024x1536
+const FORMAT_AUSNAHMEN = { 'kraider-batti-0-5l.png': { w: 1148, h: 1371 } };
 
 schritt(1, 'Dateinamen prüfen');
 const flaschen = { haupt: new Map(), groesse: new Map() }; // haupt: id -> Dateiname; groesse: `${id}|${suffix}` -> Dateiname
@@ -114,7 +120,7 @@ for (const e of dateien(KI_ORDNER)) {
   if (!kiDateien.has(z.id)) kiDateien.set(z.id, new Set());
   kiDateien.get(z.id).add(z.n);
 }
-for (const e of dateien(BASIS_ORDNER)) if (e.dir || !BASIS_NAME.test(e.name)) auffaellig.push(`${BASIS_ORDNER}/${e.name}: Name folgt der Regel nicht (erwartet <rund|schlank|karaffe>-<0-1l|0-2l|0-5l|0-7l|1-0l|1-5l>.png oder rund-40ml.png)`);
+for (const e of dateien(BASIS_ORDNER)) if (e.dir || !(BASIS_NAME.test(e.name) || BASIS_AUSNAHMEN.has(e.name))) auffaellig.push(`${BASIS_ORDNER}/${e.name}: Name folgt der Regel nicht (erwartet <rund|schlank|karaffe>-<0-1l|0-2l|0-5l|0-7l|1-0l|1-5l>.png oder rund-40ml.png)`);
 console.log(auffaellig.length ? `${auffaellig.length} Auffälligkeit(en), siehe unten.` : 'Alle Namen folgen den Regeln.');
 
 // ---------- 2. Bildformat ----------
@@ -124,6 +130,8 @@ async function pruefeFormat(ordner, namen, soll) {
   for (const name of namen) {
     try {
       const m = await sharp(rel(ordner, name)).metadata();
+      const erlaubt = ordner === FLASCHEN_ORDNER && FORMAT_AUSNAHMEN[name];
+      if (erlaubt && m.width === erlaubt.w && m.height === erlaubt.h) continue;
       if (m.width !== soll.w || m.height !== soll.h) formatAbw.push(`${ordner}/${name}: ${m.width}x${m.height}, erwartet ${soll.w}x${soll.h}`);
     } catch (e) { formatAbw.push(`${ordner}/${name}: nicht lesbar als Bild (${e.message})`); }
   }

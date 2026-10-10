@@ -1,8 +1,9 @@
 // Produktdaten der Keller-Ansicht v2 (Preisliste Hierber Brennerei 2025, alle Preise TTC = inkl. 17 % MwSt.).
 // Preise stammen aus der Preisliste (PDF, Spaltenposition je Zeile geprüft). Nichts erfunden:
 // Sorten, die in der Preisliste fehlen, tragen preise: [] und zeigen „Preis auf Anfrage“.
-// Liköre, Geräift und Weitere Brände (am Ende) stehen mit den Preisen und Alkoholgehalten der Preisliste; Winterdreams hat dort keinen
-// Alkoholgehalt (abv: null, die Seite zeigt dann keine Angabe).
+// Liköre, Geräift und Weitere Brände (am Ende) stehen mit den Preisen und Alkoholgehalten der Preisliste; Winterdreams (25 %) und
+// Mirabelle op Mirabellen Likör (25 %, Preis auf Anfrage) sind Angaben des Nutzers, nicht der Preisliste.
+// abv: null (Alkoholgehalt unbekannt, die Seite zeigt dann keine Angabe) bleibt als Möglichkeit erhalten.
 //
 // ort:      'fass' (Fass im Gang) | 'regal' (Flasche auf der Regalwand am Gangende)
 // sorte:    Schlüssel in v2/data/etiketten.json (Etikett, Flaschentyp, Flüssigkeitsfarbe)
@@ -301,6 +302,8 @@ export const PRODUKTE = [
   flasche({ id: 'kraeiderlikoer', name: 'Kräiderlikör', art: 'Kräuterlikör', abv: 25, preise: LIK, farbe: '#3a3a1c', alpha: 0.95 }),
   flasche({ id: 'mandellikoer', name: 'Mandellikör', art: 'Mandellikör', abv: 25, preise: LIK, farbe: '#b98a52' }),
   flasche({ id: 'mirabellenlikoer', name: 'Mirabellenlikör', art: 'Mirabellenlikör', abv: 25, preise: LIK, farbe: '#e0b13a' }),
+  // Mirabelle op Mirabellen Likör: Preis nicht in der Preisliste (Preis auf Anfrage); 25 % vol. angenommen (TODO-INHALTE.md, Abschnitt 11).
+  flasche({ id: 'mirabelle-op-mirabellen-likoer', name: 'Mirabelle op Mirabellen Likör', art: 'Likör', abv: 25, preise: [], farbe: '#e0b13a' }),
   flasche({ id: 'nesslikoer', name: 'Nësslikör', art: 'Haselnusslikör', abv: 25, preise: LIK, farbe: '#7a5232' }),
   flasche({ id: 'pfeffi', name: 'Pfeffi', art: 'Pefferminzlikör', abv: 25, preise: LIK, farbe: '#2fcf6a' }),
   flasche({ id: 'pijenlikoer', name: 'Pijenlikör', art: 'Weinbergpfirsich-Likör', abv: 25, preise: LIK, farbe: '#f0a56a' }),
@@ -308,8 +311,8 @@ export const PRODUKTE = [
   flasche({ id: 'schleiwenlikoer', name: 'Schléiwenlikör', art: 'Schlehenlikör', abv: 25, preise: LIK16, farbe: '#6b1230' }),
   flasche({ id: 'vizlikoer', name: 'Vizlikör', art: 'Apfellikör', abv: 25, preise: LIK, farbe: '#e8e08a', alpha: 0.6 }),
   flasche({ id: 'williamslikoer', name: 'Williamslikör', art: 'Williams-Birnenlikör', abv: 25, preise: LIK, farbe: '#e6c25a', alpha: 0.7 }),
-  // Winterdreams: in der Preisliste ohne Alkoholgehalt (abv: null), nur 0,5 L, saisonbedingt.
-  flasche({ id: 'winterdreams', name: 'Winterdreams', art: 'Saisonaler Likör', abv: null, preise: [p('0,5 L', 16)], farbe: '#7a1522', zusatz: ' Saisonbedingt.' }),
+  // Winterdreams: 25 % vol. (Angabe des Nutzers, nicht aus der Preisliste), nur 0,5 L, saisonbedingt.
+  flasche({ id: 'winterdreams', name: 'Winterdreams', art: 'Saisonaler Likör', abv: 25, preise: [p('0,5 L', 16)], farbe: '#7a1522', zusatz: ' Saisonbedingt.' }),
   flasche({ id: 'ingwerlikoer', name: 'Ingwerlikör', art: 'Ingwerlikör', abv: 25, preise: [p('0,2 L', 8), p('0,5 L', 18)], farbe: '#e0b13a', alpha: 0.7 }),
 
   /* ---------- Geräift (Preisliste: 35 % vol.; 0,1 L 6 €, 0,5 L 16 €) ---------- */

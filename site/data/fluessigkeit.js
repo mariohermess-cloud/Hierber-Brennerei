@@ -51,6 +51,7 @@ export const FLUESSIGKEIT = {
   'kraeiderlikoer': schaetz('#3a3a1c', 0.95, 'tools/neue-gruppen.json: „dunkles Grünbraun“'),
   'mandellikoer': schaetz('#b98a52', 0.9, 'tools/neue-gruppen.json: „helles Karamellbraun“'),
   'mirabellenlikoer': schaetz('#e0b13a', 0.9, 'tools/neue-gruppen.json: „warmes Goldgelb“'),
+  'mirabelle-op-mirabellen-likoer': schaetz('#e0b13a', 0.9, 'tools/neue-gruppen.json: „warmes Goldgelb“'),
   'nesslikoer': schaetz('#7a5232', 0.9, 'tools/neue-gruppen.json: „mittleres Nussbraun“'),
   'pfeffi': schaetz('#2fcf6a', 0.9, 'tools/neue-gruppen.json: „leuchtendes Minzgrün“'),
   'pijenlikoer': schaetz('#f0a56a', 0.9, 'tools/neue-gruppen.json: „helles Pfirsich-Orange“'),

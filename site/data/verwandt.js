@@ -19,6 +19,8 @@ const EXPLIZIT = {
   'willi-op-biren-geraeift': ['mirabelle-op-mirabellen-geraeift', 'quetsch-op-quetsch-geraeift', 'poire-williams'],
   'mirabelle-op-mirabellen-geraeift': ['quetsch-op-quetsch-geraeift', 'willi-op-biren-geraeift', 'mirabelle'],
   'quetsch-op-quetsch-geraeift': ['mirabelle-op-mirabellen-geraeift', 'willi-op-biren-geraeift', 'quetsch'],
+  // Mirabelle op Mirabellen Likör: die Mirabellen-Sorten (Likör, Geräift, Brand) statt der alphabetischen Nachbarn
+  'mirabelle-op-mirabellen-likoer': ['mirabellenlikoer', 'mirabelle-op-mirabellen-geraeift', 'mirabelle'],
   hierberol: ['limoncello', 'gin', 'sambuca'], // sonst käme der Umlauf der Gruppe: Gin, Wodka, Rum
 };
 

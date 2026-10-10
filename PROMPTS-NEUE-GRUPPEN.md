@@ -1,8 +1,8 @@
 # PROMPTS-NEUE-GRUPPEN: Liköre, Holzkisten, Geräift, weitere Brände (ChatGPT)
 
-Erzeugt mit `node tools/foto_prompts_neue_gruppen.mjs` aus `tools/neue-gruppen.json`. Nicht von Hand ändern. 48 Prompts (Liköre: 31, Holzkisten (nur mit Flaschen): 4, Geräift: 6, Weitere Brände: 7). Die Flaschen sind Sorten mit Sortenseite (Eintrag in `site/data/produkte.js`), die Holzkisten haben nur Prompts; keine Serviervorschläge. Alles sind Entwürfe, der Brenner bestätigt sie.
+Erzeugt mit `node tools/foto_prompts_neue_gruppen.mjs` aus `tools/neue-gruppen.json`. Nicht von Hand ändern. 49 Prompts (Liköre: 32, Holzkisten (nur mit Flaschen): 4, Geräift: 6, Weitere Brände: 7). Die Flaschen sind Sorten mit Sortenseite (Eintrag in `site/data/produkte.js`), die Holzkisten haben nur Prompts; keine Serviervorschläge. Alles sind Entwürfe, der Brenner bestätigt sie.
 
-**Stand:** 48 offen, 0 vorhanden, davon 11 mit fehlendem Anhang (Etikett liegt noch nicht vor, siehe Übersicht).
+**Stand:** 49 offen, 0 vorhanden, davon 11 mit fehlendem Anhang (Etikett liegt noch nicht vor, siehe Übersicht).
 
 - **Liköre** (25 % vol.): je Likör ein Prompt für 0,5 L (`<id>-0-5l.png`) und 0,1 L (`<id>-0-1l.png`); Winterdreams (saisonal) nur 0,5 L, Ingwerlikör 0,2 L und 0,5 L. Anhang 2 ist das flache Etikett aus `Fertige Etiquetten/`, wo es eines gibt (Ingwerlikör: Etikett folgt).
 - **Holzkisten (nur mit Flaschen):** Querformat 1448 × 1086, Datei `fotos-flaschen/<kisten-id>.png`. Es gibt kein Kistenfoto; die Kiste steht nur im Prompt, Anhang 1 und 2 sind dieselbe Basisflasche.
@@ -38,6 +38,7 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in `fotos-flasch
 | mandellikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png` | `fotos-flaschen/mandellikoer-0-1l.png` | offen | 250 |
 | mirabellenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png` | `fotos-flaschen/mirabellenlikoer-0-5l.png` | offen | 215 |
 | mirabellenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png` | `fotos-flaschen/mirabellenlikoer-0-1l.png` | offen | 250 |
+| mirabelle-op-mirabellen-likoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Mirabelle geräift_Zeichenfläche 1.png` | `fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png` | offen | 215 |
 | nesslikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png` | `fotos-flaschen/nesslikoer-0-5l.png` | offen | 215 |
 | nesslikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png` | `fotos-flaschen/nesslikoer-0-1l.png` | offen | 250 |
 | pfeffi-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png` | `fotos-flaschen/pfeffi-0-5l.png` | offen | 215 |
@@ -411,7 +412,30 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 15. Nësslikör: Flasche 0,5 L (Liköre)
+## 15. Mirabelle op Mirabellen Likör: Flasche 0,5 L (Liköre)
+
+- **Format:** Hochformat 1024 × 1536 Pixel
+- **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
+- **Anhang 2:** `Fertige Etiquetten/Likör Mirabelle geräift_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
+- **Ergebnis speichern als:** `fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png`
+- **Status:** offen
+- **Prompt:** 215 Wörter
+
+```
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: warmes Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+```
+
+**Prüfen:**
+- Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.
+- Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
+- Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.
+- Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.
+- Inhalt: warmes Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).
+- Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen.
+
+---
+
+## 16. Nësslikör: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -434,7 +458,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 16. Nësslikör: Flasche 0,1 L (Liköre)
+## 17. Nësslikör: Flasche 0,1 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
@@ -459,7 +483,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 17. Pfeffi: Flasche 0,5 L (Liköre)
+## 18. Pfeffi: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -482,7 +506,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 18. Pfeffi: Flasche 0,1 L (Liköre)
+## 19. Pfeffi: Flasche 0,1 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
@@ -507,7 +531,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 19. Pijenlikör: Flasche 0,5 L (Liköre)
+## 20. Pijenlikör: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -530,7 +554,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 20. Pijenlikör: Flasche 0,1 L (Liköre)
+## 21. Pijenlikör: Flasche 0,1 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
@@ -555,7 +579,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 21. Quittenlikör: Flasche 0,5 L (Liköre)
+## 22. Quittenlikör: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -578,7 +602,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 22. Quittenlikör: Flasche 0,1 L (Liköre)
+## 23. Quittenlikör: Flasche 0,1 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
@@ -603,7 +627,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 23. Schléiwenlikör: Flasche 0,5 L (Liköre)
+## 24. Schléiwenlikör: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -626,7 +650,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 24. Schléiwenlikör: Flasche 0,1 L (Liköre)
+## 25. Schléiwenlikör: Flasche 0,1 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
@@ -651,7 +675,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 25. Vizlikör: Flasche 0,5 L (Liköre)
+## 26. Vizlikör: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -674,7 +698,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 26. Vizlikör: Flasche 0,1 L (Liköre)
+## 27. Vizlikör: Flasche 0,1 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
@@ -699,7 +723,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 27. Williamslikör: Flasche 0,5 L (Liköre)
+## 28. Williamslikör: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -722,7 +746,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 28. Williamslikör: Flasche 0,1 L (Liköre)
+## 29. Williamslikör: Flasche 0,1 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
@@ -747,7 +771,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 29. Winterdreams: Flasche 0,5 L (Liköre)
+## 30. Winterdreams: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -771,7 +795,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 30. Ingwerlikör: Flasche 0,5 L (Liköre)
+## 31. Ingwerlikör: Flasche 0,5 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -795,7 +819,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 31. Ingwerlikör: Flasche 0,2 L (Liköre)
+## 32. Ingwerlikör: Flasche 0,2 L (Liköre)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-2l.png` (leere runde 0,2-L-Flasche)
@@ -820,7 +844,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 32. Willi op Biren geräift: Flasche 0,5 L (Geräift)
+## 33. Willi op Biren geräift: Flasche 0,5 L (Geräift)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-5l.png` (leere schlanke 0,5-L-Flasche)
@@ -845,7 +869,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 33. Willi op Biren geräift: Flasche 0,1 L (Geräift)
+## 34. Willi op Biren geräift: Flasche 0,1 L (Geräift)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere schlanke 0,1-L-Flasche)
@@ -870,7 +894,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 34. Mirabelle op Mirabellen geräift: Flasche 0,5 L (Geräift)
+## 35. Mirabelle op Mirabellen geräift: Flasche 0,5 L (Geräift)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-5l.png` (leere schlanke 0,5-L-Flasche)
@@ -894,7 +918,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 35. Mirabelle op Mirabellen geräift: Flasche 0,1 L (Geräift)
+## 36. Mirabelle op Mirabellen geräift: Flasche 0,1 L (Geräift)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere schlanke 0,1-L-Flasche)
@@ -919,7 +943,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 36. Quetsch op Quetsch geräift: Flasche 0,5 L (Geräift)
+## 37. Quetsch op Quetsch geräift: Flasche 0,5 L (Geräift)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-5l.png` (leere schlanke 0,5-L-Flasche)
@@ -943,7 +967,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 37. Quetsch op Quetsch geräift: Flasche 0,1 L (Geräift)
+## 38. Quetsch op Quetsch geräift: Flasche 0,1 L (Geräift)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere schlanke 0,1-L-Flasche)
@@ -968,7 +992,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 38. Neutraler Alkohol: Flasche 1 L (Weitere Brände)
+## 39. Neutraler Alkohol: Flasche 1 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-1-0l.png` (leere runde 1-L-Flasche)
@@ -993,7 +1017,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 39. Äppel/Pommes: Flasche 0,5 L (Weitere Brände)
+## 40. Äppel/Pommes: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1018,7 +1042,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 40. Äppel/Pommes: Flasche 1 L (Weitere Brände)
+## 41. Äppel/Pommes: Flasche 1 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-1-0l.png` (leere runde 1-L-Flasche)
@@ -1043,7 +1067,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 41. Pastis: Flasche 0,5 L (Weitere Brände)
+## 42. Pastis: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1068,7 +1092,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 42. Nëssdrëpp Walnuss: Flasche 0,5 L (Weitere Brände)
+## 43. Nëssdrëpp Walnuss: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1093,7 +1117,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 43. Pefferminz: Flasche 0,5 L (Weitere Brände)
+## 44. Pefferminz: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1118,7 +1142,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 44. Quitten: Flasche 0,5 L (Weitere Brände)
+## 45. Quitten: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1143,7 +1167,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 45. Holzkiste 6 × 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
+## 46. Holzkiste 6 × 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (schlanke 0,1-L-Flasche ohne Etikett (Basisflasche, nur Form))
@@ -1166,7 +1190,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 
 ---
 
-## 46. Holzkiste 3 × 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
+## 47. Holzkiste 3 × 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (schlanke 0,1-L-Flasche ohne Etikett (Basisflasche, nur Form))
@@ -1189,7 +1213,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 
 ---
 
-## 47. Holzkiste 4 × 0,2 l: Kiste (Holzkisten (nur mit Flaschen))
+## 48. Holzkiste 4 × 0,2 l: Kiste (Holzkisten (nur mit Flaschen))
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/rund-0-2l.png` (runde 0,2-L-Flasche ohne Etikett (Basisflasche, nur Form))
@@ -1212,7 +1236,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 
 ---
 
-## 48. Holzkiste 5 Apothekerflaschen 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
+## 49. Holzkiste 5 Apothekerflaschen 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/apotheker-0-1l.png` (Apothekerflasche 0,1 l ohne Etikett (Basisflasche, nur Form))

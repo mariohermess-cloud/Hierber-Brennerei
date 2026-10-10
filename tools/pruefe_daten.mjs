@@ -52,7 +52,7 @@ for (const datei of walk(dist)) {
     const p = byId[k[1]]; if (!p) { fail(rel, `Karte mit unbekannter id ${k[1]}`); continue; }
     const t = extrahiere(k[0]).text, tk = tokens(t);
     if (!t.includes(p.name)) fail(rel, `Karte ${p.id}: Name fehlt`);
-    // abv: null (Winterdreams, in der Preisliste ohne Alkoholgehalt): die Karte zeigt keine Angabe
+    // abv: null (Alkoholgehalt unbekannt, derzeit keine Sorte): die Karte zeigt keine Angabe
     if (p.abv == null ? tk.abv.length !== 0 : tk.abv.length !== 1 || tk.abv[0] !== p.abv) fail(rel, `Karte ${p.id}: abv ${tk.abv} statt ${p.abv}`);
     const pr = preiseVon(p);
     if (pr.length) { if (tk.preise.length !== 1 || tk.preise[0] !== Math.min(...pr)) fail(rel, `Karte ${p.id}: Preis ${tk.preise} statt ab ${Math.min(...pr)}`); }

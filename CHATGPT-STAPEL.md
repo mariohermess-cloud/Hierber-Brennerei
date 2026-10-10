@@ -2,12 +2,12 @@
 
 Erzeugt mit `node tools/chatgpt_stapel.mjs` (nach `node tools/foto_prompts_weitere.mjs`, `node tools/foto_prompts_flaschen.mjs` und `node tools/foto_prompts_groessen.mjs` und `node tools/foto_prompts_weitere_sorten.mjs`). Nicht von Hand ändern. Hier steht, wie ChatGPT den Stapel der KI-Bilder abarbeitet, statt dass jedes Bild einzeln von Hand angefordert wird.
 
-**Stand:** 248 Bilder im Stapel, in dieser Reihenfolge: **1. 27 Ersatzbilder** für fehlerhafte Erstbilder (26 offen, 1 „ersetzt, bitte prüfen“), **2. 29 Flaschenbilder** „neue Produktflasche mit dem Etikett“ (Gruppe `flasche`, 0 offen), **3. 92 weitere Serviervorschläge** (92 schon vorhanden, 0 offen; zuerst alle `-2`, dann `-3`, `-4`, `-5`), **4. 42 Größenbilder** „neue Produktflasche in einer anderen Größe als 0,5 L“ (Gruppe `groessen`, 10 offen; Prompts in `PROMPTS-GROESSEN.md`). **5. 10 Bilder zu Hierberol und Kräider Batti** (Gruppe `weitere-sorten`, 2 offen, 12 „Etikett fehlt“; Prompts in `PROMPTS-WEITERE-SORTEN.md`). **6. 48 Bilder der neuen Gruppen** (Gruppe `neue-gruppen`: Liköre, Holzkisten, Geräift, weitere Brände; 37 offen, 11 „Etikett fehlt“; Prompts in `PROMPTS-NEUE-GRUPPEN.md`). Zu erzeugen sind also **75 Bilder**.
+**Stand:** 249 Bilder im Stapel, in dieser Reihenfolge: **1. 27 Ersatzbilder** für fehlerhafte Erstbilder (26 offen, 1 „ersetzt, bitte prüfen“), **2. 29 Flaschenbilder** „neue Produktflasche mit dem Etikett“ (Gruppe `flasche`, 0 offen), **3. 92 weitere Serviervorschläge** (92 schon vorhanden, 0 offen; zuerst alle `-2`, dann `-3`, `-4`, `-5`), **4. 42 Größenbilder** „neue Produktflasche in einer anderen Größe als 0,5 L“ (Gruppe `groessen`, 10 offen; Prompts in `PROMPTS-GROESSEN.md`). **5. 10 Bilder zu Hierberol und Kräider Batti** (Gruppe `weitere-sorten`, 2 offen, 12 „Etikett fehlt“; Prompts in `PROMPTS-WEITERE-SORTEN.md`). **6. 49 Bilder der neuen Gruppen** (Gruppe `neue-gruppen`: Liköre, Holzkisten, Geräift, weitere Brände; 38 offen, 11 „Etikett fehlt“; Prompts in `PROMPTS-NEUE-GRUPPEN.md`). Zu erzeugen sind also **76 Bilder**.
 
 ## Ehrlich vorab
 
 - **Wie verlässlich die Automatik läuft, hängt von der ChatGPT-Version und dem Tarif ab.** Ich kann das von hier aus nicht testen. Typische Grenzen: wie viele Dateien man pro Nachricht oder Chat anhängen darf, wie viele Bilder pro Zeitraum erzeugt werden dürfen (danach „bitte später wieder“), und dass ein Chat bei sehr vielen Bildern langsam wird oder den Faden verliert. Die konkreten Zahlen ändern sich; bitte in der Hilfe von ChatGPT nachlesen.
-- **Darum in Blöcken arbeiten:** nicht alle 75 auf einmal, sondern Blöcke zu je 10 Bildern (`tools/chatgpt-stapel-block-01.csv`, `-02.csv` …). Bei einem eigenen Limit lieber den Block verkleinern (5 Bilder) als abbrechen lassen.
+- **Darum in Blöcken arbeiten:** nicht alle 76 auf einmal, sondern Blöcke zu je 10 Bildern (`tools/chatgpt-stapel-block-01.csv`, `-02.csv` …). Bei einem eigenen Limit lieber den Block verkleinern (5 Bilder) als abbrechen lassen.
 - Ein Block mit 10 Bildern braucht bis zu 20 Bilddateien plus die CSV. Passt das nicht in einen Chat, den Block halbieren (die ersten 5 Zeilen der CSV in eine neue Datei kopieren, Kopfzeile behalten).
 - **Das Ergebnis muss immer von einem Menschen angesehen werden:** KI verfälscht gern Schrift. Etikett Wort für Wort mit dem Etikett aus `Fertige Etiquetten/` vergleichen, Flasche vollständig im Bild, nur Rezeptzutaten (Prüflisten stehen in `PROMPTS-FOTOS-WEITERE.md`, `PROMPTS-FOTOS-ERSATZ.md`, `PROMPTS-FLASCHEN.md` und `PROMPTS-GROESSEN.md`). Bei den Flaschenbildern zusätzlich: nur eine Flasche, Format und Position wie im Prompt, Flüssigkeit und Verschluss wie beschrieben; die Gruppenfoto- und Zwei-Flaschen-Vorlagen (Vieux Marc, runde Sorten) sind die heikelsten.
 - Auch die eigene Etikettenprüfung von ChatGPT (Schritt d) ist nur eine Hilfe, keine Garantie.
@@ -45,9 +45,9 @@ Zeilen, bei denen status nicht "offen" ist (auch "Etikett fehlt"), überspringst
 
 | Datei | Inhalt |
 |---|---|
-| `tools/chatgpt-stapel.csv` | alle 75 offenen Bilder |
-| `tools/chatgpt-stapel-alle.csv` | alle 248 Bilder mit Status |
-| `tools/chatgpt-stapel.json` | dieselben Daten wie die CSV, alle 248 mit Status |
+| `tools/chatgpt-stapel.csv` | alle 76 offenen Bilder |
+| `tools/chatgpt-stapel-alle.csv` | alle 249 Bilder mit Status |
+| `tools/chatgpt-stapel.json` | dieselben Daten wie die CSV, alle 249 mit Status |
 | `tools/chatgpt-stapel-block-NN.csv` | die offenen Bilder in Blöcken zu 10 |
 | `tools/chatgpt_stapel_api.py` | optional: Stapel über die OpenAI-Bild-API (**ungetestet**, siehe unten) |
 
@@ -62,9 +62,9 @@ Spalten der CSV: `nr` (laufende Nummer), `dateiname_ergebnis` (Zielpfad: `fotos-
 | 03 | `tools/chatgpt-stapel-block-03.csv` | 21–170 | 10 | 16 |
 | 04 | `tools/chatgpt-stapel-block-04.csv` | 171–202 | 10 | 13 |
 | 05 | `tools/chatgpt-stapel-block-05.csv` | 203–212 | 10 | 7 |
-| 06 | `tools/chatgpt-stapel-block-06.csv` | 213–222 | 10 | 7 |
+| 06 | `tools/chatgpt-stapel-block-06.csv` | 213–222 | 10 | 8 |
 | 07 | `tools/chatgpt-stapel-block-07.csv` | 223–236 | 10 | 9 |
-| 08 | `tools/chatgpt-stapel-block-08.csv` | 237–248 | 5 | 4 |
+| 08 | `tools/chatgpt-stapel-block-08.csv` | 237–249 | 6 | 5 |
 
 ### Dateien je Block
 
@@ -78,11 +78,11 @@ Spalten der CSV: `nr` (laufende Nummer), `dateiname_ergebnis` (Zielpfad: `fotos-
 
 **Block 05** (7 Dateien): `fotos-basis/rund-0-5l.png`, `Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png`, `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png`
 
-**Block 06** (7 Dateien): `fotos-basis/rund-0-5l.png`, `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png`, `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png`
+**Block 06** (8 Dateien): `fotos-basis/rund-0-5l.png`, `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png`, `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Likör Mirabelle geräift_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png`
 
-**Block 07** (9 Dateien): `fotos-basis/rund-0-5l.png`, `Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png`, `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Winter Dreams-01.png`, `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Brandwein Mirabelle geräift-01.png`, `Fertige Etiquetten/Brandwein Quetsch geräift-01.png`
+**Block 07** (9 Dateien): `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png`, `fotos-basis/rund-0-5l.png`, `Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png`, `Fertige Etiquetten/Likör Winter Dreams-01.png`, `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Brandwein Mirabelle geräift-01.png`
 
-**Block 08** (4 Dateien): `fotos-basis/schlank-0-1l.png`, `Fertige Etiquetten/Brandwein Quetsch geräift-01.png`, `fotos-basis/rund-0-2l.png`, `fotos-basis/apotheker-0-1l.png`
+**Block 08** (5 Dateien): `fotos-basis/schlank-0-5l.png`, `Fertige Etiquetten/Brandwein Quetsch geräift-01.png`, `fotos-basis/schlank-0-1l.png`, `fotos-basis/rund-0-2l.png`, `fotos-basis/apotheker-0-1l.png`
 
 ## Etikett fehlt (nicht im Stapel der offenen Bilder)
 
@@ -91,17 +91,17 @@ Diese 12 Zeilen haben einen Anhang, der noch nicht vorliegt (Kräider Batti: Eti
 | nr | Ergebnisdatei | fehlender Anhang |
 |---|---|---|
 | 196 | `fotos-flaschen/kraider-batti-0-5l.png` | `PLATZHALTER: Etikett von Kräider Batti folgt` |
-| 230 | `fotos-flaschen/ingwerlikoer-0-5l.png` | `PLATZHALTER: Etikett von Ingwerlikör folgt` |
-| 231 | `fotos-flaschen/ingwerlikoer-0-2l.png` | `PLATZHALTER: Etikett von Ingwerlikör folgt` |
-| 232 | `fotos-flaschen/willi-op-biren-geraeift-0-5l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` |
-| 233 | `fotos-flaschen/willi-op-biren-geraeift-0-1l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` |
-| 238 | `fotos-flaschen/neutral-alkohol-1-0l.png` | `PLATZHALTER: Etikett von Neutraler Alkohol folgt` |
-| 239 | `fotos-flaschen/aeppel-pommes-0-5l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` |
-| 240 | `fotos-flaschen/aeppel-pommes-1-0l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` |
-| 241 | `fotos-flaschen/pastis-0-5l.png` | `PLATZHALTER: Etikett von Pastis folgt` |
-| 242 | `fotos-flaschen/nessdrepp-0-5l.png` | `PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt` |
-| 243 | `fotos-flaschen/pefferminz-0-5l.png` | `PLATZHALTER: Etikett von Pefferminz folgt` |
-| 244 | `fotos-flaschen/quitten-0-5l.png` | `PLATZHALTER: Etikett von Quitten folgt` |
+| 231 | `fotos-flaschen/ingwerlikoer-0-5l.png` | `PLATZHALTER: Etikett von Ingwerlikör folgt` |
+| 232 | `fotos-flaschen/ingwerlikoer-0-2l.png` | `PLATZHALTER: Etikett von Ingwerlikör folgt` |
+| 233 | `fotos-flaschen/willi-op-biren-geraeift-0-5l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` |
+| 234 | `fotos-flaschen/willi-op-biren-geraeift-0-1l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` |
+| 239 | `fotos-flaschen/neutral-alkohol-1-0l.png` | `PLATZHALTER: Etikett von Neutraler Alkohol folgt` |
+| 240 | `fotos-flaschen/aeppel-pommes-0-5l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` |
+| 241 | `fotos-flaschen/aeppel-pommes-1-0l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` |
+| 242 | `fotos-flaschen/pastis-0-5l.png` | `PLATZHALTER: Etikett von Pastis folgt` |
+| 243 | `fotos-flaschen/nessdrepp-0-5l.png` | `PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt` |
+| 244 | `fotos-flaschen/pefferminz-0-5l.png` | `PLATZHALTER: Etikett von Pefferminz folgt` |
+| 245 | `fotos-flaschen/quitten-0-5l.png` | `PLATZHALTER: Etikett von Quitten folgt` |
 
 ## Optional: Automatik über die OpenAI-Bild-API (ungetestet)
 

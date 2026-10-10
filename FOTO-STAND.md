@@ -2,7 +2,7 @@
 
 Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, welche Bilder in `fotos-flaschen/` und `fotos-ki/` liegen.
 
-- **Hauptbilder (0,5 L):** 29 von 53 Sorten (Hierberol führt nur 0,7 L und braucht kein 0,5-L-Bild)
+- **Hauptbilder (0,5 L):** 29 von 54 Sorten (Hierberol führt nur 0,7 L und braucht kein 0,5-L-Bild)
 - **Größenbilder (alle anderen Größen der Preisliste):** 33 von 65
 - **Serviervorschläge (`fotos-ki/`):** 125 von 125 Karten
 
@@ -49,6 +49,7 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 | Kräiderlikör | – | · | – | · | · | · | · |
 | Mandellikör | – | · | – | · | · | · | · |
 | Mirabellenlikör | – | · | – | · | · | · | · |
+| Mirabelle op Mirabellen Likör | · | · | – | · | · | · | · |
 | Nësslikör | – | · | – | · | · | · | · |
 | Pfeffi | – | · | – | · | · | · | · |
 | Pijenlikör | – | · | – | · | · | · | · |
@@ -78,6 +79,7 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 - kraeiderlikoer
 - mandellikoer
 - mirabellenlikoer
+- mirabelle-op-mirabellen-likoer
 - nesslikoer
 - pfeffi
 - pijenlikoer

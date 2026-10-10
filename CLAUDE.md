@@ -152,6 +152,8 @@ Der Nutzer legt neue Bilder in drei Ordnern ab (Namensregeln, alles klein geschr
 | `fotos-ki/` | Serviervorschläge | `<sorten-id>-<n>.png` (n = 1 Hauptbild) | 1448 × 1086 |
 | `fotos-basis/` | leere Basisflaschen (Anhang 1 der Prompts, nicht auf der Seite) | `<rund\|schlank\|karaffe>-<größe>.png`, `rund-40ml.png` | etwa 1312 × 1199 |
 
+Bekannte Ausnahmen (in `tools/fotos_uebernehmen.mjs` hinterlegt, nicht gemeldet): in `fotos-basis/` die Namen `apotheker-0-1l.png`, `rund-schwarz-0-5l.png` und `rund-streifen-0-7l.png`; `fotos-flaschen/kraider-batti-0-5l.png` darf 1148 × 1371 haben. Alles andere bleibt streng.
+
 Befehl (ein Befehl, idempotent, Exit-Code ≠ 0 bei Fehlern):
 
 ```bash

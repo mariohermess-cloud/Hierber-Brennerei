@@ -9,7 +9,7 @@ export const FLASCHENTYP = {
   gin: 'rund', wodka: 'rund', whisky: 'rund', 'hunneg-whisky': 'rund', 'hierber-fruucht': 'rund', vizdrepp: 'rund',
   rum: 'rund', 'rum-orange': 'rund', sambuca: 'rund', limoncello: 'rund',
   // Liköre und Weitere Brände rund, Geräift schlank (tools/neue-gruppen.json, form)
-  ...Object.fromEntries(['de-welle-max', 'hambierlikoer', 'holly', 'kiischtenlikoer', 'kraeiderlikoer', 'mandellikoer', 'mirabellenlikoer', 'nesslikoer', 'pfeffi', 'pijenlikoer',
+  ...Object.fromEntries(['de-welle-max', 'hambierlikoer', 'holly', 'kiischtenlikoer', 'kraeiderlikoer', 'mandellikoer', 'mirabellenlikoer', 'mirabelle-op-mirabellen-likoer', 'nesslikoer', 'pfeffi', 'pijenlikoer',
     'quittenlikoer', 'schleiwenlikoer', 'vizlikoer', 'williamslikoer', 'winterdreams', 'ingwerlikoer',
     'neutral-alkohol', 'aeppel-pommes', 'pastis', 'nessdrepp', 'pefferminz', 'quitten'].map((id) => [id, 'rund'])),
   ...Object.fromEntries(['willi-op-biren-geraeift', 'mirabelle-op-mirabellen-geraeift', 'quetsch-op-quetsch-geraeift'].map((id) => [id, 'schlank'])),
