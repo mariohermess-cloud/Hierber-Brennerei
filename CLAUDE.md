@@ -1,97 +1,247 @@
-# Hierber Brennerei — Hinweise für Claude Code
+# Hierber Brennerei — Projektregeln für Claude Code
 
-Betrieb: Hierber Brennerei, Herborn, Luxemburg. Dieses Repository enthält das
-Datenmodell, das Rechnungsprogramm, den Website-Prototyp und die Planung.
+## 1. Projekt und Sprache
 
-**Sprache: Deutsch.** Antworten, Code-Kommentare, Bezeichner, Commit-Nachrichten,
-Dokumentation — alles auf Deutsch.
+Hierber Brennerei, Herborn, Luxemburg. Dieses Repository enthält Datenmodell,
+Rechnungsprogramm, Website, Vorlagen und Planung.
 
-## Aufbau
+- Antworten, neue Kommentare, Dokumentation und Commit-Nachrichten auf Deutsch.
+- Neue eigene Bezeichner auf Deutsch, soweit technisch sinnvoll.
+- Bestehende Bezeichner, Dateinamen, API-Felder und Bibliotheksnamen erhalten.
+- Website-Inhalte bleiben zweisprachig: Deutsch und Französisch.
+- Nur den freigegebenen Auftrag umsetzen. Keine ungefragten Erweiterungen,
+  Umbenennungen, Abhängigkeiten oder Architekturwechsel.
+- Vor Änderungen relevante Dateien lesen und vorhandene Konventionen prüfen.
+- Unbekanntes ausdrücklich als **nicht verifiziert** kennzeichnen.
+- Keine Geheimnisse, Zugangsdaten oder vollständigen tatsächlichen
+  Datenbankadressen ausgeben, in Dateien schreiben oder committen.
 
-| Verzeichnis | Inhalt |
+## 2. Repository
+
+| Pfad | Inhalt / Regel |
 |---|---|
-| `datenbank/` | PostgreSQL-Schema `brennerei` (`001_schema.sql`, `002_rechnung.sql`, `900_test.sql`) |
-| `rechnungsprogramm/` | FastAPI-Anwendung (`app/`), Tests (`tests/`), `pytest.ini` |
-| `website/prototyp/` | Klick-Prototyp „Obstwiese" (`obstwiese.html`) |
-| `vorlagen/` | Excel-Erfassungsvorlage und ihr Erzeugerskript |
-| `docs/` | `MASTERPLAN.md` (Gesamtplan, offene Fragen F-01 bis F-24), `ETIKETTEN.md` |
+| `datenbank/` | PostgreSQL-Schema `brennerei`: `001_schema.sql`, `002_rechnung.sql`, `900_test.sql` |
+| `rechnungsprogramm/` | FastAPI: `app/`, `tests/`, `pytest.ini` |
+| `website/prototyp/` | Klick-Prototyp „Obstwiese“: `obstwiese.html` |
+| `vorlagen/` | Excel-Erfassungsvorlage und Erzeugerskript |
+| `docs/` | `MASTERPLAN.md`, offene Fragen F-01 bis F-24, `ETIKETTEN.md` |
+| `site/` | Website-Quellen: `lib/*.mjs`, `data/*.js`, `assets/` |
+| `build.mjs` | Baut `site/` nach `dist/` |
+| `dist/` | Eingechecktes Build-Ergebnis; zugehörige Änderungen mitcommitten |
+| `tools/` | Prüfwerkzeuge, Bild- und Prompt-Skripte |
+| `assets/fonts/` | Lokale Schriften: Cormorant Garamond, Inter |
+| `index.html`, `keller-v2.html`, `js/`, `css/`, `v2/`, `vendor/` | Ältere 3D-Fassung mit Three.js und GSAP; unangetastet lassen |
+| `Fotos/`, `Fertige Etiquetten/`, `fotos-*/` | Bildmaterial |
 
-## Arbeitsablauf: Orchestrator
+Inhalts- und Bildnotizen:
+`TODO-INHALTE.md`, `BILDERLISTE.md`, `FOTO-INVENTAR.md`,
+`FOTO-PLATZHALTER.md`, `FLUESSIGKEIT-MESSUNG.md`,
+`CHATGPT-STAPEL.md`, `PROMPTS-*.md`.
 
-Drei Rollen. Die Hauptsession ist der Chef.
+Dateien gezielt nach Aufgabenbezug lesen, nicht sämtliche Notizen ungefragt laden.
+Aktuelle Dateien und tatsächlich ausgeführte Prüfungen haben Vorrang vor
+historischen technischen Angaben in dieser Anleitung. Abweichungen von
+Freigabe-, Sicherheits- oder Fachregeln nicht eigenmächtig übernehmen,
+sondern als offene Entscheidung melden.
 
-### Rollen
+## 3. Orchestrator und Rollen
 
-| Rolle | Modell | Aufgabe | Darf live schreiben? |
-|---|---|---|---|
-| **Chef** | Opus (Hauptsession) | plant, verteilt, prüft jede Änderung, committet, pusht | **ja – als Einziger** |
-| **coder** (`.claude/agents/coder.md`) | Sonnet | klar abgegrenzte Umsetzung im Repo; liefert Diff + Prüfnachweis | nein |
-| **helfer** (`.claude/agents/helfer.md`) | Haiku | suchen, lesen, zusammenfassen, Doku-Zeilen, Formatierung; keine Logik | nein |
+Die Hauptsession ist der **Chef**.
 
-- **Chef:** Schreibt nicht selbst jede Zeile Code. Was sich abgrenzen lässt, geht an
-  den `coder`; was nur Suchen und Lesen ist, an den `helfer`.
-- **Coder:** Bekommt eine abgegrenzte Aufgabe, liefert Diff plus Prüfnachweis zurück.
-  Kein Commit, kein Push, keine Live-Systeme, keine eigenmächtige Erweiterung des
-  Auftrags.
-- **Helfer:** Sucht, liest, fasst zusammen und formatiert Doku-Zeilen, wenn der
-  Auftrag das ausdrücklich sagt. Keine Logikänderungen, kein Commit, kein Push.
-  Unbestätigtes wird mit **(nicht verifiziert)** gekennzeichnet.
+| Rolle | Modell | Verantwortung |
+|---|---|---|
+| Chef | Opus | Auftrag klären, planen, delegieren, Diffs prüfen, Freigaben einholen, Git- und Live-Schritte ausführen |
+| `coder` | Sonnet | Abgegrenzte Umsetzung im Repository und Prüfnachweis |
+| `helfer` | Haiku | Suchen, Lesen, Zusammenfassen; ausdrücklich beauftragte redaktionelle Dokumentations- und Formatierungsänderungen |
 
-### Ablauf bei jedem Arbeitsauftrag
+Agentendefinitionen:
+- `.claude/agents/coder.md`
+- `.claude/agents/helfer.md`
 
-1. **Prompt verbessern und zeigen** – Ziel, Kontext, Randbedingungen, Erfolgskriterium; offenlegen, wie der Wortlaut (oft Spracheingabe) gedeutet wurde. Unklare Aufträge werden mit der Fähigkeit `trainiere-prompt` geschärft.
-2. **Plan zeigen** – Tabelle `# | Schritt | Wer | Live? | Risiko`, dazu offene Entscheidungen mit Vorschlag.
-3. **Auf OK warten.** Vorher keine Dateien anlegen, nichts ändern, nichts live.
-4. **Delegieren** – Umsetzung an `coder`, Zuarbeit an `helfer`, jeweils mit abgegrenztem Auftrag und Erfolgskriterium. Live-Schritte bleiben beim Chef.
-5. **Kontrolle durch den Chef** – jeden Diff selbst lesen, Prüfnachweis nachvollziehen bzw. Checks selbst ausführen, erst dann committen/pushen/live gehen.
-6. **Abschluss** – kurz berichten, getrennt nach **Verifiziert** (mit Nachweis) und **Nicht verifiziert** (mit Grund).
+### Grenzen
 
-**Ausnahmen:** Reine Fragen und Smalltalk werden direkt beantwortet – ohne Prompt, Plan oder OK-Schleife.
+- Nur der Chef darf committen, Branches verändern, pushen oder live schreiben.
+- `coder`: keine Commits, Pushes, Live-Zugriffe oder Auftragserweiterungen.
+- `helfer`: keine Logikänderungen, Commits, Pushes oder Live-Zugriffe.
+- Abgrenzbare Code- und Logikänderungen an `coder` delegieren.
+- Recherche sowie ausdrücklich beauftragte, rein redaktionelle
+  Dokumentations- und Formatierungsänderungen an `helfer` delegieren.
+- Kleine, nicht sinnvoll abgrenzbare Änderungen darf der Chef selbst umsetzen.
+- Keine parallelen Schreibaufträge für dieselben Dateien.
+- Jeder Agent erhält Ziel, erlaubte Dateien, Grenzen, erlaubte Prüfungen
+  und Erfolgskriterien.
+- Agenten liefern eine Zusammenfassung, den Diff beziehungsweise eine eindeutige
+  Referenz darauf, Prüfbefehle mit Ergebnissen sowie offene Punkte.
+- Agenten dürfen nur die im Auftrag freigegebenen lokalen Prüfungen ausführen.
+- Datenbankprüfungen sind ausschließlich gegen die vom Chef zuvor bestätigte
+  Wegwerf-Datenbank erlaubt. Produktionszugriffe bleiben verboten.
+- Agenten dürfen Datenbankziele nicht eigenmächtig ändern.
+- Ist ein Agent oder Modell nicht verfügbar, offenlegen. Nicht behaupten,
+  delegiert zu haben; abweichendes Vorgehen vor der Umsetzung abstimmen.
+
+## 4. Ablauf und Freigaben
+
+### Vor der Umsetzung
+
+1. Auftrag knapp präzisieren: Ziel, Kontext, Grenzen, Erfolgskriterien.
+   Bei Spracheingaben die entscheidende Interpretation offenlegen.
+2. Plan zeigen:
+
+   `# | Schritt | Wer | Live? | Risiko`
+
+3. Offene Entscheidungen mit Empfehlung nennen.
+4. Auf **OK** warten. Vorher keine Dateien anlegen oder verändern,
+   keine Builds, Installationen, Tests mit Schreibwirkungen oder Live-Aktionen.
+   Gezieltes Lesen zur Planung ist erlaubt.
+
+Unklare Aufträge mit `.claude/skills/trainiere-prompt/` schärfen.
+Klare Aufträge nicht unnötig umformulieren oder mehrfach bestätigen lassen.
+
+### Nach der Freigabe
+
+1. Innerhalb des genehmigten Plans delegieren und umsetzen.
+2. Chef liest jeden Diff und prüft die Nachweise.
+3. Passende Prüfungen ausführen; Fehler vor dem Abschluss behandeln.
+4. Git- und Live-Schritte nur gemäß ihrer eigenen Freigabe ausführen.
+5. Abschluss getrennt nach:
+   - **Verifiziert:** Änderung, Prüfung und tatsächliches Ergebnis.
+   - **Nicht verifiziert:** fehlende Prüfung und konkreter Grund.
+
+Eine Freigabe gilt nur für die ausdrücklich genannten Schritte.
+Neue Risiken, zusätzliche Dateien außerhalb des vereinbarten Umfangs oder
+wesentliche Planänderungen erneut abstimmen.
+Ein allgemeines „OK“ zur lokalen Umsetzung erlaubt keinen Push, Merge
+oder Live-Zugriff. Explizit aufgeführte externe Aktionen benötigen eine
+entsprechend eindeutige Freigabe; Merge benötigt immer eine eigene Anweisung.
+
+### Ausnahmen
+
+Reine Fragen, Smalltalk und ausdrücklich rein lesende Analysen direkt beantworten.
+Keine Prompt-, Plan- oder OK-Schleife, solange nichts verändert wird.
 
 ### Planstand
 
-Jede Antwort des Chefs während eines laufenden Auftrags endet mit:
+Jede Antwort des Chefs während eines laufenden Änderungsauftrags endet mit
+einer Zeile je Planschritt:
 
-```
+```text
 📋 Planstand
-✅ erledigt · ▶️ läuft (wer) · ⬜ offen
+✅ Schritt erledigt
+▶️ Schritt läuft (Chef/coder/helfer)
+⬜ Schritt offen
 ```
 
-(Je Planschritt eine Zeile mit dem passenden Symbol. Gilt nicht für die Rückmeldungen von `coder`/`helfer`; die haben ihr eigenes festes Format.)
+Agenten verwenden ihr eigenes Rückmeldeformat.
 
-## Live-Systeme
+## 5. Live-Systeme und Git
 
-**Live** heißt hier alles außerhalb des Repo-Arbeitsverzeichnisses.
-Schreibzugriff ausschließlich durch den Chef, und nur nach Rückfrage beim Nutzer:
+### Live-Zugriffe
 
-- **Produktionsdatenbank** über die Umgebungsvariable `BRENNEREI_DB`.
-  Achtung: `rechnung_festschreiben` verbraucht unwiderruflich eine Belegnummer;
-  festgeschriebene Belege sind unveränderlich, Korrektur nur per Gutschrift.
-- **`docker compose`** in `rechnungsprogramm/` gegen echte Daten.
-- **Git**: `git push`, Tags, Branch-Änderungen.
-- **GitHub**: alle schreibenden Werkzeuge (Pull Request, Kommentar, Merge, Datei).
-- **Artifacts**: veröffentlichen, aktualisieren, löschen.
-- **MCP-Server mit Schreibrechten**: Home Assistant (`HA_MCP_NABU`, echtes Smart
-  Home), Lovable (Deploy, Datenbank, Credits), Gamma, Claude Docs, Claude Code Remote.
+Live sind schreibende Aktionen außerhalb des lokalen Repository-Arbeitsbereichs,
+ausgenommen ausdrücklich bestätigte lokale Test- und Vorschauumgebungen
+sowie die unten beschriebenen lokalen technischen Schreibwirkungen.
 
-Nicht live und frei nutzbar: eine lokale Wegwerf-PostgreSQL für Tests sowie ein
-nur lesend eingebundener Klon von LabelForge.
+Nur der Chef darf sie nach ausdrücklicher Nutzerfreigabe ausführen:
 
-## Prüfbefehle
+- Produktionsdatenbank über `BRENNEREI_DB`.
+- `docker compose` in `rechnungsprogramm/`, wenn echte Daten betroffen sind
+  oder die Zielumgebung nicht eindeutig als Testumgebung bestätigt ist.
+- Schreibende GitHub-MCP-Aktionen: Pull Request, Kommentar, Merge, Dateiänderung.
+- Artifacts veröffentlichen, aktualisieren oder löschen.
+- Schreibzugriffe über Home Assistant (`HA_MCP_NABU`), Lovable,
+  Gamma, Claude Docs und Claude Code Remote.
+- Aktionen mit externen Kosten, Credits oder Veröffentlichungswirkung.
 
-Es gibt keine CI, keinen Linter und keinen Formatierer in diesem Repository.
-Verfügbar sind:
+**Achtung:** `rechnung_festschreiben` verbraucht unwiderruflich eine Belegnummer.
+Festgeschriebene Belege sind unveränderlich; Korrektur nur per Gutschrift.
+
+### Git-Freigaben
+
+Git-Aktionen gesondert betrachten:
+
+- `git fetch`: lesender Remote-Zugriff, verändert lokale Git-Metadaten;
+  nur als freigegebener Planschritt.
+- Lokale Branch-Erstellung, Branch-Wechsel und Commit:
+  nur durch den Chef und im freigegebenen Plan.
+- Push, Tags und Änderungen an Remote-Branches:
+  ausdrückliche Freigabe erforderlich.
+- Pull Request öffnen: ausdrückliche Freigabe erforderlich.
+- Merge: immer eigene ausdrückliche Anweisung des Nutzers.
+
+Keine fremden Änderungen überschreiben, zurücksetzen oder ungefragt mitcommitten.
+Keine destruktiven Git-Aktionen oder Force-Pushes ohne separate Freigabe.
+
+### Lokale Ausnahmen
+
+Keine Live-Systeme:
+- Eindeutig identifizierte lokale Wegwerf-PostgreSQL für Tests.
+- Nur lesend eingebundener LabelForge-Klon.
+- `npm run serve` als lokale Vorschau für `dist/`.
+
+Lokale technische Schreibwirkungen freigegebener Builds, Installationen und
+Prüfungen, beispielsweise temporäre Dateien, Werkzeug-Caches und Prüfberichte,
+gelten nicht als Live-Zugriff. Dies erlaubt keine Änderungen an fremden
+Projekten, persönlichen Dateien oder externen Systemen.
+Installationen bleiben freigabepflichtige Planschritte; neue Abhängigkeiten
+benötigen eine ausdrückliche Freigabe.
+
+Das Repository hat laut Projektstand kein automatisches Deployment.
+Builds und Prüfungen erfolgen lokal. Bei geänderter Konfiguration neu prüfen.
+
+## 6. Prüfungen
+
+Vorhandene Prüfbefehle verwenden und ihre Existenz vor Ausführung prüfen.
+Keine Skripte, Werkzeuge oder Prüfergebnisse erfinden.
+Neue Tests innerhalb der bestehenden Testsuite dürfen Bestandteil des
+freigegebenen Umsetzungsplans sein.
+Neue Prüfwerkzeuge oder Abhängigkeiten benötigen eine eigene Freigabe.
+
+Laut Projektstand gibt es keine CI, keinen Linter und keinen Formatierer.
+`npm test`, `ruff` und `make` sind nicht eingerichtet.
+
+### Allgemein
+
+Nach Änderungen:
+
+```bash
+git diff --check
+```
+
+Bei Änderungen an `.claude/` zusätzlich, soweit die Dateien vorhanden sind:
+
+```bash
+jq . .claude/settings.json
+sh .claude/hooks/ablauf-erinnerung.sh </dev/null | jq .
+```
+
+Beim Hook beide Exit-Codes kontrollieren. Gültiges JSON allein beweist nicht,
+dass das Hook-Skript erfolgreich ausgeführt wurde. Falls die verwendete Shell
+die einzelnen Pipeline-Exit-Codes nicht verfügbar macht, Hook-Ausgabe und
+Exit-Code getrennt erfassen und die Ausgabe anschließend mit `jq` prüfen.
+Fehlende Dateien oder Werkzeuge ausdrücklich melden.
+
+### Rechnungsprogramm
 
 ```bash
 python3 -m compileall -q rechnungsprogramm/app rechnungsprogramm/tests
-python3 -m pytest rechnungsprogramm/tests -q          # 64 Tests, braucht PostgreSQL
+python3 -m pytest rechnungsprogramm/tests -q
 ```
 
-Die Testsuite braucht eine erreichbare PostgreSQL; Adresse über `BRENNEREI_DB`,
-Vorgabe `postgresql://postgres@localhost:5432/brennerei` (`rechnungsprogramm/app/db.py`).
-**Niemals auf die Produktionsdatenbank zeigen lassen.**
+Die Tests benötigen PostgreSQL. Die Verbindungsadresse kommt aus `BRENNEREI_DB`;
+die dokumentierte Vorgabe in `rechnungsprogramm/app/db.py` ist:
 
-Schemaänderungen nur gegen eine Wegwerf-Datenbank prüfen:
+```text
+postgresql://postgres@localhost:5432/brennerei
+```
+
+Diese Adresse ist eine dokumentierte Vorgabe, keine bestätigte Testfreigabe.
+**Vor jedem Datenbanktest das tatsächliche Ziel als Wegwerf-Datenbank bestätigen.**
+Weder eine lokale Adresse noch der Datenbankname allein beweisen dies.
+Bei unklarem Ziel keine Verbindung herstellen und keine SQL-Skripte ausführen.
+Die bestätigte Testadresse nur im vorgesehenen Testprozess verwenden;
+Produktionskonfiguration nicht überschreiben.
+
+Schemaänderungen ausschließlich gegen die bestätigte Wegwerf-Datenbank prüfen:
 
 ```bash
 psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/001_schema.sql
@@ -99,74 +249,246 @@ psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/002_rechnung.sql
 psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/900_test.sql
 ```
 
-Für jede Änderung sowie für Änderungen an `.claude/`:
+Bei einem Fehler abbrechen; nachfolgende Skripte nicht ungeprüft ausführen.
+
+### Website
+
+Abhängigkeiten bei Bedarf aus dem vorhandenen Lockfile installieren:
 
 ```bash
-git diff --check                                            # Leerzeichenfehler, Konfliktmarker
-jq . .claude/settings.json                                  # Einstellungen sind gültiges JSON
-sh .claude/hooks/ablauf-erinnerung.sh </dev/null | jq .     # Hook gibt gültiges JSON aus
+npm ci
 ```
 
-Erfinde keine anderen Prüfbefehle (kein `npm test`, kein `ruff`, kein `make`).
+Build und Basisprüfungen:
 
-## Regeln für Code in diesem Repository
+```bash
+node build.mjs
+npm run pruefe
+```
+
+`npm run build` ist die Alternative zu `node build.mjs`, nicht ein zweiter Build.
+`npm run pruefe` umfasst `pruefe_daten` und `pruefe_links`.
+
+Weitere vorhandene Prüfungen nach Änderungsumfang:
+
+```bash
+node tools/pruefe_daten.mjs
+node tools/pruefe_links.mjs
+node tools/pruefe_notizen.mjs
+node tools/pruefe_kontrast.mjs
+node tools/pruefe_browser.mjs
+```
+
+- Daten: Preise, Alkoholgehalte und Größen gegen `site/data/produkte.js`.
+- Links: interne Verweise, Bilder und CSS-`url()`.
+- Notizen: TODOs und KI-Marker im sichtbaren Text.
+- Kontrast: Farbpaare aus `site/assets/css/main.css`.
+- Browser: Konsole, Tastatur, Merkliste und Filter; laufende Vorschau erforderlich.
+
+Vorschau, Lighthouse und Screenshots:
+
+```bash
+npm run serve
+sh tools/lighthouse.sh http://localhost:8770/ /tmp/lh.json
+node tools/screenshots.mjs <zielordner>
+```
+
+Die Vorschau in einem getrennten Prozess starten und ihre Erreichbarkeit prüfen,
+bevor Lighthouse, Screenshots oder Browserprüfungen ausgeführt werden.
+`<zielordner>` vor Ausführung durch einen konkreten freigegebenen Pfad ersetzen.
+`npm run serve` startet laut Projektkonfiguration:
+
+```bash
+python3 -m http.server 8770 -d dist
+```
+
+Nur selbst gestartete Prozesse beenden. Keine fremden Prozesse auf Port 8770 stoppen.
+
+### Nachweise
+
+Historischer Referenzstand, kein aktueller Prüfnachweis:
+- Python: 64 Tests.
+- Website: 66 Seiten, 404 Preisangaben, 6214 Verweise.
+- Kontrast: 15 Farbpaare.
+- Browser: 112 Prüfungen.
+- Build erzeugte damals `dist/` unverändert.
+
+Aktuelle Zahlen ausschließlich aus dem tatsächlichen Lauf berichten.
+Ein gestarteter oder noch laufender Build ist kein erfolgreicher Build.
+Exit-Code, Ausgabe und resultierenden Diff prüfen.
+Fehlende Datenbank, Werkzeuge oder Browserumgebung als **nicht verifiziert** melden.
+
+## 7. Website-Regeln
+
+- `site/` ist die Quelle; generierte Dateien in `dist/` nicht von Hand ändern.
+- Nach Änderungen an `site/` bauen und zugehörige `dist/`-Änderungen mitcommitten.
+- Mehrere zusammengehörige Änderungen vor einem vollständigen Build bündeln.
+- `site/data/produkte.js` ist eine Kopie von `v2/data/produkte.js`;
+  nicht von Hand ändern.
+- Änderungen an Produktdaten benötigen einen geklärten, freigegebenen
+  Pflege-/Synchronisationsweg. Nicht eigenmächtig die geschützte 3D-Fassung ändern.
+- Deutsch und Französisch über `site/lib/i18n.mjs`.
+- Französische Texte nur bestätigt übernehmen; Entwürfe erhalten Platzhalter.
+- Unbestätigte Inhalte: `data-todo="bestaetigen"`.
+- Fehlende Bilder: `data-todo="foto"`.
+- Fehlende Übersetzungen: `data-todo="uebersetzung"`.
+- Marker erst entfernen, wenn die zugehörige Bestätigung oder Ergänzung vorliegt.
+- `data-todo`-Attribute sind interne Statusmarker und bleiben bis zur Klärung erhalten.
+- Sichtbare Platzhalter dürfen keine internen TODOs, KI-Hinweise oder
+  unbestätigten Produktbehauptungen enthalten.
+- Bei fehlender Übersetzung einen neutralen Platzhalter verwenden,
+  der mit den vorhandenen Prüfregeln vereinbar ist.
+- Prüfregeln nicht abschwächen, nur um einen Platzhalter durchzulassen.
+- Keine Produkt- oder Betriebsangaben erfinden: Alkoholgehalt, Preise,
+  Telefonnummer, RCS-/TVA-Nummer, Adresse und Öffnungszeiten ausschließlich
+  aus bestätigten Angaben des Betriebs.
+- Offene Inhalte in `TODO-INHALTE.md` berücksichtigen.
+- Bestehende Funktionen, Informationen, Sprachfassungen und Bedienbarkeit erhalten.
+
+## 8. Datenmodell und Rechnungsprogramm
+
+Bestehende fachliche Invarianten erhalten:
 
 - Jede SQL-Funktion trägt `SET search_path = brennerei, public`.
 - Sichten vor dem Neuanlegen mit `DROP VIEW IF EXISTS ... CASCADE` entfernen.
-- Belege: Entwurf ohne Nummer, lückenlose Nummer erst beim Festschreiben,
-  danach unveränderlich; Korrektur nur per Gutschrift.
-- Reverse Charge (Art. 196 MwSt-Richtlinie) weist keine Steuer aus — auch nicht
-  im Journal.
-- Mengen: `variante.grundeinheit` ist `ml`, `g` oder `Stück`. Nicht alles ist
-  Flüssigkeit (z. B. Apfelchips).
-- Die Verbindungsadresse wird beim Verbinden gelesen, nicht beim Import.
-- Tests: session-scoped Stammdaten, Rollback je Test, Savepoints über
-  `with con.transaction():`.
-- Losnummer beginnt mit der Fassnummer (Beispiel `F017-260920`) und geht als
-  Chargencode an LabelForge (siehe `docs/ETIKETTEN.md`).
+  Abhängigkeiten vorher prüfen; niemals ungeprüft gegen Produktion ausführen.
+- Belege: Entwurf ohne Nummer; lückenlose Nummer erst beim Festschreiben.
+- Festgeschriebene Belege unveränderlich; Korrektur nur per Gutschrift.
+- Reverse Charge gemäß bestehender Projektregel zu Art. 196:
+  keine ausgewiesene Steuer, auch nicht im Journal.
+- `variante.grundeinheit`: `ml`, `g` oder `Stück`.
+  Nicht alle Produkte sind Flüssigkeiten, beispielsweise Apfelchips.
+- Verbindungsadresse beim Verbinden lesen, nicht beim Modulimport.
+- Tests: session-scoped Stammdaten, Rollback je Test,
+  Savepoints über `with con.transaction():`.
+- Losnummer beginnt mit der Fassnummer, beispielsweise `F017-260920`.
+  Übergabe als Chargencode an LabelForge gemäß `docs/ETIKETTEN.md`.
 
-## Hooks und Fähigkeiten
+Fachliche oder steuerliche Regeln nicht eigenmächtig neu interpretieren.
+Unklarheiten als offene Entscheidung melden.
 
-- **Erinnerungs-Hook:** `.claude/hooks/ablauf-erinnerung.sh` blendet bei jeder
-  Nutzereingabe eine Kurzfassung dieses Ablaufs ein (`UserPromptSubmit`,
-  eingetragen in `.claude/settings.json` unter `hooks.UserPromptSubmit`).
-  **Abschalten:** den `UserPromptSubmit`-Eintrag aus `.claude/settings.json` entfernen, oder nur für dich lokal in `.claude/settings.local.json` `"disableAllHooks": true` setzen (schaltet alle Hooks ab).
-- **„trainiere Prompt“** (`.claude/skills/trainiere-prompt/SKILL.md`): schärft
-  unklare Aufträge, bevor sie an Coder oder Helfer gehen; zeigt nur verbesserten
-  Prompt, Plan und offene Entscheidungen – führt nichts aus.
-- Hook, Agenten und Skill werden beim Sessionstart geladen – nach Änderungen eine neue Session starten. Hauptmodell der Session auf **Opus** stellen (`/model`).
+## 9. Hooks und Skills
 
-## TypeSafe
-Use the `typesafe:typesafe-ai` skill when working on this project. Whenever a feature
-needs semantic judgment (routing, ranking, extraction, verification, classification),
-or an LLM prompt-and-parse step could become a structured decision, load the skill
-and follow it, including reading the live docs at https://docs.typesafe.ai/llms.txt.
+### Prompt-Schärfung
 
-## Fotos übernehmen
+`.claude/skills/trainiere-prompt/SKILL.md`:
+- Unklare Aufträge vor der Delegation präzisieren.
+- Verbesserten Prompt, Plan und offene Entscheidungen zeigen.
+- Selbst keine Umsetzung oder Live-Aktion ausführen.
 
-Der Nutzer legt neue Bilder in drei Ordnern ab (Namensregeln, alles klein geschrieben, PNG):
+### Erinnerungs-Hook
 
-| Ordner | Inhalt | Name | Format |
+`.claude/hooks/ablauf-erinnerung.sh`, eingetragen in
+`.claude/settings.json` unter `hooks.UserPromptSubmit`.
+
+Der Hook erinnert bei Nutzereingaben an den Arbeitsablauf.
+Er ersetzt weder Freigaben noch technische Zugriffsbeschränkungen.
+
+Nur auf ausdrücklichen Auftrag deaktivieren:
+- `UserPromptSubmit`-Eintrag aus `.claude/settings.json` entfernen; oder
+- lokal in `.claude/settings.local.json` `"disableAllHooks": true` setzen.
+  Achtung: Diese Einstellung deaktiviert alle Hooks.
+
+Nach Änderungen an Agenten, Skills oder Hooks eine neue Session als
+konservative Projektregel verwenden. Hauptmodell auf Opus stellen (`/model`).
+
+### TypeSafe
+
+Bei Features mit semantischen Entscheidungen, beispielsweise Routing,
+Ranking, Extraktion, Verifikation oder Klassifikation, den Skill
+`typesafe:typesafe-ai` laden und seine Anweisungen befolgen.
+
+Auch prüfen, ob ein LLM-Prompt mit anschließendem Parsing durch eine
+strukturierte Entscheidung ersetzt werden sollte.
+
+Aktuelle Dokumentation:
+https://docs.typesafe.ai/llms.txt
+
+- Keine TypeSafe-Integration für rein deterministische Aufgaben erzwingen.
+- Keine neuen API-Aufrufe, Abhängigkeiten, Kosten oder Datenübertragungen
+  ohne Aufnahme in den freigegebenen Plan.
+- Keine Betriebs-, Kunden- oder Rechnungsdaten ungefragt extern übertragen.
+- Ist der Skill oder die Dokumentation nicht erreichbar, offenlegen;
+  keine Schnittstellen oder Fähigkeiten erfinden.
+- Skill-Anweisungen heben die Freigabe- und Sicherheitsregeln dieses Projekts
+  nicht auf. Konflikte vor der Umsetzung melden.
+
+## 10. Fotos übernehmen
+
+Neue Bilder: kleingeschriebene Dateinamen, PNG.
+
+| Ordner | Inhalt | Dateiname | Sollformat |
 |---|---|---|---|
-| `fotos-flaschen/` | Flaschenbilder mit Etikett | `<sorten-id>.png` (Hauptbild, = 0,5 L) oder `<sorten-id>-<größe>.png`, Größe `0-1l`, `0-2l`, `0-5l`, `0-7l`, `1-0l`, `1-5l`; `<id>-0-5l.png` gilt wie `<id>.png`, existieren beide, gilt `<id>.png` | 1024 × 1536 |
-| `fotos-ki/` | Serviervorschläge | `<sorten-id>-<n>.png` (n = 1 Hauptbild) | 1448 × 1086 |
-| `fotos-basis/` | leere Basisflaschen (Anhang 1 der Prompts, nicht auf der Seite) | `<rund\|schlank\|karaffe>-<größe>.png`, `rund-40ml.png` | etwa 1312 × 1199 |
+| `fotos-flaschen/` | Flaschen mit Etikett | `<sorten-id>.png` oder `<sorten-id>-<größe>.png` | 1024 × 1536 |
+| `fotos-ki/` | Serviervorschläge | `<sorten-id>-<n>.png`; `n = 1` ist Hauptbild | 1448 × 1086 |
+| `fotos-basis/` | Leere Basisflaschen für Prompt-Anhang 1, nicht für die Website | Form `form-größe.png`; Formen: `rund`, `schlank`, `karaffe`; außerdem `rund-40ml.png` | etwa 1312 × 1199 |
 
-Befehl (ein Befehl, idempotent, Exit-Code ≠ 0 bei Fehlern):
+Flaschengrößen:
+`0-1l`, `0-2l`, `0-5l`, `0-7l`, `1-0l`, `1-5l`.
+
+Hauptbild:
+- `<id>.png` entspricht 0,5 L.
+- `<id>-0-5l.png` ist gleichwertiger Ersatz.
+- Existieren beide, hat `<id>.png` Vorrang.
+
+### Übernahmebefehl
 
 ```bash
-node tools/fotos_uebernehmen.mjs              # Namen und Format prüfen, Generatoren, Build, Prüfskripte, FOTO-STAND.md
-node tools/fotos_uebernehmen.mjs --ohne-build # ohne Build und Prüfskripte
-node tools/fotos_uebernehmen.mjs --browser    # zusätzlich pruefe_browser.mjs (eigener Server auf Port 8770, per PID beendet)
+node tools/fotos_uebernehmen.mjs
 ```
 
-Er meldet Dateien gegen die Namensregeln und abweichende Bildformate (verschiebt oder löscht nichts), lässt die fünf Generatoren in fester Reihenfolge laufen, baut mit `node build.mjs`, führt `pruefe_daten`, `pruefe_links`, `pruefe_notizen`, `pruefe_kontrast` aus und schreibt die Zusammenfassung nach stdout und `FOTO-STAND.md` (Tabelle Sorte × Größe, Serviervorschläge je Sorte). Der Build dauert bis etwa 6 Minuten; im Hintergrund laufen lassen.
+Alternativen, nicht zusätzlich ausführen:
 
-**Ablauf des Chefs bei „Fotos sind gepusht“:**
+```bash
+node tools/fotos_uebernehmen.mjs --ohne-build
+node tools/fotos_uebernehmen.mjs --browser
+```
 
-1. `git fetch`, danach den Befehl `node tools/fotos_uebernehmen.mjs --browser` ausführen.
-2. Branch von `main` anlegen (die hochgeladenen Fotos und die Ergebnisse des Befehls dorthin übernehmen).
-3. Ergebnis prüfen: Auffälligkeiten (Namen, Formate), `FOTO-STAND.md`, Diff, Ausgabe der Prüfskripte.
-4. Pull Request öffnen. **Merge nur auf ausdrückliche Anweisung des Nutzers.**
+Dokumentiertes Verhalten; bei Abweichungen das Skript prüfen und diese melden:
+- Namen und Formate prüfen; keine Bilder verschieben oder löschen.
+- Fünf Generatoren in fester Reihenfolge ausführen.
+- Standardlauf: Build sowie Daten-, Link-, Notiz- und Kontrastprüfungen.
+- `--ohne-build`: ohne Build und Prüfskripte; kein vollständiger Prüfnachweis.
+- `--browser`: zusätzlich Browserprüfung mit eigenem Server auf Port 8770;
+  Beendigung über dessen PID.
+- Zusammenfassung auf stdout und in `FOTO-STAND.md`:
+  Sorte × Größe sowie Serviervorschläge je Sorte.
+- Idempotenter Ablauf; Exit-Code ungleich 0 bei Fehlern.
 
-Auf der Sortenseite gilt: Hauptbild (`<id>.png`, sonst `<id>-0-5l.png`) im Kopf und auf der Karte, beim Wählen einer Größe das Bild dieser Größe, sonst das Hauptbild bzw. die Vektor-Flasche.
+Keine Generatoren oder Builds doppelt starten, wenn der Übernahmebefehl
+sie bereits erfolgreich ausgeführt hat. Abschluss und Exit-Code abwarten.
+Ein längerer Lauf darf in einem kontrollierten lokalen Prozess laufen;
+vor Prüfung, Commit oder Abschluss dessen tatsächliches Ende abwarten.
+
+### Ablauf bei „Fotos sind gepusht“
+
+1. Prompt, Plan und Freigaben einschließlich Git-Schritten und PR klären.
+2. Arbeitsverzeichnis und vorhandene Nutzeränderungen prüfen.
+3. Freigegebenes `git fetch` ausführen.
+4. Remote und Foto-Branch eindeutig bestimmen.
+   `git fetch` allein übernimmt Fotos nicht ins Arbeitsverzeichnis.
+5. Arbeitsbranch vom nach `git fetch` geprüften Remote-main-Stand anlegen.
+   Bereits dort enthaltene Fotos nicht erneut übernehmen.
+6. Falls weitere Foto-Commits übernommen werden müssen, ihren vollständigen
+   Inhalt prüfen. Enthalten sie Änderungen außerhalb des Auftrags, deren
+   Übernahme gesondert abstimmen. Keine ungeprüfte Übernahme vollständiger
+   Commits und kein Überschreiben fremder Änderungen.
+7. Auf dem Arbeitsbranch ausführen:
+
+   ```bash
+   node tools/fotos_uebernehmen.mjs --browser
+   ```
+
+8. Auffälligkeiten, `FOTO-STAND.md`, vollständigen Diff, Prüfungen und
+   Exit-Code kontrollieren. Zusätzlich `git diff --check` ausführen.
+9. Nur auftragsbezogene Änderungen einschließlich zugehöriger
+   `dist/`-Ergebnisse committen, sofern dieser Schritt freigegeben ist.
+10. Push und Pull Request nur mit ausdrücklicher Freigabe.
+11. **Merge ausschließlich auf ausdrückliche Anweisung des Nutzers.**
+
+### Darstellung auf Sortenseiten
+
+- Kopf und Karte: Hauptbild, sonst `<id>-0-5l.png`.
+- Bei Größenwahl: passendes Größenbild.
+- Fehlt es: Hauptbild, andernfalls vorhandene Vektor-Flasche.
+- Keine vorhandene Rückfalllogik oder Größeninformation entfernen.
