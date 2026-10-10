@@ -860,7 +860,7 @@
       "Halsband vorhanden und passend: dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 259,
     "vorlageArt": "rund"
   },
@@ -883,7 +883,7 @@
       "Halsband vorhanden und passend: dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 244,
     "vorlageArt": "rund"
   },
@@ -906,7 +906,7 @@
       "Halsband vorhanden und passend: dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 244,
     "vorlageArt": "rund"
   },
@@ -929,7 +929,7 @@
       "Halsband vorhanden und passend: gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 257,
     "vorlageArt": "rund"
   },
@@ -952,7 +952,7 @@
       "Halsband vorhanden und passend: gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 242,
     "vorlageArt": "rund"
   },
@@ -975,7 +975,7 @@
       "Halsband vorhanden und passend: gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang",
-    "status": "offen",
+    "status": "vorhanden",
     "woerter": 242,
     "vorlageArt": "rund"
   }

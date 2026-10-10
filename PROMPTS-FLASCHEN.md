@@ -6,7 +6,7 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle (Name immer mit 
 
 **Einheitlichkeit:** Jeder Prompt enthält denselben festen Baustein (Format, heller Grund, Licht von links, Flasche mittig, Standfläche bei etwa 90 % der Bildhöhe, Verschlussoberkante bei etwa 8 %), damit Karten nebeneinander ruhig wirken. Das kann ChatGPT nur annähernd einhalten; abweichende Bilder besser neu erzeugen als auf der Seite zurechtrücken.
 
-**Stand:** 28 offen, 1 vorhanden (`<id>-0-5l.png` in `fotos-flaschen/`).
+**Stand:** 0 offen, 29 vorhanden (`<id>-0-5l.png` in `fotos-flaschen/`).
 
 Automatisch abarbeiten: `CHATGPT-STAPEL.md` (Gruppe `flasche`, Ausgabe Hochformat).
 
@@ -91,7 +91,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Wodka-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/wodka-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 229 Wörter
 
 ```
@@ -115,7 +115,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/rum-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 228 Wörter
 
 ```
@@ -139,7 +139,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/rum-orange-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 233 Wörter
 
 ```
@@ -163,7 +163,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/whisky-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 227 Wörter
 
 ```
@@ -187,7 +187,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kirsch-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -211,7 +211,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/framboise-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -235,7 +235,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/quetsch-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -259,7 +259,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/poire-williams-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -283,7 +283,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/mirabelle-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -307,7 +307,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/hierber-fruucht-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 232 Wörter
 
 ```
@@ -331,7 +331,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/karaffe-0-7l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vieux-marc-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 230 Wörter
 
 ```
@@ -355,7 +355,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vieille-prune-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 206 Wörter
 
 ```
@@ -379,7 +379,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vieille-pomme-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 206 Wörter
 
 ```
@@ -403,7 +403,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/hunnegdrepp-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 206 Wörter
 
 ```
@@ -427,7 +427,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/hunneg-whisky-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 229 Wörter
 
 ```
@@ -451,7 +451,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kraeiderdrepp-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -475,7 +475,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kuerbisdrepp-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -499,7 +499,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/grain-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -523,7 +523,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/hondsaarsch-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -547,7 +547,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/kiwibeeren-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -571,7 +571,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/poire-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -595,7 +595,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/neelchesbiren-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -619,7 +619,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/lenschouren-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -643,7 +643,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vullekiischt-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -667,7 +667,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/schleiwen-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 207 Wörter
 
 ```
@@ -691,7 +691,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos/vorlage-vizdrepp.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
 - **Ergebnis speichern als:** `fotos-flaschen/vizdrepp-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 221 Wörter
 
 ```
@@ -715,7 +715,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
 - **Ergebnis speichern als:** `fotos-flaschen/sambuca-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 231 Wörter
 
 ```
@@ -739,7 +739,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/limoncello-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 229 Wörter
 
 ```

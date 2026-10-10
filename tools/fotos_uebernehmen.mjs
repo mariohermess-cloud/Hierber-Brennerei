@@ -4,8 +4,8 @@
 //   --browser     zusätzlich tools/pruefe_browser.mjs (startet und stoppt dafür selbst einen Server auf Port 8770, per PID)
 // Schritte:
 //   1. Dateinamen in fotos-flaschen/, fotos-ki/ und fotos-basis/ gegen die Namensregeln prüfen (nur melden, nichts verschieben oder löschen)
-//   2. Bildformat prüfen (fotos-flaschen 1024x1536, fotos-ki 1448x1086; Abweichung nur melden)
-//   3. Generatoren in fester Reihenfolge: foto_prompts, foto_prompts_weitere, foto_prompts_flaschen, foto_prompts_groessen, foto_prompts_weitere_sorten, chatgpt_stapel
+//   2. Bildformat prüfen (fotos-flaschen 1024x1536, Holzkisten und fotos-ki 1448x1086; Abweichung nur melden)
+//   3. Generatoren in fester Reihenfolge: foto_prompts, foto_prompts_weitere, foto_prompts_flaschen, foto_prompts_groessen, foto_prompts_weitere_sorten, foto_prompts_neue_gruppen, chatgpt_stapel
 //      (FOTO-PLATZHALTER.md wird nach foto_prompts.mjs per git restore zurückgesetzt, wenn es vorher unverändert war)
 //   4. node build.mjs, dann pruefe_daten, pruefe_links, pruefe_notizen, pruefe_kontrast (und mit --browser pruefe_browser)
 //   5. Zusammenfassung nach stdout und FOTO-STAND.md
@@ -13,6 +13,7 @@
 //   fotos-flaschen/<id>-<größe>.png, Größe IMMER im Namen: 0-1l, 0-2l, 0-5l, 0-7l, 1-0l, 1-5l (Hauptbild = <id>-0-5l.png); <id>.png ohne Größe ist ein Namensfehler (Exit-Code 1)
 //   fotos-ki/<id>-<n>.png (Serviervorschlag n, n = 1 Hauptbild)
 //   id = Sorte aus site/data/produkte.js ODER aus tools/weitere-sorten.json (kraider-batti: nur Prompts, keine Sortenseite). Hierberol führt nur 0,7 L: hierberol-0-7l.png ist sein Bild.
+//   Neue Gruppen (tools/neue-gruppen.json, nur Prompts): Liköre, Geräift und weitere Brände heißen <id>-<größe>.png wie oben; Holzkisten heißen <kisten-id>.png (holzkiste-6x0-1l.png usw., Größe steckt in der Id, Querformat 1448x1086) und sind erlaubt, kein Namensfehler.
 //   fotos-basis/<form>-<größe>.png mit Form rund, schlank, karaffe (und rund-40ml.png, ungenutzt)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -45,7 +46,11 @@ const schritt = (n, t) => console.log(`\n== ${n}. ${t}`);
 // Weitere Sorten nur mit Prompts (tools/weitere-sorten.json, inProdukte: false), z. B. Kräider Batti: erlaubte Namen, aber keine Sortenseite
 const NUR_PROMPTS = JSON.parse(fs.readFileSync(rel('tools', 'weitere-sorten.json'), 'utf8')).sorten.filter((x) => !x.inProdukte);
 const NUR_PROMPTS_IDS = new Set(NUR_PROMPTS.map((x) => x.id));
-const IDS = new Set([...PRODUKTE.map((p) => p.id), ...NUR_PROMPTS_IDS]);
+// Neue Gruppen (tools/neue-gruppen.json, nur Prompts): Flaschen-Ids sind erlaubt, Holzkisten tragen die Größe in der Id und heißen <kisten-id>.png (Ausnahme von der Größenregel)
+const NEUE_GRUPPEN = JSON.parse(fs.readFileSync(rel('tools', 'neue-gruppen.json'), 'utf8'));
+const NEUE_IDS = new Set(NEUE_GRUPPEN.flaschen.map((x) => x.id));
+const KISTEN_IDS = new Set(NEUE_GRUPPEN.kisten.map((x) => x.id));
+const IDS = new Set([...PRODUKTE.map((p) => p.id), ...NUR_PROMPTS_IDS, ...NEUE_IDS]);
 const SUFFIXE = new Set(Object.values(GROESSEN_SUFFIX));
 const MENGE_ZU_SUFFIX = GROESSEN_SUFFIX;
 const SUFFIX_ZU_MENGE = Object.fromEntries(Object.entries(GROESSEN_SUFFIX).map(([m, s]) => [s, m]));
@@ -63,6 +68,7 @@ const dateien = (ordner) => {
 function zerlegeFlasche(name) {
   if (!name.endsWith('.png')) return null;
   const stamm = name.slice(0, -4);
+  if (KISTEN_IDS.has(stamm)) return { id: stamm, suffix: null, kiste: true };
   const m = stamm.match(/^(.+)-(\d-\dl)$/);
   if (m && IDS.has(m[1]) && SUFFIXE.has(m[2])) return { id: m[1], suffix: m[2] };
   return null;
@@ -75,6 +81,7 @@ const BASIS_NAME = /^(rund|schlank|karaffe)-(0-1l|0-2l|0-5l|0-7l|1-0l|1-5l)\.png
 
 schritt(1, 'Dateinamen prüfen');
 const flaschen = { haupt: new Map(), groesse: new Map() }; // haupt: id -> Dateiname; groesse: `${id}|${suffix}` -> Dateiname
+const kisten = new Map(); // Holzkisten (neue Gruppen): id -> Dateiname
 const kiDateien = new Map(); // id -> Set(n)
 for (const e of dateien(FLASCHEN_ORDNER)) {
   const z = e.dir ? null : zerlegeFlasche(e.name);
@@ -86,7 +93,9 @@ for (const e of dateien(FLASCHEN_ORDNER)) {
     } else auffaellig.push(`${FLASCHEN_ORDNER}/${e.name}: Name folgt der Regel nicht (erwartet <sorten-id>-<0-1l|0-2l|0-5l|0-7l|1-0l|1-5l>.png mit bekannter Sorte)`);
     continue;
   }
-  if (z.suffix === HAUPT_SUFFIX) {
+  if (z.kiste) {
+    kisten.set(z.id, e.name);
+  } else if (z.suffix === HAUPT_SUFFIX) {
     flaschen.haupt.set(z.id, e.name);
   } else {
     flaschen.groesse.set(`${z.id}|${z.suffix}`, e.name);
@@ -119,7 +128,10 @@ async function pruefeFormat(ordner, namen, soll) {
     } catch (e) { formatAbw.push(`${ordner}/${name}: nicht lesbar als Bild (${e.message})`); }
   }
 }
-await pruefeFormat(FLASCHEN_ORDNER, dateien(FLASCHEN_ORDNER).filter((e) => !e.dir && zerlegeFlasche(e.name)).map((e) => e.name), FLASCHEN_FORMAT);
+const KISTEN_FORMAT = { w: 1448, h: 1086 };
+const flaschenZerlegt = dateien(FLASCHEN_ORDNER).filter((e) => !e.dir).map((e) => ({ name: e.name, z: zerlegeFlasche(e.name) })).filter((x) => x.z);
+await pruefeFormat(FLASCHEN_ORDNER, flaschenZerlegt.filter((x) => !x.z.kiste).map((x) => x.name), FLASCHEN_FORMAT);
+await pruefeFormat(FLASCHEN_ORDNER, flaschenZerlegt.filter((x) => x.z.kiste).map((x) => x.name), KISTEN_FORMAT);
 await pruefeFormat(KI_ORDNER, dateien(KI_ORDNER).filter((e) => !e.dir && zerlegeKi(e.name)).map((e) => e.name), KI_FORMAT);
 auffaellig.push(...formatAbw);
 console.log(formatAbw.length ? `${formatAbw.length} Abweichung(en) vom erwarteten Format (nur gemeldet).` : `Alle Bilder im erwarteten Format (Flaschen ${FLASCHEN_FORMAT.w}x${FLASCHEN_FORMAT.h}, Serviervorschläge ${KI_FORMAT.w}x${KI_FORMAT.h}).`);
@@ -175,7 +187,7 @@ const git = (argv) => spawnSync('git', argv, { cwd: wurzel, encoding: 'utf8' });
 
 // ---------- 3. Generatoren ----------
 schritt(3, 'Generatoren');
-const generatoren = ['foto_prompts', 'foto_prompts_weitere', 'foto_prompts_flaschen', 'foto_prompts_groessen', 'foto_prompts_weitere_sorten', 'chatgpt_stapel'];
+const generatoren = ['foto_prompts', 'foto_prompts_weitere', 'foto_prompts_flaschen', 'foto_prompts_groessen', 'foto_prompts_weitere_sorten', 'foto_prompts_neue_gruppen', 'chatgpt_stapel'];
 for (const g of generatoren) {
   const platzhalterSauber = g === 'foto_prompts' ? git(['diff', '--quiet', '--', 'FOTO-PLATZHALTER.md']).status === 0 : false;
   const ok = lauf(`node tools/${g}.mjs`, 'node', [`tools/${g}.mjs`]);

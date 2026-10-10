@@ -68,7 +68,7 @@ def rufe_api(requests, key: str, zeile: dict) -> bytes:
         p = REPO / zeile[feld]
         mime = mimetypes.guess_type(p.name)[0] or "application/octet-stream"
         dateien.append((IMAGE_FIELD, (p.name, p.read_bytes(), mime)))
-    hochformat = zeile["gruppe"] in ("flasche", "groessen") or (zeile["gruppe"] == "weitere-sorten" and zeile["dateiname_ergebnis"].startswith("fotos-flaschen/"))
+    hochformat = zeile["gruppe"] in ("flasche", "groessen") or (zeile["gruppe"] in ("weitere-sorten", "neue-gruppen") and zeile["dateiname_ergebnis"].startswith("fotos-flaschen/") and not zeile["dateiname_ergebnis"].startswith("fotos-flaschen/holzkiste-"))
     daten = {"model": MODEL, "prompt": zeile["prompt"], "size": SIZE_FLASCHE if hochformat else SIZE, "quality": QUALITY, "n": "1"}
     letzte = ""
     for versuch in range(1, VERSUCHE + 1):
@@ -107,7 +107,7 @@ def zuschnitt_4zu3(png: bytes) -> bytes:
 def main() -> int:
     ap = argparse.ArgumentParser(description="UNGETESTET: Bildstapel über die OpenAI-Bild-API erzeugen")
     ap.add_argument("--csv", default=str(REPO / "tools" / "chatgpt-stapel.csv"))
-    ap.add_argument("--gruppe", choices=["ersatz", "flasche", "groessen", "weitere", "weitere-sorten"])
+    ap.add_argument("--gruppe", choices=["ersatz", "flasche", "groessen", "weitere", "weitere-sorten", "neue-gruppen"])
     ap.add_argument("--ab", type=int, default=0, help="erst ab dieser nr")
     ap.add_argument("--max", type=int, default=0, help="höchstens so viele Bilder erzeugen")
     ap.add_argument("--pause", type=float, default=PAUSE_SEKUNDEN)

@@ -148,7 +148,7 @@ Der Nutzer legt neue Bilder in drei Ordnern ab (Namensregeln, alles klein geschr
 
 | Ordner | Inhalt | Name | Format |
 |---|---|---|---|
-| `fotos-flaschen/` | Flaschenbilder mit Etikett | `<sorten-id>-<größe>.png`, der Name trägt IMMER die Größe: `0-1l`, `0-2l`, `0-5l`, `0-7l`, `1-0l`, `1-5l` (Hauptbild = `<sorten-id>-0-5l.png`; `<sorten-id>.png` ohne Größe ist ein Namensfehler, Exit-Code ≠ 0); `<id>` ist eine Sorte aus `site/data/produkte.js` oder aus `tools/weitere-sorten.json` (`kraider-batti`, nur Prompts, keine Sortenseite); Hierberol führt nur 0,7 L (`hierberol-0-7l.png`) | 1024 × 1536 |
+| `fotos-flaschen/` | Flaschenbilder mit Etikett | `<sorten-id>-<größe>.png`, der Name trägt IMMER die Größe: `0-1l`, `0-2l`, `0-5l`, `0-7l`, `1-0l`, `1-5l` (Hauptbild = `<sorten-id>-0-5l.png`; `<sorten-id>.png` ohne Größe ist ein Namensfehler, Exit-Code ≠ 0); `<id>` ist eine Sorte aus `site/data/produkte.js` oder aus `tools/weitere-sorten.json` (`kraider-batti`, nur Prompts, keine Sortenseite) oder aus `tools/neue-gruppen.json` (Liköre, Geräift, weitere Brände, nur Prompts; Holzkisten heißen `holzkiste-6x0-1l.png` usw., Querformat 1448 × 1086); Hierberol führt nur 0,7 L (`hierberol-0-7l.png`) | 1024 × 1536 |
 | `fotos-ki/` | Serviervorschläge | `<sorten-id>-<n>.png` (n = 1 Hauptbild) | 1448 × 1086 |
 | `fotos-basis/` | leere Basisflaschen (Anhang 1 der Prompts, nicht auf der Seite) | `<rund\|schlank\|karaffe>-<größe>.png`, `rund-40ml.png` | etwa 1312 × 1199 |
 
@@ -160,7 +160,7 @@ node tools/fotos_uebernehmen.mjs --ohne-build # ohne Build und Prüfskripte
 node tools/fotos_uebernehmen.mjs --browser    # zusätzlich pruefe_browser.mjs (eigener Server auf Port 8770, per PID beendet)
 ```
 
-Er meldet Dateien gegen die Namensregeln (ohne Größe im Namen: Namensfehler, Exit-Code 1) und abweichende Bildformate (verschiebt oder löscht nichts), lässt die sechs Generatoren (zusätzlich `foto_prompts_weitere_sorten`) in fester Reihenfolge laufen, baut mit `node build.mjs`, führt `pruefe_daten`, `pruefe_links`, `pruefe_notizen`, `pruefe_kontrast` aus und schreibt die Zusammenfassung nach stdout und `FOTO-STAND.md` (Tabelle Sorte × Größe, Serviervorschläge je Sorte). Der Build dauert bis etwa 6 Minuten; im Hintergrund laufen lassen.
+Er meldet Dateien gegen die Namensregeln (ohne Größe im Namen: Namensfehler, Exit-Code 1) und abweichende Bildformate (verschiebt oder löscht nichts), lässt die sieben Generatoren (zusätzlich `foto_prompts_weitere_sorten` und `foto_prompts_neue_gruppen`) in fester Reihenfolge laufen, baut mit `node build.mjs`, führt `pruefe_daten`, `pruefe_links`, `pruefe_notizen`, `pruefe_kontrast` aus und schreibt die Zusammenfassung nach stdout und `FOTO-STAND.md` (Tabelle Sorte × Größe, Serviervorschläge je Sorte). Der Build dauert bis etwa 6 Minuten; im Hintergrund laufen lassen.
 
 **Ablauf des Chefs bei „Fotos sind gepusht“:**
 

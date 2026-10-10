@@ -1,0 +1,392 @@
+{
+ "hinweis": "Konfiguration für node tools/foto_prompts_neue_gruppen.mjs: vier Gruppen nur mit Prompts (likoere, holzkisten, geraeift, weitere-braende). Keine Sortenseiten, kein Eintrag in site/data/produkte.js, keine Serviervorschläge. Alkoholgehalte laut Preisliste. Beschreibungen nennen nur die Art des Produkts; keine bekannten Markenzeichen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. etikettDatei = flaches Etikett in Fertige Etiquetten/ (null = Etikett folgt, Text nur Name, Art, Alkoholangabe). Farben der Flüssigkeit sind Entwürfe, der Brenner bestätigt sie.",
+ "flaschen": [
+  {
+   "gruppe": "likoere",
+   "id": "de-welle-max",
+   "name": "De wëlle Max",
+   "art": "Wildfrucht-Likör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "dunkles Beerenrot mit violettem Ton",
+   "etikettDatei": "Likör Welle max_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "hambierlikoer",
+   "name": "Hambierlikör",
+   "art": "Himbeerlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "kräftiges Himbeerrot",
+   "etikettDatei": "Likör Hambier_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "holly",
+   "name": "Holly",
+   "art": "Holunderblütenlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "blasses, klares Strohgelb",
+   "etikettDatei": "Likör Holunderblüte-01_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "kiischtenlikoer",
+   "name": "Kiischtenlikör",
+   "art": "Sauerkirschlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "dunkles Kirschrot",
+   "etikettDatei": "Likör Kiischt_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "kraeiderlikoer",
+   "name": "Kräiderlikör",
+   "art": "Kräuterlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "dunkles Grünbraun",
+   "etikettDatei": "Likör Kraider_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "mandellikoer",
+   "name": "Mandellikör",
+   "art": "Mandellikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "helles Karamellbraun",
+   "etikettDatei": "Likör Mandel_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "mirabellenlikoer",
+   "name": "Mirabellenlikör",
+   "art": "Mirabellenlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "warmes Goldgelb",
+   "etikettDatei": "Likör Mirabelle_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "nesslikoer",
+   "name": "Nësslikör",
+   "art": "Haselnusslikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "mittleres Nussbraun",
+   "etikettDatei": "Likör Nesslikör_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "pfeffi",
+   "name": "Pfeffi",
+   "art": "Pefferminzlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "leuchtendes Minzgrün",
+   "etikettDatei": "Likör Pfeffi Peffermenz_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "pijenlikoer",
+   "name": "Pijenlikör",
+   "art": "Weinbergpfirsich-Likör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "helles Pfirsich-Orange",
+   "etikettDatei": "Likör Pijen_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "quittenlikoer",
+   "name": "Quittenlikör",
+   "art": "Quittenlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "blasses Bernstein-Gelb",
+   "etikettDatei": "Likör Quitten_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "schleiwenlikoer",
+   "name": "Schléiwenlikör",
+   "art": "Schlehenlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "dunkles Violettrot",
+   "etikettDatei": "Likör Schleiwen_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "vizlikoer",
+   "name": "Vizlikör",
+   "art": "Apfellikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "blasses Apfelgelb",
+   "etikettDatei": "Likör Viz_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "williamslikoer",
+   "name": "Williamslikör",
+   "art": "Williams-Birnenlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "helles Goldgelb",
+   "etikettDatei": "Likör Williams_Zeichenfläche 1.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "winterdreams",
+   "name": "Winterdreams",
+   "art": "saisonaler Likör",
+   "abv": 25,
+   "groessen": [
+    "0-5l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "winterlich dunkles Rot",
+   "etikettDatei": "Likör Winter Dreams-01.png"
+  },
+  {
+   "gruppe": "likoere",
+   "id": "ingwerlikoer",
+   "name": "Ingwerlikör",
+   "art": "Ingwerlikör",
+   "abv": 25,
+   "groessen": [
+    "0-5l",
+    "0-2l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "helles Goldgelb",
+   "etikettDatei": null
+  },
+  {
+   "gruppe": "geraeift",
+   "id": "willi-op-biren-geraeift",
+   "name": "Willi op Biren geräift",
+   "art": "Branntwein",
+   "abv": 35,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "schlank",
+   "fluessigkeit": "klar wie Wasser, darin einige ganze kleine Williams-Birnen, sonst nichts in der Flasche",
+   "etikettDatei": null
+  },
+  {
+   "gruppe": "geraeift",
+   "id": "mirabelle-op-mirabellen-geraeift",
+   "name": "Mirabelle op Mirabellen geräift",
+   "art": "Branntwein",
+   "abv": 35,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "schlank",
+   "fluessigkeit": "klar wie Wasser, darin einige ganze Mirabellen, sonst nichts in der Flasche",
+   "etikettDatei": "Brandwein Mirabelle geräift-01.png"
+  },
+  {
+   "gruppe": "geraeift",
+   "id": "quetsch-op-quetsch-geraeift",
+   "name": "Quetsch op Quetsch geräift",
+   "art": "Branntwein",
+   "abv": 35,
+   "groessen": [
+    "0-5l",
+    "0-1l"
+   ],
+   "form": "schlank",
+   "fluessigkeit": "klar wie Wasser, darin einige ganze Zwetschgen, sonst nichts in der Flasche",
+   "etikettDatei": "Brandwein Quetsch geräift-01.png"
+  },
+  {
+   "gruppe": "weitere-braende",
+   "id": "neutral-alkohol",
+   "name": "Neutraler Alkohol",
+   "art": null,
+   "abv": 40,
+   "groessen": [
+    "1-0l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "klar wie Wasser",
+   "etikettDatei": null,
+   "sorteUnklar": true
+  },
+  {
+   "gruppe": "weitere-braende",
+   "id": "aeppel-pommes",
+   "name": "Äppel/Pommes",
+   "art": null,
+   "abv": 45,
+   "groessen": [
+    "0-5l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "klares Goldgelb",
+   "etikettDatei": null,
+   "sorteUnklar": true
+  },
+  {
+   "gruppe": "weitere-braende",
+   "id": "pastis",
+   "name": "Pastis",
+   "art": null,
+   "abv": 40,
+   "groessen": [
+    "0-5l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "mattes, helles Gelb",
+   "etikettDatei": null,
+   "sorteUnklar": true
+  },
+  {
+   "gruppe": "weitere-braende",
+   "id": "nessdrepp",
+   "name": "Nëssdrëpp Walnuss",
+   "art": null,
+   "abv": 45,
+   "groessen": [
+    "0-5l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "helles Goldbraun",
+   "etikettDatei": null,
+   "sorteUnklar": true
+  },
+  {
+   "gruppe": "weitere-braende",
+   "id": "pefferminz",
+   "name": "Pefferminz",
+   "art": null,
+   "abv": 45,
+   "groessen": [
+    "0-5l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "klar wie Wasser",
+   "etikettDatei": null,
+   "sorteUnklar": true
+  },
+  {
+   "gruppe": "weitere-braende",
+   "id": "quitten",
+   "name": "Quitten",
+   "art": null,
+   "abv": 45,
+   "groessen": [
+    "0-5l"
+   ],
+   "form": "rund",
+   "fluessigkeit": "klares Goldgelb",
+   "etikettDatei": null,
+   "sorteUnklar": true
+  }
+ ],
+ "kisten": [
+  {
+   "id": "holzkiste-6x0-1l",
+   "name": "Holzkiste 6 × 0,1 l",
+   "anzahl": 6,
+   "groesse": "0,1 l",
+   "inhalt": "Likör und Branntwein, verschiedene Sorten",
+   "basis": "schlank-0-1l",
+   "flaschenText": "schlanke 0,1-L-Flasche"
+  },
+  {
+   "id": "holzkiste-3x0-1l",
+   "name": "Holzkiste 3 × 0,1 l",
+   "anzahl": 3,
+   "groesse": "0,1 l",
+   "inhalt": "Likör und Branntwein, verschiedene Sorten",
+   "basis": "schlank-0-1l",
+   "flaschenText": "schlanke 0,1-L-Flasche"
+  },
+  {
+   "id": "holzkiste-4x0-2l",
+   "name": "Holzkiste 4 × 0,2 l",
+   "anzahl": 4,
+   "groesse": "0,2 l",
+   "inhalt": "verschiedene Sorten (Gin, Rum, Whisky, Sambuca, Wodka, Limoncello)",
+   "basis": "rund-0-2l",
+   "flaschenText": "runde 0,2-L-Flasche"
+  },
+  {
+   "id": "holzkiste-5x-apotheker-0-1l",
+   "name": "Holzkiste 5 Apothekerflaschen 0,1 l",
+   "anzahl": 5,
+   "groesse": "0,1 l",
+   "inhalt": "verschiedene Sorten",
+   "basis": "apotheker-0-1l",
+   "flaschenText": "Apothekerflasche 0,1 l"
+  }
+ ]
+}

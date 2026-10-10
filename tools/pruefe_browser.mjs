@@ -206,10 +206,10 @@ const zeigtGroesse = async (pg, menge, key, altTeil, name) => {
   check(z && nb(z.alt) === altTeil, `${name}: ${menge} Alt-Text "${altTeil}" (ist "${z && nb(z.alt)}")`);
 };
 await page.setViewportSize({ width: 1280, height: 800 });
-// (a) Rum: kein 0,5-L-Bild; vorgewählt ist 0,5 L (Standard) = Vektor-Flasche, die übrigen Größen zeigen ihr Foto
+// (a) Rum: vorgewählt ist 0,5 L (Standard) = Hauptbild, die übrigen Größen zeigen ihr Foto
 await page.goto(BASIS + '/brand/rum/', { waitUntil: 'networkidle' });
 let z = await buehne(page);
-check(z && z.n === 1 && z.vektor && z.haupt, `rum: beim Laden 0,5 L vorgewählt, Vektor-Flasche (${JSON.stringify(z)})`);
+check(z && z.n === 1 && z.foto && z.haupt, `rum: beim Laden 0,5 L vorgewählt, Hauptbild (${JSON.stringify(z)})`);
 const vorgewaehlt = await page.evaluate(() => document.querySelector('[data-kauf] input[name=groesse]:checked').getAttribute('data-menge'));
 check(vorgewaehlt === '0,5 L', `rum: vorgewählte Größe 0,5 L (${vorgewaehlt})`);
 await zeigtGroesse(page, '1,5 L', 'flasche-rum-1-5l', 'Flasche Hierber Rum, 1,5 L, mit Etikett', 'rum');
@@ -230,16 +230,16 @@ for (const [lang, l] of [['', 'de'], ['/fr', 'fr']]) {
   await waehleGroesse(page, '0,5 L'); await warteBild(page);
   z = await buehne(page); check(z && z.n === 1 && z.haupt && z.foto && /\/flasche-gin-\d+\./.test(z.src), `${name}: 0,5 L zurück zum Hauptbild (${JSON.stringify(z)})`);
 }
-// (c) Kirsch: 0,5 L vorgewählt (Vektor-Flasche), 0,1 L zeigt das 0,1-L-Foto
+// (c) Kirsch: 0,5 L vorgewählt (Hauptbild), 0,1 L zeigt das 0,1-L-Foto
 await page.goto(BASIS + '/brand/kirsch/', { waitUntil: 'networkidle' });
 z = await buehne(page);
-check(z && z.n === 1 && z.vektor, `kirsch: beim Laden 0,5 L vorgewählt, Vektor-Flasche (${JSON.stringify(z)})`);
+check(z && z.n === 1 && z.foto && z.haupt, `kirsch: beim Laden 0,5 L vorgewählt, Hauptbild (${JSON.stringify(z)})`);
 await zeigtGroesse(page, '0,1 L', 'flasche-kirsch-0-1l', 'Flasche Kirsch, 0,1 L, mit Etikett', 'kirsch');
 // Variantenwechsel (Quetsch): Bild folgt der Größe, nichts bricht
 await page.goto(BASIS + '/brand/quetsch/', { waitUntil: 'networkidle' });
 await page.locator('label.chip-radio', { has: page.locator('input[name=variante][value=geraeift]') }).click(); await warteBild(page);
 z = await buehne(page); check(z && z.n === 1 && z.menge === '0,1 L' && z.foto && z.src.includes('/flasche-quetsch-0-1l-'), `quetsch: Variante gewechselt, Größe 0,1 L zeigt Foto (${JSON.stringify(z)})`);
-await waehleGroesse(page, '0,5 L'); z = await buehne(page); check(z && z.vektor, 'quetsch: 0,5 L der anderen Variante zeigt die Vektor-Flasche');
+await waehleGroesse(page, '0,5 L'); z = await buehne(page); check(z && z.foto && z.haupt, 'quetsch: 0,5 L der anderen Variante zeigt das Hauptbild');
 await page.locator('label.chip-radio', { has: page.locator('input[name=variante][value=standard]') }).click(); await warteBild(page);
 z = await buehne(page); check(z && z.n === 1 && z.menge === '0,1 L' && z.foto, `quetsch: zurück zur ersten Variante, Foto 0,1 L (${JSON.stringify(z)})`);
 // (e) ohne JavaScript bleibt das Hauptbild (bzw. bei Kirsch die Vektor-Flasche der vorgewählten Größe 0,5 L); verborgene Größenbilder bleiben verborgen
@@ -248,7 +248,7 @@ const p6 = await ctx6.newPage();
 await p6.goto(BASIS + '/brand/gin/'); z = await buehne(p6);
 check(z && z.n === 1 && z.haupt && z.foto, `ohne JS gin: Hauptbild sichtbar (${JSON.stringify(z)})`);
 await p6.goto(BASIS + '/brand/kirsch/'); z = await buehne(p6);
-check(z && z.n === 1 && z.vektor, `ohne JS kirsch: vorgewählte Größe 0,5 L, Vektor-Flasche sichtbar (${JSON.stringify(z)})`);
+check(z && z.n === 1 && z.foto && z.haupt, `ohne JS kirsch: vorgewählte Größe 0,5 L, Hauptbild sichtbar (${JSON.stringify(z)})`);
 await ctx6.close();
 // (f) Mobil 375x812: Wechsel funktioniert, kein horizontaler Überlauf
 await page.setViewportSize({ width: 375, height: 812 });

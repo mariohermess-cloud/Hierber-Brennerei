@@ -41,7 +41,7 @@
       "Halsband vorhanden und passend: hellblaues Band mit weißer Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto fotos-basis/rund-0-5l.png zeigt einen anderen Verschluss; der Glasstopfen aus der Verschluss-Zeile hat Vorrang, Halsband nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "rum",
@@ -63,7 +63,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto fotos-basis/rund-0-5l.png zeigt einen anderen Verschluss; der Glasstopfen aus der Verschluss-Zeile hat Vorrang, Halsband nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "rum-orange",
@@ -85,7 +85,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "Basisfoto fotos-basis/rund-0-5l.png zeigt einen anderen Verschluss; der Glasstopfen aus der Verschluss-Zeile hat Vorrang, Halsband nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "whisky",
@@ -107,7 +107,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "Basisfoto fotos-basis/rund-0-5l.png zeigt einen anderen Verschluss; der Glasstopfen aus der Verschluss-Zeile hat Vorrang, Halsband nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kirsch",
@@ -129,7 +129,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "framboise",
@@ -151,7 +151,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "quetsch",
@@ -173,7 +173,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "poire-williams",
@@ -195,7 +195,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "mirabelle",
@@ -217,7 +217,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hierber-fruucht",
@@ -239,7 +239,7 @@
       "Halsband vorhanden und passend: graubraunes Band mit kleinem Brennblasen-Logo und heller Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto fotos-basis/rund-0-5l.png zeigt einen anderen Verschluss; der Glasstopfen aus der Verschluss-Zeile hat Vorrang, Halsband nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieux-marc",
@@ -261,7 +261,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Basisfoto fotos-basis/karaffe-0-7l.png zeigt klares Glas und einen Glasstopfen; dunkles Braunglas nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieille-prune",
@@ -283,7 +283,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vieille-pomme",
@@ -305,7 +305,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunnegdrepp",
@@ -327,7 +327,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hunneg-whisky",
@@ -349,7 +349,7 @@
       "Halsband vorhanden und passend: braungraues Band mit heller Schreibschrift „Hierber Brennerei“ (unbestätigt, kein eigenes Foto)"
     ],
     "problem": "Basisfoto fotos-basis/rund-0-5l.png zeigt einen anderen Verschluss; der Glasstopfen aus der Verschluss-Zeile hat Vorrang, Halsband nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kraeiderdrepp",
@@ -371,7 +371,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kuerbisdrepp",
@@ -393,7 +393,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "grain",
@@ -415,7 +415,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "hondsaarsch",
@@ -437,7 +437,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "kiwibeeren",
@@ -459,7 +459,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "poire",
@@ -481,7 +481,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "neelchesbiren",
@@ -503,7 +503,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "lenschouren",
@@ -525,7 +525,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vullekiischt",
@@ -547,7 +547,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "schleiwen",
@@ -569,7 +569,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png, kein Foto der Sorte; Verschluss und Flüssigkeit nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "vizdrepp",
@@ -591,7 +591,7 @@
       "Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)"
     ],
     "problem": "Leere Vorlagenflasche (ohne Etikett) auf schwarzem Grund; der Grund soll hell werden",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "sambuca",
@@ -613,7 +613,7 @@
       "Halsband vorhanden und passend: dunkelrotes Band mit Faserstruktur und heller Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto fotos-basis/rund-0-5l.png zeigt einen anderen Verschluss; der Glasstopfen aus der Verschluss-Zeile hat Vorrang, Halsband nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   },
   {
     "id": "limoncello",
@@ -635,6 +635,6 @@
       "Halsband vorhanden und passend: gelbes Band mit Zitronenscheiben und Schreibschrift „Hierber Brennerei“"
     ],
     "problem": "Basisfoto fotos-basis/rund-0-5l.png zeigt einen anderen Verschluss; der Glasstopfen aus der Verschluss-Zeile hat Vorrang, Halsband nur über die Beschreibung",
-    "status": "offen"
+    "status": "vorhanden"
   }
 ]

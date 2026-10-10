@@ -2,7 +2,7 @@
 
 Erzeugt mit `node tools/foto_prompts_weitere_sorten.mjs` aus `tools/weitere-sorten.json`. Nicht von Hand ändern. 10 Prompts: je Produkt eine Flasche (Hochformat 1024 × 1536 Pixel) und vier Serviervorschläge (Querformat 4:3, 1448 × 1086). Alles sind Entwürfe, der Brenner bestätigt sie.
 
-**Stand:** 9 offen, 1 vorhanden, davon 5 mit fehlendem Anhang (Kräider Batti: Etikett und Flaschenbild liegen noch nicht vor).
+**Stand:** 2 offen, 8 vorhanden, davon 1 mit fehlendem Anhang (Kräider Batti: Etikett und Flaschenbild liegen noch nicht vor).
 
 - **Hierberol** (Aperitif, 0,7 l, 15 % vol.): hat ein Flaschenbild (`fotos-flaschen/hierberol-0-7l.png`) und eine Sortenseite. Es gibt kein flaches Etikett in `Fertige Etiquetten/`; Anhang 2 ist deshalb das Foto selbst, nur als Etikett-Referenz. Die vier Serviervorschläge stehen in `site/data/serviervorschlaege.js`; die Bilder `fotos-ki/hierberol-1.png` bis `-4.png` fehlen noch und werden nach dem Upload vom Build eingebaut.
 - **Kräider Batti** (Kräuterlikör, dunkel): nur Prompts. Es gibt weder Etikett noch Bild noch Preis noch Alkoholgehalt noch Größe; keine Sortenseite, kein Eintrag in `produkte.js`. Anhang 2 der Flasche ist ein Platzhalter („Etikett folgt“). Bis das Etikett vorliegt, stehen diese Einträge im ChatGPT-Stapel mit Status „Etikett fehlt“.
@@ -15,15 +15,15 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in `fotos-flasch
 | Eintrag | Typ | Anhang 1 | Anhang 2 | Zieldatei | Status | Wörter |
 |---|---|---|---|---|---|---|
 | hierberol-flasche | flasche | `fotos-basis/rund-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | vorhanden | 255 |
-| hierberol-1 | serviervorschlag | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-ki/hierberol-1.png` | offen | 194 |
-| hierberol-2 | serviervorschlag | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-ki/hierberol-2.png` | offen | 187 |
-| hierberol-3 | serviervorschlag | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-ki/hierberol-3.png` | offen | 193 |
-| hierberol-4 | serviervorschlag | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-ki/hierberol-4.png` | offen | 193 |
-| kraider-batti-flasche | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Kräider Batti folgt` (fehlt) | `fotos-flaschen/kraider-batti-0-5l.png` | offen | 256 |
-| kraider-batti-1 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` (fehlt) | `fotos-flaschen/kraider-batti-0-5l.png` (fehlt) | `fotos-ki/kraider-batti-1.png` | offen | 188 |
-| kraider-batti-2 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` (fehlt) | `fotos-flaschen/kraider-batti-0-5l.png` (fehlt) | `fotos-ki/kraider-batti-2.png` | offen | 180 |
-| kraider-batti-3 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` (fehlt) | `fotos-flaschen/kraider-batti-0-5l.png` (fehlt) | `fotos-ki/kraider-batti-3.png` | offen | 190 |
-| kraider-batti-4 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` (fehlt) | `fotos-flaschen/kraider-batti-0-5l.png` (fehlt) | `fotos-ki/kraider-batti-4.png` | offen | 188 |
+| hierberol-1 | serviervorschlag | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-ki/hierberol-1.png` | vorhanden | 194 |
+| hierberol-2 | serviervorschlag | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-ki/hierberol-2.png` | vorhanden | 187 |
+| hierberol-3 | serviervorschlag | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-ki/hierberol-3.png` | vorhanden | 193 |
+| hierberol-4 | serviervorschlag | `fotos-flaschen/hierberol-0-7l.png` | `fotos-flaschen/hierberol-0-7l.png` | `fotos-ki/hierberol-4.png` | vorhanden | 193 |
+| kraider-batti-flasche | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Kräider Batti folgt` (fehlt) | `fotos-flaschen/kraider-batti-0-5l.png` | vorhanden | 256 |
+| kraider-batti-1 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-1.png` | vorhanden | 188 |
+| kraider-batti-2 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-2.png` | vorhanden | 180 |
+| kraider-batti-3 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-3.png` | offen | 190 |
+| kraider-batti-4 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-4.png` | offen | 188 |
 
 ---
 
@@ -59,7 +59,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-flaschen/hierberol-0-7l.png`
 - **Anhang 2:** `fotos-flaschen/hierberol-0-7l.png`
 - **Ergebnis speichern als:** `fotos-ki/hierberol-1.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 194 Wörter
 
 ```
@@ -86,7 +86,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 - **Anhang 1:** `fotos-flaschen/hierberol-0-7l.png`
 - **Anhang 2:** `fotos-flaschen/hierberol-0-7l.png`
 - **Ergebnis speichern als:** `fotos-ki/hierberol-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 187 Wörter
 
 ```
@@ -113,7 +113,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 - **Anhang 1:** `fotos-flaschen/hierberol-0-7l.png`
 - **Anhang 2:** `fotos-flaschen/hierberol-0-7l.png`
 - **Ergebnis speichern als:** `fotos-ki/hierberol-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 193 Wörter
 
 ```
@@ -140,7 +140,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 - **Anhang 1:** `fotos-flaschen/hierberol-0-7l.png`
 - **Anhang 2:** `fotos-flaschen/hierberol-0-7l.png`
 - **Ergebnis speichern als:** `fotos-ki/hierberol-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 193 Wörter
 
 ```
@@ -167,7 +167,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur als Platzhalter für Form und Proportionen; die endgültige Form ist noch zu klären)
 - **Anhang 2:** `PLATZHALTER: Etikett von Kräider Batti folgt` (das Etikett von Kräider Batti (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/kraider-batti-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 256 Wörter
 
 ```
@@ -191,10 +191,10 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 ## 7. Kräider Batti: Kräider Batti pur, gut gekühlt (Karte 1 von 4)
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
-- **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png` **(fehlt)**
-- **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png` **(fehlt)**
+- **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png`
+- **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png`
 - **Ergebnis speichern als:** `fotos-ki/kraider-batti-1.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 188 Wörter
 
 ```
@@ -206,7 +206,6 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 ```
 
 **Prüfen:**
-- Anhang fehlt: fotos-flaschen/kraider-batti-0-5l.png. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“
@@ -219,10 +218,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 ## 8. Kräider Batti: Kräider Batti auf Eis (Karte 2 von 4)
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
-- **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png` **(fehlt)**
-- **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png` **(fehlt)**
+- **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png`
+- **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png`
 - **Ergebnis speichern als:** `fotos-ki/kraider-batti-2.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 180 Wörter
 
 ```
@@ -234,7 +233,6 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 ```
 
 **Prüfen:**
-- Anhang fehlt: fotos-flaschen/kraider-batti-0-5l.png. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“
@@ -247,8 +245,8 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 ## 9. Kräider Batti: Espresso mit Kräider Batti (Karte 3 von 4)
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
-- **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png` **(fehlt)**
-- **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png` **(fehlt)**
+- **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png`
+- **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png`
 - **Ergebnis speichern als:** `fotos-ki/kraider-batti-3.png`
 - **Status:** offen
 - **Prompt:** 190 Wörter
@@ -262,7 +260,6 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 ```
 
 **Prüfen:**
-- Anhang fehlt: fotos-flaschen/kraider-batti-0-5l.png. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“
@@ -275,8 +272,8 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 ## 10. Kräider Batti: Kräider Batti zu dunkler Schokolade (Karte 4 von 4)
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
-- **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png` **(fehlt)**
-- **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png` **(fehlt)**
+- **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png`
+- **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png`
 - **Ergebnis speichern als:** `fotos-ki/kraider-batti-4.png`
 - **Status:** offen
 - **Prompt:** 188 Wörter
@@ -290,7 +287,6 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 ```
 
 **Prüfen:**
-- Anhang fehlt: fotos-flaschen/kraider-batti-0-5l.png. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“

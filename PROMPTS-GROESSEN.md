@@ -8,7 +8,7 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle (`<sorten-id>-<g
 
 **Verschluss:** in jedem Prompt Glasstopfen ohne Kork; die Verschluss-Zeile hat Vorrang vor dem Verschluss der Basisfotos (die zeigen teils Korken, Holzkugel oder Glasstopfen).
 
-**Stand:** 16 offen, 26 vorhanden (Datei `<id>-<größe>.png` in `fotos-flaschen/`).
+**Stand:** 10 offen, 32 vorhanden (Datei `<id>-<größe>.png` in `fotos-flaschen/`).
 
 Automatisch abarbeiten: `CHATGPT-STAPEL.md` (Gruppe `groessen`, Ausgabe Hochformat).
 
@@ -951,7 +951,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-2l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
 - **Ergebnis speichern als:** `fotos-flaschen/sambuca-0-2l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 259 Wörter
 
 ```
@@ -975,7 +975,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-0l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
 - **Ergebnis speichern als:** `fotos-flaschen/sambuca-1-0l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 244 Wörter
 
 ```
@@ -999,7 +999,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
 - **Ergebnis speichern als:** `fotos-flaschen/sambuca-1-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 244 Wörter
 
 ```
@@ -1023,7 +1023,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-2l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/limoncello-0-2l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 257 Wörter
 
 ```
@@ -1047,7 +1047,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-0l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/limoncello-1-0l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 242 Wörter
 
 ```
@@ -1071,7 +1071,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
 - **Ergebnis speichern als:** `fotos-flaschen/limoncello-1-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 242 Wörter
 
 ```
