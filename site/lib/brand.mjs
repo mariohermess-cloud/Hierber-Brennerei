@@ -146,7 +146,7 @@ export function sortenseite(IMG, p, lang) {
   const gruppe = gruppeVon(p.id);
   const hatEtikett = !!ETIKETTEN[p.id];
   const foto = FOTO_SORTEN[p.id];
-  // Hauptbild: neu erzeugte Produktflasche (fotos-flaschen/<id>.png), sonst Vektor-Flasche mit aktuellem Etikett; Sorten ohne flaches Etikett: Produktfoto (Rum, Limoncello, Sambuca) bzw. beschrifteter Platzhalter
+  // Hauptbild: neu erzeugte Produktflasche (fotos-flaschen/<id>-0-5l.png), sonst Vektor-Flasche mit aktuellem Etikett; Sorten ohne flaches Etikett: Produktfoto (Rum, Limoncello, Sambuca) bzw. beschrifteter Platzhalter
   // Größenbilder (fotos-flaschen/<id>-<größe>.png): je Größe mit Bild ein weiteres Bild in der Bühne; beim Wählen der Größe schaltet site.js um (data-bild-menge).
   // Sichtbar beim Laden: das Hauptbild (0,5 L); gibt es keins, das Bild der ersten Größe (gewählte Standardgröße), sonst die Vektor-Flasche. Nur das sichtbare Bild lädt sofort.
   let hauptBild, hauptKlasse = 'buehne-rahmen';

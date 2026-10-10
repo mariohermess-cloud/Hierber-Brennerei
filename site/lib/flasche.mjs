@@ -71,7 +71,7 @@ export function flasche(IMG, p, { gross = false, label = true, attrs = '', eager
     + svg + `<span class="fl-etikett" style="left:${f4(feld.left)}%;top:${f4(feld.top)}%;width:${f4(feld.width)}%;height:${f4(feld.height)}%">${pic}</span></span>`;
 }
 
-// Neu erzeugte Produktflasche (Foto fotos-flaschen/<id>.png, Hochformat 2:3, heller Studiogrund) statt der Vektor-Flasche.
+// Neu erzeugte Produktflasche (Foto fotos-flaschen/<id>-0-5l.png, Hochformat 2:3, heller Studiogrund) statt der Vektor-Flasche.
 // Der Grund ist auf Weiß normalisiert und wird per mix-blend-mode: multiply auf die Bühnenfarbe gelegt (CSS .flasche-foto). Alt-Text wie bei der Vektor-Flasche.
 // gross: Sortenseite (LCP: eager, fetchpriority high); sonst Karte (lazy).
 // Bühne der Sortenseite: key = Bildschlüssel (Vorgabe flasche-<id>), alt = Alt-Text am Bild (dann ohne role/aria-label am <span>), eager = sofort laden (nur das sichtbare Bild),

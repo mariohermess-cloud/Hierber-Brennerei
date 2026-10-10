@@ -1,6 +1,6 @@
 // Erzeugt die ChatGPT-Bildprompts für ALLE Serviervorschläge ohne KI-Bild, die Bilderliste und die Ersatz-Prompts für fehlerhafte Erstbilder.
 // Aufruf: node tools/foto_prompts_weitere.mjs
-//   Exit-Code 1, wenn eine Anhangdatei fehlt, ein Dateiname doppelt vorkommt, die Bildzahl nicht stimmt, ein Prompt über 200 Wörter hat
+//   Exit-Code 1, wenn eine Anhangdatei fehlt, ein Dateiname doppelt vorkommt, die Bildzahl nicht stimmt, ein Prompt über 210 Wörter hat
 //   oder eine Szene/Farbe/Verschluss fehlt.
 // Liest (nur lesend): site/data/produkte.js, serviervorschlaege.js, fluessigkeit.js, ki-bilder.js, v2/data/etiketten.json,
 //   Fertige Etiquetten/, fotos/, Fotos/ (nur Existenzprüfung), fotos-ki/ (nur Existenzprüfung; bestimmt den Status vorhanden/offen)
@@ -17,7 +17,7 @@ import { PRODUKTE_ETIKETT as PRODUKTE } from './foto_gemeinsam.mjs';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
 import { FLUESSIGKEIT } from '../site/data/fluessigkeit.js';
 import { KI_BILDER, kartenNummern } from '../site/data/ki-bilder.js';
-import { STIL, VORLAGE, flaschenVorlage, ADRESSE, woerter } from './foto_gemeinsam.mjs';
+import { STIL, VORLAGE, VERSCHLUSS, flaschenVorlage, ADRESSE, woerter } from './foto_gemeinsam.mjs';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
@@ -25,13 +25,13 @@ const existiert = (p) => fs.existsSync(rel(p));
 const fehler = [];
 const fail = (m) => fehler.push(m);
 
-const WORTGRENZE = 200;
+const WORTGRENZE = 210; // vorher 200; die feste Verschluss-Zeile (16 Wörter, VERSCHLUSS) ersetzt die kürzeren Sortentexte
 // Zahl der weiteren Bilder (ohne Hauptbild -1): in den Daten stehen 121 Vorschläge (29 Sorten), davon 29 Hauptbilder = 92 weitere.
 // Welche davon schon als Datei in fotos-ki/ liegen, bestimmt der Status (vorhanden/offen).
 const ERWARTET_FEHLEND = 92;
 const ERWARTET_VORHANDEN = 29;
 
-// ---------- Sortendaten: Farbe, Verschluss (nach Foto-Prüfung), Hinweise ----------
+// ---------- Sortendaten: Farbe, Halsband (nach Foto-Prüfung), Hinweise ----------
 // farbe: Flüssigkeit in der Flasche in Worten; klare Sorten nimmt das Skript aus fluessigkeit.js (klar = "klar wie Wasser").
 const FARBE = {
   rum: 'goldenes Bernstein', 'rum-orange': 'orange-bernsteinfarben', whisky: 'Bernstein', 'hunneg-whisky': 'warmes Goldbernstein',
@@ -39,21 +39,18 @@ const FARBE = {
   'vieille-prune': 'klares, kräftiges Goldgelb', 'vieille-pomme': 'klares Goldgelb', hunnegdrepp: 'tiefes Honiggold',
   vizdrepp: 'kräftiges, klares Goldgelb', limoncello: 'leuchtendes Gelbgrün',
 };
-// Verschluss je Sorte, beschrieben nach den Produktfotos in fotos/ (flaschen-*.webp, flaschenreihe-theke.jpg) und den Flaschenfotos in Fotos/.
-// Die Beschreibung ist eigenständig (kein Verweis auf "wie im Foto"), weil Anhang 1 bei Sorten ohne eigenes Flaschenfoto die Standardvorlage ist.
-const KAPPE_SCHLANK = 'klarer Glasstopfen';
-const VERSCHLUSS = {
-  gin: 'flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“ (unbestätigt)',
-  wodka: 'flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“',
-  rum: 'flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals',
-  'rum-orange': 'flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt)',
-  'hierber-fruucht': 'flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“',
-  whisky: 'schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt)',
-  'hunneg-whisky': 'schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt)',
-  'vieux-marc': 'schwarzer, profilierter Stopfen mit Wulst am Hals',
-  sambuca: 'Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“',
-  limoncello: 'Ausgießer mit zwei dunklen Metallröhrchen, gelbes Halsband mit Zitronenscheiben',
-  vizdrepp: 'klarer Glasstopfen mit flachem, breitem Kragen',
+// Halsband je Sorte, beschrieben nach den Produktfotos in fotos/ (flaschen-*.webp, flaschenreihe-theke.jpg) und den Flaschenfotos in Fotos/.
+// Der Verschluss ist für alle Sorten gleich (VERSCHLUSS aus foto_gemeinsam.mjs: Glasstopfen ohne Kork). Sorten ohne Eintrag haben kein Halsband.
+const HALSBAND = {
+  gin: 'hellblaues Halsband „Hierber Brennerei“ (unbestätigt)',
+  wodka: 'hellblaues Halsband „Hierber Brennerei“',
+  rum: 'braunes Halsband „Hierber Brennerei“ am Flaschenhals',
+  'rum-orange': 'braungraues Halsband wie bei Rum (unbestätigt)',
+  'hierber-fruucht': 'graubraunes Halsband „Hierber Brennerei“',
+  whisky: 'braungraues Halsband (unbestätigt)',
+  'hunneg-whisky': 'braungraues Halsband (unbestätigt)',
+  sambuca: 'dunkelrotes Halsband „Hierber Brennerei“',
+  limoncello: 'gelbes Halsband mit Zitronenscheiben',
 };
 // Etikett-Alkoholangabe weicht von der Preisliste ab: Wert des Etiketts bleibt, Hinweis an den Nutzer
 const ABV_HINWEIS = {
@@ -72,8 +69,8 @@ const FEHLER = {
   wodka: 'Etikett am unteren Rand angeschnitten („www.hierber-brennere…“), Adresse verfälscht („Z. Millewee L-6665 hoıxn“).',
   rum: 'Etikett nur aus dem alten Produktfoto abgeleitet („1-6665“ statt „L-6665“, braunes Halsband fehlt, Etikett heller); das flache Etikett liegt jetzt vor.',
   'rum-orange': 'Erfundenes Etikett, nicht das echte (das echte hat Segelschiff, Weltkarte und Orangenhälfte mit Blättern); Orangenblätter und -hälften auf dem Tisch stehen nicht im Rezept. Das flache Etikett liegt jetzt vor.',
-  sambuca: 'Etikett nur aus dem alten Produktfoto abgeleitet (das echte ist rot mit Fellstruktur); echte Flasche hat Ausgießer mit zwei Metallröhrchen und Halsband, im Bild ein Korken.',
-  limoncello: 'Adresse ohne „L-6665“; echte Flasche mit Ausgießer, im Bild ein Korken. Das flache Etikett liegt jetzt vor.',
+  sambuca: 'Etikett nur aus dem alten Produktfoto abgeleitet (das echte ist rot mit Fellstruktur); echte Flasche hat ein Halsband.',
+  limoncello: 'Adresse ohne „L-6665“; Halsband fehlte. Das flache Etikett liegt jetzt vor.',
   whisky: 'Adresse links abgeschnitten („Millewee“ ohne „2,“), Fass im Hintergrund.',
   'hunneg-whisky': 'Kräuterzweige im Hintergrund und Orangenstücke auf dem Tisch stehen nicht im Rezept.',
   kuerbisdrepp: 'Gericht statt Getränk im Fokus; Thymian und Pfeffer auf der Suppe nicht im Rezept; Flaschenhals/Kappe am oberen Bildrand abgeschnitten.',
@@ -296,9 +293,8 @@ function sortenInfo(p) {
   const vorlage = flaschenVorlage(p.id, p.kurzname, typ);
   const anhang1 = vorlage.datei, anhang2 = `Fertige Etiquetten/${flach.datei}`;
   for (const f of [anhang1, anhang2]) if (!existiert(f)) fail(`${p.id}: Anhang fehlt: ${f}`);
-  const verschluss = VERSCHLUSS[p.id] || (typ === 'schlank' ? KAPPE_SCHLANK : null);
-  if (!verschluss) { fail(`${p.id}: kein Verschluss beschrieben`); return null; }
-  return { fl, farbe, typ, foto: vorlage.foto, vorlageHinweis: vorlage.hinweis, anhang1, anhang2, verschluss };
+  const halsband = HALSBAND[p.id] || null;
+  return { fl, farbe, typ, foto: vorlage.foto, vorlageHinweis: vorlage.hinweis, anhang1, anhang2, halsband };
 }
 
 // ---------- Prompt ----------
@@ -306,10 +302,8 @@ function baueFlasche(p, s, v) {
   const gefaess = s.typ === 'karaffe' ? 'Karaffe' : 'Flasche';
   const neben = v.typ === 'In der Küche / Dessert' ? 'dem Gericht (Hauptmotiv)' : v.typ === 'Zum Essen' ? 'dem Essen und dem Glas' : 'dem Getränk';
   const voll = `Die ${gefaess} steht vollständig im Bild neben ${neben}: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum.`;
-  const form = (s.foto || s.typ === 'schlank')
-    ? `Form und Verschluss aus Anhang 1 (${s.verschluss}), aber ohne dessen Etikett`
-    : `Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: ${s.verschluss}`;
-  return `${voll} ${form}. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe ${gefaess} gelegt, Rundung sichtbar. Adresszeile fest: „${ADRESSE}“. Alkoholangabe wie in Anhang 2. Brand in der ${gefaess}: ${s.farbe}.`;
+  const hals = s.halsband ? ` Halsband: ${s.halsband}.` : '';
+  return `${voll} Form aus Anhang 1 ohne dessen Etikett. ${VERSCHLUSS}${hals} Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe ${gefaess} gelegt, Rundung sichtbar. Adresszeile fest: „${ADRESSE}“. Alkoholangabe wie in Anhang 2. Brand in der ${gefaess}: ${s.farbe}.`;
 }
 const REGEL = 'Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.';
 function bauePrompt(p, s, v, szene) {
@@ -322,18 +316,16 @@ function baueHinweise(p, s, v, ersatz) {
   h.push('Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.');
   h.push(`Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „${ADRESSE}“.`);
   h.push('Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.');
-  h.push(`Verschluss prüfen: ${s.verschluss}.`);
+  h.push('Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.');
+  if (s.halsband) h.push(`Halsband prüfen: ${s.halsband}.`);
   h.push(`Nur Rezept-Zutaten im Bild: ${v.zutaten.map(([, z]) => z).join('; ')}. Beilagen nur aus: ${v.passtZu.join(', ')}.`);
   if (v.typ === 'In der Küche / Dessert') h.push('Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.');
   if (v.typ === 'Zum Essen') h.push('Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.');
   if (s.fl.geschaetzt) h.push(`Flüssigkeitsfarbe ist in den Daten nur geschätzt (fluessigkeit.js: ${s.fl.farbe}); mit dem echten Produkt abgleichen.`);
   if (ABV_HINWEIS[p.id]) h.push(ABV_HINWEIS[p.id]);
   if (s.typ === 'karaffe') h.push('Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.');
-  if (s.foto) h.push('Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.');
-  else h.push(`Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (${s.typ}); Verschluss und Brandfarbe stehen im Prompt.`);
-  if (p.id === 'rum-orange') h.push('Verschluss (Holzkappe) ist angenommen wie bei Rum, es gibt kein Foto der Flasche.');
-  if (p.id === 'rum' || p.id === 'sambuca' || p.id === 'limoncello') h.push('Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.');
-  if (p.id === 'hunneg-whisky') h.push('Verschluss (schwarze Schraubkappe) ist wie beim Whisky angenommen, es gibt kein Foto der Hunneg-Whisky-Flasche.');
+  if (s.foto) h.push('Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.');
+  else h.push(`Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (${s.typ}); Verschluss, Halsband und Brandfarbe stehen im Prompt.`);
   if (p.id === 'vizdrepp') h.push('Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen).');
   return h;
 }
@@ -451,7 +443,7 @@ Erzeugt mit \`node tools/foto_prompts_weitere.mjs\`. Nicht von Hand ändern, son
 
 ${kopfSchritte}
 ${stilBlock}
-**Verbesserungen gegenüber den ersten 29 Prompts** (in jedem Prompt enthalten): Flasche vollständig im Bild und nichts angeschnitten; nur Zutaten und Beilagen aus dem Rezept bzw. \`passtZu\`; Etikettentext exakt wie im Anhang inklusive fester Adresszeile; Anhang 1 ist das Flaschenfoto der Sorte (\`Fotos/flasche-<sorten-id>.jpg\`), nur ohne Foto die Standardvorlage; Verschluss der Sorte nach den Fotos; Flüssigkeitsfarbe nach \`site/data/fluessigkeit.js\`; bei Gerichten ist das Gericht Hauptmotiv, bei „Zum Essen“ steht ein Glas Brand daneben.
+**Verbesserungen gegenüber den ersten 29 Prompts** (in jedem Prompt enthalten): Flasche vollständig im Bild und nichts angeschnitten; nur Zutaten und Beilagen aus dem Rezept bzw. \`passtZu\`; Etikettentext exakt wie im Anhang inklusive fester Adresszeile; Anhang 1 ist das Flaschenfoto der Sorte (\`Fotos/flasche-<sorten-id>.jpg\`), nur ohne Foto die Standardvorlage; Verschluss einheitlich Glasstopfen ohne Kork, Halsband der Sorte nach den Fotos; Flüssigkeitsfarbe nach \`site/data/fluessigkeit.js\`; bei Gerichten ist das Gericht Hauptmotiv, bei „Zum Essen“ steht ein Glas Brand daneben.
 `);
 weitere.forEach((e, i) => mdW.push(abschnitt(e, i + 1, false)));
 mdW.push(`---

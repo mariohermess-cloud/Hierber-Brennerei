@@ -13,7 +13,7 @@ import { PRODUKTE } from '../site/data/produkte.js';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
 import { KI_BILDER, kartenNummern } from '../site/data/ki-bilder.js';
 import { FLASCHEN_FORMAT } from '../site/data/flaschenfotos.js';
-import { STIL, ADRESSE, woerter, satzFormat, NACHBESSERUNG } from './foto_gemeinsam.mjs';
+import { STIL, ADRESSE, VERSCHLUSS, woerter, satzFormat, NACHBESSERUNG } from './foto_gemeinsam.mjs';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
@@ -23,8 +23,8 @@ const fail = (m) => fehler.push(m);
 
 // Wortgrenzen: Serviervorschläge 200 wie bei foto_prompts_weitere.mjs. Flaschen 250 statt 230: der Etikett-Baustein beschreibt hier das Etikett in Worten
 // (Hierberol: Farben, Raute, Schreibschrift, Zubereitung), weil Anhang 2 ein Foto statt eines flachen Etiketts ist, und der Markenschutz-Satz kommt dazu.
-const WORTGRENZE_SERVIER = 200;
-const WORTGRENZE_FLASCHE = 250;
+const WORTGRENZE_SERVIER = 210; // vorher 200, 250: die feste Verschluss-Zeile (VERSCHLUSS) kommt dazu
+const WORTGRENZE_FLASCHE = 260;
 const KI_FORMAT = { w: 1448, h: 1086 };
 const FORMAT = `${FLASCHEN_FORMAT.w} × ${FLASCHEN_FORMAT.h} Pixel`;
 const KEINE_MARKEN = 'Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen.';
@@ -41,8 +41,8 @@ function baueFlaschePrompt(s) {
     : `Auf die Flasche kommt das Etikett aus Anhang 2, exakt wie auf diesem Bild (nur das Etikett übernehmen, nicht Flasche, Grund oder Licht): ${f.etikett}. Kein Buchstabe anders, Adresszeile fest „${ADRESSE}“, Alkoholangabe wie in Anhang 2; es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett.`;
   return [
     satzFormat(FORMAT),
-    `Form, Verschluss und Proportionen orientieren sich an Anhang 1 (${f.anhang1Text}); nur Orientierung, nicht kopieren, nicht dessen Etikett.`,
-    `Verschluss: ${f.verschluss}. ${f.halsband} Inhalt: ${f.fluessigkeit}.`,
+    `Form und Proportionen orientieren sich an Anhang 1 (${f.anhang1Text}); nur Orientierung, nicht kopieren, nicht dessen Etikett.`,
+    `${VERSCHLUSS} ${f.halsband} Inhalt: ${f.fluessigkeit}.`,
     etikett,
     KEINE_MARKEN,
     `Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „${f.datei}“. ${NACHBESSERUNG}`,
@@ -52,7 +52,7 @@ function baueFlaschePrompt(s) {
 function baueServierPrompt(s, k) {
   const sv = s.serviervorschlaege;
   const neben = k.typ === 'Zum Essen' ? 'dem Essen und dem Glas' : 'dem Getränk';
-  const flasche = `Die Flasche steht vollständig im Bild neben ${neben}: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: ${sv.aussehen}. Etikett kein Buchstabe anders, Adresszeile fest: „${ADRESSE}“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: ${sv.fluessigkeit}.`;
+  const flasche = `Die Flasche steht vollständig im Bild neben ${neben}: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: ${sv.aussehen}. ${VERSCHLUSS} Etikett kein Buchstabe anders, Adresszeile fest: „${ADRESSE}“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: ${sv.fluessigkeit}.`;
   const negativ = 'Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.';
   return [`Erstelle ein Foto. ${STIL}`, `Szene: ${k.szene}`, `Flasche: ${flasche}`, REGEL, negativ].join('\n');
 }

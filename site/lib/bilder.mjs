@@ -79,13 +79,13 @@ export async function warpeEtikett(quelle, ow) {
 }
 
 // ---------- Flaschenfotos (neu erzeugte Produktflasche mit aktuellem Etikett statt Vektor-Flasche) ----------
-// Quelle je Sorte: fotos-flaschen/<id>.png oder <id>-0-5l.png (Hauptbild, 0,5 L) und <id>-<größe>.png (Größenbilder); fehlt die Datei, bleibt die Vektor-Flasche.
+// Quelle je Sorte: fotos-flaschen/<id>-0-5l.png (Hauptbild, 0,5 L) und <id>-<größe>.png (Größenbilder); der Name trägt immer die Größe, <id>.png ohne Größe gilt nicht; fehlt die Datei, bleibt die Vektor-Flasche.
 // Schlüssel: flasche-<id> (Hauptbild), flasche-<id>-<größe> (z. B. flasche-rum-1-5l).
 // Alle Bilder haben dasselbe Format (Hochformat 2:3) und dieselbe Standfläche; der Grund ist hell und neutral (weißgrau).
 // Zum Testen kann HB_FLASCHEN_ZUSATZ auf ein Verzeichnis außerhalb des Repos zeigen: Dateien dort haben Vorrang.
-// suffix = null: Hauptbild (<id>.png, sonst <id>-0-5l.png); sonst Größenbild <id>-<suffix>.png.
+// suffix = null: Hauptbild (<id>-0-5l.png); sonst Größenbild <id>-<suffix>.png.
 export async function flaschenFotoQuelle(root, id, suffix = null) {
-  const namen = suffix ? [`${id}-${suffix}.png`] : [`${id}.png`, `${id}-${GROESSEN_SUFFIX[HAUPT_MENGE]}.png`];
+  const namen = suffix ? [`${id}-${suffix}.png`] : [`${id}-${GROESSEN_SUFFIX[HAUPT_MENGE]}.png`];
   const ordner = [process.env.HB_FLASCHEN_ZUSATZ && path.resolve(process.env.HB_FLASCHEN_ZUSATZ), path.join(root, FLASCHEN_ORDNER)].filter(Boolean);
   const kandidaten = ordner.flatMap((o) => namen.map((n) => path.join(o, n)));
   for (const k of kandidaten) { try { await fs.access(k); return k; } catch { /* nächste Quelle */ } }
@@ -222,7 +222,7 @@ export async function ogBilder({ root, dist, IMG = {} }) {
     const stage = await sharp(buehne).composite([{ input: fl, left: bx, top: by }, { input: et, left: bx + Math.round((feld.left / 100) * bw), top: by + Math.round((feld.top / 100) * bh) }]).png().toBuffer();
     await schreibe(out, stage);
   }
-  // Sorten mit neu erzeugter Produktflasche (fotos-flaschen/<id>.png): Foto (Grund weiß) per multiply auf die cremefarbene Bühne, zentriert auf dunklem Grund
+  // Sorten mit neu erzeugter Produktflasche (fotos-flaschen/<id>-0-5l.png): Foto (Grund weiß) per multiply auf die cremefarbene Bühne, zentriert auf dunklem Grund
   const buehneFoto = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="420" height="560"><rect width="420" height="560" rx="2" fill="#e6dbc8"/><rect y="526" width="420" height="34" fill="#cbbca2"/></svg>`);
   for (const [key, m] of Object.entries(IMG)) {
     if (!m.flaschenfoto || m.groesse) continue; // OG-Bild nur vom Hauptbild

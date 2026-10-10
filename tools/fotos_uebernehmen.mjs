@@ -10,9 +10,9 @@
 //   4. node build.mjs, dann pruefe_daten, pruefe_links, pruefe_notizen, pruefe_kontrast (und mit --browser pruefe_browser)
 //   5. Zusammenfassung nach stdout und FOTO-STAND.md
 // Namensregeln:
-//   fotos-flaschen/<id>.png (Hauptbild = 0,5 L) oder <id>-<größe>.png, Größe 0-1l, 0-2l, 0-5l, 0-7l, 1-0l, 1-5l; <id>-0-5l.png gilt wie <id>.png, existieren beide, gilt <id>.png
+//   fotos-flaschen/<id>-<größe>.png, Größe IMMER im Namen: 0-1l, 0-2l, 0-5l, 0-7l, 1-0l, 1-5l (Hauptbild = <id>-0-5l.png); <id>.png ohne Größe ist ein Namensfehler (Exit-Code 1)
 //   fotos-ki/<id>-<n>.png (Serviervorschlag n, n = 1 Hauptbild)
-//   id = Sorte aus site/data/produkte.js ODER aus tools/weitere-sorten.json (kraider-batti: nur Prompts, keine Sortenseite). Hierberol führt nur 0,7 L: hierberol-0-7l.png ist sein Bild (zählt als Hauptbild).
+//   id = Sorte aus site/data/produkte.js ODER aus tools/weitere-sorten.json (kraider-batti: nur Prompts, keine Sortenseite). Hierberol führt nur 0,7 L: hierberol-0-7l.png ist sein Bild.
 //   fotos-basis/<form>-<größe>.png mit Form rund, schlank, karaffe (und rund-40ml.png, ungenutzt)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -59,11 +59,10 @@ const dateien = (ordner) => {
 };
 
 // ---------- 1. Dateinamen ----------
-// Zerlegt einen Namen aus fotos-flaschen/ in { id, suffix } (suffix null = Hauptbild) oder null.
+// Zerlegt einen Namen aus fotos-flaschen/ in { id, suffix } oder null. Der Name trägt immer die Größe; <id>.png ohne Größe liefert null.
 function zerlegeFlasche(name) {
   if (!name.endsWith('.png')) return null;
   const stamm = name.slice(0, -4);
-  if (IDS.has(stamm)) return { id: stamm, suffix: null };
   const m = stamm.match(/^(.+)-(\d-\dl)$/);
   if (m && IDS.has(m[1]) && SUFFIXE.has(m[2])) return { id: m[1], suffix: m[2] };
   return null;
@@ -79,12 +78,16 @@ const flaschen = { haupt: new Map(), groesse: new Map() }; // haupt: id -> Datei
 const kiDateien = new Map(); // id -> Set(n)
 for (const e of dateien(FLASCHEN_ORDNER)) {
   const z = e.dir ? null : zerlegeFlasche(e.name);
-  if (!z) { auffaellig.push(`${FLASCHEN_ORDNER}/${e.name}: Name folgt der Regel nicht (erwartet <sorten-id>.png oder <sorten-id>-<0-1l|0-2l|0-5l|0-7l|1-0l|1-5l>.png mit bekannter Sorte)`); continue; }
-  if (z.suffix === null || z.suffix === HAUPT_SUFFIX) {
-    // <id>.png hat Vorrang vor <id>-0-5l.png
-    const alt = flaschen.haupt.get(z.id);
-    if (alt && alt !== e.name) auffaellig.push(`${FLASCHEN_ORDNER}: ${z.id}.png und ${z.id}-${HAUPT_SUFFIX}.png existieren beide; es gilt ${z.id}.png`);
-    if (!alt || z.suffix === null) flaschen.haupt.set(z.id, e.name);
+  if (!z) {
+    if (!e.dir && e.name.endsWith('.png') && IDS.has(e.name.slice(0, -4))) {
+      // <id>.png ohne Größe ist nicht mehr gültig: Namensfehler, Exit-Code 1
+      const m = `${FLASCHEN_ORDNER}/${e.name}: Namensfehler, die Größe fehlt im Namen (erwartet z. B. ${e.name.slice(0, -4)}-${HAUPT_SUFFIX}.png); Datei umbenennen, sie wird sonst nicht verwendet`;
+      auffaellig.push(m); fehler.push(m);
+    } else auffaellig.push(`${FLASCHEN_ORDNER}/${e.name}: Name folgt der Regel nicht (erwartet <sorten-id>-<0-1l|0-2l|0-5l|0-7l|1-0l|1-5l>.png mit bekannter Sorte)`);
+    continue;
+  }
+  if (z.suffix === HAUPT_SUFFIX) {
+    flaschen.haupt.set(z.id, e.name);
   } else {
     flaschen.groesse.set(`${z.id}|${z.suffix}`, e.name);
     const p = PRODUKTE.find((x) => x.id === z.id);
@@ -136,7 +139,7 @@ const stand = PRODUKTE.map((p) => {
   const kiHat = nummern.filter((n) => kiDateien.get(p.id)?.has(n)).length;
   return { id: p.id, name: p.name, haupt, hauptNoetig, groessen, kiHat, kiGesamt: nummern.length, mengen };
 });
-// Nur Prompts (Kräider Batti): Zeile in der Tabelle, aber nicht in den Summen der Sorten. Die Größe ist noch offen: nur die Spalte der Flaschendatei (kraider-batti.png) wird angezeigt.
+// Nur Prompts (Kräider Batti): Zeile in der Tabelle, aber nicht in den Summen der Sorten. Die Größe ist noch offen: nur die Spalte der Flaschendatei (kraider-batti-0-5l.png) wird angezeigt.
 const standNurPrompts = NUR_PROMPTS.map((x) => ({
   id: x.id, name: `${x.name} (nur Prompts, keine Sortenseite)`, haupt: flaschen.haupt.has(x.id),
   kiHat: kiDateien.get(x.id)?.size || 0, kiGesamt: x.serviervorschlaege.karten.length,
@@ -201,12 +204,12 @@ Erzeugt mit \`node tools/fotos_uebernehmen.mjs\`. Nicht von Hand ändern. Zeigt,
 
 ## Flaschenbilder je Sorte und Größe
 
-✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (\`<id>.png\` oder \`<id>-0-5l.png\`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht; Ausnahme Hierberol (nur 0,7 L, dessen Bild ist die Spalte 0,7 L). Kräider Batti hat nur Prompts (keine Sortenseite, Etikett und Größe unbekannt) und steht außerhalb der Summen.
+✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (\`<id>-0-5l.png\`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht; Ausnahme Hierberol (nur 0,7 L, dessen Bild ist die Spalte 0,7 L). Kräider Batti hat nur Prompts (keine Sortenseite, Etikett und Größe unbekannt) und steht außerhalb der Summen.
 
 | Sorte | ${GROESSEN_SPALTEN.join(' | ')} | Serviervorschläge |
 |---|${GROESSEN_SPALTEN.map(() => ':-:').join('|')}|:-:|
 ${stand.map((s) => `| ${s.name} | ${GROESSEN_SPALTEN.map((m) => zelle(m === HAUPT_MENGE && !s.hauptNoetig ? null : s.groessen[m])).join(' | ')} | ${s.kiGesamt ? `${s.kiHat}/${s.kiGesamt}` : '·'} |`).join('\n')}
-${standNurPrompts.map((s) => `| ${s.name} | ${GROESSEN_SPALTEN.map((m) => (m === HAUPT_MENGE ? `${zelle(s.haupt)} (\`${s.id}.png\`, Größe offen)` : '·')).join(' | ')} | ${s.kiHat}/${s.kiGesamt} |`).join('\n')}
+${standNurPrompts.map((s) => `| ${s.name} | ${GROESSEN_SPALTEN.map((m) => (m === HAUPT_MENGE ? `${zelle(s.haupt)} (\`${s.id}-${HAUPT_SUFFIX}.png\`, Größe offen)` : '·')).join(' | ')} | ${s.kiHat}/${s.kiGesamt} |`).join('\n')}
 
 ## Sorten ohne Hauptbild (0,5 L)
 

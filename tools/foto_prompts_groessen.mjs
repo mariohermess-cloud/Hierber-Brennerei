@@ -15,7 +15,7 @@ import { PRODUKTE_ETIKETT as PRODUKTE } from './foto_gemeinsam.mjs';
 import { ETIKETTEN } from '../site/data/etiketten.js';
 import { FLASCHENTYP } from '../site/data/flaschen.js';
 import { FLASCHEN_ORDNER, FLASCHEN_FORMAT } from '../site/data/flaschenfotos.js';
-import { ADRESSE, woerter, SORTEN, GLASSTOPFEN, BASIS_SCHLANK_05, HALS_BAND, HALS_UNBESTAETIGT, halsText, satzFormat, satzEtikett, satzSchluss } from './foto_gemeinsam.mjs';
+import { ADRESSE, woerter, SORTEN, VERSCHLUSS, BASIS_SCHLANK_05, HALS_BAND, HALS_UNBESTAETIGT, halsText, satzFormat, satzEtikett, satzSchluss } from './foto_gemeinsam.mjs';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
@@ -26,7 +26,8 @@ const fail = (m) => fehler.push(m);
 // bei Ersatzbasis der Maßstab dazu; dafür ist die Orientierung kürzer und der Zusatz „Es entsteht eine ...-Flasche“ entfällt. Ohne Anhebung blieben 35 von 42 Prompts unter 240;
 // nur die sieben runden 0,2-L-Prompts (langes Halsband, Sortenkappe, Maßstab, Mengenangabe) liegen bei 243 bis 248. Grenze deshalb 250 statt 240; Wörter nicht gekürzt, damit
 // Etikett-, Halsband- und Nachbesserungsbaustein unverändert bleiben.
-const WORTGRENZE = 250;
+// Mit der festen Verschluss-Zeile (VERSCHLUSS, 16 Wörter) liegen die sieben runden 0,2-L-Prompts bei bis zu 261 Wörtern; Grenze deshalb 265 (vorher 250).
+const WORTGRENZE = 265;
 const ERWARTET = { '0,1 L': 13, '0,2 L': 7, '0,7 L': 7, '1 L': 8, '1,5 L': 7 };
 const ERWARTET_GESAMT = Object.values(ERWARTET).reduce((a, b) => a + b, 0); // 42
 
@@ -43,21 +44,20 @@ const GROESSEN = {
 // ---------- Basisfoto je Form und Größe ----------
 // ersatz = es gibt kein Foto genau dieser Form und Größe (schlank 0,7 L und 1 L); massstab sagt, wie die Zielflasche zur Basis steht (nur ungefähres Verhältnis, keine Maße)
 // massstab ohne ersatz: das Basisfoto trägt die Größe (rund 0,2 L), ist aber dasselbe Bild wie 0,5 L; der Maßstab bleibt im Prompt.
-// verschluss = null: Verschluss der Sorte aus SORTEN (runde 0,2 L, Karaffe); sonst fest (so wie die Basisfotos ihn zeigen)
-const KORKEN = 'heller Naturkorken wie in Anhang 1';
+// Verschluss: überall der Glasstopfen ohne Kork (VERSCHLUSS aus foto_gemeinsam.mjs, Vorrang vor dem Basisfoto).
 const FORM_TEXT = {
   schlank: 'leere schlanke Flasche ohne Etikett, nur Form und Proportionen',
   rund: 'leere runde Flasche ohne Etikett, nur Form und Proportionen',
-  karaffe: 'leere Karaffe ohne Etikett (Glas im Foto klar, Glasfarbe und Verschluss wie weiter unten beschrieben), nur Form und Proportionen',
+  karaffe: 'leere Karaffe ohne Etikett (Glas im Foto klar, Glasfarbe wie weiter unten beschrieben), nur Form und Proportionen',
 };
 const BASIS = {
-  'schlank|0,1 L': { a1: 'fotos-basis/schlank-0-1l.png', verschluss: 'Holzkugel auf Korkschaft wie in Anhang 1' },
-  'schlank|0,7 L': { a1: BASIS_SCHLANK_05, ersatz: true, massstab: 'etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form', verschluss: GLASSTOPFEN },
-  'schlank|1 L': { a1: BASIS_SCHLANK_05, ersatz: true, massstab: 'deutlich größer als in Anhang 1, 1-L-Flasche derselben schlanken Form', verschluss: GLASSTOPFEN },
-  'rund|0,2 L': { a1: 'fotos-basis/rund-0-2l.png', massstab: 'deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form', verschluss: null },
-  'rund|1 L': { a1: 'fotos-basis/rund-1-0l.png', verschluss: KORKEN },
-  'rund|1,5 L': { a1: 'fotos-basis/rund-1-5l.png', verschluss: KORKEN },
-  'karaffe|0,7 L': { a1: 'fotos-basis/karaffe-0-7l.png', verschluss: null },
+  'schlank|0,1 L': { a1: 'fotos-basis/schlank-0-1l.png' },
+  'schlank|0,7 L': { a1: BASIS_SCHLANK_05, ersatz: true, massstab: 'etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form' },
+  'schlank|1 L': { a1: BASIS_SCHLANK_05, ersatz: true, massstab: 'deutlich größer als in Anhang 1, 1-L-Flasche derselben schlanken Form' },
+  'rund|0,2 L': { a1: 'fotos-basis/rund-0-2l.png', massstab: 'deutlich kleiner als die 0,5-L-Flasche in Anhang 1, etwa halbe Höhe, 0,2-L-Flasche derselben Form' },
+  'rund|1 L': { a1: 'fotos-basis/rund-1-0l.png' },
+  'rund|1,5 L': { a1: 'fotos-basis/rund-1-5l.png' },
+  'karaffe|0,7 L': { a1: 'fotos-basis/karaffe-0-7l.png' },
 };
 
 // ---------- Einträge aus der Preisliste ----------
@@ -87,12 +87,11 @@ if (eintraege.length !== ERWARTET_GESAMT) fail(`Gesamtzahl ${eintraege.length}, 
 const FORMAT = `${FLASCHEN_FORMAT.w} × ${FLASCHEN_FORMAT.h} Pixel`;
 function baue(e) {
   const { s, basis, form, g, sorteId } = e;
-  const verschluss = basis.verschluss || s.verschluss;
   const massstab = basis.massstab ? ` Größe: ${basis.massstab}.` : '';
   const t = [
     satzFormat(FORMAT),
     `Form und Proportionen orientieren sich an Anhang 1 (${FORM_TEXT[form]}); nur Orientierung, nicht kopieren.${massstab}`,
-    `Verschluss: ${verschluss}. ${halsText(sorteId)} ${sorteId === 'vieux-marc' ? `Glas: ${s.fl}.` : `Flüssigkeit: ${s.fl}, bis zum Hals gefüllt.`}`,
+    `${VERSCHLUSS} ${halsText(sorteId)} ${sorteId === 'vieux-marc' ? `Glas: ${s.fl}.` : `Flüssigkeit: ${s.fl}, bis zum Hals gefüllt.`}`,
     `${satzEtikett()} Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „${g.etikett}“; sonst keine Änderung am Etikett.`,
     satzSchluss(e.ziel, 'Ausnahme bleibt die Mengenangabe.'),
   ];
@@ -105,8 +104,8 @@ const problem = (e) => {
   const l = [];
   if (e.basis.ersatz) l.push(`Basis weicht ab (Größe): ${e.a1} ist nicht die ${e.menge}-Flasche; Maßstab nur über die Beschreibung`);
   if (e.a1 === 'fotos-basis/rund-0-2l.png') l.push('Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt');
-  if (e.sorteId === 'vieux-marc') l.push('Basisfoto zeigt klares Glas und Glasstopfen; Braunglas und Ausgießer nur über die Beschreibung');
-  if (e.basis.verschluss === null && e.form === 'rund') l.push('Basisfoto zeigt einen Korken, die Sorte hat eine andere Kappe: Kappe nur über die Beschreibung');
+  if (e.sorteId === 'vieux-marc') l.push('Basisfoto zeigt klares Glas und Glasstopfen; Braunglas nur über die Beschreibung');
+  if (e.form === 'rund') l.push('Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang');
   return l.join('; ');
 };
 
@@ -151,7 +150,7 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle (\`<sorten-id>-<
 
 **Basisfotos:** Es gibt kein Foto für schlank 0,7 L und schlank 1 L. Dort dient die schlanke 0,5-L-Flasche als Ersatz (Hinweis „Basis weicht ab (Größe)“); die Zielgröße steht nur als ungefähres Verhältnis im Prompt („etwas höher und voller“, „deutlich größer“), keine Maße. Für rund 0,2 L ist \`fotos-basis/rund-0-2l.png\` hinterlegt, diese Datei ist aber identisch mit \`fotos-basis/rund-0-5l.png\` (zeigt also die 0,5-L-Flasche); die Maßstabszeile „deutlich kleiner als die 0,5-L-Flasche“ bleibt deshalb im Prompt. Das Ergebnis kann in den Proportionen abweichen. \`fotos-basis/rund-40ml.png\` (Miniatur) wird nicht verwendet.
 
-**Verschluss:** schlank 0,1 L Holzkugel auf Korkschaft (wie das Basisfoto), schlank 0,7 L und 1 L Glasstopfen (wie bei 0,5 L), rund 1 L und 1,5 L heller Naturkorken (wie die Basisfotos), runde 0,2 L und Vieux Marc die Kappe bzw. der Ausgießer der Sorte (wie bei 0,5 L; die Basisfotos zeigen Korken bzw. Glasstopfen).
+**Verschluss:** in jedem Prompt Glasstopfen ohne Kork; die Verschluss-Zeile hat Vorrang vor dem Verschluss der Basisfotos (die zeigen teils Korken, Holzkugel oder Glasstopfen).
 
 **Stand:** ${nOffen} offen, ${nVorh} vorhanden (Datei \`<id>-<größe>.png\` in \`fotos-flaschen/\`).
 
@@ -174,8 +173,7 @@ ${eintraege.map((e) => `| ${e.name} | ${e.menge} | \`${e.a1}\` | \`${e.a2}\` | \
 
 - **Etikett Wort für Wort:** Dass ChatGPT Sortenname, Alkoholangabe, Grafik und die feste Adresszeile fehlerfrei übernimmt und dabei nur die Mengenangabe ändert, ist unsicher. Jedes Ergebnis von Hand gegen das flache Etikett prüfen.
 - **Ersatzbasis (Größe):** schlank 0,7 L und schlank 1 L (Basis: schlanke 0,5-L-Flasche); rund 0,2 L hat eine eigene Basisdatei, die aber dasselbe Bild wie rund 0,5 L ist. ChatGPT muss die Größe aus dem Text ableiten; Proportionen und Etikettgröße sind nur Näherung.
-- **Verschluss weicht vom Basisfoto ab:** runde 0,2 L tragen die Kappe der Sorte, nicht den Korken des Basisfotos; Vieux Marc trägt einen schwarzen Ausgießer, das Basisfoto zeigt einen Glasstopfen und klares Glas.
-- **Korken bei 1 L und 1,5 L:** übernommen wie die Basisfotos; ob die echten 1-L- und 1,5-L-Flaschen der Brennerei so verschlossen sind, ist nicht bestätigt.
+- **Verschluss weicht vom Basisfoto ab:** einige Basisfotos zeigen Korken oder eine Holzkugel; die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang, ob ChatGPT das einhält, ist offen. Vieux Marc: Basisfoto zeigt klares Glas, das Braunglas steht nur im Prompt.
 - **Einheitliche Position:** Standfläche bei etwa 90 % und Verschlussoberkante bei etwa 8 % hält ChatGPT erfahrungsgemäß nur ungefähr ein; bei kleinen und großen Flaschen im selben Rahmen ist die Größenwirkung dadurch begrenzt.
 
 ${eintraege.map((e, i) => `---

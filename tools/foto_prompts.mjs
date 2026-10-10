@@ -11,7 +11,7 @@ import { PRODUKTE_ETIKETT as PRODUKTE } from './foto_gemeinsam.mjs';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
 import { FLUESSIGKEIT } from '../site/data/fluessigkeit.js';
 import { KI_BILDER } from '../site/data/ki-bilder.js';
-import { STIL, VORLAGE, flaschenVorlage } from './foto_gemeinsam.mjs';
+import { STIL, VORLAGE, VERSCHLUSS, flaschenVorlage } from './foto_gemeinsam.mjs';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
@@ -130,7 +130,7 @@ for (const p of PRODUKTE) {
   for (const f of [anhang1, anhang2]) if (!existiert(f)) fail(`${p.id}: Datei fehlt: ${f}`);
 
   // Flaschenregel
-  const FLASCHE = `Neben dem Getränk steht scharf die Flasche${typ === 'karaffe' ? ' (Karaffe)' : ''} in der Form von Anhang 1 (ohne deren Etikett). Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.`;
+  const FLASCHE = `Neben dem Getränk steht scharf die Flasche${typ === 'karaffe' ? ' (Karaffe)' : ''} in der Form von Anhang 1 (ohne deren Etikett). ${VERSCHLUSS} Das Etikett aus Anhang 2 unverändert übernehmen, nicht neu zeichnen oder schreiben, kein Buchstabe anders: Es legt sich wie ein echtes Etikett um die halbe Flasche, Rundung sichtbar, Ränder laufen seitlich weg, Text mittig, frontal, lesbar.`;
   const NEGATIV = 'Negativ: verändertes oder neu geschriebenes Etikett, zweite Flasche, Fantasieschrift.';
   const prompt = [
     `Erstelle ein Foto. ${STIL}`,
@@ -145,7 +145,7 @@ for (const p of PRODUKTE) {
   const hinweise = ['Etikett im Bild mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Adresse, Grafik).', 'Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“', 'Bleibt der Text falsch: Bild ohne Text nehmen und das Etikett später im Bildeditor einsetzen.'];
   if (fl.geschaetzt) hinweise.push(`Flüssigkeitsfarbe der Flasche ist in den Daten nur geschätzt (fluessigkeit.js: ${fl.farbe}); mit dem echten Produkt abgleichen.`);
   if (typ === 'karaffe') hinweise.push('Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.');
-  if (vorlage.foto) hinweise.push('Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.');
+  if (vorlage.foto) hinweise.push('Anhang 1 ist das echte Flaschenfoto der Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt: Glasstopfen ohne Kork), das Etikett kommt aus Anhang 2.');
   if (p.id === 'vieux-marc') hinweise.push('Im Rezept steht „Vieux Marc direkt in die Tasse geben oder separat dazu reichen“; im Bild steht der Vieux Marc separat im kleinen Glas, damit die Farbe sichtbar ist.');
 
   eintraege.push({

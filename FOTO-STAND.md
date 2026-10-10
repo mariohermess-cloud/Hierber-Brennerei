@@ -8,7 +8,7 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 
 ## Flaschenbilder je Sorte und Größe
 
-✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (`<id>.png` oder `<id>-0-5l.png`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht; Ausnahme Hierberol (nur 0,7 L, dessen Bild ist die Spalte 0,7 L). Kräider Batti hat nur Prompts (keine Sortenseite, Etikett und Größe unbekannt) und steht außerhalb der Summen.
+✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (`<id>-0-5l.png`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht; Ausnahme Hierberol (nur 0,7 L, dessen Bild ist die Spalte 0,7 L). Kräider Batti hat nur Prompts (keine Sortenseite, Etikett und Größe unbekannt) und steht außerhalb der Summen.
 
 | Sorte | 0,1 L | 0,2 L | 0,5 L | 0,7 L | 1 L | 1,5 L | Serviervorschläge |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -42,7 +42,7 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 | Hierber Sambuca | · | – | – | · | – | – | 4/4 |
 | Hierber Limoncello | · | – | – | · | – | – | 4/4 |
 | Hierberol | · | · | · | ✔ | · | · | 0/4 |
-| Kräider Batti (nur Prompts, keine Sortenseite) | · | · | – (`kraider-batti.png`, Größe offen) | · | · | · | 0/4 |
+| Kräider Batti (nur Prompts, keine Sortenseite) | · | · | – (`kraider-batti-0-5l.png`, Größe offen) | · | · | · | 0/4 |
 
 ## Sorten ohne Hauptbild (0,5 L)
 

@@ -11,7 +11,7 @@ import { seite, bild, folgt, TELEFON, OSM } from './layout.mjs';
 
 export const produktById = (id) => PRODUKTE.find((p) => p.id === id);
 
-// Sortenkarte: neu erzeugte Produktflasche (fotos-flaschen/<id>.png), sonst Vektor-Flasche mit flachem Etikett auf Holzton; ohne Etikett beschrifteter Platzhalter.
+// Sortenkarte: neu erzeugte Produktflasche (fotos-flaschen/<id>-0-5l.png), sonst Vektor-Flasche mit flachem Etikett auf Holzton; ohne Etikett beschrifteter Platzhalter.
 export function karte(IMG, p, lang, { anlass = true } = {}) {
   const t = STR[lang];
   const info = preisInfo(p);
