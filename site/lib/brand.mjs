@@ -30,7 +30,9 @@ function servieren(p, IMG, lang) {
   const t = STR[lang];
   const liste = SERVIERVORSCHLAEGE[p.id];
   const kopf = `<h2 id="servieren-h">${t.serviertTitel(esc(p.kurzname))}</h2>`;
+  // Sorten ohne Serviervorschläge (Liköre, Geräift, Weitere Brände): Platzhalter statt Rezepte
   if (lang === 'fr') return `<section class="sektion papier papier2" id="servieren" aria-labelledby="servieren-h"><div class="wrap">${kopf}${folgt(t)}</div></section>`;
+  if (!liste) return `<section class="sektion papier papier2" id="servieren" aria-labelledby="servieren-h"><div class="wrap">${kopf}<p class="platzhalter" data-todo="bestaetigen">Serviervorschläge folgen.</p></div></section>`;
   const tabs = liste.map((r, i) => `<button type="button" role="tab" class="tab" id="tab-${i}" aria-selected="${i === 0}" aria-controls="panel-${i}" tabindex="${i === 0 ? 0 : -1}"><span class="tab-typ">${esc(r.typ)}</span><span class="tab-name">${esc(r.name)}</span></button>`).join('\n');
   const nummern = kartenNummern(p.id, liste) || [];
   const panels = liste.map((r, i) => {
@@ -82,7 +84,7 @@ function kaufen(p, lang) {
     ? `<div class="varianten" role="radiogroup" aria-label="${t.variante}" data-varianten>${p.varianten.map((v, i) => `<label class="chip-radio"><input type="radio" name="variante" value="${v.id}"${i === 0 ? ' checked' : ''}><span data-sortenname="${esc(v.name)}">${esc(v.name)}</span></label>`).join('')}</div>` : '';
   const bloecke = p.varianten.map((v, i) => {
     const kopf = `<h3 class="variante-kopf" data-sortenname="${esc(v.name)}">${esc(v.name)}</h3>`;
-    const abv = `<p class="variante-abv">${t.alkoholgehalt}: <span data-abv="${v.abv}">${fmtAbv(v.abv)}</span></p>`;
+    const abv = v.abv == null ? '' : `<p class="variante-abv">${t.alkoholgehalt}: <span data-abv="${v.abv}">${fmtAbv(v.abv)}</span></p>`;
     let groessen;
     if (v.preise.length) {
       groessen = `<fieldset class="groessen"><legend>${t.groesse}</legend><div class="chips">${v.preise.map((x, j) => {
@@ -188,7 +190,7 @@ export function sortenseite(IMG, p, lang) {
         <h1 id="h1" data-sortenname="${esc(p.name)}">${esc(p.name)}</h1>
         ${erkHtml}
         ${kurz}
-        <p class="abv"><span class="abv-label">${t.alkoholgehalt}</span> <span class="abv-wert" data-abv="${p.abv}">${fmtAbv(p.abv)}</span></p>
+        ${p.abv == null ? '' : `<p class="abv"><span class="abv-label">${t.alkoholgehalt}</span> <span class="abv-wert" data-abv="${p.abv}">${fmtAbv(p.abv)}</span></p>`}
         ${kaufen(p, lang)}
         <p class="zu-servieren"><a href="#servieren">${t.zuServieren}</a></p>
         ${intro}
@@ -212,8 +214,8 @@ ${verw}
   const abvT = fmtAbv(p.abv);
   const titel = lang === 'de' ? `${p.name} aus Herborn (Luxemburg) | Hierber Brennerei` : `${p.name} de Herborn (Luxembourg) | Hierber Brennerei`;
   const beschr = lang === 'de'
-    ? `${p.name}: ${ohneAbv(p.kurz)}, ${abvT}. Verkostung, Serviervorschläge und Preise von der Hierber Brennerei in Herborn, Luxemburg.`
-    : `${p.name} de la Hierber Brennerei à Herborn, Luxembourg : ${abvT}, variantes, contenances et prix.`;
+    ? `${p.name}: ${[ohneAbv(p.kurz), abvT].filter(Boolean).join(', ')}. Verkostung, Serviervorschläge und Preise von der Hierber Brennerei in Herborn, Luxemburg.`
+    : `${p.name} de la Hierber Brennerei à Herborn, Luxembourg : ${abvT ? `${abvT}, ` : ''}variantes, contenances et prix.`;
   return seite({
     lang, p: `/brand/${p.id}/`, titel, beschreibung: beschr, inhalt, og: hatEtikett || foto ? `/og/${p.id}.jpg` : '/og/standard.jpg',
     jsonld: jsonLd(p, lang, beschr, IMG), skripte: ['/assets/js/site.js'], typ: 'product',

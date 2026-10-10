@@ -1,5 +1,5 @@
 {
- "hinweis": "Konfiguration für node tools/foto_prompts_neue_gruppen.mjs: vier Gruppen nur mit Prompts (likoere, holzkisten, geraeift, weitere-braende). Keine Sortenseiten, kein Eintrag in site/data/produkte.js, keine Serviervorschläge. Alkoholgehalte laut Preisliste. Beschreibungen nennen nur die Art des Produkts; keine bekannten Markenzeichen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. etikettDatei = flaches Etikett in Fertige Etiquetten/ (null = Etikett folgt, Text nur Name, Art, Alkoholangabe). Farben der Flüssigkeit sind Entwürfe, der Brenner bestätigt sie.",
+ "hinweis": "Konfiguration für node tools/foto_prompts_neue_gruppen.mjs: vier Gruppen (likoere, holzkisten, geraeift, weitere-braende). Die Flaschen sind Sorten mit Sortenseite (Eintrag in site/data/produkte.js, Preise und Alkoholgehalt laut Preisliste; Winterdreams hat dort keinen Alkoholgehalt); die Holzkisten haben nur Prompts. Keine Serviervorschläge. Alkoholgehalte laut Preisliste. Beschreibungen nennen nur die Art des Produkts; keine bekannten Markenzeichen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. etikettDatei = flaches Etikett in Fertige Etiquetten/ (null = Etikett folgt, Text nur Name, Art, Alkoholangabe). Farben der Flüssigkeit sind Entwürfe, der Brenner bestätigt sie.",
  "flaschen": [
   {
    "gruppe": "likoere",
@@ -202,7 +202,7 @@
    "id": "winterdreams",
    "name": "Winterdreams",
    "art": "saisonaler Likör",
-   "abv": 25,
+   "abv": null,
    "groessen": [
     "0-5l"
    ],
@@ -287,7 +287,8 @@
    "art": null,
    "abv": 45,
    "groessen": [
-    "0-5l"
+    "0-5l",
+    "1-0l"
    ],
    "form": "rund",
    "fluessigkeit": "klares Goldgelb",

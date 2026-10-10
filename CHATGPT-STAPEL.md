@@ -2,7 +2,7 @@
 
 Erzeugt mit `node tools/chatgpt_stapel.mjs` (nach `node tools/foto_prompts_weitere.mjs`, `node tools/foto_prompts_flaschen.mjs` und `node tools/foto_prompts_groessen.mjs` und `node tools/foto_prompts_weitere_sorten.mjs`). Nicht von Hand ändern. Hier steht, wie ChatGPT den Stapel der KI-Bilder abarbeitet, statt dass jedes Bild einzeln von Hand angefordert wird.
 
-**Stand:** 247 Bilder im Stapel, in dieser Reihenfolge: **1. 27 Ersatzbilder** für fehlerhafte Erstbilder (26 offen, 1 „ersetzt, bitte prüfen“), **2. 29 Flaschenbilder** „neue Produktflasche mit dem Etikett“ (Gruppe `flasche`, 0 offen), **3. 92 weitere Serviervorschläge** (92 schon vorhanden, 0 offen; zuerst alle `-2`, dann `-3`, `-4`, `-5`), **4. 42 Größenbilder** „neue Produktflasche in einer anderen Größe als 0,5 L“ (Gruppe `groessen`, 10 offen; Prompts in `PROMPTS-GROESSEN.md`). **5. 10 Bilder zu Hierberol und Kräider Batti** (Gruppe `weitere-sorten`, 2 offen, 11 „Etikett fehlt“; Prompts in `PROMPTS-WEITERE-SORTEN.md`). **6. 47 Bilder der neuen Gruppen** (Gruppe `neue-gruppen`: Liköre, Holzkisten, Geräift, weitere Brände; 37 offen, 10 „Etikett fehlt“; Prompts in `PROMPTS-NEUE-GRUPPEN.md`). Zu erzeugen sind also **75 Bilder**.
+**Stand:** 248 Bilder im Stapel, in dieser Reihenfolge: **1. 27 Ersatzbilder** für fehlerhafte Erstbilder (26 offen, 1 „ersetzt, bitte prüfen“), **2. 29 Flaschenbilder** „neue Produktflasche mit dem Etikett“ (Gruppe `flasche`, 0 offen), **3. 92 weitere Serviervorschläge** (92 schon vorhanden, 0 offen; zuerst alle `-2`, dann `-3`, `-4`, `-5`), **4. 42 Größenbilder** „neue Produktflasche in einer anderen Größe als 0,5 L“ (Gruppe `groessen`, 10 offen; Prompts in `PROMPTS-GROESSEN.md`). **5. 10 Bilder zu Hierberol und Kräider Batti** (Gruppe `weitere-sorten`, 2 offen, 12 „Etikett fehlt“; Prompts in `PROMPTS-WEITERE-SORTEN.md`). **6. 48 Bilder der neuen Gruppen** (Gruppe `neue-gruppen`: Liköre, Holzkisten, Geräift, weitere Brände; 37 offen, 11 „Etikett fehlt“; Prompts in `PROMPTS-NEUE-GRUPPEN.md`). Zu erzeugen sind also **75 Bilder**.
 
 ## Ehrlich vorab
 
@@ -13,7 +13,7 @@ Erzeugt mit `node tools/chatgpt_stapel.mjs` (nach `node tools/foto_prompts_weite
 - Auch die eigene Etikettenprüfung von ChatGPT (Schritt d) ist nur eine Hilfe, keine Garantie.
 - Die Gruppe `flasche` erzeugt eine **neue Produktflasche** mit dem Etikett (das echte Foto ist nur Orientierung). Ob ChatGPT das Etikett buchstabengetreu trifft und Format und Position einhält, ist ungetestet und unsicher.
 - Die Gruppe `weitere-sorten` gehört zu zwei Produkten ohne flaches Etikett: Hierberol (Anhang 2 ist sein fertiges Flaschenfoto, nur als Etikett-Referenz) und Kräider Batti (nur Prompts). Zeilen mit fehlendem Anhang stehen mit Status „Etikett fehlt“ im Stapel, aber nicht in den CSV der offenen Bilder; die Liste steht im Abschnitt „Etikett fehlt“. Der Prompt der Zeile nennt keine bekannten Markenzeichen und verlangt, nichts davon nachzubauen.
-- Die Gruppe `neue-gruppen` (Liköre, Holzkisten nur mit Flaschen, Geräift, weitere Brände) hat nur Prompts, keine Sortenseiten. Flaschen sind Hochformat, Holzkisten (Name `holzkiste-…`) Querformat 4:3. Zeilen ohne Etikett (Ingwerlikör, Williams-Birne geräift, weitere Brände) stehen mit „Etikett fehlt“ im Stapel. Details und offene Fragen: `PROMPTS-NEUE-GRUPPEN.md`.
+- Die Gruppe `neue-gruppen` (Liköre, Holzkisten nur mit Flaschen, Geräift, weitere Brände) hat für die Flaschen Sortenseiten (site/data/produkte.js), die Holzkisten nur Prompts. Flaschen sind Hochformat, Holzkisten (Name `holzkiste-…`) Querformat 4:3. Zeilen ohne Etikett (Ingwerlikör, Williams-Birne geräift, weitere Brände) stehen mit „Etikett fehlt“ im Stapel. Details und offene Fragen: `PROMPTS-NEUE-GRUPPEN.md`.
 - Die Gruppe `groessen` erzeugt dasselbe in den anderen Preislistengrößen (0,1 / 0,2 / 0,7 / 1 / 1,5 L) aus einer leeren Basisflasche in `fotos-basis/`. Für schlank 0,7 L und schlank 1 L gibt es keine Basis dieser Größe (Ersatz: schlanke 0,5-L-Flasche), und die Basis für rund 0,2 L ist dasselbe Bild wie rund 0,5 L; die Größe steht nur ungefähr im Prompt (Näherung, Proportionen können abweichen). Auf dem Etikett darf sich nur die Mengenangabe ändern; ob ChatGPT das einhält, ist ungetestet.
 
 ## In 6 Schritten
@@ -46,8 +46,8 @@ Zeilen, bei denen status nicht "offen" ist (auch "Etikett fehlt"), überspringst
 | Datei | Inhalt |
 |---|---|
 | `tools/chatgpt-stapel.csv` | alle 75 offenen Bilder |
-| `tools/chatgpt-stapel-alle.csv` | alle 247 Bilder mit Status |
-| `tools/chatgpt-stapel.json` | dieselben Daten wie die CSV, alle 247 mit Status |
+| `tools/chatgpt-stapel-alle.csv` | alle 248 Bilder mit Status |
+| `tools/chatgpt-stapel.json` | dieselben Daten wie die CSV, alle 248 mit Status |
 | `tools/chatgpt-stapel-block-NN.csv` | die offenen Bilder in Blöcken zu 10 |
 | `tools/chatgpt_stapel_api.py` | optional: Stapel über die OpenAI-Bild-API (**ungetestet**, siehe unten) |
 
@@ -64,7 +64,7 @@ Spalten der CSV: `nr` (laufende Nummer), `dateiname_ergebnis` (Zielpfad: `fotos-
 | 05 | `tools/chatgpt-stapel-block-05.csv` | 203–212 | 10 | 7 |
 | 06 | `tools/chatgpt-stapel-block-06.csv` | 213–222 | 10 | 7 |
 | 07 | `tools/chatgpt-stapel-block-07.csv` | 223–236 | 10 | 9 |
-| 08 | `tools/chatgpt-stapel-block-08.csv` | 237–247 | 5 | 4 |
+| 08 | `tools/chatgpt-stapel-block-08.csv` | 237–248 | 5 | 4 |
 
 ### Dateien je Block
 
@@ -86,7 +86,7 @@ Spalten der CSV: `nr` (laufende Nummer), `dateiname_ergebnis` (Zielpfad: `fotos-
 
 ## Etikett fehlt (nicht im Stapel der offenen Bilder)
 
-Diese 11 Zeilen haben einen Anhang, der noch nicht vorliegt (Kräider Batti: Etikett von Kräider Batti, daraus das Flaschenbild; neue Gruppen: fehlendes Etikett oder fehlende Basisflasche). Sie stehen in `tools/chatgpt-stapel-alle.csv` und `tools/chatgpt-stapel.json`, aber nicht in `tools/chatgpt-stapel.csv` und nicht in den Blöcken. Sobald das Etikett da ist, `tools/weitere-sorten.json` bzw. `tools/neue-gruppen.json` anpassen (`anhang2`, `etikettFolgt` bzw. `etikettDatei`) und die Generatoren neu laufen lassen.
+Diese 12 Zeilen haben einen Anhang, der noch nicht vorliegt (Kräider Batti: Etikett von Kräider Batti, daraus das Flaschenbild; neue Gruppen: fehlendes Etikett oder fehlende Basisflasche). Sie stehen in `tools/chatgpt-stapel-alle.csv` und `tools/chatgpt-stapel.json`, aber nicht in `tools/chatgpt-stapel.csv` und nicht in den Blöcken. Sobald das Etikett da ist, `tools/weitere-sorten.json` bzw. `tools/neue-gruppen.json` anpassen (`anhang2`, `etikettFolgt` bzw. `etikettDatei`) und die Generatoren neu laufen lassen.
 
 | nr | Ergebnisdatei | fehlender Anhang |
 |---|---|---|
@@ -97,10 +97,11 @@ Diese 11 Zeilen haben einen Anhang, der noch nicht vorliegt (Kräider Batti: Eti
 | 233 | `fotos-flaschen/willi-op-biren-geraeift-0-1l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` |
 | 238 | `fotos-flaschen/neutral-alkohol-1-0l.png` | `PLATZHALTER: Etikett von Neutraler Alkohol folgt` |
 | 239 | `fotos-flaschen/aeppel-pommes-0-5l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` |
-| 240 | `fotos-flaschen/pastis-0-5l.png` | `PLATZHALTER: Etikett von Pastis folgt` |
-| 241 | `fotos-flaschen/nessdrepp-0-5l.png` | `PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt` |
-| 242 | `fotos-flaschen/pefferminz-0-5l.png` | `PLATZHALTER: Etikett von Pefferminz folgt` |
-| 243 | `fotos-flaschen/quitten-0-5l.png` | `PLATZHALTER: Etikett von Quitten folgt` |
+| 240 | `fotos-flaschen/aeppel-pommes-1-0l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` |
+| 241 | `fotos-flaschen/pastis-0-5l.png` | `PLATZHALTER: Etikett von Pastis folgt` |
+| 242 | `fotos-flaschen/nessdrepp-0-5l.png` | `PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt` |
+| 243 | `fotos-flaschen/pefferminz-0-5l.png` | `PLATZHALTER: Etikett von Pefferminz folgt` |
+| 244 | `fotos-flaschen/quitten-0-5l.png` | `PLATZHALTER: Etikett von Quitten folgt` |
 
 ## Optional: Automatik über die OpenAI-Bild-API (ungetestet)
 

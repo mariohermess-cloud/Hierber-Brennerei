@@ -29,7 +29,7 @@ export function karte(IMG, p, lang, { anlass = true } = {}) {
   return `<li class="karte-li" data-id="${p.id}"${an}><a class="karte" href="${pfad(lang, `/brand/${p.id}/`)}#produkt">`
     + `<span class="karte-bild${mitFoto ? ' karte-bild-foto' : ''}">${bildHtml}</span>`
     + `<span class="karte-name" data-sortenname="${esc(p.name)}">${esc(p.name)}</span>`
-    + `<span class="karte-meta"><span data-abv="${p.abv}">${fmtAbv(p.abv)}</span> <span aria-hidden="true">·</span> ${preis}</span></a></li>`;
+    + `<span class="karte-meta">${p.abv == null ? '' : `<span data-abv="${p.abv}">${fmtAbv(p.abv)}</span> <span aria-hidden="true">·</span> `}${preis}</span></a></li>`;
 }
 
 const FASS_IDS = PRODUKTE.filter((p) => p.ort === 'fass');
@@ -62,7 +62,7 @@ function theke(IMG, lang) {
 ${g.ids.map((id) => karte(IMG, produktById(id), lang)).join('\n')}
 </ul></div>`).join('\n');
   const weitere = lang === 'de'
-    ? `<div class="weitere" data-todo="bestaetigen"><h3>${t.weitereTitel}</h3><p>Äppel/Pommes · Quitten · Nëssdrëpp · Pefferminz · Pastis · Ingwerlikör · Kräider Batti · Neutraler Alkohol · Liköre · Holzkisten</p></div>`
+    ? `<div class="weitere" data-todo="bestaetigen"><h3>${t.weitereTitel}</h3><p>Kräider Batti · Holzkisten</p></div>`
     : `<div class="weitere"><h3>${t.weitereTitel}</h3>${folgt(t)}</div>`;
   return `<section class="sektion dunkel flaeche theke" id="theke" aria-labelledby="theke-h">
   ${FLASCHEN_DEFS}

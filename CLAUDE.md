@@ -148,7 +148,7 @@ Der Nutzer legt neue Bilder in drei Ordnern ab (Namensregeln, alles klein geschr
 
 | Ordner | Inhalt | Name | Format |
 |---|---|---|---|
-| `fotos-flaschen/` | Flaschenbilder mit Etikett | `<sorten-id>-<größe>.png`, der Name trägt IMMER die Größe: `0-1l`, `0-2l`, `0-5l`, `0-7l`, `1-0l`, `1-5l` (Hauptbild = `<sorten-id>-0-5l.png`; `<sorten-id>.png` ohne Größe ist ein Namensfehler, Exit-Code ≠ 0); `<id>` ist eine Sorte aus `site/data/produkte.js` oder aus `tools/weitere-sorten.json` (`kraider-batti`, nur Prompts, keine Sortenseite) oder aus `tools/neue-gruppen.json` (Liköre, Geräift, weitere Brände, nur Prompts; Holzkisten heißen `holzkiste-6x0-1l.png` usw., Querformat 1448 × 1086); Hierberol führt nur 0,7 L (`hierberol-0-7l.png`) | 1024 × 1536 |
+| `fotos-flaschen/` | Flaschenbilder mit Etikett | `<sorten-id>-<größe>.png`, der Name trägt IMMER die Größe: `0-1l`, `0-2l`, `0-5l`, `0-7l`, `1-0l`, `1-5l` (Hauptbild = `<sorten-id>-0-5l.png`; `<sorten-id>.png` ohne Größe ist ein Namensfehler, Exit-Code ≠ 0); `<id>` ist eine Sorte aus `site/data/produkte.js` oder aus `tools/weitere-sorten.json` (`kraider-batti`, nur Prompts, keine Sortenseite) oder aus `tools/neue-gruppen.json` (Liköre, Geräift, weitere Brände: Sorten mit Sortenseite; nur die Holzkisten sind noch reine Prompts, sie heißen `holzkiste-6x0-1l.png` usw., Querformat 1448 × 1086); Hierberol führt nur 0,7 L (`hierberol-0-7l.png`) | 1024 × 1536 |
 | `fotos-ki/` | Serviervorschläge | `<sorten-id>-<n>.png` (n = 1 Hauptbild) | 1448 × 1086 |
 | `fotos-basis/` | leere Basisflaschen (Anhang 1 der Prompts, nicht auf der Seite) | `<rund\|schlank\|karaffe>-<größe>.png`, `rund-40ml.png` | etwa 1312 × 1199 |
 

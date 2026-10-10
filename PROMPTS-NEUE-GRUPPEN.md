@@ -1,8 +1,8 @@
 # PROMPTS-NEUE-GRUPPEN: Liköre, Holzkisten, Geräift, weitere Brände (ChatGPT)
 
-Erzeugt mit `node tools/foto_prompts_neue_gruppen.mjs` aus `tools/neue-gruppen.json`. Nicht von Hand ändern. 47 Prompts (Liköre: 31, Holzkisten (nur mit Flaschen): 4, Geräift: 6, Weitere Brände: 6). Nur Prompts: keine Sortenseiten, kein Eintrag in `site/data/produkte.js`, keine Serviervorschläge. Alles sind Entwürfe, der Brenner bestätigt sie.
+Erzeugt mit `node tools/foto_prompts_neue_gruppen.mjs` aus `tools/neue-gruppen.json`. Nicht von Hand ändern. 48 Prompts (Liköre: 31, Holzkisten (nur mit Flaschen): 4, Geräift: 6, Weitere Brände: 7). Die Flaschen sind Sorten mit Sortenseite (Eintrag in `site/data/produkte.js`), die Holzkisten haben nur Prompts; keine Serviervorschläge. Alles sind Entwürfe, der Brenner bestätigt sie.
 
-**Stand:** 47 offen, 0 vorhanden, davon 10 mit fehlendem Anhang (Etikett liegt noch nicht vor, siehe Übersicht).
+**Stand:** 48 offen, 0 vorhanden, davon 11 mit fehlendem Anhang (Etikett liegt noch nicht vor, siehe Übersicht).
 
 - **Liköre** (25 % vol.): je Likör ein Prompt für 0,5 L (`<id>-0-5l.png`) und 0,1 L (`<id>-0-1l.png`); Winterdreams (saisonal) nur 0,5 L, Ingwerlikör 0,2 L und 0,5 L. Anhang 2 ist das flache Etikett aus `Fertige Etiquetten/`, wo es eines gibt (Ingwerlikör: Etikett folgt).
 - **Holzkisten (nur mit Flaschen):** Querformat 1448 × 1086, Datei `fotos-flaschen/<kisten-id>.png`. Es gibt kein Kistenfoto; die Kiste steht nur im Prompt, Anhang 1 und 2 sind dieselbe Basisflasche.
@@ -63,6 +63,7 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in `fotos-flasch
 | quetsch-op-quetsch-geraeift-0-1l | geraeift | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Quetsch geräift-01.png` | `fotos-flaschen/quetsch-op-quetsch-geraeift-0-1l.png` | offen | 245 |
 | neutral-alkohol-1-0l | weitere-braende | flasche | `fotos-basis/rund-1-0l.png` | `PLATZHALTER: Etikett von Neutraler Alkohol folgt` (fehlt) | `fotos-flaschen/neutral-alkohol-1-0l.png` | offen | 227 |
 | aeppel-pommes-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` (fehlt) | `fotos-flaschen/aeppel-pommes-0-5l.png` | offen | 225 |
+| aeppel-pommes-1-0l | weitere-braende | flasche | `fotos-basis/rund-1-0l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` (fehlt) | `fotos-flaschen/aeppel-pommes-1-0l.png` | offen | 225 |
 | pastis-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Pastis folgt` (fehlt) | `fotos-flaschen/pastis-0-5l.png` | offen | 226 |
 | nessdrepp-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt` (fehlt) | `fotos-flaschen/nessdrepp-0-5l.png` | offen | 226 |
 | pefferminz-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Pefferminz folgt` (fehlt) | `fotos-flaschen/pefferminz-0-5l.png` | offen | 226 |
@@ -1017,7 +1018,32 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 40. Pastis: Flasche 0,5 L (Weitere Brände)
+## 40. Äppel/Pommes: Flasche 1 L (Weitere Brände)
+
+- **Format:** Hochformat 1024 × 1536 Pixel
+- **Anhang 1:** `fotos-basis/rund-1-0l.png` (leere runde 1-L-Flasche)
+- **Anhang 2:** `PLATZHALTER: Etikett von Äppel/Pommes folgt` (Etikett von Äppel/Pommes (liegt noch nicht vor)) **(fehlt)**
+- **Ergebnis speichern als:** `fotos-flaschen/aeppel-pommes-1-0l.png`
+- **Status:** offen
+- **Prompt:** 225 Wörter
+
+```
+Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 1-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Äppel/Pommes“, „45 % vol.“, „1 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/aeppel-pommes-1-0l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.
+```
+
+**Prüfen:**
+- Anhang fehlt: PLATZHALTER: Etikett von Äppel/Pommes folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.
+- Etikett von Äppel/Pommes liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.
+- Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
+- Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.
+- Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.
+- Inhalt: klares Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).
+- Status der Sorte unklar (Preisliste/Alkohol laut Auftrag, aber keine Bestätigung, ob die Sorte geführt wird); Flüssigkeitsfarbe geschätzt.
+- Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen.
+
+---
+
+## 41. Pastis: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1042,7 +1068,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 41. Nëssdrëpp Walnuss: Flasche 0,5 L (Weitere Brände)
+## 42. Nëssdrëpp Walnuss: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1067,7 +1093,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 42. Pefferminz: Flasche 0,5 L (Weitere Brände)
+## 43. Pefferminz: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1092,7 +1118,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 43. Quitten: Flasche 0,5 L (Weitere Brände)
+## 44. Quitten: Flasche 0,5 L (Weitere Brände)
 
 - **Format:** Hochformat 1024 × 1536 Pixel
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
@@ -1117,7 +1143,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 44. Holzkiste 6 × 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
+## 45. Holzkiste 6 × 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (schlanke 0,1-L-Flasche ohne Etikett (Basisflasche, nur Form))
@@ -1140,7 +1166,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 
 ---
 
-## 45. Holzkiste 3 × 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
+## 46. Holzkiste 3 × 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (schlanke 0,1-L-Flasche ohne Etikett (Basisflasche, nur Form))
@@ -1163,7 +1189,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 
 ---
 
-## 46. Holzkiste 4 × 0,2 l: Kiste (Holzkisten (nur mit Flaschen))
+## 47. Holzkiste 4 × 0,2 l: Kiste (Holzkisten (nur mit Flaschen))
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/rund-0-2l.png` (runde 0,2-L-Flasche ohne Etikett (Basisflasche, nur Form))
@@ -1186,7 +1212,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 
 ---
 
-## 47. Holzkiste 5 Apothekerflaschen 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
+## 48. Holzkiste 5 Apothekerflaschen 0,1 l: Kiste (Holzkisten (nur mit Flaschen))
 
 - **Format:** Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/apotheker-0-1l.png` (Apothekerflasche 0,1 l ohne Etikett (Basisflasche, nur Form))

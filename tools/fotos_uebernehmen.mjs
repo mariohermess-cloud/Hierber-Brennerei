@@ -13,7 +13,7 @@
 //   fotos-flaschen/<id>-<größe>.png, Größe IMMER im Namen: 0-1l, 0-2l, 0-5l, 0-7l, 1-0l, 1-5l (Hauptbild = <id>-0-5l.png); <id>.png ohne Größe ist ein Namensfehler (Exit-Code 1)
 //   fotos-ki/<id>-<n>.png (Serviervorschlag n, n = 1 Hauptbild)
 //   id = Sorte aus site/data/produkte.js ODER aus tools/weitere-sorten.json (kraider-batti: nur Prompts, keine Sortenseite). Hierberol führt nur 0,7 L: hierberol-0-7l.png ist sein Bild.
-//   Neue Gruppen (tools/neue-gruppen.json, nur Prompts): Liköre, Geräift und weitere Brände heißen <id>-<größe>.png wie oben; Holzkisten heißen <kisten-id>.png (holzkiste-6x0-1l.png usw., Größe steckt in der Id, Querformat 1448x1086) und sind erlaubt, kein Namensfehler.
+//   Neue Gruppen (tools/neue-gruppen.json): Liköre, Geräift und weitere Brände sind Sorten mit Sortenseite (site/data/produkte.js) und heißen <id>-<größe>.png wie oben; nur die Holzkisten haben noch keine Sortenseite (nur Prompts); Holzkisten heißen <kisten-id>.png (holzkiste-6x0-1l.png usw., Größe steckt in der Id, Querformat 1448x1086) und sind erlaubt, kein Namensfehler.
 //   fotos-basis/<form>-<größe>.png mit Form rund, schlank, karaffe (und rund-40ml.png, ungenutzt)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -46,7 +46,7 @@ const schritt = (n, t) => console.log(`\n== ${n}. ${t}`);
 // Weitere Sorten nur mit Prompts (tools/weitere-sorten.json, inProdukte: false), z. B. Kräider Batti: erlaubte Namen, aber keine Sortenseite
 const NUR_PROMPTS = JSON.parse(fs.readFileSync(rel('tools', 'weitere-sorten.json'), 'utf8')).sorten.filter((x) => !x.inProdukte);
 const NUR_PROMPTS_IDS = new Set(NUR_PROMPTS.map((x) => x.id));
-// Neue Gruppen (tools/neue-gruppen.json, nur Prompts): Flaschen-Ids sind erlaubt, Holzkisten tragen die Größe in der Id und heißen <kisten-id>.png (Ausnahme von der Größenregel)
+// Neue Gruppen (tools/neue-gruppen.json): Flaschen-Ids (Sorten in produkte.js) sind erlaubt, Holzkisten tragen die Größe in der Id und heißen <kisten-id>.png (Ausnahme von der Größenregel)
 const NEUE_GRUPPEN = JSON.parse(fs.readFileSync(rel('tools', 'neue-gruppen.json'), 'utf8'));
 const NEUE_IDS = new Set(NEUE_GRUPPEN.flaschen.map((x) => x.id));
 const KISTEN_IDS = new Set(NEUE_GRUPPEN.kisten.map((x) => x.id));
@@ -216,7 +216,7 @@ Erzeugt mit \`node tools/fotos_uebernehmen.mjs\`. Nicht von Hand ändern. Zeigt,
 
 ## Flaschenbilder je Sorte und Größe
 
-✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (\`<id>-0-5l.png\`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht; Ausnahme Hierberol (nur 0,7 L, dessen Bild ist die Spalte 0,7 L). Kräider Batti hat nur Prompts (keine Sortenseite, Etikett und Größe unbekannt) und steht außerhalb der Summen.
+✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (\`<id>-0-5l.png\`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht; Ausnahme: Sorten ohne flaches Etikett mit genau einer anderen Größe (Hierberol 0,7 L, Neutraler Alkohol 1 L); deren Bild ist die Spalte dieser Größe. Kräider Batti hat nur Prompts (keine Sortenseite, Etikett und Größe unbekannt) und steht außerhalb der Summen.
 
 | Sorte | ${GROESSEN_SPALTEN.join(' | ')} | Serviervorschläge |
 |---|${GROESSEN_SPALTEN.map(() => ':-:').join('|')}|:-:|

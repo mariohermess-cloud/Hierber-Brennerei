@@ -1,7 +1,7 @@
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export const NB = ' ';
 export const fmtPreis = (n) => `${n}${NB}€`;
-export const fmtAbv = (n) => `${n}${NB}%${NB}vol.`;
+export const fmtAbv = (n) => (n == null ? '' : `${n}${NB}%${NB}vol.`); // null: Alkoholgehalt in der Preisliste nicht angegeben (Winterdreams)
 export const fmtMenge = (m) => m.replace(' ', NB);
 export const BASE = 'https://hierber-brennerei.lu';
 

@@ -1,4 +1,4 @@
-// Erzeugt die ChatGPT-Bildprompts für vier neue Gruppen (nur Prompts, KEINE Sortenseiten, keine Serviervorschläge):
+// Erzeugt die ChatGPT-Bildprompts für vier neue Gruppen (Flaschen: Sorten mit Sortenseite in site/data/produkte.js; Holzkisten: nur Prompts; keine Serviervorschläge):
 //   likoere (25 % vol.), holzkisten (nur mit Flaschen), geraeift (35 % vol.), weitere-braende (Status der Sorten unklar).
 // Aufruf: node tools/foto_prompts_neue_gruppen.mjs   (nach foto_prompts_weitere_sorten.mjs, vor node tools/chatgpt_stapel.mjs)
 //   Exit-Code 1, wenn ein Zielname doppelt vorkommt, ein Prompt zu lang ist, eine Pflichtangabe im Prompt fehlt oder ein geschütztes Markenwort vorkommt.
@@ -50,7 +50,7 @@ function baueFlaschePrompt(s, g, a, ziel) {
     : `leere ${formWort} ${mengeFlasche} ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen`;
   let etikett;
   if (a.etikettFolgt) {
-    const teile = [`Name „${s.name}“`, s.art ? `Art „${s.art}“` : null, `„${s.abv} % vol.“`, `„${menge}“`].filter(Boolean).join(', ');
+    const teile = [`Name „${s.name}“`, s.art ? `Art „${s.art}“` : null, s.abv == null ? null : `„${s.abv} % vol.“`, `„${menge}“`].filter(Boolean).join(', ');
     etikett = `Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur ${teile}, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „${ADRESSE}“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett.`;
   } else {
     const mengeSatz = g === '0-5l'
@@ -162,7 +162,7 @@ const nFehlt = eintraege.filter((e) => e.anhangFehlt.length).length;
 const proGruppe = Object.keys(GRUPPEN_TITEL).map((g) => ({ g, n: eintraege.filter((e) => e.gruppe === g).length }));
 const md = `# PROMPTS-NEUE-GRUPPEN: Liköre, Holzkisten, Geräift, weitere Brände (ChatGPT)
 
-Erzeugt mit \`node tools/foto_prompts_neue_gruppen.mjs\` aus \`tools/neue-gruppen.json\`. Nicht von Hand ändern. ${eintraege.length} Prompts (${proGruppe.map((x) => `${GRUPPEN_TITEL[x.g]}: ${x.n}`).join(', ')}). Nur Prompts: keine Sortenseiten, kein Eintrag in \`site/data/produkte.js\`, keine Serviervorschläge. Alles sind Entwürfe, der Brenner bestätigt sie.
+Erzeugt mit \`node tools/foto_prompts_neue_gruppen.mjs\` aus \`tools/neue-gruppen.json\`. Nicht von Hand ändern. ${eintraege.length} Prompts (${proGruppe.map((x) => `${GRUPPEN_TITEL[x.g]}: ${x.n}`).join(', ')}). Die Flaschen sind Sorten mit Sortenseite (Eintrag in \`site/data/produkte.js\`), die Holzkisten haben nur Prompts; keine Serviervorschläge. Alles sind Entwürfe, der Brenner bestätigt sie.
 
 **Stand:** ${nOffen} offen, ${nVorh} vorhanden, davon ${nFehlt} mit fehlendem Anhang (Etikett liegt noch nicht vor, siehe Übersicht).
 

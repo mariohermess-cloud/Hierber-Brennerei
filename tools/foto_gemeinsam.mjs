@@ -7,7 +7,9 @@ import { PRODUKTE } from '../site/data/produkte.js';
 import { ETIKETTEN } from '../site/data/etiketten.js';
 
 // Sorten mit flachem Etikett (Fertige Etiquetten/): Grundlage der Generatoren foto_prompts, foto_prompts_weitere, foto_prompts_flaschen und foto_prompts_groessen.
-export const PRODUKTE_ETIKETT = PRODUKTE.filter((p) => ETIKETTEN[p.id]);
+// Ausgenommen: die Flaschen aus tools/neue-gruppen.json (Liköre, Geräift, Weitere Brände); deren Prompts erzeugt foto_prompts_neue_gruppen.mjs, sonst entstünden doppelte Prompts.
+const NEUE_IDS = new Set(JSON.parse(fs.readFileSync(new URL('./neue-gruppen.json', import.meta.url), 'utf8')).flaschen.map((x) => x.id));
+export const PRODUKTE_ETIKETT = PRODUKTE.filter((p) => ETIKETTEN[p.id] && !NEUE_IDS.has(p.id));
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 

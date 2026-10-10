@@ -303,7 +303,7 @@ const yz = await page.evaluate(() => window.scrollY);
 check(Math.abs(yz - 1500) < 40, `Zurück: Scrollposition bleibt erhalten (${Math.round(yz)})`);
 console.log('Sprung zum Hauptprodukt getestet.');
 
-// 13. Hierberol: Sorte ohne flaches Etikett, nur Größenbild 0,7 L (fotos-flaschen/hierberol-0-7l.png); Foto im Kopf und auf der Karte, Preis auf Anfrage, Merkliste
+// 13. Hierberol: Sorte ohne flaches Etikett, nur Größenbild 0,7 L (fotos-flaschen/hierberol-0-7l.png); Foto im Kopf und auf der Karte, Preis 19 € (0,7 L), Merkliste
 const bildGeladen = (pg, sel) => pg.waitForFunction((x) => { const i = document.querySelector(x); return i && i.complete && i.naturalWidth > 0; }, sel, { timeout: 8000 }).then(() => true, () => false);
 for (const [vp, vname] of [[{ width: 1280, height: 800 }, 'Desktop'], [{ width: 375, height: 812 }, 'Mobil']]) {
   await page.setViewportSize(vp);
@@ -313,8 +313,8 @@ for (const [vp, vname] of [[{ width: 1280, height: 800 }, 'Desktop'], [{ width: 
   const hb = await page.evaluate((sel) => { const i = document.querySelector(sel); return i ? { alt: i.alt, src: i.currentSrc, w: i.naturalWidth, platzhalter: !!document.querySelector('.etikett-platzhalter'), vektor: !!document.querySelector('.produkt-kopf .flasche') } : null; }, kopfBild);
   check(hb && nb(hb.alt) === 'Flasche Hierberol, 0,7 L, mit Etikett', `hierberol ${vname}: Alt-Text mit 0,7 L (ist "${hb && nb(hb.alt)}")`);
   check(hb && hb.src.includes('/flasche-hierberol-0-7l-') && !hb.platzhalter && !hb.vektor, `hierberol ${vname}: Bild ist flasche-hierberol-0-7l, kein Platzhalter, keine Vektor-Flasche (${JSON.stringify(hb)})`);
-  check((await page.locator('[data-kauf] [data-preis-anfrage]').count()) === 1 && (await page.locator('[data-kauf]').getByText('Preis auf Anfrage').count()) === 1, `hierberol ${vname}: „Preis auf Anfrage“ in der Kauf-Box`);
-  check((await page.locator('[data-kauf] input[name=groesse]').count()) === 0 && (await page.locator('[data-kauf] .abv-label, [data-kauf] .variante-abv').first().textContent()).includes('Alkoholgehalt'), `hierberol ${vname}: keine Größenauswahl, Alkoholgehalt angezeigt`);
+  check((await page.locator('[data-kauf] [data-preis-anfrage]').count()) === 0 && (await page.locator('[data-kauf] input[name=groesse][data-menge="0,7 L"][data-preis="19"]').count()) === 1, `hierberol ${vname}: Kauf-Box mit genau einer Größe 0,7 L zu 19 €, kein „Preis auf Anfrage“`);
+  check(nb(await page.locator('[data-kauf] [data-auswahl-preis]').textContent()).trim() === '19 €' && (await page.locator('[data-kauf] .abv-label, [data-kauf] .variante-abv').first().textContent()).includes('Alkoholgehalt'), `hierberol ${vname}: Auswahl-Preis 19 €, Alkoholgehalt angezeigt`);
   const abvText = nb(await page.locator('.produkt-text .abv-wert').textContent());
   check(abvText === '15 % vol.', `hierberol ${vname}: Alkoholgehalt 15 % vol. (${abvText})`);
   const ueberlauf = await page.evaluate(() => document.documentElement.scrollWidth);
@@ -327,19 +327,19 @@ const karteBild = '.theke .karte-li[data-id=hierberol] .karte-bild-foto picture 
 await page.locator('.theke .karte-li[data-id=hierberol]').scrollIntoViewIfNeeded();
 check(await bildGeladen(page, karteBild), 'hierberol: Karte zeigt das Foto (geladen)');
 const kb2 = await page.evaluate(() => { const k = document.querySelector('.theke .karte-li[data-id=hierberol]'); return { src: (k.querySelector('picture img') || {}).currentSrc || '', vektor: !!k.querySelector('.flasche'), platzhalter: !!k.querySelector('.karte-platzhalter'), text: k.textContent.replace(/\s+/g, ' ') }; });
-check(kb2.src.includes('/flasche-hierberol-0-7l-') && !kb2.vektor && !kb2.platzhalter && /Preis auf Anfrage/.test(kb2.text), `hierberol: Karte mit Foto, ohne Platzhalter, Preis auf Anfrage (${JSON.stringify(kb2)})`);
+check(kb2.src.includes('/flasche-hierberol-0-7l-') && !kb2.vektor && !kb2.platzhalter && /ab\s+19\s€/.test(kb2.text) && !/Preis auf Anfrage/.test(kb2.text), `hierberol: Karte mit Foto, ohne Platzhalter, „ab 19 €“ (${JSON.stringify(kb2)})`);
 check((await page.locator('.theke .gruppe[data-gruppe=spirituosen] .karte-li[data-id=hierberol]').count()) === 1, 'hierberol: Karte in der Gruppe Spirituosen');
 const weitere = (await page.locator('.theke .weitere').textContent()).replace(/\s+/g, ' ');
 check(!/Hierberol/.test(weitere), 'Satz „Weitere Produkte auf Anfrage“ nennt Hierberol nicht mehr');
 // französische Seite lädt
 const frAntwort = await page.goto(BASIS + '/fr/brand/hierberol/', { waitUntil: 'networkidle' });
-check(frAntwort && frAntwort.status() === 200 && (await page.locator('h1').textContent()) === 'Hierberol' && (await page.locator('[data-kauf]').getByText('Prix sur demande').count()) === 1, 'hierberol: /fr/brand/hierberol/ lädt, h1 Hierberol, „Prix sur demande“');
+check(frAntwort && frAntwort.status() === 200 && (await page.locator('h1').textContent()) === 'Hierberol' && (await page.locator('[data-kauf] [data-preis-wert="19"]').count()) === 1, 'hierberol: /fr/brand/hierberol/ lädt, h1 Hierberol, Preis 19 €');
 check(await bildGeladen(page, '.produkt-kopf .haupt-bild picture img'), 'hierberol FR: Foto im Kopf geladen');
 // OG-Bild: Standard (kein flaches Etikett)
 await page.goto(BASIS + '/brand/hierberol/');
 const og = await page.locator('meta[property="og:image"]').getAttribute('content');
 check(og && og.endsWith('/og/standard.jpg'), `hierberol: og:image ist das Standard-OG-Bild (${og})`);
-// Merkliste: „Auf die Merkliste“ mit Preis auf Anfrage
+// Merkliste: „Auf die Merkliste“ mit Preis 19 €
 await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
 await page.reload();
 await page.locator('[data-merk-add]').click();
@@ -348,7 +348,7 @@ await page.goto(BASIS + '/anfrage/');
 check((await page.locator('[data-liste] li').count()) === 1, 'hierberol: Anfrage zeigt 1 Zeile');
 await page.fill('#f-name', 'Max Muster'); await page.fill('#f-mail', 'max@example.org'); await page.fill('#f-tel', '123456');
 const vorschauH = await page.locator('[data-vorschau]').textContent();
-check(vorschauH.includes('1 x Hierberol: Preis auf Anfrage'), `hierberol: Anfrage-Text „1 x Hierberol: Preis auf Anfrage“ (${vorschauH.replace(/\s+/g, ' ').slice(0, 160)})`);
+check(vorschauH.includes('1 x Hierberol, 0,7 L: 19 € je Stück = 19 €'), `hierberol: Anfrage-Text „1 x Hierberol, 0,7 L: 19 € je Stück = 19 €“ (${vorschauH.replace(/\s+/g, ' ').slice(0, 160)})`);
 await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
 console.log('Hierberol getestet.');
 
