@@ -386,3 +386,29 @@ input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%
 .karte-meta .preis.anfrage{font:inherit}
 .schild-name{font-size:1.3rem}
 @media(min-width:1280px){.schild-name{font-size:clamp(.95rem,1.15vw,1.2rem)}.schild-abv{font-size:clamp(.9rem,1vw,1.05rem)}}
+
+/* Holzkiste 4 x 0,2 l: Live-Vorschau (Koordinaten in site/data/holzkiste.js, in Prozent des Kistenfoto-Zuschnitts) */
+.kiste-raster{display:grid;gap:2rem;align-items:start}
+@media(min-width:900px){.kiste-raster{grid-template-columns:minmax(320px,560px) 1fr;gap:3.5rem}}
+.kiste-bild{margin:0;max-width:560px;width:100%}
+.kiste-buehne{position:relative;overflow:hidden;background:#0b0907}
+.kiste-buehne>picture,.kiste-vorn>picture{display:block}
+.kiste-buehne img.kiste-grund,.kiste-vorn img{display:block;width:100%;height:auto}
+.kiste-vorn{position:absolute;inset:0;pointer-events:none}
+.kiste-buehne img.kiste-flasche{position:absolute;width:auto;max-width:none;transform:translateX(-50%);pointer-events:none}
+.kiste-schatten{position:absolute;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse at center,rgba(20,10,0,.9),rgba(20,10,0,0) 70%);pointer-events:none}
+.kiste-preis{margin:1.2rem 0 1rem}
+.kiste-preis .auswahl-preis{font-size:2.2rem}
+.kiste-fest{color:var(--gedaempt);font-size:.9rem}
+.kiste-fach{border:0;margin:0 0 1rem;padding:0;min-width:0}
+.kiste-fach legend{font:500 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell);padding:0;margin-bottom:.5rem}
+.kiste-pos{text-transform:none;letter-spacing:.04em;color:var(--gedaempt)}
+.kiste-abv{color:inherit;opacity:.75;font-size:.85em;margin-left:.3rem}
+.nojs .kiste-wahl{display:none}
+.nojs .kiste-auswahl{display:flex}
+.kiste-anfrage{margin-top:1.4rem}
+.kiste-anfrage .knopf{margin-left:.4rem}
+@media(max-width:480px){.kiste-kachel>span{padding:.5rem .7rem}}
+@media(min-width:900px){.kiste-bild{position:sticky;top:1rem}}
+.kiste-kachel>span{min-height:40px;padding:.4rem .8rem}
+.kiste-raster .produkt-text h1{font-size:clamp(2.2rem,4vw,3.2rem)}

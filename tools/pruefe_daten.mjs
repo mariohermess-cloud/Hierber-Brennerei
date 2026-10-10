@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PRODUKTE } from '../site/data/produkte.js';
+import { KISTE_PREIS, KISTE_SORTEN } from '../site/data/holzkiste.js';
 
 const dist = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
 const fehler = [];
@@ -18,7 +19,7 @@ const norm = (s) => s.replace(/ /g, ' ');
 const alleNamen = new Set(PRODUKTE.flatMap((p) => [p.name, p.kurzname, ...p.varianten.map((v) => v.name)]));
 const byId = Object.fromEntries(PRODUKTE.map((p) => [p.id, p]));
 const preiseVon = (p) => p.varianten.flatMap((v) => v.preise.map((x) => x.preis));
-const groessenVon = (p) => new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)));
+const groessenVon = (p) => new Set(p.varianten.flatMap((v) => [...v.preise.map((x) => x.menge), ...(v.menge ? [v.menge] : [])])); // v.menge: Flaschengröße ohne Preis (Hierberol)
 const abvVon = (p) => new Set(p.varianten.map((v) => v.abv));
 
 function extrahiere(html) {
@@ -52,7 +53,8 @@ for (const datei of walk(dist)) {
     const p = byId[k[1]]; if (!p) { fail(rel, `Karte mit unbekannter id ${k[1]}`); continue; }
     const t = extrahiere(k[0]).text, tk = tokens(t);
     if (!t.includes(p.name)) fail(rel, `Karte ${p.id}: Name fehlt`);
-    if (tk.abv.length !== 1 || tk.abv[0] !== p.abv) fail(rel, `Karte ${p.id}: abv ${tk.abv} statt ${p.abv}`);
+    // abv: null (Alkoholgehalt unbekannt, derzeit keine Sorte): die Karte zeigt keine Angabe
+    if (p.abv == null ? tk.abv.length !== 0 : tk.abv.length !== 1 || tk.abv[0] !== p.abv) fail(rel, `Karte ${p.id}: abv ${tk.abv} statt ${p.abv}`);
     const pr = preiseVon(p);
     if (pr.length) { if (tk.preise.length !== 1 || tk.preise[0] !== Math.min(...pr)) fail(rel, `Karte ${p.id}: Preis ${tk.preise} statt ab ${Math.min(...pr)}`); }
     else if (tk.preise.length || !/Preis auf Anfrage|Prix sur demande/.test(t)) fail(rel, `Karte ${p.id}: sollte "Preis auf Anfrage" zeigen`);
@@ -69,7 +71,16 @@ for (const datei of walk(dist)) {
 
   const { ohneSkript, text } = extrahiere(html);
   const tk = tokens(text);
-  if (m) {
+  if (m && m[1] === 'holzkiste-4x0-2l') {
+    // Holzkiste 4 x 0,2 l: steht nicht in produkte.js; fester Preis, Alkoholgehalte der wählbaren Sorten
+    const h1 = (ohneSkript.match(/<h1[^>]*>([^<]*)<\/h1>/) || [])[1];
+    if (!/^(Holzkiste|Caisse en bois) 4 × 0,2 l$/.test(dec(h1 || ''))) fail(rel, `h1 "${h1}" unerwartet`);
+    if (!tk.preise.length || tk.preise.some((x) => x !== KISTE_PREIS)) fail(rel, `Preise ${tk.preise} statt ${KISTE_PREIS}`);
+    const erlaubt = new Set(KISTE_SORTEN.map((id) => byId[id].abv));
+    tk.abv.forEach((x) => { geprueft.abv++; if (!erlaubt.has(x)) fail(rel, `Alkoholgehalt ${x} % keiner Kistensorte`); });
+    geprueft.preise += tk.preise.length;
+    for (const id of KISTE_SORTEN) if (!new RegExp(`name="fach-1" value="${id}"`).test(html)) fail(rel, `Auswahl ${id} fehlt in Fach 1`);
+  } else if (m) {
     const p = byId[m[1]];
     if (!p) { fail(rel, 'Sortenseite ohne Sorte in produkte.js'); continue; }
     const h1 = (ohneSkript.match(/<h1[^>]*>([^<]*)<\/h1>/) || [])[1];
@@ -108,7 +119,9 @@ for (const datei of walk(dist)) {
   } else if (tk.preise.length || tk.abv.length) fail(rel, `Startseite: Preise/Alkohol außerhalb der Karten ${tk.preise} ${tk.abv}`);
 }
 
-// Alle 29 Sorten in de und fr vorhanden
+for (const pre of ['', 'fr/']) if (!fs.existsSync(path.join(dist, `${pre}brand/holzkiste-4x0-2l/index.html`))) fail('holzkiste', `${pre}brand/holzkiste-4x0-2l/ fehlt`);
+
+// Alle Sorten aus produkte.js (derzeit 30) in de und fr vorhanden
 for (const p of PRODUKTE) for (const pre of ['', 'fr/']) if (!fs.existsSync(path.join(dist, `${pre}brand/${p.id}/index.html`))) fail(p.id, `${pre}brand/${p.id}/ fehlt`);
 
 console.log(`Geprüft: ${geprueft.seiten} Seiten, ${geprueft.karten} Sortenkarten, ${geprueft.preise} Preisangaben, ${geprueft.abv} Alkoholangaben, ${geprueft.groessen} Größen, ${geprueft.namen} Sortennamen.`);

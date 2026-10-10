@@ -1,0 +1,211 @@
+[
+  {
+    "id": "hierberol-flasche",
+    "sorte": "Hierberol",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/hierberol-0-7l.png",
+    "anhang1": "fotos-basis/rund-0-7l.png",
+    "anhang2": "fotos-flaschen/hierberol-0-7l.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,7-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: leuchtendes Orange-Rot (Bitter-Aperitif), bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, exakt wie auf diesem Bild (nur das Etikett übernehmen, nicht Flasche, Grund oder Licht): blaues Etikett mit weißer Raute und schwarzer Schreibschrift „Hierberol“, oben „APERITIF“, unten „0,7 l“ und „15 % vol.“, rechts oben die Zubereitung „Prosecco (90 ml), Hierberol (60 ml), Soda (30 ml), Eis, Orangenscheibe“. Kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2; es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/hierberol-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, „APERITIF“, „0,7 l“, „15 % vol.“, Zubereitung, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Grund hell, neutral, weißgrau; sanfter Schatten am Boden.",
+      "Inhalt: leuchtendes Orange-Rot (Bitter-Aperitif), bis zum Hals gefüllt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller im Ergebnis (Form, Etikett, Schrift, Symbole).",
+      "Der Verschluss des Basisfotos fotos-basis/rund-0-7l.png zählt nicht, die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang; das Etikett kommt nur aus Anhang 2, der Rest von Anhang 2 (Grund, Licht, Flasche) ist nicht vorgegeben",
+      "Dieses Bild ist die Datei, die die Sortenseite im Kopf und auf der Karte zeigt (Größenbild 0,7 L)."
+    ],
+    "status": "vorhanden",
+    "woerter": 255,
+    "anhangFehlt": []
+  },
+  {
+    "id": "hierberol-1",
+    "sorte": "Hierberol",
+    "typ": "serviervorschlag",
+    "dateiname": "fotos-ki/hierberol-1.png",
+    "anhang1": "fotos-flaschen/hierberol-0-7l.png",
+    "anhang2": "fotos-flaschen/hierberol-0-7l.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein großes Weinglas mit viel Eis, gefüllt mit einem perlenden, leuchtend orange-roten Getränk, eine Orangenscheibe im Glas. Daneben unscharf ein Schälchen Oliven und Käsewürfel.\nFlasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form und blaues Etikett mit weißer Raute exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Foto als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: leuchtendes Orange-Rot.\nNur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.\nNegativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
+    "hinweise": [
+      "Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.",
+      "Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“",
+      "Nur Rezept-Zutaten im Bild; Entwurf, der Brenner bestätigt die Rezepte (Karte „Hierberol-Spritz“).",
+      "Keine bekannten Markenzeichen oder Aufmachungen anderer Hersteller im Ergebnis.",
+      "Sobald die Datei in fotos-ki/ liegt, baut der nächste Build sie in die Sortenseite ein (site/data/ki-bilder.js, Karte nach kartenNummern); bis dahin zeigt die Karte den Platzhalter."
+    ],
+    "status": "vorhanden",
+    "woerter": 194,
+    "anhangFehlt": []
+  },
+  {
+    "id": "hierberol-2",
+    "sorte": "Hierberol",
+    "typ": "serviervorschlag",
+    "dateiname": "fotos-ki/hierberol-2.png",
+    "anhang1": "fotos-flaschen/hierberol-0-7l.png",
+    "anhang2": "fotos-flaschen/hierberol-0-7l.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Tumbler mit Eiswürfeln und leuchtend orange-rotem Hierberol, eine Orangenscheibe am Glasrand. Daneben unscharf ein Schälchen Oliven.\nFlasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form und blaues Etikett mit weißer Raute exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Foto als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: leuchtendes Orange-Rot.\nNur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.\nNegativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
+    "hinweise": [
+      "Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.",
+      "Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“",
+      "Nur Rezept-Zutaten im Bild; Entwurf, der Brenner bestätigt die Rezepte (Karte „Hierberol auf Eis mit Orangenscheibe“).",
+      "Keine bekannten Markenzeichen oder Aufmachungen anderer Hersteller im Ergebnis.",
+      "Sobald die Datei in fotos-ki/ liegt, baut der nächste Build sie in die Sortenseite ein (site/data/ki-bilder.js, Karte nach kartenNummern); bis dahin zeigt die Karte den Platzhalter."
+    ],
+    "status": "vorhanden",
+    "woerter": 187,
+    "anhangFehlt": []
+  },
+  {
+    "id": "hierberol-3",
+    "sorte": "Hierberol",
+    "typ": "serviervorschlag",
+    "dateiname": "fotos-ki/hierberol-3.png",
+    "anhang1": "fotos-flaschen/hierberol-0-7l.png",
+    "anhang2": "fotos-flaschen/hierberol-0-7l.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Longdrinkglas, bis oben mit Eiswürfeln gefüllt, darin ein hell orange-rotes, leicht perlendes Getränk, eine Orangenscheibe im Glas. Daneben unscharf ein paar Käsewürfel.\nFlasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form und blaues Etikett mit weißer Raute exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Foto als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: leuchtendes Orange-Rot.\nNur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.\nNegativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
+    "hinweise": [
+      "Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.",
+      "Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“",
+      "Nur Rezept-Zutaten im Bild; Entwurf, der Brenner bestätigt die Rezepte (Karte „Hierberol Tonic“).",
+      "Keine bekannten Markenzeichen oder Aufmachungen anderer Hersteller im Ergebnis.",
+      "Sobald die Datei in fotos-ki/ liegt, baut der nächste Build sie in die Sortenseite ein (site/data/ki-bilder.js, Karte nach kartenNummern); bis dahin zeigt die Karte den Platzhalter."
+    ],
+    "status": "vorhanden",
+    "woerter": 193,
+    "anhangFehlt": []
+  },
+  {
+    "id": "hierberol-4",
+    "sorte": "Hierberol",
+    "typ": "serviervorschlag",
+    "dateiname": "fotos-ki/hierberol-4.png",
+    "anhang1": "fotos-flaschen/hierberol-0-7l.png",
+    "anhang2": "fotos-flaschen/hierberol-0-7l.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Holzbrett mit grünen Oliven und kleinen Käsewürfeln, daneben ein Tumbler mit leuchtend orange-rotem Hierberol, ohne Eis und ohne Garnitur.\nFlasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form und blaues Etikett mit weißer Raute exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Foto als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: leuchtendes Orange-Rot.\nNur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.\nNegativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
+    "hinweise": [
+      "Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.",
+      "Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“",
+      "Nur Rezept-Zutaten im Bild; Entwurf, der Brenner bestätigt die Rezepte (Karte „Hierberol zu Oliven und Käsewürfeln“).",
+      "Keine bekannten Markenzeichen oder Aufmachungen anderer Hersteller im Ergebnis.",
+      "Sobald die Datei in fotos-ki/ liegt, baut der nächste Build sie in die Sortenseite ein (site/data/ki-bilder.js, Karte nach kartenNummern); bis dahin zeigt die Karte den Platzhalter."
+    ],
+    "status": "vorhanden",
+    "woerter": 193,
+    "anhangFehlt": []
+  },
+  {
+    "id": "kraider-batti-flasche",
+    "sorte": "Kräider Batti",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/kraider-batti-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "PLATZHALTER: Etikett von Kräider Batti folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur als Platzhalter für Form und Proportionen; die endgültige Form ist noch zu klären); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt ohne Papierband. Inhalt: sehr dunkelbrauner, fast schwarzer Kräuterlikör in dunkler Glasflasche, der Likör ist durch das dunkle Glas kaum zu sehen, die Flasche ist bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Name „Kräider Batti“, Alkoholangabe und Menge nur wie auf dem Etikett, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kraider-batti-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Kräider Batti folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Anhang 2 fehlt: das Etikett von Kräider Batti liegt noch nicht vor. Ohne Etikett nicht erzeugen (ChatGPT würde den Namen frei erfinden); sobald es da ist, als Datei in den Prompt einsetzen und diese Konfiguration anpassen (anhang2, etikettFolgt).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Grund hell, neutral, weißgrau; sanfter Schatten am Boden.",
+      "Inhalt: sehr dunkelbrauner, fast schwarzer Kräuterlikör in dunkler Glasflasche, der Likör ist durch das dunkle Glas kaum zu sehen, die Flasche ist bis zum Hals gefüllt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller im Ergebnis (Form, Etikett, Schrift, Symbole).",
+      "Form klären: fotos-basis/rund-0-5l.png ist nur ein Platzhalter (klares Glas, anderer Verschluss); Größe und Flaschenform von Kräider Batti sind nicht bekannt, dunkles Glas steht nur im Prompt; der Verschluss ist die Verschluss-Zeile (Glasstopfen ohne Kork)",
+      "Größe, Alkoholgehalt und Preis von Kräider Batti sind nicht bekannt; nichts davon in den Prompt oder auf die Seite schreiben, bis der Brenner sie liefert."
+    ],
+    "status": "vorhanden",
+    "woerter": 256,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Kräider Batti folgt"
+    ]
+  },
+  {
+    "id": "kraider-batti-1",
+    "sorte": "Kräider Batti",
+    "typ": "serviervorschlag",
+    "dateiname": "fotos-ki/kraider-batti-1.png",
+    "anhang1": "fotos-flaschen/kraider-batti-0-5l.png",
+    "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein kleines Stielglas mit gut gekühltem, sehr dunkelbraunem Kräuterlikör, das Glas leicht beschlagen, ohne Eis und ohne Garnitur.\nFlasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form, dunkles Glas und Etikett exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Bild als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: sehr dunkelbraun, fast schwarz.\nNur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.\nNegativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
+    "hinweise": [
+      "Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.",
+      "Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“",
+      "Nur Rezept-Zutaten im Bild; Entwurf, der Brenner bestätigt die Rezepte (Karte „Kräider Batti pur, gut gekühlt“).",
+      "Keine bekannten Markenzeichen oder Aufmachungen anderer Hersteller im Ergebnis.",
+      "Kräider Batti hat keine Sortenseite: die Datei dient nur als Vorrat. Erst erzeugen, wenn Flaschenbild und Etikett vorliegen (Anhang 1 und 2 sind das noch fehlende Flaschenbild)."
+    ],
+    "status": "vorhanden",
+    "woerter": 188,
+    "anhangFehlt": []
+  },
+  {
+    "id": "kraider-batti-2",
+    "sorte": "Kräider Batti",
+    "typ": "serviervorschlag",
+    "dateiname": "fotos-ki/kraider-batti-2.png",
+    "anhang1": "fotos-flaschen/kraider-batti-0-5l.png",
+    "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein Tumbler mit Eiswürfeln und sehr dunkelbraunem Kräuterlikör, ohne Garnitur.\nFlasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form, dunkles Glas und Etikett exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Bild als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: sehr dunkelbraun, fast schwarz.\nNur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.\nNegativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
+    "hinweise": [
+      "Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.",
+      "Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“",
+      "Nur Rezept-Zutaten im Bild; Entwurf, der Brenner bestätigt die Rezepte (Karte „Kräider Batti auf Eis“).",
+      "Keine bekannten Markenzeichen oder Aufmachungen anderer Hersteller im Ergebnis.",
+      "Kräider Batti hat keine Sortenseite: die Datei dient nur als Vorrat. Erst erzeugen, wenn Flaschenbild und Etikett vorliegen (Anhang 1 und 2 sind das noch fehlende Flaschenbild)."
+    ],
+    "status": "vorhanden",
+    "woerter": 180,
+    "anhangFehlt": []
+  },
+  {
+    "id": "kraider-batti-3",
+    "sorte": "Kräider Batti",
+    "typ": "serviervorschlag",
+    "dateiname": "fotos-ki/kraider-batti-3.png",
+    "anhang1": "fotos-flaschen/kraider-batti-0-5l.png",
+    "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Eine Espressotasse mit frischem Espresso und Crema auf einer Untertasse, daneben ein kleines Glas sehr dunkelbrauner Kräuterlikör.\nFlasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form, dunkles Glas und Etikett exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Bild als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: sehr dunkelbraun, fast schwarz.\nNur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.\nNegativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
+    "hinweise": [
+      "Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.",
+      "Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“",
+      "Nur Rezept-Zutaten im Bild; Entwurf, der Brenner bestätigt die Rezepte (Karte „Espresso mit Kräider Batti“).",
+      "Keine bekannten Markenzeichen oder Aufmachungen anderer Hersteller im Ergebnis.",
+      "Kräider Batti hat keine Sortenseite: die Datei dient nur als Vorrat. Erst erzeugen, wenn Flaschenbild und Etikett vorliegen (Anhang 1 und 2 sind das noch fehlende Flaschenbild)."
+    ],
+    "status": "offen",
+    "woerter": 190,
+    "anhangFehlt": []
+  },
+  {
+    "id": "kraider-batti-4",
+    "sorte": "Kräider Batti",
+    "typ": "serviervorschlag",
+    "dateiname": "fotos-ki/kraider-batti-4.png",
+    "anhang1": "fotos-flaschen/kraider-batti-0-5l.png",
+    "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
+    "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.\nSzene: Ein kleines Stielglas mit sehr dunkelbraunem Kräuterlikör, daneben auf einem Holzbrett drei Stücke dunkle Schokolade.\nFlasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form, dunkles Glas und Etikett exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Bild als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: sehr dunkelbraun, fast schwarz.\nNur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.\nNegativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
+    "hinweise": [
+      "Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.",
+      "Etikett mit der Flaschenvorlage vergleichen (Name, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“",
+      "Nur Rezept-Zutaten im Bild; Entwurf, der Brenner bestätigt die Rezepte (Karte „Kräider Batti zu dunkler Schokolade“).",
+      "Keine bekannten Markenzeichen oder Aufmachungen anderer Hersteller im Ergebnis.",
+      "Kräider Batti hat keine Sortenseite: die Datei dient nur als Vorrat. Erst erzeugen, wenn Flaschenbild und Etikett vorliegen (Anhang 1 und 2 sind das noch fehlende Flaschenbild)."
+    ],
+    "status": "offen",
+    "woerter": 188,
+    "anhangFehlt": []
+  }
+]
