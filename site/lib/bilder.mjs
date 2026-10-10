@@ -189,7 +189,7 @@ export async function bilder({ root, dist }) {
   return IMG;
 }
 
-// OG-Bilder 1200x630: Etikett auf dunklem Holzgrund, dünner Kupferrahmen. Startseite und Sorten ohne Etikett: Hofschild-Foto (Ausschnitt, nicht hochskaliert).
+// OG-Bilder 1200x630: Etikett auf dunklem Holzgrund, dünner Kupferrahmen. Startseite und Sorten ohne Etikett: Hofschild-Foto (Ausschnitt).
 export async function ogBilder({ root, dist, IMG = {} }) {
   const dir = path.join(dist, 'og');
   await fs.mkdir(dir, { recursive: true });
@@ -200,7 +200,10 @@ export async function ogBilder({ root, dist, IMG = {} }) {
   };
   // Startseite / Standard: Ausschnitt 2000x1050 (Seitenverhältnis 1200:630) des Hofschild-Fotos, auf 1200x630 verkleinert
   const hofschild = path.join(root, 'fotos', 'hofschild-aussen.jpg');
-  await sharp(hofschild).extract({ left: 0, top: 60, width: 2000, height: 1050 }).resize(1200, 630).jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(dir, 'standard.jpg'));
+  // Ausschnitt unabhängig von der Bildgröße: volle Breite, Höhe nach 1200:630, oben um 3 % der Breite abgesetzt (bei 2000 px Breite 60 px)
+  const hm = await sharp(hofschild).metadata();
+  const ah = Math.min(Math.round(hm.width * 630 / 1200), hm.height);
+  await sharp(hofschild).extract({ left: 0, top: Math.min(Math.round(hm.width * 0.03), hm.height - ah), width: hm.width, height: ah }).resize(1200, 630).jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(dir, 'standard.jpg'));
   // Sorten mit flachem Etikett: Vektor-Flasche (Sortenfarbe) mit aufgesetztem Etikett auf heller Bühne, zentriert auf dunklem Grund
   const BUEHNE = { w: 360, h: 560 };
   const buehne = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${BUEHNE.w}" height="${BUEHNE.h}"><rect width="${BUEHNE.w}" height="${BUEHNE.h}" rx="2" fill="#e6dbc8"/><rect y="${BUEHNE.h - 34}" width="${BUEHNE.w}" height="34" fill="#cbbca2"/></svg>`);
