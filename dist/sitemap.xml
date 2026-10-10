@@ -720,4 +720,16 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://hierber-brennerei.lu/fr/brand/quitten/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hierber-brennerei.lu/brand/quitten/"/>
   </url>
+  <url>
+    <loc>https://hierber-brennerei.lu/brand/holzkiste-4x0-2l/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hierber-brennerei.lu/brand/holzkiste-4x0-2l/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hierber-brennerei.lu/fr/brand/holzkiste-4x0-2l/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hierber-brennerei.lu/brand/holzkiste-4x0-2l/"/>
+  </url>
+  <url>
+    <loc>https://hierber-brennerei.lu/fr/brand/holzkiste-4x0-2l/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hierber-brennerei.lu/brand/holzkiste-4x0-2l/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hierber-brennerei.lu/fr/brand/holzkiste-4x0-2l/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hierber-brennerei.lu/brand/holzkiste-4x0-2l/"/>
+  </url>
 </urlset>

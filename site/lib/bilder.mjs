@@ -11,6 +11,7 @@ import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
 import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
 import { typVon, TYP, labelFeld, flascheStandalone } from './flasche.mjs';
 import { mengenVon } from './util.mjs';
+import { KISTE_SORTEN, KISTE_FOTO, ZUSCHNITT, FREISTELLER_ORDNER } from '../data/holzkiste.js';
 
 const STANDARD = [480, 960, 1600];
 const FORMATE = {
@@ -187,6 +188,37 @@ export async function bilder({ root, dist }) {
   const res = [];
   for (let i = 0; i < jobs.length; i += 4) res.push(...(await Promise.all(jobs.slice(i, i + 4))));
   for (const r of res) IMG[r.key] = r;
+  return IMG;
+}
+
+// ---------- Holzkiste 4 x 0,2 l ----------
+// Leeres Kistenfoto (fotos-kisten/holzkiste-leer.png), nur der Ausschnitt ZUSCHNITT, als AVIF/WebP/JPEG in 480/960/1024 px Breite (Schlüssel kiste-leer).
+// Freisteller (assets/kiste/<sorte>-0-2l.png, RGBA, von tools/flaschen_freistellen.mjs) als WebP mit Alphakanal (Schlüssel kiste-<sorte>), Breite = Quellbreite.
+const KISTE_BREITEN = [480, 960, 1024];
+export async function kistenBilder({ root, dist }) {
+  const dir = path.join(dist, 'img');
+  await fs.mkdir(dir, { recursive: true });
+  const IMG = {};
+  const quelle = path.join(root, KISTE_FOTO);
+  const breiten = breitenFuer(ZUSCHNITT.b, KISTE_BREITEN);
+  for (const w of breiten) {
+    for (const [ext, fn] of Object.entries(FORMATE)) {
+      const out = path.join(dir, `kiste-leer-${w}.${ext}`);
+      if (await istNeuer(out, quelle, DIESE_DATEI)) continue;
+      let s = sharp(quelle).extract({ left: ZUSCHNITT.x, top: ZUSCHNITT.y, width: ZUSCHNITT.b, height: ZUSCHNITT.h });
+      if (w !== ZUSCHNITT.b) s = s.resize({ width: w });
+      await fn(s).toFile(out);
+    }
+  }
+  const gr = breiten[breiten.length - 1];
+  IMG['kiste-leer'] = { key: 'kiste-leer', breiten, w: gr, h: Math.round((ZUSCHNITT.h * gr) / ZUSCHNITT.b), quelleW: ZUSCHNITT.b, quelleH: ZUSCHNITT.h };
+  for (const sorte of KISTE_SORTEN) {
+    const q = path.join(root, FREISTELLER_ORDNER, `${sorte}-0-2l.png`);
+    const out = path.join(dir, `kiste-${sorte}.webp`);
+    const meta = await sharp(q).metadata();
+    if (!(await istNeuer(out, q))) await sharp(q).webp({ quality: 82, alphaQuality: 90, effort: 5 }).toFile(out);
+    IMG[`kiste-${sorte}`] = { key: `kiste-${sorte}`, w: meta.width, h: meta.height, freisteller: true };
+  }
   return IMG;
 }
 

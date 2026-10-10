@@ -177,4 +177,10 @@ Neue Sortenseiten aus `tools/neue-gruppen.json` und der Preisliste (Oktober 2026
 - **Etiketten:** vorhanden für alle Liköre außer Ingwerlikör, dazu Mirabelle op Mirabellen und Quetsch op Quetsch. Ohne Etikett (Seite zeigt „Etikett folgt“): Ingwerlikör, Willi op Biren und alle Weitere Brände. Mirabelle op Mirabellen gibt es jetzt als zwei Sorten: Geräift (Branntwein, 35 %, Etikett „Brandwein Mirabelle geräift-01.png“) und Likör (Etikett „Likör Mirabelle geräift_Zeichenfläche 1.png“).
 - **Namen:** Nëssdrëpp heißt auf der Seite „Nëssdrëpp“, die Klammer „(Walnuss)“ steht in der Variante; Geräift-Sorten ohne Zusatz „geräift“ im Namen (Schreibweise der Preisliste).
 - **Fotos:** noch keine Flaschenfotos (`fotos-flaschen/`); bis dahin zeigt die Seite die Vektor-Flasche (mit Etikett) bzw. den Platzhalter. Flüssigkeitsfarben (`fluessigkeit.js`) sind geschätzt nach den Farbworten in `neue-gruppen.json`.
-- **Offen:** Holzkisten und Kräider Batti haben weiter keine Sortenseite.
+- **Offen:** Kräider Batti hat weiter keine Sortenseite. Die Holzkiste 4 × 0,2 l hat eine eigene Seite `/brand/holzkiste-4x0-2l/` (Abschnitt Holzkiste unten); die übrigen Holzkisten nicht.
+
+## Holzkiste 4 × 0,2 l (`/brand/holzkiste-4x0-2l/`)
+
+- Die Seite nutzt das echte Foto der leeren Kiste `fotos-kisten/holzkiste-leer.png` (Hochformat 1024 × 1536) und stellt die gewählten Flaschen als Freisteller hinein (`tools/flaschen_freistellen.mjs` erzeugt `assets/kiste/<sorte>-0-2l.png` aus `fotos-flaschen/<sorte>-0-2l.png`; Koordinaten in `site/data/holzkiste.js`).
+- Der KI-Prompt für die Holzkiste in `tools/neue-gruppen.json` wird für diese Seite nicht mehr gebraucht; er bleibt nur für Marketing-Fotos der bestückten Kiste.
+- Zu bestätigen (`data-todo`): Kurz- und Einleitungstext, Festpreis 58 € (TTC), Sortenauswahl (Gin, Rum, Whisky, Sambuca, Wodka, Limoncello), Französisch (Entwurf), Bestellweg (derzeit nur der Link zur Anfrage; die Merkliste kennt die Kiste nicht).

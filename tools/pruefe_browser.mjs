@@ -19,7 +19,7 @@ page.on('requestfailed', (r) => konsole.push('requestfailed: ' + r.url()));
 page.on('response', (r) => { if (r.status() >= 400) konsole.push(`HTTP ${r.status()}: ${r.url()}`); });
 
 // 1. Konsole auf allen Seiten
-const pfade = ['/', '/anfrage/', '/impressum/', '/datenschutz/', ...PRODUKTE.map((p) => `/brand/${p.id}/`)];
+const pfade = ['/', '/anfrage/', '/impressum/', '/datenschutz/', ...PRODUKTE.map((p) => `/brand/${p.id}/`), '/brand/holzkiste-4x0-2l/'];
 for (const lang of ['', '/fr']) for (const p of pfade) {
   konsole = [];
   await page.goto(BASIS + lang + (p === '/' && lang ? '/' : p), { waitUntil: 'networkidle' });
@@ -351,6 +351,56 @@ const vorschauH = await page.locator('[data-vorschau]').textContent();
 check(vorschauH.includes('1 x Hierberol, 0,7 L: 19 € je Stück = 19 €'), `hierberol: Anfrage-Text „1 x Hierberol, 0,7 L: 19 € je Stück = 19 €“ (${vorschauH.replace(/\s+/g, ' ').slice(0, 160)})`);
 await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
 console.log('Hierberol getestet.');
+
+// Holzkiste 4 x 0,2 l: Seite, Live-Vorschau, Preis, Mehrfachwahl, Handybreite
+{
+  konsole = [];
+  const r = await page.goto(BASIS + '/brand/holzkiste-4x0-2l/', { waitUntil: 'networkidle' });
+  check(r && r.status() === 200 && (await page.locator('h1').textContent()) === 'Holzkiste 4 × 0,2 l', 'Holzkiste: Seite lädt, h1 „Holzkiste 4 × 0,2 l“');
+  check(konsole.length === 0, `Holzkiste: Konsole ohne Fehler: ${konsole.join(' | ')}`);
+  const preis = async () => (await page.locator('[data-kiste-preis]').textContent()).replace(/\s/g, ' ');
+  check((await preis()) === '58 €', `Holzkiste: Preis 58 € (${await preis()})`);
+  const belegung = () => page.locator('[data-kiste-buehne]').getAttribute('data-belegung');
+  const sorten = () => page.evaluate(() => [...document.querySelectorAll('[data-fach-bild]')].sort((a, b) => a.getAttribute('data-fach-bild') - b.getAttribute('data-fach-bild')).map((i) => i.getAttribute('data-sorte')).join(','));
+  const zusammen = async () => (await page.locator('[data-kiste-text]').textContent()).trim();
+  check((await belegung()) === 'gin,rum,whisky,wodka' && (await zusammen()) === 'Gin, Rum, Whisky, Wodka', `Holzkiste: Standardbelegung Gin, Rum, Whisky, Wodka (${await belegung()} / ${await zusammen()})`);
+  check((await page.locator('[data-kiste-auswahl]').getAttribute('aria-live')) === 'polite', 'Holzkiste: Zusammenfassung ist aria-live');
+  check((await page.locator('.kiste-fach').count()) === 4 && (await page.locator('.kiste-fach input[type=radio]').count()) === 24, 'Holzkiste: 4 Fächer mit je 6 Sorten');
+  // Fach 1 auf Sambuca
+  await page.locator('[data-fach="1"] label', { hasText: 'Sambuca' }).click();
+  check((await sorten()) === 'sambuca,rum,whisky,wodka' && (await belegung()) === 'sambuca,rum,whisky,wodka', `Holzkiste: Fach 1 Sambuca ändert die Vorschau (${await sorten()})`);
+  check((await zusammen()) === 'Sambuca, Rum, Whisky, Wodka', `Holzkiste: Zusammenfassung folgt (${await zusammen()})`);
+  check((await page.locator('img[data-fach-bild="1"]').getAttribute('src')) === '/img/kiste-sambuca.webp', 'Holzkiste: Bild von Fach 1 ist der Sambuca-Freisteller');
+  check(/vorne links Whisky/.test(await page.locator('img.kiste-grund').getAttribute('alt')) && /hinten links Sambuca/.test(await page.locator('img.kiste-grund').getAttribute('alt')), 'Holzkiste: Alt-Text wechselt mit der Auswahl');
+  check((await preis()) === '58 €', 'Holzkiste: Preis bleibt 58 €');
+  // Fach 3 auf dieselbe Sorte wie Fach 1
+  await page.locator('[data-fach="3"] label', { hasText: 'Sambuca' }).click();
+  check((await belegung()) === 'sambuca,rum,sambuca,wodka' && (await zusammen()) === 'Sambuca, Rum, Sambuca, Wodka', `Holzkiste: dieselbe Sorte in zwei Fächern erlaubt (${await belegung()})`);
+  check(await bildGeladen(page, 'img[data-fach-bild="3"]'), 'Holzkiste: Flaschenbild in Fach 3 geladen');
+  // Handybreite: kein horizontales Scrollen
+  const breite = await page.evaluate(() => ({ s: document.documentElement.scrollWidth, c: document.documentElement.clientWidth }));
+  check(breite.s <= breite.c, `Holzkiste: bei 390 px kein horizontales Scrollen (${breite.s} > ${breite.c})`);
+  // Seite ohne JavaScript: Standardbelegung als statisches HTML
+  const ctxOhne = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
+  const seiteOhne = await ctxOhne.newPage();
+  await seiteOhne.goto(BASIS + '/brand/holzkiste-4x0-2l/', { waitUntil: 'load' });
+  const ohneJs = await seiteOhne.evaluate(() => ({ s: [...document.querySelectorAll('[data-fach-bild]')].sort((a, b) => a.getAttribute('data-fach-bild') - b.getAttribute('data-fach-bild')).map((i) => i.getAttribute('data-sorte')).join(','), t: document.querySelector('[data-kiste-text]').textContent.trim() }));
+  check(ohneJs.s === 'gin,rum,whisky,wodka' && ohneJs.t === 'Gin, Rum, Whisky, Wodka', `Holzkiste ohne JavaScript: Standardbelegung (${JSON.stringify(ohneJs)})`);
+  await ctxOhne.close();
+  // französische Seite
+  const fr = await page.goto(BASIS + '/fr/brand/holzkiste-4x0-2l/', { waitUntil: 'networkidle' });
+  check(fr && fr.status() === 200 && (await page.locator('[data-kiste-buehne]').count()) === 1, 'Holzkiste: /fr/brand/holzkiste-4x0-2l/ lädt');
+  // Screenshots für die Sichtprüfung, falls KISTE_SHOTS gesetzt ist (Verzeichnis außerhalb des Repos)
+  if (process.env.KISTE_SHOTS) {
+    await page.setViewportSize({ width: 1100, height: 900 });
+    await page.goto(BASIS + '/brand/holzkiste-4x0-2l/', { waitUntil: 'networkidle' });
+    await page.locator('.kiste-bild').screenshot({ path: path.join(process.env.KISTE_SHOTS, 'kiste-1.png') });
+    for (const [nr, id] of [[1, 'sambuca'], [2, 'limoncello'], [3, 'sambuca'], [4, 'gin']]) await page.locator(`[data-fach="${nr}"] label`, { hasText: new RegExp(`^\\s*${id}`, 'i') }).click();
+    await page.waitForTimeout(300);
+    await page.locator('.kiste-bild').screenshot({ path: path.join(process.env.KISTE_SHOTS, 'kiste-2.png') });
+  }
+  console.log('Holzkiste getestet.');
+}
 
 await browser.close();
 console.log(`${ok} Prüfungen bestanden.`);

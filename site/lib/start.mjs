@@ -62,7 +62,7 @@ function theke(IMG, lang) {
 ${g.ids.map((id) => karte(IMG, produktById(id), lang)).join('\n')}
 </ul></div>`).join('\n');
   const weitere = lang === 'de'
-    ? `<div class="weitere" data-todo="bestaetigen"><h3>${t.weitereTitel}</h3><p>Kräider Batti · Holzkisten</p></div>`
+    ? `<div class="weitere" data-todo="bestaetigen"><h3>${t.weitereTitel}</h3><p>Kräider Batti · <a href="${pfad(lang, '/brand/holzkiste-4x0-2l/')}">Holzkisten</a></p></div>`
     : `<div class="weitere"><h3>${t.weitereTitel}</h3>${folgt(t)}</div>`;
   return `<section class="sektion dunkel flaeche theke" id="theke" aria-labelledby="theke-h">
   ${FLASCHEN_DEFS}

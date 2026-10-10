@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PRODUKTE } from '../site/data/produkte.js';
+import { KISTE_PREIS, KISTE_SORTEN } from '../site/data/holzkiste.js';
 
 const dist = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
 const fehler = [];
@@ -70,7 +71,16 @@ for (const datei of walk(dist)) {
 
   const { ohneSkript, text } = extrahiere(html);
   const tk = tokens(text);
-  if (m) {
+  if (m && m[1] === 'holzkiste-4x0-2l') {
+    // Holzkiste 4 x 0,2 l: steht nicht in produkte.js; fester Preis, Alkoholgehalte der wählbaren Sorten
+    const h1 = (ohneSkript.match(/<h1[^>]*>([^<]*)<\/h1>/) || [])[1];
+    if (!/^(Holzkiste|Caisse en bois) 4 × 0,2 l$/.test(dec(h1 || ''))) fail(rel, `h1 "${h1}" unerwartet`);
+    if (!tk.preise.length || tk.preise.some((x) => x !== KISTE_PREIS)) fail(rel, `Preise ${tk.preise} statt ${KISTE_PREIS}`);
+    const erlaubt = new Set(KISTE_SORTEN.map((id) => byId[id].abv));
+    tk.abv.forEach((x) => { geprueft.abv++; if (!erlaubt.has(x)) fail(rel, `Alkoholgehalt ${x} % keiner Kistensorte`); });
+    geprueft.preise += tk.preise.length;
+    for (const id of KISTE_SORTEN) if (!new RegExp(`name="fach-1" value="${id}"`).test(html)) fail(rel, `Auswahl ${id} fehlt in Fach 1`);
+  } else if (m) {
     const p = byId[m[1]];
     if (!p) { fail(rel, 'Sortenseite ohne Sorte in produkte.js'); continue; }
     const h1 = (ohneSkript.match(/<h1[^>]*>([^<]*)<\/h1>/) || [])[1];
@@ -108,6 +118,8 @@ for (const datei of walk(dist)) {
     if (tk.preise.length || tk.abv.length) fail(rel, `unerwartete Preise/Alkoholangaben ${tk.preise} ${tk.abv}`);
   } else if (tk.preise.length || tk.abv.length) fail(rel, `Startseite: Preise/Alkohol außerhalb der Karten ${tk.preise} ${tk.abv}`);
 }
+
+for (const pre of ['', 'fr/']) if (!fs.existsSync(path.join(dist, `${pre}brand/holzkiste-4x0-2l/index.html`))) fail('holzkiste', `${pre}brand/holzkiste-4x0-2l/ fehlt`);
 
 // Alle Sorten aus produkte.js (derzeit 30) in de und fr vorhanden
 for (const p of PRODUKTE) for (const pre of ['', 'fr/']) if (!fs.existsSync(path.join(dist, `${pre}brand/${p.id}/index.html`))) fail(p.id, `${pre}brand/${p.id}/ fehlt`);
