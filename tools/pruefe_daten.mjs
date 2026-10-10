@@ -18,7 +18,7 @@ const norm = (s) => s.replace(/ /g, ' ');
 const alleNamen = new Set(PRODUKTE.flatMap((p) => [p.name, p.kurzname, ...p.varianten.map((v) => v.name)]));
 const byId = Object.fromEntries(PRODUKTE.map((p) => [p.id, p]));
 const preiseVon = (p) => p.varianten.flatMap((v) => v.preise.map((x) => x.preis));
-const groessenVon = (p) => new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)));
+const groessenVon = (p) => new Set(p.varianten.flatMap((v) => [...v.preise.map((x) => x.menge), ...(v.menge ? [v.menge] : [])])); // v.menge: Flaschengröße ohne Preis (Hierberol)
 const abvVon = (p) => new Set(p.varianten.map((v) => v.abv));
 
 function extrahiere(html) {
@@ -108,7 +108,7 @@ for (const datei of walk(dist)) {
   } else if (tk.preise.length || tk.abv.length) fail(rel, `Startseite: Preise/Alkohol außerhalb der Karten ${tk.preise} ${tk.abv}`);
 }
 
-// Alle 29 Sorten in de und fr vorhanden
+// Alle Sorten aus produkte.js (derzeit 30) in de und fr vorhanden
 for (const p of PRODUKTE) for (const pre of ['', 'fr/']) if (!fs.existsSync(path.join(dist, `${pre}brand/${p.id}/index.html`))) fail(p.id, `${pre}brand/${p.id}/ fehlt`);
 
 console.log(`Geprüft: ${geprueft.seiten} Seiten, ${geprueft.karten} Sortenkarten, ${geprueft.preise} Preisangaben, ${geprueft.abv} Alkoholangaben, ${geprueft.groessen} Größen, ${geprueft.namen} Sortennamen.`);

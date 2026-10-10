@@ -10,6 +10,7 @@ import { PRODUKTE } from '../data/produkte.js';
 import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
 import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
 import { typVon, TYP, labelFeld, flascheStandalone } from './flasche.mjs';
+import { mengenVon } from './util.mjs';
 
 const STANDARD = [480, 960, 1600];
 const FORMATE = {
@@ -159,8 +160,8 @@ export async function bilder({ root, dist }) {
   for (const p of PRODUKTE) {
     const q = await flaschenFotoQuelle(root, p.id);
     if (q) jobs.push(verarbeiteFlaschenfoto({ key: `flasche-${p.id}`, quelle: q, dist }));
-    // Größenbilder (nur Größen der Preisliste, 0,5 L ist das Hauptbild)
-    for (const menge of new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)))) {
+    // Größenbilder (Größen der Preisliste bzw. die Flaschengröße einer Variante ohne Preise, 0,5 L ist das Hauptbild)
+    for (const menge of mengenVon(p)) {
       if (menge === HAUPT_MENGE || !GROESSEN_SUFFIX[menge]) continue;
       const qg = await flaschenFotoQuelle(root, p.id, GROESSEN_SUFFIX[menge]);
       if (qg) jobs.push(verarbeiteFlaschenfoto({ key: `flasche-${p.id}-${GROESSEN_SUFFIX[menge]}`, quelle: qg, dist, groesse: menge }));

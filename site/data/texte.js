@@ -51,5 +51,7 @@ export const TEXTE = {
   kraeiderdrepp: { intro: 'Kräiderdrëpp ist der Kräuterbrand: klar, würzig und ein Digestif mit frischem Charakter.', nase: 'Frische Kräuter, leicht würzig.', gaumen: 'Klar und würzig, mit feiner Kräuterfrische.' },
   vizdrepp: { intro: 'Vizdrëpp ist der Apfelbrand, den man anderswo Calvados nennt: weich, fruchtig und mit Apfel im Mittelpunkt.', nase: 'Reife Äpfel, leicht gewürzt.', gaumen: 'Weich und fruchtig, mit Apfel und feiner Würze.' },
   sambuca: { intro: 'Ein klarer Anislikör mit Tradition, pur, auf Eis oder zum Kaffee.', nase: 'Anis und Süße, leicht blumig.', gaumen: 'Süß und würzig, mit deutlichem Anis.' },
+  // Hierberol: nur aus dem Flaschenetikett abgeleitet; Verkostung (Nase, Gaumen, Abgang, Trinktemperatur, Glas) folgt, nichts erfunden (TODO-INHALTE.md, Abschnitt Hierberol und Kräider Batti).
+  hierberol: { verkostungFolgt: true, intro: 'Hierberol ist ein Aperitif der Hierber Brennerei mit 15 % vol. Als Spritz zubereitet: Prosecco, Hierberol und Soda auf Eis, mit einer Orangenscheibe.' },
   limoncello: { intro: 'Leuchtend gelb und frisch: ein Zitronenlikör, der eiskalt am besten schmeckt.', nase: 'Frische Zitronenschale.', gaumen: 'Süß und frisch, mit klarer Zitrone und leichter Säure.' },
 };

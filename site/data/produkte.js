@@ -4,7 +4,7 @@
 //
 // ort:      'fass' (Fass im Gang) | 'regal' (Flasche auf der Regalwand am Gangende)
 // sorte:    Schlüssel in v2/data/etiketten.json (Etikett, Flaschentyp, Flüssigkeitsfarbe)
-// varianten: [{ id, name, abv, sorte-Variante, preise: [{ menge, preis }] }]; die erste ist die Standard-Variante.
+// varianten: [{ id, name, abv, sorte-Variante, preise: [{ menge, preis }], menge? }]; die erste ist die Standard-Variante.
 //           Ein Fass/eine Flasche zeigt immer nur die Standard-Variante, die anderen werden erst in der Kaufauswahl gewählt.
 // glas:     Glasform (siehe v2/js/glassware.js): ballon | tumbler | highball | tulpe | tulpe2 | shot
 // fluessig: Farbe/Deckkraft der Flüssigkeit im Glas (Flaschen-Flüssigkeit kommt aus etiketten.json)
@@ -265,6 +265,17 @@ export const PRODUKTE = [
     varianten: [{ id: 'standard', name: 'Hierber Limoncello', abv: 28, preise: [p('0,2 L', 8), p('0,5 L', 18), p('1 L', 32), p('1,5 L', 44)] }],
     glas: 'shot', fluessig: { farbe: '#f6dc3a', alpha: 0.82 }, stimmung: ST.hell,
     ablauf: [{ deko: 'frost' }, { gies: { fill: 0.72 } }, { deko: 'zitrone' }, { deko: 'minze' }, { deko: 'tropfen' }],
+  },
+  // Hierberol: Angaben nur vom Flaschenetikett (Aperitif, 0,7 l, 15 % vol., Zubereitung als Spritz); kein Preis in der Preisliste.
+  // menge: Flaschengröße einer Variante ohne Preise (mit Preisen gelten die Größen aus preise). Sie steuert das Größenbild fotos-flaschen/hierberol-0-7l.png.
+  // glas, fluessig, stimmung, ablauf: nur Darstellung der Keller-Ansicht, von der Sortenseite nicht benutzt.
+  {
+    id: 'hierberol', name: 'Hierberol', kurzname: 'Hierberol', ort: 'regal', sorte: 'hierberol', abv: 15,
+    kurz: 'Aperitif, 15 % vol.',
+    beschreibung: 'Hierberol – Aperitif der Hierber Brennerei, 0,7 l. Preis auf Anfrage.',
+    varianten: [{ id: 'standard', name: 'Hierberol', abv: 15, menge: '0,7 L', preise: [] }],
+    glas: 'highball', fluessig: { farbe: '#e0501c', alpha: 0.9 }, stimmung: ST.hell,
+    ablauf: [{ deko: 'eis' }, { gies: { fill: 0.6 } }, { deko: 'orangenscheibe' }],
   },
 ];
 

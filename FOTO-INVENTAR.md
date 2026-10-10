@@ -140,7 +140,7 @@ Es fehlt **alles**, was den Raum und das Handwerk zeigt. Ohne diese Fotos wird d
 
 ## 5. Sorten, die in der Preisliste stehen, aber nicht in `produkte.js`
 
-Äppel/Pommes, Quitten (inkl. Quittenlikör), Nëssdrëpp (Walnuss), Pefferminz, Neutraler Alkohol, Ingwerlikör, Kräider Batti, Pastis, Hierberol, Vizdrëpp ist vorhanden, sowie 14 Liköre (u. a. Wëlle Max, Hambierlikör, Holly, Kiischtenlikör, Kräiderlikör, Mandellikör, Mirabellenlikör, Nësslikör, Pfeffi, Pijenlikör, Schléiwenlikör, Vizlikör, Williamslikör, Winterdreams) und die Holzkisten. Für sie gibt es weder Etikett noch Foto. **Entscheidung nötig:** Sollen sie auf die Seite, dann nur als Liste ohne Bild oder erst nach Lieferung von Etiketten?
+Äppel/Pommes, Quitten (inkl. Quittenlikör), Nëssdrëpp (Walnuss), Pefferminz, Neutraler Alkohol, Ingwerlikör, Kräider Batti, Pastis, Hierberol (inzwischen als Sorte in `produkte.js`, siehe Abschnitt 11), Vizdrëpp ist vorhanden, sowie 14 Liköre (u. a. Wëlle Max, Hambierlikör, Holly, Kiischtenlikör, Kräiderlikör, Mandellikör, Mirabellenlikör, Nësslikör, Pfeffi, Pijenlikör, Schléiwenlikör, Vizlikör, Williamslikör, Winterdreams) und die Holzkisten. Für sie gibt es weder Etikett noch Foto. **Entscheidung nötig:** Sollen sie auf die Seite, dann nur als Liste ohne Bild oder erst nach Lieferung von Etiketten?
 
 ## 6. Offene Fragen zur Bestandsaufnahme
 
@@ -273,8 +273,13 @@ Leere Glasflaschen ohne Etikett vor Studiohintergrund (alle etwa 1312 × 1199 px
 | rund (Korken) | 0,5 L | `rund-0-5l.png` | Anhang 1 der runden 0,5-L-Prompts (Wodka, Gin, Rum, Rum Orange, Whisky, Hunneg Whisky, Limoncello, Sambuca, aale Fruucht); Kappe/Halsband aus dem Sortenprompt. Vizdrëpp bleibt bei `fotos/vorlage-vizdrepp.png` |
 | schlank (Holzkugel auf Korken) | 0,1 L | `schlank-0-1l.png` | Anhang 1 der 13 Prompts 0,1 L |
 | rund | 0,2 L | `rund-0-2l.png` | Anhang 1 der 7 Prompts rund 0,2 L. **Achtung:** Datei identisch mit `rund-0-5l.png` (zeigt die 0,5-L-Flasche); der Prompt behält die Maßstabszeile „deutlich kleiner als die 0,5-L-Flasche“ |
-| rund (Apothekerform, Korken) | 0,7 L | `rund-0-7l.png` | **ungenutzt** (keine runde Sorte führt 0,7 L in der Preisliste) |
+| rund (Apothekerform, Korken) | 0,7 L | `rund-0-7l.png` | Anhang 1 der Hierberol-Flasche (`PROMPTS-WEITERE-SORTEN.md`); sonst ungenutzt (keine runde Sorte der Preisliste führt 0,7 L) |
 | rund | 1 L | `rund-1-0l.png` | Anhang 1 der 8 Prompts 1 L (Grain: schlank, Ersatz `schlank-0-5l.png`) |
 | rund | 1,5 L | `rund-1-5l.png` | Anhang 1 der 7 Prompts 1,5 L |
 | Karaffe (glockenförmig, Glasstopfen) | 0,7 L | `karaffe-0-7l.png` | Vieux Marc, 0,5-L- und 0,7-L-Prompt |
 | rund, Miniatur | 40 ml | `rund-40ml.png` | **nicht verwendet** (keine Größe der Preisliste) |
+
+## 11. Hierberol und Kräider Batti (Oktober 2026)
+
+- **Hierberol** (Aperitif, 0,7 l, 15 % vol.): `fotos-flaschen/hierberol-0-7l.png` (1024 × 1536, Etikett sichtbar) ist das einzige Bild; es gibt kein flaches Etikett in `Fertige Etiquetten/` und keinen Preis. Die Sorte steht in `site/data/produkte.js` (30 Sorten, davon 29 mit flachem Etikett); die Seite zeigt das Foto im Kopf und auf der Karte. Die vier Serviervorschlag-Bilder `fotos-ki/hierberol-1.png` bis `-4.png` fehlen noch.
+- **Kräider Batti** (Kräuterlikör, dunkel): weder Etikett noch Bild noch Preis noch Alkoholgehalt noch Größe; nur Prompts (`PROMPTS-WEITERE-SORTEN.md`, `tools/weitere-sorten.json`), keine Sortenseite.

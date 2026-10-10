@@ -5,13 +5,14 @@
 // Schritte:
 //   1. Dateinamen in fotos-flaschen/, fotos-ki/ und fotos-basis/ gegen die Namensregeln prüfen (nur melden, nichts verschieben oder löschen)
 //   2. Bildformat prüfen (fotos-flaschen 1024x1536, fotos-ki 1448x1086; Abweichung nur melden)
-//   3. Generatoren in fester Reihenfolge: foto_prompts, foto_prompts_weitere, foto_prompts_flaschen, foto_prompts_groessen, chatgpt_stapel
+//   3. Generatoren in fester Reihenfolge: foto_prompts, foto_prompts_weitere, foto_prompts_flaschen, foto_prompts_groessen, foto_prompts_weitere_sorten, chatgpt_stapel
 //      (FOTO-PLATZHALTER.md wird nach foto_prompts.mjs per git restore zurückgesetzt, wenn es vorher unverändert war)
 //   4. node build.mjs, dann pruefe_daten, pruefe_links, pruefe_notizen, pruefe_kontrast (und mit --browser pruefe_browser)
 //   5. Zusammenfassung nach stdout und FOTO-STAND.md
 // Namensregeln:
 //   fotos-flaschen/<id>.png (Hauptbild = 0,5 L) oder <id>-<größe>.png, Größe 0-1l, 0-2l, 0-5l, 0-7l, 1-0l, 1-5l; <id>-0-5l.png gilt wie <id>.png, existieren beide, gilt <id>.png
 //   fotos-ki/<id>-<n>.png (Serviervorschlag n, n = 1 Hauptbild)
+//   id = Sorte aus site/data/produkte.js ODER aus tools/weitere-sorten.json (kraider-batti: nur Prompts, keine Sortenseite). Hierberol führt nur 0,7 L: hierberol-0-7l.png ist sein Bild (zählt als Hauptbild).
 //   fotos-basis/<form>-<größe>.png mit Form rund, schlank, karaffe (und rund-40ml.png, ungenutzt)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -23,6 +24,8 @@ import { PRODUKTE } from '../site/data/produkte.js';
 import { FLASCHEN_ORDNER, FLASCHEN_FORMAT, GROESSEN_SUFFIX, HAUPT_MENGE } from '../site/data/flaschenfotos.js';
 import { KI_BILDER, kartenNummern, kiKey } from '../site/data/ki-bilder.js';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
+import { ETIKETTEN } from '../site/data/etiketten.js';
+import { mengenVon } from '../site/lib/util.mjs';
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rel = (...t) => path.join(wurzel, ...t);
@@ -39,12 +42,14 @@ const auffaellig = [];   // Auffälligkeiten (nur melden)
 const schritt = (n, t) => console.log(`\n== ${n}. ${t}`);
 
 // ---------- Stammdaten ----------
-const IDS = new Set(PRODUKTE.map((p) => p.id));
+// Weitere Sorten nur mit Prompts (tools/weitere-sorten.json, inProdukte: false), z. B. Kräider Batti: erlaubte Namen, aber keine Sortenseite
+const NUR_PROMPTS = JSON.parse(fs.readFileSync(rel('tools', 'weitere-sorten.json'), 'utf8')).sorten.filter((x) => !x.inProdukte);
+const NUR_PROMPTS_IDS = new Set(NUR_PROMPTS.map((x) => x.id));
+const IDS = new Set([...PRODUKTE.map((p) => p.id), ...NUR_PROMPTS_IDS]);
 const SUFFIXE = new Set(Object.values(GROESSEN_SUFFIX));
 const MENGE_ZU_SUFFIX = GROESSEN_SUFFIX;
 const SUFFIX_ZU_MENGE = Object.fromEntries(Object.entries(GROESSEN_SUFFIX).map(([m, s]) => [s, m]));
 const HAUPT_SUFFIX = GROESSEN_SUFFIX[HAUPT_MENGE];
-const mengenVon = (p) => [...new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)))];
 const GROESSEN_SPALTEN = Object.keys(GROESSEN_SUFFIX); // 0,1 / 0,2 / 0,5 / 0,7 / 1 / 1,5 L
 
 const dateien = (ordner) => {
@@ -83,7 +88,7 @@ for (const e of dateien(FLASCHEN_ORDNER)) {
   } else {
     flaschen.groesse.set(`${z.id}|${z.suffix}`, e.name);
     const p = PRODUKTE.find((x) => x.id === z.id);
-    if (!mengenVon(p).includes(SUFFIX_ZU_MENGE[z.suffix])) auffaellig.push(`${FLASCHEN_ORDNER}/${e.name}: ${SUFFIX_ZU_MENGE[z.suffix]} steht nicht in der Preisliste von ${p.name}; die Seite zeigt das Bild nicht`);
+    if (p && !mengenVon(p).includes(SUFFIX_ZU_MENGE[z.suffix])) auffaellig.push(`${FLASCHEN_ORDNER}/${e.name}: ${SUFFIX_ZU_MENGE[z.suffix]} steht nicht in der Preisliste von ${p.name}; die Seite zeigt das Bild nicht`);
   }
 }
 for (const e of dateien(KI_ORDNER)) {
@@ -91,7 +96,8 @@ for (const e of dateien(KI_ORDNER)) {
   if (!z) { auffaellig.push(`${KI_ORDNER}/${e.name}: Name folgt der Regel nicht (erwartet <sorten-id>-<n>.png mit bekannter Sorte)`); continue; }
   const liste = SERVIERVORSCHLAEGE[z.id] || [];
   const nummern = KI_BILDER[z.id] ? kartenNummern(z.id, liste) : null;
-  if (!nummern) auffaellig.push(`${KI_ORDNER}/${e.name}: ${z.id} hat keinen Eintrag in site/data/ki-bilder.js; die Seite bindet das Bild nicht ein`);
+  if (NUR_PROMPTS_IDS.has(z.id)) { const k = NUR_PROMPTS.find((x) => x.id === z.id).serviervorschlaege.karten.length; if (z.n < 1 || z.n > k) auffaellig.push(`${KI_ORDNER}/${e.name}: ${z.id} hat nur ${k} Prompts (Nummern 1 bis ${k}); nur Vorrat, keine Sortenseite`); }
+  else if (!nummern) auffaellig.push(`${KI_ORDNER}/${e.name}: ${z.id} hat keinen Eintrag in site/data/ki-bilder.js; die Seite bindet das Bild nicht ein`);
   else if (!nummern.includes(z.n)) auffaellig.push(`${KI_ORDNER}/${e.name}: Nummer ${z.n} passt zu keiner Karte von ${z.id} (Nummern ${[...nummern].sort((a, b) => a - b).join(', ')}); die Seite bindet das Bild nicht ein`);
   if (!kiDateien.has(z.id)) kiDateien.set(z.id, new Set());
   kiDateien.get(z.id).add(z.n);
@@ -119,13 +125,22 @@ console.log(formatAbw.length ? `${formatAbw.length} Abweichung(en) vom erwartete
 const keinHaupt = [];
 const stand = PRODUKTE.map((p) => {
   const haupt = flaschen.haupt.has(p.id);
-  if (!haupt) keinHaupt.push(p.id);
   const mengen = mengenVon(p);
+  // Sorte ohne flaches Etikett mit genau einer Größe außer 0,5 L (Hierberol, 0,7 L): deren Größenbild ist das Bild der Sorte, ein Hauptbild 0,5 L wird nicht verlangt.
+  // Sorten mit flachem Etikett (z. B. Grain, nur 1 L) behalten die Regel: Hauptbild 0,5 L für jede Sorte.
+  const nurEineGroesse = !ETIKETTEN[p.id] && mengen.length === 1 && mengen[0] !== HAUPT_MENGE;
+  const hauptNoetig = !nurEineGroesse;
+  if (hauptNoetig && !haupt) keinHaupt.push(p.id);
   const groessen = Object.fromEntries(GROESSEN_SPALTEN.map((m) => [m, m === HAUPT_MENGE ? haupt : !mengen.includes(m) ? null : flaschen.groesse.has(`${p.id}|${MENGE_ZU_SUFFIX[m]}`)]));
   const nummern = KI_BILDER[p.id] ? kartenNummern(p.id, SERVIERVORSCHLAEGE[p.id] || []) || [1] : [];
   const kiHat = nummern.filter((n) => kiDateien.get(p.id)?.has(n)).length;
-  return { id: p.id, name: p.name, haupt, groessen, kiHat, kiGesamt: nummern.length, mengen };
+  return { id: p.id, name: p.name, haupt, hauptNoetig, groessen, kiHat, kiGesamt: nummern.length, mengen };
 });
+// Nur Prompts (Kräider Batti): Zeile in der Tabelle, aber nicht in den Summen der Sorten. Die Größe ist noch offen: nur die Spalte der Flaschendatei (kraider-batti.png) wird angezeigt.
+const standNurPrompts = NUR_PROMPTS.map((x) => ({
+  id: x.id, name: `${x.name} (nur Prompts, keine Sortenseite)`, haupt: flaschen.haupt.has(x.id),
+  kiHat: kiDateien.get(x.id)?.size || 0, kiGesamt: x.serviervorschlaege.karten.length,
+}));
 const istNeu = (quelle, key) => {
   const out = rel('dist', 'img', `${key}-480.avif`);
   try { return fs.statSync(out).mtimeMs < fs.statSync(quelle).mtimeMs; } catch { return true; }
@@ -157,7 +172,7 @@ const git = (argv) => spawnSync('git', argv, { cwd: wurzel, encoding: 'utf8' });
 
 // ---------- 3. Generatoren ----------
 schritt(3, 'Generatoren');
-const generatoren = ['foto_prompts', 'foto_prompts_weitere', 'foto_prompts_flaschen', 'foto_prompts_groessen', 'chatgpt_stapel'];
+const generatoren = ['foto_prompts', 'foto_prompts_weitere', 'foto_prompts_flaschen', 'foto_prompts_groessen', 'foto_prompts_weitere_sorten', 'chatgpt_stapel'];
 for (const g of generatoren) {
   const platzhalterSauber = g === 'foto_prompts' ? git(['diff', '--quiet', '--', 'FOTO-PLATZHALTER.md']).status === 0 : false;
   const ok = lauf(`node tools/${g}.mjs`, 'node', [`tools/${g}.mjs`]);
@@ -172,7 +187,7 @@ for (const g of generatoren) {
 
 // ---------- 5a. FOTO-STAND.md (vor dem Bauen, damit die Datei auch bei einem Fehler des Builds aktuell ist) ----------
 const zelle = (v) => (v === null ? '·' : v ? '✔' : '–');
-const nHaupt = stand.filter((s) => s.haupt).length;
+const nHaupt = stand.filter((s) => s.haupt).length, nHauptSoll = stand.filter((s) => s.hauptNoetig).length;
 const nGroesse = stand.reduce((a, s) => a + GROESSEN_SPALTEN.filter((m) => m !== HAUPT_MENGE && s.groessen[m]).length, 0);
 const nGroesseGesamt = stand.reduce((a, s) => a + GROESSEN_SPALTEN.filter((m) => m !== HAUPT_MENGE && s.groessen[m] !== null).length, 0);
 const nKi = stand.reduce((a, s) => a + s.kiHat, 0), nKiGesamt = stand.reduce((a, s) => a + s.kiGesamt, 0);
@@ -180,17 +195,18 @@ const md = `# FOTO-STAND
 
 Erzeugt mit \`node tools/fotos_uebernehmen.mjs\`. Nicht von Hand ändern. Zeigt, welche Bilder in \`fotos-flaschen/\` und \`fotos-ki/\` liegen.
 
-- **Hauptbilder (0,5 L):** ${nHaupt} von ${stand.length} Sorten
+- **Hauptbilder (0,5 L):** ${nHaupt} von ${nHauptSoll} Sorten (Hierberol führt nur 0,7 L und braucht kein 0,5-L-Bild)
 - **Größenbilder (alle anderen Größen der Preisliste):** ${nGroesse} von ${nGroesseGesamt}
 - **Serviervorschläge (\`fotos-ki/\`):** ${nKi} von ${nKiGesamt} Karten
 
 ## Flaschenbilder je Sorte und Größe
 
-✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (\`<id>.png\` oder \`<id>-0-5l.png\`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht.
+✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (\`<id>.png\` oder \`<id>-0-5l.png\`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht; Ausnahme Hierberol (nur 0,7 L, dessen Bild ist die Spalte 0,7 L). Kräider Batti hat nur Prompts (keine Sortenseite, Etikett und Größe unbekannt) und steht außerhalb der Summen.
 
 | Sorte | ${GROESSEN_SPALTEN.join(' | ')} | Serviervorschläge |
 |---|${GROESSEN_SPALTEN.map(() => ':-:').join('|')}|:-:|
-${stand.map((s) => `| ${s.name} | ${GROESSEN_SPALTEN.map((m) => zelle(s.groessen[m])).join(' | ')} | ${s.kiGesamt ? `${s.kiHat}/${s.kiGesamt}` : '·'} |`).join('\n')}
+${stand.map((s) => `| ${s.name} | ${GROESSEN_SPALTEN.map((m) => zelle(m === HAUPT_MENGE && !s.hauptNoetig ? null : s.groessen[m])).join(' | ')} | ${s.kiGesamt ? `${s.kiHat}/${s.kiGesamt}` : '·'} |`).join('\n')}
+${standNurPrompts.map((s) => `| ${s.name} | ${GROESSEN_SPALTEN.map((m) => (m === HAUPT_MENGE ? `${zelle(s.haupt)} (\`${s.id}.png\`, Größe offen)` : '·')).join(' | ')} | ${s.kiHat}/${s.kiGesamt} |`).join('\n')}
 
 ## Sorten ohne Hauptbild (0,5 L)
 
@@ -241,7 +257,7 @@ async function browserPruefung() {
 const unbekannt = auffaellig.filter((a) => !formatAbw.includes(a));
 console.log('\n== Zusammenfassung');
 console.log(`neu: ${neuHaupt} Hauptbilder, ${neuGroesse} Größenbilder, ${neuKi} Serviervorschläge (noch nicht oder veraltet in dist/img); unbekannte Dateien: ${unbekannt.length ? unbekannt.length : 'keine'}; Sorten ohne Bild: ${keinHaupt.length ? keinHaupt.join(', ') : 'keine'}.`);
-console.log(`Stand: Hauptbilder ${nHaupt}/${stand.length}, Größenbilder ${nGroesse}/${nGroesseGesamt}, Serviervorschläge ${nKi}/${nKiGesamt} (Tabelle: FOTO-STAND.md).`);
+console.log(`Stand: Hauptbilder ${nHaupt}/${nHauptSoll}, Größenbilder ${nGroesse}/${nGroesseGesamt}, Serviervorschläge ${nKi}/${nKiGesamt} (Tabelle: FOTO-STAND.md).`);
 if (auffaellig.length) console.log('Auffälligkeiten:\n' + auffaellig.map((a) => ` - ${a}`).join('\n'));
 if (fehler.length) { console.log('\nFEHLER:\n' + fehler.map((f) => ` - ${f}`).join('\n')); process.exit(1); }
 console.log('\nOK: alle Schritte erfolgreich.');

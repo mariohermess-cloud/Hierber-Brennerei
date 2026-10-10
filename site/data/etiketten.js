@@ -1,5 +1,5 @@
 // Bildquelle je Sorte: flaches Etikett (Grafik) aus "Fertige Etiquetten/". Keine Flaschenfotos (KI-Beispielbilder sind ausgeschlossen).
-// Alle 29 Sorten haben ein flaches Etikett (zuletzt neu: Rum, Rum Orange, Limoncello, Sambuca, alle Querformat wie Gin).
+// 29 der 30 Sorten haben ein flaches Etikett (zuletzt neu: Rum, Rum Orange, Limoncello, Sambuca, alle Querformat wie Gin). Hierberol hat keines, nur das Flaschenfoto fotos-flaschen/hierberol-0-7l.png.
 export const ETIKETTEN = {
   'gin': 'Branntwein Hierber Gin - Nei 1-01.png',
   'wodka': 'Branntwein Wodka-01.png',

@@ -9,7 +9,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PRODUKTE } from '../site/data/produkte.js';
+// Diese Generatoren erzeugen Prompts für Sorten mit flachem Etikett aus Fertige Etiquetten/ (29 Sorten). Hierberol (nur Foto) und Kräider Batti (nur Prompts) behandelt tools/foto_prompts_weitere_sorten.mjs.
+import { PRODUKTE_ETIKETT as PRODUKTE } from './foto_gemeinsam.mjs';
 import { ETIKETTEN } from '../site/data/etiketten.js';
 import { FLASCHENTYP } from '../site/data/flaschen.js';
 import { FLASCHEN_ORDNER, FLASCHEN_FORMAT } from '../site/data/flaschenfotos.js';

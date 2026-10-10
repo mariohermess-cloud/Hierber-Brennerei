@@ -2,13 +2,13 @@
 
 Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, welche Bilder in `fotos-flaschen/` und `fotos-ki/` liegen.
 
-- **Hauptbilder (0,5 L):** 1 von 29 Sorten
-- **Größenbilder (alle anderen Größen der Preisliste):** 26 von 42
-- **Serviervorschläge (`fotos-ki/`):** 121 von 121 Karten
+- **Hauptbilder (0,5 L):** 1 von 29 Sorten (Hierberol führt nur 0,7 L und braucht kein 0,5-L-Bild)
+- **Größenbilder (alle anderen Größen der Preisliste):** 27 von 43
+- **Serviervorschläge (`fotos-ki/`):** 121 von 125 Karten
 
 ## Flaschenbilder je Sorte und Größe
 
-✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (`<id>.png` oder `<id>-0-5l.png`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht.
+✔ vorhanden · – offen · · Größe steht nicht in der Preisliste. Die Spalte 0,5 L ist das Hauptbild (`<id>.png` oder `<id>-0-5l.png`), das jede Sorte bekommt, auch wenn 0,5 L nicht in der Preisliste steht; Ausnahme Hierberol (nur 0,7 L, dessen Bild ist die Spalte 0,7 L). Kräider Batti hat nur Prompts (keine Sortenseite, Etikett und Größe unbekannt) und steht außerhalb der Summen.
 
 | Sorte | 0,1 L | 0,2 L | 0,5 L | 0,7 L | 1 L | 1,5 L | Serviervorschläge |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -41,6 +41,8 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 | Vizdrëpp | · | · | – | · | · | · | 5/5 |
 | Hierber Sambuca | · | – | – | · | – | – | 4/4 |
 | Hierber Limoncello | · | – | – | · | – | – | 4/4 |
+| Hierberol | · | · | · | ✔ | · | · | 0/4 |
+| Kräider Batti (nur Prompts, keine Sortenseite) | · | · | – (`kraider-batti.png`, Größe offen) | · | · | · | 0/4 |
 
 ## Sorten ohne Hauptbild (0,5 L)
 

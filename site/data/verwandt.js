@@ -15,6 +15,7 @@ const EXPLIZIT = {
   vizdrepp: ['vieille-pomme', 'poire-williams', 'hierber-fruucht'],
   'poire-williams': ['poire', 'neelchesbiren', 'vieille-pomme'],
   hunnegdrepp: ['hunneg-whisky', 'kraeiderdrepp', 'vizdrepp'],
+  hierberol: ['limoncello', 'gin', 'sambuca'], // sonst käme der Umlauf der Gruppe: Gin, Wodka, Rum
 };
 
 export function verwandtFuer(id) {

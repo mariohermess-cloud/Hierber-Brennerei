@@ -10,7 +10,7 @@ import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
 import { verwandtFuer } from '../data/verwandt.js';
 import { gruppeVon } from '../data/gruppen.js';
 import { STR } from './i18n.mjs';
-import { esc, pfad, absUrl, fmtAbv, fmtPreis, fmtMenge, preisInfo, erklaerung, BASE } from './util.mjs';
+import { esc, pfad, absUrl, fmtAbv, fmtPreis, fmtMenge, preisInfo, erklaerung, mengenVon, BASE } from './util.mjs';
 import { seite, bild, folgt } from './layout.mjs';
 import { karte, produktById } from './start.mjs';
 
@@ -67,10 +67,10 @@ ${panels}
 </section>`;
 }
 
-// Vorgewählte Größe: 0,5 L (Standard, passt zum Hauptbild und zu den Karten), sonst die erste Größe der Standardvariante
+// Vorgewählte Größe: 0,5 L (Standard, passt zum Hauptbild und zu den Karten), sonst die erste Größe der Standardvariante, ohne Preise deren Flaschengröße (menge)
 export function standardMenge(p) {
   const l = p.varianten[0].preise;
-  return (l.find((x) => x.menge === HAUPT_MENGE) || l[0] || {}).menge || null;
+  return (l.find((x) => x.menge === HAUPT_MENGE) || l[0] || {}).menge || p.varianten[0].menge || null;
 }
 
 function kaufen(p, lang) {
@@ -141,7 +141,7 @@ function jsonLd(p, lang, beschr, IMG) {
 export function sortenseite(IMG, p, lang) {
   const t = STR[lang];
   const tx = TEXTE[p.id];
-  const fam = FAM[FAMILIE[p.id]];
+  const fam = FAM[FAMILIE[p.id]]; // fehlt bei Sorten mit verkostungFolgt (Hierberol)
   const erk = erklaerung(p);
   const gruppe = gruppeVon(p.id);
   const hatEtikett = !!ETIKETTEN[p.id];
@@ -150,21 +150,23 @@ export function sortenseite(IMG, p, lang) {
   // Größenbilder (fotos-flaschen/<id>-<größe>.png): je Größe mit Bild ein weiteres Bild in der Bühne; beim Wählen der Größe schaltet site.js um (data-bild-menge).
   // Sichtbar beim Laden: das Hauptbild (0,5 L); gibt es keins, das Bild der ersten Größe (gewählte Standardgröße), sonst die Vektor-Flasche. Nur das sichtbare Bild lädt sofort.
   let hauptBild, hauptKlasse = 'buehne-rahmen';
-  const hatHaupt = !!IMG[`flasche-${p.id}`], hatEtikettBuehne = hatHaupt || hatEtikett;
+  // Sorte ohne flaches Etikett, aber mit Größenbild (Hierberol, 0,7 L): das Foto ist das Kopfbild (nur Größenbild, kein Hauptbild, keine Auswahl)
+  const hatHaupt = !!IMG[`flasche-${p.id}`], nurGroessenFoto = !hatHaupt && !hatEtikett && groessenFotos(IMG, p).length > 0, hatEtikettBuehne = hatHaupt || hatEtikett || nurGroessenFoto;
   const groessen = hatEtikettBuehne ? groessenFotos(IMG, p) : [];
-  const mengen = [...new Set(p.varianten.flatMap((v) => v.preise.map((x) => x.menge)))];
+  const mengen = mengenVon(p);
   const startMenge = standardMenge(p);
-  const startGroesse = !hatHaupt && startMenge ? groessen.find((g) => g.menge === startMenge) : null;
+  const startGroesse = !hatHaupt && startMenge ? (groessen.find((g) => g.menge === startMenge) || (nurGroessenFoto ? groessen[0] : null)) : null;
   const groessenHtml = groessen.map((g) => flaschenFoto(IMG, p, { gross: true, key: g.key, alt: t.flascheAlt(p.name, fmtMenge(g.menge)), eager: g === startGroesse, attrs: ` data-bild-menge="${esc(g.menge)}"${g === startGroesse ? '' : ' hidden'}` })).join('');
-  const mitGroessen = groessen.length ? ' data-buehne' : '';
+  const mitGroessen = groessen.length && !nurGroessenFoto ? ' data-buehne' : '';
   if (hatHaupt) {
     // Hauptbild = 0,5 L; führt die Sorte 0,5 L nicht, bleibt die bisherige Beschriftung (Größe nur bei genau einer Größe)
     const alt = mengen.includes(HAUPT_MENGE) ? t.flascheAlt(p.name, fmtMenge(HAUPT_MENGE)) : '';
     hauptBild = `<div class="buehne buehne-foto"${mitGroessen}>${flaschenFoto(IMG, p, { gross: true, alt, attrs: groessen.length ? ' data-bild-haupt' : '' })}${groessenHtml}</div>`;
-  } else if (hatEtikett) hauptBild = `<div class="buehne"${mitGroessen}>${flasche(IMG, p, { gross: true, eager: !startGroesse, attrs: `${groessen.length ? ' data-bild-haupt' : ''}${startGroesse ? ' hidden' : ''}` })}${groessenHtml}</div>`;
+  } else if (nurGroessenFoto) hauptBild = `<div class="buehne buehne-foto">${groessenHtml}</div>`;
+  else if (hatEtikett) hauptBild = `<div class="buehne"${mitGroessen}>${flasche(IMG, p, { gross: true, eager: !startGroesse, attrs: `${groessen.length ? ' data-bild-haupt' : ''}${startGroesse ? ' hidden' : ''}` })}${groessenHtml}</div>`;
   else if (foto) { hauptKlasse = 'foto-rahmen rahmen'; hauptBild = bild(IMG, `foto-${foto.haupt}`, { alt: foto.alt, sizes: '(min-width: 800px) 560px, 92vw', eager: true }); }
   else hauptBild = `<div class="etikett-platzhalter platz" data-todo="foto"><span class="platz-marke">Hierber Brennerei</span><span class="platz-name">${esc(p.name)}</span><span>${t.etikettFolgt}</span></div>`;
-  const tastDe = `<dl class="verkostung">
+  const tastDe = tx.verkostungFolgt ? `<p class="platzhalter" data-todo="bestaetigen">Verkostungsnotizen folgen.</p>` : `<dl class="verkostung">
       <div><dt>${t.nase}</dt><dd data-todo="bestaetigen">${esc(tx.nase)}</dd></div>
       <div><dt>${t.gaumen}</dt><dd data-todo="bestaetigen">${esc(tx.gaumen)}</dd></div>
       <div><dt>${t.abgang}</dt><dd data-todo="bestaetigen">${esc(fam.abgang)}</dd></div>

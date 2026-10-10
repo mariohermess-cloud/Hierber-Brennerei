@@ -12,7 +12,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PRODUKTE } from '../site/data/produkte.js';
+// Diese Generatoren erzeugen Prompts für Sorten mit flachem Etikett aus Fertige Etiquetten/ (29 Sorten). Hierberol (nur Foto) und Kräider Batti (nur Prompts) behandelt tools/foto_prompts_weitere_sorten.mjs.
+import { PRODUKTE_ETIKETT as PRODUKTE } from './foto_gemeinsam.mjs';
 import { SERVIERVORSCHLAEGE } from '../site/data/serviervorschlaege.js';
 import { FLUESSIGKEIT } from '../site/data/fluessigkeit.js';
 import { KI_BILDER, kartenNummern } from '../site/data/ki-bilder.js';
@@ -384,7 +385,7 @@ for (const e of alle) {
 if (weitere.length !== ERWARTET_FEHLEND) fail(`Zahl fehlender Bilder ist ${weitere.length}, erwartet ${ERWARTET_FEHLEND}`);
 if (vorhanden.length !== ERWARTET_VORHANDEN) fail(`Zahl vorhandener Bilder ist ${vorhanden.length}, erwartet ${ERWARTET_VORHANDEN}`);
 for (const id of Object.keys(FEHLER)) if (!KI_BILDER[id]) fail(`FEHLER: unbekannte Sorte ${id}`);
-for (const id of Object.keys(KI_BILDER)) if (!existiert(`fotos-ki/${id}-1.png`)) fail(`fotos-ki/${id}-1.png fehlt`);
+for (const id of PRODUKTE.map((p) => p.id)) if (!existiert(`fotos-ki/${id}-1.png`)) fail(`fotos-ki/${id}-1.png fehlt`);
 for (const e of [...weitere, ...ersatz]) for (const f of [e.anhang1, e.anhang2].filter(Boolean)) if (!existiert(f)) fail(`${e.id}: Anhang fehlt: ${f}`);
 // fotos-ki/ darf keine Nummer enthalten, die das Skript nicht kennt (verhindert Verwechslungen mit Nebendateien)
 for (const f of fs.readdirSync(rel('fotos-ki'))) if (/\.png$/.test(f) && !namen.has(`fotos-ki/${f}`) && !/^.+-\d+\.png$/.test(f)) fail(`fotos-ki/${f}: Name folgt nicht der Regel <sorten-id>-<n>.png`);

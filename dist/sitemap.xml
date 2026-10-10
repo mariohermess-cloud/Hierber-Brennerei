@@ -396,4 +396,16 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://hierber-brennerei.lu/fr/brand/limoncello/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hierber-brennerei.lu/brand/limoncello/"/>
   </url>
+  <url>
+    <loc>https://hierber-brennerei.lu/brand/hierberol/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hierber-brennerei.lu/brand/hierberol/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hierber-brennerei.lu/fr/brand/hierberol/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hierber-brennerei.lu/brand/hierberol/"/>
+  </url>
+  <url>
+    <loc>https://hierber-brennerei.lu/fr/brand/hierberol/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hierber-brennerei.lu/brand/hierberol/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hierber-brennerei.lu/fr/brand/hierberol/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hierber-brennerei.lu/brand/hierberol/"/>
+  </url>
 </urlset>

@@ -4,6 +4,6 @@ export const GRUPPEN = [
   { id: 'obstbraende', ids: ['kirsch', 'framboise', 'quetsch', 'poire-williams', 'mirabelle', 'poire', 'neelchesbiren', 'lenschouren', 'kiwibeeren', 'hondsaarsch', 'vullekiischt', 'schleiwen'] },
   { id: 'gereift', ids: ['hierber-fruucht', 'vieux-marc', 'vieille-prune', 'vieille-pomme'] },
   { id: 'dreppen', ids: ['hunnegdrepp', 'kraeiderdrepp', 'kuerbisdrepp', 'vizdrepp'] },
-  { id: 'spirituosen', ids: ['gin', 'wodka', 'rum', 'rum-orange', 'whisky', 'hunneg-whisky', 'grain', 'sambuca', 'limoncello'] },
+  { id: 'spirituosen', ids: ['gin', 'wodka', 'rum', 'rum-orange', 'whisky', 'hunneg-whisky', 'grain', 'sambuca', 'limoncello', 'hierberol'] },
 ];
 export const gruppeVon = (id) => GRUPPEN.find((g) => g.ids.includes(id)).id;

@@ -43,4 +43,5 @@ export const FLUESSIGKEIT = {
   'vieille-pomme': mess('flasche-vieille-pomme.jpg', '#e2cc43', 0.85, '#e2cf59'),
   'hunneg-whisky': schaetz('#c4912e', 0.9, 'produkte.js: Honig-Whisky; golden geschätzt, dunkler als Whisky'),
   'rum-orange': schaetz('#c67a1c', 0.9, 'produkte.js: „orange-bernsteinfarben“'),
+  hierberol: schaetz('#e0501c', 0.9, 'Sichtung fotos-flaschen/hierberol-0-7l.png: leuchtend orange-rot; die Seite zeigt das Foto, keine Vektor-Flasche'),
 };

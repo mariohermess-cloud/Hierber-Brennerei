@@ -1,0 +1,67 @@
+{
+  "hinweis": "Konfiguration für node tools/foto_prompts_weitere_sorten.mjs: zwei Produkte, die nicht zu den 29 Sorten mit flachem Etikett gehören. Hierberol steht in site/data/produkte.js (Foto, kein flaches Etikett); Kräider Batti ist nur hier (nur Prompts, keine Sortenseite, kein Etikett, kein Bild, kein Preis, kein Alkoholgehalt, keine Größe). Beschreibungen nennen nur die Art des Produkts; keine bekannten Markenzeichen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Alles Folgende sind Entwürfe, bis der Brenner sie bestätigt.",
+  "sorten": [
+    {
+      "id": "hierberol",
+      "name": "Hierberol",
+      "art": "Aperitif",
+      "inProdukte": true,
+      "flasche": {
+        "datei": "fotos-flaschen/hierberol-0-7l.png",
+        "anhang1": "fotos-basis/rund-0-7l.png",
+        "anhang1Text": "leere runde 0,7-L-Flasche ohne Etikett (Basisfoto mit Korken), nur Form und Proportionen",
+        "anhang2": "fotos-flaschen/hierberol-0-7l.png",
+        "anhang2Text": "dasselbe Foto der fertigen Flasche, nur als Etikett-Referenz",
+        "etikettFolgt": false,
+        "verschluss": "heller Naturkorken wie in Anhang 1",
+        "halsband": "Kein Halsband: der Hals bleibt klares Glas.",
+        "fluessigkeit": "leuchtendes Orange-Rot (Bitter-Aperitif), bis zum Hals gefüllt",
+        "etikett": "blaues Etikett mit weißer Raute und schwarzer Schreibschrift „Hierberol“, oben „APERITIF“, unten „0,7 l“ und „15 % vol.“, rechts oben die Zubereitung „Prosecco (90 ml), Hierberol (60 ml), Soda (30 ml), Eis, Orangenscheibe“",
+        "formHinweis": "Basisfoto fotos-basis/rund-0-7l.png zeigt einen Korken, passend zur Hierberol-Flasche; das Etikett kommt nur aus Anhang 2, der Rest von Anhang 2 (Grund, Licht, Flasche) ist nicht vorgegeben"
+      },
+      "serviervorschlaege": {
+        "anhang1": "fotos-flaschen/hierberol-0-7l.png",
+        "anhang2": "fotos-flaschen/hierberol-0-7l.png",
+        "aussehen": "Form, heller Naturkorken und blaues Etikett mit weißer Raute exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Foto als Etikett-Referenz)",
+        "fluessigkeit": "leuchtendes Orange-Rot",
+        "karten": [
+          { "name": "Hierberol-Spritz", "typ": "Cocktail", "glas": "Weinglas", "szene": "Ein großes Weinglas mit viel Eis, gefüllt mit einem perlenden, leuchtend orange-roten Getränk, eine Orangenscheibe im Glas. Daneben unscharf ein Schälchen Oliven und Käsewürfel." },
+          { "name": "Hierberol auf Eis mit Orangenscheibe", "typ": "Auf Eis / Longdrink", "glas": "Tumbler", "szene": "Ein Tumbler mit Eiswürfeln und leuchtend orange-rotem Hierberol, eine Orangenscheibe am Glasrand. Daneben unscharf ein Schälchen Oliven." },
+          { "name": "Hierberol Tonic", "typ": "Auf Eis / Longdrink", "glas": "Longdrinkglas", "szene": "Ein Longdrinkglas, bis oben mit Eiswürfeln gefüllt, darin ein hell orange-rotes, leicht perlendes Getränk, eine Orangenscheibe im Glas. Daneben unscharf ein paar Käsewürfel." },
+          { "name": "Hierberol zu Oliven und Käsewürfeln", "typ": "Zum Essen", "glas": "Tumbler", "szene": "Ein Holzbrett mit grünen Oliven und kleinen Käsewürfeln, daneben ein Tumbler mit leuchtend orange-rotem Hierberol, ohne Eis und ohne Garnitur." }
+        ]
+      }
+    },
+    {
+      "id": "kraider-batti",
+      "name": "Kräider Batti",
+      "art": "Kräuterlikör",
+      "inProdukte": false,
+      "flasche": {
+        "datei": "fotos-flaschen/kraider-batti.png",
+        "anhang1": "fotos-basis/rund-0-5l.png",
+        "anhang1Text": "leere runde Flasche ohne Etikett (Basisfoto mit Korken), nur als Platzhalter für Form und Proportionen; die endgültige Form ist noch zu klären",
+        "anhang2": "PLATZHALTER: Etikett von Kräider Batti folgt",
+        "anhang2Text": "das Etikett von Kräider Batti (liegt noch nicht vor)",
+        "etikettFolgt": true,
+        "verschluss": "schwarzer Schraubverschluss statt Korken",
+        "halsband": "Kein Halsband: der Hals bleibt ohne Papierband.",
+        "fluessigkeit": "sehr dunkelbrauner, fast schwarzer Kräuterlikör in dunkler Glasflasche, der Likör ist durch das dunkle Glas kaum zu sehen, die Flasche ist bis zum Hals gefüllt",
+        "etikett": "Name „Kräider Batti“, Alkoholangabe und Menge nur wie auf dem Etikett, nichts erfinden",
+        "formHinweis": "Form klären: fotos-basis/rund-0-5l.png ist nur ein Platzhalter (klares Glas, Korken); Größe, Flaschenform und Verschluss von Kräider Batti sind nicht bekannt, dunkles Glas und Schraubverschluss stehen nur im Prompt"
+      },
+      "serviervorschlaege": {
+        "anhang1": "fotos-flaschen/kraider-batti.png",
+        "anhang2": "fotos-flaschen/kraider-batti.png",
+        "aussehen": "Form, dunkles Glas, schwarzer Schraubverschluss und Etikett exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Bild als Etikett-Referenz)",
+        "fluessigkeit": "sehr dunkelbraun, fast schwarz",
+        "karten": [
+          { "name": "Kräider Batti pur, gut gekühlt", "typ": "Pur", "glas": "Stielglas", "szene": "Ein kleines Stielglas mit gut gekühltem, sehr dunkelbraunem Kräuterlikör, das Glas leicht beschlagen, ohne Eis und ohne Garnitur." },
+          { "name": "Kräider Batti auf Eis", "typ": "Auf Eis / Longdrink", "glas": "Tumbler", "szene": "Ein Tumbler mit Eiswürfeln und sehr dunkelbraunem Kräuterlikör, ohne Garnitur." },
+          { "name": "Espresso mit Kräider Batti", "typ": "Zum Essen", "glas": "Espressotasse", "szene": "Eine Espressotasse mit frischem Espresso und Crema auf einer Untertasse, daneben ein kleines Glas sehr dunkelbrauner Kräuterlikör." },
+          { "name": "Kräider Batti zu dunkler Schokolade", "typ": "Zum Essen", "glas": "Stielglas", "szene": "Ein kleines Stielglas mit sehr dunkelbraunem Kräuterlikör, daneben auf einem Holzbrett drei Stücke dunkle Schokolade." }
+        ]
+      }
+    }
+  ]
+}

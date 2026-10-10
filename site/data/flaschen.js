@@ -8,6 +8,7 @@ export const FLASCHENTYP = {
   'vieux-marc': 'karaffe',
   gin: 'rund', wodka: 'rund', whisky: 'rund', 'hunneg-whisky': 'rund', 'hierber-fruucht': 'rund', vizdrepp: 'rund',
   rum: 'rund', 'rum-orange': 'rund', sambuca: 'rund', limoncello: 'rund',
+  hierberol: 'rund', // Foto fotos-flaschen/hierberol-0-7l.png; kein flaches Etikett, die Vektor-Flasche wird nicht gebraucht
 };
 // Verschlussfarbe (Kork ist Standard der runden Flasche)
 // Kappen laut Nutzerfotos: Wodka Silber (Alu), Fruucht Holz, Rum Holz/Kork; Gin und Whisky nach Theke-Aufnahme.

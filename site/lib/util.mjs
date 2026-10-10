@@ -15,6 +15,9 @@ export function preisInfo(produkt) {
   return alle.length ? { min: Math.min(...alle), max: Math.max(...alle), anzahl: alle.length } : null;
 }
 
+// Größen einer Sorte (alle Varianten): Mengen der Preise, dazu die Flaschengröße einer Variante ohne Preise (varianten[].menge, z. B. Hierberol 0,7 L)
+export const mengenVon = (produkt) => [...new Set(produkt.varianten.flatMap((v) => [...v.preise.map((x) => x.menge), ...(v.menge ? [v.menge] : [])]))];
+
 // Name ohne Klammerzusatz und Erklärung aus der Klammer, wie in produkte.js hinterlegt: "Hondsaarsch (Mispel)"
 export function erklaerung(produkt) {
   const v = produkt.varianten[0].name;

@@ -4,7 +4,7 @@ import { GRUPPEN } from '../data/gruppen.js';
 import { ANLAESSE, anlaesseVon } from '../data/anlaesse.js';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
-import { flasche, flaschenFoto, FLASCHEN_DEFS } from './flasche.mjs';
+import { flasche, flaschenFoto, kartenFotoKey, FLASCHEN_DEFS } from './flasche.mjs';
 import { STR } from './i18n.mjs';
 import { esc, pfad, absUrl, fmtAbv, fmtPreis, preisInfo, BASE, NB } from './util.mjs';
 import { seite, bild, folgt, TELEFON, OSM } from './layout.mjs';
@@ -17,8 +17,8 @@ export function karte(IMG, p, lang, { anlass = true } = {}) {
   const info = preisInfo(p);
   const foto = FOTO_SORTEN[p.id];
   let bildHtml;
-  const mitFoto = !!IMG[`flasche-${p.id}`];
-  if (mitFoto) bildHtml = flaschenFoto(IMG, p);
+  const fotoKey = kartenFotoKey(IMG, p), mitFoto = !!fotoKey;
+  if (mitFoto) bildHtml = flaschenFoto(IMG, p, { key: fotoKey });
   else if (ETIKETTEN[p.id]) bildHtml = flasche(IMG, p);
   else if (foto) bildHtml = `<span class="karte-foto">${bild(IMG, `foto-${foto.karte}`, { alt: '', sizes: '(min-width: 1000px) 260px, 45vw', cls: 'karte-foto-bild' }).replace('<img ', `<img style="object-position:${foto.pos}" `)}</span>`;
   else bildHtml = `<span class="karte-platzhalter" data-todo="foto"><span>${esc(p.name)}</span><span>${t.etikettFolgt}</span></span>`;
@@ -62,7 +62,7 @@ function theke(IMG, lang) {
 ${g.ids.map((id) => karte(IMG, produktById(id), lang)).join('\n')}
 </ul></div>`).join('\n');
   const weitere = lang === 'de'
-    ? `<div class="weitere" data-todo="bestaetigen"><h3>${t.weitereTitel}</h3><p>Äppel/Pommes · Quitten · Nëssdrëpp · Pefferminz · Pastis · Hierberol · Ingwerlikör · Kräider Batti · Neutraler Alkohol · Liköre · Holzkisten</p></div>`
+    ? `<div class="weitere" data-todo="bestaetigen"><h3>${t.weitereTitel}</h3><p>Äppel/Pommes · Quitten · Nëssdrëpp · Pefferminz · Pastis · Ingwerlikör · Kräider Batti · Neutraler Alkohol · Liköre · Holzkisten</p></div>`
     : `<div class="weitere"><h3>${t.weitereTitel}</h3>${folgt(t)}</div>`;
   return `<section class="sektion dunkel flaeche theke" id="theke" aria-labelledby="theke-h">
   ${FLASCHEN_DEFS}

@@ -19,8 +19,8 @@ Sortiert nach Priorität. Auf der Seite sind alle Entwürfe mit `data-todo="best
 - Hero-Satz, Schritte „Wie wir brennen“ (Obst, Maische, Brennen, Reifen, Abfüllen), Intro, Nase, Gaumen, Abgang, Trinktemperatur und Glas je Sorte (`site/data/texte.js`).
 - Erklärung von Quetsch, Lënschouren, Neelchesbiren (luxemburgische Namen).
 - Anlass-Zuordnung (`site/data/anlaesse.js`), Gruppen (`gruppen.js`; unklar: Grain, Kürbisdrëpp, Vizdrëpp), „Passt auch“ (`verwandt.js`).
-- Alle Serviervorschläge: Rezeptentwurf, Brenner bestätigen (`site/data/serviervorschlaege.js`; 29 Sorten, je 3 bis 5).
-- Weitere Produkte auf Anfrage (Äppel/Pommes, Quitten, Nëssdrëpp, Pefferminz, Pastis, Hierberol, Ingwerlikör, Kräider Batti, Neutraler Alkohol, Liköre, Holzkisten): Liste bestätigen.
+- Alle Serviervorschläge: Rezeptentwurf, Brenner bestätigen (`site/data/serviervorschlaege.js`; 30 Sorten, je 3 bis 5; Hierberol: 4 Karten nur aus dem Flaschenetikett abgeleitet).
+- Weitere Produkte auf Anfrage (Äppel/Pommes, Quitten, Nëssdrëpp, Pefferminz, Pastis, Ingwerlikör, Kräider Batti, Neutraler Alkohol, Liköre, Holzkisten): Liste bestätigen. Hierberol ist seit Oktober 2026 eine eigene Sorte und steht nicht mehr in dieser Liste.
 - Französisch: alle Entwurfstexte (`data-todo="uebersetzung"`, „Textes à venir“).
 
 ## 4. Fotos
@@ -149,3 +149,19 @@ Leere Flaschen als Anhang 1 der ChatGPT-Prompts (Tabelle in `FOTO-INVENTAR.md`, 
 
 - Das Abfüll-Bild ist erkennbar KI-erzeugt (Flaschen „Hierber Gin“, Brennanlage im Hintergrund); ob die Brennerei ein echtes Foto der Abfüllung hat, klärt der Brenner.
 - Das Maische-Bild: Herkunft und Anlage vom Brenner bestätigen lassen (Alt-Text beschreibt nur „Maische aus Obst, die aus einer Edelstahlanlage in eine Wanne läuft“).
+
+## 10. Hierberol und Kräider Batti
+
+**Hierberol** (Aperitif) ist eine eigene Sorte mit Sortenseite (`/brand/hierberol/`). Alle Angaben stammen nur vom Flaschenbild `fotos-flaschen/hierberol-0-7l.png` (Aperitif, 0,7 l, 15 % vol., Zubereitung „Prosecco (90 ml), Hierberol (60 ml), Soda (30 ml), Eis, Orangenscheibe“). Auf der Seite ist alles mit `data-todo="bestaetigen"` markiert. Fehlt noch:
+- **Preis:** nicht in der Preisliste; die Seite zeigt „Preis auf Anfrage“ (`preise: []` in `site/data/produkte.js`).
+- **Verkostung:** Nase, Gaumen, Abgang, Trinktemperatur und Glas sind nicht erfunden; die Seite zeigt „Verkostungsnotizen folgen.“ (`verkostungFolgt` in `site/data/texte.js`).
+- **Zutaten und Herkunft:** nichts davon steht auf dem Etikett; kein Satz dazu auf der Seite. Brenner liefert Zutaten (Kräuter, Orange?), Herkunft und Verfahren.
+- **Etikett-Datei:** es gibt kein flaches Etikett in `Fertige Etiquetten/`. Die Seite zeigt das Flaschenfoto (Größenbild 0,7 L, auch als Kartenbild); die Vektor-Flasche und das OG-Bild mit Etikett (`/og/hierberol.jpg`) entfallen, die Seite nutzt das Standard-OG-Bild. Flaches Etikett liefern, dann in `site/data/etiketten.js` eintragen.
+- **Entwürfe zu bestätigen:** Gruppe „Spirituosen“ (`gruppen.js`), keine Anlass-Zuordnung (`anlaesse.js` hat keine Kategorie „Aperitif“), „Passt auch“: Limoncello, Gin, Sambuca (`verwandt.js`), vier Serviervorschläge (`serviervorschlaege.js`; Mengen nur beim Spritz wie auf dem Etikett, sonst keine). Flüssigkeitsfarbe in `fluessigkeit.js` ist nur geschätzt. Die vier KI-Bilder `fotos-ki/hierberol-1.png` bis `-4.png` fehlen noch (Prompts: `PROMPTS-WEITERE-SORTEN.md`); bis dahin Platzhalter.
+- Die Etikettenzeile mit dem vertikalen Code („HBL4512“) und der Krone „MADE IN LUXEMBOURG“ ist nicht verwendet; Bedeutung klären, falls sie auf die Seite soll.
+
+**Kräider Batti** (Kräuterlikör, dunkel) hat bisher **nur Prompts** (`PROMPTS-WEITERE-SORTEN.md`, Konfiguration `tools/weitere-sorten.json`). Es gibt keinen Eintrag in `produkte.js` und keine Sortenseite (steht weiter im Satz „Weitere Produkte auf Anfrage“). Fehlt:
+- **Etikett** von Kräider Batti (Datei); die Zeilen im ChatGPT-Stapel stehen bis dahin mit Status „Etikett fehlt“ (`CHATGPT-STAPEL.md`).
+- **Alkoholgehalt und Größe** (und damit Flaschenform: Basisfoto `rund-0-5l.png` ist nur ein Platzhalter, „Form klären“).
+- **Preis** (Preisliste), Zutaten, Herkunft; erst dann Sorte in `produkte.js` aufnehmen.
+- Die Prompts beschreiben nur die Art („dunkelbrauner, fast schwarzer Kräuterlikör in dunkler Glasflasche“) und verlangen, keine bekannten Markenzeichen oder Etiketten-Aufmachungen anderer Hersteller nachzubauen; Ergebnisse darauf prüfen.

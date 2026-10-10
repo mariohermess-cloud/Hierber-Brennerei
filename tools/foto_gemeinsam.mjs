@@ -3,6 +3,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PRODUKTE } from '../site/data/produkte.js';
+import { ETIKETTEN } from '../site/data/etiketten.js';
+
+// Sorten mit flachem Etikett (Fertige Etiquetten/): Grundlage der Generatoren foto_prompts, foto_prompts_weitere, foto_prompts_flaschen und foto_prompts_groessen.
+export const PRODUKTE_ETIKETT = PRODUKTE.filter((p) => ETIKETTEN[p.id]);
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 

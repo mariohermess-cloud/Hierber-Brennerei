@@ -32,6 +32,7 @@ export const KI_BILDER = {
   vizdrepp: 'Vizdrëpp-Tonic mit Apfelscheiben',
   sambuca: 'Sambuca mit Kaffeebohnen',
   limoncello: 'Limoncello-Spritz mit Crémant',
+  hierberol: 'Hierberol-Spritz', // Bilder fotos-ki/hierberol-1.png bis -4.png fehlen noch: bis dahin Platzhalter; beim Upload baut der nächste Build sie automatisch ein
 };
 
 // Nummern der Karten einer Sortenseite: Der Hauptbild-Vorschlag (KI_BILDER) bekommt die 1, alle übrigen Karten werden in
