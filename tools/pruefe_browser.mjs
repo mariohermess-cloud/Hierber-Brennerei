@@ -19,7 +19,7 @@ page.on('requestfailed', (r) => konsole.push('requestfailed: ' + r.url()));
 page.on('response', (r) => { if (r.status() >= 400) konsole.push(`HTTP ${r.status()}: ${r.url()}`); });
 
 // 1. Konsole auf allen Seiten
-const pfade = ['/', '/anfrage/', '/impressum/', '/datenschutz/', ...PRODUKTE.map((p) => `/brand/${p.id}/`)];
+const pfade = ['/', '/anfrage/', '/impressum/', '/datenschutz/', ...PRODUKTE.map((p) => `/brand/${p.id}/`), '/brand/holzkiste-4x0-2l/'];
 for (const lang of ['', '/fr']) for (const p of pfade) {
   konsole = [];
   await page.goto(BASIS + lang + (p === '/' && lang ? '/' : p), { waitUntil: 'networkidle' });
@@ -206,10 +206,10 @@ const zeigtGroesse = async (pg, menge, key, altTeil, name) => {
   check(z && nb(z.alt) === altTeil, `${name}: ${menge} Alt-Text "${altTeil}" (ist "${z && nb(z.alt)}")`);
 };
 await page.setViewportSize({ width: 1280, height: 800 });
-// (a) Rum: kein 0,5-L-Bild; vorgewählt ist 0,5 L (Standard) = Vektor-Flasche, die übrigen Größen zeigen ihr Foto
+// (a) Rum: vorgewählt ist 0,5 L (Standard) = Hauptbild, die übrigen Größen zeigen ihr Foto
 await page.goto(BASIS + '/brand/rum/', { waitUntil: 'networkidle' });
 let z = await buehne(page);
-check(z && z.n === 1 && z.vektor && z.haupt, `rum: beim Laden 0,5 L vorgewählt, Vektor-Flasche (${JSON.stringify(z)})`);
+check(z && z.n === 1 && z.foto && z.haupt, `rum: beim Laden 0,5 L vorgewählt, Hauptbild (${JSON.stringify(z)})`);
 const vorgewaehlt = await page.evaluate(() => document.querySelector('[data-kauf] input[name=groesse]:checked').getAttribute('data-menge'));
 check(vorgewaehlt === '0,5 L', `rum: vorgewählte Größe 0,5 L (${vorgewaehlt})`);
 await zeigtGroesse(page, '1,5 L', 'flasche-rum-1-5l', 'Flasche Hierber Rum, 1,5 L, mit Etikett', 'rum');
@@ -230,16 +230,16 @@ for (const [lang, l] of [['', 'de'], ['/fr', 'fr']]) {
   await waehleGroesse(page, '0,5 L'); await warteBild(page);
   z = await buehne(page); check(z && z.n === 1 && z.haupt && z.foto && /\/flasche-gin-\d+\./.test(z.src), `${name}: 0,5 L zurück zum Hauptbild (${JSON.stringify(z)})`);
 }
-// (c) Kirsch: 0,5 L vorgewählt (Vektor-Flasche), 0,1 L zeigt das 0,1-L-Foto
+// (c) Kirsch: 0,5 L vorgewählt (Hauptbild), 0,1 L zeigt das 0,1-L-Foto
 await page.goto(BASIS + '/brand/kirsch/', { waitUntil: 'networkidle' });
 z = await buehne(page);
-check(z && z.n === 1 && z.vektor, `kirsch: beim Laden 0,5 L vorgewählt, Vektor-Flasche (${JSON.stringify(z)})`);
+check(z && z.n === 1 && z.foto && z.haupt, `kirsch: beim Laden 0,5 L vorgewählt, Hauptbild (${JSON.stringify(z)})`);
 await zeigtGroesse(page, '0,1 L', 'flasche-kirsch-0-1l', 'Flasche Kirsch, 0,1 L, mit Etikett', 'kirsch');
 // Variantenwechsel (Quetsch): Bild folgt der Größe, nichts bricht
 await page.goto(BASIS + '/brand/quetsch/', { waitUntil: 'networkidle' });
 await page.locator('label.chip-radio', { has: page.locator('input[name=variante][value=geraeift]') }).click(); await warteBild(page);
 z = await buehne(page); check(z && z.n === 1 && z.menge === '0,1 L' && z.foto && z.src.includes('/flasche-quetsch-0-1l-'), `quetsch: Variante gewechselt, Größe 0,1 L zeigt Foto (${JSON.stringify(z)})`);
-await waehleGroesse(page, '0,5 L'); z = await buehne(page); check(z && z.vektor, 'quetsch: 0,5 L der anderen Variante zeigt die Vektor-Flasche');
+await waehleGroesse(page, '0,5 L'); z = await buehne(page); check(z && z.foto && z.haupt, 'quetsch: 0,5 L der anderen Variante zeigt das Hauptbild');
 await page.locator('label.chip-radio', { has: page.locator('input[name=variante][value=standard]') }).click(); await warteBild(page);
 z = await buehne(page); check(z && z.n === 1 && z.menge === '0,1 L' && z.foto, `quetsch: zurück zur ersten Variante, Foto 0,1 L (${JSON.stringify(z)})`);
 // (e) ohne JavaScript bleibt das Hauptbild (bzw. bei Kirsch die Vektor-Flasche der vorgewählten Größe 0,5 L); verborgene Größenbilder bleiben verborgen
@@ -248,7 +248,7 @@ const p6 = await ctx6.newPage();
 await p6.goto(BASIS + '/brand/gin/'); z = await buehne(p6);
 check(z && z.n === 1 && z.haupt && z.foto, `ohne JS gin: Hauptbild sichtbar (${JSON.stringify(z)})`);
 await p6.goto(BASIS + '/brand/kirsch/'); z = await buehne(p6);
-check(z && z.n === 1 && z.vektor, `ohne JS kirsch: vorgewählte Größe 0,5 L, Vektor-Flasche sichtbar (${JSON.stringify(z)})`);
+check(z && z.n === 1 && z.foto && z.haupt, `ohne JS kirsch: vorgewählte Größe 0,5 L, Hauptbild sichtbar (${JSON.stringify(z)})`);
 await ctx6.close();
 // (f) Mobil 375x812: Wechsel funktioniert, kein horizontaler Überlauf
 await page.setViewportSize({ width: 375, height: 812 });
@@ -302,6 +302,105 @@ await page.goto(BASIS + '/anfrage/', { waitUntil: 'load' }); await page.goBack({
 const yz = await page.evaluate(() => window.scrollY);
 check(Math.abs(yz - 1500) < 40, `Zurück: Scrollposition bleibt erhalten (${Math.round(yz)})`);
 console.log('Sprung zum Hauptprodukt getestet.');
+
+// 13. Hierberol: Sorte ohne flaches Etikett, nur Größenbild 0,7 L (fotos-flaschen/hierberol-0-7l.png); Foto im Kopf und auf der Karte, Preis 19 € (0,7 L), Merkliste
+const bildGeladen = (pg, sel) => pg.waitForFunction((x) => { const i = document.querySelector(x); return i && i.complete && i.naturalWidth > 0; }, sel, { timeout: 8000 }).then(() => true, () => false);
+for (const [vp, vname] of [[{ width: 1280, height: 800 }, 'Desktop'], [{ width: 375, height: 812 }, 'Mobil']]) {
+  await page.setViewportSize(vp);
+  await page.goto(BASIS + '/brand/hierberol/', { waitUntil: 'networkidle' });
+  const kopfBild = '.produkt-kopf .haupt-bild picture img';
+  check(await bildGeladen(page, kopfBild), `hierberol ${vname}: Foto im Kopf geladen (naturalWidth > 0)`);
+  const hb = await page.evaluate((sel) => { const i = document.querySelector(sel); return i ? { alt: i.alt, src: i.currentSrc, w: i.naturalWidth, platzhalter: !!document.querySelector('.etikett-platzhalter'), vektor: !!document.querySelector('.produkt-kopf .flasche') } : null; }, kopfBild);
+  check(hb && nb(hb.alt) === 'Flasche Hierberol, 0,7 L, mit Etikett', `hierberol ${vname}: Alt-Text mit 0,7 L (ist "${hb && nb(hb.alt)}")`);
+  check(hb && hb.src.includes('/flasche-hierberol-0-7l-') && !hb.platzhalter && !hb.vektor, `hierberol ${vname}: Bild ist flasche-hierberol-0-7l, kein Platzhalter, keine Vektor-Flasche (${JSON.stringify(hb)})`);
+  check((await page.locator('[data-kauf] [data-preis-anfrage]').count()) === 0 && (await page.locator('[data-kauf] input[name=groesse][data-menge="0,7 L"][data-preis="19"]').count()) === 1, `hierberol ${vname}: Kauf-Box mit genau einer Größe 0,7 L zu 19 €, kein „Preis auf Anfrage“`);
+  check(nb(await page.locator('[data-kauf] [data-auswahl-preis]').textContent()).trim() === '19 €' && (await page.locator('[data-kauf] .abv-label, [data-kauf] .variante-abv').first().textContent()).includes('Alkoholgehalt'), `hierberol ${vname}: Auswahl-Preis 19 €, Alkoholgehalt angezeigt`);
+  const abvText = nb(await page.locator('.produkt-text .abv-wert').textContent());
+  check(abvText === '15 % vol.', `hierberol ${vname}: Alkoholgehalt 15 % vol. (${abvText})`);
+  const ueberlauf = await page.evaluate(() => document.documentElement.scrollWidth);
+  check(ueberlauf <= vp.width, `hierberol ${vname}: kein horizontaler Überlauf (${ueberlauf})`);
+}
+// Karte in der Theke zeigt das Foto statt Vektor-Flasche oder Platzhalter
+await page.setViewportSize({ width: 1280, height: 800 });
+await page.goto(BASIS + '/', { waitUntil: 'load' });
+const karteBild = '.theke .karte-li[data-id=hierberol] .karte-bild-foto picture img';
+await page.locator('.theke .karte-li[data-id=hierberol]').scrollIntoViewIfNeeded();
+check(await bildGeladen(page, karteBild), 'hierberol: Karte zeigt das Foto (geladen)');
+const kb2 = await page.evaluate(() => { const k = document.querySelector('.theke .karte-li[data-id=hierberol]'); return { src: (k.querySelector('picture img') || {}).currentSrc || '', vektor: !!k.querySelector('.flasche'), platzhalter: !!k.querySelector('.karte-platzhalter'), text: k.textContent.replace(/\s+/g, ' ') }; });
+check(kb2.src.includes('/flasche-hierberol-0-7l-') && !kb2.vektor && !kb2.platzhalter && /ab\s+19\s€/.test(kb2.text) && !/Preis auf Anfrage/.test(kb2.text), `hierberol: Karte mit Foto, ohne Platzhalter, „ab 19 €“ (${JSON.stringify(kb2)})`);
+check((await page.locator('.theke .gruppe[data-gruppe=spirituosen] .karte-li[data-id=hierberol]').count()) === 1, 'hierberol: Karte in der Gruppe Spirituosen');
+const weitere = (await page.locator('.theke .weitere').textContent()).replace(/\s+/g, ' ');
+check(!/Hierberol/.test(weitere), 'Satz „Weitere Produkte auf Anfrage“ nennt Hierberol nicht mehr');
+// französische Seite lädt
+const frAntwort = await page.goto(BASIS + '/fr/brand/hierberol/', { waitUntil: 'networkidle' });
+check(frAntwort && frAntwort.status() === 200 && (await page.locator('h1').textContent()) === 'Hierberol' && (await page.locator('[data-kauf] [data-preis-wert="19"]').count()) === 1, 'hierberol: /fr/brand/hierberol/ lädt, h1 Hierberol, Preis 19 €');
+check(await bildGeladen(page, '.produkt-kopf .haupt-bild picture img'), 'hierberol FR: Foto im Kopf geladen');
+// OG-Bild: Standard (kein flaches Etikett)
+await page.goto(BASIS + '/brand/hierberol/');
+const og = await page.locator('meta[property="og:image"]').getAttribute('content');
+check(og && og.endsWith('/og/standard.jpg'), `hierberol: og:image ist das Standard-OG-Bild (${og})`);
+// Merkliste: „Auf die Merkliste“ mit Preis 19 €
+await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
+await page.reload();
+await page.locator('[data-merk-add]').click();
+check((await page.locator('[data-zaehler]').first().textContent()) === '1' && await page.locator('[data-zur-merkliste]').isVisible(), 'hierberol: Auf die Merkliste, Zähler 1, „Zur Merkliste“ erscheint');
+await page.goto(BASIS + '/anfrage/');
+check((await page.locator('[data-liste] li').count()) === 1, 'hierberol: Anfrage zeigt 1 Zeile');
+await page.fill('#f-name', 'Max Muster'); await page.fill('#f-mail', 'max@example.org'); await page.fill('#f-tel', '123456');
+const vorschauH = await page.locator('[data-vorschau]').textContent();
+check(vorschauH.includes('1 x Hierberol, 0,7 L: 19 € je Stück = 19 €'), `hierberol: Anfrage-Text „1 x Hierberol, 0,7 L: 19 € je Stück = 19 €“ (${vorschauH.replace(/\s+/g, ' ').slice(0, 160)})`);
+await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
+console.log('Hierberol getestet.');
+
+// Holzkiste 4 x 0,2 l: Seite, Live-Vorschau, Preis, Mehrfachwahl, Handybreite
+{
+  konsole = [];
+  const r = await page.goto(BASIS + '/brand/holzkiste-4x0-2l/', { waitUntil: 'networkidle' });
+  check(r && r.status() === 200 && (await page.locator('h1').textContent()) === 'Holzkiste 4 × 0,2 l', 'Holzkiste: Seite lädt, h1 „Holzkiste 4 × 0,2 l“');
+  check(konsole.length === 0, `Holzkiste: Konsole ohne Fehler: ${konsole.join(' | ')}`);
+  const preis = async () => (await page.locator('[data-kiste-preis]').textContent()).replace(/\s/g, ' ');
+  check((await preis()) === '58 €', `Holzkiste: Preis 58 € (${await preis()})`);
+  const belegung = () => page.locator('[data-kiste-buehne]').getAttribute('data-belegung');
+  const sorten = () => page.evaluate(() => [...document.querySelectorAll('[data-fach-bild]')].sort((a, b) => a.getAttribute('data-fach-bild') - b.getAttribute('data-fach-bild')).map((i) => i.getAttribute('data-sorte')).join(','));
+  const zusammen = async () => (await page.locator('[data-kiste-text]').textContent()).trim();
+  check((await belegung()) === 'gin,rum,whisky,wodka' && (await zusammen()) === 'Gin, Rum, Whisky, Wodka', `Holzkiste: Standardbelegung Gin, Rum, Whisky, Wodka (${await belegung()} / ${await zusammen()})`);
+  check((await page.locator('[data-kiste-auswahl]').getAttribute('aria-live')) === 'polite', 'Holzkiste: Zusammenfassung ist aria-live');
+  check((await page.locator('.kiste-fach').count()) === 4 && (await page.locator('.kiste-fach input[type=radio]').count()) === 24, 'Holzkiste: 4 Fächer mit je 6 Sorten');
+  // Fach 1 auf Sambuca
+  await page.locator('[data-fach="1"] label', { hasText: 'Sambuca' }).click();
+  check((await sorten()) === 'sambuca,rum,whisky,wodka' && (await belegung()) === 'sambuca,rum,whisky,wodka', `Holzkiste: Fach 1 Sambuca ändert die Vorschau (${await sorten()})`);
+  check((await zusammen()) === 'Sambuca, Rum, Whisky, Wodka', `Holzkiste: Zusammenfassung folgt (${await zusammen()})`);
+  check((await page.locator('img[data-fach-bild="1"]').getAttribute('src')) === '/img/kiste-sambuca.webp', 'Holzkiste: Bild von Fach 1 ist der Sambuca-Freisteller');
+  check(/vorne links Whisky/.test(await page.locator('img.kiste-grund').getAttribute('alt')) && /hinten links Sambuca/.test(await page.locator('img.kiste-grund').getAttribute('alt')), 'Holzkiste: Alt-Text wechselt mit der Auswahl');
+  check((await preis()) === '58 €', 'Holzkiste: Preis bleibt 58 €');
+  // Fach 3 auf dieselbe Sorte wie Fach 1
+  await page.locator('[data-fach="3"] label', { hasText: 'Sambuca' }).click();
+  check((await belegung()) === 'sambuca,rum,sambuca,wodka' && (await zusammen()) === 'Sambuca, Rum, Sambuca, Wodka', `Holzkiste: dieselbe Sorte in zwei Fächern erlaubt (${await belegung()})`);
+  check(await bildGeladen(page, 'img[data-fach-bild="3"]'), 'Holzkiste: Flaschenbild in Fach 3 geladen');
+  // Handybreite: kein horizontales Scrollen
+  const breite = await page.evaluate(() => ({ s: document.documentElement.scrollWidth, c: document.documentElement.clientWidth }));
+  check(breite.s <= breite.c, `Holzkiste: bei 390 px kein horizontales Scrollen (${breite.s} > ${breite.c})`);
+  // Seite ohne JavaScript: Standardbelegung als statisches HTML
+  const ctxOhne = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
+  const seiteOhne = await ctxOhne.newPage();
+  await seiteOhne.goto(BASIS + '/brand/holzkiste-4x0-2l/', { waitUntil: 'load' });
+  const ohneJs = await seiteOhne.evaluate(() => ({ s: [...document.querySelectorAll('[data-fach-bild]')].sort((a, b) => a.getAttribute('data-fach-bild') - b.getAttribute('data-fach-bild')).map((i) => i.getAttribute('data-sorte')).join(','), t: document.querySelector('[data-kiste-text]').textContent.trim() }));
+  check(ohneJs.s === 'gin,rum,whisky,wodka' && ohneJs.t === 'Gin, Rum, Whisky, Wodka', `Holzkiste ohne JavaScript: Standardbelegung (${JSON.stringify(ohneJs)})`);
+  await ctxOhne.close();
+  // französische Seite
+  const fr = await page.goto(BASIS + '/fr/brand/holzkiste-4x0-2l/', { waitUntil: 'networkidle' });
+  check(fr && fr.status() === 200 && (await page.locator('[data-kiste-buehne]').count()) === 1, 'Holzkiste: /fr/brand/holzkiste-4x0-2l/ lädt');
+  // Screenshots für die Sichtprüfung, falls KISTE_SHOTS gesetzt ist (Verzeichnis außerhalb des Repos)
+  if (process.env.KISTE_SHOTS) {
+    await page.setViewportSize({ width: 1100, height: 900 });
+    await page.goto(BASIS + '/brand/holzkiste-4x0-2l/', { waitUntil: 'networkidle' });
+    await page.locator('.kiste-bild').screenshot({ path: path.join(process.env.KISTE_SHOTS, 'kiste-1.png') });
+    for (const [nr, id] of [[1, 'sambuca'], [2, 'limoncello'], [3, 'sambuca'], [4, 'gin']]) await page.locator(`[data-fach="${nr}"] label`, { hasText: new RegExp(`^\\s*${id}`, 'i') }).click();
+    await page.waitForTimeout(300);
+    await page.locator('.kiste-bild').screenshot({ path: path.join(process.env.KISTE_SHOTS, 'kiste-2.png') });
+  }
+  console.log('Holzkiste getestet.');
+}
 
 await browser.close();
 console.log(`${ok} Prüfungen bestanden.`);

@@ -19,8 +19,8 @@ Sortiert nach Priorität. Auf der Seite sind alle Entwürfe mit `data-todo="best
 - Hero-Satz, Schritte „Wie wir brennen“ (Obst, Maische, Brennen, Reifen, Abfüllen), Intro, Nase, Gaumen, Abgang, Trinktemperatur und Glas je Sorte (`site/data/texte.js`).
 - Erklärung von Quetsch, Lënschouren, Neelchesbiren (luxemburgische Namen).
 - Anlass-Zuordnung (`site/data/anlaesse.js`), Gruppen (`gruppen.js`; unklar: Grain, Kürbisdrëpp, Vizdrëpp), „Passt auch“ (`verwandt.js`).
-- Alle Serviervorschläge: Rezeptentwurf, Brenner bestätigen (`site/data/serviervorschlaege.js`; 29 Sorten, je 3 bis 5).
-- Weitere Produkte auf Anfrage (Äppel/Pommes, Quitten, Nëssdrëpp, Pefferminz, Pastis, Hierberol, Ingwerlikör, Kräider Batti, Neutraler Alkohol, Liköre, Holzkisten): Liste bestätigen.
+- Alle Serviervorschläge: Rezeptentwurf, Brenner bestätigen (`site/data/serviervorschlaege.js`; 30 Sorten, je 3 bis 5; Hierberol: 4 Karten nur aus dem Flaschenetikett abgeleitet).
+- Weitere Produkte auf Anfrage (nur noch Kräider Batti und Holzkisten): Liste bestätigen. Äppel/Pommes, Quitten, Nëssdrëpp, Pefferminz, Pastis, Neutraler Alkohol, Ingwerlikör, alle Liköre und Geräift haben eigene Sortenseiten (siehe Abschnitt 11). Hierberol ist seit Oktober 2026 eine eigene Sorte und steht nicht mehr in dieser Liste.
 - Französisch: alle Entwurfstexte (`data-todo="uebersetzung"`, „Textes à venir“).
 
 ## 4. Fotos
@@ -141,7 +141,7 @@ Leere Flaschen als Anhang 1 der ChatGPT-Prompts (Tabelle in `FOTO-INVENTAR.md`, 
 - `rund-40ml.png` (Miniatur) ist ungenutzt: 40 ml steht nicht in der Preisliste.
 - **Fehlende Basisfotos:** schlank 0,7 L, schlank 1 L. (Für rund 0,2 L liegt eine Datei vor, die aber nur die 0,5-L-Flasche zeigt.)
 - **Ersatzbasen sind nur Näherung:** schlank 0,7 L und schlank 1 L nutzen `schlank-0-5l.png`, rund 0,2 L nutzt `rund-0-2l.png` (dasselbe Bild wie 0,5 L); die Zielgröße steht nur als ungefähres Verhältnis im Prompt (`PROMPTS-GROESSEN.md`).
-- Zu bestätigen: Verschluss der echten 1-L- und 1,5-L-Flaschen (Prompts übernehmen den Korken des Basisfotos), Verschluss der 0,1-L-Flaschen (Basisfoto: Holzkugel auf Korkschaft).
+- Zu bestätigen: Verschluss der echten 1-L- und 1,5-L-Flaschen (die Prompts schreiben überall „Glasstopfen ohne Kork“ vor, mit Vorrang vor dem Basisfoto), Verschluss der 0,1-L-Flaschen (Basisfoto: Holzkugel auf Korkschaft).
 
 ## 9. Fotos „Wie wir brennen“ (Maische, Abfüllen)
 
@@ -149,3 +149,38 @@ Leere Flaschen als Anhang 1 der ChatGPT-Prompts (Tabelle in `FOTO-INVENTAR.md`, 
 
 - Das Abfüll-Bild ist erkennbar KI-erzeugt (Flaschen „Hierber Gin“, Brennanlage im Hintergrund); ob die Brennerei ein echtes Foto der Abfüllung hat, klärt der Brenner.
 - Das Maische-Bild: Herkunft und Anlage vom Brenner bestätigen lassen (Alt-Text beschreibt nur „Maische aus Obst, die aus einer Edelstahlanlage in eine Wanne läuft“).
+
+## 10. Hierberol und Kräider Batti
+
+**Hierberol** (Aperitif) ist eine eigene Sorte mit Sortenseite (`/brand/hierberol/`). Alle Angaben stammen nur vom Flaschenbild `fotos-flaschen/hierberol-0-7l.png` (Aperitif, 0,7 l, 15 % vol., Zubereitung „Prosecco (90 ml), Hierberol (60 ml), Soda (30 ml), Eis, Orangenscheibe“). Auf der Seite ist alles mit `data-todo="bestaetigen"` markiert. Fehlt noch:
+- **Preis:** 19 € (0,7 L) laut Preisliste, eingetragen in `site/data/produkte.js`; Chef und Brenner bestätigen.
+- **Verkostung:** Nase, Gaumen, Abgang, Trinktemperatur und Glas sind nicht erfunden; die Seite zeigt „Verkostungsnotizen folgen.“ (`verkostungFolgt` in `site/data/texte.js`).
+- **Zutaten und Herkunft:** nichts davon steht auf dem Etikett; kein Satz dazu auf der Seite. Brenner liefert Zutaten (Kräuter, Orange?), Herkunft und Verfahren.
+- **Etikett-Datei:** es gibt kein flaches Etikett in `Fertige Etiquetten/`. Die Seite zeigt das Flaschenfoto (Größenbild 0,7 L, auch als Kartenbild); die Vektor-Flasche und das OG-Bild mit Etikett (`/og/hierberol.jpg`) entfallen, die Seite nutzt das Standard-OG-Bild. Flaches Etikett liefern, dann in `site/data/etiketten.js` eintragen.
+- **Entwürfe zu bestätigen:** Gruppe „Spirituosen“ (`gruppen.js`), keine Anlass-Zuordnung (`anlaesse.js` hat keine Kategorie „Aperitif“), „Passt auch“: Limoncello, Gin, Sambuca (`verwandt.js`), vier Serviervorschläge (`serviervorschlaege.js`; Mengen nur beim Spritz wie auf dem Etikett, sonst keine). Flüssigkeitsfarbe in `fluessigkeit.js` ist nur geschätzt. Die vier KI-Bilder `fotos-ki/hierberol-1.png` bis `-4.png` fehlen noch (Prompts: `PROMPTS-WEITERE-SORTEN.md`); bis dahin Platzhalter.
+- Die Etikettenzeile mit dem vertikalen Code („HBL4512“) und der Krone „MADE IN LUXEMBOURG“ ist nicht verwendet; Bedeutung klären, falls sie auf die Seite soll.
+
+**Kräider Batti** (Kräuterlikör, dunkel) hat bisher **nur Prompts** (`PROMPTS-WEITERE-SORTEN.md`, Konfiguration `tools/weitere-sorten.json`). Es gibt keinen Eintrag in `produkte.js` und keine Sortenseite (steht weiter im Satz „Weitere Produkte auf Anfrage“). Fehlt:
+- **Etikett** von Kräider Batti (Datei); die Zeilen im ChatGPT-Stapel stehen bis dahin mit Status „Etikett fehlt“ (`CHATGPT-STAPEL.md`).
+- **Alkoholgehalt und Größe** (und damit Flaschenform: Basisfoto `rund-0-5l.png` ist nur ein Platzhalter, „Form klären“).
+- **Preis** (Preisliste), Zutaten, Herkunft; erst dann Sorte in `produkte.js` aufnehmen.
+- Die Prompts beschreiben nur die Art („dunkelbrauner, fast schwarzer Kräuterlikör in dunkler Glasflasche“) und verlangen, keine bekannten Markenzeichen oder Etiketten-Aufmachungen anderer Hersteller nachzubauen; Ergebnisse darauf prüfen.
+
+## 11. Liköre, Geräift und Weitere Brände (26 Sorten mit Sortenseite)
+
+Neue Sortenseiten aus `tools/neue-gruppen.json` und der Preisliste (Oktober 2026). Alles auf den Seiten ist Entwurf (`data-todo="bestaetigen"`). Zu bestätigen:
+- **Preise und Alkoholgehalte:** wie in der Preisliste (`site/data/produkte.js`): Liköre 25 % vol., 0,1 L 6 € und 0,5 L 14 € (Hambierlikör und Schléiwenlikör 0,5 L 16 €); Winterdreams 25 % (Angabe des Nutzers), nur 0,5 L, 16 €, saisonbedingt; Ingwerlikör 0,2 L 8 € und 0,5 L 18 €. Geräift 35 % vol., 0,1 L 6 € und 0,5 L 16 €. Weitere Brände: Neutraler Alkohol 40 %, 1 L 12 €; Äppel/Pommes 45 %, 0,5 L 10 € und 1 L 13 €; Pastis 40 %, 0,5 L 20 €; Nëssdrëpp 45 %, 0,1 L 6 € und 0,5 L 15 €; Pefferminz 45 %, 0,1 L 6 € und 0,5 L 14 €; Quitten 45 %, 0,5 L 12 €.
+- **Winterdreams: 25 % vol.** laut Nutzer; die Preisliste nennt keinen Alkoholgehalt. Preis 0,5 L 16 € und „Saisonbedingt“ unverändert. Brenner bestätigt den Wert.
+- **Mirabelle op Mirabellen Likör (neu, `mirabelle-op-mirabellen-likoer`), zu bestätigen:** Alkoholgehalt 25 % vol. ist eine Annahme (wie die übrigen Liköre). **Preis fehlt in der Preisliste**, die Seite zeigt „Preis auf Anfrage“; Größen unbekannt (Hauptbild 0,5 L als Platzhalter-Prompt). Eingeordnet bei den Liköre (hinter Mirabellenlikör), runde Flasche, Flüssigkeit „warmes Goldgelb“ wie Mirabellenlikör (ob Früchte in der Flasche sind, offen). Etikett „Likör Mirabelle geräift_Zeichenfläche 1.png“. Ob es neben dem bisherigen Mirabellenlikör beide Likör-Sorten geben soll, bitte bestätigen.
+- **Texte:** nur Art und Alkoholgehalt (`site/data/texte.js`, Intro), keine Verkostung: die Seite zeigt „Verkostungsnotizen folgen.“ und „Serviervorschläge folgen.“ Keine Zutaten, Verfahren oder Herkunft. Brenner liefert Verkostung, Zutaten und Serviervorschläge.
+- **Gruppen** (`site/data/gruppen.js`): Geräift steht hinter den Obstbränden, Liköre und Weitere Brände am Ende der Theke; Reihenfolge und Namen (Französisch: „Liqueurs“, „Autres eaux-de-vie“, „Geräift“) bestätigen. Keine Anlass-Zuordnung (`anlaesse.js`): die Sorten verschwinden beim Anlass-Filter. „Passt auch“ ohne eigene Liste folgt der Gruppe; bei Geräift sind die Paare in `verwandt.js` Entwurf.
+- **Etiketten:** vorhanden für alle Liköre außer Ingwerlikör, dazu Mirabelle op Mirabellen und Quetsch op Quetsch. Ohne Etikett (Seite zeigt „Etikett folgt“): Ingwerlikör, Willi op Biren und alle Weitere Brände. Mirabelle op Mirabellen gibt es jetzt als zwei Sorten: Geräift (Branntwein, 35 %, Etikett „Brandwein Mirabelle geräift-01.png“) und Likör (Etikett „Likör Mirabelle geräift_Zeichenfläche 1.png“).
+- **Namen:** Nëssdrëpp heißt auf der Seite „Nëssdrëpp“, die Klammer „(Walnuss)“ steht in der Variante; Geräift-Sorten ohne Zusatz „geräift“ im Namen (Schreibweise der Preisliste).
+- **Fotos:** noch keine Flaschenfotos (`fotos-flaschen/`); bis dahin zeigt die Seite die Vektor-Flasche (mit Etikett) bzw. den Platzhalter. Flüssigkeitsfarben (`fluessigkeit.js`) sind geschätzt nach den Farbworten in `neue-gruppen.json`.
+- **Offen:** Kräider Batti hat weiter keine Sortenseite. Die Holzkiste 4 × 0,2 l hat eine eigene Seite `/brand/holzkiste-4x0-2l/` (Abschnitt Holzkiste unten); die übrigen Holzkisten nicht.
+
+## Holzkiste 4 × 0,2 l (`/brand/holzkiste-4x0-2l/`)
+
+- Die Seite nutzt das echte Foto der leeren Kiste `fotos-kisten/holzkiste-leer.png` (Hochformat 1024 × 1536) und stellt die gewählten Flaschen als Freisteller hinein (`tools/flaschen_freistellen.mjs` erzeugt `assets/kiste/<sorte>-0-2l.png` aus `fotos-flaschen/<sorte>-0-2l.png`; Koordinaten in `site/data/holzkiste.js`).
+- Der KI-Prompt für die Holzkiste in `tools/neue-gruppen.json` wird für diese Seite nicht mehr gebraucht; er bleibt nur für Marketing-Fotos der bestückten Kiste.
+- Zu bestätigen (`data-todo`): Kurz- und Einleitungstext, Festpreis 58 € (TTC), Sortenauswahl (Gin, Rum, Whisky, Sambuca, Wodka, Limoncello), Französisch (Entwurf), Bestellweg (derzeit nur der Link zur Anfrage; die Merkliste kennt die Kiste nicht).

@@ -3,6 +3,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PRODUKTE } from '../site/data/produkte.js';
+import { ETIKETTEN } from '../site/data/etiketten.js';
+
+// Sorten mit flachem Etikett (Fertige Etiquetten/): Grundlage der Generatoren foto_prompts, foto_prompts_weitere, foto_prompts_flaschen und foto_prompts_groessen.
+// Ausgenommen: die Flaschen aus tools/neue-gruppen.json (Liköre, Geräift, Weitere Brände); deren Prompts erzeugt foto_prompts_neue_gruppen.mjs, sonst entstünden doppelte Prompts.
+const NEUE_IDS = new Set(JSON.parse(fs.readFileSync(new URL('./neue-gruppen.json', import.meta.url), 'utf8')).flaschen.map((x) => x.id));
+export const PRODUKTE_ETIKETT = PRODUKTE.filter((p) => ETIKETTEN[p.id] && !NEUE_IDS.has(p.id));
 
 const wurzel = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -35,14 +42,16 @@ export const ADRESSE = '2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-br
 export const woerter = (s) => s.split(/\s+/).filter(Boolean).length;
 
 // ---------- Flaschen-Prompts (gemeinsam für tools/foto_prompts_flaschen.mjs und tools/foto_prompts_groessen.mjs) ----------
-// Je Sorte: Art der Vorlage, Verschluss, Flüssigkeit, Zusatz. Verschlüsse und Formen sind an den Fotos abgelesen.
+// Je Sorte: Art der Vorlage, Flüssigkeit, Zusatz. Der Verschluss ist für alle Sorten gleich (VERSCHLUSS).
 //  foto      = schlanke Sorte, Anhang 1 ist die leere schlanke Basisflasche fotos-basis/schlank-0-5l.png
 //  schlankV  = wie foto (Sorte ohne eigenes Flaschenfoto in Fotos/); beide Arten haben im Prompt dieselbe Orientierung
-//  rund      = runde Sorte, Anhang 1 ist die leere runde Basisflasche fotos-basis/rund-0-5l.png (Korken; Kappe/Halsband der Sorte stehen im Prompt)
+//  rund      = runde Sorte, Anhang 1 ist die leere runde Basisflasche fotos-basis/rund-0-5l.png (Halsband der Sorte steht im Prompt; der Verschluss ist überall der Glasstopfen aus VERSCHLUSS)
 //  vorlage   = eigene Vorlagenflasche (Vizdrëpp) bzw. leere Karaffe aus fotos-basis/ (Vieux Marc)
 export const BASIS_SCHLANK_05 = 'fotos-basis/schlank-0-5l.png';
 export const BASIS_RUND_05 = 'fotos-basis/rund-0-5l.png';
-export const GLASSTOPFEN = 'Glasstopfen mit Kork';
+// Fester Verschluss-Baustein für JEDEN Flaschen-Prompt (alle Generatoren): Glasstopfen ohne Kork. Die Zeile hat Vorrang vor dem Verschluss der Basisflasche in Anhang 1.
+export const VERSCHLUSS_SATZ = 'Verschluss: Glasstopfen ohne Kork';
+export const VERSCHLUSS = `${VERSCHLUSS_SATZ} (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1.`;
 export const SORTEN = {
   kirsch: { art: 'foto', fl: 'klar wie Wasser' }, framboise: { art: 'foto', fl: 'klar wie Wasser' }, quetsch: { art: 'foto', fl: 'klar wie Wasser' },
   'poire-williams': { art: 'foto', fl: 'klar wie Wasser' }, mirabelle: { art: 'foto', fl: 'klar wie Wasser' }, poire: { art: 'foto', fl: 'klar wie Wasser' },
@@ -50,19 +59,19 @@ export const SORTEN = {
   kraeiderdrepp: { art: 'foto', fl: 'klar wie Wasser' }, kiwibeeren: { art: 'foto', fl: 'klar wie Wasser' },
   hunnegdrepp: { art: 'foto', fl: 'tiefes Honiggold' },
   'vieille-pomme': { art: 'foto', fl: 'klares Goldgelb' }, 'vieille-prune': { art: 'foto', fl: 'klares Goldgelb' },
-  vizdrepp: { art: 'vorlage', a1: 'fotos/vorlage-vizdrepp.png', form: 'schlanker Hals, nach unten glockenförmig breiter werdender Körper mit eingewölbtem Boden', verschluss: 'Glasstopfen mit flachem, breitem Kragen', fl: 'kräftiges, klares Goldgelb', extra: 'Das Etikett ist querformatig.' },
+  vizdrepp: { art: 'vorlage', a1: 'fotos/vorlage-vizdrepp.png', form: 'schlanker Hals, nach unten glockenförmig breiter werdender Körper mit eingewölbtem Boden', fl: 'kräftiges, klares Goldgelb', extra: 'Das Etikett ist querformatig.' },
   kuerbisdrepp: { art: 'schlankV', fl: 'klar wie Wasser' }, grain: { art: 'schlankV', fl: 'klar wie Wasser' },
   hondsaarsch: { art: 'schlankV', fl: 'klar wie Wasser' }, vullekiischt: { art: 'schlankV', fl: 'klar wie Wasser' },
-  wodka: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
-  gin: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'flache, mattsilberne Metallkappe', fl: 'klar wie Wasser' },
-  rum: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'dunkelbraune Holzkappe', fl: 'goldenes Bernstein' },
-  'rum-orange': { art: 'rund', a1: BASIS_RUND_05, verschluss: 'dunkelbraune Holzkappe', fl: 'Bernstein, etwas orangener als im Foto (Orange-Bernstein)' },
-  whisky: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'goldgelb' },
-  'hunneg-whisky': { art: 'rund', a1: BASIS_RUND_05, verschluss: 'schwarze Schraubkappe statt Holzkappe', fl: 'warmes, honigfarbenes Goldgelb' },
-  limoncello: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'leuchtendes Gelbgrün' },
-  sambuca: { art: 'rund', a1: BASIS_RUND_05, verschluss: 'grauer, spitz zulaufender Metallausgießer', fl: 'klar wie Wasser' },
-  'hierber-fruucht': { art: 'rund', a1: BASIS_RUND_05, verschluss: 'rotbraune Holzkappe', fl: 'warmes, kräftiges Orange-Bernstein' },
-  'vieux-marc': { art: 'vorlage', a1: 'fotos-basis/karaffe-0-7l.png', form: 'Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper; das Glas im Foto ist klar und der Verschluss ein Glasstopfen, Glasfarbe und Verschluss gelten wie weiter unten beschrieben', verschluss: 'schwarzer Ausgießer', fl: 'dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen' },
+  wodka: { art: 'rund', a1: BASIS_RUND_05, fl: 'klar wie Wasser' },
+  gin: { art: 'rund', a1: BASIS_RUND_05, fl: 'klar wie Wasser' },
+  rum: { art: 'rund', a1: BASIS_RUND_05, fl: 'goldenes Bernstein' },
+  'rum-orange': { art: 'rund', a1: BASIS_RUND_05, fl: 'Bernstein, etwas orangener als im Foto (Orange-Bernstein)' },
+  whisky: { art: 'rund', a1: BASIS_RUND_05, fl: 'goldgelb' },
+  'hunneg-whisky': { art: 'rund', a1: BASIS_RUND_05, fl: 'warmes, honigfarbenes Goldgelb' },
+  limoncello: { art: 'rund', a1: BASIS_RUND_05, fl: 'leuchtendes Gelbgrün' },
+  sambuca: { art: 'rund', a1: BASIS_RUND_05, fl: 'klar wie Wasser' },
+  'hierber-fruucht': { art: 'rund', a1: BASIS_RUND_05, fl: 'warmes, kräftiges Orange-Bernstein' },
+  'vieux-marc': { art: 'vorlage', a1: 'fotos-basis/karaffe-0-7l.png', form: 'Karaffe mit langem, schlankem Hals und nach unten breit auslaufendem Körper; das Glas im Foto ist klar und der Verschluss ein Glasstopfen, Glasfarbe und Verschluss gelten wie weiter unten beschrieben', fl: 'dunkles, fast schwarzes Braunglas, der Brand ist nicht zu sehen' },
 };
 
 // Halsband je Sorte, abgelesen an den echten Fotos (Fotos/flasche-*.jpg: schlanke Flaschen haben KEIN Halsband; fotos/flaschen-*.webp: runde Flaschen tragen ein Papierband am Hals).

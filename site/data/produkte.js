@@ -1,10 +1,13 @@
 // Produktdaten der Keller-Ansicht v2 (Preisliste Hierber Brennerei 2025, alle Preise TTC = inkl. 17 % MwSt.).
 // Preise stammen aus der Preisliste (PDF, Spaltenposition je Zeile geprüft). Nichts erfunden:
 // Sorten, die in der Preisliste fehlen, tragen preise: [] und zeigen „Preis auf Anfrage“.
+// Liköre, Geräift und Weitere Brände (am Ende) stehen mit den Preisen und Alkoholgehalten der Preisliste; Winterdreams (25 %) und
+// Mirabelle op Mirabellen Likör (25 %, Preis auf Anfrage) sind Angaben des Nutzers, nicht der Preisliste.
+// abv: null (Alkoholgehalt unbekannt, die Seite zeigt dann keine Angabe) bleibt als Möglichkeit erhalten.
 //
 // ort:      'fass' (Fass im Gang) | 'regal' (Flasche auf der Regalwand am Gangende)
 // sorte:    Schlüssel in v2/data/etiketten.json (Etikett, Flaschentyp, Flüssigkeitsfarbe)
-// varianten: [{ id, name, abv, sorte-Variante, preise: [{ menge, preis }] }]; die erste ist die Standard-Variante.
+// varianten: [{ id, name, abv, sorte-Variante, preise: [{ menge, preis }], menge? }]; die erste ist die Standard-Variante.
 //           Ein Fass/eine Flasche zeigt immer nur die Standard-Variante, die anderen werden erst in der Kaufauswahl gewählt.
 // glas:     Glasform (siehe v2/js/glassware.js): ballon | tumbler | highball | tulpe | tulpe2 | shot
 // fluessig: Farbe/Deckkraft der Flüssigkeit im Glas (Flaschen-Flüssigkeit kommt aus etiketten.json)
@@ -13,6 +16,19 @@
 
 const p = (menge, preis) => ({ menge, preis });
 const KLAR = { farbe: '#cfe0da', alpha: 0.2 };
+// Flaschen der Gruppen Liköre, Geräift und Weitere Brände: Angaben nur aus Preisliste und tools/neue-gruppen.json (Name, Art, Alkoholgehalt, Preise).
+// Darstellung der Keller-Ansicht (glas, fluessig, stimmung, ablauf) nur als Platzhalter; die Sortenseite nutzt sie nicht.
+// vname: Variantenname, wenn er vom Namen abweicht (Klammerzusatz wie bei Vullekiischt); abv: null = in der Preisliste ohne Alkoholgehalt.
+const flasche = ({ id, name, art, abv, preise, farbe, alpha = 0.9, vname = name, zusatz = '' }) => ({
+  id, name, kurzname: name, ort: 'regal', sorte: id, abv,
+  kurz: abv == null ? art : `${art}, ${abv} % vol.`,
+  beschreibung: `${name} – ${art}.${zusatz}`,
+  varianten: [{ id: 'standard', name: vname, abv, preise }],
+  glas: 'shot', fluessig: farbe ? { farbe, alpha } : KLAR, stimmung: ST.hell,
+  ablauf: [{ gies: { fill: 0.7 } }],
+});
+const LIK = [p('0,1 L', 6), p('0,5 L', 14)], LIK16 = [p('0,1 L', 6), p('0,5 L', 16)];
+const GER = [p('0,1 L', 6), p('0,5 L', 16)];
 const ST = {
   hell: { lantern: 0.85, exposure: 1.0, warm: 0.1, andere: 0.34 },
   mittel: { lantern: 0.75, exposure: 0.98, warm: 0.2, andere: 0.32 },
@@ -266,6 +282,51 @@ export const PRODUKTE = [
     glas: 'shot', fluessig: { farbe: '#f6dc3a', alpha: 0.82 }, stimmung: ST.hell,
     ablauf: [{ deko: 'frost' }, { gies: { fill: 0.72 } }, { deko: 'zitrone' }, { deko: 'minze' }, { deko: 'tropfen' }],
   },
+  // Hierberol: Angaben vom Flaschenetikett (Aperitif, 0,7 l, 15 % vol., Zubereitung als Spritz); Preis 19 € laut Preisliste.
+  // menge: Flaschengröße einer Variante ohne Preise (mit Preisen gelten die Größen aus preise). Sie steuert das Größenbild fotos-flaschen/hierberol-0-7l.png.
+  // glas, fluessig, stimmung, ablauf: nur Darstellung der Keller-Ansicht, von der Sortenseite nicht benutzt.
+  {
+    id: 'hierberol', name: 'Hierberol', kurzname: 'Hierberol', ort: 'regal', sorte: 'hierberol', abv: 15,
+    kurz: 'Aperitif, 15 % vol.',
+    beschreibung: 'Hierberol – Aperitif der Hierber Brennerei, 0,7 l.',
+    varianten: [{ id: 'standard', name: 'Hierberol', abv: 15, menge: '0,7 L', preise: [p('0,7 L', 19)] }],
+    glas: 'highball', fluessig: { farbe: '#e0501c', alpha: 0.9 }, stimmung: ST.hell,
+    ablauf: [{ deko: 'eis' }, { gies: { fill: 0.6 } }, { deko: 'orangenscheibe' }],
+  },
+
+  /* ---------- Liköre (Preisliste: 25 % vol.; 0,1 L 6 €, 0,5 L 14 €) ---------- */
+  flasche({ id: 'de-welle-max', name: 'De wëlle Max', art: 'Wildfrucht-Likör', abv: 25, preise: LIK, farbe: '#5a1f44' }),
+  flasche({ id: 'hambierlikoer', name: 'Hambierlikör', art: 'Himbeerlikör', abv: 25, preise: LIK16, farbe: '#b3122e' }),
+  flasche({ id: 'holly', name: 'Holly', art: 'Holunderblütenlikör', abv: 25, preise: LIK, farbe: '#efe3a0', alpha: 0.6 }),
+  flasche({ id: 'kiischtenlikoer', name: 'Kiischtenlikör', art: 'Sauerkirschlikör', abv: 25, preise: LIK, farbe: '#7a0f1f' }),
+  flasche({ id: 'kraeiderlikoer', name: 'Kräiderlikör', art: 'Kräuterlikör', abv: 25, preise: LIK, farbe: '#3a3a1c', alpha: 0.95 }),
+  flasche({ id: 'mandellikoer', name: 'Mandellikör', art: 'Mandellikör', abv: 25, preise: LIK, farbe: '#b98a52' }),
+  flasche({ id: 'mirabellenlikoer', name: 'Mirabellenlikör', art: 'Mirabellenlikör', abv: 25, preise: LIK, farbe: '#e0b13a' }),
+  // Mirabelle op Mirabellen Likör: Preis nicht in der Preisliste (Preis auf Anfrage); 25 % vol. angenommen (TODO-INHALTE.md, Abschnitt 11).
+  flasche({ id: 'mirabelle-op-mirabellen-likoer', name: 'Mirabelle op Mirabellen Likör', art: 'Likör', abv: 25, preise: [], farbe: '#e0b13a' }),
+  flasche({ id: 'nesslikoer', name: 'Nësslikör', art: 'Haselnusslikör', abv: 25, preise: LIK, farbe: '#7a5232' }),
+  flasche({ id: 'pfeffi', name: 'Pfeffi', art: 'Pefferminzlikör', abv: 25, preise: LIK, farbe: '#2fcf6a' }),
+  flasche({ id: 'pijenlikoer', name: 'Pijenlikör', art: 'Weinbergpfirsich-Likör', abv: 25, preise: LIK, farbe: '#f0a56a' }),
+  flasche({ id: 'quittenlikoer', name: 'Quittenlikör', art: 'Quittenlikör', abv: 25, preise: LIK, farbe: '#ecc66a', alpha: 0.7 }),
+  flasche({ id: 'schleiwenlikoer', name: 'Schléiwenlikör', art: 'Schlehenlikör', abv: 25, preise: LIK16, farbe: '#6b1230' }),
+  flasche({ id: 'vizlikoer', name: 'Vizlikör', art: 'Apfellikör', abv: 25, preise: LIK, farbe: '#e8e08a', alpha: 0.6 }),
+  flasche({ id: 'williamslikoer', name: 'Williamslikör', art: 'Williams-Birnenlikör', abv: 25, preise: LIK, farbe: '#e6c25a', alpha: 0.7 }),
+  // Winterdreams: 25 % vol. (Angabe des Nutzers, nicht aus der Preisliste), nur 0,5 L, saisonbedingt.
+  flasche({ id: 'winterdreams', name: 'Winterdreams', art: 'Saisonaler Likör', abv: 25, preise: [p('0,5 L', 16)], farbe: '#7a1522', zusatz: ' Saisonbedingt.' }),
+  flasche({ id: 'ingwerlikoer', name: 'Ingwerlikör', art: 'Ingwerlikör', abv: 25, preise: [p('0,2 L', 8), p('0,5 L', 18)], farbe: '#e0b13a', alpha: 0.7 }),
+
+  /* ---------- Geräift (Preisliste: 35 % vol.; 0,1 L 6 €, 0,5 L 16 €) ---------- */
+  flasche({ id: 'willi-op-biren-geraeift', name: 'Willi op Biren', art: 'Geräift', abv: 35, preise: GER }),
+  flasche({ id: 'mirabelle-op-mirabellen-geraeift', name: 'Mirabelle op Mirabellen', art: 'Geräift', abv: 35, preise: GER }),
+  flasche({ id: 'quetsch-op-quetsch-geraeift', name: 'Quetsch op Quetsch', art: 'Geräift', abv: 35, preise: GER }),
+
+  /* ---------- Weitere Brände ---------- */
+  flasche({ id: 'neutral-alkohol', name: 'Neutraler Alkohol', art: 'Neutraler Alkohol', abv: 40, preise: [p('1 L', 12)] }),
+  flasche({ id: 'aeppel-pommes', name: 'Äppel/Pommes', art: 'Brand', abv: 45, preise: [p('0,5 L', 10), p('1 L', 13)], farbe: '#d9b43a', alpha: 0.6 }),
+  flasche({ id: 'pastis', name: 'Pastis', art: 'Spirituose', abv: 40, preise: [p('0,5 L', 20)], farbe: '#f1e49a', alpha: 0.6 }),
+  flasche({ id: 'nessdrepp', name: 'Nëssdrëpp', vname: 'Nëssdrëpp (Walnuss)', art: 'Brand', abv: 45, preise: [p('0,1 L', 6), p('0,5 L', 15)], farbe: '#c79a5a', alpha: 0.8 }),
+  flasche({ id: 'pefferminz', name: 'Pefferminz', art: 'Brand', abv: 45, preise: [p('0,1 L', 6), p('0,5 L', 14)] }),
+  flasche({ id: 'quitten', name: 'Quitten', art: 'Brand', abv: 45, preise: [p('0,5 L', 12)], farbe: '#dcb44c', alpha: 0.6 }),
 ];
 
 // Kontakt und Fußzeile
