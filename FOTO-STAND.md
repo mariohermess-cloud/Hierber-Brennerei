@@ -2,8 +2,8 @@
 
 Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, welche Bilder in `fotos-flaschen/` und `fotos-ki/` liegen.
 
-- **Hauptbilder (0,5 L):** 29 von 54 Sorten (Hierberol führt nur 0,7 L und braucht kein 0,5-L-Bild)
-- **Größenbilder (alle anderen Größen der Preisliste):** 33 von 65
+- **Hauptbilder (0,5 L):** 53 von 54 Sorten (Hierberol führt nur 0,7 L und braucht kein 0,5-L-Bild)
+- **Größenbilder (alle anderen Größen der Preisliste):** 51 von 65
 - **Serviervorschläge (`fotos-ki/`):** 125 von 125 Karten
 
 ## Flaschenbilder je Sorte und Größe
@@ -42,58 +42,34 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 | Hierber Sambuca | · | ✔ | ✔ | · | ✔ | ✔ | 4/4 |
 | Hierber Limoncello | · | ✔ | ✔ | · | ✔ | ✔ | 4/4 |
 | Hierberol | · | · | · | ✔ | · | · | 4/4 |
-| De wëlle Max | – | · | – | · | · | · | · |
-| Hambierlikör | – | · | – | · | · | · | · |
-| Holly | – | · | – | · | · | · | · |
-| Kiischtenlikör | – | · | – | · | · | · | · |
-| Kräiderlikör | – | · | – | · | · | · | · |
-| Mandellikör | – | · | – | · | · | · | · |
-| Mirabellenlikör | – | · | – | · | · | · | · |
+| De wëlle Max | ✔ | · | ✔ | · | · | · | · |
+| Hambierlikör | ✔ | · | ✔ | · | · | · | · |
+| Holly | ✔ | · | ✔ | · | · | · | · |
+| Kiischtenlikör | ✔ | · | ✔ | · | · | · | · |
+| Kräiderlikör | ✔ | · | ✔ | · | · | · | · |
+| Mandellikör | ✔ | · | ✔ | · | · | · | · |
+| Mirabellenlikör | ✔ | · | ✔ | · | · | · | · |
 | Mirabelle op Mirabellen Likör | · | · | – | · | · | · | · |
-| Nësslikör | – | · | – | · | · | · | · |
-| Pfeffi | – | · | – | · | · | · | · |
-| Pijenlikör | – | · | – | · | · | · | · |
-| Quittenlikör | – | · | – | · | · | · | · |
-| Schléiwenlikör | – | · | – | · | · | · | · |
-| Vizlikör | – | · | – | · | · | · | · |
-| Williamslikör | – | · | – | · | · | · | · |
-| Winterdreams | · | · | – | · | · | · | · |
-| Ingwerlikör | · | – | – | · | · | · | · |
-| Willi op Biren | – | · | – | · | · | · | · |
-| Mirabelle op Mirabellen | – | · | – | · | · | · | · |
-| Quetsch op Quetsch | – | · | – | · | · | · | · |
-| Neutraler Alkohol | · | · | · | · | – | · | · |
-| Äppel/Pommes | · | · | – | · | – | · | · |
-| Pastis | · | · | – | · | · | · | · |
-| Nëssdrëpp | – | · | – | · | · | · | · |
-| Pefferminz | – | · | – | · | · | · | · |
-| Quitten | · | · | – | · | · | · | · |
+| Nësslikör | ✔ | · | ✔ | · | · | · | · |
+| Pfeffi | – | · | ✔ | · | · | · | · |
+| Pijenlikör | ✔ | · | ✔ | · | · | · | · |
+| Quittenlikör | ✔ | · | ✔ | · | · | · | · |
+| Schléiwenlikör | ✔ | · | ✔ | · | · | · | · |
+| Vizlikör | ✔ | · | ✔ | · | · | · | · |
+| Williamslikör | ✔ | · | ✔ | · | · | · | · |
+| Winterdreams | · | · | ✔ | · | · | · | · |
+| Ingwerlikör | · | ✔ | ✔ | · | · | · | · |
+| Willi op Biren | ✔ | · | ✔ | · | · | · | · |
+| Mirabelle op Mirabellen | ✔ | · | ✔ | · | · | · | · |
+| Quetsch op Quetsch | ✔ | · | ✔ | · | · | · | · |
+| Neutraler Alkohol | · | · | · | · | ✔ | · | · |
+| Äppel/Pommes | · | · | ✔ | · | – | · | · |
+| Pastis | · | · | ✔ | · | · | · | · |
+| Nëssdrëpp | – | · | ✔ | · | · | · | · |
+| Pefferminz | – | · | ✔ | · | · | · | · |
+| Quitten | · | · | ✔ | · | · | · | · |
 | Kräider Batti (nur Prompts, keine Sortenseite) | · | · | ✔ (`kraider-batti-0-5l.png`, Größe offen) | · | · | · | 2/4 |
 
 ## Sorten ohne Hauptbild (0,5 L)
 
-- de-welle-max
-- hambierlikoer
-- holly
-- kiischtenlikoer
-- kraeiderlikoer
-- mandellikoer
-- mirabellenlikoer
 - mirabelle-op-mirabellen-likoer
-- nesslikoer
-- pfeffi
-- pijenlikoer
-- quittenlikoer
-- schleiwenlikoer
-- vizlikoer
-- williamslikoer
-- winterdreams
-- ingwerlikoer
-- willi-op-biren-geraeift
-- mirabelle-op-mirabellen-geraeift
-- quetsch-op-quetsch-geraeift
-- aeppel-pommes
-- pastis
-- nessdrepp
-- pefferminz
-- quitten
