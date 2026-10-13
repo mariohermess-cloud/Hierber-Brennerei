@@ -1,0 +1,1109 @@
+[
+  {
+    "id": "de-welle-max-0-5l",
+    "gruppe": "likoere",
+    "sorte": "De wëlle Max",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/de-welle-max-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: dunkles Beerenrot mit violettem Ton, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/de-welle-max-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: dunkles Beerenrot mit violettem Ton (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 218,
+    "anhangFehlt": []
+  },
+  {
+    "id": "de-welle-max-0-1l",
+    "gruppe": "likoere",
+    "sorte": "De wëlle Max",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/de-welle-max-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: dunkles Beerenrot mit violettem Ton, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/de-welle-max-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: dunkles Beerenrot mit violettem Ton (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 253,
+    "anhangFehlt": []
+  },
+  {
+    "id": "hambierlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Hambierlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/hambierlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: kräftiges Himbeerrot, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/hambierlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: kräftiges Himbeerrot (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "hambierlikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Hambierlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/hambierlikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: kräftiges Himbeerrot, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/hambierlikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: kräftiges Himbeerrot (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "holly-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Holly",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/holly-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: blasses, klares Strohgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/holly-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: blasses, klares Strohgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 216,
+    "anhangFehlt": []
+  },
+  {
+    "id": "holly-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Holly",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/holly-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: blasses, klares Strohgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/holly-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: blasses, klares Strohgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 251,
+    "anhangFehlt": []
+  },
+  {
+    "id": "kiischtenlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Kiischtenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/kiischtenlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: dunkles Kirschrot, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kiischtenlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: dunkles Kirschrot (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "kiischtenlikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Kiischtenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/kiischtenlikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: dunkles Kirschrot, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kiischtenlikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: dunkles Kirschrot (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "kraeiderlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Kräiderlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/kraeiderlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: dunkles Grünbraun, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kraeiderlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: dunkles Grünbraun (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "kraeiderlikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Kräiderlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/kraeiderlikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: dunkles Grünbraun, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/kraeiderlikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: dunkles Grünbraun (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "mandellikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Mandellikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/mandellikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Karamellbraun, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mandellikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Karamellbraun (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "mandellikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Mandellikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/mandellikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Karamellbraun, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mandellikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Karamellbraun (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "mirabellenlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Mirabellenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/mirabellenlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: warmes Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabellenlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: warmes Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "mirabellenlikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Mirabellenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/mirabellenlikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: warmes Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabellenlikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: warmes Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "mirabelle-op-mirabellen-likoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Mirabelle op Mirabellen Likör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Mirabelle geräift_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: warmes Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: warmes Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "offen",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "nesslikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Nësslikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/nesslikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: mittleres Nussbraun, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/nesslikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: mittleres Nussbraun (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "nesslikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Nësslikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/nesslikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: mittleres Nussbraun, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/nesslikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: mittleres Nussbraun (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "pfeffi-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Pfeffi",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/pfeffi-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: leuchtendes Minzgrün, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/pfeffi-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: leuchtendes Minzgrün (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "pfeffi-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Pfeffi",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/pfeffi-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: leuchtendes Minzgrün, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/pfeffi-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: leuchtendes Minzgrün (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "offen",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "pijenlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Pijenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/pijenlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Pfirsich-Orange, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/pijenlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Pfirsich-Orange (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "pijenlikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Pijenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/pijenlikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Pfirsich-Orange, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/pijenlikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Pfirsich-Orange (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "quittenlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Quittenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/quittenlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: blasses Bernstein-Gelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quittenlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: blasses Bernstein-Gelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "quittenlikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Quittenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/quittenlikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: blasses Bernstein-Gelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quittenlikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: blasses Bernstein-Gelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "schleiwenlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Schléiwenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/schleiwenlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: dunkles Violettrot, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/schleiwenlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: dunkles Violettrot (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "schleiwenlikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Schléiwenlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/schleiwenlikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: dunkles Violettrot, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/schleiwenlikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: dunkles Violettrot (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "vizlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Vizlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/vizlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: blasses Apfelgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vizlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: blasses Apfelgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "vizlikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Vizlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/vizlikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: blasses Apfelgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/vizlikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: blasses Apfelgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "williamslikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Williamslikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/williamslikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/williamslikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 215,
+    "anhangFehlt": []
+  },
+  {
+    "id": "williamslikoer-0-1l",
+    "gruppe": "likoere",
+    "sorte": "Williamslikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/williamslikoer-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Ersatz, eine runde Basis dieser Größe gibt es nicht; Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen, Flasche eher rund als schlank halten); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/williamslikoer-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Anhang 1 ist die schlanke 0,1-L-Flasche (Ersatz, es gibt keine runde 0,1-L-Basis); die Form kann von den runden Flaschen der Reihe abweichen.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 250,
+    "anhangFehlt": []
+  },
+  {
+    "id": "winterdreams-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Winterdreams",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/winterdreams-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Likör Winter Dreams-01.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: winterlich dunkles Rot, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/winterdreams-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: winterlich dunkles Rot (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Saisonal; Beschreibung nur „saisonaler Likör“, nichts weiter erfunden. Farbe winterlich dunkelrot.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 216,
+    "anhangFehlt": []
+  },
+  {
+    "id": "ingwerlikoer-0-5l",
+    "gruppe": "likoere",
+    "sorte": "Ingwerlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/ingwerlikoer-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "PLATZHALTER: Etikett von Ingwerlikör folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Ingwerlikör“, Art „Ingwerlikör“, „25 % vol.“, „0,5 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/ingwerlikoer-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Ingwerlikör folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Ingwerlikör liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 227,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Ingwerlikör folgt"
+    ]
+  },
+  {
+    "id": "ingwerlikoer-0-2l",
+    "gruppe": "likoere",
+    "sorte": "Ingwerlikör",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/ingwerlikoer-0-2l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
+    "anhang2": "PLATZHALTER: Etikett von Ingwerlikör folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,2-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Ingwerlikör“, Art „Ingwerlikör“, „25 % vol.“, „0,2 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/ingwerlikoer-0-2l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Ingwerlikör folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Ingwerlikör liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "fotos-basis/rund-0-2l.png ist dasselbe Bild wie rund-0-5l.png: Größe nur über die Beschreibung (nicht verifiziert).",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 227,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Ingwerlikör folgt"
+    ]
+  },
+  {
+    "id": "willi-op-biren-geraeift-0-5l",
+    "gruppe": "geraeift",
+    "sorte": "Willi op Biren geräift",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/willi-op-biren-geraeift-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
+    "anhang2": "PLATZHALTER: Etikett von Willi op Biren geräift folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klar wie Wasser, darin einige ganze kleine Williams-Birnen, sonst nichts in der Flasche, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Willi op Biren geräift“, Art „Branntwein“, „35 % vol.“, „0,5 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/willi-op-biren-geraeift-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Willi op Biren geräift folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Willi op Biren geräift liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klar wie Wasser, darin einige ganze kleine Williams-Birnen, sonst nichts in der Flasche (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "OFFENE FRAGE: Sind ganze Früchte in der Flasche sichtbar? Der Prompt verlangt einige ganze Früchte in der Flüssigkeit, sonst nichts; der Brenner bestätigt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 241,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Willi op Biren geräift folgt"
+    ]
+  },
+  {
+    "id": "willi-op-biren-geraeift-0-1l",
+    "gruppe": "geraeift",
+    "sorte": "Willi op Biren geräift",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/willi-op-biren-geraeift-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "PLATZHALTER: Etikett von Willi op Biren geräift folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klar wie Wasser, darin einige ganze kleine Williams-Birnen, sonst nichts in der Flasche, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Willi op Biren geräift“, Art „Branntwein“, „35 % vol.“, „0,1 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/willi-op-biren-geraeift-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Willi op Biren geräift folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Willi op Biren geräift liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klar wie Wasser, darin einige ganze kleine Williams-Birnen, sonst nichts in der Flasche (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "OFFENE FRAGE: Sind ganze Früchte in der Flasche sichtbar? Der Prompt verlangt einige ganze Früchte in der Flüssigkeit, sonst nichts; der Brenner bestätigt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 241,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Willi op Biren geräift folgt"
+    ]
+  },
+  {
+    "id": "mirabelle-op-mirabellen-geraeift-0-5l",
+    "gruppe": "geraeift",
+    "sorte": "Mirabelle op Mirabellen geräift",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Brandwein Mirabelle geräift-01.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klar wie Wasser, darin einige ganze Mirabellen, sonst nichts in der Flasche, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klar wie Wasser, darin einige ganze Mirabellen, sonst nichts in der Flasche (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "OFFENE FRAGE: Sind ganze Früchte in der Flasche sichtbar? Der Prompt verlangt einige ganze Früchte in der Flüssigkeit, sonst nichts; der Brenner bestätigt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 225,
+    "anhangFehlt": []
+  },
+  {
+    "id": "mirabelle-op-mirabellen-geraeift-0-1l",
+    "gruppe": "geraeift",
+    "sorte": "Mirabelle op Mirabellen geräift",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Brandwein Mirabelle geräift-01.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klar wie Wasser, darin einige ganze Mirabellen, sonst nichts in der Flasche, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klar wie Wasser, darin einige ganze Mirabellen, sonst nichts in der Flasche (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "OFFENE FRAGE: Sind ganze Früchte in der Flasche sichtbar? Der Prompt verlangt einige ganze Früchte in der Flüssigkeit, sonst nichts; der Brenner bestätigt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 245,
+    "anhangFehlt": []
+  },
+  {
+    "id": "quetsch-op-quetsch-geraeift-0-5l",
+    "gruppe": "geraeift",
+    "sorte": "Quetsch op Quetsch geräift",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/quetsch-op-quetsch-geraeift-0-5l.png",
+    "anhang1": "fotos-basis/schlank-0-5l.png",
+    "anhang2": "Fertige Etiquetten/Brandwein Quetsch geräift-01.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klar wie Wasser, darin einige ganze Zwetschgen, sonst nichts in der Flasche, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Mengenangabe wie in Anhang 2. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quetsch-op-quetsch-geraeift-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klar wie Wasser, darin einige ganze Zwetschgen, sonst nichts in der Flasche (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "OFFENE FRAGE: Sind ganze Früchte in der Flasche sichtbar? Der Prompt verlangt einige ganze Früchte in der Flüssigkeit, sonst nichts; der Brenner bestätigt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 225,
+    "anhangFehlt": []
+  },
+  {
+    "id": "quetsch-op-quetsch-geraeift-0-1l",
+    "gruppe": "geraeift",
+    "sorte": "Quetsch op Quetsch geräift",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/quetsch-op-quetsch-geraeift-0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "Fertige Etiquetten/Brandwein Quetsch geräift-01.png",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke 0,1-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klar wie Wasser, darin einige ganze Zwetschgen, sonst nichts in der Flasche, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,1 l“; sonst keine Änderung am Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quetsch-op-quetsch-geraeift-0-1l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Etikett Wort für Wort gegen Anhang 2 vergleichen (Name, Likör-Art bzw. Alkoholangabe, Adresszeile). Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung nachbessern.",
+      "Mengenangabe auf dem Etikett lautet „0,1 l“ (nicht „0,5 l“); ob das 0,5-L-Etikett diese Angabe als „0,5 l“ trägt, ist nicht geprüft (nicht verifiziert).",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klar wie Wasser, darin einige ganze Zwetschgen, sonst nichts in der Flasche (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "OFFENE FRAGE: Sind ganze Früchte in der Flasche sichtbar? Der Prompt verlangt einige ganze Früchte in der Flüssigkeit, sonst nichts; der Brenner bestätigt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 245,
+    "anhangFehlt": []
+  },
+  {
+    "id": "neutral-alkohol-1-0l",
+    "gruppe": "weitere-braende",
+    "sorte": "Neutraler Alkohol",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/neutral-alkohol-1-0l.png",
+    "anhang1": "fotos-basis/rund-1-0l.png",
+    "anhang2": "PLATZHALTER: Etikett von Neutraler Alkohol folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 1-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Neutraler Alkohol“, „40 % vol.“, „1 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/neutral-alkohol-1-0l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Neutraler Alkohol folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Neutraler Alkohol liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klar wie Wasser (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Status der Sorte unklar (Preisliste/Alkohol laut Auftrag, aber keine Bestätigung, ob die Sorte geführt wird); Flüssigkeitsfarbe geschätzt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 227,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Neutraler Alkohol folgt"
+    ]
+  },
+  {
+    "id": "aeppel-pommes-0-5l",
+    "gruppe": "weitere-braende",
+    "sorte": "Äppel/Pommes",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/aeppel-pommes-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "PLATZHALTER: Etikett von Äppel/Pommes folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Äppel/Pommes“, „45 % vol.“, „0,5 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/aeppel-pommes-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Äppel/Pommes folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Äppel/Pommes liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klares Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Status der Sorte unklar (Preisliste/Alkohol laut Auftrag, aber keine Bestätigung, ob die Sorte geführt wird); Flüssigkeitsfarbe geschätzt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 225,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Äppel/Pommes folgt"
+    ]
+  },
+  {
+    "id": "aeppel-pommes-1-0l",
+    "gruppe": "weitere-braende",
+    "sorte": "Äppel/Pommes",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/aeppel-pommes-1-0l.png",
+    "anhang1": "fotos-basis/rund-1-0l.png",
+    "anhang2": "PLATZHALTER: Etikett von Äppel/Pommes folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 1-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Äppel/Pommes“, „45 % vol.“, „1 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/aeppel-pommes-1-0l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Äppel/Pommes folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Äppel/Pommes liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klares Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Status der Sorte unklar (Preisliste/Alkohol laut Auftrag, aber keine Bestätigung, ob die Sorte geführt wird); Flüssigkeitsfarbe geschätzt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "offen",
+    "woerter": 225,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Äppel/Pommes folgt"
+    ]
+  },
+  {
+    "id": "pastis-0-5l",
+    "gruppe": "weitere-braende",
+    "sorte": "Pastis",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/pastis-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "PLATZHALTER: Etikett von Pastis folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: mattes, helles Gelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Pastis“, „40 % vol.“, „0,5 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/pastis-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Pastis folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Pastis liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: mattes, helles Gelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Status der Sorte unklar (Preisliste/Alkohol laut Auftrag, aber keine Bestätigung, ob die Sorte geführt wird); Flüssigkeitsfarbe geschätzt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 226,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Pastis folgt"
+    ]
+  },
+  {
+    "id": "nessdrepp-0-5l",
+    "gruppe": "weitere-braende",
+    "sorte": "Nëssdrëpp Walnuss",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/nessdrepp-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: helles Goldbraun, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Nëssdrëpp Walnuss“, „45 % vol.“, „0,5 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/nessdrepp-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Nëssdrëpp Walnuss liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: helles Goldbraun (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Status der Sorte unklar (Preisliste/Alkohol laut Auftrag, aber keine Bestätigung, ob die Sorte geführt wird); Flüssigkeitsfarbe geschätzt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 226,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt"
+    ]
+  },
+  {
+    "id": "pefferminz-0-5l",
+    "gruppe": "weitere-braende",
+    "sorte": "Pefferminz",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/pefferminz-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "PLATZHALTER: Etikett von Pefferminz folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Pefferminz“, „45 % vol.“, „0,5 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/pefferminz-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Pefferminz folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Pefferminz liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klar wie Wasser (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Status der Sorte unklar (Preisliste/Alkohol laut Auftrag, aber keine Bestätigung, ob die Sorte geführt wird); Flüssigkeitsfarbe geschätzt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 226,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Pefferminz folgt"
+    ]
+  },
+  {
+    "id": "quitten-0-5l",
+    "gruppe": "weitere-braende",
+    "sorte": "Quitten",
+    "typ": "flasche",
+    "dateiname": "fotos-flaschen/quitten-0-5l.png",
+    "anhang1": "fotos-basis/rund-0-5l.png",
+    "anhang2": "PLATZHALTER: Etikett von Quitten folgt",
+    "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere runde 0,5-L-Flasche ohne Etikett (Verschluss des Basisfotos nicht übernehmen), nur Form und Proportionen); nur Orientierung, nicht kopieren, nicht dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas. Inhalt: klares Goldgelb, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2, es liegt noch nicht vor und wird mitgeschickt: Text nur Name „Quitten“, „45 % vol.“, „0,5 l“, nichts erfinden. Es wird unverändert übernommen (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“) und legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, Glanz und Reflexe des Glases laufen über das Etikett. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quitten-0-5l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.",
+    "hinweise": [
+      "Anhang fehlt: PLATZHALTER: Etikett von Quitten folgt. Eintrag im ChatGPT-Stapel mit Status „Etikett fehlt“ markiert, nicht in der CSV der offenen Bilder.",
+      "Etikett von Quitten liegt noch nicht vor (Anhang 2 ist ein Platzhalter): ohne Etikett nicht erzeugen, sonst erfindet ChatGPT den Text. Sobald es da ist, in tools/neue-gruppen.json bei etikettDatei eintragen.",
+      "Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.",
+      "Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum.",
+      "Format Hochformat 1024 × 1536 Pixel; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %.",
+      "Inhalt: klares Goldgelb (Farbe ist ein Entwurf, der Brenner bestätigt sie).",
+      "Status der Sorte unklar (Preisliste/Alkohol laut Auftrag, aber keine Bestätigung, ob die Sorte geführt wird); Flüssigkeitsfarbe geschätzt.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 225,
+    "anhangFehlt": [
+      "PLATZHALTER: Etikett von Quitten folgt"
+    ]
+  },
+  {
+    "id": "holzkiste-6x0-1l",
+    "gruppe": "holzkisten",
+    "sorte": "Holzkiste 6 × 0,1 l",
+    "typ": "kiste",
+    "dateiname": "fotos-flaschen/holzkiste-6x0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "fotos-basis/schlank-0-1l.png",
+    "prompt": "Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), leicht von oben. Eine offene Holzkiste aus hellem, unbehandeltem Holz steht mittig, ganz im Bild, Luft ringsum. Sie enthält genau 6 Flaschen (schlanke 0,1-L-Flasche), jede in einem eigenen Fach aus Holzstegen auf Holzwolle, alle aufrecht, Hals und Verschluss vollständig sichtbar. Der Deckel ist abgenommen und lehnt offen neben der Kiste. Form der Flaschen wie Anhang 1 (schlanke 0,1-L-Flasche ohne Etikett; Anhang 2 ist dasselbe Bild); nur Form und Proportionen, nicht kopieren. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Inhalt der Flaschen: Likör und Branntwein, verschiedene Sorten; die Flüssigkeiten dürfen sich in der Farbe unterscheiden. Etiketten: schlichte, leere Etiketten ohne lesbaren Text, in verschiedenen Farben für verschiedene Sorten; keine Schrift, kein Name, keine Zahlen. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur diese Kiste mit genau 6 Flaschen, keine weiteren Gegenstände, kein Text auf der Kiste, kein Logo, kein Wasserzeichen. Ergebnis als PNG „fotos-flaschen/holzkiste-6x0-1l.png“.",
+    "hinweise": [
+      "Genau 6 Flaschen in der Kiste zählen; Kiste ganz im Bild, Deckel offen daneben.",
+      "Nur Flaschen in der Kiste, keine anderen Gegenstände; Verschluss Glasstopfen ohne Kork (auch bei den Apothekerflaschen).",
+      "Etiketten leer bzw. ohne lesbaren Text: keine erfundenen Namen oder Zahlen auf den Etiketten. Kiste ohne Beschriftung.",
+      "Format Querformat 1448 × 1086; die Datei heißt fotos-flaschen/holzkiste-6x0-1l.png (Größe steckt im Kisten-Namen; fotos_uebernehmen.mjs kennt diese Namen).",
+      "Holzart und Fachaufteilung sind Annahmen (heller Holzton, Holzstege, Holzwolle); der Brenner bestätigt, wie die echte Kiste aussieht.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 179,
+    "anhangFehlt": []
+  },
+  {
+    "id": "holzkiste-3x0-1l",
+    "gruppe": "holzkisten",
+    "sorte": "Holzkiste 3 × 0,1 l",
+    "typ": "kiste",
+    "dateiname": "fotos-flaschen/holzkiste-3x0-1l.png",
+    "anhang1": "fotos-basis/schlank-0-1l.png",
+    "anhang2": "fotos-basis/schlank-0-1l.png",
+    "prompt": "Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), leicht von oben. Eine offene Holzkiste aus hellem, unbehandeltem Holz steht mittig, ganz im Bild, Luft ringsum. Sie enthält genau 3 Flaschen (schlanke 0,1-L-Flasche), jede in einem eigenen Fach aus Holzstegen auf Holzwolle, alle aufrecht, Hals und Verschluss vollständig sichtbar. Der Deckel ist abgenommen und lehnt offen neben der Kiste. Form der Flaschen wie Anhang 1 (schlanke 0,1-L-Flasche ohne Etikett; Anhang 2 ist dasselbe Bild); nur Form und Proportionen, nicht kopieren. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Inhalt der Flaschen: Likör und Branntwein, verschiedene Sorten; die Flüssigkeiten dürfen sich in der Farbe unterscheiden. Etiketten: schlichte, leere Etiketten ohne lesbaren Text, in verschiedenen Farben für verschiedene Sorten; keine Schrift, kein Name, keine Zahlen. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur diese Kiste mit genau 3 Flaschen, keine weiteren Gegenstände, kein Text auf der Kiste, kein Logo, kein Wasserzeichen. Ergebnis als PNG „fotos-flaschen/holzkiste-3x0-1l.png“.",
+    "hinweise": [
+      "Genau 3 Flaschen in der Kiste zählen; Kiste ganz im Bild, Deckel offen daneben.",
+      "Nur Flaschen in der Kiste, keine anderen Gegenstände; Verschluss Glasstopfen ohne Kork (auch bei den Apothekerflaschen).",
+      "Etiketten leer bzw. ohne lesbaren Text: keine erfundenen Namen oder Zahlen auf den Etiketten. Kiste ohne Beschriftung.",
+      "Format Querformat 1448 × 1086; die Datei heißt fotos-flaschen/holzkiste-3x0-1l.png (Größe steckt im Kisten-Namen; fotos_uebernehmen.mjs kennt diese Namen).",
+      "Holzart und Fachaufteilung sind Annahmen (heller Holzton, Holzstege, Holzwolle); der Brenner bestätigt, wie die echte Kiste aussieht.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 179,
+    "anhangFehlt": []
+  },
+  {
+    "id": "holzkiste-4x0-2l",
+    "gruppe": "holzkisten",
+    "sorte": "Holzkiste 4 × 0,2 l",
+    "typ": "kiste",
+    "dateiname": "fotos-flaschen/holzkiste-4x0-2l.png",
+    "anhang1": "fotos-basis/rund-0-2l.png",
+    "anhang2": "fotos-basis/rund-0-2l.png",
+    "prompt": "Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), leicht von oben. Eine offene Holzkiste aus hellem, unbehandeltem Holz steht mittig, ganz im Bild, Luft ringsum. Sie enthält genau 4 Flaschen (runde 0,2-L-Flasche), jede in einem eigenen Fach aus Holzstegen auf Holzwolle, alle aufrecht, Hals und Verschluss vollständig sichtbar. Der Deckel ist abgenommen und lehnt offen neben der Kiste. Form der Flaschen wie Anhang 1 (runde 0,2-L-Flasche ohne Etikett; Anhang 2 ist dasselbe Bild); nur Form und Proportionen, nicht kopieren. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Inhalt der Flaschen: verschiedene Sorten (Gin, Rum, Whisky, Sambuca, Wodka, Limoncello); die Flüssigkeiten dürfen sich in der Farbe unterscheiden. Etiketten: schlichte, leere Etiketten ohne lesbaren Text, in verschiedenen Farben für verschiedene Sorten; keine Schrift, kein Name, keine Zahlen. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur diese Kiste mit genau 4 Flaschen, keine weiteren Gegenstände, kein Text auf der Kiste, kein Logo, kein Wasserzeichen. Ergebnis als PNG „fotos-flaschen/holzkiste-4x0-2l.png“.",
+    "hinweise": [
+      "Genau 4 Flaschen in der Kiste zählen; Kiste ganz im Bild, Deckel offen daneben.",
+      "Nur Flaschen in der Kiste, keine anderen Gegenstände; Verschluss Glasstopfen ohne Kork (auch bei den Apothekerflaschen).",
+      "Etiketten leer bzw. ohne lesbaren Text: keine erfundenen Namen oder Zahlen auf den Etiketten. Kiste ohne Beschriftung.",
+      "Format Querformat 1448 × 1086; die Datei heißt fotos-flaschen/holzkiste-4x0-2l.png (Größe steckt im Kisten-Namen; fotos_uebernehmen.mjs kennt diese Namen).",
+      "Holzart und Fachaufteilung sind Annahmen (heller Holzton, Holzstege, Holzwolle); der Brenner bestätigt, wie die echte Kiste aussieht.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 182,
+    "anhangFehlt": []
+  },
+  {
+    "id": "holzkiste-5x-apotheker-0-1l",
+    "gruppe": "holzkisten",
+    "sorte": "Holzkiste 5 Apothekerflaschen 0,1 l",
+    "typ": "kiste",
+    "dateiname": "fotos-flaschen/holzkiste-5x-apotheker-0-1l.png",
+    "anhang1": "fotos-basis/apotheker-0-1l.png",
+    "anhang2": "fotos-basis/apotheker-0-1l.png",
+    "prompt": "Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), leicht von oben. Eine offene Holzkiste aus hellem, unbehandeltem Holz steht mittig, ganz im Bild, Luft ringsum. Sie enthält genau 5 Flaschen (Apothekerflasche 0,1 l), jede in einem eigenen Fach aus Holzstegen auf Holzwolle, alle aufrecht, Hals und Verschluss vollständig sichtbar. Der Deckel ist abgenommen und lehnt offen neben der Kiste. Form der Flaschen wie Anhang 1 (Apothekerflasche 0,1 l ohne Etikett; Anhang 2 ist dasselbe Bild); nur Form und Proportionen, nicht kopieren. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Inhalt der Flaschen: verschiedene Sorten; die Flüssigkeiten dürfen sich in der Farbe unterscheiden. Etiketten: schlichte, leere Etiketten ohne lesbaren Text, in verschiedenen Farben für verschiedene Sorten; keine Schrift, kein Name, keine Zahlen. Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen. Nur diese Kiste mit genau 5 Flaschen, keine weiteren Gegenstände, kein Text auf der Kiste, kein Logo, kein Wasserzeichen. Ergebnis als PNG „fotos-flaschen/holzkiste-5x-apotheker-0-1l.png“.",
+    "hinweise": [
+      "Genau 5 Flaschen in der Kiste zählen; Kiste ganz im Bild, Deckel offen daneben.",
+      "Nur Flaschen in der Kiste, keine anderen Gegenstände; Verschluss Glasstopfen ohne Kork (auch bei den Apothekerflaschen).",
+      "Etiketten leer bzw. ohne lesbaren Text: keine erfundenen Namen oder Zahlen auf den Etiketten. Kiste ohne Beschriftung.",
+      "Format Querformat 1448 × 1086; die Datei heißt fotos-flaschen/holzkiste-5x-apotheker-0-1l.png (Größe steckt im Kisten-Namen; fotos_uebernehmen.mjs kennt diese Namen).",
+      "Holzart und Fachaufteilung sind Annahmen (heller Holzton, Holzstege, Holzwolle); der Brenner bestätigt, wie die echte Kiste aussieht.",
+      "Keine bekannten Markenzeichen, Flaschenformen oder Etiketten-Aufmachungen anderer Hersteller nachbauen."
+    ],
+    "status": "vorhanden",
+    "woerter": 178,
+    "anhangFehlt": []
+  }
+]

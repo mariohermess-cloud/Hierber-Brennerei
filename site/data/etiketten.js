@@ -1,5 +1,5 @@
 // Bildquelle je Sorte: flaches Etikett (Grafik) aus "Fertige Etiquetten/". Keine Flaschenfotos (KI-Beispielbilder sind ausgeschlossen).
-// Alle 29 Sorten haben ein flaches Etikett (zuletzt neu: Rum, Rum Orange, Limoncello, Sambuca, alle Querformat wie Gin).
+// 29 der ersten 30 Sorten haben ein flaches Etikett (zuletzt neu: Rum, Rum Orange, Limoncello, Sambuca, alle Querformat wie Gin). Hierberol hat keines, nur das Flaschenfoto fotos-flaschen/hierberol-0-7l.png. Dazu 17 Sorten der Gruppen Liköre und Geräift (siehe unten).
 export const ETIKETTEN = {
   'gin': 'Branntwein Hierber Gin - Nei 1-01.png',
   'wodka': 'Branntwein Wodka-01.png',
@@ -30,4 +30,23 @@ export const ETIKETTEN = {
   'vullekiischt': 'Brandwein Vogelbeere-01.png',
   'schleiwen': 'Branntwein Schleiwen-01.png',
   'vizdrepp': 'Vizdrepp 0,5l_Zeichenfläche 1.png',
+  // Liköre und Geräift (tools/neue-gruppen.json, etikettDatei); ohne Eintrag: Willi op Biren, Ingwerlikör und die Weiteren Brände (Etikett folgt)
+  'de-welle-max': 'Likör Welle max_Zeichenfläche 1.png',
+  'hambierlikoer': 'Likör Hambier_Zeichenfläche 1.png',
+  'holly': 'Likör Holunderblüte-01_Zeichenfläche 1.png',
+  'kiischtenlikoer': 'Likör Kiischt_Zeichenfläche 1.png',
+  'kraeiderlikoer': 'Likör Kraider_Zeichenfläche 1.png',
+  'mandellikoer': 'Likör Mandel_Zeichenfläche 1.png',
+  'mirabellenlikoer': 'Likör Mirabelle_Zeichenfläche 1.png',
+  'nesslikoer': 'Likör Nesslikör_Zeichenfläche 1.png',
+  'pfeffi': 'Likör Pfeffi Peffermenz_Zeichenfläche 1.png',
+  'pijenlikoer': 'Likör Pijen_Zeichenfläche 1.png',
+  'quittenlikoer': 'Likör Quitten_Zeichenfläche 1.png',
+  'schleiwenlikoer': 'Likör Schleiwen_Zeichenfläche 1.png',
+  'vizlikoer': 'Likör Viz_Zeichenfläche 1.png',
+  'williamslikoer': 'Likör Williams_Zeichenfläche 1.png',
+  'winterdreams': 'Likör Winter Dreams-01.png',
+  'mirabelle-op-mirabellen-geraeift': 'Brandwein Mirabelle geräift-01.png',
+  'mirabelle-op-mirabellen-likoer': 'Likör Mirabelle geräift_Zeichenfläche 1.png',
+  'quetsch-op-quetsch-geraeift': 'Brandwein Quetsch geräift-01.png',
 };

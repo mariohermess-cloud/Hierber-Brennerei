@@ -1,14 +1,25 @@
-# Hierber Brennerei — Hinweise für Claude Code
+# Hierber Brennerei — Projektregeln für Claude Code
 
 Betrieb: Hierber Brennerei, Herborn, Luxemburg. Dieses Repository enthält das
 Datenmodell, das Rechnungsprogramm, die Website und die Planung.
 
-**Sprache: Deutsch.** Antworten, Code-Kommentare, Bezeichner, Commit-Nachrichten,
-Dokumentation — alles auf Deutsch.
+Hierber Brennerei, Herborn, Luxemburg. Dieses Repository enthält Datenmodell,
+Rechnungsprogramm, Website, Vorlagen und Planung.
 
-## Aufbau
+- Antworten, neue Kommentare, Dokumentation und Commit-Nachrichten auf Deutsch.
+- Neue eigene Bezeichner auf Deutsch, soweit technisch sinnvoll.
+- Bestehende Bezeichner, Dateinamen, API-Felder und Bibliotheksnamen erhalten.
+- Website-Inhalte bleiben zweisprachig: Deutsch und Französisch.
+- Nur den freigegebenen Auftrag umsetzen. Keine ungefragten Erweiterungen,
+  Umbenennungen, Abhängigkeiten oder Architekturwechsel.
+- Vor Änderungen relevante Dateien lesen und vorhandene Konventionen prüfen.
+- Unbekanntes ausdrücklich als **nicht verifiziert** kennzeichnen.
+- Keine Geheimnisse, Zugangsdaten oder vollständigen tatsächlichen
+  Datenbankadressen ausgeben, in Dateien schreiben oder committen.
 
-| Verzeichnis | Inhalt |
+## 2. Repository
+
+| Pfad | Inhalt / Regel |
 |---|---|
 | `datenbank/` | PostgreSQL-Schema `brennerei` (`001_schema.sql`, `002_rechnung.sql`, `900_test.sql`) |
 | `rechnungsprogramm/` | FastAPI-Anwendung (`app/`), Tests (`tests/`), `pytest.ini` |
@@ -24,85 +35,110 @@ Dokumentation — alles auf Deutsch.
 | `Fotos/`, `Fertige Etiquetten/`, `fotos-*/` | Bildmaterial |
 | `TODO-INHALTE.md`, `BILDERLISTE.md`, `FOTO-INVENTAR.md`, `FOTO-PLATZHALTER.md`, `FLUESSIGKEIT-MESSUNG.md`, `CHATGPT-STAPEL.md`, `PROMPTS-*.md` | Arbeitsnotizen zu Inhalten und Bildern |
 
-## Arbeitsablauf: Orchestrator
+Live sind schreibende Aktionen außerhalb des lokalen Repository-Arbeitsbereichs,
+ausgenommen ausdrücklich bestätigte lokale Test- und Vorschauumgebungen
+sowie die unten beschriebenen lokalen technischen Schreibwirkungen.
 
-Sprache für alle Antworten und Dateien: **Deutsch**.
+Nur der Chef darf sie nach ausdrücklicher Nutzerfreigabe ausführen:
 
-### Rollen
+- Produktionsdatenbank über `BRENNEREI_DB`.
+- `docker compose` in `rechnungsprogramm/`, wenn echte Daten betroffen sind
+  oder die Zielumgebung nicht eindeutig als Testumgebung bestätigt ist.
+- Schreibende GitHub-MCP-Aktionen: Pull Request, Kommentar, Merge, Dateiänderung.
+- Artifacts veröffentlichen, aktualisieren oder löschen.
+- Schreibzugriffe über Home Assistant (`HA_MCP_NABU`), Lovable,
+  Gamma, Claude Docs und Claude Code Remote.
+- Aktionen mit externen Kosten, Credits oder Veröffentlichungswirkung.
 
-| Rolle | Modell | Aufgabe | Darf live schreiben? |
-|---|---|---|---|
-| **Chef** | Opus (Hauptsession) | plant, verteilt, prüft jede Änderung, committet, pusht | **ja – als Einziger** |
-| **coder** (`.claude/agents/coder.md`) | Sonnet | klar abgegrenzte Umsetzung im Repo; liefert Diff + Prüfnachweis | nein |
-| **helfer** (`.claude/agents/helfer.md`) | Haiku | suchen, lesen, zusammenfassen, Doku-Zeilen, Formatierung; keine Logik | nein |
+**Achtung:** `rechnung_festschreiben` verbraucht unwiderruflich eine Belegnummer.
+Festgeschriebene Belege sind unveränderlich; Korrektur nur per Gutschrift.
 
 **Live** heißt hier alles außerhalb des Repo-Arbeitsverzeichnisses: Home Assistant (`HA_MCP_NABU`, echtes Smart Home), Lovable (Deploy, Datenbank, Credits), GitHub-MCP-Schreibaktionen, Gamma, Claude Docs, Artifact-Publish sowie `git push`. Das Repo hat kein automatisches Deployment; Build und Prüfungen laufen ausschließlich lokal (siehe Abschnitt „Prüfbefehle“).
 
-### Ablauf bei jedem Arbeitsauftrag
+Git-Aktionen gesondert betrachten:
 
-1. **Prompt verbessern und zeigen** – Ziel, Kontext, Randbedingungen, Erfolgskriterium; offenlegen, wie der Wortlaut (oft Spracheingabe) gedeutet wurde.
-2. **Plan zeigen** – Tabelle `# | Schritt | Wer | Live? | Risiko`, dazu offene Entscheidungen mit Vorschlag.
-3. **Auf OK warten.** Vorher keine Dateien anlegen, nichts ändern, nichts live.
-4. **Delegieren** – Umsetzung an `coder`, Zuarbeit an `helfer`, jeweils mit abgegrenztem Auftrag und Erfolgskriterium. Live-Schritte bleiben beim Chef.
-5. **Kontrolle durch den Chef** – jeden Diff selbst lesen, Prüfnachweis nachvollziehen bzw. Checks selbst ausführen, erst dann committen/pushen/live gehen.
-6. **Abschluss** – kurz berichten, getrennt nach **Verifiziert** (mit Nachweis) und **Nicht verifiziert** (mit Grund).
+- `git fetch`: lesender Remote-Zugriff, verändert lokale Git-Metadaten;
+  nur als freigegebener Planschritt.
+- Lokale Branch-Erstellung, Branch-Wechsel und Commit:
+  nur durch den Chef und im freigegebenen Plan.
+- Push, Tags und Änderungen an Remote-Branches:
+  ausdrückliche Freigabe erforderlich.
+- Pull Request öffnen: ausdrückliche Freigabe erforderlich.
+- Merge: immer eigene ausdrückliche Anweisung des Nutzers.
 
-**Ausnahmen:** Reine Fragen und Smalltalk werden direkt beantwortet – ohne Prompt, Plan oder OK-Schleife.
+Keine fremden Änderungen überschreiben, zurücksetzen oder ungefragt mitcommitten.
+Keine destruktiven Git-Aktionen oder Force-Pushes ohne separate Freigabe.
 
-### Planstand
+### Lokale Ausnahmen
 
-Jede Antwort des Chefs während eines laufenden Auftrags endet mit:
+Keine Live-Systeme:
+- Eindeutig identifizierte lokale Wegwerf-PostgreSQL für Tests.
+- Nur lesend eingebundener LabelForge-Klon.
+- `npm run serve` als lokale Vorschau für `dist/`.
 
+Lokale technische Schreibwirkungen freigegebener Builds, Installationen und
+Prüfungen, beispielsweise temporäre Dateien, Werkzeug-Caches und Prüfberichte,
+gelten nicht als Live-Zugriff. Dies erlaubt keine Änderungen an fremden
+Projekten, persönlichen Dateien oder externen Systemen.
+Installationen bleiben freigabepflichtige Planschritte; neue Abhängigkeiten
+benötigen eine ausdrückliche Freigabe.
+
+Das Repository hat laut Projektstand kein automatisches Deployment.
+Builds und Prüfungen erfolgen lokal. Bei geänderter Konfiguration neu prüfen.
+
+## 6. Prüfungen
+
+Vorhandene Prüfbefehle verwenden und ihre Existenz vor Ausführung prüfen.
+Keine Skripte, Werkzeuge oder Prüfergebnisse erfinden.
+Neue Tests innerhalb der bestehenden Testsuite dürfen Bestandteil des
+freigegebenen Umsetzungsplans sein.
+Neue Prüfwerkzeuge oder Abhängigkeiten benötigen eine eigene Freigabe.
+
+Laut Projektstand gibt es keine CI, keinen Linter und keinen Formatierer.
+`npm test`, `ruff` und `make` sind nicht eingerichtet.
+
+### Allgemein
+
+Nach Änderungen:
+
+```bash
+git diff --check
 ```
-📋 Planstand
-✅ erledigt · ▶️ läuft (wer) · ⬜ offen
-```
 
-### Coder — Sonnet (`.claude/agents/coder.md`)
-
-Bekommt eine abgegrenzte Aufgabe, liefert Diff plus Prüfnachweis zurück.
-Kein Commit, kein Push, keine Live-Systeme, keine eigenmächtige Erweiterung
-des Auftrags.
-
-### Helfer — Haiku (`.claude/agents/helfer.md`)
-
-Sucht, liest, fasst zusammen, formatiert Doku-Zeilen, wenn der Auftrag das
-ausdrücklich sagt. Keine Logikänderungen, kein Commit, kein Push. Unbestätigtes
-wird mit **(nicht verifiziert)** gekennzeichnet.
-
-## Live-Systeme
-
-Schreibzugriff ausschließlich durch den Chef, und nur nach Rückfrage beim Nutzer:
-
-- **Produktionsdatenbank** über die Umgebungsvariable `BRENNEREI_DB`.
-  Achtung: `rechnung_festschreiben` verbraucht unwiderruflich eine Belegnummer;
-  festgeschriebene Belege sind unveränderlich, Korrektur nur per Gutschrift.
-- **`docker compose`** in `rechnungsprogramm/` gegen echte Daten.
-- **Git**: `git push`, Tags, Branch-Änderungen.
-- **GitHub**: alle schreibenden Werkzeuge (Pull Request, Kommentar, Merge, Datei).
-- **Artifacts**: veröffentlichen, aktualisieren, löschen.
-- **MCP-Server mit Schreibrechten**: Home Assistant (`HA_MCP_NABU`), Lovable,
-  Gamma, Claude Docs, Claude Code Remote.
+Bei Änderungen an `.claude/` zusätzlich, soweit die Dateien vorhanden sind:
 
 Nicht live und frei nutzbar: eine lokale Wegwerf-PostgreSQL für Tests sowie ein
 nur lesend eingebundener Klon von LabelForge. Ebenfalls kein Live-System:
 `npm run serve`, ein rein lokaler Vorschauserver für `dist/`.
 
-## Prüfbefehle
+Beim Hook beide Exit-Codes kontrollieren. Gültiges JSON allein beweist nicht,
+dass das Hook-Skript erfolgreich ausgeführt wurde. Falls die verwendete Shell
+die einzelnen Pipeline-Exit-Codes nicht verfügbar macht, Hook-Ausgabe und
+Exit-Code getrennt erfassen und die Ausgabe anschließend mit `jq` prüfen.
+Fehlende Dateien oder Werkzeuge ausdrücklich melden.
 
-Es gibt keine CI, keinen Linter und keinen Formatierer in diesem Repository.
-Verfügbar sind:
+### Rechnungsprogramm
 
 ```bash
 python3 -m compileall -q rechnungsprogramm/app rechnungsprogramm/tests
-python3 -m pytest rechnungsprogramm/tests -q          # 64 Tests, braucht PostgreSQL
+python3 -m pytest rechnungsprogramm/tests -q
 ```
 
-Die Testsuite braucht eine erreichbare PostgreSQL; Adresse über `BRENNEREI_DB`,
-Vorgabe `postgresql://postgres@localhost:5432/brennerei` (`rechnungsprogramm/app/db.py`).
-**Niemals auf die Produktionsdatenbank zeigen lassen.**
+Die Tests benötigen PostgreSQL. Die Verbindungsadresse kommt aus `BRENNEREI_DB`;
+die dokumentierte Vorgabe in `rechnungsprogramm/app/db.py` ist:
 
-Schemaänderungen nur gegen eine Wegwerf-Datenbank prüfen:
+```text
+postgresql://postgres@localhost:5432/brennerei
+```
+
+Diese Adresse ist eine dokumentierte Vorgabe, keine bestätigte Testfreigabe.
+**Vor jedem Datenbanktest das tatsächliche Ziel als Wegwerf-Datenbank bestätigen.**
+Weder eine lokale Adresse noch der Datenbankname allein beweisen dies.
+Bei unklarem Ziel keine Verbindung herstellen und keine SQL-Skripte ausführen.
+Die bestätigte Testadresse nur im vorgesehenen Testprozess verwenden;
+Produktionskonfiguration nicht überschreiben.
+
+Schemaänderungen ausschließlich gegen die bestätigte Wegwerf-Datenbank prüfen:
 
 ```bash
 psql "$BRENNEREI_DB" -v ON_ERROR_STOP=1 -f datenbank/001_schema.sql
@@ -159,7 +195,52 @@ Erfinde keine anderen Prüfbefehle. Es gibt `npm run build`, `npm run serve` und
   und TVA-Nummer, Adresse und Öffnungszeiten stammen ausschließlich vom Betrieb.
   Offene Punkte stehen in `TODO-INHALTE.md`.
 
-## Regeln für Code in diesem Repository
+Nur selbst gestartete Prozesse beenden. Keine fremden Prozesse auf Port 8770 stoppen.
+
+### Nachweise
+
+Historischer Referenzstand, kein aktueller Prüfnachweis:
+- Python: 64 Tests.
+- Website: 66 Seiten, 404 Preisangaben, 6214 Verweise.
+- Kontrast: 15 Farbpaare.
+- Browser: 112 Prüfungen.
+- Build erzeugte damals `dist/` unverändert.
+
+Aktuelle Zahlen ausschließlich aus dem tatsächlichen Lauf berichten.
+Ein gestarteter oder noch laufender Build ist kein erfolgreicher Build.
+Exit-Code, Ausgabe und resultierenden Diff prüfen.
+Fehlende Datenbank, Werkzeuge oder Browserumgebung als **nicht verifiziert** melden.
+
+## 7. Website-Regeln
+
+- `site/` ist die Quelle; generierte Dateien in `dist/` nicht von Hand ändern.
+- Nach Änderungen an `site/` bauen und zugehörige `dist/`-Änderungen mitcommitten.
+- Mehrere zusammengehörige Änderungen vor einem vollständigen Build bündeln.
+- `site/data/produkte.js` ist eine Kopie von `v2/data/produkte.js`;
+  nicht von Hand ändern.
+- Änderungen an Produktdaten benötigen einen geklärten, freigegebenen
+  Pflege-/Synchronisationsweg. Nicht eigenmächtig die geschützte 3D-Fassung ändern.
+- Deutsch und Französisch über `site/lib/i18n.mjs`.
+- Französische Texte nur bestätigt übernehmen; Entwürfe erhalten Platzhalter.
+- Unbestätigte Inhalte: `data-todo="bestaetigen"`.
+- Fehlende Bilder: `data-todo="foto"`.
+- Fehlende Übersetzungen: `data-todo="uebersetzung"`.
+- Marker erst entfernen, wenn die zugehörige Bestätigung oder Ergänzung vorliegt.
+- `data-todo`-Attribute sind interne Statusmarker und bleiben bis zur Klärung erhalten.
+- Sichtbare Platzhalter dürfen keine internen TODOs, KI-Hinweise oder
+  unbestätigten Produktbehauptungen enthalten.
+- Bei fehlender Übersetzung einen neutralen Platzhalter verwenden,
+  der mit den vorhandenen Prüfregeln vereinbar ist.
+- Prüfregeln nicht abschwächen, nur um einen Platzhalter durchzulassen.
+- Keine Produkt- oder Betriebsangaben erfinden: Alkoholgehalt, Preise,
+  Telefonnummer, RCS-/TVA-Nummer, Adresse und Öffnungszeiten ausschließlich
+  aus bestätigten Angaben des Betriebs.
+- Offene Inhalte in `TODO-INHALTE.md` berücksichtigen.
+- Bestehende Funktionen, Informationen, Sprachfassungen und Bedienbarkeit erhalten.
+
+## 8. Datenmodell und Rechnungsprogramm
+
+Bestehende fachliche Invarianten erhalten:
 
 - Jede SQL-Funktion trägt `SET search_path = brennerei, public`.
 - Sichten vor dem Neuanlegen mit `DROP VIEW IF EXISTS ... CASCADE` entfernen.

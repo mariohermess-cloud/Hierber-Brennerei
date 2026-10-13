@@ -4,21 +4,21 @@ import { GRUPPEN } from '../data/gruppen.js';
 import { ANLAESSE, anlaesseVon } from '../data/anlaesse.js';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
-import { flasche, flaschenFoto, FLASCHEN_DEFS } from './flasche.mjs';
+import { flasche, flaschenFoto, kartenFotoKey, FLASCHEN_DEFS } from './flasche.mjs';
 import { STR } from './i18n.mjs';
 import { esc, pfad, absUrl, fmtAbv, fmtPreis, preisInfo, BASE, NB } from './util.mjs';
 import { seite, bild, folgt, TELEFON, OSM } from './layout.mjs';
 
 export const produktById = (id) => PRODUKTE.find((p) => p.id === id);
 
-// Sortenkarte: neu erzeugte Produktflasche (fotos-flaschen/<id>.png), sonst Vektor-Flasche mit flachem Etikett auf Holzton; ohne Etikett beschrifteter Platzhalter.
+// Sortenkarte: neu erzeugte Produktflasche (fotos-flaschen/<id>-0-5l.png), sonst Vektor-Flasche mit flachem Etikett auf Holzton; ohne Etikett beschrifteter Platzhalter.
 export function karte(IMG, p, lang, { anlass = true } = {}) {
   const t = STR[lang];
   const info = preisInfo(p);
   const foto = FOTO_SORTEN[p.id];
   let bildHtml;
-  const mitFoto = !!IMG[`flasche-${p.id}`];
-  if (mitFoto) bildHtml = flaschenFoto(IMG, p);
+  const fotoKey = kartenFotoKey(IMG, p), mitFoto = !!fotoKey;
+  if (mitFoto) bildHtml = flaschenFoto(IMG, p, { key: fotoKey });
   else if (ETIKETTEN[p.id]) bildHtml = flasche(IMG, p);
   else if (foto) bildHtml = `<span class="karte-foto">${bild(IMG, `foto-${foto.karte}`, { alt: '', sizes: '(min-width: 1000px) 260px, 45vw', cls: 'karte-foto-bild' }).replace('<img ', `<img style="object-position:${foto.pos}" `)}</span>`;
   else bildHtml = `<span class="karte-platzhalter" data-todo="foto"><span>${esc(p.name)}</span><span>${t.etikettFolgt}</span></span>`;
@@ -26,10 +26,10 @@ export function karte(IMG, p, lang, { anlass = true } = {}) {
     ? `<span class="preis" data-preis-ab="${info.min}">${t.ab} ${fmtPreis(info.min)}</span>`
     : `<span class="preis anfrage" data-preis-anfrage>${t.preisAnfrage}</span>`;
   const an = anlass ? ` data-anlass="${anlaesseVon(p.id).join(' ')}"` : '';
-  return `<li class="karte-li" data-id="${p.id}"${an}><a class="karte" href="${pfad(lang, `/brand/${p.id}/`)}">`
+  return `<li class="karte-li" data-id="${p.id}"${an}><a class="karte" href="${pfad(lang, `/brand/${p.id}/`)}#produkt">`
     + `<span class="karte-bild${mitFoto ? ' karte-bild-foto' : ''}">${bildHtml}</span>`
     + `<span class="karte-name" data-sortenname="${esc(p.name)}">${esc(p.name)}</span>`
-    + `<span class="karte-meta"><span data-abv="${p.abv}">${fmtAbv(p.abv)}</span> <span aria-hidden="true">·</span> ${preis}</span></a></li>`;
+    + `<span class="karte-meta">${p.abv == null ? '' : `<span data-abv="${p.abv}">${fmtAbv(p.abv)}</span> <span aria-hidden="true">·</span> `}${preis}</span></a></li>`;
 }
 
 const FASS_IDS = PRODUKTE.filter((p) => p.ort === 'fass');
@@ -38,7 +38,7 @@ const FASS_IDS = PRODUKTE.filter((p) => p.ort === 'fass');
 // Die Tafeln sind keine Zuordnung zu den sichtbaren Fässern (unbekannt, TODO-INHALTE.md).
 function fassreihe(IMG, lang) {
   const t = STR[lang];
-  const tafeln = FASS_IDS.map((p) => `<li class="schild-li"><a class="schild" href="${pfad(lang, `/brand/${p.id}/`)}">`
+  const tafeln = FASS_IDS.map((p) => `<li class="schild-li"><a class="schild" href="${pfad(lang, `/brand/${p.id}/`)}#produkt">`
     + `<span class="schild-name" data-sortenname="${esc(p.kurzname)}">${esc(p.kurzname)}</span>`
     + `<span class="schild-abv" data-abv="${p.abv}">${p.abv}${NB}%</span></a></li>`).join('\n');
   return `<section class="sektion dunkel fassreihe-sektion" id="fassreihe" aria-labelledby="fass-h">
@@ -62,7 +62,7 @@ function theke(IMG, lang) {
 ${g.ids.map((id) => karte(IMG, produktById(id), lang)).join('\n')}
 </ul></div>`).join('\n');
   const weitere = lang === 'de'
-    ? `<div class="weitere" data-todo="bestaetigen"><h3>${t.weitereTitel}</h3><p>Äppel/Pommes · Quitten · Nëssdrëpp · Pefferminz · Pastis · Hierberol · Ingwerlikör · Kräider Batti · Neutraler Alkohol · Liköre · Holzkisten</p></div>`
+    ? `<div class="weitere" data-todo="bestaetigen"><h3>${t.weitereTitel}</h3><p>Kräider Batti · <a href="${pfad(lang, '/brand/holzkiste-4x0-2l/')}">Holzkisten</a></p></div>`
     : `<div class="weitere"><h3>${t.weitereTitel}</h3>${folgt(t)}</div>`;
   return `<section class="sektion dunkel flaeche theke" id="theke" aria-labelledby="theke-h">
   ${FLASCHEN_DEFS}
@@ -91,15 +91,15 @@ const SCHRITT_TEXTE = [
   'Zum Schluss wird abgefüllt und die Flasche beschriftet.',
 ];
 
-// Schritt -> Foto (Schlüssel, Ausschnitt). Maische und Abfüllen: beschriftete Foto-Platzhalter.
-const SCHRITT_FOTO = { 0: ['hof-birnenkisten', 'obst', 'center 88%'], 2: ['brennanlage-gross', 'brennen', 'center'], 3: ['fassraum-eichenfaesser', 'reifen', 'center'] };
+// Schritt -> Foto (Schlüssel, Alt-Schlüssel, Ausschnitt, Symbolbild?). Maische und Abfüllen: Bilder des Nutzers (Fotos/hof-maische.png, hof-abfullen.png), als Symbolbild gekennzeichnet.
+const SCHRITT_FOTO = { 0: ['hof-birnenkisten', 'obst', 'center 88%'], 1: ['hof-maische', 'maische', 'center', true], 4: ['hof-abfullen', 'abfuellen', 'center', true], 2: ['brennanlage-gross', 'brennen', 'center'], 3: ['fassraum-eichenfaesser', 'reifen', 'center'] };
 
 function brennen(IMG, lang) {
   const t = STR[lang];
   const items = t.schritte.map((s, i) => {
     const f = SCHRITT_FOTO[i];
     const fig = f
-      ? `<figure class="schritt-foto">${bild(IMG, `foto-${f[0]}`, { alt: t.fotoAlt[f[1]], sizes: '(min-width: 900px) 560px, 92vw', cls: 'schritt-bild' })}</figure>`
+      ? `<figure class="schritt-foto">${bild(IMG, `foto-${f[0]}`, { alt: t.fotoAlt[f[1]], sizes: '(min-width: 900px) 560px, 92vw', cls: 'schritt-bild' })}${f[3] ? `<figcaption>${t.symbolbildKurz}</figcaption>` : ''}</figure>`
       : `<div class="schritt-foto platz" data-todo="foto"><span>${t.fotoNoetig}: ${s}</span></div>`;
     return `<li class="schritt">${fig}<div class="schritt-text"><p class="schritt-nr">${t.schrittNr} ${i + 1}</p><h3>${s}</h3>${lang === 'de' ? `<p data-todo="bestaetigen">${SCHRITT_TEXTE[i]}</p>` : ''}</div></li>`;
   }).join('\n');

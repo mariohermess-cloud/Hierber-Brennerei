@@ -25,7 +25,7 @@ Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von
 
 Feste Adresszeile des Etiketts (in allen Prompts mit Etikett): `2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu`
 
-**Verbesserungen gegenüber den ersten 29 Prompts** (in jedem Prompt enthalten): Flasche vollständig im Bild und nichts angeschnitten; nur Zutaten und Beilagen aus dem Rezept bzw. `passtZu`; Etikettentext exakt wie im Anhang inklusive fester Adresszeile; Anhang 1 ist das Flaschenfoto der Sorte (`Fotos/flasche-<sorten-id>.jpg`), nur ohne Foto die Standardvorlage; Verschluss der Sorte nach den Fotos; Flüssigkeitsfarbe nach `site/data/fluessigkeit.js`; bei Gerichten ist das Gericht Hauptmotiv, bei „Zum Essen“ steht ein Glas Brand daneben.
+**Verbesserungen gegenüber den ersten 29 Prompts** (in jedem Prompt enthalten): Flasche vollständig im Bild und nichts angeschnitten; nur Zutaten und Beilagen aus dem Rezept bzw. `passtZu`; Etikettentext exakt wie im Anhang inklusive fester Adresszeile; Anhang 1 ist das Flaschenfoto der Sorte (`Fotos/flasche-<sorten-id>.jpg`), nur ohne Foto die Standardvorlage; Verschluss einheitlich Glasstopfen ohne Kork, Halsband der Sorte nach den Fotos; Flüssigkeitsfarbe nach `site/data/fluessigkeit.js`; bei Gerichten ist das Gericht Hauptmotiv, bei „Zum Essen“ steht ein Glas Brand daneben.
 
 ---
 
@@ -37,12 +37,12 @@ Feste Adresszeile des Etiketts (in allen Prompts mit Etikett): `2, Millewee L-66
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png`
-- **Prompt:** 187 Wörter
+- **Prompt:** 195 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Gin Fizz im Longdrinkglas auf frischem Eis, das Getränk hell, klar und perlend, ohne Garnitur im Glas. Im unscharfen Hintergrund ein Teller Räucherlachs.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“ (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: hellblaues Halsband „Hierber Brennerei“ (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -51,9 +51,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“ (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: hellblaues Halsband „Hierber Brennerei“ (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Gin; frischer Zitronensaft; Zuckersirup; Sodawasser; Eiswürfel. Beilagen nur aus: Austern, Räucherlachs, Sommersalate.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -65,12 +66,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png`
-- **Prompt:** 186 Wörter
+- **Prompt:** 194 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Dry Martini in einer vorgekühlten Cocktailschale, ohne Eis, das Getränk klar, ein Streifen Zitronenschale am Glasrand. Daneben unscharf eine kleine Schale Oliven.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“ (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: hellblaues Halsband „Hierber Brennerei“ (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -79,9 +80,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“ (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: hellblaues Halsband „Hierber Brennerei“ (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Hierber Gin; trockener Wermut; Eiswürfel; Streifen Zitronenschale. Beilagen nur aus: gesalzene Mandeln, Oliven, Räucherfisch.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -93,12 +95,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Gin - Nei 1-01.png`
-- **Prompt:** 179 Wörter
+- **Prompt:** 187 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein gekühltes Dessertglas mit 2 Kugeln Zitronensorbet, darüber klarer Gin geträufelt. Sonst nichts im Glas.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“ (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: hellblaues Halsband „Hierber Brennerei“ (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -107,10 +109,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“ (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: hellblaues Halsband „Hierber Brennerei“ (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Zitronensorbet; Gin. Beilagen nur aus: zwischen zwei Gängen, Sommerabende, nach Fisch.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -122,12 +125,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Wodka-01.png`
-- **Prompt:** 183 Wörter
+- **Prompt:** 191 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Stamperl mit eiskaltem, klarem Wodka, ohne Eis und ohne Garnitur. Im unscharfen Hintergrund ein Teller mit Räucherlachs auf Schwarzbrot.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -136,9 +139,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: hellblaues Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: Wodka. Beilagen nur aus: Räucherlachs auf Schwarzbrot, Gewürzgurken, Kaviarersatz.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -150,12 +154,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Wodka-01.png`
-- **Prompt:** 189 Wörter
+- **Prompt:** 197 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Moscow Mule im Longdrinkglas, bis oben mit Eiswürfeln, eine Limettenspalte am Glasrand. Das Getränk ist hell, leicht trüb und perlt. Im unscharfen Hintergrund ein paar Nachos.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -164,9 +168,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: hellblaues Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: Hierber Wodka; Limettensaft; Ginger Beer; Eiswürfel; Limettenspalte. Beilagen nur aus: Burger, Nachos, Grillgemüse.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -178,12 +183,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Wodka-01.png`
-- **Prompt:** 185 Wörter
+- **Prompt:** 193 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Stamperl mit eiskaltem, klarem Wodka neben einem Holzbrett: 2 Scheiben Schwarzbrot, belegt mit Räucherlachs und einem Klecks Meerrettichcreme.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: hellblaues Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -192,10 +197,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache, mattsilberne Metallkappe, hellblaues Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: hellblaues Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: Hierber Wodka, eiskalt; Räucherlachs; Schwarzbrot; Meerrettichcreme. Beilagen nur aus: Räucherlachs, Schwarzbrot, Meerrettich.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -207,12 +213,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`
-- **Prompt:** 185 Wörter
+- **Prompt:** 193 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl goldbernsteinfarbenem Rum, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück dunkle Schokolade und ein paar Nüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -221,11 +227,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braunes Halsband „Hierber Brennerei“ am Flaschenhals.
 - Nur Rezept-Zutaten im Bild: Rum. Beilagen nur aus: dunkle Schokolade, Zigarrenpause, Nüsse.
 - Das Etikett nennt 40 % vol., die Preisliste 43 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -237,12 +243,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`
-- **Prompt:** 187 Wörter
+- **Prompt:** 195 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Daiquiri in einer gekühlten Cocktailschale, ohne Eis und ohne Garnitur, das Getränk hell goldgelb und leicht trüb. Im unscharfen Hintergrund ein Teller Garnelen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -251,11 +257,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braunes Halsband „Hierber Brennerei“ am Flaschenhals.
 - Nur Rezept-Zutaten im Bild: Hierber Rum; Limettensaft; Zuckersirup; Eiswürfel. Beilagen nur aus: Garnelen, Ceviche, leichte Vorspeisen.
 - Das Etikett nennt 40 % vol., die Preisliste 43 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -267,12 +273,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum nei-01.png`
-- **Prompt:** 177 Wörter
+- **Prompt:** 185 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Dessertteller mit 2 längs halbierten, goldbraun gebratenen Bananen, daneben 2 Kugeln Vanilleeis.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braunes Halsband „Hierber Brennerei“ am Flaschenhals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: goldenes Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -281,12 +287,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe, braunes Halsband „Hierber Brennerei“ am Flaschenhals.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braunes Halsband „Hierber Brennerei“ am Flaschenhals.
 - Nur Rezept-Zutaten im Bild: reife Bananen; Butter; brauner Zucker; Hierber Rum; Vanilleeis. Beilagen nur aus: Vanilleeis, Schlagsahne, Kaffee.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
 - Das Etikett nennt 40 % vol., die Preisliste 43 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -298,12 +304,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
-- **Prompt:** 190 Wörter
+- **Prompt:** 195 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tumbler mit einem einzigen großen klaren Eiswürfel, der Rum Orange orange-bernsteinfarben, eine Orangenscheibe am Glasrand. Daneben unscharf ein Stück dunkle Schokolade und ein Mandelgebäck.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -312,11 +318,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband wie bei Rum (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Rum Orange; großer Eiswürfel; Orangenscheibe. Beilagen nur aus: dunkle Schokolade, Mandelgebäck.
 - Flüssigkeitsfarbe ist in den Daten nur geschätzt (fluessigkeit.js: #c67a1c); mit dem echten Produkt abgleichen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss (Holzkappe) ist angenommen wie bei Rum, es gibt kein Foto der Flasche.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -328,12 +334,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
-- **Prompt:** 190 Wörter
+- **Prompt:** 195 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Rum Orange-Sour im Tumbler auf frischem Eis, das Getränk orange-golden und leicht trüb, ohne Schaum, ein Streifen Zitronenschale am Glasrand. Daneben ein paar Nüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -342,11 +348,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband wie bei Rum (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Rum Orange; frischer Zitronensaft; Zuckersirup; Eiswürfel. Beilagen nur aus: Nüsse, Vorspeisen, Schokoladenkekse.
 - Flüssigkeitsfarbe ist in den Daten nur geschätzt (fluessigkeit.js: #c67a1c); mit dem echten Produkt abgleichen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss (Holzkappe) ist angenommen wie bei Rum, es gibt kein Foto der Flasche.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -358,12 +364,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Rum orange nei-01.png`
-- **Prompt:** 176 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit leicht glänzenden Orangenfilets, dazu 2 Kugeln Vanilleeis.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband wie bei Rum (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: orange-bernsteinfarben.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -372,12 +378,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe wie bei Rum, braungraues Halsband wie bei Rum (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband wie bei Rum (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Orangen; Hierber Rum Orange; Zucker; Vanilleeis. Beilagen nur aus: Vanilleeis, Schokoladenkuchen, Mandelgebäck.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
 - Flüssigkeitsfarbe ist in den Daten nur geschätzt (fluessigkeit.js: #c67a1c); mit dem echten Produkt abgleichen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss (Holzkappe) ist angenommen wie bei Rum, es gibt kein Foto der Flasche.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -389,12 +395,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
-- **Prompt:** 181 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Nosing-Glas mit 4 cl bernsteinfarbenem Whisky, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück dunkle Schokolade und ein paar Walnüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -403,9 +409,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Hierber Whisky; stilles Wasser, Zimmertemperatur. Beilagen nur aus: dunkle Schokolade, Walnüsse, ruhiger Abend.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -417,12 +424,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
-- **Prompt:** 184 Wörter
+- **Prompt:** 192 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Whisky-Highball im Highballglas, viel Eis, ein Streifen Zitronenschale im Glas. Das Getränk ist helles Bernstein und perlt leicht. Im unscharfen Hintergrund ein paar Käsegebäck-Stangen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -431,9 +438,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Whisky; Sodawasser, gut gekühlt; Eiswürfel; Streifen Zitronenschale. Beilagen nur aus: Geflügel, Käsegebäck, gegrillter Fisch.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -445,12 +453,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
-- **Prompt:** 181 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl bernsteinfarbenem Whisky neben einem Holzbrett mit kleinen Stücken gereiftem Comté und einer Handvoll Walnüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -459,10 +467,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Hierber Whisky; gut gereifter Comté; Walnüsse. Beilagen nur aus: Comté, Walnüsse, Bergkäse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -474,12 +483,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png`
-- **Prompt:** 178 Wörter
+- **Prompt:** 186 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Teller mit einem gebratenen Steak, darüber eine helle, cremige Sauce mit groben Pfefferkörnern, daneben ein paar Bratkartoffeln.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -488,10 +497,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Steaks; grob gestoßener Pfeffer; Hierber Whisky; Sahne; Butter. Beilagen nur aus: Bratkartoffeln, grüne Bohnen, Rotwein.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -503,12 +513,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit 4 cl klarem Kirsch, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Schwarzwälder Kirschtorte.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -517,9 +527,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kirsch. Beilagen nur aus: Schwarzwälder Kirschtorte, dunkle Schokolade, Espresso.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -531,12 +541,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
-- **Prompt:** 180 Wörter
+- **Prompt:** 191 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Kirsch-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Streifen Zitronenschale im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund ein kleiner Salat.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -545,9 +555,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kirsch; Tonic Water, gut gekühlt; Eiswürfel; Zitronenschale. Beilagen nur aus: leichte Vorspeisen, Salate, Ziegenfrischkäse.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -559,12 +569,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
-- **Prompt:** 169 Wörter
+- **Prompt:** 180 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit warm geschmorten dunklen Kirschen in glänzendem Sud, dazu 2 Kugeln Vanilleeis.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -573,10 +583,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kirschen; Butter; Zucker; Kirsch; Vanilleeis. Beilagen nur aus: Vanilleeis, Quark, Biskuit.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -588,12 +598,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kirsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kirsch-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarem Kirsch neben 3 Stücken dunkler Schokolade auf einem kleinen Brett.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -602,10 +612,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kirsch; dunkle Schokolade (mindestens 70 % Kakao). Beilagen nur aus: Espresso, Trüffel, Orangenschale.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -617,12 +627,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Framboise-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-framboise.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Framboise, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Käsekuchen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -631,9 +641,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Framboise. Beilagen nur aus: Vanilledessert, weiße Schokolade, Käsekuchen.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -645,12 +655,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Framboise-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-framboise.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
-- **Prompt:** 180 Wörter
+- **Prompt:** 191 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Framboise-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Minzzweig steckt im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund ein kleiner Salat.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -659,9 +669,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Framboise; Tonic Water, gut gekühlt; Eiswürfel; Minze. Beilagen nur aus: Sommerdesserts, Salate, Ziegenfrischkäse.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -673,12 +683,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Framboise-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-framboise.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
-- **Prompt:** 167 Wörter
+- **Prompt:** 178 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Dessertglas mit Panna cotta, darauf frische Himbeeren in leicht rotem Saft.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -687,10 +697,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Panna cotta (fertig oder selbst gemacht); frische Himbeeren; Zucker; Framboise. Beilagen nur aus: Panna cotta, Vanilleeis, Biskuit.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -702,12 +712,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Quetsch, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Zwetschgenkuchen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -716,9 +726,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Quetsch. Beilagen nur aus: Zwetschgenkuchen, Espresso, nach einem deftigen Essen.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -730,12 +740,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
-- **Prompt:** 178 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Quetsch-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, eine Zimtstange steckt im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund Käsegebäck.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -744,9 +754,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Quetsch; Tonic Water, gut gekühlt; Eiswürfel; Zimtstange. Beilagen nur aus: Herbstgerichte, Kürbissuppe, Käsegebäck.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -758,12 +768,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
-- **Prompt:** 168 Wörter
+- **Prompt:** 179 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit halbierten, glänzend geschmorten Zwetschgen, dazu 2 Kugeln Vanilleeis. Keine Flamme.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -772,10 +782,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Zwetschgen; Butter; Zucker; Quetsch; Vanilleeis. Beilagen nur aus: Vanilleeis, Zimtparfait, Kaffee.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -787,12 +797,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Quetsch-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-quetsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
-- **Prompt:** 175 Wörter
+- **Prompt:** 186 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarem Quetsch neben einem Holzbrett mit kleinen Stücken kräftigem Bergkäse, Walnüssen und Trauben.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -801,10 +811,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Quetsch; kräftigem Bergkäse; Walnüsse und Trauben. Beilagen nur aus: Bergkäse, Walnüsse, Trauben.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -816,12 +826,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire Williams-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire-williams.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
-- **Prompt:** 172 Wörter
+- **Prompt:** 183 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Poire Williams, ohne Eis und ohne Garnitur. Daneben eine reife Birne mit Stiel.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -830,9 +840,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Poire Williams. Beilagen nur aus: reife Birnen, Mandelgebäck, nach dem Essen.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -844,12 +854,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire Williams-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire-williams.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
-- **Prompt:** 172 Wörter
+- **Prompt:** 183 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Dessertteller mit 1 bis 2 pochierten Birnen mit Stiel in glänzendem Sud, dazu eine Kugel Vanilleeis.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -858,10 +868,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: feste Birnen; Wasser; Zucker; Zimtstange; Poire Williams. Beilagen nur aus: Vanilleeis, Mandelgebäck, Schlagsahne.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -873,12 +883,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire Williams-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire-williams.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
-- **Prompt:** 174 Wörter
+- **Prompt:** 185 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarem Poire Williams neben einem Holzbrett mit mildem Blauschimmelkäse, Birnenspalten und Walnüssen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -887,10 +897,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Poire Williams; mildem Blauschimmelkäse; Birnenspalten und Walnüsse. Beilagen nur aus: Blauschimmelkäse, Birne, Walnüsse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -902,12 +912,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarer Mirabelle, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Mirabellentarte.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -916,9 +926,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Mirabelle. Beilagen nur aus: Mirabellentarte, Weichkäse, Espresso.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -930,12 +940,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
-- **Prompt:** 179 Wörter
+- **Prompt:** 190 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Mirabelle-Spritz im großen Weinglas auf viel Eis, das Getränk hell, fast klar und perlend, ein Thymianzweig im Glas. Im unscharfen Hintergrund ein Stück Flammkuchen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -944,9 +954,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Mirabelle; Crémant, gut gekühlt; Sodawasser; Eiswürfel; Thymianzweig. Beilagen nur aus: Aperitif, Quiche, Flammkuchen.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -958,12 +968,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
-- **Prompt:** 169 Wörter
+- **Prompt:** 180 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit warm geschmorten gelben Mirabellen in glänzendem Sud, dazu 2 Kugeln Vanilleeis.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -972,10 +982,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Mirabellen; Butter; Zucker; Mirabelle; Vanilleeis. Beilagen nur aus: Vanilleeis, Quark, Buttergebäck.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -987,12 +997,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Mirabelle-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-mirabelle.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarer Mirabelle neben einem Holzbrett mit mildem Weichkäse, Mandeln und Weintrauben.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1001,10 +1011,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Mirabelle; mildem Weichkäse; Mandeln und Weintrauben. Beilagen nur aus: Weichkäse, Mandeln, Trauben.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1016,12 +1026,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
-- **Prompt:** 182 Wörter
+- **Prompt:** 190 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl warm bernsteinfarbener Hierber aale Fruucht, ohne Eis und ohne Garnitur. Daneben unscharf ein paar Nüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1030,9 +1040,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: graubraunes Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: Hierber aale Fruucht. Beilagen nur aus: Nüsse, reifer Käse, ruhiger Abend.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1044,12 +1055,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
-- **Prompt:** 181 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber warm bernsteinfarbene Fruucht geträufelt und gehackte Walnüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1058,10 +1069,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: graubraunes Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: Vanilleeis; Hierber aale Fruucht; gehackte Walnüsse. Beilagen nur aus: Espresso, Walnüsse, Gebäck.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1073,12 +1085,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
-- **Prompt:** 183 Wörter
+- **Prompt:** 191 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl warm bernsteinfarbener Fruucht neben einem Holzbrett mit kräftigem, reifem Käse, Walnüssen und Trauben.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: graubraunes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes, kräftiges Bernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1087,10 +1099,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: flache dunkle Holzkappe, graubraunes Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: graubraunes Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: Hierber aale Fruucht; kräftigem, reifem Käse; Walnüsse und Trauben. Beilagen nur aus: reifer Käse, Walnüsse, Feigen.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1102,12 +1115,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (Karaffe: die dunkle Vieux-Marc-Karaffe vorn links im Foto (nur die Karaffe beachten)):** `fotos/flaschenreihe-theke.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
-- **Prompt:** 189 Wörter
+- **Prompt:** 192 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl kräftig bernsteinfarbenem Vieux Marc, ohne Eis und ohne Garnitur. Daneben unscharf eine kleine Tasse Espresso.
-Flasche: Die Karaffe steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarzer, profilierter Stopfen mit Wulst am Hals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen.
+Flasche: Die Karaffe steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1116,10 +1129,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarzer, profilierter Stopfen mit Wulst am Hals.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vieux Marc. Beilagen nur aus: Espresso, Käse, Trauben.
 - Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1131,12 +1144,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (Karaffe: die dunkle Vieux-Marc-Karaffe vorn links im Foto (nur die Karaffe beachten)):** `fotos/flaschenreihe-theke.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
-- **Prompt:** 190 Wörter
+- **Prompt:** 193 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl kräftig bernsteinfarbenem Vieux Marc neben einem Holzbrett mit kräftigem Käse, Trauben und Nüssen.
-Flasche: Die Karaffe steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarzer, profilierter Stopfen mit Wulst am Hals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen.
+Flasche: Die Karaffe steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1145,11 +1158,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarzer, profilierter Stopfen mit Wulst am Hals.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vieux Marc; kräftigem Käse; Trauben und Nüsse. Beilagen nur aus: kräftiger Käse, Trauben, Nüsse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
 - Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1161,12 +1174,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (Karaffe: die dunkle Vieux-Marc-Karaffe vorn links im Foto (nur die Karaffe beachten)):** `fotos/flaschenreihe-theke.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
-- **Prompt:** 190 Wörter
+- **Prompt:** 193 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl kräftig bernsteinfarbenem Vieux Marc neben 3 Stücken dunkler Schokolade auf einem kleinen Brett.
-Flasche: Die Karaffe steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarzer, profilierter Stopfen mit Wulst am Hals. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen.
+Flasche: Die Karaffe steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Karaffe gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Karaffe: sehr dunkles, undurchsichtiges Braunglas, der Brand ist nicht zu sehen.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1175,11 +1188,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarzer, profilierter Stopfen mit Wulst am Hals.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vieux Marc; dunkle Schokolade (mindestens 70 % Kakao). Beilagen nur aus: Trüffel, Espresso, Nüsse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
 - Anhang 1 ist ein Gruppenfoto: nur die dunkle Karaffe vorn links als Formvorlage nutzen, deren Etikett nicht übernehmen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (karaffe); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1191,12 +1204,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Prune-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-prune.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl klar goldgelber Vieille Prune, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Zwetschgenkuchen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1205,9 +1218,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vieille Prune. Beilagen nur aus: Zwetschgenkuchen, Hartkäse, Espresso.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1219,12 +1232,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Prune-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-prune.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
-- **Prompt:** 178 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber goldgelbe Vieille Prune geträufelt und gehackte Nüsse. Daneben unscharf eine Tasse Espresso.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1233,10 +1246,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vanilleeis; Vieille Prune; gehackte Nüsse. Beilagen nur aus: Zwetschgenkompott, Espresso, Mandelgebäck.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1248,12 +1261,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Prune-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-prune.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
-- **Prompt:** 175 Wörter
+- **Prompt:** 186 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl klar goldgelber Vieille Prune neben einem Holzbrett mit kräftigem Bergkäse, Walnüssen und Trauben.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares, kräftiges Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1262,10 +1275,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vieille Prune; kräftigem Bergkäse; Walnüsse und Trauben. Beilagen nur aus: Bergkäse, Walnüsse, Trauben.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1277,12 +1290,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Pomme-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-pomme.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
-- **Prompt:** 172 Wörter
+- **Prompt:** 183 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl klar goldgelber Vieille Pomme, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Apfelkuchen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1291,9 +1304,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vieille Pomme. Beilagen nur aus: Apfelkuchen, Hartkäse, Espresso.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1305,12 +1318,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Pomme-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-pomme.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
-- **Prompt:** 165 Wörter
+- **Prompt:** 176 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Dessertteller mit einem Stück warmer Apfeltarte, dazu eine Kugel Vanilleeis.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1319,10 +1332,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Apfeltarte; Vieille Pomme; Vanilleeis. Beilagen nur aus: Apfeltarte, Vanilleeis, Kaffee.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1334,12 +1347,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vieille Pomme-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vieille-pomme.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
-- **Prompt:** 174 Wörter
+- **Prompt:** 185 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl klar goldgelber Vieille Pomme neben einem Holzbrett mit gereiftem Comté, Apfelspalten und Walnüssen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klares Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1348,10 +1361,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vieille Pomme; gereiftem Comté; Apfelspalten und Walnüsse. Beilagen nur aus: Comté, Apfel, Walnüsse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1363,12 +1376,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Teeglas mit heißem Schwarztee, eine Zitronenscheibe und eine Nelke im Glas, dezenter Dampf, kein Eis. Daneben unscharf ein Lebkuchen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1377,9 +1390,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Hunnegdrëpp; heißer Schwarztee; Scheibe Zitrone; Nelke (nach Belieben). Beilagen nur aus: Lebkuchen, Shortbread, kalte Abende.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1391,12 +1404,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
-- **Prompt:** 171 Wörter
+- **Prompt:** 182 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit 4 cl honiggoldenem Hunnegdrëpp, ohne Eis und ohne Garnitur. Daneben unscharf ein paar Walnüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1405,9 +1418,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Hunnegdrëpp. Beilagen nur aus: Käse, Walnüsse, Gebäck.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1419,12 +1432,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
-- **Prompt:** 165 Wörter
+- **Prompt:** 176 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Dessertglas mit Naturjoghurt, darüber ein Löffel Honig und gehackte Nüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1433,10 +1446,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Naturjoghurt; Honig; Hunnegdrëpp; gehackte Nüsse. Beilagen nur aus: Frühstück, frische Früchte, leichtes Dessert.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1448,12 +1461,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Hunnegdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-hunnegdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
-- **Prompt:** 171 Wörter
+- **Prompt:** 182 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl honiggoldenem Hunnegdrëpp neben einem Holzbrett mit Ziegenkäse, Walnüssen und Feigen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: tiefes Honiggold.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1462,10 +1475,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Hunnegdrëpp; Ziegenkäse; Walnüsse und Feigen. Beilagen nur aus: Ziegenkäse, Feigen, Walnüsse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1477,12 +1490,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
-- **Prompt:** 184 Wörter
+- **Prompt:** 192 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tumbler mit einem einzigen großen klaren Eiswürfel, der Hunneg Whisky warmes Goldbernstein, ohne Garnitur. Daneben ein paar Walnüsse und ein Stück dunkle Schokolade.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1491,11 +1504,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Hunneg Whisky; großer Eiswürfel. Beilagen nur aus: Hartkäse, Walnüsse, dunkle Schokolade.
 - Flüssigkeitsfarbe ist in den Daten nur geschätzt (fluessigkeit.js: #c4912e); mit dem echten Produkt abgleichen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss (schwarze Schraubkappe) ist wie beim Whisky angenommen, es gibt kein Foto der Hunneg-Whisky-Flasche.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1507,12 +1520,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
-- **Prompt:** 181 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Teeglas mit heißem, goldgelbem Getränk, eine Zitronenscheibe und eine Zimtstange im Glas, dezenter Dampf, kein Eis. Daneben unscharf ein Lebkuchen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1521,11 +1534,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Hierber Hunneg Whisky; heißes Wasser; Scheibe Zitrone; Zimtstange. Beilagen nur aus: Lebkuchen, kalte Abende, Shortbread.
 - Flüssigkeitsfarbe ist in den Daten nur geschätzt (fluessigkeit.js: #c4912e); mit dem echten Produkt abgleichen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss (schwarze Schraubkappe) ist wie beim Whisky angenommen, es gibt kein Foto der Hunneg-Whisky-Flasche.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1537,12 +1550,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Whisky 0,5L Hunneg-01.png`
-- **Prompt:** 181 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl goldbernsteinfarbenem Hunneg Whisky neben einem Holzbrett mit kleinen Stücken Comté, Walnüssen und Trauben.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: braungraues Halsband (unbestätigt). Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: warmes Goldbernstein.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1551,12 +1564,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: schwarze, geriffelte Schraubkappe, braungraues Halsband (unbestätigt).
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: braungraues Halsband (unbestätigt).
 - Nur Rezept-Zutaten im Bild: Hunneg Whisky; Comté; Walnüsse und Trauben. Beilagen nur aus: Comté, Walnüsse, Birne.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
 - Flüssigkeitsfarbe ist in den Daten nur geschätzt (fluessigkeit.js: #c4912e); mit dem echten Produkt abgleichen.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss (schwarze Schraubkappe) ist wie beim Whisky angenommen, es gibt kein Foto der Hunneg-Whisky-Flasche.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1568,12 +1581,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kräiderdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kraeiderdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
-- **Prompt:** 171 Wörter
+- **Prompt:** 182 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Kräiderdrëpp, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück kräftiger Käse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1582,9 +1595,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kräiderdrëpp. Beilagen nur aus: deftige Gerichte, kräftiger Käse, nach dem Essen.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1596,12 +1609,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kräiderdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kraeiderdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
-- **Prompt:** 178 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Kräiderdrëpp mit Ginger Beer im Longdrinkglas auf viel Eis, das Getränk hell, leicht trüb und perlend, eine Limettenspalte am Glasrand. Im unscharfen Hintergrund Grillgemüse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1610,9 +1623,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kräiderdrëpp; Limettensaft; Ginger Beer; Eiswürfel; Limettenspalte. Beilagen nur aus: Grillgemüse, Burger, deftige Gerichte.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1624,12 +1637,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kräiderdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kraeiderdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
-- **Prompt:** 171 Wörter
+- **Prompt:** 182 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Stamperl mit klarem, gekühltem Kräiderdrëpp vor einem unscharfen Teller mit Schweinebraten und Kartoffeln.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1638,10 +1651,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kräiderdrëpp, gut gekühlt. Beilagen nur aus: Schweinebraten, Kartoffelgerichte, kräftige Wurst.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1653,12 +1666,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Kürbisdrëpp, ohne Eis und ohne Garnitur. Daneben unscharf ein Schälchen Kürbiskerne.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1667,10 +1680,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kürbisdrëpp. Beilagen nur aus: Kürbiskerne, Hartkäse, Espresso.
 - Das Etikett nennt 40 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1682,12 +1695,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
-- **Prompt:** 178 Wörter
+- **Prompt:** 189 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Kürbisdrëpp mit Ginger Beer im Longdrinkglas auf viel Eis, das Getränk hell, leicht trüb und perlend, eine Limettenspalte am Glasrand. Im unscharfen Hintergrund Käsegebäck.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1696,10 +1709,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kürbisdrëpp; Limettensaft; Ginger Beer; Eiswürfel; Limettenspalte. Beilagen nur aus: Herbstgerichte, Kürbissuppe, Käsegebäck.
 - Das Etikett nennt 40 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1711,12 +1724,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kürbisdrepp-01.png`
-- **Prompt:** 174 Wörter
+- **Prompt:** 185 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarem Kürbisdrëpp neben einem Holzbrett mit kräftigem Hartkäse, gerösteten Kürbiskernen und Walnüssen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1725,11 +1738,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kürbisdrëpp; kräftigem Hartkäse; gerösteten Kürbiskernen. Beilagen nur aus: Hartkäse, Kürbiskerne, Walnüsse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
 - Das Etikett nennt 40 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1741,12 +1754,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
-- **Prompt:** 171 Wörter
+- **Prompt:** 182 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Stamperl mit eiskaltem, klarem Grain, ohne Eis und ohne Garnitur. Daneben unscharf ein paar Gewürzgurken.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1755,9 +1768,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Grain. Beilagen nur aus: deftige Brotzeit, Schinken, Gewürzgurken.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1769,12 +1782,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
-- **Prompt:** 174 Wörter
+- **Prompt:** 185 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Stamperl mit klarem, gekühltem Grain neben einem Holzbrett: luftgetrockneter Schinken, 2 Scheiben Bauernbrot und 3 Gewürzgurken.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1783,10 +1796,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Grain, gekühlt; luftgetrockneter Schinken; Bauernbrot; Gewürzgurken. Beilagen nur aus: Schinken, Bauernbrot, Gewürzgurken.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1798,12 +1811,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Hondsaarsch, ohne Eis und ohne Garnitur. Daneben unscharf eine Tasse Espresso.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1812,9 +1825,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Hondsaarsch. Beilagen nur aus: Wildgerichte, kräftiger Käse, Espresso.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1826,12 +1839,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
-- **Prompt:** 177 Wörter
+- **Prompt:** 188 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klarer Hondsaarsch geträufelt und gehackte Nüsse. Daneben unscharf eine Tasse Espresso.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1840,10 +1853,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vanilleeis; Hondsaarsch; gehackte Nüsse. Beilagen nur aus: Espresso, Gebäck, frische Früchte.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1855,12 +1868,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hondsaarsch-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarem Hondsaarsch neben einem Holzbrett mit kräftigem Käse, Walnüssen und Trauben.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1869,10 +1882,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Hondsaarsch; kräftigem Käse; Walnüsse und Trauben. Beilagen nur aus: kräftigem Käse, Walnüsse, Trauben.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -1884,12 +1897,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kiwibeeren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kiwibeeren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
-- **Prompt:** 171 Wörter
+- **Prompt:** 182 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Kiwibeeren-Brand, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück weiße Schokolade.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1898,10 +1911,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kiwibeeren. Beilagen nur aus: frische Früchte, weiße Schokolade, leichte Desserts.
 - Das Etikett nennt 43 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1913,12 +1926,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kiwibeeren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kiwibeeren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
-- **Prompt:** 179 Wörter
+- **Prompt:** 190 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Kiwibeeren-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, eine Limettenscheibe im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund ein kleiner Salat.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1927,10 +1940,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Kiwibeeren; Tonic Water, gut gekühlt; Eiswürfel; Limettenscheibe. Beilagen nur aus: Sommersalate, leichte Vorspeisen, Ziegenfrischkäse.
 - Das Etikett nennt 43 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1942,12 +1955,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Kiwibeeren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-kiwibeeren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
-- **Prompt:** 166 Wörter
+- **Prompt:** 177 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Dessertglas mit Naturjoghurt, darüber ein Löffel Honig und gehackte Nüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1956,11 +1969,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Naturjoghurt; Honig; Kiwibeeren; gehackte Nüsse. Beilagen nur aus: Frühstück, frische Früchte, leichtes Dessert.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
 - Das Etikett nennt 43 % vol., die Preisliste 45 %: den Wert des Etiketts nicht ändern, Brenner klärt (TODO-INHALTE.md, Abschnitt 1).
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -1972,12 +1985,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarer Poire, ohne Eis und ohne Garnitur. Daneben unscharf eine reife Birne.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -1986,9 +1999,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Poire. Beilagen nur aus: reife Birnen, Mandelgebäck, nach dem Essen.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2000,12 +2013,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
-- **Prompt:** 172 Wörter
+- **Prompt:** 183 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klare Poire geträufelt und gehackte Nüsse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2014,10 +2027,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vanilleeis; Poire; gehackte Nüsse. Beilagen nur aus: Birnenkompott, Gebäck, Kaffee.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2029,12 +2042,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Poire-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-poire.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Poire-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarer Poire neben einem Holzbrett mit mildem Blauschimmelkäse, Birnenspalten und Walnüssen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2043,10 +2056,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Poire; mildem Blauschimmelkäse; Birnenspalten und Walnüsse. Beilagen nur aus: Blauschimmelkäse, Birne, Walnüsse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2058,12 +2071,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Neelchesbiren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-neelchesbiren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
-- **Prompt:** 169 Wörter
+- **Prompt:** 180 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Neelchesbiren, ohne Eis und ohne Garnitur. Daneben unscharf ein Mandelgebäck.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2072,9 +2085,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Neelchesbiren. Beilagen nur aus: Obstkuchen, Mandelgebäck, Espresso.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2086,12 +2099,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Neelchesbiren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-neelchesbiren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
-- **Prompt:** 177 Wörter
+- **Prompt:** 188 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klarer Neelchesbiren geträufelt und gehackte Nüsse. Daneben unscharf eine Tasse Espresso.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2100,10 +2113,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vanilleeis; Neelchesbiren; gehackte Nüsse. Beilagen nur aus: Espresso, Gebäck, frische Früchte.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2115,12 +2128,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Neelchesbiren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-neelchesbiren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarem Neelchesbiren neben einem Holzbrett mit mildem Käse, Birnenspalten und Nüssen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2129,10 +2142,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Neelchesbiren; mildem Käse; Birnenspalten und Nüsse. Beilagen nur aus: mildem Käse, Walnüsse, Trauben.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2144,12 +2157,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Lënschouren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-lenschouren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
-- **Prompt:** 169 Wörter
+- **Prompt:** 180 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Lënschouren, ohne Eis und ohne Garnitur. Daneben unscharf ein Mandelgebäck.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2158,9 +2171,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Lënschouren. Beilagen nur aus: Obstkuchen, Mandelgebäck, Espresso.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2172,12 +2185,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Lënschouren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-lenschouren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
-- **Prompt:** 180 Wörter
+- **Prompt:** 191 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Lënschouren-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Streifen Zitronenschale im Glas. Das Getränk ist klar und perlt leicht. Im unscharfen Hintergrund ein kleiner Salat.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2186,9 +2199,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Lënschouren; Tonic Water, gut gekühlt; Eiswürfel; Zitronenschale. Beilagen nur aus: leichte Sommergerichte, Salate, Ziegenfrischkäse.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2200,12 +2213,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Lënschouren-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-lenschouren.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarem Lënschouren neben einem Holzbrett mit mildem Käse, Nüssen und Trauben.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2214,10 +2227,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Lënschouren; mildem Käse; Nüsse und Trauben. Beilagen nur aus: mildem Käse, Walnüsse, Trauben.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2229,12 +2242,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Vullekiischt, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Wildpastete.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2243,9 +2256,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vullekiischt. Beilagen nur aus: Wildgerichte, Wildpastete, kräftiger Käse.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -2257,12 +2270,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
-- **Prompt:** 176 Wörter
+- **Prompt:** 187 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Stamperl mit klarem, gekühltem Vullekiischt neben einem Holzbrett: Scheiben Wildpastete auf 2 Scheiben Landbrot, dazu ein Löffel Preiselbeeren.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2271,10 +2284,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vullekiischt; Wildpastete; Landbrot; Preiselbeeren. Beilagen nur aus: Wildpastete, Preiselbeeren, Landbrot.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -2286,12 +2299,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (schlanke 0,5-L-Flasche (Foto der Kirsch-Flasche, dieselbe Form; deren Etikett nicht übernehmen)):** `Fotos/flasche-kirsch.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vogelbeere-01.png`
-- **Prompt:** 177 Wörter
+- **Prompt:** 188 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klarer Vullekiischt geträufelt und gehackte Nüsse. Daneben unscharf eine Tasse Espresso.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2300,10 +2313,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vanilleeis; Vullekiischt; gehackte Nüsse. Beilagen nur aus: Espresso, Gebäck, frische Früchte.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss und Brandfarbe stehen im Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (schlank); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -2315,12 +2328,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Schléiwen-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-schleiwen.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
-- **Prompt:** 171 Wörter
+- **Prompt:** 182 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Tulpenglas mit klarem Schléiwen, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück kräftiger Käse.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2329,9 +2342,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Schléiwen. Beilagen nur aus: Wildgerichte, kräftiger Käse, nach einem deftigen Essen.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2343,12 +2356,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Schléiwen-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-schleiwen.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 181 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Saucenkännchen mit dunkler, glänzender Wildsauce neben einem Teller mit Scheiben Rehrücken und einem Knödel.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2357,10 +2370,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Wildfond; Butter; Preiselbeeren; Schléiwen. Beilagen nur aus: Rehrücken, Wildschwein, Knödel.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2372,12 +2385,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Schléiwen-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-schleiwen.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
-- **Prompt:** 173 Wörter
+- **Prompt:** 184 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl klarem Schléiwen neben einem Holzbrett mit kräftigem Bergkäse, Walnüssen und Trauben.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2386,10 +2399,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Schléiwen; kräftigem Bergkäse; Walnüsse und Trauben. Beilagen nur aus: Bergkäse, Walnüsse, Trauben.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 
 ---
 
@@ -2401,12 +2414,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
-- **Prompt:** 176 Wörter
+- **Prompt:** 183 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Ballonglas mit 4 cl kräftig goldgelbem Vizdrëpp, ohne Eis und ohne Garnitur. Daneben unscharf ein Stück Apfelkuchen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen mit flachem, breitem Kragen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2415,9 +2428,9 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen mit flachem, breitem Kragen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vizdrëpp. Beilagen nur aus: Apfelkuchen, Käse, Espresso.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 - Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen).
 
 ---
@@ -2430,12 +2443,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
-- **Prompt:** 170 Wörter
+- **Prompt:** 177 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein gekühltes Dessertglas mit 2 Kugeln Apfelsorbet, darüber goldgelber Vizdrëpp gegossen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen mit flachem, breitem Kragen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2444,10 +2457,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen mit flachem, breitem Kragen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Apfelsorbet; Vizdrëpp. Beilagen nur aus: zwischen zwei Gängen, nach einem üppigen Essen, Herbstmenü.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 - Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen).
 
 ---
@@ -2460,12 +2473,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
-- **Prompt:** 171 Wörter
+- **Prompt:** 178 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit goldgelb gebratenen Apfelspalten, dazu 2 Kugeln Vanilleeis. Keine Flamme.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen mit flachem, breitem Kragen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2474,10 +2487,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen mit flachem, breitem Kragen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: feste Äpfel; Butter; Zucker; Vizdrëpp; Vanilleeis. Beilagen nur aus: Vanilleeis, Zimt, Karamell.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 - Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen).
 
 ---
@@ -2490,12 +2503,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (echtes Foto der Vizdrëpp-Flasche: nur die Form (und der Verschluss) zählt, das Etikett auf dem Foto nicht übernehmen):** `Fotos/flasche-vizdrepp.jpg`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Vizdrepp 0,5l_Zeichenfläche 1.png`
-- **Prompt:** 176 Wörter
+- **Prompt:** 183 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tulpenglas mit 4 cl goldgelbem Vizdrëpp neben einem Holzbrett mit Weichkäse, Apfelspalten und Nüssen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form und Verschluss aus Anhang 1 (klarer Glasstopfen mit flachem, breitem Kragen), aber ohne dessen Etikett. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: kräftiges, klares Goldgelb.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2504,10 +2517,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: klarer Glasstopfen mit flachem, breitem Kragen.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
 - Nur Rezept-Zutaten im Bild: Vizdrëpp; Weichkäse; Apfelspalten und Nüsse. Beilagen nur aus: Weichkäse, Apfel, Nüsse.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur Form und Verschluss nutzen, das Etikett kommt aus Anhang 2.
+- Anhang 1 ist das echte Flaschenfoto dieser Sorte (teils mit älterem Etikett): nur die Form nutzen (der Verschluss kommt aus der Verschluss-Zeile im Prompt), das Etikett kommt aus Anhang 2.
 - Die echte Vizdrëpp-Flasche hat eine breite, nach unten weitende Form (anders als die schlanken Flaschen).
 
 ---
@@ -2520,12 +2533,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
-- **Prompt:** 179 Wörter
+- **Prompt:** 185 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Tumbler mit einem einzigen großen klaren Eiswürfel, klarer Sambuca, ohne Garnitur. Daneben ein Mandelgebäck.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2534,10 +2547,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: dunkelrotes Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: Sambuca; großer Eiswürfel. Beilagen nur aus: Espresso, Mandelgebäck.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -2549,12 +2562,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
-- **Prompt:** 188 Wörter
+- **Prompt:** 194 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Espressotasse mit frischem Espresso und Crema auf einer Untertasse, daneben ein kleines Glas klarer Sambuca und ein Mandelgebäck. Kein Eis.
-Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2563,11 +2576,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: dunkelrotes Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: frischer Espresso; Sambuca. Beilagen nur aus: Gebäck, Mandelkekse, nach dem Essen.
 - Neben dem Essen muss ein Glas mit dem Brand zu sehen sein.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -2579,12 +2592,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
-- **Prompt:** 182 Wörter
+- **Prompt:** 188 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Eine Dessertschale mit 2 bis 3 Kugeln Vanilleeis, leicht angeschmolzen, darüber klarer Sambuca geträufelt und gehackte Mandeln.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: dunkelrotes Halsband „Hierber Brennerei“. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: klar wie Wasser.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2593,11 +2606,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: Ausgießer mit zwei dunklen Metallröhrchen, dunkelrotes Halsband „Hierber Brennerei“.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: dunkelrotes Halsband „Hierber Brennerei“.
 - Nur Rezept-Zutaten im Bild: Vanilleeis; Sambuca; gehackte Mandeln. Beilagen nur aus: Espresso, Mandelgebäck, frische Früchte.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -2609,12 +2622,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
-- **Prompt:** 180 Wörter
+- **Prompt:** 186 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein reifbeschlagenes Stamperl mit eiskaltem, leuchtend gelbgrünem Limoncello, ohne Eis und ohne Garnitur. Daneben unscharf ein Zitronengebäck.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, gelbes Halsband mit Zitronenscheiben. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: leuchtendes Gelbgrün.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: gelbes Halsband mit Zitronenscheiben. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: leuchtendes Gelbgrün.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2623,10 +2636,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: Ausgießer mit zwei dunklen Metallröhrchen, gelbes Halsband mit Zitronenscheiben.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: gelbes Halsband mit Zitronenscheiben.
 - Nur Rezept-Zutaten im Bild: Limoncello. Beilagen nur aus: Zitronengebäck, Mandelkekse, Sommerabende.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -2638,12 +2651,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
-- **Prompt:** 188 Wörter
+- **Prompt:** 194 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein Limoncello-Tonic im Longdrinkglas, bis oben mit Eiswürfeln, ein Minzzweig steckt im Glas. Das Getränk ist hellgelb und perlt leicht. Im unscharfen Hintergrund ein Sommersalat.
-Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, gelbes Halsband mit Zitronenscheiben. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: leuchtendes Gelbgrün.
+Flasche: Die Flasche steht vollständig im Bild neben dem Getränk: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: gelbes Halsband mit Zitronenscheiben. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: leuchtendes Gelbgrün.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2652,10 +2665,10 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: Ausgießer mit zwei dunklen Metallröhrchen, gelbes Halsband mit Zitronenscheiben.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: gelbes Halsband mit Zitronenscheiben.
 - Nur Rezept-Zutaten im Bild: Limoncello; Tonic Water, gut gekühlt; Eiswürfel; Minze. Beilagen nur aus: Sommersalate, Antipasti, Meeresfrüchte.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 
@@ -2667,12 +2680,12 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - **Status:** vorhanden
 - **Anhang 1 (runde Flasche, die große 0,5-L-Flasche rechts im Foto):** `fotos/flaschen-wodka.webp`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
-- **Prompt:** 176 Wörter
+- **Prompt:** 182 Wörter
 
 ```
 Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes.
 Szene: Ein gekühltes Dessertglas mit 2 Kugeln Zitronensorbet, darüber leuchtend gelber Limoncello gegossen.
-Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett und ohne dessen Verschluss, stattdessen Verschluss: Ausgießer mit zwei dunklen Metallröhrchen, gelbes Halsband mit Zitronenscheiben. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: leuchtendes Gelbgrün.
+Flasche: Die Flasche steht vollständig im Bild neben dem Gericht (Hauptmotiv): Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Form aus Anhang 1 ohne dessen Etikett. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Halsband: gelbes Halsband mit Zitronenscheiben. Etikett aus Anhang 2 exakt übernehmen, kein Buchstabe anders, um die halbe Flasche gelegt, Rundung sichtbar. Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in Anhang 2. Brand in der Flasche: leuchtendes Gelbgrün.
 Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas.
 Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 ```
@@ -2681,11 +2694,11 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift.
 - Flasche komplett im Bild? Hals, Verschluss und Etikett dürfen nirgends am Bildrand angeschnitten sein.
 - Etikett mit Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik) und die Adresszeile prüfen: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“.
 - Bei Fehlern im selben Chat nachlegen: „Etikett exakt aus dem Anhang übernehmen, keine Buchstaben verändern.“ Hilft das nicht, das Etikett später im Bildeditor einsetzen.
-- Verschluss prüfen: Ausgießer mit zwei dunklen Metallröhrchen, gelbes Halsband mit Zitronenscheiben.
+- Verschluss prüfen: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); die Verschluss-Zeile im Prompt hat Vorrang vor Anhang 1.
+- Halsband prüfen: gelbes Halsband mit Zitronenscheiben.
 - Nur Rezept-Zutaten im Bild: Zitronensorbet; Limoncello. Beilagen nur aus: Sommerabende, nach Fisch, zwischen zwei Gängen.
 - Das Gericht ist Hauptmotiv, die Flasche steht daneben und ist vollständig sichtbar.
-- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss und Brandfarbe stehen im Prompt.
-- Verschluss laut Produktfoto in fotos/ (flaschen-*.webp); die Standardvorlage in Anhang 1 hat eine andere Kappe, der Verschluss kommt aus dem Prompt.
+- Es gibt kein Flaschenfoto dieser Sorte: Anhang 1 ist die Standardvorlage (rund); Verschluss, Halsband und Brandfarbe stehen im Prompt.
 
 ---
 

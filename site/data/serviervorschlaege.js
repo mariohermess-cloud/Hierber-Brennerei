@@ -380,6 +380,26 @@ const S = {
     B.tonic('Limoncello', { mit: 'Minze', menge: '1 Zweig', passtZu: ['Sommersalate', 'Antipasti', 'Meeresfrüchte'] }),
     B.sorbet('Limoncello', 'Zitronen', { passtZu: ['Sommerabende', 'nach Fisch', 'zwischen zwei Gängen'] }),
   ],
+  // Hierberol: Zutaten und Mengen des Spritz nur wie auf dem Flaschenetikett (Prosecco 90 ml, Hierberol 60 ml, Soda 30 ml, Eis, Orangenscheibe).
+  // Wo das Etikett keine Menge nennt, bleibt die Mengenspalte leer; es werden keine Mengen ergänzt.
+  hierberol: [
+    { typ: T.cocktail, name: 'Hierberol-Spritz', glas: 'Weinglas',
+      zutaten: [['90 ml', 'Prosecco'], ['60 ml', 'Hierberol'], ['30 ml', 'Soda'], ['', 'Eis'], ['1', 'Orangenscheibe']],
+      schritte: ['Ein Glas mit Eis füllen.', 'Prosecco, Hierberol und Soda eingießen.', 'Mit der Orangenscheibe garnieren.'],
+      passtZu: ['Aperitif', 'Oliven', 'Käsewürfel'] },
+    { typ: T.eis, name: 'Hierberol auf Eis mit Orangenscheibe', glas: 'Tumbler',
+      zutaten: [['', 'Hierberol'], ['', 'Eis'], ['1', 'Orangenscheibe']],
+      schritte: ['Ein Glas mit Eis füllen.', 'Hierberol darübergeben.', 'Mit der Orangenscheibe garnieren.'],
+      passtZu: ['Aperitif', 'Oliven', 'Käsewürfel'] },
+    { typ: T.eis, name: 'Hierberol Tonic', glas: 'Longdrinkglas',
+      zutaten: [['', 'Hierberol'], ['', 'Tonic'], ['', 'Eis'], ['1', 'Orangenscheibe']],
+      schritte: ['Ein Glas mit Eis füllen.', 'Hierberol darübergeben und mit Tonic auffüllen.', 'Mit der Orangenscheibe garnieren.'],
+      passtZu: ['Aperitif', 'Oliven', 'Käsewürfel'] },
+    { typ: T.essen, name: 'Hierberol zu Oliven und Käsewürfeln', glas: 'Tumbler',
+      zutaten: [['', 'Hierberol'], ['', 'Oliven'], ['', 'Käsewürfel']],
+      schritte: ['Oliven und Käsewürfel anrichten.', 'Hierberol dazu servieren.'],
+      passtZu: ['Oliven', 'Käsewürfel', 'Aperitif'] },
+  ],
 };
 
 export const SERVIERVORSCHLAEGE = S;

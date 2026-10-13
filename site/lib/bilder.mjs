@@ -5,11 +5,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
-import { FLASCHEN_ORDNER } from '../data/flaschenfotos.js';
+import { FLASCHEN_ORDNER, GROESSEN_SUFFIX, HAUPT_MENGE } from '../data/flaschenfotos.js';
 import { PRODUKTE } from '../data/produkte.js';
 import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
 import { SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
 import { typVon, TYP, labelFeld, flascheStandalone } from './flasche.mjs';
+import { mengenVon } from './util.mjs';
+import { KISTE_SORTEN, KISTE_FOTO, ZUSCHNITT, FREISTELLER_ORDNER } from '../data/holzkiste.js';
 
 const STANDARD = [480, 960, 1600];
 const FORMATE = {
@@ -32,7 +34,7 @@ export function breitenFuer(nativ, liste = STANDARD) {
 
 // Echte Fotos (vom Nutzer geliefert) in fotos/. Schlüssel = foto-<name>. Die KI-Beispielbilder sind ausgeschlossen.
 // Die Produktfotos auf schwarzem Grund (flaschen-*.webp) sind nur noch Farb- und Formreferenz und werden nicht mehr ausgeliefert.
-export const FOTOS = ['hof-birnenkisten.jpg', 'flaschenreihe-theke.jpg', 'fassraum-eichenfaesser.jpg', 'brennanlage-gross.jpg', 'geschenkregal.jpg', 'hofschild-aussen.jpg'];
+export const FOTOS = ['hof-birnenkisten.jpg', 'flaschenreihe-theke.jpg', 'fassraum-eichenfaesser.jpg', 'brennanlage-gross.jpg', 'geschenkregal.jpg', 'hofschild-aussen.jpg', 'hof-maische.jpg', 'hof-abfullen.jpg'];
 // Etiketten (vorverzerrt, siehe warpeEtikett): 240 für Karten (Handy), 480 für Karten (Desktop) und Sortenseite, 960 für die Sortenseite bei hoher Pixeldichte
 const LABEL_BREITEN = [240, 480, 960];
 // KI-Symbolbilder der Serviervorschläge (fotos-ki/<id>-<n>.png, n = 1 Hauptbild, n >= 2 weitere Karten; 1448x1086): Breiten 480/960/1448, nie hochskaliert, keine PNG in dist/
@@ -78,11 +80,15 @@ export async function warpeEtikett(quelle, ow) {
 }
 
 // ---------- Flaschenfotos (neu erzeugte Produktflasche mit aktuellem Etikett statt Vektor-Flasche) ----------
-// Quelle je Sorte: fotos-flaschen/<id>.png (Ergebnis des ChatGPT-Laufs, PROMPTS-FLASCHEN.md); fehlt die Datei, bleibt die Vektor-Flasche.
+// Quelle je Sorte: fotos-flaschen/<id>-0-5l.png (Hauptbild, 0,5 L) und <id>-<größe>.png (Größenbilder); der Name trägt immer die Größe, <id>.png ohne Größe gilt nicht; fehlt die Datei, bleibt die Vektor-Flasche.
+// Schlüssel: flasche-<id> (Hauptbild), flasche-<id>-<größe> (z. B. flasche-rum-1-5l).
 // Alle Bilder haben dasselbe Format (Hochformat 2:3) und dieselbe Standfläche; der Grund ist hell und neutral (weißgrau).
-// Zum Testen kann HB_FLASCHEN_ZUSATZ auf ein Verzeichnis außerhalb des Repos zeigen: <id>.png dort hat Vorrang.
-export async function flaschenFotoQuelle(root, id) {
-  const kandidaten = [process.env.HB_FLASCHEN_ZUSATZ && path.join(path.resolve(process.env.HB_FLASCHEN_ZUSATZ), `${id}.png`), path.join(root, FLASCHEN_ORDNER, `${id}.png`)].filter(Boolean);
+// Zum Testen kann HB_FLASCHEN_ZUSATZ auf ein Verzeichnis außerhalb des Repos zeigen: Dateien dort haben Vorrang.
+// suffix = null: Hauptbild (<id>-0-5l.png); sonst Größenbild <id>-<suffix>.png.
+export async function flaschenFotoQuelle(root, id, suffix = null) {
+  const namen = suffix ? [`${id}-${suffix}.png`] : [`${id}-${GROESSEN_SUFFIX[HAUPT_MENGE]}.png`];
+  const ordner = [process.env.HB_FLASCHEN_ZUSATZ && path.resolve(process.env.HB_FLASCHEN_ZUSATZ), path.join(root, FLASCHEN_ORDNER)].filter(Boolean);
+  const kandidaten = ordner.flatMap((o) => namen.map((n) => path.join(o, n)));
   for (const k of kandidaten) { try { await fs.access(k); return k; } catch { /* nächste Quelle */ } }
   return null;
 }
@@ -102,7 +108,7 @@ async function hintergrundGain(quelle) {
   return { bg, gain: bg.map((x) => Math.min(GAIN_MAX, 255 / Math.max(1, x))) };
 }
 
-async function verarbeiteFlaschenfoto({ key, quelle, dist }) {
+async function verarbeiteFlaschenfoto({ key, quelle, dist, groesse = null }) {
   const meta = await sharp(quelle).metadata();
   const breiten = breitenFuer(meta.width, FF_BREITEN);
   const dir = path.join(dist, 'img');
@@ -117,7 +123,7 @@ async function verarbeiteFlaschenfoto({ key, quelle, dist }) {
     }
   }
   const gr = breiten[breiten.length - 1];
-  return { key, breiten, w: gr, h: Math.round((meta.height * gr) / meta.width), quelleW: meta.width, quelleH: meta.height, flaschenfoto: true, gain };
+  return { key, breiten, w: gr, h: Math.round((meta.height * gr) / meta.width), quelleW: meta.width, quelleH: meta.height, flaschenfoto: true, gain, ...(groesse ? { groesse } : {}) };
 }
 
 async function verarbeite({ key, quelle, dist, flatten, liste, warpe = false }) {
@@ -155,6 +161,12 @@ export async function bilder({ root, dist }) {
   for (const p of PRODUKTE) {
     const q = await flaschenFotoQuelle(root, p.id);
     if (q) jobs.push(verarbeiteFlaschenfoto({ key: `flasche-${p.id}`, quelle: q, dist }));
+    // Größenbilder (Größen der Preisliste bzw. die Flaschengröße einer Variante ohne Preise, 0,5 L ist das Hauptbild)
+    for (const menge of mengenVon(p)) {
+      if (menge === HAUPT_MENGE || !GROESSEN_SUFFIX[menge]) continue;
+      const qg = await flaschenFotoQuelle(root, p.id, GROESSEN_SUFFIX[menge]);
+      if (qg) jobs.push(verarbeiteFlaschenfoto({ key: `flasche-${p.id}-${GROESSEN_SUFFIX[menge]}`, quelle: qg, dist, groesse: menge }));
+    }
   }
   for (const datei of FOTOS) {
     jobs.push(verarbeite({ key: `foto-${datei.replace(/\.[a-z]+$/, '')}`, quelle: path.join(root, 'fotos', datei), dist }));
@@ -179,7 +191,38 @@ export async function bilder({ root, dist }) {
   return IMG;
 }
 
-// OG-Bilder 1200x630: Etikett auf dunklem Holzgrund, dünner Kupferrahmen. Startseite und Sorten ohne Etikett: Hofschild-Foto (Ausschnitt, nicht hochskaliert).
+// ---------- Holzkiste 4 x 0,2 l ----------
+// Leeres Kistenfoto (fotos-kisten/holzkiste-leer.png), nur der Ausschnitt ZUSCHNITT, als AVIF/WebP/JPEG in 480/960/1024 px Breite (Schlüssel kiste-leer).
+// Freisteller (assets/kiste/<sorte>-0-2l.png, RGBA, von tools/flaschen_freistellen.mjs) als WebP mit Alphakanal (Schlüssel kiste-<sorte>), Breite = Quellbreite.
+const KISTE_BREITEN = [480, 960, 1024];
+export async function kistenBilder({ root, dist }) {
+  const dir = path.join(dist, 'img');
+  await fs.mkdir(dir, { recursive: true });
+  const IMG = {};
+  const quelle = path.join(root, KISTE_FOTO);
+  const breiten = breitenFuer(ZUSCHNITT.b, KISTE_BREITEN);
+  for (const w of breiten) {
+    for (const [ext, fn] of Object.entries(FORMATE)) {
+      const out = path.join(dir, `kiste-leer-${w}.${ext}`);
+      if (await istNeuer(out, quelle, DIESE_DATEI)) continue;
+      let s = sharp(quelle).extract({ left: ZUSCHNITT.x, top: ZUSCHNITT.y, width: ZUSCHNITT.b, height: ZUSCHNITT.h });
+      if (w !== ZUSCHNITT.b) s = s.resize({ width: w });
+      await fn(s).toFile(out);
+    }
+  }
+  const gr = breiten[breiten.length - 1];
+  IMG['kiste-leer'] = { key: 'kiste-leer', breiten, w: gr, h: Math.round((ZUSCHNITT.h * gr) / ZUSCHNITT.b), quelleW: ZUSCHNITT.b, quelleH: ZUSCHNITT.h };
+  for (const sorte of KISTE_SORTEN) {
+    const q = path.join(root, FREISTELLER_ORDNER, `${sorte}-0-2l.png`);
+    const out = path.join(dir, `kiste-${sorte}.webp`);
+    const meta = await sharp(q).metadata();
+    if (!(await istNeuer(out, q))) await sharp(q).webp({ quality: 82, alphaQuality: 90, effort: 5 }).toFile(out);
+    IMG[`kiste-${sorte}`] = { key: `kiste-${sorte}`, w: meta.width, h: meta.height, freisteller: true };
+  }
+  return IMG;
+}
+
+// OG-Bilder 1200x630: Etikett auf dunklem Holzgrund, dünner Kupferrahmen. Startseite und Sorten ohne Etikett: Hofschild-Foto (Ausschnitt).
 export async function ogBilder({ root, dist, IMG = {} }) {
   const dir = path.join(dist, 'og');
   await fs.mkdir(dir, { recursive: true });
@@ -190,7 +233,10 @@ export async function ogBilder({ root, dist, IMG = {} }) {
   };
   // Startseite / Standard: Ausschnitt 2000x1050 (Seitenverhältnis 1200:630) des Hofschild-Fotos, auf 1200x630 verkleinert
   const hofschild = path.join(root, 'fotos', 'hofschild-aussen.jpg');
-  await sharp(hofschild).extract({ left: 0, top: 60, width: 2000, height: 1050 }).resize(1200, 630).jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(dir, 'standard.jpg'));
+  // Ausschnitt unabhängig von der Bildgröße: volle Breite, Höhe nach 1200:630, oben um 3 % der Breite abgesetzt (bei 2000 px Breite 60 px)
+  const hm = await sharp(hofschild).metadata();
+  const ah = Math.min(Math.round(hm.width * 630 / 1200), hm.height);
+  await sharp(hofschild).extract({ left: 0, top: Math.min(Math.round(hm.width * 0.03), hm.height - ah), width: hm.width, height: ah }).resize(1200, 630).jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(dir, 'standard.jpg'));
   // Sorten mit flachem Etikett: Vektor-Flasche (Sortenfarbe) mit aufgesetztem Etikett auf heller Bühne, zentriert auf dunklem Grund
   const BUEHNE = { w: 360, h: 560 };
   const buehne = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${BUEHNE.w}" height="${BUEHNE.h}"><rect width="${BUEHNE.w}" height="${BUEHNE.h}" rx="2" fill="#e6dbc8"/><rect y="${BUEHNE.h - 34}" width="${BUEHNE.w}" height="34" fill="#cbbca2"/></svg>`);
@@ -208,10 +254,10 @@ export async function ogBilder({ root, dist, IMG = {} }) {
     const stage = await sharp(buehne).composite([{ input: fl, left: bx, top: by }, { input: et, left: bx + Math.round((feld.left / 100) * bw), top: by + Math.round((feld.top / 100) * bh) }]).png().toBuffer();
     await schreibe(out, stage);
   }
-  // Sorten mit neu erzeugter Produktflasche (fotos-flaschen/<id>.png): Foto (Grund weiß) per multiply auf die cremefarbene Bühne, zentriert auf dunklem Grund
+  // Sorten mit neu erzeugter Produktflasche (fotos-flaschen/<id>-0-5l.png): Foto (Grund weiß) per multiply auf die cremefarbene Bühne, zentriert auf dunklem Grund
   const buehneFoto = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="420" height="560"><rect width="420" height="560" rx="2" fill="#e6dbc8"/><rect y="526" width="420" height="34" fill="#cbbca2"/></svg>`);
   for (const [key, m] of Object.entries(IMG)) {
-    if (!m.flaschenfoto) continue;
+    if (!m.flaschenfoto || m.groesse) continue; // OG-Bild nur vom Hauptbild
     const id = key.replace(/^flasche-/, '');
     const foto = await sharp(path.join(dist, 'img', `${key}-${m.breiten[m.breiten.length - 1]}.jpg`)).resize(420, 560, { fit: 'contain', position: 'bottom', background: '#ffffff' }).png().toBuffer();
     const stage = await sharp(buehneFoto).composite([{ input: foto, blend: 'multiply' }]).png().toBuffer();

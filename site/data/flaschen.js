@@ -8,6 +8,12 @@ export const FLASCHENTYP = {
   'vieux-marc': 'karaffe',
   gin: 'rund', wodka: 'rund', whisky: 'rund', 'hunneg-whisky': 'rund', 'hierber-fruucht': 'rund', vizdrepp: 'rund',
   rum: 'rund', 'rum-orange': 'rund', sambuca: 'rund', limoncello: 'rund',
+  // Liköre und Weitere Brände rund, Geräift schlank (tools/neue-gruppen.json, form)
+  ...Object.fromEntries(['de-welle-max', 'hambierlikoer', 'holly', 'kiischtenlikoer', 'kraeiderlikoer', 'mandellikoer', 'mirabellenlikoer', 'mirabelle-op-mirabellen-likoer', 'nesslikoer', 'pfeffi', 'pijenlikoer',
+    'quittenlikoer', 'schleiwenlikoer', 'vizlikoer', 'williamslikoer', 'winterdreams', 'ingwerlikoer',
+    'neutral-alkohol', 'aeppel-pommes', 'pastis', 'nessdrepp', 'pefferminz', 'quitten'].map((id) => [id, 'rund'])),
+  ...Object.fromEntries(['willi-op-biren-geraeift', 'mirabelle-op-mirabellen-geraeift', 'quetsch-op-quetsch-geraeift'].map((id) => [id, 'schlank'])),
+  hierberol: 'rund', // Foto fotos-flaschen/hierberol-0-7l.png; kein flaches Etikett, die Vektor-Flasche wird nicht gebraucht
 };
 // Verschlussfarbe (Kork ist Standard der runden Flasche)
 // Kappen laut Nutzerfotos: Wodka Silber (Alu), Fruucht Holz, Rum Holz/Kork; Gin und Whisky nach Theke-Aufnahme.

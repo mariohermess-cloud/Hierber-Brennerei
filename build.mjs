@@ -3,9 +3,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PRODUKTE } from './site/data/produkte.js';
-import { bilder, ogBilder, textur } from './site/lib/bilder.mjs';
+import { bilder, ogBilder, textur, kistenBilder } from './site/lib/bilder.mjs';
 import { startseite } from './site/lib/start.mjs';
 import { sortenseite } from './site/lib/brand.mjs';
+import { kistenSeite } from './site/lib/holzkiste.mjs';
 import { anfrageSeite, impressum, datenschutz } from './site/lib/rest.mjs';
 
 export const BASIS_URL = 'https://hierber-brennerei.lu'; // Basis-URL (auch in site/lib/util.mjs als BASE)
@@ -43,7 +44,7 @@ const texturBytes = await textur({ dist });
 for (const n of await fs.readdir(path.join(dist, 'img')).catch(() => [])) {
   if (/^foto-(verkaufsraum|brennanlage|lagerraum)-/.test(n)) await fs.rm(path.join(dist, 'img', n));
 }
-const IMG = await bilder({ root, dist });
+const IMG = { ...(await bilder({ root, dist })), ...(await kistenBilder({ root, dist })) };
 await ogBilder({ root, dist, IMG });
 
 // Katalog für die Anfrage-Seite (Namen und Preise aus produkte.js)
@@ -56,6 +57,8 @@ await schreibe('assets/js/katalog.js', `window.HB_KAT=${JSON.stringify(kat)};\n`
 // Seiten
 const seiten = [{ p: '/', fn: (l) => startseite(IMG, l) }, { p: '/anfrage/', fn: anfrageSeite }, { p: '/impressum/', fn: impressum }, { p: '/datenschutz/', fn: datenschutz }];
 for (const p of PRODUKTE) seiten.push({ p: `/brand/${p.id}/`, fn: (l) => sortenseite(IMG, p, l) });
+// Holzkiste 4 x 0,2 l: eigene Seite, bewusst nicht in PRODUKTE (keine Sortenkarte, kein Katalogeintrag, keine Sortenprüfung)
+seiten.push({ p: '/brand/holzkiste-4x0-2l/', fn: (l) => kistenSeite(IMG, l) });
 for (const s of seiten) for (const lang of LANGS) await schreibe(seitenDatei(lang, s.p), s.fn(lang));
 
 // Sitemap mit hreflang, robots.txt

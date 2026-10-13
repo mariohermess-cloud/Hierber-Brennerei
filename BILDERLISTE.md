@@ -146,8 +146,8 @@ Fehler laut `TODO-INHALTE.md` Abschnitt 6; bei „ja“ gibt es einen Ersatz-Pro
 | Vullekiischt | `fotos-ki/vullekiischt-1.png` | 2. Vullekiischt-Tonic mit Zitronenschale | ja: Vogelbeeren im Glas, nicht im Rezept; Flaschenhals/Kappe abgeschnitten. |
 | Schléiwen | `fotos-ki/schleiwen-1.png` | 2. Schléiwen-Sour | ja: Flaschenhals/Kappe am oberen Bildrand abgeschnitten. |
 | Vizdrëpp | `fotos-ki/vizdrepp-1.png` | 2. Vizdrëpp-Tonic mit Apfelscheiben | ja: Flaschenform weicht ab (hohe schlanke Flasche mit Glasstopfen statt breiter, nach unten weitender Flasche); Rosmarin nicht im Rezept; Getränk blasser als die gemessene Füllung. |
-| Hierber Sambuca | `fotos-ki/sambuca-1.png` | 1. Sambuca mit Kaffeebohnen | ja: Etikett nur aus dem alten Produktfoto abgeleitet (das echte ist rot mit Fellstruktur); echte Flasche hat Ausgießer mit zwei Metallröhrchen und Halsband, im Bild ein Korken. |
-| Hierber Limoncello | `fotos-ki/limoncello-1.png` | 2. Limoncello-Spritz mit Crémant | ja: Adresse ohne „L-6665“; echte Flasche mit Ausgießer, im Bild ein Korken. Das flache Etikett liegt jetzt vor. |
+| Hierber Sambuca | `fotos-ki/sambuca-1.png` | 1. Sambuca mit Kaffeebohnen | ja: Etikett nur aus dem alten Produktfoto abgeleitet (das echte ist rot mit Fellstruktur); echte Flasche hat ein Halsband. |
+| Hierber Limoncello | `fotos-ki/limoncello-1.png` | 2. Limoncello-Spritz mit Crémant | ja: Adresse ohne „L-6665“; Halsband fehlte. Das flache Etikett liegt jetzt vor. |
 
 ## Braucht ein echtes Foto (nicht per KI)
 
