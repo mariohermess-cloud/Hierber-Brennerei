@@ -2,7 +2,7 @@
 
 Erzeugt mit `node tools/foto_prompts_neue_gruppen.mjs` aus `tools/neue-gruppen.json`. Nicht von Hand ändern. 49 Prompts (Liköre: 32, Holzkisten (nur mit Flaschen): 4, Geräift: 6, Weitere Brände: 7). Die Flaschen sind Sorten mit Sortenseite (Eintrag in `site/data/produkte.js`), die Holzkisten haben nur Prompts; keine Serviervorschläge. Alles sind Entwürfe, der Brenner bestätigt sie.
 
-**Stand:** 49 offen, 0 vorhanden, davon 11 mit fehlendem Anhang (Etikett liegt noch nicht vor, siehe Übersicht).
+**Stand:** 3 offen, 46 vorhanden, davon 11 mit fehlendem Anhang (Etikett liegt noch nicht vor, siehe Übersicht).
 
 - **Liköre** (25 % vol.): je Likör ein Prompt für 0,5 L (`<id>-0-5l.png`) und 0,1 L (`<id>-0-1l.png`); Winterdreams (saisonal) nur 0,5 L, Ingwerlikör 0,2 L und 0,5 L. Anhang 2 ist das flache Etikett aus `Fertige Etiquetten/`, wo es eines gibt (Ingwerlikör: Etikett folgt).
 - **Holzkisten (nur mit Flaschen):** Querformat 1448 × 1086, Datei `fotos-flaschen/<kisten-id>.png`. Es gibt kein Kistenfoto; die Kiste steht nur im Prompt, Anhang 1 und 2 sind dieselbe Basisflasche.
@@ -24,55 +24,55 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in `fotos-flasch
 
 | Eintrag | Gruppe | Typ | Anhang 1 | Anhang 2 | Zieldatei | Status | Wörter |
 |---|---|---|---|---|---|---|---|
-| de-welle-max-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png` | `fotos-flaschen/de-welle-max-0-5l.png` | offen | 218 |
-| de-welle-max-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png` | `fotos-flaschen/de-welle-max-0-1l.png` | offen | 253 |
-| hambierlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png` | `fotos-flaschen/hambierlikoer-0-5l.png` | offen | 215 |
-| hambierlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png` | `fotos-flaschen/hambierlikoer-0-1l.png` | offen | 250 |
-| holly-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png` | `fotos-flaschen/holly-0-5l.png` | offen | 216 |
-| holly-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png` | `fotos-flaschen/holly-0-1l.png` | offen | 251 |
-| kiischtenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png` | `fotos-flaschen/kiischtenlikoer-0-5l.png` | offen | 215 |
-| kiischtenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png` | `fotos-flaschen/kiischtenlikoer-0-1l.png` | offen | 250 |
-| kraeiderlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png` | `fotos-flaschen/kraeiderlikoer-0-5l.png` | offen | 215 |
-| kraeiderlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png` | `fotos-flaschen/kraeiderlikoer-0-1l.png` | offen | 250 |
-| mandellikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png` | `fotos-flaschen/mandellikoer-0-5l.png` | offen | 215 |
-| mandellikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png` | `fotos-flaschen/mandellikoer-0-1l.png` | offen | 250 |
-| mirabellenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png` | `fotos-flaschen/mirabellenlikoer-0-5l.png` | offen | 215 |
-| mirabellenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png` | `fotos-flaschen/mirabellenlikoer-0-1l.png` | offen | 250 |
+| de-welle-max-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png` | `fotos-flaschen/de-welle-max-0-5l.png` | vorhanden | 218 |
+| de-welle-max-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png` | `fotos-flaschen/de-welle-max-0-1l.png` | vorhanden | 253 |
+| hambierlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png` | `fotos-flaschen/hambierlikoer-0-5l.png` | vorhanden | 215 |
+| hambierlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png` | `fotos-flaschen/hambierlikoer-0-1l.png` | vorhanden | 250 |
+| holly-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png` | `fotos-flaschen/holly-0-5l.png` | vorhanden | 216 |
+| holly-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png` | `fotos-flaschen/holly-0-1l.png` | vorhanden | 251 |
+| kiischtenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png` | `fotos-flaschen/kiischtenlikoer-0-5l.png` | vorhanden | 215 |
+| kiischtenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png` | `fotos-flaschen/kiischtenlikoer-0-1l.png` | vorhanden | 250 |
+| kraeiderlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png` | `fotos-flaschen/kraeiderlikoer-0-5l.png` | vorhanden | 215 |
+| kraeiderlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png` | `fotos-flaschen/kraeiderlikoer-0-1l.png` | vorhanden | 250 |
+| mandellikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png` | `fotos-flaschen/mandellikoer-0-5l.png` | vorhanden | 215 |
+| mandellikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png` | `fotos-flaschen/mandellikoer-0-1l.png` | vorhanden | 250 |
+| mirabellenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png` | `fotos-flaschen/mirabellenlikoer-0-5l.png` | vorhanden | 215 |
+| mirabellenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png` | `fotos-flaschen/mirabellenlikoer-0-1l.png` | vorhanden | 250 |
 | mirabelle-op-mirabellen-likoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Mirabelle geräift_Zeichenfläche 1.png` | `fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png` | offen | 215 |
-| nesslikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png` | `fotos-flaschen/nesslikoer-0-5l.png` | offen | 215 |
-| nesslikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png` | `fotos-flaschen/nesslikoer-0-1l.png` | offen | 250 |
-| pfeffi-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png` | `fotos-flaschen/pfeffi-0-5l.png` | offen | 215 |
+| nesslikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png` | `fotos-flaschen/nesslikoer-0-5l.png` | vorhanden | 215 |
+| nesslikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png` | `fotos-flaschen/nesslikoer-0-1l.png` | vorhanden | 250 |
+| pfeffi-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png` | `fotos-flaschen/pfeffi-0-5l.png` | vorhanden | 215 |
 | pfeffi-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png` | `fotos-flaschen/pfeffi-0-1l.png` | offen | 250 |
-| pijenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png` | `fotos-flaschen/pijenlikoer-0-5l.png` | offen | 215 |
-| pijenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png` | `fotos-flaschen/pijenlikoer-0-1l.png` | offen | 250 |
-| quittenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png` | `fotos-flaschen/quittenlikoer-0-5l.png` | offen | 215 |
-| quittenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png` | `fotos-flaschen/quittenlikoer-0-1l.png` | offen | 250 |
-| schleiwenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png` | `fotos-flaschen/schleiwenlikoer-0-5l.png` | offen | 215 |
-| schleiwenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png` | `fotos-flaschen/schleiwenlikoer-0-1l.png` | offen | 250 |
-| vizlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png` | `fotos-flaschen/vizlikoer-0-5l.png` | offen | 215 |
-| vizlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png` | `fotos-flaschen/vizlikoer-0-1l.png` | offen | 250 |
-| williamslikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png` | `fotos-flaschen/williamslikoer-0-5l.png` | offen | 215 |
-| williamslikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png` | `fotos-flaschen/williamslikoer-0-1l.png` | offen | 250 |
-| winterdreams-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Winter Dreams-01.png` | `fotos-flaschen/winterdreams-0-5l.png` | offen | 216 |
-| ingwerlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Ingwerlikör folgt` (fehlt) | `fotos-flaschen/ingwerlikoer-0-5l.png` | offen | 227 |
-| ingwerlikoer-0-2l | likoere | flasche | `fotos-basis/rund-0-2l.png` | `PLATZHALTER: Etikett von Ingwerlikör folgt` (fehlt) | `fotos-flaschen/ingwerlikoer-0-2l.png` | offen | 227 |
-| willi-op-biren-geraeift-0-5l | geraeift | flasche | `fotos-basis/schlank-0-5l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` (fehlt) | `fotos-flaschen/willi-op-biren-geraeift-0-5l.png` | offen | 241 |
-| willi-op-biren-geraeift-0-1l | geraeift | flasche | `fotos-basis/schlank-0-1l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` (fehlt) | `fotos-flaschen/willi-op-biren-geraeift-0-1l.png` | offen | 241 |
-| mirabelle-op-mirabellen-geraeift-0-5l | geraeift | flasche | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Mirabelle geräift-01.png` | `fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-5l.png` | offen | 225 |
-| mirabelle-op-mirabellen-geraeift-0-1l | geraeift | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Mirabelle geräift-01.png` | `fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-1l.png` | offen | 245 |
-| quetsch-op-quetsch-geraeift-0-5l | geraeift | flasche | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Quetsch geräift-01.png` | `fotos-flaschen/quetsch-op-quetsch-geraeift-0-5l.png` | offen | 225 |
-| quetsch-op-quetsch-geraeift-0-1l | geraeift | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Quetsch geräift-01.png` | `fotos-flaschen/quetsch-op-quetsch-geraeift-0-1l.png` | offen | 245 |
-| neutral-alkohol-1-0l | weitere-braende | flasche | `fotos-basis/rund-1-0l.png` | `PLATZHALTER: Etikett von Neutraler Alkohol folgt` (fehlt) | `fotos-flaschen/neutral-alkohol-1-0l.png` | offen | 227 |
-| aeppel-pommes-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` (fehlt) | `fotos-flaschen/aeppel-pommes-0-5l.png` | offen | 225 |
+| pijenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png` | `fotos-flaschen/pijenlikoer-0-5l.png` | vorhanden | 215 |
+| pijenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png` | `fotos-flaschen/pijenlikoer-0-1l.png` | vorhanden | 250 |
+| quittenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png` | `fotos-flaschen/quittenlikoer-0-5l.png` | vorhanden | 215 |
+| quittenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png` | `fotos-flaschen/quittenlikoer-0-1l.png` | vorhanden | 250 |
+| schleiwenlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png` | `fotos-flaschen/schleiwenlikoer-0-5l.png` | vorhanden | 215 |
+| schleiwenlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png` | `fotos-flaschen/schleiwenlikoer-0-1l.png` | vorhanden | 250 |
+| vizlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png` | `fotos-flaschen/vizlikoer-0-5l.png` | vorhanden | 215 |
+| vizlikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png` | `fotos-flaschen/vizlikoer-0-1l.png` | vorhanden | 250 |
+| williamslikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png` | `fotos-flaschen/williamslikoer-0-5l.png` | vorhanden | 215 |
+| williamslikoer-0-1l | likoere | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png` | `fotos-flaschen/williamslikoer-0-1l.png` | vorhanden | 250 |
+| winterdreams-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `Fertige Etiquetten/Likör Winter Dreams-01.png` | `fotos-flaschen/winterdreams-0-5l.png` | vorhanden | 216 |
+| ingwerlikoer-0-5l | likoere | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Ingwerlikör folgt` (fehlt) | `fotos-flaschen/ingwerlikoer-0-5l.png` | vorhanden | 227 |
+| ingwerlikoer-0-2l | likoere | flasche | `fotos-basis/rund-0-2l.png` | `PLATZHALTER: Etikett von Ingwerlikör folgt` (fehlt) | `fotos-flaschen/ingwerlikoer-0-2l.png` | vorhanden | 227 |
+| willi-op-biren-geraeift-0-5l | geraeift | flasche | `fotos-basis/schlank-0-5l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` (fehlt) | `fotos-flaschen/willi-op-biren-geraeift-0-5l.png` | vorhanden | 241 |
+| willi-op-biren-geraeift-0-1l | geraeift | flasche | `fotos-basis/schlank-0-1l.png` | `PLATZHALTER: Etikett von Willi op Biren geräift folgt` (fehlt) | `fotos-flaschen/willi-op-biren-geraeift-0-1l.png` | vorhanden | 241 |
+| mirabelle-op-mirabellen-geraeift-0-5l | geraeift | flasche | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Mirabelle geräift-01.png` | `fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-5l.png` | vorhanden | 225 |
+| mirabelle-op-mirabellen-geraeift-0-1l | geraeift | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Mirabelle geräift-01.png` | `fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-1l.png` | vorhanden | 245 |
+| quetsch-op-quetsch-geraeift-0-5l | geraeift | flasche | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Quetsch geräift-01.png` | `fotos-flaschen/quetsch-op-quetsch-geraeift-0-5l.png` | vorhanden | 225 |
+| quetsch-op-quetsch-geraeift-0-1l | geraeift | flasche | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Quetsch geräift-01.png` | `fotos-flaschen/quetsch-op-quetsch-geraeift-0-1l.png` | vorhanden | 245 |
+| neutral-alkohol-1-0l | weitere-braende | flasche | `fotos-basis/rund-1-0l.png` | `PLATZHALTER: Etikett von Neutraler Alkohol folgt` (fehlt) | `fotos-flaschen/neutral-alkohol-1-0l.png` | vorhanden | 227 |
+| aeppel-pommes-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` (fehlt) | `fotos-flaschen/aeppel-pommes-0-5l.png` | vorhanden | 225 |
 | aeppel-pommes-1-0l | weitere-braende | flasche | `fotos-basis/rund-1-0l.png` | `PLATZHALTER: Etikett von Äppel/Pommes folgt` (fehlt) | `fotos-flaschen/aeppel-pommes-1-0l.png` | offen | 225 |
-| pastis-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Pastis folgt` (fehlt) | `fotos-flaschen/pastis-0-5l.png` | offen | 226 |
-| nessdrepp-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt` (fehlt) | `fotos-flaschen/nessdrepp-0-5l.png` | offen | 226 |
-| pefferminz-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Pefferminz folgt` (fehlt) | `fotos-flaschen/pefferminz-0-5l.png` | offen | 226 |
-| quitten-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Quitten folgt` (fehlt) | `fotos-flaschen/quitten-0-5l.png` | offen | 225 |
-| holzkiste-6x0-1l | holzkisten | kiste | `fotos-basis/schlank-0-1l.png` | `fotos-basis/schlank-0-1l.png` | `fotos-flaschen/holzkiste-6x0-1l.png` | offen | 179 |
-| holzkiste-3x0-1l | holzkisten | kiste | `fotos-basis/schlank-0-1l.png` | `fotos-basis/schlank-0-1l.png` | `fotos-flaschen/holzkiste-3x0-1l.png` | offen | 179 |
-| holzkiste-4x0-2l | holzkisten | kiste | `fotos-basis/rund-0-2l.png` | `fotos-basis/rund-0-2l.png` | `fotos-flaschen/holzkiste-4x0-2l.png` | offen | 182 |
-| holzkiste-5x-apotheker-0-1l | holzkisten | kiste | `fotos-basis/apotheker-0-1l.png` | `fotos-basis/apotheker-0-1l.png` | `fotos-flaschen/holzkiste-5x-apotheker-0-1l.png` | offen | 178 |
+| pastis-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Pastis folgt` (fehlt) | `fotos-flaschen/pastis-0-5l.png` | vorhanden | 226 |
+| nessdrepp-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt` (fehlt) | `fotos-flaschen/nessdrepp-0-5l.png` | vorhanden | 226 |
+| pefferminz-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Pefferminz folgt` (fehlt) | `fotos-flaschen/pefferminz-0-5l.png` | vorhanden | 226 |
+| quitten-0-5l | weitere-braende | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Quitten folgt` (fehlt) | `fotos-flaschen/quitten-0-5l.png` | vorhanden | 225 |
+| holzkiste-6x0-1l | holzkisten | kiste | `fotos-basis/schlank-0-1l.png` | `fotos-basis/schlank-0-1l.png` | `fotos-flaschen/holzkiste-6x0-1l.png` | vorhanden | 179 |
+| holzkiste-3x0-1l | holzkisten | kiste | `fotos-basis/schlank-0-1l.png` | `fotos-basis/schlank-0-1l.png` | `fotos-flaschen/holzkiste-3x0-1l.png` | vorhanden | 179 |
+| holzkiste-4x0-2l | holzkisten | kiste | `fotos-basis/rund-0-2l.png` | `fotos-basis/rund-0-2l.png` | `fotos-flaschen/holzkiste-4x0-2l.png` | vorhanden | 182 |
+| holzkiste-5x-apotheker-0-1l | holzkisten | kiste | `fotos-basis/apotheker-0-1l.png` | `fotos-basis/apotheker-0-1l.png` | `fotos-flaschen/holzkiste-5x-apotheker-0-1l.png` | vorhanden | 178 |
 
 ---
 
@@ -82,7 +82,7 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in `fotos-flasch
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/de-welle-max-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 218 Wörter
 
 ```
@@ -105,7 +105,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/de-welle-max-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 253 Wörter
 
 ```
@@ -130,7 +130,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/hambierlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -153,7 +153,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/hambierlikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -178,7 +178,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/holly-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 216 Wörter
 
 ```
@@ -201,7 +201,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/holly-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 251 Wörter
 
 ```
@@ -226,7 +226,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/kiischtenlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -249,7 +249,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/kiischtenlikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -274,7 +274,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/kraeiderlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -297,7 +297,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/kraeiderlikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -322,7 +322,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/mandellikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -345,7 +345,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/mandellikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -370,7 +370,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/mirabellenlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -393,7 +393,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/mirabellenlikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -441,7 +441,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/nesslikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -464,7 +464,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/nesslikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -489,7 +489,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/pfeffi-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -537,7 +537,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/pijenlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -560,7 +560,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/pijenlikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -585,7 +585,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/quittenlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -608,7 +608,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/quittenlikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -633,7 +633,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/schleiwenlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -656,7 +656,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/schleiwenlikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -681,7 +681,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/vizlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -704,7 +704,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/vizlikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -729,7 +729,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/williamslikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 215 Wörter
 
 ```
@@ -752,7 +752,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere runde 0,1-L-Flasche (Ersatz: schlanke 0,1-L-Flasche, es gibt keine runde))
 - **Anhang 2:** `Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/williamslikoer-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 250 Wörter
 
 ```
@@ -777,7 +777,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Likör Winter Dreams-01.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/winterdreams-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 216 Wörter
 
 ```
@@ -801,7 +801,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Ingwerlikör folgt` (Etikett von Ingwerlikör (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/ingwerlikoer-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 227 Wörter
 
 ```
@@ -825,7 +825,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-2l.png` (leere runde 0,2-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Ingwerlikör folgt` (Etikett von Ingwerlikör (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/ingwerlikoer-0-2l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 227 Wörter
 
 ```
@@ -850,7 +850,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-5l.png` (leere schlanke 0,5-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Willi op Biren geräift folgt` (Etikett von Willi op Biren geräift (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/willi-op-biren-geraeift-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 241 Wörter
 
 ```
@@ -875,7 +875,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere schlanke 0,1-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Willi op Biren geräift folgt` (Etikett von Willi op Biren geräift (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/willi-op-biren-geraeift-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 241 Wörter
 
 ```
@@ -900,7 +900,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-5l.png` (leere schlanke 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Brandwein Mirabelle geräift-01.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 225 Wörter
 
 ```
@@ -924,7 +924,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere schlanke 0,1-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Brandwein Mirabelle geräift-01.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 245 Wörter
 
 ```
@@ -949,7 +949,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-5l.png` (leere schlanke 0,5-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Brandwein Quetsch geräift-01.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/quetsch-op-quetsch-geraeift-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 225 Wörter
 
 ```
@@ -973,7 +973,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (leere schlanke 0,1-L-Flasche)
 - **Anhang 2:** `Fertige Etiquetten/Brandwein Quetsch geräift-01.png` (flaches Etikett aus Fertige Etiquetten/)
 - **Ergebnis speichern als:** `fotos-flaschen/quetsch-op-quetsch-geraeift-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 245 Wörter
 
 ```
@@ -998,7 +998,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-1-0l.png` (leere runde 1-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Neutraler Alkohol folgt` (Etikett von Neutraler Alkohol (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/neutral-alkohol-1-0l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 227 Wörter
 
 ```
@@ -1023,7 +1023,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Äppel/Pommes folgt` (Etikett von Äppel/Pommes (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/aeppel-pommes-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 225 Wörter
 
 ```
@@ -1073,7 +1073,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Pastis folgt` (Etikett von Pastis (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/pastis-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 226 Wörter
 
 ```
@@ -1098,7 +1098,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt` (Etikett von Nëssdrëpp Walnuss (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/nessdrepp-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 226 Wörter
 
 ```
@@ -1123,7 +1123,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Pefferminz folgt` (Etikett von Pefferminz (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/pefferminz-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 226 Wörter
 
 ```
@@ -1148,7 +1148,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/rund-0-5l.png` (leere runde 0,5-L-Flasche)
 - **Anhang 2:** `PLATZHALTER: Etikett von Quitten folgt` (Etikett von Quitten (liegt noch nicht vor)) **(fehlt)**
 - **Ergebnis speichern als:** `fotos-flaschen/quitten-0-5l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 225 Wörter
 
 ```
@@ -1173,7 +1173,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (schlanke 0,1-L-Flasche ohne Etikett (Basisflasche, nur Form))
 - **Anhang 2:** `fotos-basis/schlank-0-1l.png` (dasselbe Bild wie Anhang 1 (die Kiste wird nur im Prompt beschrieben, es gibt kein Kistenfoto))
 - **Ergebnis speichern als:** `fotos-flaschen/holzkiste-6x0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 179 Wörter
 
 ```
@@ -1196,7 +1196,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/schlank-0-1l.png` (schlanke 0,1-L-Flasche ohne Etikett (Basisflasche, nur Form))
 - **Anhang 2:** `fotos-basis/schlank-0-1l.png` (dasselbe Bild wie Anhang 1 (die Kiste wird nur im Prompt beschrieben, es gibt kein Kistenfoto))
 - **Ergebnis speichern als:** `fotos-flaschen/holzkiste-3x0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 179 Wörter
 
 ```
@@ -1219,7 +1219,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/rund-0-2l.png` (runde 0,2-L-Flasche ohne Etikett (Basisflasche, nur Form))
 - **Anhang 2:** `fotos-basis/rund-0-2l.png` (dasselbe Bild wie Anhang 1 (die Kiste wird nur im Prompt beschrieben, es gibt kein Kistenfoto))
 - **Ergebnis speichern als:** `fotos-flaschen/holzkiste-4x0-2l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 182 Wörter
 
 ```
@@ -1242,7 +1242,7 @@ Erzeuge ein fotorealistisches Produktfoto im Querformat 4:3 (1448 × 1086 Pixel)
 - **Anhang 1:** `fotos-basis/apotheker-0-1l.png` (Apothekerflasche 0,1 l ohne Etikett (Basisflasche, nur Form))
 - **Anhang 2:** `fotos-basis/apotheker-0-1l.png` (dasselbe Bild wie Anhang 1 (die Kiste wird nur im Prompt beschrieben, es gibt kein Kistenfoto))
 - **Ergebnis speichern als:** `fotos-flaschen/holzkiste-5x-apotheker-0-1l.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 178 Wörter
 
 ```
