@@ -22,7 +22,6 @@ Rechnungsprogramm, Website, Vorlagen und Planung.
 |---|---|
 | `datenbank/` | PostgreSQL-Schema `brennerei`: `001_schema.sql`, `002_rechnung.sql`, `900_test.sql` |
 | `rechnungsprogramm/` | FastAPI: `app/`, `tests/`, `pytest.ini` |
-| `website/prototyp/` | Klick-Prototyp „Obstwiese“: `obstwiese.html` |
 | `vorlagen/` | Excel-Erfassungsvorlage und Erzeugerskript |
 | `docs/` | `MASTERPLAN.md`, offene Fragen F-01 bis F-24, `ETIKETTEN.md` |
 | `site/` | Website-Quellen: `lib/*.mjs`, `data/*.js`, `assets/` |

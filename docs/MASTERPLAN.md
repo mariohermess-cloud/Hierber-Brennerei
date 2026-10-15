@@ -318,7 +318,7 @@ Phasen 2, 3 und 4 können teilweise parallel laufen.
 | Datenmodell PostgreSQL | fertig (`datenbank/001_schema.sql`) |
 | Rechnungswesen in der Datenbank | fertig (`datenbank/002_rechnung.sql`) |
 | Rechnungsprogramm mit Oberfläche, PDF, E‑Rechnung, Berichten | fertig (`rechnungsprogramm/`) |
-| Klick‑Prototyp der Website | fertig (`website/prototyp/`) |
+| Website | fertig und abgelöst: aus dem Klick‑Prototyp ist die gebaute Website geworden (`site/` → `dist/`); der Prototyp wurde entfernt |
 | Etiketten‑App an die Datenbank anbinden | offen, wartet auf Sichtung der bestehenden App (Frage F‑10) |
 | WordPress und WooCommerce | offen, wartet auf Hosting‑Entscheidung |
 | NAS‑Einrichtung | offen, wartet auf Frage F‑20 |
