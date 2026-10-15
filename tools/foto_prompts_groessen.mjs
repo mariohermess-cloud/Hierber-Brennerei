@@ -28,8 +28,9 @@ const fail = (m) => fehler.push(m);
 // Etikett-, Halsband- und Nachbesserungsbaustein unverändert bleiben.
 // Mit der festen Verschluss-Zeile (VERSCHLUSS, 16 Wörter) liegen die sieben runden 0,2-L-Prompts bei bis zu 261 Wörtern; Grenze deshalb 265 (vorher 250).
 const WORTGRENZE = 265;
-const ERWARTET = { '0,1 L': 13, '0,2 L': 7, '0,7 L': 7, '1 L': 8, '1,5 L': 7 };
-const ERWARTET_GESAMT = Object.values(ERWARTET).reduce((a, b) => a + b, 0); // 42
+// 0,7 L: nur noch Vieux Marc (Framboise, Quetsch, Poire Williams, Mirabelle, Neelchesbiren und Lënschouren führen 0,7 L nicht mehr; Hierberol hat sein Hauptbild)
+const ERWARTET = { '0,1 L': 13, '0,2 L': 7, '0,7 L': 1, '1 L': 8, '1,5 L': 7 };
+const ERWARTET_GESAMT = Object.values(ERWARTET).reduce((a, b) => a + b, 0); // 36
 
 // ---------- Größen ----------
 // Dateisuffix und Schreibweise der Mengenangabe auf dem Etikett (kleines l wie auf dem 0,5-L-Etikett: „0,5 l“)

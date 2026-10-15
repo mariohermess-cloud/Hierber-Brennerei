@@ -1,6 +1,6 @@
 # PROMPTS-GROESSEN: neue Produktflasche in anderen Größen mit aktuellem Etikett (ChatGPT)
 
-Erzeugt mit `node tools/foto_prompts_groessen.mjs`. Nicht von Hand ändern. 42 Prompts, je (Sorte, Größe) einer, für alle Größen der Preisliste außer 0,5 L (die stehen in `PROMPTS-FLASCHEN.md`): 0,1 L: 13, 0,2 L: 7, 0,7 L: 7, 1 L: 8, 1,5 L: 7. **ChatGPT erzeugt eine NEUE, saubere Produktflasche** (Hochformat 1024 × 1536 Pixel, heller neutraler Studiogrund) mit dem aktuellen Etikett; kein Foto wird bearbeitet. Anhang 1 = leere Basisflasche ohne Etikett aus `fotos-basis/` (nur Form und Proportionen), Anhang 2 = das flache 0,5-L-Etikett aus `Fertige Etiquetten/`. Auf dem Etikett wird nur die Mengenangabe geändert („0,5 l“ wird zur Größe der Flasche); das Etikett wird proportional zur Flasche skaliert und sitzt in der unteren Hälfte.
+Erzeugt mit `node tools/foto_prompts_groessen.mjs`. Nicht von Hand ändern. 36 Prompts, je (Sorte, Größe) einer, für alle Größen der Preisliste außer 0,5 L (die stehen in `PROMPTS-FLASCHEN.md`): 0,1 L: 13, 0,2 L: 7, 0,7 L: 1, 1 L: 8, 1,5 L: 7. **ChatGPT erzeugt eine NEUE, saubere Produktflasche** (Hochformat 1024 × 1536 Pixel, heller neutraler Studiogrund) mit dem aktuellen Etikett; kein Foto wird bearbeitet. Anhang 1 = leere Basisflasche ohne Etikett aus `fotos-basis/` (nur Form und Proportionen), Anhang 2 = das flache 0,5-L-Etikett aus `Fertige Etiquetten/`. Auf dem Etikett wird nur die Mengenangabe geändert („0,5 l“ wird zur Größe der Flasche); das Etikett wird proportional zur Flasche skaliert und sitzt in der unteren Hälfte.
 
 Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle (`<sorten-id>-<größe>.png`, Größe als `0-1l`, `0-2l`, `0-7l`, `1-0l`, `1-5l`) in den Ordner `fotos-flaschen/` im Repo (den legt der Nutzer an; das Skript legt ihn nicht an). Die Sortenseite tauscht beim Wählen einer Größe das Bild im Kopf gegen das Bild dieser Größe, wenn eines existiert (`site/lib/brand.mjs`, `site/assets/js/site.js`).
 
@@ -8,7 +8,7 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle (`<sorten-id>-<g
 
 **Verschluss:** in jedem Prompt Glasstopfen ohne Kork; die Verschluss-Zeile hat Vorrang vor dem Verschluss der Basisfotos (die zeigen teils Korken, Holzkugel oder Glasstopfen).
 
-**Stand:** 10 offen, 32 vorhanden (Datei `<id>-<größe>.png` in `fotos-flaschen/`).
+**Stand:** 4 offen, 32 vorhanden (Datei `<id>-<größe>.png` in `fotos-flaschen/`).
 
 Automatisch abarbeiten: `CHATGPT-STAPEL.md` (Gruppe `groessen`, Ausgabe Hochformat).
 
@@ -38,13 +38,9 @@ Automatisch abarbeiten: `CHATGPT-STAPEL.md` (Gruppe `groessen`, Ausgabe Hochform
 | Hierber Whisky | 1,5 L | `fotos-basis/rund-1-5l.png` | `Fertige Etiquetten/Branntwein Whisky 0,5L nei 4-01.png` | `fotos-flaschen/whisky-1-5l.png` | Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang |
 | Kirsch | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Kirsch-01.png` | `fotos-flaschen/kirsch-0-1l.png` | – |
 | Framboise | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Framboise-01.png` | `fotos-flaschen/framboise-0-1l.png` | – |
-| Framboise | 0,7 L | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Framboise-01.png` | `fotos-flaschen/framboise-0-7l.png` | Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung |
 | Quetsch | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | `fotos-flaschen/quetsch-0-1l.png` | – |
-| Quetsch | 0,7 L | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Quetsch-01.png` | `fotos-flaschen/quetsch-0-7l.png` | Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung |
 | Poire Williams | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Williams-01.png` | `fotos-flaschen/poire-williams-0-1l.png` | – |
-| Poire Williams | 0,7 L | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Williams-01.png` | `fotos-flaschen/poire-williams-0-7l.png` | Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung |
 | Mirabelle | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | `fotos-flaschen/mirabelle-0-1l.png` | – |
-| Mirabelle | 0,7 L | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Mirabelle-01.png` | `fotos-flaschen/mirabelle-0-7l.png` | Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung |
 | Hierber aale Fruucht | 1 L | `fotos-basis/rund-1-0l.png` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | `fotos-flaschen/hierber-fruucht-1-0l.png` | Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang |
 | Hierber aale Fruucht | 1,5 L | `fotos-basis/rund-1-5l.png` | `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png` | `fotos-flaschen/hierber-fruucht-1-5l.png` | Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang |
 | Vieux Marc | 0,7 L | `fotos-basis/karaffe-0-7l.png` | `Fertige Etiquetten/Branntwein Vieux marc-01.png` | `fotos-flaschen/vieux-marc-0-7l.png` | Basisfoto zeigt klares Glas und Glasstopfen; Braunglas nur über die Beschreibung |
@@ -55,9 +51,7 @@ Automatisch abarbeiten: `CHATGPT-STAPEL.md` (Gruppe `groessen`, Ausgabe Hochform
 | Grain | 1 L | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Branntwein Grain-01.png` | `fotos-flaschen/grain-1-0l.png` | Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 1 L-Flasche; Maßstab nur über die Beschreibung |
 | Kiwibeeren | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Branntwein Kiwi-01.png` | `fotos-flaschen/kiwibeeren-0-1l.png` | – |
 | Neelchesbiren | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | `fotos-flaschen/neelchesbiren-0-1l.png` | – |
-| Neelchesbiren | 0,7 L | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Nelchensbiren-01.png` | `fotos-flaschen/neelchesbiren-0-7l.png` | Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung |
 | Lënschouren | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` | `fotos-flaschen/lenschouren-0-1l.png` | – |
-| Lënschouren | 0,7 L | `fotos-basis/schlank-0-5l.png` | `Fertige Etiquetten/Brandwein Lenschouren-01.png` | `fotos-flaschen/lenschouren-0-7l.png` | Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png ist nicht die 0,7 L-Flasche; Maßstab nur über die Beschreibung |
 | Schléiwen | 0,1 L | `fotos-basis/schlank-0-1l.png` | `Fertige Etiquetten/Branntwein Schleiwen-01.png` | `fotos-flaschen/schleiwen-0-1l.png` | – |
 | Hierber Sambuca | 0,2 L | `fotos-basis/rund-0-2l.png` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | `fotos-flaschen/sambuca-0-2l.png` | Datei identisch mit fotos-basis/rund-0-5l.png (0,5-L-Flasche): Größe nur über den Maßstab im Prompt; Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang |
 | Hierber Sambuca | 1 L | `fotos-basis/rund-1-0l.png` | `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png` | `fotos-flaschen/sambuca-1-0l.png` | Basisfoto zeigt einen anderen Verschluss: die Verschluss-Zeile (Glasstopfen ohne Kork) hat Vorrang |
@@ -435,32 +429,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 16. Framboise, 0,7 L
-
-- **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png` (Ersatz, Basis weicht ab (Größe))
-- **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Framboise-01.png`
-- **Ergebnis speichern als:** `fotos-flaschen/framboise-0-7l.png`
-- **Status:** offen
-- **Prompt:** 245 Wörter
-
-```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/framboise-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.
-```
-
-**Prüfen:**
-- Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,7 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern
-- Mengenangabe auf dem Etikett lautet „0,7 l“ (nicht „0,5 l“)
-- Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum
-- Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %
-- Größenverhältnis plausibel: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form; Etikett mitskaliert, in der unteren Hälfte
-- Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt
-- Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)
-- Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben
-
----
-
-## 17. Quetsch, 0,1 L
+## 16. Quetsch, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
@@ -484,32 +453,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 18. Quetsch, 0,7 L
-
-- **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png` (Ersatz, Basis weicht ab (Größe))
-- **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Quetsch-01.png`
-- **Ergebnis speichern als:** `fotos-flaschen/quetsch-0-7l.png`
-- **Status:** offen
-- **Prompt:** 245 Wörter
-
-```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quetsch-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.
-```
-
-**Prüfen:**
-- Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,7 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern
-- Mengenangabe auf dem Etikett lautet „0,7 l“ (nicht „0,5 l“)
-- Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum
-- Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %
-- Größenverhältnis plausibel: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form; Etikett mitskaliert, in der unteren Hälfte
-- Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt
-- Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)
-- Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben
-
----
-
-## 19. Poire Williams, 0,1 L
+## 17. Poire Williams, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
@@ -533,32 +477,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 20. Poire Williams, 0,7 L
-
-- **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png` (Ersatz, Basis weicht ab (Größe))
-- **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Williams-01.png`
-- **Ergebnis speichern als:** `fotos-flaschen/poire-williams-0-7l.png`
-- **Status:** offen
-- **Prompt:** 245 Wörter
-
-```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/poire-williams-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.
-```
-
-**Prüfen:**
-- Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,7 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern
-- Mengenangabe auf dem Etikett lautet „0,7 l“ (nicht „0,5 l“)
-- Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum
-- Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %
-- Größenverhältnis plausibel: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form; Etikett mitskaliert, in der unteren Hälfte
-- Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt
-- Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)
-- Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben
-
----
-
-## 21. Mirabelle, 0,1 L
+## 18. Mirabelle, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
@@ -582,32 +501,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 22. Mirabelle, 0,7 L
-
-- **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png` (Ersatz, Basis weicht ab (Größe))
-- **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Mirabelle-01.png`
-- **Ergebnis speichern als:** `fotos-flaschen/mirabelle-0-7l.png`
-- **Status:** offen
-- **Prompt:** 245 Wörter
-
-```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.
-```
-
-**Prüfen:**
-- Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,7 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern
-- Mengenangabe auf dem Etikett lautet „0,7 l“ (nicht „0,5 l“)
-- Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum
-- Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %
-- Größenverhältnis plausibel: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form; Etikett mitskaliert, in der unteren Hälfte
-- Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt
-- Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)
-- Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben
-
----
-
-## 23. Hierber aale Fruucht, 1 L
+## 19. Hierber aale Fruucht, 1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-0l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
@@ -631,7 +525,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 24. Hierber aale Fruucht, 1,5 L
+## 20. Hierber aale Fruucht, 1,5 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Hierber Fruucht-01.png`
@@ -655,7 +549,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 25. Vieux Marc, 0,7 L
+## 21. Vieux Marc, 0,7 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/karaffe-0-7l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Vieux marc-01.png`
@@ -679,7 +573,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 26. Vieille Prune, 0,1 L
+## 22. Vieille Prune, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille prune-01.png`
@@ -703,7 +597,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 27. Vieille Pomme, 0,1 L
+## 23. Vieille Pomme, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Vieille pomme-01.png`
@@ -727,7 +621,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 28. Hunnegdrëpp, 0,1 L
+## 24. Hunnegdrëpp, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Hunnegdrepp-01.png`
@@ -751,7 +645,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 29. Kräiderdrëpp, 0,1 L
+## 25. Kräiderdrëpp, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Kraider-01.png`
@@ -775,7 +669,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 30. Grain, 1 L
+## 26. Grain, 1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png` (Ersatz, Basis weicht ab (Größe))
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Grain-01.png`
@@ -800,7 +694,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 31. Kiwibeeren, 0,1 L
+## 27. Kiwibeeren, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Kiwi-01.png`
@@ -824,7 +718,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 32. Neelchesbiren, 0,1 L
+## 28. Neelchesbiren, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
@@ -848,32 +742,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 33. Neelchesbiren, 0,7 L
-
-- **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png` (Ersatz, Basis weicht ab (Größe))
-- **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Nelchensbiren-01.png`
-- **Ergebnis speichern als:** `fotos-flaschen/neelchesbiren-0-7l.png`
-- **Status:** offen
-- **Prompt:** 245 Wörter
-
-```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/neelchesbiren-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.
-```
-
-**Prüfen:**
-- Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,7 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern
-- Mengenangabe auf dem Etikett lautet „0,7 l“ (nicht „0,5 l“)
-- Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum
-- Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %
-- Größenverhältnis plausibel: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form; Etikett mitskaliert, in der unteren Hälfte
-- Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt
-- Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)
-- Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben
-
----
-
-## 34. Lënschouren, 0,1 L
+## 29. Lënschouren, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
@@ -897,32 +766,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 35. Lënschouren, 0,7 L
-
-- **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-5l.png` (Ersatz, Basis weicht ab (Größe))
-- **Anhang 2 (Etikett):** `Fertige Etiquetten/Brandwein Lenschouren-01.png`
-- **Ergebnis speichern als:** `fotos-flaschen/lenschouren-0-7l.png`
-- **Status:** offen
-- **Prompt:** 245 Wörter
-
-```
-Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/lenschouren-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.
-```
-
-**Prüfen:**
-- Etikett Wort für Wort gegen Anhang 2 vergleichen (Sortenname, Alkoholgehalt, Grafik, Adresszeile „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“); **einzige erlaubte Abweichung: die Mengenangabe „0,7 l“ statt „0,5 l“**. Dass ChatGPT den Text buchstabengetreu trifft, ist unsicher; bei Abweichung einmal mit „Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern.“ nachbessern
-- Mengenangabe auf dem Etikett lautet „0,7 l“ (nicht „0,5 l“)
-- Nur EINE Flasche im Bild, ganz sichtbar (Hals und Verschluss nicht angeschnitten), Luft ringsum
-- Format Hochformat 1024 × 1536; Flasche mittig, Standfläche bei etwa 90 % der Höhe, Verschlussoberkante bei etwa 8 %
-- Größenverhältnis plausibel: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form; Etikett mitskaliert, in der unteren Hälfte
-- Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt
-- Das Foto aus Anhang 1 wurde nicht übernommen (keine zweite Flasche, Verschluss und Farbe wie im Prompt)
-- Kein Halsband am Hals (schlanke Flaschen und Vieux Marc haben keines)
-- Basis weicht ab (Größe): fotos-basis/schlank-0-5l.png zeigt die schlanke 0,5-L-Flasche, die Zielgröße ist nur über den Maßstab im Prompt beschrieben
-
----
-
-## 36. Schléiwen, 0,1 L
+## 30. Schléiwen, 0,1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/schlank-0-1l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Schleiwen-01.png`
@@ -946,7 +790,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 37. Hierber Sambuca, 0,2 L
+## 31. Hierber Sambuca, 0,2 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-2l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
@@ -970,7 +814,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 38. Hierber Sambuca, 1 L
+## 32. Hierber Sambuca, 1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-0l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
@@ -994,7 +838,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 39. Hierber Sambuca, 1,5 L
+## 33. Hierber Sambuca, 1,5 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png`
@@ -1018,7 +862,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 40. Hierber Limoncello, 0,2 L
+## 34. Hierber Limoncello, 0,2 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-0-2l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
@@ -1042,7 +886,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 41. Hierber Limoncello, 1 L
+## 35. Hierber Limoncello, 1 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-0l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`
@@ -1066,7 +910,7 @@ Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixe
 
 ---
 
-## 42. Hierber Limoncello, 1,5 L
+## 36. Hierber Limoncello, 1,5 L
 
 - **Anhang 1 (nur Orientierung):** `fotos-basis/rund-1-5l.png`
 - **Anhang 2 (Etikett):** `Fertige Etiquetten/Branntwein Limoncello-01.png`

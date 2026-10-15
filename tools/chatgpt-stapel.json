@@ -1,8 +1,8 @@
 {
   "hinweis": "Alle Bilder des Stapels mit Status (offen, vorhanden, ersetzt, bitte prüfen, Etikett fehlt). Die CSV tools/chatgpt-stapel.csv enthält nur die offenen. Erzeugt mit node tools/chatgpt_stapel.mjs.",
   "anzahl": {
-    "gesamt": 249,
-    "offen": 38,
+    "gesamt": 243,
+    "offen": 32,
     "vorhanden": 198,
     "ersetztBittePruefen": 1,
     "etikettFehlt": 12
@@ -1477,15 +1477,6 @@
     },
     {
       "nr": 164,
-      "dateiname_ergebnis": "fotos-flaschen/framboise-0-7l.png",
-      "anhang1": "fotos-basis/schlank-0-5l.png",
-      "anhang2": "Fertige Etiquetten/Brandwein Framboise-01.png",
-      "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/framboise-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
-      "gruppe": "groessen",
-      "status": "offen"
-    },
-    {
-      "nr": 165,
       "dateiname_ergebnis": "fotos-flaschen/quetsch-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Quetsch-01.png",
@@ -1494,16 +1485,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 166,
-      "dateiname_ergebnis": "fotos-flaschen/quetsch-0-7l.png",
-      "anhang1": "fotos-basis/schlank-0-5l.png",
-      "anhang2": "Fertige Etiquetten/Brandwein Quetsch-01.png",
-      "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/quetsch-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
-      "gruppe": "groessen",
-      "status": "offen"
-    },
-    {
-      "nr": 167,
+      "nr": 165,
       "dateiname_ergebnis": "fotos-flaschen/poire-williams-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Williams-01.png",
@@ -1512,16 +1494,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 168,
-      "dateiname_ergebnis": "fotos-flaschen/poire-williams-0-7l.png",
-      "anhang1": "fotos-basis/schlank-0-5l.png",
-      "anhang2": "Fertige Etiquetten/Brandwein Williams-01.png",
-      "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/poire-williams-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
-      "gruppe": "groessen",
-      "status": "offen"
-    },
-    {
-      "nr": 169,
+      "nr": 166,
       "dateiname_ergebnis": "fotos-flaschen/mirabelle-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Mirabelle-01.png",
@@ -1530,16 +1503,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 170,
-      "dateiname_ergebnis": "fotos-flaschen/mirabelle-0-7l.png",
-      "anhang1": "fotos-basis/schlank-0-5l.png",
-      "anhang2": "Fertige Etiquetten/Brandwein Mirabelle-01.png",
-      "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/mirabelle-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
-      "gruppe": "groessen",
-      "status": "offen"
-    },
-    {
-      "nr": 171,
+      "nr": 167,
       "dateiname_ergebnis": "fotos-flaschen/hierber-fruucht-1-0l.png",
       "anhang1": "fotos-basis/rund-1-0l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Fruucht-01.png",
@@ -1548,7 +1512,7 @@
       "status": "offen"
     },
     {
-      "nr": 172,
+      "nr": 168,
       "dateiname_ergebnis": "fotos-flaschen/hierber-fruucht-1-5l.png",
       "anhang1": "fotos-basis/rund-1-5l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Hierber Fruucht-01.png",
@@ -1557,7 +1521,7 @@
       "status": "offen"
     },
     {
-      "nr": 173,
+      "nr": 169,
       "dateiname_ergebnis": "fotos-flaschen/vieux-marc-0-7l.png",
       "anhang1": "fotos-basis/karaffe-0-7l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Vieux marc-01.png",
@@ -1566,7 +1530,7 @@
       "status": "offen"
     },
     {
-      "nr": 174,
+      "nr": 170,
       "dateiname_ergebnis": "fotos-flaschen/vieille-prune-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Vieille prune-01.png",
@@ -1575,7 +1539,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 175,
+      "nr": 171,
       "dateiname_ergebnis": "fotos-flaschen/vieille-pomme-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Vieille pomme-01.png",
@@ -1584,7 +1548,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 176,
+      "nr": 172,
       "dateiname_ergebnis": "fotos-flaschen/hunnegdrepp-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Hunnegdrepp-01.png",
@@ -1593,7 +1557,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 177,
+      "nr": 173,
       "dateiname_ergebnis": "fotos-flaschen/kraeiderdrepp-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Kraider-01.png",
@@ -1602,7 +1566,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 178,
+      "nr": 174,
       "dateiname_ergebnis": "fotos-flaschen/grain-1-0l.png",
       "anhang1": "fotos-basis/schlank-0-5l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Grain-01.png",
@@ -1611,7 +1575,7 @@
       "status": "offen"
     },
     {
-      "nr": 179,
+      "nr": 175,
       "dateiname_ergebnis": "fotos-flaschen/kiwibeeren-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Kiwi-01.png",
@@ -1620,7 +1584,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 180,
+      "nr": 176,
       "dateiname_ergebnis": "fotos-flaschen/neelchesbiren-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Nelchensbiren-01.png",
@@ -1629,16 +1593,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 181,
-      "dateiname_ergebnis": "fotos-flaschen/neelchesbiren-0-7l.png",
-      "anhang1": "fotos-basis/schlank-0-5l.png",
-      "anhang2": "Fertige Etiquetten/Brandwein Nelchensbiren-01.png",
-      "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/neelchesbiren-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
-      "gruppe": "groessen",
-      "status": "offen"
-    },
-    {
-      "nr": 182,
+      "nr": 177,
       "dateiname_ergebnis": "fotos-flaschen/lenschouren-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Lenschouren-01.png",
@@ -1647,16 +1602,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 183,
-      "dateiname_ergebnis": "fotos-flaschen/lenschouren-0-7l.png",
-      "anhang1": "fotos-basis/schlank-0-5l.png",
-      "anhang2": "Fertige Etiquetten/Brandwein Lenschouren-01.png",
-      "prompt": "Erzeuge eine neue, saubere Produktflasche als Hochformat-Foto (1024 × 1536 Pixel), freigestellt auf hellem, neutralem Grund (weißgrau, weiche Studiobeleuchtung von links, sanfter Schatten am Boden), frontal. Die Flasche steht mittig, Standfläche bei etwa 90 % der Bildhöhe, Oberkante des Verschlusses bei etwa 8 %; Hals und Verschluss nicht angeschnitten, Luft ringsum. Form und Proportionen orientieren sich an Anhang 1 (leere schlanke Flasche ohne Etikett, nur Form und Proportionen); nur Orientierung, nicht kopieren. Größe: etwas höher und voller als in Anhang 1, 0,7-L-Flasche derselben schlanken Form. Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Kein Halsband: der Hals bleibt klares Glas, höchstens ein schmaler goldgelber Siegelstreifen am Rand des Verschlusses. Flüssigkeit: klar wie Wasser, bis zum Hals gefüllt. Auf die Flasche kommt das Etikett aus Anhang 2 unverändert (kein Buchstabe anders, Adresszeile fest „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“, Alkoholangabe wie in Anhang 2); es legt sich wie ein echtes Papieretikett um die halbe Flasche: Rundung sichtbar, Ränder laufen seitlich weg, leichte Papierkante, Glanz und Reflexe des Glases laufen über das Etikett. Etikett proportional zur Flasche skaliert, sitzt in der unteren Hälfte. Mengenangabe auf dem Etikett: statt „0,5 l“ steht „0,7 l“; sonst keine Änderung am Etikett. Nur EINE Flasche, keine weiteren Gegenstände, kein zusätzlicher Text, kein Logo, kein Wasserzeichen; nicht: verändertes Etikett, Fantasieschrift, übernommenes Foto aus Anhang 1. Ergebnis als PNG „fotos-flaschen/lenschouren-0-7l.png“. Nachbesserung: Etikett exakt aus Anhang 2 übernehmen, keine Buchstaben verändern. Ausnahme bleibt die Mengenangabe.",
-      "gruppe": "groessen",
-      "status": "offen"
-    },
-    {
-      "nr": 184,
+      "nr": 178,
       "dateiname_ergebnis": "fotos-flaschen/schleiwen-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Schleiwen-01.png",
@@ -1665,7 +1611,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 185,
+      "nr": 179,
       "dateiname_ergebnis": "fotos-flaschen/sambuca-0-2l.png",
       "anhang1": "fotos-basis/rund-0-2l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png",
@@ -1674,7 +1620,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 186,
+      "nr": 180,
       "dateiname_ergebnis": "fotos-flaschen/sambuca-1-0l.png",
       "anhang1": "fotos-basis/rund-1-0l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png",
@@ -1683,7 +1629,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 187,
+      "nr": 181,
       "dateiname_ergebnis": "fotos-flaschen/sambuca-1-5l.png",
       "anhang1": "fotos-basis/rund-1-5l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Sambuca_Zeichenfläche 1.png",
@@ -1692,7 +1638,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 188,
+      "nr": 182,
       "dateiname_ergebnis": "fotos-flaschen/limoncello-0-2l.png",
       "anhang1": "fotos-basis/rund-0-2l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Limoncello-01.png",
@@ -1701,7 +1647,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 189,
+      "nr": 183,
       "dateiname_ergebnis": "fotos-flaschen/limoncello-1-0l.png",
       "anhang1": "fotos-basis/rund-1-0l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Limoncello-01.png",
@@ -1710,7 +1656,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 190,
+      "nr": 184,
       "dateiname_ergebnis": "fotos-flaschen/limoncello-1-5l.png",
       "anhang1": "fotos-basis/rund-1-5l.png",
       "anhang2": "Fertige Etiquetten/Branntwein Limoncello-01.png",
@@ -1719,7 +1665,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 191,
+      "nr": 185,
       "dateiname_ergebnis": "fotos-flaschen/hierberol-0-7l.png",
       "anhang1": "fotos-basis/rund-0-7l.png",
       "anhang2": "fotos-flaschen/hierberol-0-7l.png",
@@ -1728,7 +1674,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 192,
+      "nr": 186,
       "dateiname_ergebnis": "fotos-ki/hierberol-1.png",
       "anhang1": "fotos-flaschen/hierberol-0-7l.png",
       "anhang2": "fotos-flaschen/hierberol-0-7l.png",
@@ -1737,7 +1683,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 193,
+      "nr": 187,
       "dateiname_ergebnis": "fotos-ki/hierberol-2.png",
       "anhang1": "fotos-flaschen/hierberol-0-7l.png",
       "anhang2": "fotos-flaschen/hierberol-0-7l.png",
@@ -1746,7 +1692,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 194,
+      "nr": 188,
       "dateiname_ergebnis": "fotos-ki/hierberol-3.png",
       "anhang1": "fotos-flaschen/hierberol-0-7l.png",
       "anhang2": "fotos-flaschen/hierberol-0-7l.png",
@@ -1755,7 +1701,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 195,
+      "nr": 189,
       "dateiname_ergebnis": "fotos-ki/hierberol-4.png",
       "anhang1": "fotos-flaschen/hierberol-0-7l.png",
       "anhang2": "fotos-flaschen/hierberol-0-7l.png",
@@ -1764,7 +1710,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 196,
+      "nr": 190,
       "dateiname_ergebnis": "fotos-flaschen/kraider-batti-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "PLATZHALTER: Etikett von Kräider Batti folgt",
@@ -1776,7 +1722,7 @@
       ]
     },
     {
-      "nr": 197,
+      "nr": 191,
       "dateiname_ergebnis": "fotos-ki/kraider-batti-1.png",
       "anhang1": "fotos-flaschen/kraider-batti-0-5l.png",
       "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
@@ -1785,7 +1731,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 198,
+      "nr": 192,
       "dateiname_ergebnis": "fotos-ki/kraider-batti-2.png",
       "anhang1": "fotos-flaschen/kraider-batti-0-5l.png",
       "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
@@ -1794,7 +1740,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 199,
+      "nr": 193,
       "dateiname_ergebnis": "fotos-ki/kraider-batti-3.png",
       "anhang1": "fotos-flaschen/kraider-batti-0-5l.png",
       "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
@@ -1803,7 +1749,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 200,
+      "nr": 194,
       "dateiname_ergebnis": "fotos-ki/kraider-batti-4.png",
       "anhang1": "fotos-flaschen/kraider-batti-0-5l.png",
       "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
@@ -1812,7 +1758,7 @@
       "status": "vorhanden"
     },
     {
-      "nr": 201,
+      "nr": 195,
       "dateiname_ergebnis": "fotos-flaschen/de-welle-max-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png",
@@ -1822,7 +1768,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 202,
+      "nr": 196,
       "dateiname_ergebnis": "fotos-flaschen/de-welle-max-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Welle max_Zeichenfläche 1.png",
@@ -1832,7 +1778,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 203,
+      "nr": 197,
       "dateiname_ergebnis": "fotos-flaschen/hambierlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png",
@@ -1842,7 +1788,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 204,
+      "nr": 198,
       "dateiname_ergebnis": "fotos-flaschen/hambierlikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Hambier_Zeichenfläche 1.png",
@@ -1852,7 +1798,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 205,
+      "nr": 199,
       "dateiname_ergebnis": "fotos-flaschen/holly-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png",
@@ -1862,7 +1808,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 206,
+      "nr": 200,
       "dateiname_ergebnis": "fotos-flaschen/holly-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Holunderblüte-01_Zeichenfläche 1.png",
@@ -1872,7 +1818,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 207,
+      "nr": 201,
       "dateiname_ergebnis": "fotos-flaschen/kiischtenlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png",
@@ -1882,7 +1828,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 208,
+      "nr": 202,
       "dateiname_ergebnis": "fotos-flaschen/kiischtenlikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Kiischt_Zeichenfläche 1.png",
@@ -1892,7 +1838,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 209,
+      "nr": 203,
       "dateiname_ergebnis": "fotos-flaschen/kraeiderlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png",
@@ -1902,7 +1848,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 210,
+      "nr": 204,
       "dateiname_ergebnis": "fotos-flaschen/kraeiderlikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Kraider_Zeichenfläche 1.png",
@@ -1912,7 +1858,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 211,
+      "nr": 205,
       "dateiname_ergebnis": "fotos-flaschen/mandellikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png",
@@ -1922,7 +1868,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 212,
+      "nr": 206,
       "dateiname_ergebnis": "fotos-flaschen/mandellikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Mandel_Zeichenfläche 1.png",
@@ -1932,7 +1878,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 213,
+      "nr": 207,
       "dateiname_ergebnis": "fotos-flaschen/mirabellenlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png",
@@ -1942,7 +1888,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 214,
+      "nr": 208,
       "dateiname_ergebnis": "fotos-flaschen/mirabellenlikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Mirabelle_Zeichenfläche 1.png",
@@ -1952,7 +1898,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 215,
+      "nr": 209,
       "dateiname_ergebnis": "fotos-flaschen/mirabelle-op-mirabellen-likoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Mirabelle geräift_Zeichenfläche 1.png",
@@ -1962,7 +1908,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 216,
+      "nr": 210,
       "dateiname_ergebnis": "fotos-flaschen/nesslikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png",
@@ -1972,7 +1918,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 217,
+      "nr": 211,
       "dateiname_ergebnis": "fotos-flaschen/nesslikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Nesslikör_Zeichenfläche 1.png",
@@ -1982,7 +1928,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 218,
+      "nr": 212,
       "dateiname_ergebnis": "fotos-flaschen/pfeffi-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png",
@@ -1992,7 +1938,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 219,
+      "nr": 213,
       "dateiname_ergebnis": "fotos-flaschen/pfeffi-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Pfeffi Peffermenz_Zeichenfläche 1.png",
@@ -2002,7 +1948,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 220,
+      "nr": 214,
       "dateiname_ergebnis": "fotos-flaschen/pijenlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png",
@@ -2012,7 +1958,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 221,
+      "nr": 215,
       "dateiname_ergebnis": "fotos-flaschen/pijenlikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Pijen_Zeichenfläche 1.png",
@@ -2022,7 +1968,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 222,
+      "nr": 216,
       "dateiname_ergebnis": "fotos-flaschen/quittenlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png",
@@ -2032,7 +1978,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 223,
+      "nr": 217,
       "dateiname_ergebnis": "fotos-flaschen/quittenlikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Quitten_Zeichenfläche 1.png",
@@ -2042,7 +1988,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 224,
+      "nr": 218,
       "dateiname_ergebnis": "fotos-flaschen/schleiwenlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png",
@@ -2052,7 +1998,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 225,
+      "nr": 219,
       "dateiname_ergebnis": "fotos-flaschen/schleiwenlikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Schleiwen_Zeichenfläche 1.png",
@@ -2062,7 +2008,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 226,
+      "nr": 220,
       "dateiname_ergebnis": "fotos-flaschen/vizlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png",
@@ -2072,7 +2018,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 227,
+      "nr": 221,
       "dateiname_ergebnis": "fotos-flaschen/vizlikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Viz_Zeichenfläche 1.png",
@@ -2082,7 +2028,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 228,
+      "nr": 222,
       "dateiname_ergebnis": "fotos-flaschen/williamslikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png",
@@ -2092,7 +2038,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 229,
+      "nr": 223,
       "dateiname_ergebnis": "fotos-flaschen/williamslikoer-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Likör Williams_Zeichenfläche 1.png",
@@ -2102,7 +2048,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 230,
+      "nr": 224,
       "dateiname_ergebnis": "fotos-flaschen/winterdreams-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "Fertige Etiquetten/Likör Winter Dreams-01.png",
@@ -2112,7 +2058,7 @@
       "untergruppe": "likoere"
     },
     {
-      "nr": 231,
+      "nr": 225,
       "dateiname_ergebnis": "fotos-flaschen/ingwerlikoer-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "PLATZHALTER: Etikett von Ingwerlikör folgt",
@@ -2125,7 +2071,7 @@
       ]
     },
     {
-      "nr": 232,
+      "nr": 226,
       "dateiname_ergebnis": "fotos-flaschen/ingwerlikoer-0-2l.png",
       "anhang1": "fotos-basis/rund-0-2l.png",
       "anhang2": "PLATZHALTER: Etikett von Ingwerlikör folgt",
@@ -2138,7 +2084,7 @@
       ]
     },
     {
-      "nr": 233,
+      "nr": 227,
       "dateiname_ergebnis": "fotos-flaschen/willi-op-biren-geraeift-0-5l.png",
       "anhang1": "fotos-basis/schlank-0-5l.png",
       "anhang2": "PLATZHALTER: Etikett von Willi op Biren geräift folgt",
@@ -2151,7 +2097,7 @@
       ]
     },
     {
-      "nr": 234,
+      "nr": 228,
       "dateiname_ergebnis": "fotos-flaschen/willi-op-biren-geraeift-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "PLATZHALTER: Etikett von Willi op Biren geräift folgt",
@@ -2164,7 +2110,7 @@
       ]
     },
     {
-      "nr": 235,
+      "nr": 229,
       "dateiname_ergebnis": "fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-5l.png",
       "anhang1": "fotos-basis/schlank-0-5l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Mirabelle geräift-01.png",
@@ -2174,7 +2120,7 @@
       "untergruppe": "geraeift"
     },
     {
-      "nr": 236,
+      "nr": 230,
       "dateiname_ergebnis": "fotos-flaschen/mirabelle-op-mirabellen-geraeift-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Mirabelle geräift-01.png",
@@ -2184,7 +2130,7 @@
       "untergruppe": "geraeift"
     },
     {
-      "nr": 237,
+      "nr": 231,
       "dateiname_ergebnis": "fotos-flaschen/quetsch-op-quetsch-geraeift-0-5l.png",
       "anhang1": "fotos-basis/schlank-0-5l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Quetsch geräift-01.png",
@@ -2194,7 +2140,7 @@
       "untergruppe": "geraeift"
     },
     {
-      "nr": 238,
+      "nr": 232,
       "dateiname_ergebnis": "fotos-flaschen/quetsch-op-quetsch-geraeift-0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "Fertige Etiquetten/Brandwein Quetsch geräift-01.png",
@@ -2204,7 +2150,7 @@
       "untergruppe": "geraeift"
     },
     {
-      "nr": 239,
+      "nr": 233,
       "dateiname_ergebnis": "fotos-flaschen/neutral-alkohol-1-0l.png",
       "anhang1": "fotos-basis/rund-1-0l.png",
       "anhang2": "PLATZHALTER: Etikett von Neutraler Alkohol folgt",
@@ -2217,7 +2163,7 @@
       ]
     },
     {
-      "nr": 240,
+      "nr": 234,
       "dateiname_ergebnis": "fotos-flaschen/aeppel-pommes-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "PLATZHALTER: Etikett von Äppel/Pommes folgt",
@@ -2230,7 +2176,7 @@
       ]
     },
     {
-      "nr": 241,
+      "nr": 235,
       "dateiname_ergebnis": "fotos-flaschen/aeppel-pommes-1-0l.png",
       "anhang1": "fotos-basis/rund-1-0l.png",
       "anhang2": "PLATZHALTER: Etikett von Äppel/Pommes folgt",
@@ -2243,7 +2189,7 @@
       ]
     },
     {
-      "nr": 242,
+      "nr": 236,
       "dateiname_ergebnis": "fotos-flaschen/pastis-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "PLATZHALTER: Etikett von Pastis folgt",
@@ -2256,7 +2202,7 @@
       ]
     },
     {
-      "nr": 243,
+      "nr": 237,
       "dateiname_ergebnis": "fotos-flaschen/nessdrepp-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "PLATZHALTER: Etikett von Nëssdrëpp Walnuss folgt",
@@ -2269,7 +2215,7 @@
       ]
     },
     {
-      "nr": 244,
+      "nr": 238,
       "dateiname_ergebnis": "fotos-flaschen/pefferminz-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "PLATZHALTER: Etikett von Pefferminz folgt",
@@ -2282,7 +2228,7 @@
       ]
     },
     {
-      "nr": 245,
+      "nr": 239,
       "dateiname_ergebnis": "fotos-flaschen/quitten-0-5l.png",
       "anhang1": "fotos-basis/rund-0-5l.png",
       "anhang2": "PLATZHALTER: Etikett von Quitten folgt",
@@ -2295,7 +2241,7 @@
       ]
     },
     {
-      "nr": 246,
+      "nr": 240,
       "dateiname_ergebnis": "fotos-flaschen/holzkiste-6x0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "fotos-basis/schlank-0-1l.png",
@@ -2305,7 +2251,7 @@
       "untergruppe": "holzkisten"
     },
     {
-      "nr": 247,
+      "nr": 241,
       "dateiname_ergebnis": "fotos-flaschen/holzkiste-3x0-1l.png",
       "anhang1": "fotos-basis/schlank-0-1l.png",
       "anhang2": "fotos-basis/schlank-0-1l.png",
@@ -2315,7 +2261,7 @@
       "untergruppe": "holzkisten"
     },
     {
-      "nr": 248,
+      "nr": 242,
       "dateiname_ergebnis": "fotos-flaschen/holzkiste-4x0-2l.png",
       "anhang1": "fotos-basis/rund-0-2l.png",
       "anhang2": "fotos-basis/rund-0-2l.png",
@@ -2325,7 +2271,7 @@
       "untergruppe": "holzkisten"
     },
     {
-      "nr": 249,
+      "nr": 243,
       "dateiname_ergebnis": "fotos-flaschen/holzkiste-5x-apotheker-0-1l.png",
       "anhang1": "fotos-basis/apotheker-0-1l.png",
       "anhang2": "fotos-basis/apotheker-0-1l.png",
