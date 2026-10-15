@@ -4,3 +4,4 @@ __pycache__/
 .env
 rechnungsprogramm/daten/
 rechnungsprogramm/sicherungen/
+_pages/
