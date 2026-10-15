@@ -68,7 +68,7 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 | Nëssdrëpp | – | · | ✔ | · | · | · | · |
 | Pefferminz | – | · | ✔ | · | · | · | · |
 | Quitten | · | · | ✔ | · | · | · | · |
-| Kräider Batti (nur Prompts, keine Sortenseite) | · | · | ✔ (`kraider-batti-0-5l.png`, Größe offen) | · | · | · | 2/4 |
+| Kräider Batti (nur Prompts, keine Sortenseite) | · | · | ✔ (`kraider-batti-0-5l.png`, Größe offen) | · | · | · | 4/4 |
 
 ## Sorten ohne Hauptbild (0,5 L)
 

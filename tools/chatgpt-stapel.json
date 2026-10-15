@@ -2,8 +2,8 @@
   "hinweis": "Alle Bilder des Stapels mit Status (offen, vorhanden, ersetzt, bitte prüfen, Etikett fehlt). Die CSV tools/chatgpt-stapel.csv enthält nur die offenen. Erzeugt mit node tools/chatgpt_stapel.mjs.",
   "anzahl": {
     "gesamt": 249,
-    "offen": 40,
-    "vorhanden": 196,
+    "offen": 38,
+    "vorhanden": 198,
     "ersetztBittePruefen": 1,
     "etikettFehlt": 12
   },
@@ -1800,7 +1800,7 @@
       "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Eine Espressotasse mit frischem Espresso und Crema auf einer Untertasse, daneben ein kleines Glas sehr dunkelbrauner Kräuterlikör. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form, dunkles Glas und Etikett exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Bild als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: sehr dunkelbraun, fast schwarz. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
       "gruppe": "weitere-sorten",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 200,
@@ -1809,7 +1809,7 @@
       "anhang2": "fotos-flaschen/kraider-batti-0-5l.png",
       "prompt": "Erstelle ein Foto. Fotorealistisches Magazin-Food-Foto, Querformat 4:3. Natürliches Tageslicht von links, weiches warmes Licht, warme leicht entsättigte Farben. Tisch aus dunkler Eiche, ein kleines Detail aus mattem Kupfer. Geringe Schärfentiefe wie 85 mm bei Blende 2.0. Echte Kondenswassertropfen auf kalten Gläsern, saubere Gläser ohne Fingerabdrücke, realistisches Eis, frische Garnitur. Keine Personen, keine Hände, keine zusätzlichen Texte, keine Logos, kein Wasserzeichen, nichts Überstyltes. Szene: Ein kleines Stielglas mit sehr dunkelbraunem Kräuterlikör, daneben auf einem Holzbrett drei Stücke dunkle Schokolade. Flasche: Die Flasche steht vollständig im Bild neben dem Essen und dem Glas: Hals, Verschluss und Etikett nicht angeschnitten, Luft ringsum. Aussehen: Form, dunkles Glas und Etikett exakt wie auf Anhang 1 (Anhang 2 zeigt dasselbe Bild als Etikett-Referenz). Verschluss: Glasstopfen ohne Kork (kein Korken, kein Schraubverschluss); hat Vorrang vor dem Verschluss in Anhang 1. Etikett kein Buchstabe anders, Adresszeile fest: „2, Millewee L-6665 Herborn, Tél: 727602, www.hierber-brennerei.lu“. Alkoholangabe wie in den Anhängen. Inhalt der Flasche: sehr dunkelbraun, fast schwarz. Nur die genannten Zutaten, Garnituren und Beilagen, nichts dazuerfinden (keine zusätzlichen Kräuter, Früchte, Gewürze); Mischzutaten nur im Glas. Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Markenzeichen oder Aufmachungen anderer Hersteller.",
       "gruppe": "weitere-sorten",
-      "status": "offen"
+      "status": "vorhanden"
     },
     {
       "nr": 201,

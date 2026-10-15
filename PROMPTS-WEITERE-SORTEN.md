@@ -2,7 +2,7 @@
 
 Erzeugt mit `node tools/foto_prompts_weitere_sorten.mjs` aus `tools/weitere-sorten.json`. Nicht von Hand ändern. 10 Prompts: je Produkt eine Flasche (Hochformat 1024 × 1536 Pixel) und vier Serviervorschläge (Querformat 4:3, 1448 × 1086). Alles sind Entwürfe, der Brenner bestätigt sie.
 
-**Stand:** 2 offen, 8 vorhanden, davon 1 mit fehlendem Anhang (Kräider Batti: Etikett und Flaschenbild liegen noch nicht vor).
+**Stand:** 0 offen, 10 vorhanden, davon 1 mit fehlendem Anhang (Kräider Batti: Etikett und Flaschenbild liegen noch nicht vor).
 
 - **Hierberol** (Aperitif, 0,7 l, 15 % vol.): hat ein Flaschenbild (`fotos-flaschen/hierberol-0-7l.png`) und eine Sortenseite. Es gibt kein flaches Etikett in `Fertige Etiquetten/`; Anhang 2 ist deshalb das Foto selbst, nur als Etikett-Referenz. Die vier Serviervorschläge stehen in `site/data/serviervorschlaege.js`; die Bilder `fotos-ki/hierberol-1.png` bis `-4.png` fehlen noch und werden nach dem Upload vom Build eingebaut.
 - **Kräider Batti** (Kräuterlikör, dunkel): nur Prompts. Es gibt weder Etikett noch Bild noch Preis noch Alkoholgehalt noch Größe; keine Sortenseite, kein Eintrag in `produkte.js`. Anhang 2 der Flasche ist ein Platzhalter („Etikett folgt“). Bis das Etikett vorliegt, stehen diese Einträge im ChatGPT-Stapel mit Status „Etikett fehlt“.
@@ -22,8 +22,8 @@ Die Ergebnisse gehören als PNG unter dem Namen aus der Tabelle in `fotos-flasch
 | kraider-batti-flasche | flasche | `fotos-basis/rund-0-5l.png` | `PLATZHALTER: Etikett von Kräider Batti folgt` (fehlt) | `fotos-flaschen/kraider-batti-0-5l.png` | vorhanden | 256 |
 | kraider-batti-1 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-1.png` | vorhanden | 188 |
 | kraider-batti-2 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-2.png` | vorhanden | 180 |
-| kraider-batti-3 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-3.png` | offen | 190 |
-| kraider-batti-4 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-4.png` | offen | 188 |
+| kraider-batti-3 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-3.png` | vorhanden | 190 |
+| kraider-batti-4 | serviervorschlag | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-flaschen/kraider-batti-0-5l.png` | `fotos-ki/kraider-batti-4.png` | vorhanden | 188 |
 
 ---
 
@@ -248,7 +248,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 - **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png`
 - **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png`
 - **Ergebnis speichern als:** `fotos-ki/kraider-batti-3.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 190 Wörter
 
 ```
@@ -275,7 +275,7 @@ Negativ: verändertes Etikett, zweite Flasche, Fantasieschrift, nachgebaute Mark
 - **Anhang 1:** `fotos-flaschen/kraider-batti-0-5l.png`
 - **Anhang 2:** `fotos-flaschen/kraider-batti-0-5l.png`
 - **Ergebnis speichern als:** `fotos-ki/kraider-batti-4.png`
-- **Status:** offen
+- **Status:** vorhanden
 - **Prompt:** 188 Wörter
 
 ```
