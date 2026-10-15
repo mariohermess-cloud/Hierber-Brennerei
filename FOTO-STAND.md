@@ -3,7 +3,7 @@
 Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, welche Bilder in `fotos-flaschen/` und `fotos-ki/` liegen.
 
 - **Hauptbilder (0,5 L):** 53 von 54 Sorten (Hierberol führt nur 0,7 L und braucht kein 0,5-L-Bild)
-- **Größenbilder (alle anderen Größen der Preisliste):** 51 von 65
+- **Größenbilder (alle anderen Größen der Preisliste):** 51 von 59
 - **Serviervorschläge (`fotos-ki/`):** 125 von 125 Karten
 
 ## Flaschenbilder je Sorte und Größe
@@ -18,10 +18,10 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 | Hierber Rum Orange | · | ✔ | ✔ | · | ✔ | ✔ | 4/4 |
 | Hierber Whisky | · | ✔ | ✔ | · | ✔ | ✔ | 5/5 |
 | Kirsch | ✔ | · | ✔ | · | · | · | 5/5 |
-| Framboise | ✔ | · | ✔ | – | · | · | 4/4 |
-| Quetsch | ✔ | · | ✔ | – | · | · | 5/5 |
-| Poire Williams | ✔ | · | ✔ | – | · | · | 4/4 |
-| Mirabelle | ✔ | · | ✔ | – | · | · | 5/5 |
+| Framboise | ✔ | · | ✔ | · | · | · | 4/4 |
+| Quetsch | ✔ | · | ✔ | · | · | · | 5/5 |
+| Poire Williams | ✔ | · | ✔ | · | · | · | 4/4 |
+| Mirabelle | ✔ | · | ✔ | · | · | · | 5/5 |
 | Hierber aale Fruucht | · | · | ✔ | · | – | – | 4/4 |
 | Vieux Marc | · | · | ✔ | – | · | · | 4/4 |
 | Vieille Prune | ✔ | · | ✔ | · | · | · | 4/4 |
@@ -34,8 +34,8 @@ Erzeugt mit `node tools/fotos_uebernehmen.mjs`. Nicht von Hand ändern. Zeigt, w
 | Hondsaarsch | · | · | ✔ | · | · | · | 4/4 |
 | Kiwibeeren | ✔ | · | ✔ | · | · | · | 4/4 |
 | Poire | · | · | ✔ | · | · | · | 4/4 |
-| Neelchesbiren | ✔ | · | ✔ | – | · | · | 4/4 |
-| Lënschouren | ✔ | · | ✔ | – | · | · | 4/4 |
+| Neelchesbiren | ✔ | · | ✔ | · | · | · | 4/4 |
+| Lënschouren | ✔ | · | ✔ | · | · | · | 4/4 |
 | Vullekiischt | · | · | ✔ | · | · | · | 4/4 |
 | Schléiwen | ✔ | · | ✔ | · | · | · | 4/4 |
 | Vizdrëpp | · | · | ✔ | · | · | · | 5/5 |
