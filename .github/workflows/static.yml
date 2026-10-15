@@ -33,11 +33,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Pfade für Pages umschreiben
+        run: node tools/pages_pfade.mjs dist _pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Nur die gebaute Website (dist/) veroeffentlichen
-          path: 'dist'
+          path: '_pages'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
