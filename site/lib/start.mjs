@@ -7,7 +7,7 @@ import { FOTO_SORTEN } from '../data/flaschen.js';
 import { TYPEN, SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
 import { KI_BILDER, kiKey } from '../data/ki-bilder.js';
 import { STANDARD_BELEGUNG, ZUSCHNITT, FAECHER, ZEICHENREIHENFOLGE, VORDERTEILE, SCHATTEN } from '../data/holzkiste.js';
-import { KISTE_ID, vorschauAlt } from './holzkiste.mjs';
+import { KISTE_ID, vorschauAlt, zahlenbandHtml } from './holzkiste.mjs';
 import { flasche, flaschenFoto, kartenFotoKey, FLASCHEN_DEFS } from './flasche.mjs';
 import { STR } from './i18n.mjs';
 import { esc, pfad, absUrl, fmtAbv, fmtPreis, preisInfo, BASE, NB } from './util.mjs';
@@ -158,10 +158,14 @@ function kistenBild(IMG, lang) {
     + `<div class="kiste-vorn" style="clip-path:${maske}" aria-hidden="true">${bild(IMG, 'kiste-leer', { alt: '', sizes })}</div></div></figure>`;
 }
 
-function probierkiste(IMG, lang) {
+// sorte: auf der Sortenseite einer Kistensorte (KISTE_SORTEN) der Hinweis auf diese Sorte; ohne sorte (Startseite) der allgemeine Text
+export function probierkiste(IMG, lang, sorte = null) {
   const t = STR[lang];
+  const deText = sorte
+    ? `${esc(sorte.kurzname)} gibt es auch als 0,2-l-Flasche in der Probierkiste. Wählen Sie für jedes Fach eine Sorte.`
+    : 'Vier Flaschen zu je 0,2 l in der Holzkiste. Wählen Sie für jedes Fach eine Sorte.';
   const text = lang === 'de'
-    ? `<p class="lead-klein" data-todo="bestaetigen">Vier Flaschen zu je 0,2 l in der Holzkiste. Wählen Sie für jedes Fach eine Sorte.</p>`
+    ? `<p class="lead-klein" data-todo="bestaetigen">${deText}</p>`
     : folgt(t, 'lead-klein');
   return `<section class="sektion dunkel probierkiste" id="probierkiste" aria-labelledby="probierkiste-h">
   <div class="wrap probier-raster">
@@ -176,16 +180,14 @@ function probierkiste(IMG, lang) {
 </section>`;
 }
 
-// Zahlenband unter dem Hero: ausschließlich aus den Daten berechnet
+// Zahlenband unter dem Hero: ausschließlich aus den Daten berechnet (Markup: zahlenbandHtml in holzkiste.mjs)
 function zahlenband(lang) {
   const t = STR[lang];
-  return `<section class="zahlenband" aria-label="${t.zahlenAria}">
-  <ul class="zahlen" role="list">
-    <li><strong class="zahl">${PRODUKTE.length}</strong><span class="zahl-label">${t.zahlSorten}</span></li>
-    <li><strong class="zahl">${FASS_IDS.length}</strong><span class="zahl-label">${t.zahlFass}</span></li>
-    <li><strong class="zahl">Herborn</strong><span class="zahl-label">${t.zahlLand}</span></li>
-  </ul>
-</section>`;
+  return zahlenbandHtml(t.zahlenAria, [
+    { wert: PRODUKTE.length, label: t.zahlSorten },
+    { wert: FASS_IDS.length, label: t.zahlFass },
+    { wert: 'Herborn', label: t.zahlLand },
+  ]);
 }
 
 const SCHRITT_TEXTE = [
