@@ -77,6 +77,43 @@
     });
   }
 
+  /* ---------- Kopfleiste: ab etwas Scrollen mit Hintergrund und Unschärfe (CSS: .gescrollt) ---------- */
+  var kopfleiste = $('.kopf');
+  if (kopfleiste) {
+    var kopfWar = null;
+    var kopfPruefe = function () {
+      var ist = (window.pageYOffset || document.documentElement.scrollTop || 0) > 24;
+      if (ist !== kopfWar) { kopfWar = ist; kopfleiste.classList.toggle('gescrollt', ist); }
+    };
+    window.addEventListener('scroll', kopfPruefe, { passive: true });
+    kopfPruefe();
+  }
+
+  /* ---------- So genießen (Startseite): Filter nach Art, Blätterpfeile ---------- */
+  var gChips = $$('[data-geniess-filter]');
+  if (gChips.length) {
+    var gListe = $('[data-geniess-liste]'), gKarten = $$('.geniess-li', gListe), gStatus = $('[data-geniess-status]');
+    gChips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        var typ = c.getAttribute('data-geniess-filter');
+        gChips.forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+        gKarten.forEach(function (k) { k.hidden = !!typ && k.getAttribute('data-typ') !== typ; });
+        gListe.scrollLeft = 0;
+        if (gStatus) {
+          var n = gKarten.filter(function (k) { return !k.hidden; }).length;
+          gStatus.textContent = typ ? (n === 1 ? gStatus.getAttribute('data-tpl-eins') : gStatus.getAttribute('data-tpl').replace(/^0/, n)) : '';
+        }
+      });
+    });
+    $$('[data-geniess-pfeil]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var richtung = parseInt(b.getAttribute('data-geniess-pfeil'), 10);
+        var weich = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        gListe.scrollBy({ left: richtung * Math.max(240, gListe.clientWidth * 0.8), behavior: weich ? 'smooth' : 'auto' });
+      });
+    });
+  }
+
   /* ---------- Tabs (Serviervorschläge): Pfeiltasten, Home/End ---------- */
   $$('[data-tabs]').forEach(function (w) {
     var tabs = $$('[role="tab"]', w), panels = $$('[role="tabpanel"]', w);
