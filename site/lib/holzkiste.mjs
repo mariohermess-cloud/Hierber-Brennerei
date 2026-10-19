@@ -9,7 +9,7 @@ import {
   KISTE_PREIS, KISTE_SORTEN, STANDARD_BELEGUNG, ZUSCHNITT, FAECHER, ZEICHENREIHENFOLGE, VORDERTEILE, SCHATTEN,
 } from '../data/holzkiste.js';
 import { STR } from './i18n.mjs';
-import { esc, pfad, absUrl, fmtAbv, fmtPreis } from './util.mjs';
+import { esc, pfad, absUrl, fmtAbv, fmtPreis, NB } from './util.mjs';
 import { seite, bild, folgt } from './layout.mjs';
 
 export const KISTE_ID = 'holzkiste-4x0-2l';
@@ -56,6 +56,16 @@ const K = {
 };
 
 const name = (id) => SORTE[id].kurzname;
+
+// Kennzahlenband (auf Start-, Sorten- und Kistenseite gleich; hier, weil start.mjs und brand.mjs schon aus dieser Datei lesen und kein Importzyklus entsteht).
+// eintraege: [{ wert, label, attr }]; attr: optionales Attribut am Wert (z. B. ' data-abv="43"'); klasse: zusätzliche Klasse am Band
+export function zahlenbandHtml(aria, eintraege, klasse = '') {
+  return `<section class="zahlenband${klasse}" aria-label="${aria}">
+  <ul class="zahlen" role="list">
+${eintraege.map((e) => `    <li><strong class="zahl"${e.attr || ''}>${e.wert}</strong><span class="zahl-label">${e.label}</span></li>`).join('\n')}
+  </ul>
+</section>`;
+}
 
 // Alt-Text der Vorschau aus der Belegung: "Holzkiste 4 × 0,2 l mit vier Flaschen: hinten links Gin, hinten rechts Rum, ..."
 export function vorschauAlt(belegung, lang) {
@@ -143,7 +153,12 @@ export function kistenSeite(IMG, lang) {
       </div>
     </div>
   </div>
-</section>`;
+</section>
+${zahlenbandHtml(t.zahlenAriaKiste, [
+    { wert: FAECHER.length, label: t.zahlFaecher },
+    { wert: KISTE_SORTEN.length, label: t.zahlWahl },
+    { wert: `0,2${NB}l`, label: t.zahlFlasche },
+  ], ' zahlenband-eng')}`;
   return seite({
     lang, p: `/brand/${KISTE_ID}/`, titel: k.titel, beschreibung: k.beschr, inhalt, og: '/og/standard.jpg',
     jsonld: jsonLd(lang, k.beschr), skripte: ['/assets/js/site.js', '/assets/js/kiste.js'], typ: 'product',

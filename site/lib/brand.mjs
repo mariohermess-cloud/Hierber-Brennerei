@@ -10,9 +10,11 @@ import { KI_BILDER, kartenNummern, kiKey } from '../data/ki-bilder.js';
 import { verwandtFuer } from '../data/verwandt.js';
 import { gruppeVon } from '../data/gruppen.js';
 import { STR } from './i18n.mjs';
-import { esc, pfad, absUrl, fmtAbv, fmtPreis, fmtMenge, preisInfo, erklaerung, mengenVon, BASE } from './util.mjs';
+import { esc, pfad, absUrl, fmtAbv, fmtPreis, fmtMenge, preisInfo, erklaerung, mengenVon, BASE, NB } from './util.mjs';
 import { seite, bild, folgt } from './layout.mjs';
-import { karte, produktById } from './start.mjs';
+import { KISTE_SORTEN } from '../data/holzkiste.js';
+import { karte, produktById, probierkiste } from './start.mjs';
+import { zahlenbandHtml } from './holzkiste.mjs';
 
 const ohneAbv = (kurz) => kurz.replace(/,?\s*\d+\s*%\s*vol\.?/, '').trim();
 
@@ -67,6 +69,20 @@ ${panels}
     </div>
   </div>
 </section>`;
+}
+
+// Kennzahlenband unter dem Produktkopf: nur aus den Daten der Sorte berechnet, keine Preise.
+// Alkohol nur bei bekanntem Wert, Größen nur bei vorhandenen Größen (eine Größe: der Wert selbst, sonst die Anzahl); Herborn steht immer. Bleibt nur Herborn, entfällt das Band.
+function kennzahlen(p, lang) {
+  const t = STR[lang];
+  const mengen = mengenVon(p);
+  const eintraege = [];
+  if (p.abv != null) eintraege.push({ wert: `${p.abv}${NB}%`, label: t.zahlAlkohol, attr: ` data-abv="${p.abv}"` });
+  if (mengen.length === 1) eintraege.push({ wert: fmtMenge(mengen[0]), label: t.zahlGroesse });
+  else if (mengen.length > 1) eintraege.push({ wert: mengen.length, label: t.zahlGroessen });
+  if (!eintraege.length) return '';
+  eintraege.push({ wert: 'Herborn', label: t.zahlLand });
+  return zahlenbandHtml(t.zahlenAriaSorte, eintraege, ' zahlenband-eng');
 }
 
 // Vorgewählte Größe: 0,5 L (Standard, passt zum Hauptbild und zu den Karten), sonst die erste Größe der Standardvariante, ohne Preise deren Flaschengröße (menge)
@@ -202,7 +218,9 @@ export function sortenseite(IMG, p, lang) {
     </div>
   </div>
 </section>
+${kennzahlen(p, lang)}
 ${servieren(p, IMG, lang)}
+${KISTE_SORTEN.includes(p.id) ? probierkiste(IMG, lang, p) : ''}
 <section class="sektion papier" id="passt" aria-labelledby="passt-h">
   <div class="wrap">
     <h2 id="passt-h">${t.passtAuch}</h2>
