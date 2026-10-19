@@ -100,16 +100,38 @@ a:hover{text-decoration-thickness:2px}
 .chip-radio input{position:absolute;opacity:0;width:100%;height:100%;margin:0;left:0;top:0;cursor:pointer}
 .chip-radio input:focus-visible+span{outline:2px solid var(--kupfer-hell);outline-offset:3px}
 .papier .chip-radio input:focus-visible+span{outline-color:var(--kupfer-dunkel)}
-.nojs [data-anlass-box],.nojs .knopf[data-merk-add],.nojs .varianten,.nojs .auswahl,.nojs .alter{display:none}
+.papier .chip{color:var(--text-papier);border-color:var(--kupfer-dunkel)}
+.papier .chip:hover{background:rgba(138,74,28,.14)}
+.papier .chip[aria-pressed="true"]{background:var(--kupfer-dunkel);color:var(--papier)}
+.nojs [data-anlass-box],.nojs [data-geniess-box],.nojs .knopf[data-merk-add],.nojs .varianten,.nojs .auswahl,.nojs .alter{display:none}
 
-/* Hero */
-.hero{padding-block:clamp(2rem,6vw,4.5rem);background:radial-gradient(ellipse at 75% 20%,rgba(184,115,58,.14),transparent 60%),var(--holz)}
-.hero-raster{display:grid;gap:2rem;align-items:center}
-.hero-foto{order:-1}
-@media(min-width:900px){.hero-raster{grid-template-columns:1fr 1fr;gap:3.5rem}.hero-foto{order:0}}
+/* Hero: Vollbild mit Foto des Fassraums, dunkler Verlauf für die Lesbarkeit, langsamer Zoom (Ken-Burns) */
+.hero-voll{position:relative;isolation:isolate;display:flex;align-items:flex-end;overflow:hidden;background:var(--holz);
+  min-height:max(30rem,calc(100svh - 5rem));padding-block:clamp(5rem,14vh,9rem) clamp(5.5rem,12vh,8rem)}
+.hero-bild{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-bild picture{display:block;width:100%;height:100%}
+.hero-bild img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 60%;transform-origin:60% 55%;animation:hero-zoom 30s ease-out both}
+@keyframes hero-zoom{from{transform:scale(1)}to{transform:scale(1.1)}}
+.hero-voll::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(to top,rgba(27,19,13,.95) 0,rgba(27,19,13,.7) 34%,rgba(27,19,13,.34) 68%,rgba(27,19,13,.55) 100%),linear-gradient(to right,rgba(27,19,13,.6),transparent 70%)}
+.hero-inhalt{width:100%}
+.hero-text{max-width:46rem}
+.hero-voll h1{font-size:clamp(3.4rem,11.5vw,8.5rem);line-height:.95;letter-spacing:0;margin-bottom:.22em;text-shadow:0 2px 36px rgba(0,0,0,.5)}
+.hero-voll .eyebrow{font-size:.9rem}
+.hero-voll .lead{font-size:clamp(1.15rem,2.2vw,1.45rem);max-width:40ch;text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.hero-voll .knopf-hell{border-color:rgba(243,236,224,.7)}
+.hero-voll .knopf-hell:hover{color:var(--holz)}
 .rahmen{margin:0;max-width:960px;border:1px solid var(--kupfer);padding:8px;background:var(--flaeche)}
 .rahmen img,.rahmen picture{display:block;width:100%}
-.hero-text h1{margin-bottom:.4em}
+
+/* Zahlenband unter dem Hero (Werte aus den Daten) */
+.zahlenband{background:var(--flaeche);border-block:1px solid var(--linie)}
+.zahlen{list-style:none;margin:0 auto;padding:1.4rem var(--rand);max-width:1200px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.zahlen li{display:flex;flex-direction:column;align-items:center;gap:.35rem;text-align:center;padding-inline:.4rem}
+.zahlen li+li{border-left:1px solid var(--linie)}
+.zahl{font:600 clamp(1.8rem,6vw,3.2rem)/1 var(--serif);font-variant-numeric:lining-nums;color:var(--kupfer-hell)}
+.zahl-label{font:500 .72rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gedaempt)}
+@media(min-width:700px){.zahl-label{font-size:.82rem}.zahlen{padding-block:2rem}}
 
 /* Bilder: gerahmt mit dünner Linie, nicht eingefärbt */
 .bildrahmen{margin:2rem 0 0;max-width:1150px;margin-inline:auto}
@@ -118,7 +140,6 @@ a:hover{text-decoration-thickness:2px}
 
 /* Fassreihe: Foto, darunter die Kreidetafeln nebeneinander (mobil horizontal mit scroll-snap) */
 .fassreihe-sektion{border-top:1px solid var(--linie)}
-.fassreihe-sektion .wrap .bildrahmen{margin-top:2rem}
 .schilder-rahmen{max-width:1500px;margin:1.6rem auto 0;padding-inline:0}
 .schilder{display:flex;gap:.6rem;list-style:none;margin:0;padding:.4rem var(--rand) 1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--rand);scrollbar-width:thin;scrollbar-color:var(--kupfer) transparent}
 .schild-li{flex:0 0 7.6rem;scroll-snap-align:start}
@@ -159,6 +180,15 @@ a:hover{text-decoration-thickness:2px}
 .karte:hover,.karte:focus-visible{border-color:var(--kupfer-hell)}
 .karte-bild{display:flex;align-items:flex-end;justify-content:center;aspect-ratio:5/7;margin-bottom:.8rem;container-type:size;overflow:hidden;
   background:linear-gradient(to top,#c9baa0 0 6%,transparent 6%),linear-gradient(#ece3d2,#e2d6c0)}
+.karte-bild{position:relative}
+/* Bildwechsel beim Darüberfahren mit der Maus: zweites Bild (Serviervorschlag) blendet weich ein; auf Touch-Geräten bleibt es ausgeblendet und lädt nicht */
+.karte-wechsel{display:none}
+@media (hover:hover) and (pointer:fine){
+  .karte-wechsel{display:block;position:absolute;inset:0;opacity:0;transition:opacity .45s ease;pointer-events:none;background:#000}
+  .karte-wechsel picture{display:block;width:100%;height:100%}
+  .karte-wechsel-bild{display:block;width:100%;height:100%;object-fit:cover;max-width:none}
+  .karte:hover .karte-wechsel,.karte:focus-visible .karte-wechsel{opacity:1}
+}
 .karte-foto{display:block;width:100%;height:100%;background:#000}
 .karte-foto picture,.karte-foto img{display:block;width:100%;height:100%}
 .karte-foto-bild{object-fit:cover}
@@ -186,6 +216,37 @@ a:hover{text-decoration-thickness:2px}
 .weitere{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--linie)}
 .weitere h3{font-size:1.4rem}
 .weitere p{color:var(--gedaempt)}
+
+/* So genießen: Karten mit Serviervorschlag, waagerecht blätterbar (scroll-snap), Filter nach Art */
+.geniessen .reveal{margin-bottom:1.4rem}
+.geniess-steuerung{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem 1.4rem}
+.geniess-pfeile{display:none;gap:.5rem;margin:0}
+.pfeil{display:inline-grid;place-items:center;width:44px;height:44px;padding:0;background:transparent;color:var(--text-papier);border:1px solid var(--kupfer-dunkel);border-radius:2px;font:400 1.3rem/1 var(--sans);cursor:pointer}
+.pfeil:hover{background:rgba(138,74,28,.14)}
+@media(min-width:700px){.js .geniess-pfeile{display:flex}}
+.geniess-rahmen{margin:1.6rem 0 0;--rand-links:max(var(--rand),calc(50vw - 600px + var(--rand)))}
+.geniess-liste{display:flex;gap:1rem;list-style:none;margin:0;padding:.4rem var(--rand) 1.2rem var(--rand-links);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--rand-links) var(--rand);scrollbar-width:thin;scrollbar-color:var(--kupfer-dunkel) transparent}
+.geniess-li{flex:0 0 clamp(15rem,74vw,21rem);scroll-snap-align:start}
+.geniess-li[hidden]{display:none}
+.geniess-karte{display:flex;flex-direction:column;height:100%;background:var(--holz);color:var(--text);text-decoration:none;border:1px solid var(--linie);box-shadow:0 6px 18px rgba(43,33,26,.18);transition:border-color .25s ease,transform .25s ease}
+.papier .geniess-karte,.papier .geniess-karte:hover{color:var(--text)}
+.geniess-karte:hover,.geniess-karte:focus-visible{border-color:var(--kupfer-hell)}
+.geniess-bild{position:relative;display:block;overflow:hidden;aspect-ratio:4/3;background:#000}
+.geniess-bild picture,.geniess-bild-img{display:block;width:100%;height:100%}
+.geniess-bild-img{object-fit:cover;transition:transform .8s ease}
+@media (hover:hover) and (pointer:fine){.geniess-karte:hover .geniess-bild-img{transform:scale(1.05)}}
+.geniess-badge{position:absolute;left:.5rem;top:.5rem;padding:.2rem .5rem;background:rgba(27,19,13,.78);color:var(--text);font:500 .72rem/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;border-radius:2px}
+.geniess-typ{margin:.9rem 1rem 0;font:500 .74rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell)}
+.geniess-name{margin:.3rem 1rem 0;font:600 1.5rem/1.15 var(--serif)}
+.geniess-sorte{margin:.35rem 1rem 1rem;font-size:.92rem;color:var(--gedaempt)}
+
+/* Probierkiste: auffälliges Band mit Kupferglanz */
+.probierkiste{background:radial-gradient(ellipse at 22% 50%,rgba(184,115,58,.3),transparent 62%),linear-gradient(var(--flaeche),var(--holz));border-block:1px solid var(--kupfer)}
+.probier-raster{display:grid;gap:2rem;align-items:center}
+@media(min-width:900px){.probier-raster{grid-template-columns:minmax(320px,540px) 1fr;gap:4rem}}
+.probier-bild{max-width:540px;width:100%;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.probierkiste h2{font-size:clamp(2.6rem,6vw,4.2rem)}
+.probier-text .lead-klein{font-size:1.2rem}
 
 /* Wie wir brennen: Zeilen im Wechsel Foto links/rechts */
 .schritte{list-style:none;margin:2.4rem 0 0;padding:0;display:grid;gap:3rem}
@@ -380,6 +441,8 @@ input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%
   .js .reveal{opacity:1;transform:none;transition:none}
   .einblenden{animation:none}
   html{scroll-behavior:auto}
+  .hero-bild img{animation:none}
+  .karte-wechsel,.geniess-bild-img,.geniess-karte,.start .kopf{transition:none}
 }
 
 /* Feinschliff */
@@ -412,3 +475,21 @@ input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%
 @media(min-width:900px){.kiste-bild{position:sticky;top:1rem}}
 .kiste-kachel>span{min-height:40px;padding:.4rem .8rem}
 .kiste-raster .produkt-text h1{font-size:clamp(2.2rem,4vw,3.2rem)}
+
+
+/* Startseite: Kopfleiste bleibt sichtbar; ab etwas Scrollen mit Hintergrund und leichter Unschärfe */
+.start .kopf{position:sticky;top:0;z-index:40;transition:background-color .3s ease,box-shadow .3s ease}
+.start .kopf.gescrollt{background:rgba(27,19,13,.84);box-shadow:0 6px 24px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(12px) saturate(120%);backdrop-filter:blur(12px) saturate(120%)}
+@media(max-width:759px){.start .kopf-innen{padding-block:.35rem}.start .haupt a{padding-block:.35rem}}
+.start .sektion[id]{scroll-margin-top:4.5rem}
+
+/* Weichere Übergänge zwischen den Abschnitten der Startseite (nur CSS): schmaler Verlauf von der Farbe des vorigen Abschnitts */
+.start .sektion{position:relative}
+.start .sektion::before{content:"";position:absolute;inset:0 0 auto 0;height:clamp(1.5rem,4vw,2.75rem);background:linear-gradient(var(--von,transparent),transparent);pointer-events:none}
+.start .fassreihe-sektion,.start .theke{border-top:0}
+.start .zahlenband+.fassreihe-sektion{--von:var(--flaeche)}
+.start .fassreihe-sektion+.theke{--von:var(--holz)}
+.start .theke+.geniessen{--von:var(--flaeche)}
+.start .geniessen+.probierkiste{--von:var(--papier)}
+.start .probierkiste+.papier{--von:var(--holz)}
+.start .papier+.papier2{--von:var(--papier)}

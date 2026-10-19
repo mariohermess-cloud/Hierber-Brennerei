@@ -4,6 +4,10 @@ import { GRUPPEN } from '../data/gruppen.js';
 import { ANLAESSE, anlaesseVon } from '../data/anlaesse.js';
 import { ETIKETTEN } from '../data/etiketten.js';
 import { FOTO_SORTEN } from '../data/flaschen.js';
+import { TYPEN, SERVIERVORSCHLAEGE } from '../data/serviervorschlaege.js';
+import { KI_BILDER, kiKey } from '../data/ki-bilder.js';
+import { STANDARD_BELEGUNG, ZUSCHNITT, FAECHER, ZEICHENREIHENFOLGE, VORDERTEILE, SCHATTEN } from '../data/holzkiste.js';
+import { KISTE_ID, vorschauAlt } from './holzkiste.mjs';
 import { flasche, flaschenFoto, kartenFotoKey, FLASCHEN_DEFS } from './flasche.mjs';
 import { STR } from './i18n.mjs';
 import { esc, pfad, absUrl, fmtAbv, fmtPreis, preisInfo, BASE, NB } from './util.mjs';
@@ -25,16 +29,19 @@ export function karte(IMG, p, lang, { anlass = true } = {}) {
   const preis = info
     ? `<span class="preis" data-preis-ab="${info.min}">${t.ab} ${fmtPreis(info.min)}</span>`
     : `<span class="preis anfrage" data-preis-anfrage>${t.preisAnfrage}</span>`;
+  // Bildwechsel: Serviervorschlag-Hauptbild (KI-Symbolbild) als zweites, dekoratives Bild; erscheint nur bei Maus-Hover (CSS), lädt lazy und nur dort, wo es angezeigt wird
+  const wechsel = KI_BILDER[p.id] && IMG[kiKey(p.id, 1)]
+    ? `<span class="karte-wechsel" aria-hidden="true">${bild(IMG, kiKey(p.id, 1), { alt: '', sizes: '260px', cls: 'karte-wechsel-bild' })}</span>` : '';
   const an = anlass ? ` data-anlass="${anlaesseVon(p.id).join(' ')}"` : '';
   return `<li class="karte-li" data-id="${p.id}"${an}><a class="karte" href="${pfad(lang, `/brand/${p.id}/`)}#produkt">`
-    + `<span class="karte-bild${mitFoto ? ' karte-bild-foto' : ''}">${bildHtml}</span>`
+    + `<span class="karte-bild${mitFoto ? ' karte-bild-foto' : ''}">${bildHtml}${wechsel}</span>`
     + `<span class="karte-name" data-sortenname="${esc(p.name)}">${esc(p.name)}</span>`
     + `<span class="karte-meta">${p.abv == null ? '' : `<span data-abv="${p.abv}">${fmtAbv(p.abv)}</span> <span aria-hidden="true">·</span> `}${preis}</span></a></li>`;
 }
 
 const FASS_IDS = PRODUKTE.filter((p) => p.ort === 'fass');
 
-// Fassreihe: Foto des Fassraums, darunter die Kreidetafeln der 14 Fass-Sorten nebeneinander (mobil horizontal scrollbar mit scroll-snap).
+// Fassreihe: die Kreidetafeln der 14 Fass-Sorten nebeneinander (das Foto des Fassraums steht im Hero) (mobil horizontal scrollbar mit scroll-snap).
 // Die Tafeln sind keine Zuordnung zu den sichtbaren Fässern (unbekannt, TODO-INHALTE.md).
 function fassreihe(IMG, lang) {
   const t = STR[lang];
@@ -43,9 +50,6 @@ function fassreihe(IMG, lang) {
     + `<span class="schild-abv" data-abv="${p.abv}">${p.abv}${NB}%</span></a></li>`).join('\n');
   return `<section class="sektion dunkel fassreihe-sektion" id="fassreihe" aria-labelledby="fass-h">
   <div class="wrap reveal"><h2 id="fass-h">${t.fassTitel}</h2><p class="lead-klein">${t.fassText}</p></div>
-  <div class="wrap">
-    <figure class="rahmen bildrahmen">${bild(IMG, 'foto-fassraum-eichenfaesser', { alt: t.fassAlt, sizes: '(min-width: 1200px) 1150px, 92vw' })}<figcaption>${t.fassBildunterschrift}</figcaption></figure>
-  </div>
   <div class="schilder-rahmen">
     <ul class="schilder" role="list" aria-label="${t.fassAria}">
 ${tafeln}
@@ -80,6 +84,107 @@ ${chips}
     ${gruppen}
     ${weitere}
   </div>
+</section>`;
+}
+
+// ---------- So genießen: Serviervorschläge über alle Sorten ----------
+// Karten mit Bild: je Sorte der Vorschlag, dessen Symbolbild die Sortenseite als Hauptbild zeigt (KI_BILDER, Bild ki-<id> in IMG); Sorten ohne Bild entfallen.
+// Höchstens GENIESS_MAX_TYP Karten je Art, damit die Reihe (insgesamt höchstens 24 Karten) abwechslungsreich bleibt. Reihenfolge wie in KI_BILDER.
+const GENIESS_MAX_TYP = 10;
+function geniessAuswahl(IMG) {
+  const zaehler = {};
+  const liste = [];
+  for (const id of Object.keys(KI_BILDER)) {
+    const p = produktById(id);
+    const r = (SERVIERVORSCHLAEGE[id] || []).find((v) => v.name === KI_BILDER[id]);
+    if (!p || !r || !IMG[kiKey(id, 1)]) continue;
+    zaehler[r.typ] = (zaehler[r.typ] || 0) + 1;
+    if (zaehler[r.typ] > GENIESS_MAX_TYP) continue;
+    liste.push({ p, r });
+  }
+  return liste;
+}
+
+function geniessen(IMG, lang) {
+  const t = STR[lang];
+  const kopf = `<div class="reveal"><h2 id="geniessen-h">${t.geniessenTitel}</h2>`;
+  // Wie auf den Sortenseiten: Serviervorschläge nur auf Deutsch, im Französischen der Platzhalter
+  if (lang === 'fr') return `<section class="sektion papier geniessen" id="geniessen" aria-labelledby="geniessen-h"><div class="wrap">${kopf}${folgt(t)}</div></div></section>`;
+  const auswahl = geniessAuswahl(IMG);
+  const typen = TYPEN.filter((typ) => auswahl.some((a) => a.r.typ === typ));
+  const chips = [`<button type="button" class="chip" data-geniess-filter="" aria-pressed="true">${t.geniessenAlle}</button>`,
+    ...typen.map((typ) => `<button type="button" class="chip" data-geniess-filter="${esc(typ)}" aria-pressed="false">${esc(typ)}</button>`)].join('\n');
+  const karten = auswahl.map(({ p, r }) => `<li class="geniess-li" data-typ="${esc(r.typ)}"><a class="geniess-karte" href="${pfad(lang, `/brand/${p.id}/`)}#servieren">`
+    + `<span class="geniess-bild">${bild(IMG, kiKey(p.id, 1), { alt: '', sizes: '(min-width: 900px) 336px, 74vw', cls: 'geniess-bild-img', todo: ' data-todo="bestaetigen"' })}<span class="geniess-badge">${t.symbolbildKurz}</span></span>`
+    + `<span class="geniess-typ">${esc(r.typ)}</span><span class="geniess-name">${esc(r.name)}</span><span class="geniess-sorte">${esc(p.name)}</span></a></li>`).join('\n');
+  return `<section class="sektion papier geniessen" id="geniessen" aria-labelledby="geniessen-h" data-todo="bestaetigen">
+  <div class="wrap">
+    ${kopf}<p class="lead-klein">${t.geniessenText}</p></div>
+    <div class="geniess-steuerung" data-geniess-box>
+      <div class="chips" role="group" aria-label="${t.geniessenFilterAria}" data-geniess-chips>
+${chips}
+      </div>
+      <p class="geniess-pfeile"><button type="button" class="pfeil" data-geniess-pfeil="-1" aria-label="${t.geniessenZurueck}"><span aria-hidden="true">←</span></button><button type="button" class="pfeil" data-geniess-pfeil="1" aria-label="${t.geniessenWeiter}"><span aria-hidden="true">→</span></button></p>
+    </div>
+    <p class="sr-status" role="status" aria-live="polite" data-geniess-status data-tpl-eins="${esc(t.anzahlVorschlaege(1))}" data-tpl="${esc(t.anzahlVorschlaege(0))}"></p>
+  </div>
+  <div class="geniess-rahmen">
+    <ul class="geniess-liste" role="list" aria-label="${t.geniessenAria}" data-geniess-liste>
+${karten}
+    </ul>
+  </div>
+</section>`;
+}
+
+// ---------- Probierkiste: Band zur Holzkiste 4 x 0,2 l ----------
+// Bild wie die Vorschau auf /brand/holzkiste-4x0-2l/ (Kistenfoto mit den Freistellern der Standardbelegung), aber ohne Auswahl. Preis steht bewusst nicht hier (pruefe_daten erlaubt auf der Startseite keine Preise außerhalb der Karten).
+const px = (x) => +((x - ZUSCHNITT.x) / ZUSCHNITT.b * 100).toFixed(3);
+const py = (y) => +((y - ZUSCHNITT.y) / ZUSCHNITT.h * 100).toFixed(3);
+const ph = (h) => +(h / ZUSCHNITT.h * 100).toFixed(3);
+const pb = (b) => +(b / ZUSCHNITT.b * 100).toFixed(3);
+
+function kistenBild(IMG, lang) {
+  const belegung = STANDARD_BELEGUNG;
+  const flaschen = ZEICHENREIHENFOLGE.map((nr) => {
+    const f = FAECHER[nr - 1], id = belegung[nr - 1];
+    const sw = SCHATTEN.breite * f.hoehe, sh = SCHATTEN.hoehe * f.hoehe;
+    return `<span class="kiste-schatten" style="left:${px(f.fuss.x)}%;top:${py(f.fuss.y)}%;width:${pb(sw)}%;height:${ph(sh)}%;opacity:${SCHATTEN.deckkraft}"></span>`
+      + `<img class="kiste-flasche" src="/img/kiste-${id}.webp" alt="" loading="lazy" decoding="async" style="left:${px(f.fuss.x)}%;top:${py(f.fuss.y - f.hoehe)}%;height:${ph(f.hoehe)}%">`;
+  }).join('');
+  const maske = `polygon(${VORDERTEILE.map(([x, y]) => `${px(x)}% ${py(y)}%`).join(',')})`;
+  const sizes = '(min-width: 900px) 540px, 92vw';
+  return `<figure class="probier-bild rahmen"><div class="kiste-buehne" style="aspect-ratio:${ZUSCHNITT.b}/${ZUSCHNITT.h}">`
+    + `${bild(IMG, 'kiste-leer', { alt: vorschauAlt(belegung, lang), sizes, cls: 'kiste-grund' })}${flaschen}`
+    + `<div class="kiste-vorn" style="clip-path:${maske}" aria-hidden="true">${bild(IMG, 'kiste-leer', { alt: '', sizes })}</div></div></figure>`;
+}
+
+function probierkiste(IMG, lang) {
+  const t = STR[lang];
+  const text = lang === 'de'
+    ? `<p class="lead-klein" data-todo="bestaetigen">Vier Flaschen zu je 0,2 l in der Holzkiste. Wählen Sie für jedes Fach eine Sorte.</p>`
+    : folgt(t, 'lead-klein');
+  return `<section class="sektion dunkel probierkiste" id="probierkiste" aria-labelledby="probierkiste-h">
+  <div class="wrap probier-raster">
+    ${kistenBild(IMG, lang)}
+    <div class="probier-text reveal">
+      <p class="eyebrow">${t.kisteEyebrow}</p>
+      <h2 id="probierkiste-h">${t.kisteTitel}</h2>
+      ${text}
+      <p class="knoepfe"><a class="knopf" href="${pfad(lang, `/brand/${KISTE_ID}/`)}">${t.kisteKnopf}</a></p>
+    </div>
+  </div>
+</section>`;
+}
+
+// Zahlenband unter dem Hero: ausschließlich aus den Daten berechnet
+function zahlenband(lang) {
+  const t = STR[lang];
+  return `<section class="zahlenband" aria-label="${t.zahlenAria}">
+  <ul class="zahlen" role="list">
+    <li><strong class="zahl">${PRODUKTE.length}</strong><span class="zahl-label">${t.zahlSorten}</span></li>
+    <li><strong class="zahl">${FASS_IDS.length}</strong><span class="zahl-label">${t.zahlFass}</span></li>
+    <li><strong class="zahl">Herborn</strong><span class="zahl-label">${t.zahlLand}</span></li>
+  </ul>
 </section>`;
 }
 
@@ -139,23 +244,27 @@ function besuch(IMG, lang) {
 
 export function startseite(IMG, lang) {
   const t = STR[lang];
-  const heroFoto = bild(IMG, 'foto-hof-birnenkisten', { alt: t.heroAlt, sizes: '(min-width: 1200px) 560px, (min-width: 900px) 46vw, 92vw', eager: true });
+  // Vollbild-Hero mit dem Foto des Fassraums (LCP: eager); dunkler Verlauf und langsamer Zoom per CSS
+  const heroFoto = bild(IMG, 'foto-fassraum-eichenfaesser', { alt: t.heroAlt, sizes: '100vw', eager: true });
   const lead = lang === 'de'
     ? `<p class="lead" data-todo="bestaetigen">Obstbrände, Whisky und Gin aus der eigenen Brennerei: klar, ehrlich und mit dem vollen Geschmack der Früchte, aus denen sie entstehen.</p>`
     : folgt(t, 'lead');
-  const inhalt = `<section class="hero dunkel" aria-labelledby="h1">
-  <div class="wrap hero-raster">
+  const inhalt = `<section class="hero hero-voll dunkel" aria-labelledby="h1">
+  <div class="hero-bild">${heroFoto}</div>
+  <div class="wrap hero-inhalt">
     <div class="hero-text">
       <p class="eyebrow">${t.heroEyebrow}</p>
       <h1 id="h1">Hierber Brennerei</h1>
       ${lead}
       <p class="knoepfe"><a class="knopf" href="#theke">${t.heroKnopf1}</a><a class="knopf knopf-hell" href="#besuch">${t.heroKnopf2}</a></p>
     </div>
-    <figure class="hero-foto rahmen">${heroFoto}</figure>
   </div>
 </section>
+${zahlenband(lang)}
 ${fassreihe(IMG, lang)}
 ${theke(IMG, lang)}
+${geniessen(IMG, lang)}
+${probierkiste(IMG, lang)}
 ${brennen(IMG, lang)}
 ${besuch(IMG, lang)}`;
   const ld = [{
@@ -167,5 +276,5 @@ ${besuch(IMG, lang)}`;
   const beschr = lang === 'de'
     ? 'Hierber Brennerei in Herborn (Luxemburg): Obstbrände wie Mirabelle, Quetsch und Kirsch, Whisky, Gin und weitere Spirituosen. Sorten, Preise und Besuch.'
     : 'Hierber Brennerei à Herborn (Luxembourg) : eaux-de-vie de fruits comme la mirabelle, la quetsch et la cerise, whisky, gin et autres spiritueux. Variétés, prix et visite.';
-  return seite({ lang, p: '/', titel, beschreibung: beschr, inhalt, jsonld: ld, skripte: ['/assets/js/site.js'] });
+  return seite({ lang, p: '/', titel, beschreibung: beschr, inhalt, jsonld: ld, skripte: ['/assets/js/site.js'], bodyClass: 'start' });
 }
