@@ -30,10 +30,10 @@ export function karte(IMG, p, lang, { anlass = true } = {}) {
     ? `<span class="preis" data-preis-ab="${info.min}">${t.ab} ${fmtPreis(info.min)}</span>`
     : `<span class="preis anfrage" data-preis-anfrage>${t.preisAnfrage}</span>`;
   // Bildwechsel: Serviervorschlag-Hauptbild (KI-Symbolbild) als zweites, dekoratives Bild; erscheint nur bei Maus-Hover (CSS), lädt lazy und nur dort, wo es angezeigt wird
-  // Auf Deutsch zusätzlich Hinweis „Symbolbild“ und ein Band mit Art und Name des Vorschlags (Daten wie „So genießen“); im Französischen nur das Bild, da die Serviervorschläge dort noch nicht übersetzt sind
+  // Hinweis „Symbolbild“ in beiden Sprachen; auf Deutsch zusätzlich ein Band mit Art und Name des Vorschlags (Daten wie „So genießen“), im Französischen nicht, da die Serviervorschläge dort noch nicht übersetzt sind
   const vorschlag = lang === 'de' && KI_BILDER[p.id] ? (SERVIERVORSCHLAEGE[p.id] || []).find((v) => v.name === KI_BILDER[p.id]) : null;
-  const band = vorschlag
-    ? `<span class="karte-badge">${t.symbolbildKurz}</span><span class="karte-band"><span class="karte-band-typ">${esc(vorschlag.typ)}</span><span class="karte-band-name">${esc(vorschlag.name)}</span></span>` : '';
+  const band = `<span class="karte-badge">${t.symbolbildKurz}</span>` + (vorschlag
+    ? `<span class="karte-band"><span class="karte-band-typ">${esc(vorschlag.typ)}</span><span class="karte-band-name">${esc(vorschlag.name)}</span></span>` : '');
   const wechsel = KI_BILDER[p.id] && IMG[kiKey(p.id, 1)]
     ? `<span class="karte-wechsel" aria-hidden="true">${bild(IMG, kiKey(p.id, 1), { alt: '', sizes: '260px', cls: 'karte-wechsel-bild' })}${band}</span>` : '';
   const an = anlass ? ` data-anlass="${anlaesseVon(p.id).join(' ')}"` : '';
