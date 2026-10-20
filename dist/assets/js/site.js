@@ -208,6 +208,21 @@
     kopfPruefe();
   }
 
+  /* ---------- Hauptnavigation (schmale Breiten: eine wischbare Zeile): Randverlauf nur dort, wo noch Inhalt verborgen ist (CSS: .haupt[data-rand]) ---------- */
+  var hauptNav = $('.haupt');
+  if (hauptNav) {
+    var randPruefe = function () {
+      var max = hauptNav.scrollWidth - hauptNav.clientWidth, x = hauptNav.scrollLeft;
+      var links = max > 2 && x > 2, rechts = max > 2 && x < max - 2;
+      var w = links && rechts ? 'beide' : links ? 'links' : rechts ? 'rechts' : '';
+      if (w) hauptNav.setAttribute('data-rand', w); else hauptNav.removeAttribute('data-rand');
+    };
+    hauptNav.addEventListener('scroll', randPruefe, { passive: true });
+    window.addEventListener('resize', randPruefe);
+    window.addEventListener('load', randPruefe);
+    randPruefe();
+  }
+
   /* ---------- So genießen (Startseite): Filter nach Art, Blätterpfeile ---------- */
   var gChips = $$('[data-geniess-filter]');
   if (gChips.length) {

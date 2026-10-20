@@ -68,10 +68,17 @@ a:hover{text-decoration-thickness:2px}
 .kopf{background:var(--holz);border-bottom:1px solid var(--linie)}
 .kopf-innen{max-width:1200px;margin-inline:auto;padding:.8rem var(--rand);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.2rem 1rem}
 .logo{font:600 1.4rem/1 var(--serif);color:var(--text);text-decoration:none;letter-spacing:.01em;padding:.4rem 0}
-.haupt{display:flex;gap:1.4rem;order:3;width:100%}
-@media(min-width:760px){.haupt{order:0;width:auto;margin-right:auto;margin-left:2rem}}
+/* Hauptnavigation: schmal als eigene zweite Zeile, einzeilig und seitlich wischbar (site.js setzt data-rand für den Randverlauf); ab 1260 px in einer Reihe (gemessen: FR braucht dort mindestens 1255 px) */
+.haupt{display:flex;flex-wrap:nowrap;gap:1.4rem;order:3;width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.haupt::-webkit-scrollbar{display:none}
+.haupt a{flex:none;white-space:nowrap}
+.haupt a:focus-visible{outline-offset:-2px}
+.haupt[data-rand=rechts]{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 2.2rem),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 2.2rem),transparent)}
+.haupt[data-rand=links]{-webkit-mask-image:linear-gradient(90deg,transparent,#000 2.2rem);mask-image:linear-gradient(90deg,transparent,#000 2.2rem)}
+.haupt[data-rand=beide]{-webkit-mask-image:linear-gradient(90deg,transparent,#000 2.2rem,#000 calc(100% - 2.2rem),transparent);mask-image:linear-gradient(90deg,transparent,#000 2.2rem,#000 calc(100% - 2.2rem),transparent)}
 .haupt a,.sprache a,.merk{color:var(--text);text-decoration:none;font-size:.95rem;padding:.6rem 0;display:inline-block}
 .haupt a:hover,.sprache a:hover,.merk:hover{color:var(--kupfer-hell)}
+.haupt [aria-current=page]{color:var(--kupfer-hell);text-decoration:underline;text-underline-offset:.3em}
 .kopf-rechts{display:flex;align-items:center;gap:.8rem}
 @media(min-width:520px){.kopf-rechts{gap:1.2rem}.logo{font-size:1.6rem}}
 .merk{display:inline-flex;align-items:center;gap:.4rem;position:relative}
@@ -557,12 +564,21 @@ input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%
 
 
 /* Kopfleiste bleibt auf allen Seiten sichtbar; ab etwas Scrollen mit Hintergrund und leichter Unschärfe (site.js setzt .gescrollt) */
-:root{--kopf-hoehe:4.5rem}
 .kopf{position:sticky;top:0;z-index:40;transition:background-color .3s ease,box-shadow .3s ease}
 .kopf.gescrollt{background:rgba(27,19,13,.84);box-shadow:0 6px 24px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(12px) saturate(120%);backdrop-filter:blur(12px) saturate(120%)}
 @media(prefers-reduced-motion:reduce){.kopf{transition:none}}
-@media(max-width:759px){:root{--kopf-hoehe:6rem}.kopf-innen{padding-block:.35rem}.haupt a{padding-block:.35rem}}
-@media(min-width:760px) and (max-width:789px){:root{--kopf-hoehe:7.5rem}}
+/* Zwei Zeilen (Logo/Merkliste, darunter Navigation): kompakter; --kopf-hoehe = gemessene Höhe */
+.kopf-innen{padding-block:.35rem}
+.haupt a{padding-block:.35rem}
+:root{--kopf-hoehe:6rem}
+@media(max-width:329px){:root{--kopf-hoehe:8.5rem}} /* Logo und Merkliste brechen um, dann drei Zeilen */
+@media(min-width:1260px){
+  :root{--kopf-hoehe:4.5rem}
+  .kopf-innen{padding-block:.8rem;max-width:1280px}
+  .haupt{order:0;width:auto;margin-right:auto;margin-left:1rem;gap:1rem;overflow:visible}
+  .haupt a{padding-block:.6rem}
+}
+@media(min-width:1340px){.haupt{gap:1.2rem}}
 .sektion[id],.kopf-verkostung[id],.kauf-box[id]{scroll-margin-top:var(--kopf-hoehe)}
 
 /* Weichere Übergänge zwischen den Abschnitten (nur CSS): schmaler Verlauf von der Farbe des vorigen Abschnitts */

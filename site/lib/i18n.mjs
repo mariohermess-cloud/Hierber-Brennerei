@@ -4,7 +4,7 @@ export const STR = {
   de: {
     lang: 'de', locale: 'de_LU', sprache: 'Sprache', spracheDE: 'Deutsch', spracheFR: 'Français',
     skip: 'Zum Inhalt springen', logoAlt: 'Hierber Brennerei, zur Startseite',
-    navBraende: 'Unsere Brände', navBesuch: 'Besuch & Verkauf', navHaupt: 'Hauptnavigation',
+    navBraende: 'Unsere Brände', navKiste: 'Die Probierkiste', navBesuch: 'Besuch & Verkauf', navHaupt: 'Hauptnavigation',
     merkliste: 'Merkliste', merklisteEintraege: (n) => `Merkliste, ${n} ${n === 1 ? 'Eintrag' : 'Einträge'}`,
     footerKontakt: 'Kontakt', footerRechtliches: 'Rechtliches', impressum: 'Impressum', datenschutz: 'Datenschutz',
     genuss: 'Verantwortungsvoller Genuss: Alkohol nur in Maßen, nicht für Personen unter 18 Jahren, nicht für Schwangere und nicht im Straßenverkehr.',
@@ -80,7 +80,7 @@ export const STR = {
   fr: {
     lang: 'fr', locale: 'fr_LU', sprache: 'Langue', spracheDE: 'Deutsch', spracheFR: 'Français',
     skip: 'Aller au contenu', logoAlt: 'Hierber Brennerei, retour à l’accueil',
-    navBraende: 'Nos eaux-de-vie', navBesuch: 'Visite & vente', navHaupt: 'Navigation principale',
+    navBraende: 'Nos eaux-de-vie', navKiste: 'Caisses en bois', navBesuch: 'Visite & vente', navHaupt: 'Navigation principale',
     merkliste: 'Ma sélection', merklisteEintraege: (n) => `Ma sélection, ${n} ${n === 1 ? 'article' : 'articles'}`,
     footerKontakt: 'Contact', footerRechtliches: 'Mentions', impressum: 'Mentions légales', datenschutz: 'Confidentialité',
     genuss: 'À consommer avec modération. Interdit aux moins de 18 ans, aux femmes enceintes et au volant.',

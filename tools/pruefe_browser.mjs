@@ -168,6 +168,54 @@ for (const p of ['/', '/brand/gin/', '/brand/vieille-prune/', '/anfrage/']) {
 }
 
 
+// 8b. Hauptnavigation in der Kopfleiste: 5 Links in fester Reihenfolge, Ziele mit vorhandenen ids, Kistenseite trägt aria-current,
+// schmal eine wischbare Zeile ohne Seitenüberlauf, breit in einer Reihe ohne Umbruch/Überlauf, Sprungziele liegen nicht unter der Kopfleiste
+const KISTE = '/brand/holzkiste-4x0-2l/';
+for (const lang of ['', '/fr']) {
+  const erwartet = [`${lang}/#theke`, `${lang}/#geniessen`, `${lang}${KISTE}`, `${lang}/#brennen`, `${lang}/#besuch`];
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(BASIS + lang + '/', { waitUntil: 'load' });
+  const hrefs = await page.locator('nav.haupt a').evaluateAll((a) => a.map((x) => x.getAttribute('href')));
+  check(JSON.stringify(hrefs) === JSON.stringify(erwartet), `Hauptnavigation ${lang || '/de'}: Links ${hrefs.join(', ')}`);
+  const ids = await page.evaluate(() => ['theke', 'geniessen', 'brennen', 'besuch'].filter((i) => !document.getElementById(i)));
+  check(ids.length === 0, `Hauptnavigation ${lang || '/de'}: Sprungziele auf der Startseite fehlen: ${ids}`);
+  check((await page.locator('nav.haupt [aria-current]').count()) === 0, `Hauptnavigation ${lang || '/de'}: Startseite ohne aria-current in der Navigation`);
+  const kr = await page.goto(BASIS + lang + KISTE, { waitUntil: 'load' });
+  check(kr && kr.status() === 200, `Hauptnavigation ${lang || '/de'}: Kistenseite erreichbar`);
+  check((await page.locator(`nav.haupt a[aria-current=page][href="${lang}${KISTE}"]`).count()) === 1 && (await page.locator('nav.haupt [aria-current]').count()) === 1, `Hauptnavigation ${lang || '/de'}: Kistenseite markiert genau den Probierkiste-Link`);
+  for (const [w, h] of [[320, 700], [390, 844], [768, 1024], [1024, 768], [1280, 800], [1600, 900]]) {
+    await page.setViewportSize({ width: w, height: h });
+    for (const p of ['/', KISTE, '/brand/gin/']) {
+      await page.goto(BASIS + lang + p, { waitUntil: 'load' });
+      const m = await page.evaluate(() => {
+        const n = document.querySelector('nav.haupt'), as = [...n.querySelectorAll('a')].map((a) => a.getBoundingClientRect()), k = document.querySelector('.kopf');
+        return { doc: document.documentElement.scrollWidth, einzeilig: as.every((a) => Math.abs(a.top - as[0].top) < 2), passt: n.scrollWidth <= n.clientWidth + 1, ovx: getComputedStyle(n).overflowX, kopfH: k.getBoundingClientRect().height, hoehe: parseFloat(getComputedStyle(document.documentElement).fontSize) * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--kopf-hoehe')) };
+      });
+      const nm = `Hauptnavigation ${lang || '/de'} ${w}px ${p}`;
+      check(m.doc <= w, `${nm}: kein Seitenüberlauf (scrollWidth ${m.doc})`);
+      check(m.einzeilig, `${nm}: Links einzeilig`);
+      check(m.kopfH <= m.hoehe + 1, `${nm}: Kopfleiste ${Math.round(m.kopfH)} px höher als --kopf-hoehe ${Math.round(m.hoehe)} px`);
+      if (w >= 1280) check(m.passt && m.ovx === 'visible', `${nm}: breit ohne Scrollen/Überlauf`);
+      else if (!m.passt) check(['auto', 'scroll'].includes(m.ovx), `${nm}: schmal wischbar (overflow-x ${m.ovx})`);
+    }
+  }
+  // Sprungziele: nach Klick auf den Link liegt das Ziel unterhalb der Kopfleiste (Handy/Tablet/Desktop)
+  for (const [w, h] of [[390, 844], [768, 1024], [1024, 768], [1280, 800]]) {
+    await page.setViewportSize({ width: w, height: h });
+    for (const id of ['theke', 'geniessen', 'brennen', 'besuch']) {
+      await page.goto(BASIS + lang + '/', { waitUntil: 'load' });
+      const link = page.locator(`nav.haupt a[href$="#${id}"]`);
+      await link.scrollIntoViewIfNeeded();
+      await link.click();
+      await page.waitForTimeout(250);
+      const r = await page.evaluate((i) => ({ top: document.getElementById(i).getBoundingClientRect().top, kopfUnten: document.querySelector('.kopf').getBoundingClientRect().bottom, hash: location.hash }), id);
+      check(r.hash === `#${id}` && r.top >= r.kopfUnten - 2 && r.top <= r.kopfUnten + 40, `Sprung ${lang || '/de'} ${w}px #${id}: top ${Math.round(r.top)}, Kopfleiste endet bei ${Math.round(r.kopfUnten)}`);
+    }
+  }
+}
+await page.setViewportSize({ width: 390, height: 844 });
+console.log('Hauptnavigation getestet.');
+
 // 9. Fassreihe: 14 Kreidetafeln, Links zu Sortenseiten, Desktop volle Reihe ohne Textüberlauf, mobil Scroll-Leiste mit scroll-snap; Geschenk-Foto beim Anlass-Filter
 await page.goto(BASIS + '/');
 check((await page.locator('.schilder a.schild').count()) === 14, '14 Kreidetafeln');
