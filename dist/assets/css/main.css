@@ -542,6 +542,15 @@ input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%
 @media(max-width:480px){.kiste-kachel>span{padding:.5rem .7rem}}
 @media(min-width:900px){.kiste-bild{position:sticky;top:calc(var(--kopf-hoehe) + 1rem)}}
 .kiste-kachel>span{min-height:40px;padding:.4rem .8rem}
+/* Kiste wird befüllt (kiste.js): Flaschen werden per Web Animations bewegt (nur transform/opacity). Vorab ausgeblendet werden sie nur mit html.js und ohne
+   „Bewegung reduzieren“, bis kiste.js .kiste-bereit setzt; fällt das Skript aus, blendet die Notfall-Animation sie nach 3,5 s ein. Ohne JavaScript und im Druck bleiben sie sichtbar. */
+.kiste-kachel::after{content:"";position:absolute;inset:0;border-radius:2px;pointer-events:none;opacity:0;box-shadow:0 0 0 1px rgba(217,151,95,.9),0 0 22px 5px rgba(217,151,95,.5)}
+@keyframes kiste-notfall{to{visibility:visible}}
+@keyframes kiste-glanz{0%{opacity:0;transform:scale(1)}28%{opacity:1}100%{opacity:0;transform:scale(1.05)}}
+@media screen and (prefers-reduced-motion:no-preference){
+  .js .kiste-buehne:not(.kiste-bereit) img.kiste-flasche,.js .kiste-buehne:not(.kiste-bereit) .kiste-schatten{visibility:hidden;animation:kiste-notfall 0s linear 3.5s forwards}
+  .kiste-kachel.kiste-glanz::after{animation:kiste-glanz 1.2s cubic-bezier(.3,0,.3,1)}
+}
 .kiste-raster .produkt-text h1{font-size:clamp(2.6rem,6vw,4.2rem)}
 .kiste-bild{box-shadow:0 18px 50px rgba(0,0,0,.5)}
 @media(min-width:900px) and (max-width:1099px){.kiste-raster{grid-template-columns:minmax(300px,45%) minmax(0,1fr);gap:2.5rem}}

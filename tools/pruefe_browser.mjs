@@ -395,11 +395,15 @@ console.log('Hierberol getestet.');
   const belegung = () => page.locator('[data-kiste-buehne]').getAttribute('data-belegung');
   const sorten = () => page.evaluate(() => [...document.querySelectorAll('[data-fach-bild]')].sort((a, b) => a.getAttribute('data-fach-bild') - b.getAttribute('data-fach-bild')).map((i) => i.getAttribute('data-sorte')).join(','));
   const zusammen = async () => (await page.locator('[data-kiste-text]').textContent()).trim();
+  // Wechsel und Einsetz-Sequenz laufen ca. 1 s: warten, bis die Bühne ruht (kiste.js entfernt dann data-bewegt)
+  const kisteRuhe = () => page.waitForFunction(() => { const b = document.querySelector('[data-kiste-buehne]'); return b && b.classList.contains('kiste-bereit') && !b.hasAttribute('data-bewegt'); }, null, { timeout: 8000 }).then(() => true, () => false);
+  check(await kisteRuhe(), 'Holzkiste: Einsetz-Sequenz endet, Bühne ruht');
   check((await belegung()) === 'gin,rum,whisky,wodka' && (await zusammen()) === 'Gin, Rum, Whisky, Wodka', `Holzkiste: Standardbelegung Gin, Rum, Whisky, Wodka (${await belegung()} / ${await zusammen()})`);
   check((await page.locator('[data-kiste-auswahl]').getAttribute('aria-live')) === 'polite', 'Holzkiste: Zusammenfassung ist aria-live');
   check((await page.locator('.kiste-fach').count()) === 4 && (await page.locator('.kiste-fach input[type=radio]').count()) === 24, 'Holzkiste: 4 Fächer mit je 6 Sorten');
   // Fach 1 auf Sambuca
   await page.locator('[data-fach="1"] label', { hasText: 'Sambuca' }).click();
+  check(await kisteRuhe(), 'Holzkiste: Wechsel in Fach 1 endet, Bühne ruht');
   check((await sorten()) === 'sambuca,rum,whisky,wodka' && (await belegung()) === 'sambuca,rum,whisky,wodka', `Holzkiste: Fach 1 Sambuca ändert die Vorschau (${await sorten()})`);
   check((await zusammen()) === 'Sambuca, Rum, Whisky, Wodka', `Holzkiste: Zusammenfassung folgt (${await zusammen()})`);
   check((await page.locator('img[data-fach-bild="1"]').getAttribute('src')) === '/img/kiste-sambuca.webp', 'Holzkiste: Bild von Fach 1 ist der Sambuca-Freisteller');
@@ -407,8 +411,18 @@ console.log('Hierberol getestet.');
   check((await preis()) === '58 €', 'Holzkiste: Preis bleibt 58 €');
   // Fach 3 auf dieselbe Sorte wie Fach 1
   await page.locator('[data-fach="3"] label', { hasText: 'Sambuca' }).click();
+  await kisteRuhe();
   check((await belegung()) === 'sambuca,rum,sambuca,wodka' && (await zusammen()) === 'Sambuca, Rum, Sambuca, Wodka', `Holzkiste: dieselbe Sorte in zwei Fächern erlaubt (${await belegung()})`);
   check(await bildGeladen(page, 'img[data-fach-bild="3"]'), 'Holzkiste: Flaschenbild in Fach 3 geladen');
+  // nach dem Wechsel steht je Fach genau eine Flasche mit richtiger Sorte (keine Kopie der alten Flasche übrig)
+  const flaschenStand = () => page.evaluate(() => ({ n: document.querySelectorAll('img.kiste-flasche').length, alt: document.querySelectorAll('img.kiste-alt').length, f: [1, 2, 3, 4].map((n) => { const e = document.querySelectorAll(`img[data-fach-bild="${n}"]`); return e.length === 1 ? `${e[0].getAttribute('data-sorte')}:${e[0].getAttribute('src')}` : `x${e.length}`; }).join(',') }));
+  const stand1 = await flaschenStand();
+  check(stand1.n === 4 && stand1.alt === 0 && stand1.f === 'sambuca:/img/kiste-sambuca.webp,rum:/img/kiste-rum.webp,sambuca:/img/kiste-sambuca.webp,wodka:/img/kiste-wodka.webp', `Holzkiste: je Fach genau eine Flasche mit richtiger Sorte (${JSON.stringify(stand1)})`);
+  // schnelles Mehrfachklicken in einem Fach: am Ende genau eine Flasche, letzte Wahl gilt
+  for (const id of ['Rum', 'Gin', 'Wodka', 'Limoncello', 'Whisky']) await page.locator('[data-fach="2"] label', { hasText: id }).click();
+  await kisteRuhe();
+  const stand2 = await flaschenStand();
+  check(stand2.n === 4 && stand2.alt === 0 && stand2.f.split(',')[1] === 'whisky:/img/kiste-whisky.webp' && (await belegung()) === 'sambuca,whisky,sambuca,wodka', `Holzkiste: schnelles Mehrfachklicken hinterlässt genau eine Flasche je Fach (${JSON.stringify(stand2)})`);
   // Merkliste: Kiste als eine Position zum Festpreis, Belegung (Fach 1 bis 4) im Eintrag
   await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
   await page.reload({ waitUntil: 'networkidle' });
@@ -476,7 +490,7 @@ console.log('Hierberol getestet.');
     await page.goto(BASIS + '/brand/holzkiste-4x0-2l/', { waitUntil: 'networkidle' });
     await page.locator('.kiste-bild').screenshot({ path: path.join(process.env.KISTE_SHOTS, 'kiste-1.png') });
     for (const [nr, id] of [[1, 'sambuca'], [2, 'limoncello'], [3, 'sambuca'], [4, 'gin']]) await page.locator(`[data-fach="${nr}"] label`, { hasText: new RegExp(`^\\s*${id}`, 'i') }).click();
-    await page.waitForTimeout(300);
+    await kisteRuhe();
     await page.locator('.kiste-bild').screenshot({ path: path.join(process.env.KISTE_SHOTS, 'kiste-2.png') });
   }
   console.log('Holzkiste getestet.');
