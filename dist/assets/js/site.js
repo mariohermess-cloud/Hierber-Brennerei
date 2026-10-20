@@ -56,6 +56,125 @@
   }
   if (/[?&]todo\b/.test(location.search)) document.body.classList.add('todo');
 
+  /* ---------- Sortenkarten (nur Maus, ohne reduzierte Bewegung): Kreis-Reveal ab Eintritts-/Austrittsstelle, dezenter Tilt, Glanzlicht ----------
+     Gesetzt werden nur CSS-Variablen an der Karte: --mx/--my (Prozent im Kartenbild, nur beim Betreten und Verlassen, damit sich der Kreis nicht verschiebt),
+     --gx/--gy (Prozent in der Karte) und --rx/--ry (Grad). Das Bewegen der Maus wird per requestAnimationFrame gedrosselt. */
+  var mausBewegung = window.matchMedia ? window.matchMedia('(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference)') : null;
+  if (mausBewegung) {
+    var MAX_KIPPEN = 4;
+    var klemme = function (v) { return Math.max(0, Math.min(100, v)); };
+    $$('.karte').forEach(function (karte) {
+      var li = karte.parentNode, kbild = $('.karte-bild', karte), plan = 0, zx = 0, zy = 0;
+      var setze = function (n, w) { karte.style.setProperty(n, w); };
+      var punkt = function (cx, cy) {
+        var r = li.getBoundingClientRect();
+        return { x: klemme((cx - r.left) / (r.width || 1) * 100), y: klemme((cy - r.top) / (r.height || 1) * 100), r: r };
+      };
+      var ursprung = function (cx, cy) {
+        if (!kbild) return;
+        var b = kbild.getBoundingClientRect();
+        setze('--mx', klemme((cx - b.left) / (b.width || 1) * 100).toFixed(1) + '%');
+        setze('--my', klemme((cy - b.top) / (b.height || 1) * 100).toFixed(1) + '%');
+      };
+      var kippe = function (cx, cy) {
+        var q = punkt(cx, cy);
+        setze('--gx', q.x.toFixed(1) + '%'); setze('--gy', q.y.toFixed(1) + '%');
+        setze('--ry', ((q.x - 50) / 50 * MAX_KIPPEN).toFixed(2) + 'deg');
+        setze('--rx', (-(q.y - 50) / 50 * MAX_KIPPEN).toFixed(2) + 'deg');
+      };
+      karte.addEventListener('pointerenter', function (e) {
+        if (!mausBewegung.matches || e.pointerType === 'touch') return;
+        ursprung(e.clientX, e.clientY); kippe(e.clientX, e.clientY);
+      });
+      karte.addEventListener('pointermove', function (e) {
+        if (!mausBewegung.matches || e.pointerType === 'touch') return;
+        zx = e.clientX; zy = e.clientY;
+        if (!plan) plan = window.requestAnimationFrame(function () { plan = 0; kippe(zx, zy); });
+      });
+      karte.addEventListener('pointerleave', function (e) {
+        if (!mausBewegung.matches || e.pointerType === 'touch') return;
+        if (plan) { window.cancelAnimationFrame(plan); plan = 0; }
+        ursprung(e.clientX, e.clientY);
+        setze('--rx', '0deg'); setze('--ry', '0deg');
+      });
+    });
+  }
+
+  /* ---------- Überschriften: Enthüllung aus einer Maske beim Scrollen ----------
+     Der Text wird nur in ein Hüllelement gelegt (Inhalt und id bleiben, Screenreader lesen unverändert). Sicherheitsnetz: Überschriften oberhalb des Sichtbereichs
+     (Ankersprung), Druckansicht, Ankerwechsel und ein Zeitgeber sorgen dafür, dass keine Überschrift dauerhaft verborgen bleibt. */
+  (function () {
+    if (!window.matchMedia || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    var hs = $$('.sektion h2').filter(function (h) { return !h.closest('.kauf-box, .prose'); });
+    if (!hs.length) return;
+    var zeige = function (h) { h.classList.add('sichtbar'); };
+    try {
+      hs.forEach(function (h) {
+        var innen = document.createElement('span');
+        innen.className = 'h2-innen';
+        while (h.firstChild) innen.appendChild(h.firstChild);
+        h.appendChild(innen);
+        h.classList.add('h2-maske');
+      });
+      var io2 = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting || e.boundingClientRect.bottom < 0) { zeige(e.target); io2.unobserve(e.target); }
+        });
+      }, { threshold: 0.3, rootMargin: '0px 0px -6% 0px' });
+      hs.forEach(function (h) { io2.observe(h); });
+    } catch (err) { hs.forEach(zeige); return; }
+    var alle = function () { hs.forEach(zeige); };
+    window.addEventListener('beforeprint', alle);
+    window.addEventListener('hashchange', function () {
+      var z = document.getElementById(location.hash.slice(1));
+      if (z) hs.forEach(function (h) { if (z.contains(h)) zeige(h); });
+    });
+    setTimeout(function () { hs.forEach(function (h) { if (h.getBoundingClientRect().top < window.innerHeight) zeige(h); }); }, 4000);
+  })();
+
+  /* ---------- Sparsames Parallax (ab 700 px, ohne reduzierte Bewegung): Hero-Foto, Kistenbild, Fotos von „Wie wir brennen“ ----------
+     JavaScript statt CSS-Scroll-Timeline (animation-timeline: view()): Die Timeline fehlt in Firefox, ein zweiter Pfad wäre doppelt zu pflegen und zu prüfen;
+     bei wenigen Elementen, passivem scroll-Ereignis, requestAnimationFrame und IntersectionObserver (nur sichtbare Elemente) ist der Aufwand gering.
+     Gesetzt wird nur --pv (px); die Wirkung und der Überstand, der Lücken verhindert, stehen im CSS. */
+  (function () {
+    if (!window.matchMedia || !('IntersectionObserver' in window)) return;
+    var mq = window.matchMedia('(min-width:700px) and (prefers-reduced-motion:no-preference)');
+    var ziele = [];
+    var sammle = function (sel, amp, bezug) {
+      $$(sel).forEach(function (el) {
+        var ref = bezug(el);
+        if (ref) ziele.push({ el: el, ref: ref, amp: amp, sichtbar: false });
+      });
+    };
+    sammle('.hero-bild', 0.04, function (el) { return el.parentNode; });
+    sammle('.probier-bild', 0.035, function (el) { return el.parentNode; });
+    sammle('.schritt-foto', 0.035, function (el) { return $('.schritt-bild', el) ? $('picture', el) : null; });
+    if (!ziele.length) return;
+    var geplant = false;
+    var rechne = function () {
+      geplant = false;
+      if (!mq.matches) return;
+      var vh = window.innerHeight, lese = [];
+      ziele.forEach(function (z) { if (z.sichtbar) lese.push([z, z.ref.getBoundingClientRect()]); });
+      lese.forEach(function (x) {
+        var z = x[0], b = x[1];
+        var p = Math.max(0, Math.min(1, (vh - b.top) / (vh + b.height)));
+        z.el.style.setProperty('--pv', ((p - 0.5) * 2 * z.amp * b.height).toFixed(1) + 'px');
+      });
+    };
+    var plane = function () { if (!geplant) { geplant = true; window.requestAnimationFrame(rechne); } };
+    var io3 = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { ziele.forEach(function (z) { if (z.ref === e.target) z.sichtbar = e.isIntersecting; }); });
+      plane();
+    }, { rootMargin: '15% 0px' });
+    ziele.forEach(function (z) { io3.observe(z.ref); });
+    window.addEventListener('scroll', plane, { passive: true });
+    window.addEventListener('resize', plane);
+    var aenderung = function () { if (!mq.matches) ziele.forEach(function (z) { z.el.style.removeProperty('--pv'); }); plane(); };
+    if (mq.addEventListener) mq.addEventListener('change', aenderung); else if (mq.addListener) mq.addListener(aenderung);
+  })();
+
   /* ---------- Anlass-Filter ---------- */
   var chips = $$('[data-anlass-filter]');
   if (chips.length) {

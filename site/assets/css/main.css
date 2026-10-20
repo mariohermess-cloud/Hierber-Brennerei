@@ -185,12 +185,39 @@ a:hover{text-decoration-thickness:2px}
   background:linear-gradient(to top,#c9baa0 0 6%,transparent 6%),linear-gradient(#ece3d2,#e2d6c0)}
 .karte-bild{position:relative}
 /* Bildwechsel beim Darüberfahren mit der Maus: zweites Bild (Serviervorschlag) blendet weich ein; auf Touch-Geräten bleibt es ausgeblendet und lädt nicht */
-.karte-wechsel{display:none}
+@property --kreis{syntax:"<percentage>";inherits:false;initial-value:0%}
+.karte-wechsel,.karte-badge,.karte-band{display:none}
 @media (hover:hover) and (pointer:fine){
   .karte-wechsel{display:block;position:absolute;inset:0;opacity:0;transition:opacity .45s ease;pointer-events:none;background:#000}
   .karte-wechsel picture{display:block;width:100%;height:100%}
   .karte-wechsel-bild{display:block;width:100%;height:100%;object-fit:cover;max-width:none}
   .karte:hover .karte-wechsel,.karte:focus-visible .karte-wechsel{opacity:1}
+}
+/* Mit Bewegung (Maus, keine reduzierte Bewegung): das Serviervorschlag-Bild öffnet sich als Kreis ab der Eintrittsstelle der Maus (--mx/--my setzt site.js,
+   ohne JavaScript und bei Tastaturfokus die Mitte), die Flasche tritt zurück, die Karte kippt dezent mit kupferfarbenem Glanz (--rx/--ry/--gx/--gy aus site.js),
+   unten gleitet ein Band mit Art und Name des Vorschlags herein. Bewegt wird nur --kreis (registriert, daher animierbar), transform, opacity und filter. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .karte-li{perspective:900px}
+  .karte{position:relative;transition:transform .6s cubic-bezier(.22,1,.36,1),border-color .25s ease}
+  .karte:hover{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+  .karte:focus-visible{transform:none;--mx:50%!important;--my:50%!important}
+  .karte::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s ease;
+    background:radial-gradient(circle 14rem at var(--gx,50%) var(--gy,50%),rgba(217,151,95,.2),rgba(184,115,58,.07) 45%,transparent 100%)}
+  .karte:hover::after{opacity:1}
+  .karte-wechsel{clip-path:circle(var(--kreis,0%) at var(--mx,50%) var(--my,50%));transition:--kreis .55s cubic-bezier(.4,0,.2,1),opacity .15s linear .4s}
+  .karte:hover .karte-wechsel,.karte:focus-visible .karte-wechsel{--kreis:150%;transition:--kreis .65s cubic-bezier(.22,1,.36,1),opacity .15s linear 0s}
+  .karte-wechsel-bild{transform:scale(1.08);transition:transform 1s cubic-bezier(.22,1,.36,1)}
+  .karte:hover .karte-wechsel-bild,.karte:focus-visible .karte-wechsel-bild{transform:none}
+  .karte-bild .ff-bild,.karte-bild .flasche,.karte-bild .karte-foto-bild{transform-origin:50% 100%;transition:transform .8s cubic-bezier(.22,1,.36,1),filter .8s ease}
+  .karte:hover .ff-bild,.karte:focus-visible .ff-bild,.karte:hover .flasche,.karte:focus-visible .flasche{transform:scale(.94);filter:blur(2px) brightness(.78)}
+  .karte:hover .karte-foto-bild,.karte:focus-visible .karte-foto-bild{transform:scale(1.06);filter:blur(2px) brightness(.78)}
+  .karte-badge{display:block;opacity:0;transition:opacity .3s ease}
+  .karte:hover .karte-badge,.karte:focus-visible .karte-badge{opacity:1;transition-delay:.25s}
+  .karte-band{display:block;position:absolute;left:0;right:0;bottom:0;padding:3rem .8rem .8rem;text-align:left;opacity:0;transform:translateY(40%);
+    background:linear-gradient(to top,rgba(27,19,13,.94) 0,rgba(27,19,13,.86) 50%,rgba(27,19,13,0));transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s ease}
+  .karte:hover .karte-band,.karte:focus-visible .karte-band{opacity:1;transform:none;transition-delay:.2s}
+  .karte-band-typ{display:block;font:500 .68rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell)}
+  .karte-band-name{display:block;margin-top:.25rem;font:600 clamp(1rem,6.4cqw,1.3rem)/1.15 var(--serif);color:var(--text)}
 }
 .karte-foto{display:block;width:100%;height:100%;background:#000}
 .karte-foto picture,.karte-foto img{display:block;width:100%;height:100%}
@@ -238,7 +265,7 @@ a:hover{text-decoration-thickness:2px}
 .geniess-bild picture,.geniess-bild-img{display:block;width:100%;height:100%}
 .geniess-bild-img{object-fit:cover;transition:transform .8s ease}
 @media (hover:hover) and (pointer:fine){.geniess-karte:hover .geniess-bild-img{transform:scale(1.05)}}
-.geniess-badge{position:absolute;left:.5rem;top:.5rem;padding:.2rem .5rem;background:rgba(27,19,13,.78);color:var(--text);font:500 .72rem/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;border-radius:2px}
+.geniess-badge,.karte-badge{position:absolute;left:.5rem;top:.5rem;padding:.2rem .5rem;background:rgba(27,19,13,.78);color:var(--text);font:500 .72rem/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;border-radius:2px}
 .geniess-typ{margin:.9rem 1rem 0;font:500 .74rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-hell)}
 .geniess-name{margin:.3rem 1rem 0;font:600 1.5rem/1.15 var(--serif)}
 .geniess-sorte{margin:.35rem 1rem 1rem;font-size:.92rem;color:var(--gedaempt)}
@@ -454,6 +481,23 @@ input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%
   html{scroll-behavior:auto}
   .hero-bild img{animation:none}
   .karte-wechsel,.geniess-bild-img,.geniess-karte,.panel-bild img{transition:none}
+}
+
+/* Überschriften: Enthüllung aus einer Maske (site.js ergänzt .h2-maske/.h2-innen und setzt .sichtbar beim Scrollen; ohne JS, bei reduzierter Bewegung und im Druck sofort sichtbar) */
+@media(prefers-reduced-motion:no-preference){
+  .js .h2-maske{clip-path:inset(-.1em -.3em -.1em -.3em)}
+  .js .h2-innen{display:block;transform:translateY(125%)}
+  .js .h2-maske.sichtbar .h2-innen{transform:none;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+}
+@media print{.js .h2-innen{transform:none!important}}
+
+/* Sparsames Parallax (nur ab 700 px und ohne reduzierte Bewegung; site.js setzt --pv in px für sichtbare Elemente). Das Hero-Foto bekommt oben und unten 4 % Überstand,
+   die Schrittfotos sind 1,08-fach vergrößert und werden vom Rahmen beschnitten, damit nie ein Rand sichtbar wird; das Kistenbild verschiebt sich als Ganzes. */
+@media(min-width:700px) and (prefers-reduced-motion:no-preference){
+  .js .hero-bild{inset:-4% 0;transform:translate3d(0,var(--pv,0px),0)}
+  .js .probier-bild{transform:translate3d(0,var(--pv,0px),0)}
+  .js .schritt-foto picture{overflow:hidden}
+  .js .schritt-bild{transform:translate3d(0,var(--pv,0px),0) scale(1.08)}
 }
 
 /* Feinschliff */
