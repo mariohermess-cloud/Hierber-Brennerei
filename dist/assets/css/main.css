@@ -201,27 +201,28 @@ a:hover{text-decoration-thickness:2px}
   .karte-band-name{display:block;margin-top:.25rem;font:600 clamp(1rem,6.4cqw,1.3rem)/1.15 var(--serif);color:var(--text)}
 }
 /* Mit Bewegung (Maus, keine reduzierte Bewegung): das Serviervorschlag-Bild öffnet sich als Kreis ab der Eintrittsstelle der Maus (--mx/--my setzt site.js,
-   ohne JavaScript und bei Tastaturfokus die Mitte), die Flasche tritt zurück, die Karte kippt dezent mit kupferfarbenem Glanz (--rx/--ry/--gx/--gy aus site.js),
-   unten gleitet ein Band mit Art und Name des Vorschlags herein. Bewegt wird nur --kreis (registriert, daher animierbar), transform, opacity und filter. */
+   ohne JavaScript und bei Tastaturfokus die Mitte), die Flasche tritt zurück, die Karte kippt sehr dezent (max. 2°) mit kupferfarbenem Glanz (--rx/--ry/--gx/--gy aus site.js),
+   unten gleitet ein Band mit Art und Name des Vorschlags herein. Bewegt wird nur --kreis (registriert, daher animierbar), transform, opacity und filter.
+   Zeiten bewusst ruhig (Kreis 1,4 s, sanft an- und auslaufend), damit die Einblendung nicht hektisch wirkt. */
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
   .karte-li{perspective:900px}
-  .karte{position:relative;transition:transform .6s cubic-bezier(.22,1,.36,1),border-color .25s ease}
+  .karte{position:relative;transition:transform 1s cubic-bezier(.33,1,.68,1),border-color .4s ease}
   .karte:hover{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
   .karte:focus-visible{transform:none;--mx:50%!important;--my:50%!important}
-  .karte::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s ease;
+  .karte::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .9s ease;
     background:radial-gradient(circle 14rem at var(--gx,50%) var(--gy,50%),rgba(217,151,95,.2),rgba(184,115,58,.07) 45%,transparent 100%)}
   .karte:hover::after{opacity:1}
-  .karte-wechsel{clip-path:circle(var(--kreis,0%) at var(--mx,50%) var(--my,50%));transition:--kreis .55s cubic-bezier(.4,0,.2,1),opacity .15s linear .4s}
-  .karte:hover .karte-wechsel,.karte:focus-visible .karte-wechsel{--kreis:150%;transition:--kreis .65s cubic-bezier(.22,1,.36,1),opacity .15s linear 0s}
-  .karte-wechsel-bild{transform:scale(1.08);transition:transform 1s cubic-bezier(.22,1,.36,1)}
+  .karte-wechsel{clip-path:circle(var(--kreis,0%) at var(--mx,50%) var(--my,50%));transition:--kreis .9s cubic-bezier(.45,0,.25,1),opacity .2s linear .7s}
+  .karte:hover .karte-wechsel,.karte:focus-visible .karte-wechsel{--kreis:150%;transition:--kreis 1.4s cubic-bezier(.45,0,.25,1),opacity .2s linear 0s}
+  .karte-wechsel-bild{transform:scale(1.08);transition:transform 1.8s cubic-bezier(.33,1,.68,1)}
   .karte:hover .karte-wechsel-bild,.karte:focus-visible .karte-wechsel-bild{transform:none}
-  .karte-bild .ff-bild,.karte-bild .flasche,.karte-bild .karte-foto-bild{transform-origin:50% 100%;transition:transform .8s cubic-bezier(.22,1,.36,1),filter .8s ease}
+  .karte-bild .ff-bild,.karte-bild .flasche,.karte-bild .karte-foto-bild{transform-origin:50% 100%;transition:transform 1.2s cubic-bezier(.45,0,.25,1),filter 1.2s ease}
   .karte:hover .ff-bild,.karte:focus-visible .ff-bild,.karte:hover .flasche,.karte:focus-visible .flasche{transform:scale(.94);filter:blur(2px) brightness(.78)}
   .karte:hover .karte-foto-bild,.karte:focus-visible .karte-foto-bild{transform:scale(1.06);filter:blur(2px) brightness(.78)}
-  .karte-badge{transition:opacity .3s ease}
-  .karte:hover .karte-badge,.karte:focus-visible .karte-badge{transition-delay:.25s}
-  .karte-band{transform:translateY(40%);transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s ease}
-  .karte:hover .karte-band,.karte:focus-visible .karte-band{transform:none;transition-delay:.2s}
+  .karte-badge{transition:opacity .6s ease}
+  .karte:hover .karte-badge,.karte:focus-visible .karte-badge{transition-delay:.7s}
+  .karte-band{transform:translateY(40%);transition:transform .9s cubic-bezier(.33,1,.68,1),opacity .7s ease}
+  .karte:hover .karte-band,.karte:focus-visible .karte-band{transform:none;transition-delay:.6s}
 }
 .karte-foto{display:block;width:100%;height:100%;background:#000}
 .karte-foto picture,.karte-foto img{display:block;width:100%;height:100%}

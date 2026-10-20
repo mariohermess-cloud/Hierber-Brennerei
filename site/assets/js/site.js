@@ -61,7 +61,7 @@
      --gx/--gy (Prozent in der Karte) und --rx/--ry (Grad). Das Bewegen der Maus wird per requestAnimationFrame gedrosselt. */
   var mausBewegung = window.matchMedia ? window.matchMedia('(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference)') : null;
   if (mausBewegung) {
-    var MAX_KIPPEN = 4;
+    var MAX_KIPPEN = 2;
     var klemme = function (v) { return Math.max(0, Math.min(100, v)); };
     $$('.karte').forEach(function (karte) {
       var li = karte.parentNode, kbild = $('.karte-bild', karte), plan = 0, zx = 0, zy = 0;
