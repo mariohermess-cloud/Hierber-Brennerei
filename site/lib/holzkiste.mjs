@@ -3,7 +3,8 @@
 // Ebenen (von unten): Kistenfoto, Schatten und Flaschen (hinten zuerst), darüber eine Kopie des Kistenfotos, die per clip-path
 // nur die vorderen Teile (linke Seitenlatte, linker vorderer Pfosten, vordere Latte mit Schrift) zeigt. Koordinaten: site/data/holzkiste.js.
 // Ohne JavaScript steht die Standardbelegung im HTML; assets/js/kiste.js erweitert nur die Auswahl.
-// Die Kiste steht bewusst nicht in PRODUKTE (keine Sortenkarte, kein Katalogeintrag).
+// Die Kiste steht bewusst nicht in PRODUKTE (keine Sortenkarte); in den Anfrage-Katalog (window.HB_KAT) kommt sie über kistenKatalog().
+// Merkliste: „Auf die Merkliste“ legt die Kiste als eine Position zum Festpreis mit der gewählten Belegung ab (Eintrag { i, k, n }, siehe site.js).
 import { PRODUKTE } from '../data/produkte.js';
 import {
   KISTE_PREIS, KISTE_SORTEN, STANDARD_BELEGUNG, ZUSCHNITT, FAECHER, ZEICHENREIHENFOLGE, VORDERTEILE, SCHATTEN,
@@ -14,8 +15,12 @@ import { seite, bild, folgt } from './layout.mjs';
 
 export const KISTE_ID = 'holzkiste-4x0-2l';
 export const KISTE_NAME = 'Holzkiste 4 × 0,2 l';
+export const KISTE_MENGE = '0,2 L'; // Schreibweise der Menge wie in site/data/produkte.js (Merkliste, Anfrage-Text)
 
 const SORTE = Object.fromEntries(KISTE_SORTEN.map((id) => [id, PRODUKTE.find((p) => p.id === id)]));
+for (const id of KISTE_SORTEN) {
+  if (!SORTE[id] || !SORTE[id].varianten[0].preise.some((x) => x.menge === KISTE_MENGE)) throw new Error(`Holzkiste: ${id} fehlt in produkte.js oder hat keine Größe ${KISTE_MENGE}`);
+}
 
 // Beschriftungen der Seite (Entwurfstexte nur auf Deutsch, siehe folgt() im Französischen)
 const K = {
@@ -29,9 +34,7 @@ const K = {
     auswahl: 'Ihre Auswahl',
     vorschau: 'Vorschau der Kiste',
     altVor: `${KISTE_NAME} mit vier Flaschen`,
-    ohneJs: 'Ohne JavaScript zeigt die Seite die Standardbelegung. Ihre Wunschbelegung können Sie uns in der Anfrage nennen.',
-    anfrage: 'Anfrage senden',
-    anfrageText: 'Nennen Sie uns in der Anfrage Ihre Belegung.',
+    ohneJs: 'Ohne JavaScript zeigt die Seite die Standardbelegung.',
     titel: `${KISTE_NAME} aus Herborn (Luxemburg) | Hierber Brennerei`,
     beschr: `${KISTE_NAME}: vier Flaschen zu je 0,2 l nach Wahl, zum Festpreis von ${KISTE_PREIS} €. Hierber Brennerei in Herborn, Luxemburg.`,
     mwst: 'inkl. 17 % MwSt.',
@@ -46,9 +49,7 @@ const K = {
     auswahl: 'Votre choix',
     vorschau: 'Aperçu de la caisse',
     altVor: 'Caisse en bois 4 × 0,2 l avec quatre bouteilles',
-    ohneJs: 'Sans JavaScript, la page montre la sélection par défaut. Indiquez-nous votre souhait dans la demande.',
-    anfrage: 'Envoyer une demande',
-    anfrageText: 'Indiquez-nous votre sélection dans la demande.',
+    ohneJs: 'Sans JavaScript, la page montre la sélection par défaut.',
     titel: 'Caisse en bois 4 × 0,2 l de Herborn (Luxembourg) | Hierber Brennerei',
     beschr: `Caisse en bois 4 × 0,2 l : quatre bouteilles de 0,2 l au choix, au prix fixe de ${KISTE_PREIS} €. Hierber Brennerei à Herborn, Luxembourg.`,
     mwst: 'TVA 17 % comprise',
@@ -65,6 +66,18 @@ export function zahlenbandHtml(aria, eintraege, klasse = '') {
 ${eintraege.map((e) => `    <li><strong class="zahl"${e.attr || ''}>${e.wert}</strong><span class="zahl-label">${e.label}</span></li>`).join('\n')}
   </ul>
 </section>`;
+}
+
+// Eintrag der Kiste für den Anfrage-Katalog (build.mjs -> assets/js/katalog.js, window.HB_KAT[KISTE_ID]); site.js liest ihn auf /anfrage/.
+// Die Anfrage-Seite hat einen Katalog für beide Sprachen, daher stehen Name und Fachtexte hier je Sprache (l.de, l.fr), die Sortennamen sind sprachfrei (p.name).
+// Aufbau wie bei Sorten: n (Name), m, v; dazu kiste: { preis, menge, sorten: { id: voller Name }, l: { sprache: { n, fach: ['Fach 1 (hinten links)', ...] } } }
+export function kistenKatalog() {
+  const name = { de: KISTE_NAME, fr: 'Caisse en bois 4 × 0,2 l' };
+  const sprache = (lang) => ({ n: name[lang], fach: FAECHER.map((f, i) => `${K[lang].fach(f.nr)} (${K[lang].pos[i]})`) });
+  return {
+    n: KISTE_NAME, m: 0, v: {},
+    kiste: { preis: KISTE_PREIS, menge: KISTE_MENGE, sorten: Object.fromEntries(KISTE_SORTEN.map((id) => [id, SORTE[id].name])), l: { de: sprache('de'), fr: sprache('fr') } },
+  };
 }
 
 // Alt-Text der Vorschau aus der Belegung: "Holzkiste 4 × 0,2 l mit vier Flaschen: hinten links Gin, hinten rechts Rum, ..."
@@ -148,8 +161,9 @@ export function kistenSeite(IMG, lang) {
         <p class="kiste-preis"><strong class="auswahl-preis" data-kiste-preis>${fmtPreis(KISTE_PREIS)}</strong> <span class="mwst">${k.mwst}</span><br><span class="kiste-fest">${k.festpreis}</span></p>
         ${wahl(belegung, lang)}
         <p class="auswahl kiste-auswahl" data-kiste-auswahl aria-live="polite"><span class="auswahl-label">${k.auswahl}:</span> <span data-kiste-text>${belegung.map(name).map(esc).join(', ')}</span></p>
-        <noscript><p class="hinweis">${k.ohneJs}</p></noscript>
-        <p class="kiste-anfrage">${k.anfrageText} <a class="knopf" href="${pfad(lang, '/anfrage/')}">${k.anfrage}</a></p>
+        <p class="kauf-knoepfe"><button type="button" class="knopf" data-kiste-add data-kiste-id="${KISTE_ID}" data-kiste-name="${esc(titel)}">${t.aufMerkliste}</button><a class="knopf knopf-hell" href="${pfad(lang, '/anfrage/')}" data-kiste-zur hidden>${t.zurMerkliste}</a></p>
+        <p class="status" role="status" aria-live="polite" data-kiste-status data-ok="${esc(t.hinzugefuegt)}"></p>
+        <noscript><p class="hinweis">${k.ohneJs} ${t.merklisteHinweisKein}</p></noscript>
       </div>
     </div>
   </div>

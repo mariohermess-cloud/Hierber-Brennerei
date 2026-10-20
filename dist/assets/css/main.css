@@ -436,6 +436,7 @@ a:hover{text-decoration-thickness:2px}
 .liste li:last-child{border-bottom:1px solid rgba(43,33,26,.22)}
 .pos-name{font:600 1.35rem/1.2 var(--serif)}
 .pos-meta{color:var(--gedaempt-papier);font-size:.95rem}
+.pos-faecher{margin-top:.35rem;color:var(--gedaempt-papier);font-size:.95rem;line-height:1.5}
 .pos-ctl{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;grid-column:1/-1}
 .pos-ctl label{font-size:.9rem}
 .pos-ctl input[type=number]{width:5.5rem}
@@ -534,8 +535,10 @@ input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%
 .kiste-abv{color:inherit;opacity:.75;font-size:.85em;margin-left:.3rem}
 .nojs .kiste-wahl{display:none}
 .nojs .kiste-auswahl{display:flex}
-.kiste-anfrage{margin-top:1.4rem}
-.kiste-anfrage .knopf{margin-left:.4rem}
+.kiste-raster .kauf-knoepfe{margin-top:1.4rem}
+.kiste-raster .status{min-height:0;margin:.5rem 0 0}
+.kiste-raster .status:empty{display:none}
+.nojs .knopf[data-kiste-add]{display:none}
 @media(max-width:480px){.kiste-kachel>span{padding:.5rem .7rem}}
 @media(min-width:900px){.kiste-bild{position:sticky;top:calc(var(--kopf-hoehe) + 1rem)}}
 .kiste-kachel>span{min-height:40px;padding:.4rem .8rem}

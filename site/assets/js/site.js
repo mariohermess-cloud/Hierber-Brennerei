@@ -304,17 +304,45 @@
     });
   }
 
+  /* ---------- Holzkiste (Kistenseite): Belegung als eine Position zum Festpreis auf die Merkliste ----------
+     Eintrag { i: Kisten-Id, k: [Sorten-Id je Fach 1 bis 4], n }; gleiche Belegung zählt hoch, andere Belegung ist eine neue Position. Auswahl und Vorschau: kiste.js. */
+  var kisteAdd = $('[data-kiste-add]');
+  if (kisteAdd) {
+    var kisteStat = $('[data-kiste-status]'), kisteZur = $('[data-kiste-zur]');
+    kisteAdd.addEventListener('click', function () {
+      var gewaehlt = $$('[data-kiste-wahl] [data-fach]').map(function (f) { return $('input:checked', f); });
+      if (!gewaehlt.length || gewaehlt.some(function (r) { return !r; })) return;
+      var kid = kisteAdd.getAttribute('data-kiste-id'), k = gewaehlt.map(function (r) { return r.value; });
+      var liste = lade().slice(), f = null;
+      liste.forEach(function (x) { if (x.i === kid && Array.isArray(x.k) && x.k.join(',') === k.join(',')) f = x; });
+      if (f) f.n = Math.min(99, (f.n || 1) + 1); else liste.push({ i: kid, k: k, n: 1 });
+      sichere(liste);
+      if (kisteStat) kisteStat.textContent = kisteStat.getAttribute('data-ok') + ': ' + kisteAdd.getAttribute('data-kiste-name') + ' (' + gewaehlt.map(function (r) { return r.getAttribute('data-name'); }).join(', ') + ')';
+      if (kisteZur) kisteZur.hidden = false;
+    });
+  }
+
   /* ---------- Anfrage-Seite ---------- */
   var root = $('[data-anfrage]');
   if (root) {
     var I = {}; try { I = JSON.parse($('#hb-i18n').textContent); } catch (e) { /* ignorieren */ }
     var KAT = window.HB_KAT || {};
     var ul = $('[data-liste]', root), leer = $('[data-leer]', root), form = $('[data-form]', root), summeEl = $('[data-summe]', root), summeWert = $('[data-summe-wert]', root), vorschau = $('[data-vorschau]', root);
+    /* Holzkiste: ein Eintrag mit Festpreis und Belegung (x.k); Name und Fachtexte je Sprache aus dem Katalog, unbekannte Sorten-Ids erscheinen als Id */
+    var kisteInfo = function (x, kiste) {
+      var L = (kiste.l || {})[I.lang] || (kiste.l || {}).de || {}, sorten = kiste.sorten || {};
+      var faecher = (Array.isArray(x.k) ? x.k : []).map(function (s, i) {
+        return { fach: (L.fach || [])[i] || String(i + 1), name: sorten[s] || String(s) };
+      });
+      return { name: L.n || KAT[x.i].n, meta: '', preis: kiste.preis, faecher: faecher, menge: kiste.menge };
+    };
     var info = function (x) {
-      var p = KAT[x.i] || { n: x.i, v: {} }, v = (p.v || {})[x.v] || { n: p.n, p: {} };
+      var p = KAT[x.i] || { n: x.i, v: {} };
+      if (p.kiste) return kisteInfo(x, p.kiste);
+      var v = (p.v || {})[x.v] || { n: p.n, p: {} };
       var name = p.n + (p.m ? ' (' + v.n + ')' : '');
       var preis = x.g && v.p ? v.p[x.g] : undefined;
-      return { name: name, meta: x.g || '', preis: preis };
+      return { name: name, meta: x.g || (Array.isArray(x.k) ? x.k.join(', ') : ''), preis: preis };
     };
     var label = function (x) { var d = info(x); return d.name + (d.meta ? ', ' + d.meta.replace(' ', NB) : ''); };
     var summe = function (a) { var s = 0, hat = false; a.forEach(function (x) { var p = info(x).preis; if (typeof p === 'number') { s += p * (x.n || 1); hat = true; } }); return hat ? s : null; };
@@ -325,12 +353,16 @@
       return r[1] && r[1].checked ? I.rueckruf : I.abholen;
     };
     // Eine Zeile je Position (gleicher Wortlaut für E-Mail-Vorschau und Direktversand)
+    // Bei der Holzkiste folgen darunter, eingerückt, die vier Fächer mit den Flaschen
     var produktZeilen = function () {
-      return lade().map(function (x) {
+      var z = [];
+      lade().forEach(function (x) {
         var d = info(x), n = x.n || 1;
-        if (typeof d.preis === 'number') return '- ' + n + ' x ' + label(x).split(NB).join(' ') + ': ' + d.preis + ' € ' + I.je + ' = ' + (d.preis * n) + ' €';
-        return '- ' + n + ' x ' + label(x).split(NB).join(' ') + ': ' + I.anfrage;
+        if (typeof d.preis === 'number') z.push('- ' + n + ' x ' + label(x).split(NB).join(' ') + ': ' + d.preis + ' € ' + I.je + ' = ' + (d.preis * n) + ' €');
+        else z.push('- ' + n + ' x ' + label(x).split(NB).join(' ') + ': ' + I.anfrage);
+        (d.faecher || []).forEach(function (f) { z.push('    ' + f.fach + ': ' + f.name + ', ' + d.menge); });
       });
+      return z;
     };
     var summeZeile = function () { var s = summe(lade()); return s === null ? '' : s + ' €'; };
     var mailText = function () {
@@ -367,10 +399,17 @@
         var h = '<div><div class="pos-name"></div><div class="pos-meta"></div></div><div class="pos-summe"></div><div class="pos-ctl"><label></label><input type="number" min="1" max="99" inputmode="numeric"><button type="button" class="linkknopf"></button></div>';
         li.innerHTML = h;
         $('.pos-name', li).textContent = d.name;
-        $('.pos-meta', li).textContent = (d.meta ? d.meta.replace(' ', NB) : '') + (typeof d.preis === 'number' ? ' · ' + euro(d.preis) + ' ' + (I.je || '') : (d.meta ? ' · ' : '') + (I.anfrage || ''));
+        var metaEl = $('.pos-meta', li);
+        if (d.faecher) {
+          /* Holzkiste: Festpreis, darunter eine Zeile je Fach mit dem Namen der Flasche */
+          metaEl.textContent = euro(d.preis) + ' ' + (I.je || '');
+          var fz = document.createElement('div'); fz.className = 'pos-faecher';
+          d.faecher.forEach(function (f) { var r = document.createElement('div'); r.textContent = f.fach + ': ' + f.name; fz.appendChild(r); });
+          metaEl.parentNode.appendChild(fz);
+        } else metaEl.textContent = (d.meta ? d.meta.replace(' ', NB) : '') + (typeof d.preis === 'number' ? ' · ' + euro(d.preis) + ' ' + (I.je || '') : (d.meta ? ' · ' : '') + (I.anfrage || ''));
         var lab = $('label', li), inp = $('input', li), btn = $('button', li), idn = 'm-' + i;
         lab.textContent = I.menge; lab.setAttribute('for', idn); inp.id = idn; inp.value = x.n || 1;
-        btn.textContent = I.entfernen; btn.setAttribute('aria-label', I.entfernen + ': ' + label(x));
+        btn.textContent = I.entfernen; btn.setAttribute('aria-label', I.entfernen + ': ' + label(x) + (d.faecher ? ' (' + d.faecher.map(function (f) { return f.name; }).join(', ') + ')' : ''));
         inp.addEventListener('input', function () {
           var v = parseInt(inp.value, 10); if (!(v >= 1)) return;
           var l = lade().slice(); l[i].n = Math.min(99, v); sichere(l); aktualisiere();

@@ -409,6 +409,54 @@ console.log('Hierberol getestet.');
   await page.locator('[data-fach="3"] label', { hasText: 'Sambuca' }).click();
   check((await belegung()) === 'sambuca,rum,sambuca,wodka' && (await zusammen()) === 'Sambuca, Rum, Sambuca, Wodka', `Holzkiste: dieselbe Sorte in zwei Fächern erlaubt (${await belegung()})`);
   check(await bildGeladen(page, 'img[data-fach-bild="3"]'), 'Holzkiste: Flaschenbild in Fach 3 geladen');
+  // Merkliste: Kiste als eine Position zum Festpreis, Belegung (Fach 1 bis 4) im Eintrag
+  await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.locator('[data-fach="3"] label', { hasText: 'Whisky' }).click();
+  await page.locator('[data-fach="1"] label', { hasText: 'Sambuca' }).click();
+  check(!(await page.locator('[data-kiste-zur]').isVisible()), 'Holzkiste: „Zur Merkliste“ vor dem Hinzufügen verborgen');
+  await page.locator('[data-kiste-add]').click();
+  const zaehler = async () => (await page.locator('[data-zaehler]').first().textContent()).trim();
+  const eintraege = () => page.evaluate(() => JSON.parse(localStorage.getItem('hb-merkliste') || '[]'));
+  check((await zaehler()) === '1' && await page.locator('[data-kiste-zur]').isVisible(), `Holzkiste: Auf die Merkliste, Zähler 1, „Zur Merkliste“ erscheint (${await zaehler()})`);
+  const status1 = (await page.locator('[data-kiste-status]').textContent()).replace(/\s/g, ' ');
+  check(status1 === 'Auf der Merkliste: Holzkiste 4 × 0,2 l (Sambuca, Rum, Whisky, Wodka)', `Holzkiste: Statuszeile (${status1})`);
+  let e1 = await eintraege();
+  check(e1.length === 1 && e1[0].i === 'holzkiste-4x0-2l' && e1[0].k.join(',') === 'sambuca,rum,whisky,wodka' && e1[0].n === 1, `Holzkiste: Eintrag mit Belegung (${JSON.stringify(e1)})`);
+  await page.locator('[data-kiste-add]').click();
+  e1 = await eintraege();
+  check((await zaehler()) === '2' && e1.length === 1 && e1[0].n === 2, `Holzkiste: gleiche Belegung erhöht die Menge (Zähler ${await zaehler()}, ${e1.length} Position)`);
+  await page.locator('[data-fach="2"] label', { hasText: 'Limoncello' }).click();
+  await page.locator('[data-kiste-add]').click();
+  e1 = await eintraege();
+  check((await zaehler()) === '3' && e1.length === 2 && e1[1].k.join(',') === 'sambuca,limoncello,whisky,wodka' && e1[1].n === 1, `Holzkiste: andere Belegung ist eine neue Position (${JSON.stringify(e1)})`);
+  // alte Einträge ohne Belegung und unbekannte Sorten-Ids dürfen die Anfrage-Seite nicht brechen
+  await page.evaluate(() => { const l = JSON.parse(localStorage.getItem('hb-merkliste')); l.push({ i: 'holzkiste-4x0-2l', n: 1 }, { i: 'holzkiste-4x0-2l', k: ['gibtsnicht', 'gin', 'gin', 'gin'], n: 1 }); localStorage.setItem('hb-merkliste', JSON.stringify(l)); });
+  konsole = [];
+  await page.goto(BASIS + '/anfrage/', { waitUntil: 'networkidle' });
+  check(konsole.length === 0 && (await page.locator('[data-liste] > li').count()) === 4 && /gibtsnicht/.test(await page.locator('[data-liste]').textContent()), `Holzkiste: Eintrag ohne Belegung und unbekannte Sorte brechen die Anfrage nicht (${konsole.join(' | ')})`);
+  await page.evaluate(() => { const l = JSON.parse(localStorage.getItem('hb-merkliste')); l.length = 2; localStorage.setItem('hb-merkliste', JSON.stringify(l)); });
+  await page.reload({ waitUntil: 'networkidle' });
+  // Anfrage-Seite: zwei Positionen, Summe 2 x 58 + 58 = 174 €, Fächer mit Flaschennamen
+  check((await page.locator('[data-liste] > li').count()) === 2, 'Holzkiste: Anfrage zeigt 2 Positionen');
+  check((await page.locator('[data-liste] > li .pos-name').first().textContent()) === 'Holzkiste 4 × 0,2 l', 'Holzkiste: Anfrage-Name „Holzkiste 4 × 0,2 l“');
+  const fachZeilen = (await page.locator('[data-liste] > li').first().locator('.pos-faecher > div').allTextContents()).map((z) => z.trim());
+  check(fachZeilen.join('|') === 'Fach 1 (hinten links): Hierber Sambuca|Fach 2 (hinten rechts): Hierber Rum|Fach 3 (vorne links): Hierber Whisky|Fach 4 (vorne rechts): Hierber Wodka', `Holzkiste: Anfrage zeigt vier Fächer mit Flaschennamen (${fachZeilen.join(' | ')})`);
+  check((await page.locator('[data-liste] > li .pos-summe').first().textContent()).replace(/\s/g, ' ') === '116 €', 'Holzkiste: Positionssumme 2 x 58 = 116 €');
+  check((await page.locator('[data-summe-wert]').textContent()).replace(/\s/g, ' ') === '174 €', `Holzkiste: Summe 174 € (${await page.locator('[data-summe-wert]').textContent()})`);
+  await page.fill('#f-name', 'Max Muster'); await page.fill('#f-mail', 'max@example.org');
+  let kisteText, kisteNachricht = '';
+  if (await page.locator('[data-vorschau]').count()) kisteText = kisteNachricht = await page.locator('[data-vorschau]').textContent();
+  else { const d = await direktSenden(page); kisteText = String(d.produkte || ''); kisteNachricht = String(d.nachricht || ''); }
+  const erwartet = '- 2 x Holzkiste 4 × 0,2 l: 58 € je Stück = 116 €\n    Fach 1 (hinten links): Hierber Sambuca, 0,2 L\n    Fach 2 (hinten rechts): Hierber Rum, 0,2 L\n    Fach 3 (vorne links): Hierber Whisky, 0,2 L\n    Fach 4 (vorne rechts): Hierber Wodka, 0,2 L\n- 1 x Holzkiste 4 × 0,2 l: 58 € je Stück = 58 €\n    Fach 1 (hinten links): Hierber Sambuca, 0,2 L\n    Fach 2 (hinten rechts): Hierber Limoncello, 0,2 L\n    Fach 3 (vorne links): Hierber Whisky, 0,2 L\n    Fach 4 (vorne rechts): Hierber Wodka, 0,2 L';
+  check(kisteText.includes(erwartet), `Holzkiste: Anfrage-Text mit „Holzkiste 4 × 0,2 l: 58 € je Stück“ und vier Fach-Zeilen (${kisteText.replace(/\s+/g, ' ').slice(0, 200)})`);
+  check(kisteNachricht.includes(erwartet) && kisteNachricht.includes('174 €'), 'Holzkiste: auch die Nachricht enthält Positionen und Summe 174 €');
+  // französische Anfrage-Seite: Fächer auf Französisch
+  await page.goto(BASIS + '/fr/anfrage/', { waitUntil: 'networkidle' });
+  const frFach = (await page.locator('[data-liste] > li').first().locator('.pos-faecher > div').first().textContent()).trim();
+  check(frFach === 'Compartiment 1 (arrière gauche): Hierber Sambuca' && (await page.locator('[data-liste] > li .pos-name').first().textContent()) === 'Caisse en bois 4 × 0,2 l', `Holzkiste FR: Anfrage-Seite zeigt Name und Fach auf Französisch (${frFach})`);
+  await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
+  await page.goto(BASIS + '/brand/holzkiste-4x0-2l/', { waitUntil: 'networkidle' });
   // Handybreite: kein horizontales Scrollen
   const breite = await page.evaluate(() => ({ s: document.documentElement.scrollWidth, c: document.documentElement.clientWidth }));
   check(breite.s <= breite.c, `Holzkiste: bei 390 px kein horizontales Scrollen (${breite.s} > ${breite.c})`);
