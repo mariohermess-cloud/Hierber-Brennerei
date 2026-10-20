@@ -318,22 +318,32 @@
     };
     var label = function (x) { var d = info(x); return d.name + (d.meta ? ', ' + d.meta.replace(' ', NB) : ''); };
     var summe = function (a) { var s = 0, hat = false; a.forEach(function (x) { var p = info(x).preis; if (typeof p === 'number') { s += p * (x.n || 1); hat = true; } }); return hat ? s : null; };
-    var mailText = function () {
-      var a = lade(), f = form.elements, L = [];
-      L.push(I.anrede, '');
-      L.push(I.name + ': ' + f.name.value); L.push(I.mail + ': ' + f.mail.value);
-      if (f.tel.value) L.push(I.tel + ': ' + f.tel.value);
-      var w = $$('input[name="wunsch"]', form).filter(function (r) { return r.checked; })[0];
-      L.push(I.wunsch + ': ' + (w && w.value === 'rueckruf' ? I.rueckruf : I.abholen));
-      L.push('', I.produkte + ':');
-      a.forEach(function (x) {
+    /* Felder über ihre IDs ansprechen: mit Formulardienst tragen die Eingaben dessen Feldnamen */
+    var nameEl = document.getElementById('f-name'), mailEl = document.getElementById('f-mail'), telEl = document.getElementById('f-tel');
+    var wunschText = function () {
+      var r = $$('.wunsch input[type="radio"]', form);
+      return r[1] && r[1].checked ? I.rueckruf : I.abholen;
+    };
+    // Eine Zeile je Position (gleicher Wortlaut für E-Mail-Vorschau und Direktversand)
+    var produktZeilen = function () {
+      return lade().map(function (x) {
         var d = info(x), n = x.n || 1;
-        if (typeof d.preis === 'number') L.push('- ' + n + ' x ' + label(x).split(NB).join(' ') + ': ' + d.preis + ' € ' + I.je + ' = ' + (d.preis * n) + ' €');
-        else L.push('- ' + n + ' x ' + label(x).split(NB).join(' ') + ': ' + I.anfrage);
+        if (typeof d.preis === 'number') return '- ' + n + ' x ' + label(x).split(NB).join(' ') + ': ' + d.preis + ' € ' + I.je + ' = ' + (d.preis * n) + ' €';
+        return '- ' + n + ' x ' + label(x).split(NB).join(' ') + ': ' + I.anfrage;
       });
-      var s = summe(a);
+    };
+    var summeZeile = function () { var s = summe(lade()); return s === null ? '' : s + ' €'; };
+    var mailText = function () {
+      var L = [];
+      L.push(I.anrede, '');
+      L.push(I.name + ': ' + nameEl.value); L.push(I.mail + ': ' + mailEl.value);
+      if (telEl.value) L.push(I.tel + ': ' + telEl.value);
+      L.push(I.wunsch + ': ' + wunschText());
+      L.push('', I.produkte + ':');
+      produktZeilen().forEach(function (z) { L.push(z); });
+      var s = summe(lade());
       if (s !== null) L.push('', I.summe + ': ' + s + ' €');
-      L.push('', I.gruss, f.name.value);
+      L.push('', I.gruss, nameEl.value);
       return L;
     };
     var mailto = function () {
@@ -347,7 +357,7 @@
         var d = info(a[i]), n = a[i].n || 1, e = $('.pos-summe', li);
         if (e) e.textContent = typeof d.preis === 'number' ? euro(d.preis * n) : '';
       });
-      vorschau.textContent = mailText().join('\n');
+      if (vorschau) vorschau.textContent = mailText().join('\n');
     };
     var render = function () {
       var a = lade(); ul.innerHTML = '';
@@ -375,14 +385,49 @@
     };
     form.addEventListener('input', aktualisiere);
     form.addEventListener('change', aktualisiere);
+    /* Direktversand über den Formulardienst (nur wenn die Seite mit gesetzter Formular-Adresse gebaut wurde) */
+    var direkt = I.direkt || null;
+    /* Versteckte Felder füllen: Nachricht (Text wie die E-Mail-Vorschau), Positionen und Summe */
+    var fuelleVersteckte = function () {
+      var F = direkt.felder, f = form.elements;
+      if (f[F.nachricht]) f[F.nachricht].value = mailText().join('\n');
+      if (f[F.produkte]) f[F.produkte].value = produktZeilen().join('\n');
+      if (f[F.summe]) f[F.summe].value = summeZeile();
+    };
+    var sendeFetch = function () {
+      var knopf = $('button[type="submit"]', form), knopfText = knopf.textContent;
+      var erfolg = $('[data-erfolg]', root), fehlerBox = $('[data-sendefehler]', root), rueck = $('[data-mailto-rueckfall]', root);
+      var fd = new FormData(form); /* enthält auch Felder, die ein Spamschutz-Skript ergänzt hat */
+      fd.delete(direkt.felder.falle);
+      fehlerBox.hidden = true;
+      knopf.disabled = true; knopf.setAttribute('aria-busy', 'true'); if (direkt.sendet) knopf.textContent = direkt.sendet;
+      var zurueck = function () { knopf.disabled = false; knopf.removeAttribute('aria-busy'); knopf.textContent = knopfText; };
+      var misslungen = function () {
+        zurueck();
+        var href = mailto(); rueck.href = href; form.setAttribute('data-mailto', href);
+        fehlerBox.hidden = false; fehlerBox.focus();
+      };
+      if (!window.fetch) { misslungen(); return; }
+      window.fetch(form.getAttribute('action'), { method: 'POST', body: fd, headers: { Accept: 'application/json' } }).then(function (r) {
+        if (!r.ok) throw new Error('Status ' + r.status);
+        zurueck(); form.hidden = true; erfolg.hidden = false; erfolg.focus();
+      }).catch(misslungen);
+    };
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
+      var falle = direkt && form.elements[direkt.felder.falle];
+      if (falle && falle.value !== '') { e.preventDefault(); return; } /* Honigtopf befüllt: nichts senden */
       var ok = true;
-      [['name', 'e-name'], ['mail', 'e-mail']].forEach(function (p) {
-        var f = form.elements[p[0]], fehler = document.getElementById(p[1]), gut = f.value.trim() !== '' && f.checkValidity();
+      [['f-name', 'e-name'], ['f-mail', 'e-mail']].forEach(function (p) {
+        var f = document.getElementById(p[0]), fehler = document.getElementById(p[1]), gut = f.value.trim() !== '' && f.checkValidity();
         fehler.hidden = gut; f.setAttribute('aria-invalid', gut ? 'false' : 'true'); if (!gut && ok) { f.focus(); ok = false; }
       });
-      if (!ok) return;
+      if (!ok) { e.preventDefault(); return; }
+      if (direkt) {
+        fuelleVersteckte();
+        if (direkt.versand === 'fetch') { e.preventDefault(); sendeFetch(); }
+        return; /* klassisch: der Browser sendet das Formular selbst */
+      }
+      e.preventDefault();
       var href = mailto(); form.setAttribute('data-mailto', href);
       window.location.href = href;
     });

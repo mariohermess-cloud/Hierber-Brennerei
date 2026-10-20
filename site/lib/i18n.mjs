@@ -59,6 +59,12 @@ export const STR = {
     summe: 'Summe der Produkte mit Preis', feldName: 'Name', feldMail: 'E-Mail', feldTel: 'Telefon', wunsch: 'Ihr Wunsch',
     wunschAbholen: 'Abholen vor Ort', wunschRueckruf: 'Bitte um Rückruf', senden: 'Anfrage per E-Mail vorbereiten',
     sendenHinweis: 'Ihr E-Mail-Programm öffnet sich mit einem vorformulierten Text. Sie können ihn vor dem Senden ändern.',
+    // Direktversand über den Formulardienst (nur aktiv, wenn FORMULAR_DIENST.aktion in rest.mjs gesetzt ist)
+    sendenDirekt: 'Anfrage senden',
+    sendenDirektHinweis: (href) => `Mit dem Absenden werden Ihre Angaben über den Formulardienst nForms an uns übermittelt. Mehr in der <a href="${href}">Datenschutzerklärung</a>.`,
+    sendenLaeuft: 'Wird gesendet …',
+    sendenDanke: 'Vielen Dank! Ihre Anfrage ist bei uns eingegangen. Wir melden uns so bald wie möglich.',
+    sendenFehler: 'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.',
     adresseText: 'Oder schreiben Sie direkt an', vorschau: 'Vorschau des Textes', pflicht: 'Pflichtfeld',
     mailBetreff: 'Anfrage über hierber-brennerei.lu', mailAnrede: 'Guten Tag, ich möchte gern folgende Produkte anfragen:', mailProdukte: 'Gewünschte Produkte',
     mailEinzel: 'je Stück', mailSumme: 'Summe (nur Produkte mit Preis)', mailPreisAnfrage: 'Preis auf Anfrage', mailGruss: 'Mit freundlichen Grüßen',
@@ -125,6 +131,8 @@ export const STR = {
     summe: 'Total des produits avec prix', feldName: 'Nom', feldMail: 'E-mail', feldTel: 'Téléphone', wunsch: 'Votre souhait',
     wunschAbholen: 'Retrait sur place', wunschRueckruf: 'Merci de me rappeler', senden: 'Préparer la demande par e-mail',
     sendenHinweis: 'Votre messagerie s’ouvre avec un texte prérédigé. Vous pouvez le modifier avant l’envoi.',
+    // Direktversand: nur Knopfbeschriftung bestätigt; Hinweis und Statustexte unbestätigt (leer = Platzhalter "Textes à venir", data-todo="uebersetzung")
+    sendenDirekt: 'Envoyer la demande', sendenDirektHinweis: null, sendenLaeuft: '', sendenDanke: '', sendenFehler: '',
     adresseText: 'Ou écrivez directement à', vorschau: 'Aperçu du texte', pflicht: 'Champ obligatoire',
     mailBetreff: 'Demande via hierber-brennerei.lu', mailAnrede: 'Bonjour, je souhaite demander les produits suivants :', mailProdukte: 'Produits souhaités',
     mailEinzel: 'par pièce', mailSumme: 'Total (produits avec prix uniquement)', mailPreisAnfrage: 'Prix sur demande', mailGruss: 'Cordialement',

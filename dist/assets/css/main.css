@@ -456,6 +456,11 @@ input[type=text],input[type=email],input[type=tel],input[type=number]{width:100%
 .vorschau{margin-top:1rem}
 .vorschau pre{white-space:pre-wrap;word-break:break-word;font:400 .9rem/1.5 var(--sans);background:rgba(43,33,26,.06);padding:1rem;margin:.6rem 0 0}
 .direkt{margin-top:2.4rem}
+.hp-feld{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.anfrage-status{margin:1.2rem 0 0;padding:1rem 1.2rem;border:1px solid var(--kupfer-dunkel);background:rgba(43,33,26,.06)}
+.anfrage-status p{margin:0 0 .8rem}
+.anfrage-status p:last-child{margin-bottom:0}
+.anfrage-status-fehler{border-color:#8a2a16}
 .leer .knopf{margin-top:.4rem}
 
 /* Pflichtseiten */
