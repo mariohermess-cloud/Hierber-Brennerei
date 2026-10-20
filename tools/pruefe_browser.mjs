@@ -17,6 +17,23 @@ page.on('console', (m) => { if (['error', 'warning'].includes(m.type())) konsole
 page.on('pageerror', (e) => konsole.push('pageerror: ' + e.message));
 page.on('requestfailed', (r) => konsole.push('requestfailed: ' + r.url()));
 page.on('response', (r) => { if (r.status() >= 400) konsole.push(`HTTP ${r.status()}: ${r.url()}`); });
+// Direktversand über den Formulardienst: Anfrage an das Formular-Ziel abfangen, mit 200 beantworten (kein echter Versand) und den JSON-Body zurückgeben
+const direktSenden = async (pg) => {
+  const ziel = await pg.locator('[data-form]').getAttribute('action');
+  let anfrage = null;
+  await pg.route(ziel, async (r) => {
+    anfrage = { methode: r.request().method(), typ: r.request().headers()['content-type'] || '', body: r.request().postData() || '' };
+    await r.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' });
+  });
+  // auf das Ende der Anfrage warten, sonst bricht die nächste Navigation sie ab (requestfailed in der folgenden Konsolenprüfung)
+  const fertig = pg.waitForEvent('requestfinished', { predicate: (r) => r.url() === ziel, timeout: 5000 }).catch(() => null);
+  await pg.locator('[data-form] button[type=submit]').click();
+  await fertig;
+  await pg.locator('[data-erfolg]').waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+  await pg.unroute(ziel);
+  check(anfrage && anfrage.methode === 'POST' && /application\/json/.test(anfrage.typ), `Direktversand: POST mit JSON an ${ziel}`);
+  try { return anfrage ? JSON.parse(anfrage.body) : {}; } catch (e) { return {}; }
+};
 
 // 1. Konsole auf allen Seiten
 const pfade = ['/', '/anfrage/', '/impressum/', '/datenschutz/', ...PRODUKTE.map((p) => `/brand/${p.id}/`), '/brand/holzkiste-4x0-2l/'];
@@ -63,20 +80,35 @@ await page.goto(BASIS + '/anfrage/');
 check((await page.locator('[data-liste] li').count()) === 2, 'Anfrage zeigt 2 Zeilen');
 check((await page.locator('[data-summe-wert]').textContent()).trim() === '32 €', 'Summe 32 € (2 x 16 €)');
 await page.fill('#f-name', 'Max Muster'); await page.fill('#f-mail', 'max@example.org'); await page.fill('#f-tel', '123456');
-const vorschau = await page.locator('[data-vorschau]').textContent();
-console.log('--- Vorschau Anfrage-Text ---\n' + vorschau + '\n-----------------------------');
-check(vorschau.includes('2 x Quetsch (op Quetschen nogeräift), 0,5 L: 16 € je Stück = 32 €') && vorschau.includes('1 x Hondsaarsch: Preis auf Anfrage'), 'Text enthält Zeilen mit/ohne Preis');
+// Zwei Wege: ohne Formulardienst Text-Vorschau + mailto; mit Formulardienst (FORMULAR_DIENST.aktion in site/lib/rest.mjs) Direktversand,
+// dessen Anfrage hier abgefangen und beantwortet wird (kein echter Versand)
+const direktModus = (await page.locator('[data-vorschau]').count()) === 0;
+if (!direktModus) {
+  const vorschau = await page.locator('[data-vorschau]').textContent();
+  console.log('--- Vorschau Anfrage-Text ---\n' + vorschau + '\n-----------------------------');
+  check(vorschau.includes('2 x Quetsch (op Quetschen nogeräift), 0,5 L: 16 € je Stück = 32 €') && vorschau.includes('1 x Hondsaarsch: Preis auf Anfrage'), 'Text enthält Zeilen mit/ohne Preis');
+}
 await page.locator('[data-liste] input').first().fill('3');
 check((await page.locator('[data-summe-wert]').textContent()).trim() === '48 €', 'Menge 3 ergibt 48 €');
-await page.evaluate(() => { document.querySelector('[data-form]').addEventListener('submit', (e) => { e.stopImmediatePropagation; }, true); });
-await page.evaluate(() => { window.__href = null; });
-// mailto-Navigation abfangen: Attribut data-mailto wird vor der Navigation gesetzt
-await page.route('mailto:*', (r) => r.abort()).catch(() => {});
-await page.locator('[data-form] button[type=submit]').click().catch(() => {});
-await page.waitForTimeout(300);
-const href = await page.locator('[data-form]').getAttribute('data-mailto');
-check(href && href.startsWith('mailto:info@hierber-brennerei.lu?subject=') && href.includes('%0D%0A') && !/[\r\n ]/.test(href), 'mailto-Link kodiert, mit %0D%0A');
-console.log('mailto:', decodeURIComponent((href || '').split('body=')[1] || '').split('\r\n').join(' / '));
+if (!direktModus) {
+  await page.evaluate(() => { document.querySelector('[data-form]').addEventListener('submit', (e) => { e.stopImmediatePropagation; }, true); });
+  await page.evaluate(() => { window.__href = null; });
+  // mailto-Navigation abfangen: Attribut data-mailto wird vor der Navigation gesetzt
+  await page.route('mailto:*', (r) => r.abort()).catch(() => {});
+  await page.locator('[data-form] button[type=submit]').click().catch(() => {});
+  await page.waitForTimeout(300);
+  const href = await page.locator('[data-form]').getAttribute('data-mailto');
+  check(href && href.startsWith('mailto:info@hierber-brennerei.lu?subject=') && href.includes('%0D%0A') && !/[\r\n ]/.test(href), 'mailto-Link kodiert, mit %0D%0A');
+  console.log('mailto:', decodeURIComponent((href || '').split('body=')[1] || '').split('\r\n').join(' / '));
+} else {
+  const d = await direktSenden(page);
+  console.log('--- Direktversand (abgefangen) ---\n' + JSON.stringify(d, null, 2));
+  check(d.name === 'Max Muster' && d.email === 'max@example.org' && typeof d.wunsch === 'string' && d.wunsch !== '', 'Direktversand: Name, E-Mail, Wunsch');
+  check(String(d.produkte).includes('3 x Quetsch (op Quetschen nogeräift), 0,5 L: 16 € je Stück = 48 €') && String(d.produkte).includes('1 x Hondsaarsch: Preis auf Anfrage'), 'Direktversand: Zeilen mit/ohne Preis');
+  check(d.summe === '48 €', `Direktversand: Summe 48 € (${d.summe})`);
+  check(!('website' in d), 'Direktversand: Honigtopf nicht gesendet');
+  check(await page.locator('[data-erfolg]').isVisible(), 'Direktversand: Bestätigung sichtbar');
+}
 await page.getByRole('button', { name: /Entfernen: Hondsaarsch/ }).click();
 check((await page.locator('[data-liste] li').count()) === 1 && (await page.locator('[data-zaehler]').first().textContent()) === '3', 'Entfernen: 1 Zeile, Zähler 3 (3 x Quetsch)');
 await page.getByRole('button', { name: /Entfernen/ }).click();
@@ -347,7 +379,7 @@ check((await page.locator('[data-zaehler]').first().textContent()) === '1' && aw
 await page.goto(BASIS + '/anfrage/');
 check((await page.locator('[data-liste] li').count()) === 1, 'hierberol: Anfrage zeigt 1 Zeile');
 await page.fill('#f-name', 'Max Muster'); await page.fill('#f-mail', 'max@example.org'); await page.fill('#f-tel', '123456');
-const vorschauH = await page.locator('[data-vorschau]').textContent();
+const vorschauH = (await page.locator('[data-vorschau]').count()) ? await page.locator('[data-vorschau]').textContent() : String((await direktSenden(page)).produkte || '');
 check(vorschauH.includes('1 x Hierberol, 0,7 L: 19 € je Stück = 19 €'), `hierberol: Anfrage-Text „1 x Hierberol, 0,7 L: 19 € je Stück = 19 €“ (${vorschauH.replace(/\s+/g, ' ').slice(0, 160)})`);
 await page.evaluate(() => localStorage.removeItem('hb-merkliste'));
 console.log('Hierberol getestet.');

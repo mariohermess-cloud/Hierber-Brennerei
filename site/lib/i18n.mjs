@@ -61,6 +61,7 @@ export const STR = {
     sendenHinweis: 'Ihr E-Mail-Programm öffnet sich mit einem vorformulierten Text. Sie können ihn vor dem Senden ändern.',
     // Direktversand über den Formulardienst (nur aktiv, wenn FORMULAR_DIENST.aktion in rest.mjs gesetzt ist)
     sendenDirekt: 'Anfrage senden',
+    anfrageTextDirekt: 'Stellen Sie Ihre Merkliste zusammen und senden Sie uns Ihre Anfrage. Wir melden uns bei Ihnen.',
     sendenDirektHinweis: (href) => `Mit dem Absenden werden Ihre Angaben über den Formulardienst nForms an uns übermittelt. Mehr in der <a href="${href}">Datenschutzerklärung</a>.`,
     sendenLaeuft: 'Wird gesendet …',
     sendenDanke: 'Vielen Dank! Ihre Anfrage ist bei uns eingegangen. Wir melden uns so bald wie möglich.',
@@ -132,7 +133,7 @@ export const STR = {
     wunschAbholen: 'Retrait sur place', wunschRueckruf: 'Merci de me rappeler', senden: 'Préparer la demande par e-mail',
     sendenHinweis: 'Votre messagerie s’ouvre avec un texte prérédigé. Vous pouvez le modifier avant l’envoi.',
     // Direktversand: nur Knopfbeschriftung bestätigt; Hinweis und Statustexte unbestätigt (leer = Platzhalter "Textes à venir", data-todo="uebersetzung")
-    sendenDirekt: 'Envoyer la demande', sendenDirektHinweis: null, sendenLaeuft: '', sendenDanke: '', sendenFehler: '',
+    sendenDirekt: 'Envoyer la demande', anfrageTextDirekt: null, sendenDirektHinweis: null, sendenLaeuft: '', sendenDanke: '', sendenFehler: '',
     adresseText: 'Ou écrivez directement à', vorschau: 'Aperçu du texte', pflicht: 'Champ obligatoire',
     mailBetreff: 'Demande via hierber-brennerei.lu', mailAnrede: 'Bonjour, je souhaite demander les produits suivants :', mailProdukte: 'Produits souhaités',
     mailEinzel: 'par pièce', mailSumme: 'Total (produits avec prix uniquement)', mailPreisAnfrage: 'Prix sur demande', mailGruss: 'Cordialement',

@@ -6,32 +6,44 @@ import { seite, folgt, TELEFON } from './layout.mjs';
 
 // Formulardienst nForms.eu (Direktversand der Anfrage an info@hierber-brennerei.lu).
 // aktion: Formular-Adresse (Ziel-URL des Formulars) aus dem nForms-Konto.
-// skript: URL des Spamschutz-Skripts („Shield“) aus dem nForms-Konto; wird nur auf /anfrage/ und nur mit gesetzter aktion eingebunden.
+// skript: URL eines Spamschutz-Skripts („Shield“) aus dem nForms-Konto; wird nur auf /anfrage/ und nur mit gesetzter aktion eingebunden.
+//   Aktuell leer: der nForms-Einbaucode enthält kein Spamschutz-Skript, der Schutz läuft über das Honigtopf-Feld (falle).
 //   Bewusst nur dieses eine Skript: kein Statistik- oder Analyse-Skript von nForms, denn die Datenschutzerklärung sagt „kein Tracking“.
-// Beide Werte leer lassen = bisheriges Verhalten (Anfrage per E-Mail-Programm, Datenschutzerklärung unverändert, Seite byte-gleich).
-// versand: 'klassisch' (Standard, entspricht der nForms-Anleitung): site.js prüft die Pflichtfelder, füllt die versteckten Felder
-//   (nachricht, produkte, summe) und lässt den Browser das Formular normal per POST absenden; ein Skript (Shield) darf das Absenden übernehmen.
-//   'fetch': site.js sendet selbst per fetch (FormData, Accept: application/json), zeigt Bestätigung bzw. Fehlermeldung mit E-Mail-Rückfall.
-// felder: Feldnamen, wie nForms sie erwartet (nicht verifiziert, bei Bedarf nach dem nForms-Konto anpassen).
-//   falle = Honigtopf-Feld gegen Spam-Bots; bei Befüllung wird nichts gesendet.
+//   Ist skript gesetzt, erscheinen in datenschutz() zusätzlich die Spamschutz-Sätze.
+// aktion leer lassen = bisheriges Verhalten (Anfrage per E-Mail-Programm, Datenschutzerklärung unverändert, Seite byte-gleich).
+// versand: 'json' (Standard, entspricht dem nForms-Einbaucode): site.js sendet selbst per fetch einen JSON-Body
+//     (Content-Type und Accept: application/json), zeigt Bestätigung bzw. Fehlermeldung mit E-Mail-Rückfall.
+//   'fetch': wie 'json', aber als FormData (Accept: application/json); die versteckten Felder werden im Formular befüllt.
+//   'klassisch': site.js prüft die Pflichtfelder, füllt die versteckten Felder (nachricht, produkte, summe) und lässt den Browser
+//     das Formular normal per POST absenden; ein Skript (Shield) darf das Absenden übernehmen.
+// felder: Feldnamen, wie nForms sie erwartet. name, email, wunsch, produkte, summe stammen aus dem nForms-Einbaucode (summe als Text mit „ €“).
+//   telefon und nachricht (vollständiger E-Mail-Text) stehen NICHT im nForms-Beispiel; ob nForms zusätzliche Felder annimmt, ist nicht verifiziert.
+//   falle = Honigtopf-Feld gegen Spam-Bots; bei Befüllung wird nichts gesendet und das Feld nie mitgesendet.
+// zusatzfelder: true = telefon (nur wenn ausgefüllt) und nachricht mitsenden (nur bei versand 'json').
+//   Liefert die Testanfrage einen 4xx-Fehler, auf false setzen, ohne Codeänderung; dann entfallen diese beiden Felder.
+// avvAbgeschlossen: false, bis der Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO mit nForms bestätigt vorliegt.
+//   Erst bei true nennt die Datenschutzerklärung den Vertrag (sonst stünde eine unbestätigte Tatsache auf der Seite).
 // Ist aktion gesetzt, erscheint in datenschutz() ein Entwurfsabsatz (data-todo="bestaetigen"). Offen vor Livegang, alles nicht verifiziert:
-//   - Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO: vom Betrieb noch anzufordern (hello@nforms.eu), vor Livegang bestätigen.
+//   - Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO: vom Betrieb noch anzufordern (hello@nforms.eu), vor Livegang bestätigen, dann avvAbgeschlossen auf true.
 //   - Resend (Unterauftragsverarbeiter für den E-Mail-Versand): Sitz und Drittlandübermittlung nicht verifiziert;
 //     ggf. Hinweis auf Drittland und Garantien (z. B. Standardvertragsklauseln) ergänzen.
-//   - Angaben zu nForms (Name, Anschrift) stammen vom Betrieb laut Mitteilung von nForms; Serverstandort und Cookie-Verhalten des Skripts nicht geprüft, daher nicht genannt.
+//   - Angaben zu nForms (Name, Anschrift) stammen vom Betrieb laut Mitteilung von nForms; Serverstandort nicht geprüft, daher nicht genannt.
 export const FORMULAR_DIENST = {
-  aktion: '',
+  aktion: 'https://api.nforms.eu/f/nf_y0u3pztm9o4x05lh8spdoimw725errly',
   skript: '',
-  versand: 'klassisch',
+  versand: 'json',
+  zusatzfelder: true,
+  avvAbgeschlossen: false,
   felder: { name: 'name', email: 'email', telefon: 'telefon', wunsch: 'wunsch', nachricht: 'nachricht', produkte: 'produkte', summe: 'summe', betreff: '_betreff', falle: 'website' },
 };
 const direktSenden = () => FORMULAR_DIENST.aktion.trim() !== '';
-const versandArt = () => (FORMULAR_DIENST.versand === 'fetch' ? 'fetch' : 'klassisch');
+const versandArt = () => (['json', 'fetch'].includes(FORMULAR_DIENST.versand) ? FORMULAR_DIENST.versand : 'klassisch');
 
 export function anfrageSeite(lang) {
   const t = STR[lang];
   const direkt = direktSenden();
-  const fetchen = direkt && versandArt() === 'fetch';
+  const json = direkt && versandArt() === 'json';
+  const fetchen = direkt && versandArt() !== 'klassisch'; /* 'json' und 'fetch': Versand per fetch mit Statusboxen */
   const F = FORMULAR_DIENST.felder;
   const i18n = {
     lang, betreff: t.mailBetreff, anrede: t.mailAnrede, produkte: t.mailProdukte, je: t.mailEinzel, summe: t.mailSumme, anfrage: t.mailPreisAnfrage, gruss: t.mailGruss,
@@ -39,29 +51,30 @@ export function anfrageSeite(lang) {
     entfernen: t.entfernen, menge: t.spMenge, einzel: t.spEinzel, sumTab: t.spSumme, pflicht: t.pflicht, eintraege: [t.merklisteEintraege(0)], merkliste: t.merkliste,
   };
   // Nur bei gesetztem Formulardienst: Feldnamen und Versandart für site.js
-  if (direkt) i18n.direkt = { felder: F, versand: versandArt(), sendet: t.sendenLaeuft };
+  if (direkt) i18n.direkt = { felder: F, versand: versandArt(), zusatzfelder: FORMULAR_DIENST.zusatzfelder !== false, sendet: t.sendenLaeuft };
   // Feldnamen und Wunsch-Werte: mit Formulardienst die Namen von nForms (der Browser sendet sie direkt), sonst unverändert
   const nm = (alt, neu) => (direkt ? esc(neu) : alt);
   const wunschWert = (alt, text) => (direkt ? esc(text) : alt);
   const formAttr = direkt ? `action="${esc(FORMULAR_DIENST.aktion.trim())}" method="post"` : 'action="#"';
   const formId = direkt ? ' id="bestellformular"' : '';
-  // Honigtopf und versteckte Felder (werden im submit-Ereignis befüllt, siehe site.js)
-  const falle = direkt ? `\n        <div class="hp-feld" aria-hidden="true"><input type="text" name="${esc(F.falle)}" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
+  // Honigtopf und versteckte Felder (werden im submit-Ereignis befüllt, siehe site.js); bei 'json' baut site.js den Body selbst, es bleibt nur der Honigtopf
+  const versteckt = json ? '' : `
         <input type="hidden" name="${esc(F.betreff)}" value="${esc(t.mailBetreff)}">
         <input type="hidden" name="${esc(F.nachricht)}">
         <input type="hidden" id="produkte" name="${esc(F.produkte)}">
-        <input type="hidden" id="summe" name="${esc(F.summe)}">` : '';
+        <input type="hidden" id="summe" name="${esc(F.summe)}">`;
+  const falle = direkt ? `\n        <div class="hp-feld" aria-hidden="true"><input type="text" name="${esc(F.falle)}" tabindex="-1" autocomplete="off" aria-hidden="true"></div>${versteckt}` : '';
   const vorschauHtml = direkt ? '' : `\n        <details class="vorschau"><summary>${t.vorschau}</summary><pre data-vorschau></pre></details>`;
   const sendeHinweis = !direkt ? `<p class="hinweis-klein">${t.sendenHinweis}</p>`
     : t.sendenDirektHinweis ? `<p class="hinweis-klein">${t.sendenDirektHinweis(pfad(lang, '/datenschutz/'))}</p>` : folgt(t, 'hinweis-klein');
-  // Statusboxen nur beim fetch-Versand (Fehler mit E-Mail-Rückfall, Erfolg); Französisch bis zur Bestätigung mit Platzhalter
+  // Statusboxen nur beim fetch-/json-Versand (Fehler mit E-Mail-Rückfall, Erfolg); Französisch bis zur Bestätigung mit Platzhalter
   const text = (s) => (s ? `<p>${s}</p>` : folgt(t));
   const fehlerBox = fetchen ? `\n        <div class="anfrage-status anfrage-status-fehler" role="alert" tabindex="-1" data-sendefehler hidden>${text(t.sendenFehler)}<p><a class="knopf" href="mailto:${KONTAKT.mail}" data-mailto-rueckfall>${t.senden}</a></p></div>` : '';
   const erfolgBox = fetchen ? `\n      <div class="anfrage-status" role="status" tabindex="-1" data-erfolg hidden>${text(t.sendenDanke)}</div>` : '';
   const inhalt = `<section class="sektion papier anfrage" aria-labelledby="h1">
   <div class="wrap schmal">
     <h1 id="h1">${t.anfrageTitel}</h1>
-    <p class="lead-klein">${t.anfrageText}</p>
+    <p class="lead-klein">${direkt && t.anfrageTextDirekt ? t.anfrageTextDirekt : t.anfrageText}</p>
     <div data-anfrage>
       <div class="leer" data-leer hidden><p>${t.leer}</p><p><a class="knopf" href="${pfad(lang, '/')}#theke">${t.zuDenBraenden}</a></p></div>
       <ul class="liste" role="list" data-liste hidden></ul>
@@ -115,18 +128,22 @@ export function datenschutz(lang) {
   const direkt = direktSenden();
   // Entwurf (data-todo="bestaetigen"), nur mit aktivem Formulardienst. Offene Punkte (nicht verifiziert) stehen bei FORMULAR_DIENST:
   // Vertrag nach Art. 28 DSGVO noch anzufordern, Sitz/Drittlandübermittlung von Resend ungeklärt.
+  // Art.-28-Satz nur mit bestätigtem Vertrag (avvAbgeschlossen), Spamschutz-Satz nur mit gesetztem Skript
+  const avv = FORMULAR_DIENST.avvAbgeschlossen === true ? ' Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.' : '';
+  const skriptGesetzt = direkt && FORMULAR_DIENST.skript.trim() !== '';
+  const spam = skriptGesetzt ? ' Zum Schutz vor Spam lädt die Seite ‚Anfrage‘ ein Skript des Anbieters.' : '';
   const formularAbsatz = direkt ? `
     <h2>Anfrageformular</h2>
-    <p data-todo="bestaetigen">Wenn Sie uns über das Formular auf der Seite ‚Anfrage‘ schreiben, übermitteln wir Ihre Angaben (Name, E-Mail-Adresse, freiwillig Telefonnummer, gewählte Sorten und Mengen sowie Ihren Wunsch nach Abholung oder Rückruf) an den Formulardienst nForms (Noah Kellner, Billerstraße 6, 86154 Augsburg, Deutschland), der sie in unserem Auftrag verarbeitet und per E-Mail an ${KONTAKT.mail} weiterleitet. Für den Versand der E-Mail setzt nForms den Dienst Resend ein. Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Zum Schutz vor Spam lädt die Seite ‚Anfrage‘ ein Skript des Anbieters. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung Ihrer Anfrage). Wir nutzen Ihre Angaben nur zur Beantwortung der Anfrage und löschen sie, sobald sie dafür nicht mehr nötig sind und keine gesetzliche Aufbewahrungspflicht besteht. Sie können uns auch direkt per E-Mail an ${KONTAKT.mail} schreiben.</p>` : '';
+    <p data-todo="bestaetigen">Wenn Sie uns über das Formular auf der Seite ‚Anfrage‘ schreiben, übermitteln wir Ihre Angaben (Name, E-Mail-Adresse, freiwillig Telefonnummer, gewählte Sorten und Mengen sowie Ihren Wunsch nach Abholung oder Rückruf) an den Formulardienst nForms (Noah Kellner, Billerstraße 6, 86154 Augsburg, Deutschland), der sie in unserem Auftrag verarbeitet und per E-Mail an ${KONTAKT.mail} weiterleitet. Für den Versand der E-Mail setzt nForms den Dienst Resend ein.${avv}${spam} Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung Ihrer Anfrage). Wir nutzen Ihre Angaben nur zur Beantwortung der Anfrage und löschen sie, sobald sie dafür nicht mehr nötig sind und keine gesetzliche Aufbewahrungspflicht besteht. Sie können uns auch direkt per E-Mail an ${KONTAKT.mail} schreiben.</p>` : '';
   const body = lang === 'de' ? `<div data-todo="bestaetigen">
     <h2>Überblick</h2>
-    <p>Diese Website ist eine statische Seite. Wir setzen keine Cookies und kein Tracking ein, binden keine Analyse- oder Werbedienste ein und laden keine Schriften oder Skripte von fremden Servern${direkt ? ', mit Ausnahme des Spamschutzes auf der Seite ‚Anfrage‘' : ''}.</p>
+    <p>Diese Website ist eine statische Seite. Wir setzen keine Cookies und kein Tracking ein, binden keine Analyse- oder Werbedienste ein und laden keine Schriften oder Skripte von fremden Servern${skriptGesetzt ? ', mit Ausnahme des Spamschutzes auf der Seite ‚Anfrage‘' : ''}.</p>
     <h2>Verantwortlicher</h2>
     <p>${esc(KONTAKT.firma)}, 2, Millewee, L-6665 Herborn, Luxemburg, <a href="mailto:${KONTAKT.mail}">${KONTAKT.mail}</a>.</p>
     <h2>Lokaler Speicher im Browser</h2>
     <p>Ihre Merkliste und die Bestätigung des Altershinweises speichert Ihr Browser lokal auf Ihrem Gerät (localStorage). Diese Daten werden nicht an uns oder Dritte übertragen. Sie können sie jederzeit in den Browsereinstellungen löschen.</p>
     <h2>Anfrage per E-Mail</h2>
-    <p>Die Schaltfläche „Anfrage per E-Mail vorbereiten“ öffnet Ihr E-Mail-Programm mit einem vorformulierten Text. Die Anfrage wird erst gesendet, wenn Sie sie selbst absenden. Wir verwenden Ihre Angaben nur, um Ihre Anfrage zu beantworten.</p>${formularAbsatz}
+    ${direkt ? '<p data-todo="bestaetigen">Schlägt das Senden über das Formular fehl, bietet die Seite an, Ihr E-Mail-Programm mit einem vorformulierten Text zu öffnen. Die Anfrage wird dann erst gesendet, wenn Sie sie selbst absenden. Wir verwenden Ihre Angaben nur, um Ihre Anfrage zu beantworten.</p>' : '<p>Die Schaltfläche „Anfrage per E-Mail vorbereiten“ öffnet Ihr E-Mail-Programm mit einem vorformulierten Text. Die Anfrage wird erst gesendet, wenn Sie sie selbst absenden. Wir verwenden Ihre Angaben nur, um Ihre Anfrage zu beantworten.</p>'}${formularAbsatz}
     <h2>Server-Protokolle</h2>
     <p>Beim Aufruf der Seite verarbeitet der Hosting-Anbieter technisch notwendige Verbindungsdaten (zum Beispiel IP-Adresse und Zeitpunkt). <span class="platzhalter-inline">[Hosting-Anbieter und Speicherdauer folgen]</span></p>
     <h2>Externe Links</h2>
