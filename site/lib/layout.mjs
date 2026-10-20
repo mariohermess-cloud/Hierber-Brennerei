@@ -4,6 +4,8 @@ import { STR } from './i18n.mjs';
 import { KONTAKT } from '../data/produkte.js';
 
 export const TELEFON = '727602'; // laut Etikett/Preisliste; Vorwahl/Schreibweise ungeklärt (TODO-INHALTE.md)
+// Pfad der Holzkisten-Seite. Hier als Konstante, weil holzkiste.mjs layout.mjs importiert (KISTE_ID von dort wäre ein Importzyklus); muss zu KISTE_ID in holzkiste.mjs passen.
+const KISTE_PFAD = '/brand/holzkiste-4x0-2l/';
 export const OSM = 'https://www.openstreetmap.org/search?query=2%20Millewee%20Herborn';
 
 // <picture> mit AVIF, WebP, JPEG. opts: sizes, cls, eager (Hero), alt, fixed (feste Anzeigebreite/-höhe über CSS)
@@ -61,6 +63,9 @@ ${ld}
     <a class="logo" href="${pfad(lang, '/')}" aria-label="${esc(t.logoAlt)}"><span class="logo-name">Hierber Brennerei</span></a>
     <nav class="haupt" aria-label="${t.navHaupt}">
       <a href="${pfad(lang, '/')}#theke">${t.navBraende}</a>
+      <a href="${pfad(lang, '/')}#geniessen">${t.geniessenTitel}</a>
+      <a href="${pfad(lang, KISTE_PFAD)}"${p === KISTE_PFAD ? ' aria-current="page"' : ''}>${t.navKiste}</a>
+      <a href="${pfad(lang, '/')}#brennen">${t.brennenTitel}</a>
       <a href="${pfad(lang, '/')}#besuch">${t.navBesuch}</a>
     </nav>
     <div class="kopf-rechts">
