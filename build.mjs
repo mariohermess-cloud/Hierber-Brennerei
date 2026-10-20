@@ -6,7 +6,7 @@ import { PRODUKTE } from './site/data/produkte.js';
 import { bilder, ogBilder, textur, kistenBilder } from './site/lib/bilder.mjs';
 import { startseite } from './site/lib/start.mjs';
 import { sortenseite } from './site/lib/brand.mjs';
-import { kistenSeite } from './site/lib/holzkiste.mjs';
+import { kistenSeite, kistenKatalog, KISTE_ID } from './site/lib/holzkiste.mjs';
 import { anfrageSeite, impressum, datenschutz } from './site/lib/rest.mjs';
 
 export const BASIS_URL = 'https://hierber-brennerei.lu'; // Basis-URL (auch in site/lib/util.mjs als BASE)
@@ -47,17 +47,18 @@ for (const n of await fs.readdir(path.join(dist, 'img')).catch(() => [])) {
 const IMG = { ...(await bilder({ root, dist })), ...(await kistenBilder({ root, dist })) };
 await ogBilder({ root, dist, IMG });
 
-// Katalog für die Anfrage-Seite (Namen und Preise aus produkte.js)
+// Katalog für die Anfrage-Seite (Namen und Preise aus produkte.js; dazu die Holzkiste mit Festpreis und Fachtexten)
 const kat = Object.fromEntries(PRODUKTE.map((p) => [p.id, {
   n: p.name, m: p.varianten.length > 1 ? 1 : 0,
   v: Object.fromEntries(p.varianten.map((v) => [v.id, { n: v.name, p: Object.fromEntries(v.preise.map((x) => [x.menge, x.preis])) }])),
 }]));
+kat[KISTE_ID] = kistenKatalog();
 await schreibe('assets/js/katalog.js', `window.HB_KAT=${JSON.stringify(kat)};\n`);
 
 // Seiten
 const seiten = [{ p: '/', fn: (l) => startseite(IMG, l) }, { p: '/anfrage/', fn: anfrageSeite }, { p: '/impressum/', fn: impressum }, { p: '/datenschutz/', fn: datenschutz }];
 for (const p of PRODUKTE) seiten.push({ p: `/brand/${p.id}/`, fn: (l) => sortenseite(IMG, p, l) });
-// Holzkiste 4 x 0,2 l: eigene Seite, bewusst nicht in PRODUKTE (keine Sortenkarte, kein Katalogeintrag, keine Sortenprüfung)
+// Holzkiste 4 x 0,2 l: eigene Seite, bewusst nicht in PRODUKTE (keine Sortenkarte, keine Sortenprüfung); im Anfrage-Katalog steht sie (kat[KISTE_ID], siehe oben)
 seiten.push({ p: '/brand/holzkiste-4x0-2l/', fn: (l) => kistenSeite(IMG, l) });
 for (const s of seiten) for (const lang of LANGS) await schreibe(seitenDatei(lang, s.p), s.fn(lang));
 
