@@ -394,11 +394,10 @@
       if (f[F.produkte]) f[F.produkte].value = produktZeilen().join('\n');
       if (f[F.summe]) f[F.summe].value = summeZeile();
     };
-    var sendeFetch = function () {
+    /* Gemeinsamer Versand per fetch (Versandart 'fetch' und 'json'): Zustände, Erfolgsbox, Fehlerbox mit mailto-Rückfall */
+    var sende = function (init) {
       var knopf = $('button[type="submit"]', form), knopfText = knopf.textContent;
       var erfolg = $('[data-erfolg]', root), fehlerBox = $('[data-sendefehler]', root), rueck = $('[data-mailto-rueckfall]', root);
-      var fd = new FormData(form); /* enthält auch Felder, die ein Spamschutz-Skript ergänzt hat */
-      fd.delete(direkt.felder.falle);
       fehlerBox.hidden = true;
       knopf.disabled = true; knopf.setAttribute('aria-busy', 'true'); if (direkt.sendet) knopf.textContent = direkt.sendet;
       var zurueck = function () { knopf.disabled = false; knopf.removeAttribute('aria-busy'); knopf.textContent = knopfText; };
@@ -408,10 +407,29 @@
         fehlerBox.hidden = false; fehlerBox.focus();
       };
       if (!window.fetch) { misslungen(); return; }
-      window.fetch(form.getAttribute('action'), { method: 'POST', body: fd, headers: { Accept: 'application/json' } }).then(function (r) {
+      window.fetch(form.getAttribute('action'), init).then(function (r) {
         if (!r.ok) throw new Error('Status ' + r.status);
         zurueck(); form.hidden = true; erfolg.hidden = false; erfolg.focus();
       }).catch(misslungen);
+    };
+    var sendeFetch = function () {
+      var fd = new FormData(form); /* enthält auch Felder, die ein Spamschutz-Skript ergänzt hat */
+      fd.delete(direkt.felder.falle);
+      sende({ method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+    };
+    /* JSON-Body wie im nForms-Einbaucode; telefon (nur wenn ausgefüllt) und nachricht nur mit direkt.zusatzfelder; der Honigtopf wird nie mitgesendet */
+    var sendeJson = function () {
+      var F = direkt.felder, daten = {};
+      daten[F.name] = nameEl.value.trim();
+      daten[F.email] = mailEl.value.trim();
+      daten[F.wunsch] = wunschText();
+      daten[F.produkte] = produktZeilen().join('\n');
+      daten[F.summe] = summeZeile();
+      if (direkt.zusatzfelder) {
+        if (telEl.value.trim() !== '') daten[F.telefon] = telEl.value.trim();
+        daten[F.nachricht] = mailText().join('\n');
+      }
+      sende({ method: 'POST', body: JSON.stringify(daten), headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
     };
     form.addEventListener('submit', function (e) {
       var falle = direkt && form.elements[direkt.felder.falle];
@@ -423,6 +441,7 @@
       });
       if (!ok) { e.preventDefault(); return; }
       if (direkt) {
+        if (direkt.versand === 'json') { e.preventDefault(); sendeJson(); return; }
         fuelleVersteckte();
         if (direkt.versand === 'fetch') { e.preventDefault(); sendeFetch(); }
         return; /* klassisch: der Browser sendet das Formular selbst */
