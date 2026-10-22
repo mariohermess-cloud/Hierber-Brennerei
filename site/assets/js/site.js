@@ -507,6 +507,26 @@
     render();
   }
 
+  /* ---------- Karte (Google Maps) erst nach Klick laden ----------
+     Datenschutz: Vorher gibt es keine Anfrage an Google. Die Einwilligung wird bewusst nicht gespeichert (jedes Mal Klick). */
+  $$('[data-karte]').forEach(function (box) {
+    var knopf = $('[data-karte-laden]', box), flaeche = $('[data-karte-flaeche]', box);
+    var quelle = box.getAttribute('data-karte-src');
+    if (!knopf || !flaeche || !quelle) return;
+    knopf.addEventListener('click', function () {
+      var rahmen = document.createElement('iframe');
+      rahmen.src = quelle;
+      rahmen.title = box.getAttribute('data-karte-titel') || '';
+      rahmen.loading = 'lazy';
+      rahmen.referrerPolicy = 'no-referrer-when-downgrade';
+      rahmen.setAttribute('allowfullscreen', '');
+      flaeche.textContent = '';
+      flaeche.appendChild(rahmen);
+      flaeche.setAttribute('tabindex', '-1');
+      flaeche.focus();
+    });
+  });
+
   /* ---------- Sprung zum Hauptprodukt (#produkt): nach dem Laden und bei nachladenden Bildern erneut ausrichten ---------- */
   (function () {
     if (location.hash !== '#produkt') return;

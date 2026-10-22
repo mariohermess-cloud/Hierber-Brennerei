@@ -544,6 +544,63 @@ console.log('Hierberol getestet.');
   console.log('Holzkiste getestet.');
 }
 
+// 14. Karte (Google Maps) auf der Startseite: Vorschau statt Platzhalter, vor dem Klick keine Anfrage an Google, nach dem Klick iframe mit erwarteter src.
+// Anfragen an google.com werden abgefangen und mit leerem HTML beantwortet (kein echter Aufruf).
+{
+  const ADRESSE = encodeURIComponent('2 Millewee, L-6665 Herborn, Luxembourg');
+  const ERWARTET_EINBETTEN = `https://www.google.com/maps?q=${ADRESSE}&output=embed`;
+  const ERWARTET_LINK = `https://www.google.com/maps/search/?api=1&query=${ADRESSE}`;
+  const ctxK = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+  await ctxK.addInitScript(() => { try { localStorage.setItem('hb-alter', '1'); } catch (e) {} });
+  const googleAnfragen = [];
+  await ctxK.route(/^https?:\/\/([^/]*\.)?google\.[a-z.]+\//, async (r) => { googleAnfragen.push(r.request().url()); await r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>x</title>' }); });
+  const pk = await ctxK.newPage();
+  await pk.goto(BASIS + '/', { waitUntil: 'networkidle' });
+  const vorher = await pk.evaluate(() => {
+    const f = document.querySelector('#besuch [data-karte-flaeche]'); const r = f && f.getBoundingClientRect();
+    const k = document.querySelector('#besuch [data-karte-laden]'); const a = document.querySelector('#besuch .besuch-text a.textlink');
+    return { flaeche: !!f, vorschau: !!(f && f.querySelector('.karte-vorschau svg')), adresse: f ? f.querySelector('.karte-adresse').textContent : '', w: r && r.width, h: r && r.height,
+      knopf: k ? k.textContent.trim() : '', knopfSichtbar: !!k && getComputedStyle(k).display !== 'none', iframes: document.querySelectorAll('#besuch iframe').length,
+      platzTodoFoto: !!document.querySelector('#besuch [data-todo="foto"]'), hinweis: (document.querySelector('#besuch .karte-hinweis') || {}).textContent || '', hinweisTodo: (document.querySelector('#besuch .karte-hinweis') || document.body).getAttribute('data-todo'),
+      hinweisLink: (document.querySelector('#besuch .karte-hinweis a') || {}).getAttribute ? document.querySelector('#besuch .karte-hinweis a').getAttribute('href') : null,
+      link: a ? { href: a.getAttribute('href'), text: a.firstChild.textContent, target: a.target, rel: a.rel } : null, keys: Object.keys(localStorage).sort().join(',') };
+  });
+  check(vorher.flaeche && vorher.vorschau && vorher.adresse === '2, Millewee · L-6665 Herborn', `Karte: Vorschaufläche mit Symbol und Adresse (${JSON.stringify([vorher.flaeche, vorher.vorschau, vorher.adresse])})`);
+  check(vorher.knopfSichtbar && vorher.knopf === 'Karte laden (Google Maps)', `Karte: Knopf „Karte laden (Google Maps)“ sichtbar (ist "${vorher.knopf}")`);
+  check(vorher.iframes === 0 && googleAnfragen.length === 0, `Karte: vor dem Klick kein iframe und keine Anfrage an google.com (${vorher.iframes}, ${googleAnfragen.length})`);
+  check(!vorher.platzTodoFoto, 'Karte: kein data-todo="foto" mehr im Besuchsabschnitt');
+  check(/Beim Laden der Karte werden Daten \(z\. B\. Ihre IP-Adresse\) an Google übertragen\. Mehr in der Datenschutzerklärung\./.test(vorher.hinweis.replace(/\s+/g, ' ')) && vorher.hinweisTodo === 'bestaetigen' && vorher.hinweisLink === '/datenschutz/', `Karte: Hinweis mit Link auf /datenschutz/ und data-todo=bestaetigen (${vorher.hinweis}, ${vorher.hinweisLink})`);
+  check(vorher.link && vorher.link.href === ERWARTET_LINK && vorher.link.text === 'In Google Maps öffnen' && vorher.link.target === '_blank' && /noopener/.test(vorher.link.rel), `Karte: Link „In Google Maps öffnen“ mit erwartetem href (${JSON.stringify(vorher.link)})`);
+  await pk.locator('#besuch [data-karte-laden]').click();
+  await pk.locator('#besuch [data-karte-flaeche] iframe').waitFor({ timeout: 5000 });
+  await pk.waitForLoadState('networkidle');
+  const nachher = await pk.evaluate(() => {
+    const f = document.querySelector('#besuch [data-karte-flaeche]'); const r = f.getBoundingClientRect(); const i = f.querySelector('iframe');
+    return { anzahl: f.querySelectorAll('iframe').length, src: i.getAttribute('src'), title: i.title, loading: i.getAttribute('loading'), ref: i.getAttribute('referrerpolicy'), voll: i.hasAttribute('allowfullscreen'),
+      w: r.width, h: r.height, iw: i.getBoundingClientRect().width, ih: i.getBoundingClientRect().height, fokus: document.activeElement === f, vorschauWeg: !f.querySelector('.karte-vorschau'), keys: Object.keys(localStorage).sort().join(',') };
+  });
+  check(nachher.anzahl === 1 && nachher.src === ERWARTET_EINBETTEN, `Karte: iframe mit erwarteter src (${nachher.src})`);
+  check(nachher.title === 'Karte: Hierber Brennerei, 2, Millewee, L-6665 Herborn' && nachher.loading === 'lazy' && nachher.ref === 'no-referrer-when-downgrade' && nachher.voll, `Karte: iframe mit title, loading=lazy, referrerpolicy, allowfullscreen (${JSON.stringify(nachher)})`);
+  check(nachher.vorschauWeg && Math.abs(nachher.w - vorher.w) < 1 && Math.abs(nachher.h - vorher.h) < 1 && Math.abs(nachher.iw - nachher.w) < 4 && Math.abs(nachher.ih - nachher.h) < 4, `Karte: gleiche Größe vor und nach dem Klick, iframe füllt die Fläche (${vorher.w}x${vorher.h} → ${nachher.w}x${nachher.h}, iframe ${nachher.iw}x${nachher.ih})`);
+  check(nachher.fokus, 'Karte: Fokus liegt nach dem Klick auf dem Kartencontainer');
+  check(googleAnfragen.length === 1 && googleAnfragen[0] === ERWARTET_EINBETTEN, `Karte: genau eine (abgefangene) Anfrage an google.com nach dem Klick (${JSON.stringify(googleAnfragen)})`);
+  check(vorher.keys === nachher.keys, `Karte: Klick speichert nichts im localStorage (${vorher.keys} → ${nachher.keys})`);
+  // Französisch: Platzhalter-Mechanismus, Knopf bedienbar
+  await pk.goto(BASIS + '/fr/', { waitUntil: 'networkidle' });
+  const frK = await pk.evaluate(() => { const k = document.querySelector('#besuch [data-karte-laden]'); const h = document.querySelector('#besuch .karte-hinweis'); return { knopf: k && k.textContent.trim(), knopfTodo: k && k.getAttribute('data-todo'), hinweisTodo: h && h.getAttribute('data-todo'), hinweis: h && h.textContent.trim() }; });
+  check(frK.knopf === 'Google Maps' && frK.knopfTodo === 'uebersetzung' && frK.hinweisTodo === 'uebersetzung' && frK.hinweis === 'Textes à venir', `Karte FR: Platzhalter statt unbestätigter Übersetzung (${JSON.stringify(frK)})`);
+  check(googleAnfragen.length === 1, `Karte FR: vor dem Klick keine weitere Anfrage an google.com (${googleAnfragen.length})`);
+  await ctxK.close();
+  // ohne JavaScript: Knopf und Hinweis ausgeblendet, Link bleibt
+  const ctxKn = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1280, height: 800 } });
+  const pkn = await ctxKn.newPage();
+  await pkn.goto(BASIS + '/', { waitUntil: 'load' });
+  const ohne = await pkn.evaluate(() => ({ knopf: getComputedStyle(document.querySelector('#besuch [data-karte-laden]')).display, hinweis: getComputedStyle(document.querySelector('#besuch .karte-hinweis')).display, link: !!document.querySelector('#besuch a[href^="https://www.google.com/maps/search/"]') }));
+  check(ohne.knopf === 'none' && ohne.hinweis === 'none' && ohne.link, `Karte ohne JavaScript: Knopf und Hinweis ausgeblendet, Link vorhanden (${JSON.stringify(ohne)})`);
+  await ctxKn.close();
+  console.log('Karte getestet.');
+}
+
 await browser.close();
 console.log(`${ok} Prüfungen bestanden.`);
 if (fehler.length) { console.log('FEHLER:\n' + fehler.join('\n')); process.exit(1); }

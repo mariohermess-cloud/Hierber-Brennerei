@@ -166,9 +166,9 @@ a:hover{text-decoration-thickness:2px}
   .schild-name{font-size:clamp(.82rem,1.05vw,1.1rem)}
   .schild-abv{font-size:clamp(.85rem,.95vw,1rem)}
 }
-.platz span,.karte-platz span{font-size:.85rem;color:var(--gedaempt)}
+.platz span{font-size:.85rem;color:var(--gedaempt)}
 .platz{display:grid;place-items:center;text-align:center;padding:1rem;border:1px dashed var(--kupfer-dunkel);background:rgba(43,33,26,.06)}
-.papier .platz span,.papier .karte-platz span{color:var(--gedaempt-papier)}
+.papier .platz span{color:var(--gedaempt-papier)}
 .dunkel .platz{border-color:var(--linie);background:rgba(255,255,255,.03)}
 
 /* Theke */
@@ -306,7 +306,19 @@ a:hover{text-decoration-thickness:2px}
 .besuch-raster{display:grid;gap:2.4rem;align-items:start}
 @media(min-width:900px){.besuch-raster{grid-template-columns:1fr 1fr;gap:3.5rem}}
 .besuch-text h3{font:500 .8rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--kupfer-dunkel);margin:1.6rem 0 .3rem}
-.karte-platz{display:grid;place-items:center;aspect-ratio:16/9;max-width:480px;margin:1.6rem 0 .8rem;border:1px dashed var(--kupfer-dunkel);background:rgba(43,33,26,.06)}
+.karte-box{max-width:480px;margin:1.6rem 0 .8rem}
+.karte-flaeche{display:grid;place-items:center;aspect-ratio:16/9;border:1px solid var(--kupfer-dunkel);background-color:var(--papier);overflow:hidden;
+  /* ruhiges Kartenraster: feine Linien, zwei dezente Straßenzüge */
+  background-image:linear-gradient(115deg,transparent 46%,rgba(138,74,28,.22) 46.4%,rgba(138,74,28,.22) 47.6%,transparent 48%),linear-gradient(28deg,transparent 61%,rgba(138,74,28,.18) 61.4%,rgba(138,74,28,.18) 62.4%,transparent 62.8%),repeating-linear-gradient(0deg,rgba(43,33,26,.07) 0 1px,transparent 1px 28px),repeating-linear-gradient(90deg,rgba(43,33,26,.07) 0 1px,transparent 1px 28px)}
+@media(max-width:520px){.karte-flaeche{aspect-ratio:4/3}} /* schmal: höher, damit Symbol, Adresse und Knopf Platz haben */
+.karte-flaeche:focus-visible{outline:2px solid var(--kupfer-dunkel);outline-offset:3px}
+.karte-vorschau{display:grid;justify-items:center;gap:.35rem;text-align:center;padding:.7rem 1.1rem;margin:.5rem;background:rgba(243,236,224,.92);border:1px solid rgba(138,74,28,.35);color:var(--text-papier)}
+.karte-pin{color:var(--kupfer-dunkel)}
+.karte-adresse{margin:0;font:600 1.15rem/1.2 var(--serif)}
+.karte-knopf{margin-top:.2rem}
+.karte-flaeche iframe{display:block;width:100%;height:100%;border:0}
+.karte-hinweis{margin:.6rem 0 0;font-size:.9rem;line-height:1.45;color:var(--gedaempt-papier)}
+.nojs .karte-knopf,.nojs .karte-hinweis{display:none}
 .besuch-bilder{display:grid;gap:1.6rem}
 .besuch-foto{margin:0;border:1px solid var(--kupfer-dunkel);padding:6px;background:var(--papier2);width:100%}
 .besuch-foto picture,.besuch-foto img{display:block;width:100%}
