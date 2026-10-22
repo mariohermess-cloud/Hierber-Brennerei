@@ -11,7 +11,7 @@ import { KISTE_ID, vorschauAlt, zahlenbandHtml } from './holzkiste.mjs';
 import { flasche, flaschenFoto, kartenFotoKey, FLASCHEN_DEFS } from './flasche.mjs';
 import { STR } from './i18n.mjs';
 import { esc, pfad, absUrl, fmtAbv, fmtPreis, preisInfo, BASE, NB } from './util.mjs';
-import { seite, bild, folgt, TELEFON, OSM } from './layout.mjs';
+import { seite, bild, folgt, TELEFON, GMAPS_SUCHE, GMAPS_EINBETTEN } from './layout.mjs';
 
 export const produktById = (id) => PRODUKTE.find((p) => p.id === id);
 
@@ -224,6 +224,24 @@ ${items}
 </section>`;
 }
 
+// Kartenfläche: Vorschau mit Knopf; Google Maps wird erst nach Klick geladen (site.js ersetzt die Vorschau durch einen iframe, Einwilligung wird nicht gespeichert).
+// Ohne JavaScript bleiben Vorschau und Adresse stehen, Knopf und Hinweis sind per .nojs ausgeblendet.
+const KARTE_PIN = '<svg class="karte-pin" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+function karteBox(t, lang) {
+  const hinweis = t.karteHinweis ? `<p class="karte-hinweis" data-todo="bestaetigen">${t.karteHinweis(pfad(lang, '/datenschutz/'))}</p>` : folgt(t, 'karte-hinweis');
+  const knopfTodo = lang === 'fr' ? ' data-todo="uebersetzung"' : '';
+  return `<div class="karte-box" data-karte data-karte-src="${esc(GMAPS_EINBETTEN)}" data-karte-titel="${esc(t.karteTitel)}">
+        <div class="karte-flaeche" data-karte-flaeche>
+          <div class="karte-vorschau">
+            ${KARTE_PIN}
+            <p class="karte-adresse">2, Millewee · L-6665 Herborn</p>
+            <button type="button" class="knopf karte-knopf" data-karte-laden${knopfTodo}>${t.karteKnopf}</button>
+          </div>
+        </div>
+        ${hinweis}
+      </div>`;
+}
+
 function besuch(IMG, lang) {
   const t = STR[lang];
   const zeiten = lang === 'de' ? `<p data-todo="bestaetigen">Öffnungszeiten folgen.</p>` : folgt(t);
@@ -237,8 +255,8 @@ function besuch(IMG, lang) {
       ${zeiten}
       <h3>${t.telefon}</h3>
       <p><span data-todo="bestaetigen">${TELEFON}</span><br><a href="mailto:${KONTAKT.mail}">${KONTAKT.mail}</a></p>
-      <div class="karte-platz" data-todo="foto"><span>${t.kartePlatzhalter}</span></div>
-      <p><a class="textlink" href="${OSM}" rel="noopener" target="_blank">${t.karteLink}<span class="sr-only"> ${t.neuerTab}</span></a></p>
+      ${karteBox(t, lang)}
+      <p><a class="textlink" href="${esc(GMAPS_SUCHE)}" rel="noopener" target="_blank"${lang === 'fr' ? ' data-todo="uebersetzung"' : ''}>${t.karteLink}<span class="sr-only"> ${t.neuerTab}</span></a></p>
     </div>
     <div class="besuch-bilder">
       <figure class="besuch-foto">${bild(IMG, 'foto-hofschild-aussen', { alt: t.besuchAlt, sizes: '(min-width: 900px) 560px, 92vw' })}<figcaption>${t.besuchBildunterschrift}</figcaption></figure>

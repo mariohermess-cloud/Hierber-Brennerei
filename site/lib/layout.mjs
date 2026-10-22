@@ -6,7 +6,10 @@ import { KONTAKT } from '../data/produkte.js';
 export const TELEFON = '727602'; // laut Etikett/Preisliste; Vorwahl/Schreibweise ungeklärt (TODO-INHALTE.md)
 // Pfad der Holzkisten-Seite. Hier als Konstante, weil holzkiste.mjs layout.mjs importiert (KISTE_ID von dort wäre ein Importzyklus); muss zu KISTE_ID in holzkiste.mjs passen.
 const KISTE_PFAD = '/brand/holzkiste-4x0-2l/';
-export const OSM = 'https://www.openstreetmap.org/search?query=2%20Millewee%20Herborn';
+// Standort für Google Maps (Adresse laut Impressum/KONTAKT: 2, Millewee, L-6665 Herborn). Einbettung nur per Klick (site.js), kein API-Schlüssel.
+export const KARTE_ADRESSE = '2 Millewee, L-6665 Herborn, Luxembourg';
+export const GMAPS_SUCHE = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(KARTE_ADRESSE)}`;
+export const GMAPS_EINBETTEN = `https://www.google.com/maps?q=${encodeURIComponent(KARTE_ADRESSE)}&output=embed`;
 
 // <picture> mit AVIF, WebP, JPEG. opts: sizes, cls, eager (Hero), alt, fixed (feste Anzeigebreite/-höhe über CSS)
 export function bild(IMG, key, { alt, sizes, cls = '', eager = false, todo = '' }) {
