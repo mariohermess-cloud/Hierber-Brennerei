@@ -32,12 +32,14 @@ async function kopiere(von, nach, filter) {
 const t0 = Date.now();
 await fs.mkdir(dist, { recursive: true });
 // Seiten und Assets neu erzeugen; img/ und og/ bleiben als Cache erhalten.
-for (const n of ['index.html', 'brand', 'fr', 'anfrage', 'impressum', 'datenschutz', 'assets', 'sitemap.xml', 'robots.txt']) {
+for (const n of ['index.html', 'brand', 'fr', 'anfrage', 'impressum', 'datenschutz', 'assets', 'api', 'sitemap.xml', 'robots.txt']) {
   await fs.rm(path.join(dist, n), { recursive: true, force: true });
 }
 
 await kopiere(path.join(root, 'site/assets'), path.join(dist, 'assets'));
 await kopiere(path.join(root, 'assets/fonts'), path.join(dist, 'assets/fonts'), (n) => n.endsWith('.woff2'));
+// PHP-Modul für den Anfrage-Versand (nur site/api/anfrage.php; die Einstellungen mit dem Passwort liegen nie im Repository und nie in dist/)
+await kopiere(path.join(root, 'site/api'), path.join(dist, 'api'), (n) => n === 'anfrage.php');
 const texturBytes = await textur({ dist });
 
 // Veraltete Foto-Varianten (frühere Teilarbeit mit den kleinen Fotos) entfernen

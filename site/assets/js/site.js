@@ -1,6 +1,7 @@
 /* Hierber Brennerei: kleine, abhängigkeitsfreie Verbesserungen. Ohne JavaScript bleibt die Seite vollständig lesbar. */
 (function () {
   'use strict';
+  var SKRIPT = document.currentScript; /* eigenes <script>-Element; nur während der Ausführung gesetzt */
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var NB = ' ';
@@ -361,7 +362,7 @@
     };
     var label = function (x) { var d = info(x); return d.name + (d.meta ? ', ' + d.meta.replace(' ', NB) : ''); };
     var summe = function (a) { var s = 0, hat = false; a.forEach(function (x) { var p = info(x).preis; if (typeof p === 'number') { s += p * (x.n || 1); hat = true; } }); return hat ? s : null; };
-    /* Felder über ihre IDs ansprechen: mit Formulardienst tragen die Eingaben dessen Feldnamen */
+    /* Felder über ihre IDs ansprechen */
     var nameEl = document.getElementById('f-name'), mailEl = document.getElementById('f-mail'), telEl = document.getElementById('f-tel');
     var wunschText = function () {
       var r = $$('.wunsch input[type="radio"]', form);
@@ -439,17 +440,15 @@
     };
     form.addEventListener('input', aktualisiere);
     form.addEventListener('change', aktualisiere);
-    /* Direktversand über den Formulardienst (nur wenn die Seite mit gesetzter Formular-Adresse gebaut wurde) */
+    /* Direktversand über das eigene PHP-Modul (nur wenn die Seite mit gesetztem Ziel gebaut wurde) */
     var direkt = I.direkt || null;
-    /* Versteckte Felder füllen: Nachricht (Text wie die E-Mail-Vorschau), Positionen und Summe */
-    var fuelleVersteckte = function () {
-      var F = direkt.felder, f = form.elements;
-      if (f[F.nachricht]) f[F.nachricht].value = mailText().join('\n');
-      if (f[F.produkte]) f[F.produkte].value = produktZeilen().join('\n');
-      if (f[F.summe]) f[F.summe].value = summeZeile();
+    /* Absolute Adresse des PHP-Moduls, relativ zum eigenen Skript (assets/js/site.js -> ../../api/anfrage.php): geht auch mit relativen Pfaden im Unterordner */
+    var zielUrl = function () {
+      var el = SKRIPT && SKRIPT.src ? SKRIPT : $('script[src*="site.js"]');
+      return new URL('../../' + direkt.ziel, el && el.src ? el.src : window.location.href).href;
     };
-    /* Gemeinsamer Versand per fetch (Versandart 'fetch' und 'json'): Zustände, Erfolgsbox, Fehlerbox mit mailto-Rückfall */
-    var sende = function (init) {
+    /* Versand per fetch: Zustände, Erfolgsbox, Fehlerbox mit mailto-Rückfall (auch ohne PHP auf dem Server, z. B. GitHub Page) */
+    var sende = function (daten) {
       var knopf = $('button[type="submit"]', form), knopfText = knopf.textContent;
       var erfolg = $('[data-erfolg]', root), fehlerBox = $('[data-sendefehler]', root), rueck = $('[data-mailto-rueckfall]', root);
       fehlerBox.hidden = true;
@@ -461,32 +460,30 @@
         fehlerBox.hidden = false; fehlerBox.focus();
       };
       if (!window.fetch) { misslungen(); return; }
-      window.fetch(form.getAttribute('action'), init).then(function (r) {
+      var init = { method: 'POST', body: JSON.stringify(daten), headers: { 'Content-Type': 'application/json', Accept: 'application/json' } };
+      var ziel;
+      try { ziel = zielUrl(); } catch (err) { misslungen(); return; }
+      window.fetch(ziel, init).then(function (r) {
         if (!r.ok) throw new Error('Status ' + r.status);
+        return r.json();
+      }).then(function (j) {
+        if (!j || j.ok !== true) throw new Error('Antwort ohne ok');
         zurueck(); form.hidden = true; erfolg.hidden = false; erfolg.focus();
       }).catch(misslungen);
     };
-    var sendeFetch = function () {
-      var fd = new FormData(form); /* enthält auch Felder, die ein Spamschutz-Skript ergänzt hat */
-      fd.delete(direkt.felder.falle);
-      sende({ method: 'POST', body: fd, headers: { Accept: 'application/json' } });
-    };
-    /* JSON-Body wie im nForms-Einbaucode; telefon (nur wenn ausgefüllt) und nachricht nur mit direkt.zusatzfelder; der Honigtopf wird nie mitgesendet */
+    /* JSON-Body: name, email, wunsch, produkte, summe, nachricht, lang; telefon nur wenn ausgefüllt; der Honigtopf wird nie mitgesendet */
     var sendeJson = function () {
-      var F = direkt.felder, daten = {};
-      daten[F.name] = nameEl.value.trim();
-      daten[F.email] = mailEl.value.trim();
-      daten[F.wunsch] = wunschText();
-      daten[F.produkte] = produktZeilen().join('\n');
-      daten[F.summe] = summeZeile();
-      if (direkt.zusatzfelder) {
-        if (telEl.value.trim() !== '') daten[F.telefon] = telEl.value.trim();
-        daten[F.nachricht] = mailText().join('\n');
-      }
-      sende({ method: 'POST', body: JSON.stringify(daten), headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
+      var daten = { name: nameEl.value.trim(), email: mailEl.value.trim() };
+      if (telEl.value.trim() !== '') daten.telefon = telEl.value.trim();
+      daten.wunsch = wunschText();
+      daten.produkte = produktZeilen().join('\n');
+      daten.summe = summeZeile();
+      daten.nachricht = mailText().join('\n');
+      daten.lang = I.lang;
+      sende(daten);
     };
     form.addEventListener('submit', function (e) {
-      var falle = direkt && form.elements[direkt.felder.falle];
+      var falle = direkt && form.elements.website;
       if (falle && falle.value !== '') { e.preventDefault(); return; } /* Honigtopf befüllt: nichts senden */
       var ok = true;
       [['f-name', 'e-name'], ['f-mail', 'e-mail']].forEach(function (p) {
@@ -494,12 +491,7 @@
         fehler.hidden = gut; f.setAttribute('aria-invalid', gut ? 'false' : 'true'); if (!gut && ok) { f.focus(); ok = false; }
       });
       if (!ok) { e.preventDefault(); return; }
-      if (direkt) {
-        if (direkt.versand === 'json') { e.preventDefault(); sendeJson(); return; }
-        fuelleVersteckte();
-        if (direkt.versand === 'fetch') { e.preventDefault(); sendeFetch(); }
-        return; /* klassisch: der Browser sendet das Formular selbst */
-      }
+      if (direkt) { e.preventDefault(); sendeJson(); return; }
       e.preventDefault();
       var href = mailto(); form.setAttribute('data-mailto', href);
       window.location.href = href;

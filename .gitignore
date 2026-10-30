@@ -5,3 +5,6 @@ __pycache__/
 rechnungsprogramm/daten/
 rechnungsprogramm/sicherungen/
 _pages/
+
+# Ausgefüllte Einstellungen des Anfrage-Moduls (enthalten das SMTP-Passwort); nur die Vorlage .beispiel.php gehört ins Repository
+anfrage-einstellungen.php
