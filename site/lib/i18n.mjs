@@ -60,10 +60,11 @@ export const STR = {
     summe: 'Summe der Produkte mit Preis', feldName: 'Name', feldMail: 'E-Mail', feldTel: 'Telefon', wunsch: 'Ihr Wunsch',
     wunschAbholen: 'Abholen vor Ort', wunschRueckruf: 'Bitte um Rückruf', senden: 'Anfrage per E-Mail vorbereiten',
     sendenHinweis: 'Ihr E-Mail-Programm öffnet sich mit einem vorformulierten Text. Sie können ihn vor dem Senden ändern.',
-    // Direktversand über den Formulardienst (nur aktiv, wenn FORMULAR_DIENST.aktion in rest.mjs gesetzt ist)
+    // Direktversand über das eigene PHP-Modul (nur aktiv, wenn FORMULAR_DIENST.aktion in rest.mjs gesetzt ist)
     sendenDirekt: 'Anfrage senden',
     anfrageTextDirekt: 'Stellen Sie Ihre Merkliste zusammen und senden Sie uns Ihre Anfrage. Wir melden uns bei Ihnen.',
-    sendenDirektHinweis: (href) => `Mit dem Absenden werden Ihre Angaben über den Formulardienst nForms an uns übermittelt. Mehr in der <a href="${href}">Datenschutzerklärung</a>.`,
+    // Entwurf (data-todo="bestaetigen" in rest.mjs). Der Satz zur Kopie gilt bei kopie_an_kundin = true; bei false anpassen.
+    sendenDirektHinweis: (href) => `Mit dem Absenden werden Ihre Angaben an unseren Server übermittelt und per E-Mail an uns gesendet. Sie erhalten eine Kopie per E-Mail. Mehr in der <a href="${href}">Datenschutzerklärung</a>.`,
     sendenLaeuft: 'Wird gesendet …',
     sendenDanke: 'Vielen Dank! Ihre Anfrage ist bei uns eingegangen. Wir melden uns so bald wie möglich.',
     sendenFehler: 'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.',

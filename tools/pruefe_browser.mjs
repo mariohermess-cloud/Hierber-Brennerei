@@ -17,9 +17,11 @@ page.on('console', (m) => { if (['error', 'warning'].includes(m.type())) konsole
 page.on('pageerror', (e) => konsole.push('pageerror: ' + e.message));
 page.on('requestfailed', (r) => konsole.push('requestfailed: ' + r.url()));
 page.on('response', (r) => { if (r.status() >= 400) konsole.push(`HTTP ${r.status()}: ${r.url()}`); });
-// Direktversand über den Formulardienst: Anfrage an das Formular-Ziel abfangen, mit 200 beantworten (kein echter Versand) und den JSON-Body zurückgeben
+// Direktversand über das PHP-Modul: Anfrage an api/anfrage.php abfangen, mit 200 beantworten (kein echter Versand) und den JSON-Body zurückgeben
+// Das Ziel bestimmt site.js relativ zum eigenen Skript (assets/js/site.js -> ../../api/anfrage.php); hier genauso aus dem script-Element abgeleitet.
+const direktZiel = async (pg) => new URL('../../api/anfrage.php', await pg.locator('script[src*="site.js"]').evaluate((e) => e.src)).href;
 const direktSenden = async (pg) => {
-  const ziel = await pg.locator('[data-form]').getAttribute('action');
+  const ziel = await direktZiel(pg);
   let anfrage = null;
   await pg.route(ziel, async (r) => {
     anfrage = { methode: r.request().method(), typ: r.request().headers()['content-type'] || '', body: r.request().postData() || '' };
@@ -80,7 +82,7 @@ await page.goto(BASIS + '/anfrage/');
 check((await page.locator('[data-liste] li').count()) === 2, 'Anfrage zeigt 2 Zeilen');
 check((await page.locator('[data-summe-wert]').textContent()).trim() === '32 €', 'Summe 32 € (2 x 16 €)');
 await page.fill('#f-name', 'Max Muster'); await page.fill('#f-mail', 'max@example.org'); await page.fill('#f-tel', '123456');
-// Zwei Wege: ohne Formulardienst Text-Vorschau + mailto; mit Formulardienst (FORMULAR_DIENST.aktion in site/lib/rest.mjs) Direktversand,
+// Zwei Wege: ohne Direktversand Text-Vorschau + mailto; mit Direktversand (FORMULAR_DIENST.aktion in site/lib/rest.mjs) Anfrage an api/anfrage.php,
 // dessen Anfrage hier abgefangen und beantwortet wird (kein echter Versand)
 const direktModus = (await page.locator('[data-vorschau]').count()) === 0;
 if (!direktModus) {
@@ -107,7 +109,26 @@ if (!direktModus) {
   check(String(d.produkte).includes('3 x Quetsch (op Quetschen nogeräift), 0,5 L: 16 € je Stück = 48 €') && String(d.produkte).includes('1 x Hondsaarsch: Preis auf Anfrage'), 'Direktversand: Zeilen mit/ohne Preis');
   check(d.summe === '48 €', `Direktversand: Summe 48 € (${d.summe})`);
   check(!('website' in d), 'Direktversand: Honigtopf nicht gesendet');
+  check(d.lang === 'de', `Direktversand: lang „de“ im JSON (${d.lang})`);
+  check(d.telefon === '123456' && typeof d.nachricht === 'string' && d.nachricht.includes('Max Muster'), 'Direktversand: telefon (ausgefüllt) und nachricht im JSON');
   check(await page.locator('[data-erfolg]').isVisible(), 'Direktversand: Bestätigung sichtbar');
+  check((await page.locator('script[src*="site.js"]').evaluate((e) => e.src)).endsWith('/assets/js/site.js') && (await direktZiel(page)) === BASIS + '/api/anfrage.php', 'Direktversand: Ziel-URL aus dem Skriptpfad ist /api/anfrage.php');
+  // Französische Seite: lang „fr“ und französischer Wunsch-Text
+  await page.goto(BASIS + '/fr/anfrage/');
+  await page.fill('#f-name', 'Max Muster'); await page.fill('#f-mail', 'max@example.org');
+  const dFr = await direktSenden(page);
+  check(dFr.lang === 'fr' && dFr.wunsch === 'Retrait sur place' && !('telefon' in dFr), `Direktversand FR: lang „fr“, Wunsch „Retrait sur place“, ohne leeres telefon (${dFr.lang}, ${dFr.wunsch})`);
+  // Fehlerfall ohne PHP auf dem Server (hier: python http.server antwortet auf POST mit 501): Fehlerbox mit mailto-Rückfall, Formular bleibt sichtbar
+  await page.goto(BASIS + '/anfrage/');
+  await page.fill('#f-name', 'Max Muster'); await page.fill('#f-mail', 'max@example.org');
+  const echteAntwort = page.waitForResponse((r) => r.url() === BASIS + '/api/anfrage.php' && r.request().method() === 'POST', { timeout: 5000 }).catch(() => null);
+  await page.locator('[data-form] button[type=submit]').click();
+  const ra = await echteAntwort;
+  await page.locator('[data-sendefehler]').waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+  const rueck = await page.locator('[data-mailto-rueckfall]').getAttribute('href');
+  check(ra && ra.status() >= 400 && (await page.locator('[data-sendefehler]').isVisible()) && (await page.locator('[data-form]').isVisible()), `Direktversand ohne PHP: Fehlerbox sichtbar, Formular bleibt (Status ${ra && ra.status()})`);
+  check(rueck && rueck.startsWith('mailto:info@hierber-brennerei.lu?subject=') && rueck.includes('%0D%0A'), 'Direktversand ohne PHP: mailto-Rückfall mit Text');
+  check(!(await page.locator('[data-erfolg]').isVisible()), 'Direktversand ohne PHP: keine Erfolgsmeldung');
 }
 await page.getByRole('button', { name: /Entfernen: Hondsaarsch/ }).click();
 check((await page.locator('[data-liste] li').count()) === 1 && (await page.locator('[data-zaehler]').first().textContent()) === '3', 'Entfernen: 1 Zeile, Zähler 3 (3 x Quetsch)');
@@ -571,8 +592,11 @@ console.log('Hierberol getestet.');
   check(!vorher.platzTodoFoto, 'Karte: kein data-todo="foto" mehr im Besuchsabschnitt');
   check(/Beim Laden der Karte werden Daten \(z\. B\. Ihre IP-Adresse\) an Google übertragen\. Mehr in der Datenschutzerklärung\./.test(vorher.hinweis.replace(/\s+/g, ' ')) && vorher.hinweisTodo === 'bestaetigen' && vorher.hinweisLink === '/datenschutz/', `Karte: Hinweis mit Link auf /datenschutz/ und data-todo=bestaetigen (${vorher.hinweis}, ${vorher.hinweisLink})`);
   check(vorher.link && vorher.link.href === ERWARTET_LINK && vorher.link.text === 'In Google Maps öffnen' && vorher.link.target === '_blank' && /noopener/.test(vorher.link.rel), `Karte: Link „In Google Maps öffnen“ mit erwartetem href (${JSON.stringify(vorher.link)})`);
+  // Das iframe lädt mit loading="lazy": auf die (abgefangene) Google-Anfrage warten, sonst wird je nach Zeitpunkt noch keine gezählt
+  const karteAnfrage = pk.waitForRequest((r) => r.url() === ERWARTET_EINBETTEN, { timeout: 5000 }).catch(() => null);
   await pk.locator('#besuch [data-karte-laden]').click();
   await pk.locator('#besuch [data-karte-flaeche] iframe').waitFor({ timeout: 5000 });
+  await karteAnfrage;
   await pk.waitForLoadState('networkidle');
   const nachher = await pk.evaluate(() => {
     const f = document.querySelector('#besuch [data-karte-flaeche]'); const r = f.getBoundingClientRect(); const i = f.querySelector('iframe');

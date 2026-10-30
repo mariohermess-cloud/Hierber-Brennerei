@@ -60,7 +60,7 @@
       <div class="leer" data-leer hidden><p>Ihre Merkliste ist noch leer.</p><p><a class="knopf" href="/#theke">Zu den Bränden</a></p></div>
       <ul class="liste" role="list" data-liste hidden></ul>
       <p class="summe" data-summe hidden><span>Summe der Produkte mit Preis</span> <strong data-summe-wert></strong> <span class="mwst">Alle Preise inkl. 17 % MwSt. (Preisliste 2025)</span></p>
-      <form class="anfrage-form" id="bestellformular" data-form action="https://api.nforms.eu/f/nf_y0u3pztm9o4x05lh8spdoimw725errly" method="post" novalidate hidden>
+      <form class="anfrage-form" id="bestellformular" data-form action="#" novalidate hidden>
         <div class="feld"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name"><p class="fehler" id="e-name" hidden>Pflichtfeld</p></div>
         <div class="feld"><label for="f-mail">E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required aria-describedby="e-mail"><p class="fehler" id="e-mail" hidden>Pflichtfeld</p></div>
         <div class="feld"><label for="f-tel">Telefon</label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
@@ -70,7 +70,7 @@
         </fieldset>
         <div class="hp-feld" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
         <p><button type="submit" class="knopf">Anfrage senden</button></p>
-        <p class="hinweis-klein">Mit dem Absenden werden Ihre Angaben über den Formulardienst nForms an uns übermittelt. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+        <p class="hinweis-klein" data-todo="bestaetigen">Mit dem Absenden werden Ihre Angaben an unseren Server übermittelt und per E-Mail an uns gesendet. Sie erhalten eine Kopie per E-Mail. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
         <div class="anfrage-status anfrage-status-fehler" role="alert" tabindex="-1" data-sendefehler hidden><p>Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.</p><p><a class="knopf" href="mailto:info@hierber-brennerei.lu" data-mailto-rueckfall>Anfrage per E-Mail vorbereiten</a></p></div>
       </form>
       <div class="anfrage-status" role="status" tabindex="-1" data-erfolg hidden><p>Vielen Dank! Ihre Anfrage ist bei uns eingegangen. Wir melden uns so bald wie möglich.</p></div>
@@ -78,7 +78,7 @@
     <noscript><p class="hinweis">Die Merkliste benötigt JavaScript und den lokalen Speicher Ihres Browsers.</p></noscript>
     <p class="direkt">Oder schreiben Sie direkt an <a href="mailto:info@hierber-brennerei.lu" data-mail-direkt>info@hierber-brennerei.lu</a></p>
   </div>
-  <script type="application/json" id="hb-i18n">{"lang":"de","betreff":"Anfrage über hierber-brennerei.lu","anrede":"Guten Tag, ich möchte gern folgende Produkte anfragen:","produkte":"Gewünschte Produkte","je":"je Stück","summe":"Summe (nur Produkte mit Preis)","anfrage":"Preis auf Anfrage","gruss":"Mit freundlichen Grüßen","name":"Name","mail":"E-Mail","tel":"Telefon","wunsch":"Ihr Wunsch","abholen":"Abholen vor Ort","rueckruf":"Bitte um Rückruf","an":"info@hierber-brennerei.lu","entfernen":"Entfernen","menge":"Menge","einzel":"Preis je Stück","sumTab":"Summe","pflicht":"Pflichtfeld","eintraege":["Merkliste, 0 Einträge"],"merkliste":"Merkliste","direkt":{"felder":{"name":"name","email":"email","telefon":"telefon","wunsch":"wunsch","nachricht":"nachricht","produkte":"produkte","summe":"summe","betreff":"_betreff","falle":"website"},"versand":"json","zusatzfelder":true,"sendet":"Wird gesendet …"}}</script>
+  <script type="application/json" id="hb-i18n">{"lang":"de","betreff":"Anfrage über hierber-brennerei.lu","anrede":"Guten Tag, ich möchte gern folgende Produkte anfragen:","produkte":"Gewünschte Produkte","je":"je Stück","summe":"Summe (nur Produkte mit Preis)","anfrage":"Preis auf Anfrage","gruss":"Mit freundlichen Grüßen","name":"Name","mail":"E-Mail","tel":"Telefon","wunsch":"Ihr Wunsch","abholen":"Abholen vor Ort","rueckruf":"Bitte um Rückruf","an":"info@hierber-brennerei.lu","entfernen":"Entfernen","menge":"Menge","einzel":"Preis je Stück","sumTab":"Summe","pflicht":"Pflichtfeld","eintraege":["Merkliste, 0 Einträge"],"merkliste":"Merkliste","direkt":{"ziel":"api/anfrage.php","sendet":"Wird gesendet …"}}</script>
 </section>
 </main>
 <footer class="fuss">
